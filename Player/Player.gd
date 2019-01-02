@@ -7,6 +7,7 @@ var sprint = false
 var motion = Vector2(0, 0)
 var direction = "right"
 #var iZoneActive = false
+#wow you are dum
 
 onready var interactionZone = $Interaction/InteractionZone
 
