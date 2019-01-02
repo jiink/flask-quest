@@ -6,7 +6,6 @@ export (float) var sprintMultiplier
 var sprint = false
 var motion = Vector2(0, 0)
 var direction = "right"
-#var iZoneActive = false
 
 onready var interactionZone = $Interaction/InteractionZone
 
@@ -80,3 +79,7 @@ func change_izone_pos():
 			interactionZone.position = $Interaction/Left.position
 		"upleft":
 			interactionZone.position = $Interaction/Up.position + $Interaction/Left.position 
+			
+# TODO: delete this comment
+# blah blah
+# blah
