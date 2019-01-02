@@ -13,7 +13,7 @@ height = 9.22699
 custom_solver_bias = 0.0
 extents = Vector2( 8, 6 )
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -30,7 +30,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -8.0
-margin_top = -15.0
+margin_top = -23.0
 margin_right = 8.0
 margin_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -50,6 +50,8 @@ shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Interaction" type="Node2D" parent="." index="2"]
+
+visible = false
 
 [node name="Right" type="Position2D" parent="Interaction" index="0"]
 
