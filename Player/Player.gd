@@ -6,30 +6,18 @@ export (float) var sprintMultiplier
 var sprint = false
 var motion = Vector2(0, 0)
 var direction = "right"
-#wow you are dum
 
 onready var interactionZone = $Interaction/InteractionZone
 
 func _process(delta):
-	get_inputs()
+	if not get_owner().get_node("HUD/Diag").visible:
+		get_inputs()
 	motion = motion.normalized()
 	
 	var movement = motion * speed if not sprint else motion * speed * sprintMultiplier
 	move_and_slide(movement)
 	change_izone_pos()
-	
-	if Input.is_action_just_pressed("a"):
-		#interactionZone.monitoring = true
-		print(interactionZone.get_overlapping_areas())
-		for area in interactionZone.get_overlapping_areas():
-			if area.get_owner().has_method("interact"):
-				area.get_owner().interact()
-				break
-				
-	else:
-		#interactionZone.monitoring = false
-		pass
-	
+		
 func get_inputs():
 	motion = Vector2(0, 0)
 	if Input.is_action_pressed("up"):
@@ -62,6 +50,15 @@ func get_inputs():
 			
 	sprint = Input.is_action_pressed("x")
 	
+	if Input.is_action_just_pressed("a"):
+		#interactionZone.monitoring = true
+		#print(interactionZone.get_overlapping_areas())
+		for area in interactionZone.get_overlapping_areas():
+			if area.get_owner().has_method("interact"):
+				area.get_owner().interact()
+				break
+				
+	
 func change_izone_pos():
 	match direction:
 		"up":
@@ -80,7 +77,3 @@ func change_izone_pos():
 			interactionZone.position = $Interaction/Left.position
 		"upleft":
 			interactionZone.position = $Interaction/Up.position + $Interaction/Left.position 
-			
-# TODO: delete this comment
-# blah blah
-# blah

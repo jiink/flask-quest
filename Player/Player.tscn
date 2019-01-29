@@ -44,6 +44,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( -0.146928, -2 )
 rotation = 1.5708
 shape = SubResource( 1 )
