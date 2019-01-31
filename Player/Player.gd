@@ -12,6 +12,9 @@ onready var interactionZone = $Interaction/InteractionZone
 func _process(delta):
 	if not get_owner().get_node("HUD/Diag").visible:
 		get_inputs()
+	else:
+		# stop player when diag box is up.
+		motion = Vector2(0,0)
 	motion = motion.normalized()
 	
 	var movement = motion * speed if not sprint else motion * speed * sprintMultiplier
