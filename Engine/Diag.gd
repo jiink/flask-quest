@@ -8,6 +8,10 @@ var select_graphic_offset = 0
 var choices = []
 var submit = null
 
+# "`" for delay
+var effectchars = "`"
+var visible_new_text = ""
+
 var target_tree = null
 var target_piece = null
 
@@ -20,6 +24,10 @@ func _ready():
 	#$TextBox.add_font_override("font", text_font)
 
 func _process(delta):
+	if visible:
+		for l in effectchars:
+			visible_new_text = new_text.replace(l, "")
+		
 	if visible and $Choices.visible and not choices.empty():
 		if Input.is_action_just_pressed("down"):
 			selected_choice = clamp(selected_choice + 1, 0, choices.size() - 1)
@@ -30,13 +38,13 @@ func _process(delta):
 		select_graphic_offset = selected_choice * 24
 		$Choices/Selection.position.y = select_graphic_offset
 		
-		if Input.is_action_just_pressed("a") and $TextBox.text == new_text:
+		if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
 			for D in target_piece.get_children():
 				if D.key == choices[selected_choice]:
 					update_boxes(D)
 					break
 	else:
-		if Input.is_action_just_pressed("a") and $TextBox.text == new_text:
+		if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
 			if target_piece.get_children():
 				update_boxes(target_piece.get_child(0))
 			else:
@@ -74,12 +82,10 @@ func update_boxes(new_target):
 		$TextBox.add_font_override("font", text_font)
 	
 	#get choices
-	print("before: " + str(choices))
 	for D in target_piece.get_children():
 		if D.key != "Null":
 			choices.append(D.key)
 		
-	print("after: " + str(choices))
 	if not choices.empty():
 		$Choices/Choice1.text = choices[0]
 		$Choices/Choice2.text = choices[1]
