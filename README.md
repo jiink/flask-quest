@@ -1,2 +1,2 @@
 # Flask Quest
-A videogame about a flask. Made in Godot 3.0.6.
+An RPG about two sentient flasks. Being made in Godot 3.0.6.
