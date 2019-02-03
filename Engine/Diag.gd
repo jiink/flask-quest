@@ -65,6 +65,7 @@ func update_boxes(new_target):
 	
 	# reset text and choices 
 	$TextBox.text = ""
+	text_index = -1
 	choices = []
 	
 	new_text = target_piece.message
