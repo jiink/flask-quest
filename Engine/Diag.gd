@@ -98,6 +98,10 @@ func update_boxes(new_target):
 		
 	$TextBox/Timer.start()
 		
+	# face
+	$Face.texture = target_tree.face_texture
+	$Face.frame = target_piece.face
+	
 func next_letter_time():
 	if text_index < new_text.length() - 1:
 		if ".?!:,;`".find(new_text[text_index + 1]) != -1:

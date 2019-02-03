@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Rooms/TestRoom/TestRoomTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=2]
-[ext_resource path="res://NPC/Boque.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/TestRoom/Dialogue.gd" type="Script" id=4]
-[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Engine/Diag.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=5]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Engine/Diag.tscn" type="PackedScene" id=9]
 
 [node name="TestRoom" type="Node" index="0"]
 
@@ -102,46 +103,53 @@ position = Vector2( 304, 112 )
 script = ExtResource( 4 )
 default_font = null
 default_text_delay = 0.03
+face_texture = ExtResource( 5 )
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 5 )]
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 6 )]
 
 message = "hello. blah blah. blahblah? bababa, baba."
 text_delay = null
+face = 0
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 5 )]
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 6 )]
 
 key = "yeah"
 message = "cool"
 text_delay = null
+face = 9
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 5 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 6 )]
 
 key = "no"
 message = "man"
 text_delay = null
+face = 5
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 5 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 6 )]
 
 message = "really?"
-text_delay = null
+text_delay = 0.07
+face = 15
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 5 )]
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 6 )]
 
 key = "yep"
 message = "holy c`r`a`p. get OUTTA here"
 text_delay = null
+face = 0
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 5 )]
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 6 )]
 
 key = "nope"
 message = "wow dumy"
 text_delay = null
+face = 0
 
-[node name="Player" parent="YSort" index="1" instance=ExtResource( 6 )]
+[node name="Player" parent="YSort" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 276, 98 )
 
-[node name="TestItem" parent="." index="2" instance=ExtResource( 7 )]
+[node name="TestItem" parent="." index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 489, 201 )
 z_index = -2
@@ -155,7 +163,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Diag" parent="HUD" index="0" instance=ExtResource( 8 )]
+[node name="Diag" parent="HUD" index="0" instance=ExtResource( 9 )]
 
 visible = false
 

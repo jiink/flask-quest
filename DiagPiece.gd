@@ -3,3 +3,4 @@ extends Node
 export(String) var key
 export(String) var message
 export(float) var text_delay = null
+export(int) var face = 0

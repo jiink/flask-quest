@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Engine/Diag.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Fonts/apple_kid.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Engine/Fonts/apple_kid.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 size = 16
 use_mipmaps = false
@@ -40,12 +40,32 @@ size_flags_vertical = 1
 color = Color( 0.0981293, 0.115706, 0.230469, 0.718235 )
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="ColorRect" type="ColorRect" parent="Backing" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 7.0
+margin_right = 44.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="Face" type="Sprite" parent="." index="1"]
 
 position = Vector2( 31, 28 )
-scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+vframes = 8
+hframes = 8
+_sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="TextBox" type="Label" parent="." index="2"]
 
@@ -201,7 +221,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Yes"
 align = 1
 valign = 1
@@ -227,7 +247,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "No"
 align = 1
 valign = 1
