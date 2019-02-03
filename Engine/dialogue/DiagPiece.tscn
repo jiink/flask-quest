@@ -7,5 +7,7 @@
 script = ExtResource( 1 )
 key = "Null"
 message = null
+text_delay = null
+face = "neutral"
 
 

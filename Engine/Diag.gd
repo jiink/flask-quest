@@ -99,8 +99,13 @@ func update_boxes(new_target):
 	$TextBox/Timer.start()
 		
 	# face
+	var expressions = ["neutral", "openmouth", "sidemouth", "happy", "cute", "sad", "suspicious", "crying",
+				 "cryingloud", "grin", "bigsurprise", "biggersurprise", "angry", "misc", "surprise", "stare",
+				"smug"]
+	var face_index = expressions.find(target_piece.face)
 	$Face.texture = target_tree.face_texture
-	$Face.frame = target_piece.face
+	$Face.frame = face_index
+	
 	
 func next_letter_time():
 	if text_index < new_text.length() - 1:

@@ -104,42 +104,31 @@ position = Vector2( 304, 112 )
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 5 )]
 
 message = "hello. blah blah. blahblah? bababa, baba."
-text_delay = null
-face = 0
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 5 )]
 
 key = "yeah"
 message = "cool"
-text_delay = null
-face = 9
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 5 )]
 
 key = "no"
 message = "man"
-text_delay = null
-face = 5
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 5 )]
 
 message = "really?"
 text_delay = 0.07
-face = 15
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 5 )]
 
 key = "yep"
 message = "holy c`r`a`p. get OUTTA here"
-text_delay = null
-face = 0
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 5 )]
 
 key = "nope"
 message = "wow dumy"
-text_delay = null
-face = 0
 
 [node name="Boque2" parent="YSort" index="1" instance=ExtResource( 3 )]
 
@@ -153,39 +142,33 @@ face_texture = ExtResource( 6 )
 
 message = "Do you like the color green?"
 text_delay = 0.0
-face = 6
 
 [node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 5 )]
 
 key = "Yes"
 message = "Of course."
-text_delay = null
-face = 1
+face = "openmouth"
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 5 )]
 
 message = "Of course you do. Why wouldn't you, you're green."
-text_delay = null
-face = 5
+face = "sad"
 
 [node name="DiagPiece3" parent="YSort/Boque2/DialogueTree/DiagPiece" index="1" instance=ExtResource( 5 )]
 
 key = "Nah"
 message = "WHAT"
-text_delay = null
-face = 11
+face = "biggersurprise"
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 5 )]
 
 message = "How!?!!"
-text_delay = null
-face = 7
+face = "crying"
 
 [node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece3/DiagPiece" index="0" instance=ExtResource( 5 )]
 
 message = "We're both green! AAAA"
-text_delay = null
-face = 8
+face = "cryingloud"
 
 [node name="Player" parent="YSort" index="2" instance=ExtResource( 7 )]
 
