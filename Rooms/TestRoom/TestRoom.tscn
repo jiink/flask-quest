@@ -10,7 +10,6 @@
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=9]
 
-
 [node name="TestRoom" type="Node" index="0"]
 
 [node name="TileMaps" type="Node" parent="." index="0"]

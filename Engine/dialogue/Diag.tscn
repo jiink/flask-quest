@@ -1,18 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Engine/dialogue/Diag.gd" type="Script" id=1]
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=2]
-[ext_resource path="res://Engine/Fonts/apple_kid.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Engine/Fonts/apple_kid.ttf" type="DynamicFontData" id=4]
-
-
-[sub_resource type="DynamicFont" id=1]
-
-size = 16
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 4 )
-_sections_unfolded = [ "Font", "Settings" ]
+[ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=3]
 
 [node name="Diag" type="Node2D" index="0"]
 
@@ -70,6 +60,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="TextBox" type="Label" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -222,7 +213,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Yes"
 align = 1
 valign = 1
@@ -248,7 +239,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "No"
 align = 1
 valign = 1
