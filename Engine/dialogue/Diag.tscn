@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Engine/Diag.gd" type="Script" id=1]
+[ext_resource path="res://Engine/dialogue/Diag.gd" type="Script" id=1]
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Fonts/apple_kid.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Engine/Fonts/apple_kid.ttf" type="DynamicFontData" id=4]
+
 
 [sub_resource type="DynamicFont" id=1]
 

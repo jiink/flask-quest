@@ -103,7 +103,15 @@ func update_boxes(new_target):
 	var expressions = ["neutral", "openmouth", "sidemouth", "happy", "cute", "sad", "suspicious", "crying",
 				 "cryingloud", "grin", "bigsurprise", "biggersurprise", "angry", "misc", "surprise", "stare",
 				"smug"]
-	var face_index = expressions.find(target_piece.face)
+	
+	var face_index
+	
+	if target_piece.face != null or target_piece.face != "":
+		if target_piece.face.is_valid_integer():
+			face_index = int(target_piece.face)
+		else:
+			face_index = expressions.find(target_piece.face)
+		
 	$Face.texture = target_tree.face_texture
 	$Face.frame = face_index
 	
