@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Rooms/TestRoom/TestRoomTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=5]
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=6]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=9]
+[ext_resource path="res://NPC/Stercus/stercusFaces.png" type="Texture" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=10]
 
 [node name="TestRoom" type="Node" index="0"]
 
@@ -178,6 +179,13 @@ no_face = false
 expression = "(none)"
 face_texture = null
 
+[node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece2/DiagPiece" index="0" instance=ExtResource( 5 )]
+
+message = "You got the AAAAA."
+no_face = true
+expression = "(none)"
+face_texture = null
+
 [node name="DiagPiece3" parent="YSort/Boque2/DialogueTree/DiagPiece" index="1" instance=ExtResource( 5 )]
 
 key = "Nah"
@@ -200,11 +208,65 @@ no_face = false
 expression = "(none)"
 face_texture = null
 
-[node name="Player" parent="YSort" index="2" instance=ExtResource( 7 )]
+[node name="Boque3" parent="YSort" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 223, 150 )
+
+[node name="DialogueTree" parent="YSort/Boque3" index="3" instance=ExtResource( 4 )]
+
+face_texture = ExtResource( 6 )
+
+[node name="DiagPiece" parent="YSort/Boque3/DialogueTree" index="0" instance=ExtResource( 5 )]
+
+message = "Hey."
+no_face = false
+expression = "smug"
+face_texture = null
+
+[node name="DiagPiece2" parent="YSort/Boque3/DialogueTree/DiagPiece" index="0" instance=ExtResource( 5 )]
+
+message = "Hey Stercus."
+no_face = false
+expression = "smug"
+face_texture = null
+
+[node name="DiagPiece3" parent="YSort/Boque3/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 5 )]
+
+message = "What."
+text_delay = 0.08
+no_face = false
+expression = "neutral"
+face_texture = ExtResource( 7 )
+
+[node name="DiagPiece4" parent="YSort/Boque3/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 5 )]
+
+message = "..."
+text_delay = 0.1
+no_face = false
+expression = "smug"
+face_texture = ExtResource( 6 )
+
+[node name="DiagPiece5" parent="YSort/Boque3/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 5 )]
+
+message = "```suck` my` p```p```."
+text_delay = 0.15
+no_face = false
+expression = "stare"
+face_texture = ExtResource( 6 )
+
+[node name="DiagPiece6" parent="YSort/Boque3/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 5 )]
+
+message = "```"
+text_delay = 0.15
+no_face = false
+expression = "bigsurprise"
+face_texture = ExtResource( 7 )
+
+[node name="Player" parent="YSort" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 276, 98 )
 
-[node name="TestItem" parent="." index="2" instance=ExtResource( 8 )]
+[node name="TestItem" parent="." index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 489, 201 )
 z_index = -2
@@ -218,7 +280,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Diag" parent="HUD" index="0" instance=ExtResource( 9 )]
+[node name="Diag" parent="HUD" index="0" instance=ExtResource( 10 )]
 
 visible = false
 

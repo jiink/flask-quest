@@ -16,6 +16,7 @@ var visible_new_text = ""
 
 var target_tree = null
 var target_piece = null
+var first = true
 
 # use tres
 var text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
@@ -119,7 +120,10 @@ func update_boxes(new_target):
 	#			face_index = int(target_piece.expression)
 	#		else:
 	#			face_index = expressions.find(target_piece.expression)
-	
+		if first:
+			if target_tree.face_texture != null:
+				$Face.texture = target_tree.face_texture
+				
 		if target_piece.face_texture != null:
 			$Face.texture = target_piece.face_texture
 	
