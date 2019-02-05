@@ -96,7 +96,6 @@ sort_enabled = true
 
 [node name="Boque" parent="YSort" index="0" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 304, 112 )
 
 [node name="DialogueTree" parent="YSort/Boque" index="3" instance=ExtResource( 4 )]
@@ -104,31 +103,49 @@ position = Vector2( 304, 112 )
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 5 )]
 
 message = "hello. blah blah. blahblah? bababa, baba."
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 5 )]
 
 key = "yeah"
 message = "cool"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 5 )]
 
 key = "no"
 message = "man"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 5 )]
 
 message = "really?"
 text_delay = 0.07
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 5 )]
 
 key = "yep"
 message = "holy c`r`a`p. get OUTTA here"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 5 )]
 
 key = "nope"
 message = "wow dumy"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="Boque2" parent="YSort" index="1" instance=ExtResource( 3 )]
 
@@ -142,31 +159,46 @@ face_texture = ExtResource( 6 )
 
 message = "Do you like the color green?"
 text_delay = 0.0
-face = "grin"
+no_face = false
+expression = "stare"
+face_texture = null
 
 [node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 5 )]
 
 key = "Yes"
 message = "Of course."
-face = ""
+no_face = false
+expression = "grin"
+face_texture = null
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 5 )]
 
 message = "Of course you do. Why wouldn't you, you're green."
-face = ""
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece3" parent="YSort/Boque2/DialogueTree/DiagPiece" index="1" instance=ExtResource( 5 )]
 
 key = "Nah"
 message = "WHAT"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 5 )]
 
 message = "How!?!!"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece/DiagPiece3/DiagPiece" index="0" instance=ExtResource( 5 )]
 
 message = "We're both green! AAAA"
+no_face = false
+expression = "(none)"
+face_texture = null
 
 [node name="Player" parent="YSort" index="2" instance=ExtResource( 7 )]
 

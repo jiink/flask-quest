@@ -7,6 +7,8 @@ var selected_choice = 0
 var select_graphic_offset = 0
 var choices = []
 var submit = null
+var face_index = 0
+var has_face = false
 
 # "`" for delay
 var effectchars = "`"
@@ -16,7 +18,7 @@ var target_tree = null
 var target_piece = null
 
 # use tres
-var text_font = load("res://Engine/Fonts/apple_kid.tres")
+var text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
 
 
 func _ready():
@@ -72,7 +74,6 @@ func update_boxes(new_target):
 	
 	# set delays
 	if target_piece.text_delay != null:
-		print("bad")
 		text_time = target_piece.text_delay
 	else:
 		text_time = target_tree.default_text_delay
@@ -100,21 +101,38 @@ func update_boxes(new_target):
 	$TextBox/Timer.start()
 		
 	# face
+	has_face = !(target_tree.face_texture == null or target_piece.no_face)
+	
 	var expressions = ["neutral", "openmouth", "sidemouth", "happy", "cute", "sad", "suspicious", "crying",
 				 "cryingloud", "grin", "bigsurprise", "biggersurprise", "angry", "misc", "surprise", "stare",
 				"smug"]
 	
-	var face_index
-	
-	if target_piece.face != null or target_piece.face != "":
-		if target_piece.face.is_valid_integer():
-			face_index = int(target_piece.face)
-		else:
-			face_index = expressions.find(target_piece.face)
+	if has_face:
+	#	if target_tree.face_texture != null:
+	#		$Face.texture = target_tree.face_texture
+	#	else:
+			
 		
-	$Face.texture = target_tree.face_texture
-	$Face.frame = face_index
+	#
+	#	if target_piece.expression != null or target_piece.expression != "":
+	#		if target_piece.expression.is_valid_integer():
+	#			face_index = int(target_piece.expression)
+	#		else:
+	#			face_index = expressions.find(target_piece.expression)
 	
+		if target_piece.face_texture != null:
+			$Face.texture = target_piece.face_texture
+	
+		if target_piece.expression != "(none)":
+			face_index = expressions.find(target_piece.expression)
+		
+		$Face.frame = face_index
+		$Face.visible = true
+		$TextBox.margin_left = 55
+	else:
+		# we just want text, and no face displayed
+		$Face.visible = false
+		$TextBox.margin_left = 12
 	
 func next_letter_time():
 	if text_index < new_text.length() - 1:

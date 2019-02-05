@@ -4,7 +4,7 @@
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=3]
 
-[node name="Diag" type="Node2D" index="0"]
+[node name="Diag" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -30,25 +30,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.0981293, 0.115706, 0.230469, 0.718235 )
 _sections_unfolded = [ "Margin", "Rect" ]
-
-[node name="ColorRect" type="ColorRect" parent="Backing" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 10.0
-margin_top = 7.0
-margin_right = 44.0
-margin_bottom = 41.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="Face" type="Sprite" parent="." index="1"]
 
@@ -81,7 +62,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Hint", "Margin", "custom_fonts" ]
 
 [node name="Timer" type="Timer" parent="TextBox" index="0"]
 
