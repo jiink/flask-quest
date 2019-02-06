@@ -7,3 +7,6 @@ func _ready():
 	
 func interact():
 	emit_signal("talk", self)
+	
+func test_react():
+	print("AAAAAAAAAAAAA")

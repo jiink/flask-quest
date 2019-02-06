@@ -138,6 +138,11 @@ func update_boxes(new_target):
 		$Face.visible = false
 		$TextBox.margin_left = 12
 	
+	# function
+	if target_piece.function != "":
+		if target_tree.get_parent().has_method(target_piece.function):
+			target_tree.get_parent().call(target_piece.function)
+			
 func next_letter_time():
 	if text_index < new_text.length() - 1:
 		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
