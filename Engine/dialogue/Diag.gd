@@ -85,11 +85,13 @@ func update_boxes(new_target):
 		$TextBox.add_font_override("font", text_font)
 	
 	#get choices
+	
 	for D in target_piece.get_children():
 		if D.key != "Null":
 			choices.append(D.key)
 		
 	if not choices.empty():
+		selected_choice = 0
 		$Choices/Choice1.text = choices[0]
 		$Choices/Choice2.text = choices[1]
 	else:
@@ -141,7 +143,22 @@ func update_boxes(new_target):
 	# function
 	if target_piece.function != "":
 		if target_tree.get_parent().has_method(target_piece.function):
-			target_tree.get_parent().call(target_piece.function)
+			# help me
+			match target_piece.args.size():
+				0:
+					target_tree.get_parent().call(target_piece.function)
+				1:
+					target_tree.get_parent().call(target_piece.function, target_piece.args[0])
+				2:
+					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1])
+				3:
+					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2])
+				4:
+					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3])
+				5:
+					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3], target_piece.args[4])
+		else:
+			print("diag function not found")
 			
 func next_letter_time():
 	if text_index < new_text.length() - 1:
