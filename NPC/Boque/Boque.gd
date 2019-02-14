@@ -16,5 +16,6 @@ func test_react2(foo, x, y):
 	
 func enter_battle():
 	print("battle time")
-	get_node("/root/global").initial_enemies = ["Boque", "Boque", "Boque"]
-	get_tree().change_scene("res://Engine/Battle/BattleScene.tscn")
+	get_node("/root/global").start_battle(["Boque", "Boque", "Boque"])
+	#get_node("/root/global").initial_enemies = ["Boque", "Boque", "Boque"]
+	#get_tree().change_scene("res://Engine/Battle/BattleScene.tscn")

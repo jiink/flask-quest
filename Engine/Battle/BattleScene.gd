@@ -16,7 +16,7 @@ func _ready():
 		var foe = load("res://NPC/" + global.initial_enemies[i] + "/" + global.initial_enemies[i] + "Foe.tscn")
 		var foe_instance = foe.instance()
 		foe_instance.set_name(global.initial_enemies[i])
-		foe_instance.position.x = 64 * i + 64
+		foe_instance.position.x = 80 * i + 64
 		foe_instance.position.y = 128
 		$Foes.add_child(foe_instance)
 		
@@ -32,7 +32,9 @@ func _process(delta):
 func get_move_choice():
 	if Input.is_action_just_pressed("a"):
 		state = "player choose enemy"
-
+	elif Input.is_action_just_pressed("b"):
+		exit_battle()
+		
 func get_enemy_choice():
 	
 	if Input.is_action_just_pressed("right"):
@@ -48,12 +50,31 @@ func get_enemy_choice():
 		#state = "attacking"
 
 func set_arrow_pos():
-	$SelectedFoeArrow.position.x = get_foes()[selected_foe].position.x
-	$SelectedFoeArrow.position.y = 64 
-	
+	if selected_foe != null:
+		$SelectedFoeArrow.visible = true
+		$SelectedFoeArrow.position.x = get_foes()[selected_foe].position.x
+		$SelectedFoeArrow.position.y = 64 
+	else:
+		$SelectedFoeArrow.visible = false
+		
 func get_foes():
 	return get_tree().get_nodes_in_group("foes")
 
 func attack():
 	print("attaaaack " + get_foes()[selected_foe].name)
+	get_foes()[selected_foe].call("get_hurt", 20)
 	#emit_signal("hit_foe", get_tree().get_nodes_in_group("foes")[i])
+	
+	#selected_foe = null
+	$SelectedFoeArrow.visible = false
+	state = "player turn"
+	
+func foe_died():
+	print("something died, " + str(get_foes().size()) + " foes left")
+	if get_foes().size()-1 != 0:
+		selected_foe = selected_foe % get_foes().size()
+	else:
+		exit_battle()
+
+func exit_battle():
+	get_tree().change_scene(global.prev_scene)

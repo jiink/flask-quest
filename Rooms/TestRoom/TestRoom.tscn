@@ -11,7 +11,7 @@
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=10]
 
-[node name="TestRoom" type="Node" index="0"]
+[node name="TestRoom" type="Node"]
 
 [node name="TileMaps" type="Node" parent="." index="0"]
 
@@ -199,7 +199,7 @@ args = null
 
 [node name="Player" parent="YSort" index="2" instance=ExtResource( 7 )]
 
-position = Vector2( 276, 98 )
+position = Vector2( 263, 104 )
 
 [node name="Light2D" type="Light2D" parent="." index="2"]
 
@@ -257,7 +257,7 @@ _sections_unfolded = [ "Shadow", "Transform" ]
 
 [node name="TestItem" parent="." index="4" instance=ExtResource( 9 )]
 
-position = Vector2( 489, 201 )
+position = Vector2( 165, 115 )
 z_index = -2
 _sections_unfolded = [ "Z Index" ]
 
