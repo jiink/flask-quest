@@ -3,7 +3,7 @@
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleChoices.png" type="Texture" id=2]
 
-[node name="BattleScene" type="Node"]
+[node name="BattleScene" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -24,18 +24,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BattleChoices" type="Sprite" parent="." index="1"]
+[node name="BattleBG" type="Sprite" parent="." index="1"]
+
+position = Vector2( 192, 108 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BattleChoices" type="Sprite" parent="." index="2"]
 
 modulate = Color( 1, 1, 1, 0.729255 )
 position = Vector2( 337, 176 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Foes" type="YSort" parent="." index="2"]
+[node name="Foes" type="YSort" parent="." index="3"]
 
 sort_enabled = true
 
-[node name="SelectedFoeArrow" type="Node2D" parent="." index="3"]
+[node name="SelectedFoeArrow" type="Node2D" parent="." index="4"]
 
 visible = false
 

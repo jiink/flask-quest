@@ -22,6 +22,9 @@ func _ready():
 		
 	global.current_enemies = global.initial_enemies
 	
+	# battle bg
+	$BattleBG.texture = global.battle_bg
+	
 func _process(delta):
 	if state == "player turn":
 		get_move_choice()
@@ -78,3 +81,4 @@ func foe_died():
 
 func exit_battle():
 	get_tree().change_scene(global.prev_scene)
+	

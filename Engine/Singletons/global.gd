@@ -6,7 +6,7 @@ var player_hp = 100
 # battle vars
 var initial_enemies = []
 var current_enemies = initial_enemies
-
+var battle_bg
 var prev_scene = null
 
 func start_battle(foes):

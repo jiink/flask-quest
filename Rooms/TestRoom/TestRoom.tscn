@@ -1,17 +1,22 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Rooms/TestRoom/TestRoomTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=2]
-[ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=4]
-[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=5]
-[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Engine/light.png" type="Texture" id=8]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Rooms/TestRoom/TestRoom.gd" type="Script" id=1]
+[ext_resource path="res://Rooms/TestRoom/TestRoomBattleBG.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/TestRoom/TestRoomTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=4]
+[ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=7]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Engine/light.png" type="Texture" id=10]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=12]
 
 [node name="TestRoom" type="Node"]
+
+script = ExtResource( 1 )
+battle_bg = ExtResource( 2 )
 
 [node name="TileMaps" type="Node" parent="." index="0"]
 
@@ -20,7 +25,7 @@
 position = Vector2( 48, 16 )
 z_index = -10
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -45,7 +50,7 @@ __meta__ = {
 
 z_index = 10
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -70,7 +75,7 @@ __meta__ = {
 
 visible = false
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -95,15 +100,15 @@ __meta__ = {
 
 sort_enabled = true
 
-[node name="Boque" parent="YSort" index="0" instance=ExtResource( 3 )]
+[node name="Boque" parent="YSort" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 304, 112 )
 
-[node name="DialogueTree" parent="YSort/Boque" index="3" instance=ExtResource( 4 )]
+[node name="DialogueTree" parent="YSort/Boque" index="3" instance=ExtResource( 6 )]
 
-face_texture = ExtResource( 5 )
+face_texture = ExtResource( 7 )
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 8 )]
 
 message = "hello. blah blah. blahblah? bababa, baba."
 no_face = false
@@ -112,7 +117,7 @@ face_texture = null
 function = "test_react"
 args = [ "poopy", 2, 4 ]
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 8 )]
 
 key = "yeah"
 message = "cool"
@@ -122,7 +127,7 @@ face_texture = null
 function = ""
 args = null
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 6 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 8 )]
 
 key = "no"
 message = "man"
@@ -132,7 +137,7 @@ face_texture = null
 function = ""
 args = null
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 8 )]
 
 message = "really?"
 text_delay = 0.07
@@ -142,7 +147,7 @@ face_texture = null
 function = ""
 args = null
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 8 )]
 
 key = "yep"
 message = "heck you. "
@@ -152,7 +157,7 @@ face_texture = null
 function = ""
 args = null
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" index="0" instance=ExtResource( 8 )]
 
 message = ""
 no_face = false
@@ -161,7 +166,7 @@ face_texture = null
 function = "enter_battle"
 args = null
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 6 )]
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 8 )]
 
 key = "nope"
 message = "wow dumy"
@@ -171,15 +176,15 @@ face_texture = null
 function = ""
 args = null
 
-[node name="Boque2" parent="YSort" index="1" instance=ExtResource( 3 )]
+[node name="Boque2" parent="YSort" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 226, 106 )
 
-[node name="DialogueTree" parent="YSort/Boque2" index="3" instance=ExtResource( 4 )]
+[node name="DialogueTree" parent="YSort/Boque2" index="3" instance=ExtResource( 6 )]
 
-face_texture = ExtResource( 5 )
+face_texture = ExtResource( 7 )
 
-[node name="DiagPiece" parent="YSort/Boque2/DialogueTree" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece" parent="YSort/Boque2/DialogueTree" index="0" instance=ExtResource( 8 )]
 
 message = "battle time"
 no_face = false
@@ -188,7 +193,7 @@ face_texture = null
 function = ""
 args = null
 
-[node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 6 )]
+[node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 8 )]
 
 message = ""
 no_face = false
@@ -197,7 +202,7 @@ face_texture = null
 function = "enter_battle"
 args = null
 
-[node name="Player" parent="YSort" index="2" instance=ExtResource( 7 )]
+[node name="Player" parent="YSort" index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 263, 104 )
 
@@ -207,7 +212,7 @@ visible = false
 position = Vector2( 169, 84 )
 enabled = true
 editor_only = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
@@ -234,7 +239,7 @@ visible = false
 position = Vector2( 290, 127 )
 enabled = true
 editor_only = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
@@ -255,7 +260,7 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Shadow", "Transform" ]
 
-[node name="TestItem" parent="." index="4" instance=ExtResource( 9 )]
+[node name="TestItem" parent="." index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 165, 115 )
 z_index = -2
@@ -269,7 +274,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Diag" parent="HUD" index="0" instance=ExtResource( 10 )]
+[node name="Diag" parent="HUD" index="0" instance=ExtResource( 12 )]
 
 visible = false
 

@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 0.95 ), Vector2( 1, 1.05 ), Vector2( 1, 0.95 ) ]
 }
 
-[node name="BoqueFoe" index="0" instance=ExtResource( 1 )]
+[node name="BoqueFoe" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
