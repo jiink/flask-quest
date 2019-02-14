@@ -83,9 +83,7 @@ func update_boxes(new_target):
 	if target_tree.default_font != null:
 		text_font = target_tree.default_font
 		$TextBox.add_font_override("font", text_font)
-	
 	#get choices
-	
 	for D in target_piece.get_children():
 		if D.key != "Null":
 			choices.append(D.key)
@@ -144,19 +142,24 @@ func update_boxes(new_target):
 	if target_piece.function != "":
 		if target_tree.get_parent().has_method(target_piece.function):
 			# help me
-			match target_piece.args.size():
-				0:
-					target_tree.get_parent().call(target_piece.function)
-				1:
-					target_tree.get_parent().call(target_piece.function, target_piece.args[0])
-				2:
-					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1])
-				3:
-					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2])
-				4:
-					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3])
-				5:
-					target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3], target_piece.args[4])
+			if target_piece.args != null:
+				match target_piece.args.size():
+					0:
+						target_tree.get_parent().call(target_piece.function)
+					1:
+						target_tree.get_parent().call(target_piece.function, target_piece.args[0])
+					2:
+						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1])
+					3:
+						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2])
+					4:
+						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3])
+					5:
+						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3], target_piece.args[4])
+					_:
+						pass
+			else:
+				target_tree.get_parent().call(target_piece.function)
 		else:
 			print("diag function not found")
 			
