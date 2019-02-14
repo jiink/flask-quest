@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://DialogueTree.gd" type="Script" id=1]
+[ext_resource path="res://Engine/dialogue/DialogueTree.gd" type="Script" id=1]
+
 
 
 [node name="DialogueTree" type="Node"]
