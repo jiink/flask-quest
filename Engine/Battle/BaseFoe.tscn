@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Engine/Battle/BaseFoe.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/missingFoe.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=3]
 
 [node name="BaseFoe" type="Node2D" groups=[
 "foes",
@@ -31,5 +32,31 @@ color = Color( 0, 0, 0, 0.116 )
 
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="HPLabel" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -21.0
+margin_top = 62.0
+margin_right = 19.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.515625, 0.368591, 0.368591, 1 )
+custom_colors/font_color_shadow = Color( 0.152344, 0.0702209, 0.0702209, 1 )
+text = "0/0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 
