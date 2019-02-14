@@ -1,7 +1,5 @@
 extends Node2D
 
-var x = 0
-
 signal talk(obj)
 
 func _ready():
@@ -10,10 +8,13 @@ func _ready():
 func interact():
 	emit_signal("talk", self)
 	
-func test_react(foo, x, y):
-	print(foo + str(x + y))
+func test_react():
+	print("AAAA TEST REACT")
 	
+func test_react2(foo, x, y):
+	print(foo + str(x + y))
 	
 func enter_battle():
 	print("battle time")
+	get_node("/root/global").initial_enemies = ["Boque", "Boque", "Boque"]
 	get_tree().change_scene("res://Engine/Battle/BattleScene.tscn")
