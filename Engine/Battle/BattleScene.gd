@@ -75,7 +75,7 @@ func attack():
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
 	if get_foes().size()-1 != 0:
-		selected_foe = selected_foe % get_foes().size()
+		selected_foe = (selected_foe - 1) % get_foes().size()
 	else:
 		exit_battle()
 

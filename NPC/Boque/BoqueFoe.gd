@@ -3,7 +3,7 @@ extends "res://Engine/Battle/BaseFoe.gd"
 
 
 func _ready():
-	max_hp = 20
+	max_hp = 45
 	hp = max_hp
 	update_hp_label()
 	

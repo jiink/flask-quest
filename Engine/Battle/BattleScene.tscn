@@ -3,7 +3,7 @@
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleChoices.png" type="Texture" id=2]
 
-[node name="BattleScene" type="Node" index="0"]
+[node name="BattleScene" type="Node"]
 
 script = ExtResource( 1 )
 
