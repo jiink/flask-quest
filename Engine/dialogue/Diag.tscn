@@ -1,40 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Engine/dialogue/Diag.gd" type="Script" id=1]
-[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=2]
-[ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Engine/dialogue/dialogue_box.png" type="Texture" id=2]
+[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=3]
+[ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Engine/dialogue/dialogue_choice.png" type="Texture" id=5]
+[ext_resource path="res://Engine/dialogue/dialogue_choice_selected.png" type="Texture" id=6]
 
-[node name="Diag" type="Node2D"]
+[node name="Diag" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Backing" type="ColorRect" parent="." index="0"]
+[node name="dialogue_box" type="Sprite" parent="." index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 316.0
-margin_bottom = 52.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.0981293, 0.115706, 0.230469, 0.718235 )
-_sections_unfolded = [ "Margin", "Rect" ]
+position = Vector2( 192, 24 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Face" type="Sprite" parent="." index="1"]
 
-position = Vector2( 31, 28 )
-texture = ExtResource( 2 )
+position = Vector2( 22, 24 )
+texture = ExtResource( 3 )
 vframes = 8
 hframes = 8
 _sections_unfolded = [ "Animation", "Transform" ]
@@ -46,17 +35,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 55.0
-margin_top = 8.0
-margin_right = 373.0
-margin_bottom = 48.0
+margin_left = 45.0
+margin_top = 3.0
+margin_right = 363.0
+margin_bottom = 43.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labor"
 autowrap = true
 percent_visible = 1.0
@@ -73,128 +62,47 @@ autostart = false
 
 [node name="Choices" type="Node2D" parent="." index="3"]
 
-position = Vector2( 338, 52 )
+position = Vector2( 333, 51 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Backing" type="ColorRect" parent="Choices" index="0"]
+[node name="dialogue_choice" type="Sprite" parent="Choices" index="0"]
 
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-margin_left = -42.0
-margin_right = -22.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.0981293, 0.115706, 0.230469, 0.718235 )
-_sections_unfolded = [ "Margin", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 16, 10 )
+texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Choices/Backing" index="0"]
+[node name="dialogue_choice2" type="Sprite" parent="Choices" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+position = Vector2( 16, 40 )
+texture = ExtResource( 5 )
 
-[node name="Selection" type="Node2D" parent="Choices" index="1"]
+[node name="Selection" type="Node2D" parent="Choices" index="2"]
 
-editor/display_folded = true
+position = Vector2( 4, 0 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Middle" type="ColorRect" parent="Choices/Selection" index="0"]
+[node name="dialogue_choice_selected" type="Sprite" parent="Choices/Selection" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -42.0
-margin_right = 42.0
-margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 0.11051 )
-_sections_unfolded = [ "Rect" ]
+position = Vector2( 12, 10 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Side1" type="ColorRect" parent="Choices/Selection" index="1"]
+[node name="Choice1" type="Label" parent="Choices" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -42.0
-margin_right = -40.0
-margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.933594, 0.880486, 0.0838776, 1 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="Side2" type="ColorRect" parent="Choices/Selection" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 40.0
-margin_right = 42.0
-margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.933594, 0.880486, 0.0838776, 1 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="Choice1" type="Label" parent="Choices" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -37.0
-margin_top = 4.0
-margin_right = 37.0
-margin_bottom = 20.0
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 53.0
+margin_bottom = 18.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Yes"
 align = 1
 valign = 1
@@ -203,24 +111,27 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Choice2" type="Label" parent="Choices" index="3"]
+[node name="Choice2" type="Label" parent="Choices" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -37.0
-margin_top = 28.0
-margin_right = 37.0
-margin_bottom = 44.0
+margin_left = -22.0
+margin_top = 31.0
+margin_right = 52.0
+margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "No"
 align = 1
 valign = 1
@@ -229,5 +140,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Rect", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 
