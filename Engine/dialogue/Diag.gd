@@ -38,7 +38,7 @@ func _process(delta):
 			selected_choice = clamp(selected_choice - 1, 0, choices.size() - 1)
 		
 		
-		select_graphic_offset = selected_choice * 24
+		select_graphic_offset = selected_choice * 30
 		$Choices/Selection.position.y = select_graphic_offset
 		
 		if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:

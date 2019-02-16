@@ -2,13 +2,16 @@
 
 [ext_resource path="res://Engine/dialogue/DiagPiece.gd" type="Script" id=1]
 
-
 [node name="DiagPiece" type="Node" index="0"]
 
 script = ExtResource( 1 )
 key = "Null"
-message = null
+message = ""
 text_delay = null
-face = "neutral"
+no_face = false
+expression = "(none)"
+face_texture = null
+function = ""
+args = null
 
 
