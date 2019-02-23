@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Flask Quest"
-run/main_scene="res://Rooms/TestRoom/TestRoom.tscn"
+run/main_scene="res://Rooms/Test/T-1/T-1.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TestTiles.png-9c4f356258a828ff7548d72cc5fa14d8.stex"
+path="res://.import/TestRoomBattleBG.png-02a07c72ce8153dfbc896b4f8ee84383.stex"
 
 [deps]
 
-source_file="res://Rooms/TestRoom/TestTiles.png"
-dest_files=[ "res://.import/TestTiles.png-9c4f356258a828ff7548d72cc5fa14d8.stex" ]
+source_file="res://Rooms/Test/Assets/TestRoomBattleBG.png"
+dest_files=[ "res://.import/TestRoomBattleBG.png-02a07c72ce8153dfbc896b4f8ee84383.stex" ]
 
 [params]
 
