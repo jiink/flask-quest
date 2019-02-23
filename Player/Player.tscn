@@ -19,7 +19,9 @@ height = 9.22699
 custom_solver_bias = 0.0
 extents = Vector2( 8, 6 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 
 input_pickable = false
 collision_layer = 1
