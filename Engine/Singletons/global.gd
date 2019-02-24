@@ -29,14 +29,34 @@ func start_battle(foes):
 ################## scene ##################
 
 var player_new_position
+var next_scene
+var next_player_position
 
-func switch_scenes(new_scene, new_player_position):
+signal transition_close
+
+
+
+func _ready():
+	connect_to_transition()
+	#(#get_tree().get_nodes_in_group("Camera")[0].get_node("../HUD/SceneTransition"), "fade_out")
+
+func start_scene_switch(new_scene, new_player_position):
 	print("changing scenes")
-	get_tree().change_scene(new_scene)
+	next_scene = new_scene
+	next_player_position = new_player_position
+	emit_signal("transition_close")
+	
+	
+
+func swap_scenes():
+	get_tree().change_scene(next_scene)
 	
 	yield(get_tree().create_timer(0.01), "timeout")
-	
-	if new_player_position != null:
-		get_tree().get_nodes_in_group("Player")[0].position = new_player_position
+	connect_to_transition()
+	if next_player_position != null:
+		get_tree().get_nodes_in_group("Player")[0].position = next_player_position
 	else:
 		print("warning: new player pos is null")
+
+func connect_to_transition():
+	connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")

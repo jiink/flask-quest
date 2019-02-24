@@ -12,6 +12,6 @@ func on_body_entered(body):
 	
 	if new_scene != "":
 		#get_tree().change_scene(new_scene)
-		get_node("/root/global").switch_scenes(new_scene, player_new_position)
+		get_node("/root/global").start_scene_switch(new_scene, player_new_position)
 	else:
 		print("error: new_scene empty")

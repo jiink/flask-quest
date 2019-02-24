@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Rooms/Test/T-1/TestRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=4]
 [ext_resource path="res://Rooms/Test/Assets/WarpPortal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=9]
 
 [node name="TestRoom" type="Node"]
 
@@ -99,6 +100,8 @@ __meta__ = {
 modulate = Color( 0.855469, 0.768481, 0.2005, 1 )
 position = Vector2( 97, 46 )
 _sections_unfolded = [ "Visibility" ]
+new_scene = "res://Rooms/Test/T-1/T-1.tscn"
+player_new_position = Vector2( 258, 57 )
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
@@ -112,7 +115,11 @@ __meta__ = {
 position = Vector2( 184, 134 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HUD" type="CanvasLayer" parent="." index="3"]
+[node name="Camera" parent="." index="3" instance=ExtResource( 7 )]
+
+follow_player = false
+
+[node name="HUD" type="CanvasLayer" parent="." index="4"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -120,7 +127,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Diag" parent="HUD" index="0" instance=ExtResource( 7 )]
+[node name="Diag" parent="HUD" index="0" instance=ExtResource( 8 )]
 
 visible = false
 
@@ -146,8 +153,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SceneTransition" parent="HUD" index="2" instance=ExtResource( 8 )]
+[node name="SceneTransition" parent="HUD" index="2" instance=ExtResource( 9 )]
 
+visible = false
 _sections_unfolded = [ "Z Index" ]
 
 
