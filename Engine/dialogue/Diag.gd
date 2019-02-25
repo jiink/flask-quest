@@ -27,9 +27,7 @@ func _ready():
 	#$TextBox.add_font_override("font", text_font)
 
 func _process(delta):
-	if visible:
-		for l in effectchars:
-			visible_new_text = new_text.replace(l, "")
+	
 		
 	if visible and $Choices.visible and not choices.empty():
 		if Input.is_action_just_pressed("down"):
@@ -77,6 +75,9 @@ func update_boxes(new_target):
 	
 	new_text = target_piece.message
 	
+	for l in effectchars:
+		visible_new_text = new_text.replace(l, "")
+		
 	# set delays
 	if target_piece.text_delay != null:
 		text_time = target_piece.text_delay
