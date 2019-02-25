@@ -8,3 +8,4 @@ export(String, "(none)", "neutral", "openmouth", "sidemouth", "happy", "cute", "
 export(Texture) var face_texture = null
 export(String) var function = ""
 export(Array) var args
+export(bool) var skippable = true

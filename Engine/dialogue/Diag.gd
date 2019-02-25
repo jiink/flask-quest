@@ -47,11 +47,15 @@ func _process(delta):
 					update_boxes(D)
 					break
 	else:
-		if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
-			if target_piece.get_children():
-				update_boxes(target_piece.get_child(0))
-			else:
-				close()
+		if Input.is_action_just_pressed("a"):
+			if $TextBox.text == visible_new_text:
+				if target_piece.get_children():
+					update_boxes(target_piece.get_child(0))
+				else:
+					close()
+			elif $TextBox.text.length() > 2 and target_piece.skippable:
+				$TextBox.text = visible_new_text
+				text_index = $TextBox.text.length() - 1
 			
 
 func start_talk(obj):
