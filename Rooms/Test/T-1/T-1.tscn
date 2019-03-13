@@ -16,298 +16,175 @@
 [ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=15]
 
-[node name="TestRoom" type="Node" index="0"]
-
+[node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
 battle_bg = ExtResource( 2 )
 
-[node name="Background" type="Node2D" parent="." index="0"]
-
+[node name="Background" type="Node2D" parent="."]
 editor/display_folded = true
 visible = false
 z_index = -4096
-_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="Background" index="0"]
-
+[node name="ColorRect" type="ColorRect" parent="Background"]
 show_behind_parent = true
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -153.0
 margin_top = -88.0
 margin_right = 420.0
 margin_bottom = 214.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
-_sections_unfolded = [ "Visibility" ]
 
-[node name="TileMaps" type="Node" parent="." index="1"]
-
+[node name="TileMaps" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Floor" type="TileMap" parent="TileMaps" index="0"]
-
+[node name="Floor" type="TileMap" parent="TileMaps"]
 position = Vector2( 48, 16 )
 z_index = -10
-mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 0, 3, 2, 0, 4, 1, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 1, 0, 11, 1, 0, 12, 0, 0, 13, 0, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 1, 0, 65539, 2, 0, 65540, 1, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 1, 0, 65547, 1, 0, 65548, 0, 0, 65549, 0, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 1, 0, 327677, 1, 0, 327678, 1, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 1, 0, 393213, 1, 0, 393214, 1, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 1, 0, 458749, 1, 0, 458750, 1, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 1, 0, 524285, 1, 0, 524286, 1, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 1, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 1, 0, 589833, 1, 0, 589834, 0, 0, 589835, 0, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 720893, 1, 0, 720894, 1, 0, 720895, 0, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 1, 0, 786429, 1, 0, 786430, 1, 0, 786431, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 851965, 1, 0, 851966, 1, 0, 851967, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Above" type="TileMap" parent="TileMaps" index="1"]
-
+[node name="Above" type="TileMap" parent="TileMaps"]
 z_index = 10
-mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 0, 2, 0, 13, 2, 0, 14, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608, 2, 0, 196619, 2, 0, 196620, 2, 0, 262144, 2, 0, 327680, 2, 0, 393216, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 458752, 2, 0, 524288, 2, 0, 589824, 2, 0, 589835, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 655360, 2, 0, 720896, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 786432, 2, 0, 786434, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 2, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 786453, 2, 0, 786454, 2, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionMap" type="TileMap" parent="TileMaps" index="2"]
-
+[node name="CollisionMap" type="TileMap" parent="TileMaps"]
 visible = false
-mode = 0
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 15, 0, 0, 16, 0, 0, 65537, 0, 0, 65541, 0, 0, 65543, 0, 0, 65549, 0, 0, 65550, 0, 0, 65553, 0, 0, 131073, 0, 0, 131077, 0, 0, 131079, 0, 0, 131085, 0, 0, 131086, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 196609, 0, 0, 196621, 0, 0, 196622, 0, 0, 196631, 0, 0, 262145, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262167, 0, 0, 327681, 0, 0, 327703, 0, 0, 393217, 0, 0, 393239, 0, 0, 458753, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458775, 0, 0, 524289, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524311, 0, 0, 589825, 0, 0, 589847, 0, 0, 655361, 0, 0, 655371, 0, 0, 655372, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 720897, 0, 0, 720919, 0, 0, 786433, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786455, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0 )
-_sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="WarpPortal" parent="." index="2" instance=ExtResource( 5 )]
-
+[node name="WarpPortal" parent="." instance=ExtResource( 5 )]
 modulate = Color( 0.901961, 0.945098, 0.145098, 1 )
 self_modulate = Color( 0.0234375, 0.00247192, 0.00247192, 1 )
 position = Vector2( 257, 40 )
 new_scene = "res://Rooms/Test/T-2/T-2.tscn"
 player_new_position = Vector2( 97, 60 )
 
-[node name="YSort" type="YSort" parent="." index="3"]
+[node name="YSort" type="YSort" parent="."]
 
-sort_enabled = true
-
-[node name="Boque" parent="YSort" index="0" instance=ExtResource( 6 )]
-
+[node name="Boque" parent="YSort" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 304, 112 )
 
-[node name="DialogueTree" parent="YSort/Boque" index="3" instance=ExtResource( 7 )]
-
+[node name="DialogueTree" parent="YSort/Boque" instance=ExtResource( 7 )]
 face_texture = ExtResource( 8 )
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree" instance=ExtResource( 9 )]
 message = "hello. blah blah. blahblah? bababa, baba."
+text_delay = 0.0
 function = "test_react"
+args = [  ]
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 9 )]
 key = "yeah"
 message = "cool"
+text_delay = 0.0
+args = [  ]
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" index="1" instance=ExtResource( 9 )]
-
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 9 )]
 key = "no"
 message = "man"
+text_delay = 0.0
+args = [  ]
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" instance=ExtResource( 9 )]
 message = "really?"
 text_delay = 0.07
+args = [  ]
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 9 )]
 key = "yep"
 message = "heck you. "
+text_delay = 0.0
+args = [  ]
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 9 )]
+text_delay = 0.0
 function = "enter_battle"
+args = [  ]
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" index="1" instance=ExtResource( 9 )]
-
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 9 )]
 key = "nope"
 message = "wow dumy"
+text_delay = 0.0
+args = [  ]
 
-[node name="Boque2" parent="YSort" index="1" instance=ExtResource( 6 )]
-
-editor/display_folded = true
+[node name="Boque2" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 226, 106 )
 
-[node name="DialogueTree" parent="YSort/Boque2" index="3" instance=ExtResource( 7 )]
-
+[node name="DialogueTree" parent="YSort/Boque2" instance=ExtResource( 7 )]
 face_texture = ExtResource( 8 )
 
-[node name="DiagPiece" parent="YSort/Boque2/DialogueTree" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 9 )]
 message = "battle time"
+text_delay = 0.0
+args = [  ]
 
-[node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-
+[node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" instance=ExtResource( 9 )]
+text_delay = 0.0
 expression = "sidemouth"
-function = "enter_battle"
+args = [  ]
 
-[node name="Player" parent="YSort" index="2" instance=ExtResource( 10 )]
-
+[node name="Player" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 265, 103 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Light2D" type="Light2D" parent="." index="4"]
-
+[node name="Light2D" type="Light2D" parent="."]
 visible = false
 position = Vector2( 169, 84 )
-enabled = true
-editor_only = false
 texture = ExtResource( 11 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
 energy = 0.92
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
 shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Shadow", "Transform" ]
 
-[node name="Light2D2" type="Light2D" parent="." index="5"]
-
+[node name="Light2D2" type="Light2D" parent="."]
 visible = false
 position = Vector2( 290, 127 )
-enabled = true
-editor_only = false
 texture = ExtResource( 11 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
 shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Shadow", "Transform" ]
 
-[node name="TestItem" parent="." index="6" instance=ExtResource( 12 )]
-
+[node name="TestItem" parent="." instance=ExtResource( 12 )]
 position = Vector2( 166, 111 )
 z_index = -2
-_sections_unfolded = [ "Z Index" ]
 
-[node name="Camera" parent="." index="7" instance=ExtResource( 13 )]
+[node name="Camera" parent="." instance=ExtResource( 13 )]
 
-[node name="HUD" type="CanvasLayer" parent="." index="8"]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Diag" parent="HUD" index="0" instance=ExtResource( 14 )]
-
+[node name="Diag" parent="HUD" instance=ExtResource( 14 )]
 visible = false
 
-[node name="ColorRect2" type="ColorRect" parent="HUD" index="1"]
-
+[node name="ColorRect2" type="ColorRect" parent="HUD"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -3.0
 margin_top = -6.0
 margin_right = 392.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 0.563529 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SceneTransition" parent="HUD" index="2" instance=ExtResource( 15 )]
-
-visible = false
-
+[node name="SceneTransition" parent="HUD" instance=ExtResource( 15 )]
 
