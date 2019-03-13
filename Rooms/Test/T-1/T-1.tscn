@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Rooms/Test/T-1/TestRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=8]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Engine/light.png" type="Texture" id=11]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=15]
+[ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Engine/light.png" type="Texture" id=12]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=16]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -148,10 +149,13 @@ args = [  ]
 [node name="Player" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 265, 103 )
 
+[node name="SaveTester" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 293, 53 )
+
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
 position = Vector2( 169, 84 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
 energy = 0.92
 shadow_enabled = true
@@ -159,20 +163,20 @@ shadow_enabled = true
 [node name="Light2D2" type="Light2D" parent="."]
 visible = false
 position = Vector2( 290, 127 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
 shadow_enabled = true
 
-[node name="TestItem" parent="." instance=ExtResource( 12 )]
+[node name="TestItem" parent="." instance=ExtResource( 13 )]
 position = Vector2( 166, 111 )
 z_index = -2
 
-[node name="Camera" parent="." instance=ExtResource( 13 )]
+[node name="Camera" parent="." instance=ExtResource( 14 )]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Diag" parent="HUD" instance=ExtResource( 14 )]
+[node name="Diag" parent="HUD" instance=ExtResource( 15 )]
 visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="HUD"]
@@ -186,5 +190,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SceneTransition" parent="HUD" instance=ExtResource( 15 )]
+[node name="SceneTransition" parent="HUD" instance=ExtResource( 16 )]
+visible = false
 
