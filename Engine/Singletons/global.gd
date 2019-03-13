@@ -18,7 +18,9 @@ func start_battle(foes):
 #	prev_scene = (str(get_tree().get_current_scene().get_path()) + ".tscn").replace("/root", "res:/")
 	
 	var battle_scene = load("res://Engine/Battle/BattleScene.tscn")
-	get_tree().get_root().add_child(battle_scene)
+	
+	#broken
+	#get_tree().get_root().add_child(battle_scene)
 	
 	prev_scene = load(get_tree().get_current_scene().filename)
 	print(prev_scene)

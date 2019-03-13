@@ -28,32 +28,32 @@ func _ready():
 
 func _process(delta):
 	
-		
-	if visible and $Choices.visible and not choices.empty():
-		if Input.is_action_just_pressed("down"):
-			selected_choice = clamp(selected_choice + 1, 0, choices.size() - 1)
-		elif Input.is_action_just_pressed("up"):
-			selected_choice = clamp(selected_choice - 1, 0, choices.size() - 1)
-		
-		
-		select_graphic_offset = selected_choice * 30
-		$Choices/Selection.position.y = select_graphic_offset
-		
-		if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
-			for D in target_piece.get_children():
-				if D.key == choices[selected_choice]:
-					update_boxes(D)
-					break
-	else:
-		if Input.is_action_just_pressed("a"):
-			if $TextBox.text == visible_new_text:
-				if target_piece.get_children():
-					update_boxes(target_piece.get_child(0))
-				else:
-					close()
-			elif $TextBox.text.length() > 2 and target_piece.skippable:
-				$TextBox.text = visible_new_text
-				text_index = $TextBox.text.length() - 1
+	if visible:
+		if $Choices.visible and not choices.empty():
+			if Input.is_action_just_pressed("down"):
+				selected_choice = clamp(selected_choice + 1, 0, choices.size() - 1)
+			elif Input.is_action_just_pressed("up"):
+				selected_choice = clamp(selected_choice - 1, 0, choices.size() - 1)
+			
+			
+			select_graphic_offset = selected_choice * 30
+			$Choices/Selection.position.y = select_graphic_offset
+			
+			if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
+				for D in target_piece.get_children():
+					if D.key == choices[selected_choice]:
+						update_boxes(D)
+						break
+		else:
+			if Input.is_action_just_pressed("a"):
+				if $TextBox.text == visible_new_text:
+					if target_piece.get_children():
+						update_boxes(target_piece.get_child(0))
+					else:
+						close()
+				elif $TextBox.text.length() > 2 and target_piece.skippable:
+					$TextBox.text = visible_new_text
+					text_index = $TextBox.text.length() - 1
 			
 
 func start_talk(obj):
@@ -174,6 +174,7 @@ func next_letter_time():
 			$TextBox/Timer.wait_time = text_time + 0.1
 		else:
 			$TextBox/Timer.wait_time = text_time
+			
 		text_index += 1
 		if new_text[text_index] != "`":
 			$TextBox.text += new_text[text_index]
