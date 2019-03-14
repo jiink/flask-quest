@@ -36,13 +36,16 @@ var next_player_position
 
 signal transition_close
 
-
+onready var game_saver = get_node("/root/GameSaver")
 
 func _ready():
 	connect_to_transition()
 	#(#get_tree().get_nodes_in_group("Camera")[0].get_node("../HUD/SceneTransition"), "fade_out")
 
 func start_scene_switch(new_scene, new_player_position):
+	# save!!!
+	game_saver.save(0) # todo: slot changing
+	
 	print("changing scenes")
 	next_scene = new_scene
 	next_player_position = new_player_position
@@ -59,6 +62,10 @@ func swap_scenes():
 		get_tree().get_nodes_in_group("Player")[0].position = next_player_position
 	else:
 		print("warning: new player pos is null")
+	
+	# load!!
+	
+	game_saver.load(0)
 
 func connect_to_transition():
 	connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")
