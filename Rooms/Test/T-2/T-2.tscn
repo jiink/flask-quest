@@ -11,151 +11,76 @@
 [ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=9]
 
 [node name="TestRoom" type="Node"]
-
 script = ExtResource( 1 )
 battle_bg = ExtResource( 2 )
 
-[node name="TileMaps" type="Node" parent="." index="0"]
-
+[node name="TileMaps" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Floor" type="TileMap" parent="TileMaps" index="0"]
-
+[node name="Floor" type="TileMap" parent="TileMaps"]
 position = Vector2( 48, 16 )
 z_index = -10
-mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 65537, 1, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 1, 0, 131073, 1, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 1, 0, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 1, 0, 262145, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 1, 0, 327681, 1, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 1, 0, 393217, 1, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 1, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 1, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Above" type="TileMap" parent="TileMaps" index="1"]
-
+[node name="Above" type="TileMap" parent="TileMaps"]
 z_index = 10
-mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 589829, 2, 0, 589830, 2, 0, 589835, 2, 0, 589836, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionMap" type="TileMap" parent="TileMaps" index="2"]
-
+[node name="CollisionMap" type="TileMap" parent="TileMaps"]
 visible = false
-mode = 0
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 131076, 0, 0, 131085, 0, 0, 196612, 0, 0, 196621, 0, 0, 262148, 0, 0, 262157, 0, 0, 327684, 0, 0, 327693, 0, 0, 393220, 0, 0, 393229, 0, 0, 458756, 0, 0, 458765, 0, 0, 524292, 0, 0, 524301, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0 )
-_sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="WarpPortal" parent="." index="1" instance=ExtResource( 5 )]
-
+[node name="WarpPortal" parent="." instance=ExtResource( 5 )]
 modulate = Color( 0.855469, 0.768481, 0.2005, 1 )
 position = Vector2( 97, 46 )
-_sections_unfolded = [ "Visibility" ]
 new_scene = "res://Rooms/Test/T-1/T-1.tscn"
 player_new_position = Vector2( 258, 57 )
 
-[node name="YSort" type="YSort" parent="." index="2"]
-
-sort_enabled = true
+[node name="YSort" type="YSort" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="YSort" index="0" instance=ExtResource( 6 )]
-
+[node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 184, 134 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Camera" parent="." index="3" instance=ExtResource( 7 )]
-
+[node name="Camera" parent="." instance=ExtResource( 7 )]
 follow_player = false
 
-[node name="HUD" type="CanvasLayer" parent="." index="4"]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Diag" parent="HUD" index="0" instance=ExtResource( 8 )]
-
+[node name="Diag" parent="HUD" instance=ExtResource( 8 )]
 visible = false
 
-[node name="ColorRect2" type="ColorRect" parent="HUD" index="1"]
-
+[node name="ColorRect2" type="ColorRect" parent="HUD"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -3.0
 margin_top = -6.0
 margin_right = 392.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 0.563529 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SceneTransition" parent="HUD" index="2" instance=ExtResource( 9 )]
-
+[node name="SceneTransition" parent="HUD" instance=ExtResource( 9 )]
 visible = false
-_sections_unfolded = [ "Z Index" ]
-
 

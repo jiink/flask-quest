@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Rooms/Test/T-1/TestRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=17]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -78,7 +79,6 @@ __meta__ = {
 modulate = Color( 0.901961, 0.945098, 0.145098, 1 )
 self_modulate = Color( 0.0234375, 0.00247192, 0.00247192, 1 )
 position = Vector2( 257, 40 )
-new_scene = "res://Rooms/Test/T-2/T-2.tscn"
 player_new_position = Vector2( 97, 60 )
 
 [node name="YSort" type="YSort" parent="."]
@@ -131,6 +131,7 @@ text_delay = 0.0
 args = [  ]
 
 [node name="Boque2" parent="YSort" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( 226, 106 )
 
 [node name="DialogueTree" parent="YSort/Boque2" instance=ExtResource( 7 )]
@@ -151,6 +152,12 @@ position = Vector2( 265, 103 )
 
 [node name="SaveTester" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 293, 53 )
+
+[node name="SaveTester2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 316, 53 )
+
+[node name="SaveTester3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 339, 52 )
 
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
@@ -192,4 +199,11 @@ __meta__ = {
 
 [node name="SceneTransition" parent="HUD" instance=ExtResource( 16 )]
 visible = false
+
+[node name="TelePortal" parent="." instance=ExtResource( 17 )]
+modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
+position = Vector2( 344, 127 )
+
+[node name="Position2D" type="Position2D" parent="TelePortal"]
+position = Vector2( -184, 27 )
 
