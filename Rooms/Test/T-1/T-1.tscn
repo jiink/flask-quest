@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Rooms/Test/T-1/TestRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -14,9 +14,8 @@
 [ext_resource path="res://Engine/light.png" type="Texture" id=12]
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=16]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -83,6 +82,7 @@ new_scene = "res://Rooms/Test/T-2/T-2.tscn"
 player_new_position = Vector2( 98, 63 )
 
 [node name="YSort" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Boque" parent="YSort" instance=ExtResource( 6 )]
 editor/display_folded = true
@@ -161,7 +161,6 @@ position = Vector2( 316, 53 )
 position = Vector2( 339, 52 )
 
 [node name="Light2D" type="Light2D" parent="."]
-visible = false
 position = Vector2( 169, 84 )
 texture = ExtResource( 12 )
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
@@ -169,8 +168,7 @@ energy = 0.92
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="."]
-visible = false
-position = Vector2( 290, 127 )
+position = Vector2( 286, 118 )
 texture = ExtResource( 12 )
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
@@ -182,29 +180,14 @@ z_index = -2
 
 [node name="Camera" parent="." instance=ExtResource( 14 )]
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" parent="." instance=ExtResource( 15 )]
 
-[node name="Diag" parent="HUD" instance=ExtResource( 15 )]
-visible = false
-
-[node name="ColorRect2" type="ColorRect" parent="HUD"]
-visible = false
-margin_left = -3.0
-margin_top = -6.0
-margin_right = 392.0
-margin_bottom = 231.0
-color = Color( 0, 0, 0, 0.563529 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="SceneTransition" parent="HUD" instance=ExtResource( 16 )]
-visible = false
-
-[node name="TelePortal" parent="." instance=ExtResource( 17 )]
+[node name="TelePortal" parent="." instance=ExtResource( 16 )]
 modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
 position = Vector2( 344, 127 )
 
 [node name="Position2D" type="Position2D" parent="TelePortal"]
 position = Vector2( -162, -95 )
 
+
+[editable path="HUD"]
