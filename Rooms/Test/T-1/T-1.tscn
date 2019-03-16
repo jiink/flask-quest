@@ -79,7 +79,8 @@ __meta__ = {
 modulate = Color( 0.901961, 0.945098, 0.145098, 1 )
 self_modulate = Color( 0.0234375, 0.00247192, 0.00247192, 1 )
 position = Vector2( 257, 40 )
-player_new_position = Vector2( 97, 60 )
+new_scene = "res://Rooms/Test/T-2/T-2.tscn"
+player_new_position = Vector2( 98, 63 )
 
 [node name="YSort" type="YSort" parent="."]
 

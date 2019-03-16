@@ -1,5 +1,6 @@
 extends Node2D
 
+export (String, FILE, "*.tscn") var new_scene = ""
 export (Vector2) var player_new_position = null
 
 func _ready():
@@ -7,13 +8,10 @@ func _ready():
 	$AnimationPlayer.play("normal")
 	
 func on_body_entered(body):
-	print(str(body.name) + " entered teleportal")
+	print(str(body.name) + " entered portal")
 	
-	
-	if has_node("Position2D"):
-		print("%s -> %s" % [body.position, $Position2D.get_global_transform()[2]])
-		body.position = $Position2D.get_global_transform()[2]
-	elif player_new_position != null:
-		body.position = player_new_position.position
+	if new_scene != "":
+		#get_tree().change_scene(new_scene)
+		get_node("/root/global").start_scene_switch(new_scene, player_new_position)
 	else:
-		print("error: teleportal doesn't have destination")
+		print("error: new_scene empty")
