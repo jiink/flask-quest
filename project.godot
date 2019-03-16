@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 global="*res://Engine/Singletons/global.gd"
 GameSaver="*res://Engine/Singletons/Save/GameSaver.gd"
+ItemManager="*res://Engine/Items/ItemManager.gd"
 
 [debug]
 
