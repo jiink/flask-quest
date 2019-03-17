@@ -6,11 +6,13 @@ export (float) var sprintMultiplier
 var sprint = false
 var motion = Vector2(0, 0)
 var direction = "right"
+var frozen = false
 
 onready var interactionZone = $Interaction/InteractionZone
 
 func _process(delta):
-	if not get_owner().get_node("HUD/Diag").visible:
+	#if not get_owner().get_node("HUD/Diag").visible:
+	if not frozen:
 		get_inputs()
 	else:
 		# stop player when diag box is up.

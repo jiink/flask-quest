@@ -27,7 +27,6 @@ func _ready():
 	#$TextBox.add_font_override("font", text_font)
 
 func _process(delta):
-	
 	if visible:
 		if $Choices.visible and not choices.empty():
 			if Input.is_action_just_pressed("down"):
@@ -54,7 +53,8 @@ func _process(delta):
 				elif $TextBox.text.length() > 2 and target_piece.skippable:
 					$TextBox.text = visible_new_text
 					text_index = $TextBox.text.length() - 1
-			
+					
+	
 
 func start_talk(obj):
 	print("start_talk exec'd")
@@ -188,6 +188,8 @@ func next_letter_time():
 func open():
 	set_visible(true)
 	$Choices.set_visible(false)
+	get_tree().get_nodes_in_group("Player")[0].frozen = true
 	
 func close():
 	set_visible(false)
+	get_tree().get_nodes_in_group("Player")[0].frozen = false
