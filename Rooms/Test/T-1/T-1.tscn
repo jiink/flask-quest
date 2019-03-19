@@ -181,9 +181,6 @@ z_index = -2
 
 [node name="HUD" parent="." instance=ExtResource( 15 )]
 
-[node name="InventoryMenu" parent="HUD" index="2"]
-visible = false
-
 [node name="TelePortal" parent="." instance=ExtResource( 16 )]
 modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
 position = Vector2( 344, 127 )
