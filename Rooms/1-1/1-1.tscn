@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Rooms/1-1/bg_lab_01.tres" type="TileSet" id=1]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Engine/light2.png" type="Texture" id=4]
+[ext_resource path="res://Engine/light.png" type="Texture" id=4]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -1, 1.00001, 1, 1.00001, 1, -1, -1, -0.999992 )
@@ -40,6 +42,7 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -100
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
@@ -148,4 +151,8 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 559, 57.5 )
 scale = Vector2( 1, 6.5 )
 occluder = SubResource( 1 )
+
+[node name="Camera" parent="." instance=ExtResource( 5 )]
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
 
