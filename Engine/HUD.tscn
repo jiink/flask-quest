@@ -13,4 +13,5 @@ visible = false
 visible = false
 
 [node name="InventoryMenu" parent="." instance=ExtResource( 3 )]
+visible = false
 
