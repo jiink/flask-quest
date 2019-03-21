@@ -10,6 +10,10 @@ var submit = null
 var face_index = 0
 var has_face = false
 
+var stored_function = ""
+var stored_function_args = []
+
+
 # "`" for delay
 var effectchars = "`"
 var visible_new_text = ""
@@ -144,30 +148,38 @@ func update_boxes(new_target):
 		$TextBox.margin_left = 12
 	
 	# function
-	if target_piece.function != "":
-		if target_tree.get_parent().has_method(target_piece.function):
+	
+	if stored_function != "":
+		if target_tree.get_parent().has_method(stored_function):
 			# help me
-			if target_piece.args != null:
-				match target_piece.args.size():
+			if stored_function_args != null:
+				match stored_function_args.size():
 					0:
-						target_tree.get_parent().call(target_piece.function)
+						target_tree.get_parent().call(stored_function)
 					1:
-						target_tree.get_parent().call(target_piece.function, target_piece.args[0])
+						target_tree.get_parent().call(stored_function, stored_function_args[0])
 					2:
-						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1])
+						target_tree.get_parent().call(stored_function, stored_function_args[0], stored_function_args[1])
 					3:
-						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2])
+						target_tree.get_parent().call(stored_function, stored_function_args[0], stored_function_args[1], stored_function_args[2])
 					4:
-						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3])
+						target_tree.get_parent().call(stored_function, stored_function_args[0], stored_function_args[1], stored_function_args[2], stored_function_args[3])
 					5:
-						target_tree.get_parent().call(target_piece.function, target_piece.args[0], target_piece.args[1], target_piece.args[2], target_piece.args[3], target_piece.args[4])
+						target_tree.get_parent().call(stored_function, stored_function_args[0], stored_function_args[1], stored_function_args[2], stored_function_args[3], stored_function_args[4])
 					_:
 						pass
 			else:
-				target_tree.get_parent().call(target_piece.function)
+				target_tree.get_parent().call(stored_function)
 		else:
 			print("diag function not found")
-			
+		
+		stored_function = ""
+		stored_function_args = []
+	
+	if target_piece.function != "":
+		stored_function = target_piece.function
+		stored_function_args = target_piece.args
+	
 func next_letter_time():
 	if text_index < new_text.length() - 1:
 		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
