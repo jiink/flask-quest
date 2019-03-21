@@ -46,6 +46,7 @@ func _process(delta):
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
 						update_boxes(D)
+						do_stored_func()
 						break
 		else:
 			if Input.is_action_just_pressed("a"):
@@ -54,6 +55,7 @@ func _process(delta):
 						update_boxes(target_piece.get_child(0))
 					else:
 						close()
+						do_stored_func()
 				elif $TextBox.text.length() > 2 and target_piece.skippable:
 					$TextBox.text = visible_new_text
 					text_index = $TextBox.text.length() - 1
@@ -149,6 +151,30 @@ func update_boxes(new_target):
 	
 	# function
 	
+
+	
+	if target_piece.function != "":
+		stored_function = target_piece.function
+		stored_function_args = target_piece.args
+	
+func next_letter_time():
+	if text_index < new_text.length() - 1:
+		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
+			$TextBox/Timer.wait_time = text_time + 0.1
+		else:
+			$TextBox/Timer.wait_time = text_time
+			
+		text_index += 1
+		if new_text[text_index] != "`":
+			$TextBox.text += new_text[text_index]
+	else:
+		text_index = -1
+		
+		$TextBox/Timer.stop()
+		$Choices.set_visible(not choices.empty())
+		#close()
+
+func do_stored_func():
 	if stored_function != "":
 		if target_tree.get_parent().has_method(stored_function):
 			# help me
@@ -172,31 +198,9 @@ func update_boxes(new_target):
 				target_tree.get_parent().call(stored_function)
 		else:
 			print("diag function not found")
-		
-		stored_function = ""
-		stored_function_args = []
-	
-	if target_piece.function != "":
-		stored_function = target_piece.function
-		stored_function_args = target_piece.args
-	
-func next_letter_time():
-	if text_index < new_text.length() - 1:
-		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
-			$TextBox/Timer.wait_time = text_time + 0.1
-		else:
-			$TextBox/Timer.wait_time = text_time
-			
-		text_index += 1
-		if new_text[text_index] != "`":
-			$TextBox.text += new_text[text_index]
-	else:
-		text_index = -1
-		
-		$TextBox/Timer.stop()
-		$Choices.set_visible(not choices.empty())
-		#close()
-		
+	stored_function = ""
+	stored_function_args = []
+
 func open():
 	set_visible(true)
 	$Choices.set_visible(false)
