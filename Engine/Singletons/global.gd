@@ -17,15 +17,29 @@ func start_battle(foes):
 	#print(get_tree().get_current_scene().get_path())
 #	prev_scene = (str(get_tree().get_current_scene().get_path()) + ".tscn").replace("/root", "res:/")
 	
-	var battle_scene = load("res://Engine/Battle/BattleScene.tscn")
+	var battle_scene = load("res://Engine/Battle/BattleScene.tscn").instance()
+	get_tree().get_current_scene().get_node("Camera").current = false
+	get_tree().paused = true
+	for child in get_tree().get_current_scene().get_children():
+		#child.set_process(false)
+		#child.paused = true
+		if not child.get("visible") == null:
+			child.visible = false
+	
+	get_tree().get_current_scene().add_child(battle_scene)
+	
+	get_tree().get_current_scene().get_node("BattleScene/Camera").current = true
+	
+	
+	#print("after battle start: %s" % get_tree().get_current_scene().get_children())
 	
 	#broken
 	#get_tree().get_root().add_child(battle_scene)
 	
-	prev_scene = load(get_tree().get_current_scene().filename)
-	print(prev_scene)
+	#prev_scene = load(get_tree().get_current_scene().filename)
+	#print(prev_scene)
 	#get_tree().change_scene("res://Engine/Battle/BattleScene.tscn")
-	get_tree().get_root().remove_child(prev_scene)
+	#get_tree().get_root().remove_child(prev_scene)
 
 
 ################## scene ##################
