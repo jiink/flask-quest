@@ -9,7 +9,7 @@ func interact():
 	emit_signal("talk", self)
 	
 func test_react():
-	print("AAAA TEST REACT")
+	print("~~~~~~~~AAAA TEST REACT~~~~~~~~")
 	
 func test_react2(foo, x, y):
 	print(foo + str(x + y))

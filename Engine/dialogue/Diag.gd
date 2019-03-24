@@ -46,7 +46,11 @@ func _process(delta):
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
 						update_boxes(D)
+<<<<<<< HEAD
 						do_stored_func()
+=======
+						run_func()
+>>>>>>> Fixed 7863eb0
 						break
 		else:
 			if Input.is_action_just_pressed("a"):
@@ -55,12 +59,16 @@ func _process(delta):
 						update_boxes(target_piece.get_child(0))
 					else:
 						close()
+<<<<<<< HEAD
 						do_stored_func()
+=======
+						run_func()
+					
+>>>>>>> Fixed 7863eb0
 				elif $TextBox.text.length() > 2 and target_piece.skippable:
 					$TextBox.text = visible_new_text
 					text_index = $TextBox.text.length() - 1
 					
-	
 
 func start_talk(obj):
 	print("start_talk exec'd")
@@ -151,8 +159,11 @@ func update_boxes(new_target):
 	
 	# function
 	
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> Fixed 7863eb0
 	if target_piece.function != "":
 		stored_function = target_piece.function
 		stored_function_args = target_piece.args
@@ -174,7 +185,13 @@ func next_letter_time():
 		$Choices.set_visible(not choices.empty())
 		#close()
 
+<<<<<<< HEAD
 func do_stored_func():
+=======
+func run_func():
+	print("stored func: %s" % stored_function)
+					
+>>>>>>> Fixed 7863eb0
 	if stored_function != "":
 		if target_tree.get_parent().has_method(stored_function):
 			# help me
@@ -198,8 +215,16 @@ func do_stored_func():
 				target_tree.get_parent().call(stored_function)
 		else:
 			print("diag function not found")
+<<<<<<< HEAD
 	stored_function = ""
 	stored_function_args = []
+=======
+		
+		stored_function = ""
+		stored_function_args = []
+
+
+>>>>>>> Fixed 7863eb0
 
 func open():
 	set_visible(true)
