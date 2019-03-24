@@ -27,7 +27,7 @@ func _ready():
 	
 	
 func _process(delta):
-	if Input.is_action_just_pressed("b"):
+	if Input.is_action_just_pressed("b") and get_node("../Diag").visible == false:
 		if not $InfoBar.visible:
 			set_visible(!visible)
 			get_tree().get_nodes_in_group("Player")[0].frozen = visible
