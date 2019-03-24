@@ -41,7 +41,12 @@ func start_battle(foes):
 	#get_tree().change_scene("res://Engine/Battle/BattleScene.tscn")
 	#get_tree().get_root().remove_child(prev_scene)
 
-
+func end_battle():
+	get_tree().get_current_scene().get_node("BattleScene").queue_free()
+	get_tree().paused = false
+	for child in get_tree().get_current_scene().get_children():
+		if not child.get("visible") == null:
+			child.visible = true
 ################## scene ##################
 
 var player_new_position
