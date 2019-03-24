@@ -80,6 +80,6 @@ func foe_died():
 		exit_battle()
 
 func exit_battle():
-	#get_tree().change_scene(global.prev_scene)
+	global.end_battle()
 	pass
 	

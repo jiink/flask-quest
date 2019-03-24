@@ -40,8 +40,11 @@ margin_right = 420.0
 margin_bottom = 214.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="TileMaps" type="Node" parent="."]
+[node name="TileMaps" type="Node2D" parent="."]
 editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Floor" type="TileMap" parent="TileMaps"]
 position = Vector2( 48, 16 )
@@ -138,7 +141,7 @@ face_texture = ExtResource( 8 )
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 9 )]
 message = "battle time"
 text_delay = 0.0
-function = "test_react"
+function = "enter_battle"
 args = [  ]
 
 [node name="Player" parent="YSort" instance=ExtResource( 10 )]
