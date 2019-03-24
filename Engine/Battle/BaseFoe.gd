@@ -11,7 +11,8 @@ func _ready():
 	max_hp = 100
 	hp = max_hp
 	
-	connect("foe_died", get_node("/root/BattleScene"), "foe_died")
+	#connect("foe_died", get_node("/root/BattleScene"), "foe_died")
+	connect("foe_died", get_node("../.."), "foe_died")
 	update_hp_label()
 	
 func get_hurt(damage):
