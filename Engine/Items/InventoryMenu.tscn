@@ -20,7 +20,6 @@ margin_bottom = 212.0
 columns = 15
 
 [node name="InfoBar" type="Node2D" parent="."]
-visible = false
 
 [node name="Backing" type="ColorRect" parent="InfoBar"]
 margin_left = 4.0
@@ -36,4 +35,57 @@ margin_right = 110.0
 margin_bottom = 120.0
 custom_fonts/font = ExtResource( 2 )
 text = "hbdbrddrb"
+
+[node name="ItemOptions" type="Node2D" parent="InfoBar"]
+
+[node name="Choices" type="Node2D" parent="InfoBar/ItemOptions"]
+
+[node name="Equip" type="Node2D" parent="InfoBar/ItemOptions/Choices"]
+editor/display_folded = true
+position = Vector2( 119, 74 )
+
+[node name="ColorRect" type="ColorRect" parent="InfoBar/ItemOptions/Choices/Equip"]
+margin_left = -1.0
+margin_top = -2.0
+margin_right = 80.0
+margin_bottom = 14.0
+color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
+
+[node name="Label" type="Label" parent="InfoBar/ItemOptions/Choices/Equip"]
+margin_left = 1.0
+margin_top = -3.0
+margin_right = 78.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 2 )
+text = "Equip"
+align = 1
+
+[node name="Toss" type="Node2D" parent="InfoBar/ItemOptions/Choices"]
+editor/display_folded = true
+position = Vector2( 118, 93 )
+
+[node name="ColorRect" type="ColorRect" parent="InfoBar/ItemOptions/Choices/Toss"]
+margin_top = -1.96
+margin_right = 81.0
+margin_bottom = 14.04
+color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
+
+[node name="Label" type="Label" parent="InfoBar/ItemOptions/Choices/Toss"]
+margin_left = 2.0
+margin_top = -3.00001
+margin_right = 79.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 2 )
+text = "Toss"
+align = 1
+
+[node name="Selection" type="Node2D" parent="InfoBar/ItemOptions"]
+position = Vector2( 119, 74 )
+
+[node name="ColorRect" type="ColorRect" parent="InfoBar/ItemOptions/Selection"]
+margin_left = -1.0
+margin_top = -2.0
+margin_right = 1.0
+margin_bottom = 14.0
+color = Color( 0.968627, 0.909804, 0.0313726, 1 )
 
