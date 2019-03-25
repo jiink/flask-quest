@@ -3,12 +3,10 @@ extends "res://Engine/Items/ItemDB.gd"
 #const item_db = preload("res://Engine/Items/ItemDB.gd")
 
 var owned_items = ['stick', 'stick', 'stick', 'stone']
-
+var loadout = []
 
 func _ready():
 	pass
-#
-#	print("Time to manage some items.\n")
 #
 #	for item in owned_items:
 #		item = item_list[item]

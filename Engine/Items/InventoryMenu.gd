@@ -68,12 +68,29 @@ func _process(delta):
 			selected_option = clamp(selected_option, 0, item_options.get_node("Choices").get_children().size() - 1)
 			item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
 			
-			if Input.is_action_just_pressed("a") and item_options.get_node("Choices").get_child(selected_option).name == "Toss":
-				toss_item(selection_index)
-				update_list()
-				$InfoBar.set_visible(false)
-			
+			if Input.is_action_just_pressed("a"):
+				if item_options.get_node("Choices").get_child(selected_option).name == "Toss":
+					toss_item(selection_index)
+					update_list()
+					$InfoBar.set_visible(false)
+				
+				elif item_options.get_node("Choices").get_child(selected_option).name == "Equip":
+					if manager.loadout.size() <3:
+						equip_item(selection_index)
+					else:
+						print("loadout full")
 func toss_item(ind):
 	manager.owned_items.remove(ind)
 	if $InfoBar.visible:
 		update_item_selection(selection_index)
+
+func equip_item(ind):
+	manager.loadout.append(ind)
+	
+	for thing in manager.loadout:
+		var equip_indicator = Sprite.new()
+		equip_indicator.set_name("EquipIndicator")
+		equip_indicator.set_texture(load("res://Items/Sprites/equipped.png"))
+		$GridContainer.get_child(thing).add_child(equip_indicator)
+		equip_indicator.position += Vector2(8, 8)
+		
