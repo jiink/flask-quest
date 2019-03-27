@@ -9,6 +9,8 @@ var selected_option = 0
 
 func update_list():
 	
+	# main inventory
+	
 	for child in $GridContainer.get_children():
 		child.queue_free()
 	
@@ -20,8 +22,18 @@ func update_list():
 		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
 		$GridContainer.add_child(item_sprite)
 	
-	#update_item_selection(selection_index)
+	# loadout
 	
+	for child in $Loadout/GridContainer.get_children():
+		child.queue_free()
+	
+	for item in manager.loadout:
+		var item_codename = item
+		item = manager.item_list[item]
+		var item_sprite = TextureRect.new()
+		item_sprite.set_name(item.name)
+		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
+		$Loadout/GridContainer.add_child(item_sprite)
 
 func update_item_selection(index):
 	selection_index = clamp(selection_index, 0, manager.owned_items.size()-1)
@@ -77,6 +89,7 @@ func _process(delta):
 				elif item_options.get_node("Choices").get_child(selected_option).name == "Equip":
 					if manager.loadout.size() <3:
 						equip_item(selection_index)
+						$InfoBar.set_visible(false)
 					else:
 						print("loadout full")
 func toss_item(ind):
@@ -85,12 +98,6 @@ func toss_item(ind):
 		update_item_selection(selection_index)
 
 func equip_item(ind):
-	manager.loadout.append(ind)
-	
-	for thing in manager.loadout:
-		var equip_indicator = Sprite.new()
-		equip_indicator.set_name("EquipIndicator")
-		equip_indicator.set_texture(load("res://Items/Sprites/equipped.png"))
-		$GridContainer.get_child(thing).add_child(equip_indicator)
-		equip_indicator.position += Vector2(8, 8)
-		
+	manager.loadout.append(manager.owned_items[ind])
+	toss_item(ind)
+	update_list()

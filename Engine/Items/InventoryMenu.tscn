@@ -89,3 +89,26 @@ margin_right = 1.0
 margin_bottom = 14.0
 color = Color( 0.968627, 0.909804, 0.0313726, 1 )
 
+[node name="Loadout" type="Node2D" parent="."]
+
+[node name="Backing2" type="ColorRect" parent="Loadout"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 108.0
+margin_bottom = 41.0
+color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
+
+[node name="Label" type="Label" parent="Loadout"]
+margin_left = 36.0
+margin_right = 87.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "Loadout"
+
+[node name="GridContainer" type="GridContainer" parent="Loadout"]
+margin_left = 7.0
+margin_top = 14.0
+margin_right = 106.0
+margin_bottom = 38.0
+columns = 3
+
