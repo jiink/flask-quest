@@ -1,6 +1,6 @@
 extends Node
 
-var item_list = {
+var items = {
 	'stick' : {
 		'name' : 'Stick',
 		'desc' : "It's quite sticky.",

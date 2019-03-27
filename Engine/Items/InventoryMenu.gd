@@ -14,9 +14,9 @@ func update_list():
 	for child in $GridContainer.get_children():
 		child.queue_free()
 	
-	for item in manager.owned_items:
+	for item in manager.inventory:
 		var item_codename = item
-		item = manager.item_list[item]
+		item = manager.items[item]
 		var item_sprite = TextureRect.new()
 		item_sprite.set_name(item.name)
 		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
@@ -29,15 +29,15 @@ func update_list():
 	
 	for item in manager.loadout:
 		var item_codename = item
-		item = manager.item_list[item]
+		item = manager.items[item]
 		var item_sprite = TextureRect.new()
 		item_sprite.set_name(item.name)
 		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
 		$Loadout/GridContainer.add_child(item_sprite)
 
 func update_item_selection(index):
-	selection_index = clamp(selection_index, 0, manager.owned_items.size()-1)
-	if manager.owned_items.size() > 0:
+	selection_index = clamp(selection_index, 0, manager.inventory.size()-1)
+	if manager.inventory.size() > 0:
 		item_selection.set_position($GridContainer.get_children()[selection_index].get_global_position() + Vector2(8,8)) 
 
 func _ready():
@@ -68,9 +68,9 @@ func _process(delta):
 				selection_index -= 1
 				update_item_selection(selection_index)
 			
-			if Input.is_action_just_pressed("a") and manager.owned_items.size() > 0:
-				$InfoBar/Label.text = "%s\n%s" % [manager.item_list[manager.owned_items[selection_index]].name,
-												  manager.item_list[manager.owned_items[selection_index]].desc]
+			if Input.is_action_just_pressed("a") and manager.inventory.size() > 0:
+				$InfoBar/Label.text = "%s\n%s" % [manager.items[manager.inventory[selection_index]].name,
+												  manager.items[manager.inventory[selection_index]].desc]
 				$InfoBar.set_visible(true)
 		else:
 			if Input.is_action_just_pressed("up"):
@@ -93,11 +93,11 @@ func _process(delta):
 					else:
 						print("loadout full")
 func toss_item(ind):
-	manager.owned_items.remove(ind)
+	manager.inventory.remove(ind)
 	if $InfoBar.visible:
 		update_item_selection(selection_index)
 
 func equip_item(ind):
-	manager.loadout.append(manager.owned_items[ind])
+	manager.loadout.append(manager.inventory[ind])
 	toss_item(ind)
 	update_list()
