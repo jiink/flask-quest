@@ -121,7 +121,10 @@ func get_enemy_choice():
 	set_arrow_pos()
 	
 	if Input.is_action_just_pressed("a"):
-		attack()
+		#attack()
+		# ^ whoah WHOIOAH whOAH there bucko, we gotta fill green up first
+		state = "pouring"
+		start_pouring_event()
 	elif Input.is_action_just_pressed("b"):
 		state = "player turn"
 		$SelectedFoeArrow.visible = false
@@ -173,6 +176,10 @@ func open_chems():
 func close_chems():
 	$SelectedChemArrow.visible = false
 	emit_signal("close_chems")
+
+func start_pouring_event():
+	var pouring = get_node("PouringEvent")
+	pouring.visible = true
 
 func exit_battle():
 	global.end_battle()
