@@ -1,7 +1,7 @@
 extends Sprite
 
 onready var battle = get_owner()
-onready var chem_anim = get_node("Chemicals/AnimationPlayer")
+onready var chem_anim = get_node("AnimationPlayer")
 
 func _ready():
 	chem_anim.connect("animation_finished", self, "chem_anim_finish")

@@ -4,11 +4,14 @@ signal hit_foe
 
 var state = "player turn"
 var selected_foe = 0
+var selected_chem = 0
 
 var selected_battle_choice = "attack"
 var battle_choice_confirmed = false
 
 onready var global = get_node("/root/global")
+onready var item_manager = get_node("/root/ItemManager")
+
 var foe = load("res://Engine/Battle/BaseFoe.tscn")
 
 func _ready():
@@ -28,6 +31,15 @@ func _ready():
 	# battle bg
 	$BattleBG.texture = global.battle_bg
 	
+	# put down the chemicals
+	print(item_manager.loadout)
+	for i in range(item_manager.loadout.size()):
+		var chem_tube = load("res://Items/Chemicals/%s.tscn" % item_manager.loadout[i])
+		chem_tube = chem_tube.instance()
+		chem_tube.set_name(item_manager.loadout[i])
+		chem_tube.position = Vector2(0, -27 + 35 * i)
+		$BattleChoices/Chemicals.add_child(chem_tube)
+		
 func _process(delta):
 	if state == "player turn":
 		get_move_choice()
@@ -46,16 +58,41 @@ func get_move_choice():
 				selected_battle_choice = "item"
 			else:
 				selected_battle_choice = "attack"
-	
+	else:
+		if selected_battle_choice == "attack":
+			get_chem_choice()
 	if Input.is_action_just_pressed("a"):
 #		if selected_battle_choice == "attack":
 #			state = "player choose chemical"
 #		elif selected_battle_choice == "item":
 #			state = "player choose item"
+		
 		battle_choice_confirmed = true
 	elif Input.is_action_just_pressed("b"):
 		battle_choice_confirmed = false
-		
+
+func get_chem_choice():
+	
+	if Input.is_action_just_pressed("down"):
+			selected_chem = (selected_chem+1) % item_manager.loadout.size()
+			
+	elif Input.is_action_just_pressed("up"):
+			selected_chem = (selected_chem-1) % item_manager.loadout.size()
+	
+	set_chem_arrow_pos()
+	
+	if Input.is_action_just_pressed("a"):
+		state = "player choose enemy"
+		#state = "attacking"
+
+func set_chem_arrow_pos():
+	if selected_chem != null:
+		$SelectedChemArrow.visible = true
+		$SelectedChemArrow.position.x = 100
+		$SelectedChemArrow.position.y = $BattleChoices/Chemicals.get_child(selected_chem).get_global_transform()[2][1] - 22 
+	else:
+		$SelectedChemArrow.visible = false
+
 func get_enemy_choice():
 	
 	if Input.is_action_just_pressed("right"):
@@ -77,7 +114,7 @@ func set_arrow_pos():
 		$SelectedFoeArrow.position.y = 64 
 	else:
 		$SelectedFoeArrow.visible = false
-		
+
 func get_foes():
 	return get_tree().get_nodes_in_group("foes")
 
