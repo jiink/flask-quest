@@ -46,7 +46,6 @@ margin_bottom = 38.0
 columns = 3
 
 [node name="InfoBar" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Backing" type="ColorRect" parent="InfoBar"]
 margin_left = 4.0
@@ -58,10 +57,11 @@ color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
 [node name="Label" type="Label" parent="InfoBar"]
 margin_left = 8.0
 margin_top = 76.0
-margin_right = 110.0
+margin_right = 111.0
 margin_bottom = 120.0
 custom_fonts/font = ExtResource( 2 )
 text = "hbdbrddrb"
+autowrap = true
 
 [node name="ItemOptions" type="Node2D" parent="InfoBar"]
 

@@ -46,7 +46,7 @@ func update_list():
 func update_item_selection(index):
 	selection_index = clamp(selection_index, 0, get_item_list().size()-1)
 	if get_item_list().size() > 0:
-		item_selection.set_position(container.get_children()[selection_index].get_global_position() + Vector2(8,8)) 
+		item_selection.set_position(container.get_children()[selection_index].get_global_position() + Vector2(12,12)) 
 
 func _ready():
 	update_list()
