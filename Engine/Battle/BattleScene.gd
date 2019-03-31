@@ -72,12 +72,12 @@ func get_move_choice():
 			open_chems()
 			
 	if Input.is_action_just_pressed("a"):
-		if not battle_choice_confirmed and selected_battle_choice == "attack":
-			emit_signal("chems_popout")
+#		if not battle_choice_confirmed and selected_battle_choice == "attack":
+#			emit_signal("chems_popout")
 		battle_choice_confirmed = true
 	elif Input.is_action_just_pressed("b"):
-		if battle_choice_confirmed and selected_battle_choice == "attack":
-			emit_signal("chems_popin")
+#		if battle_choice_confirmed and selected_battle_choice == "attack":
+#			emit_signal("chems_popin")
 			
 		battle_choice_confirmed = false
 		$SelectedChemArrow.visible = false
