@@ -1,65 +1,53 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Engine/Items/InventoryMenu.gd" type="Script" id=1]
-[ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Engine/Items/InventoryMenuSprites/backpack.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Items/InventoryMenuSprites/loadout.png" type="Texture" id=3]
+[ext_resource path="res://Engine/Items/InventoryMenuSprites/itemdetails.png" type="Texture" id=4]
+[ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=5]
 
 [node name="InventoryMenu" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Backing" type="ColorRect" parent="."]
-margin_top = 134.0
-margin_right = 384.0
-margin_bottom = 216.0
-color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
+[node name="backpack" type="Sprite" parent="."]
+position = Vector2( 292, 108 )
+texture = ExtResource( 2 )
 
 [node name="Inventory" type="Node2D" parent="."]
 position = Vector2( 0, 134 )
 
 [node name="GridContainer" type="GridContainer" parent="Inventory"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 379.0
-margin_bottom = 78.0
+margin_left = 288.0
+margin_top = -118.0
+margin_right = 376.0
+margin_bottom = 66.0
 columns = 15
 
 [node name="Loadout" type="Node2D" parent="."]
 
-[node name="Backing2" type="ColorRect" parent="Loadout"]
-margin_left = 5.0
-margin_top = 3.0
-margin_right = 108.0
-margin_bottom = 41.0
-color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
-
-[node name="Label" type="Label" parent="Loadout"]
-margin_left = 36.0
-margin_right = 87.0
-margin_bottom = 13.0
-custom_fonts/font = ExtResource( 2 )
-text = "Loadout"
+[node name="loadout" type="Sprite" parent="Loadout"]
+position = Vector2( 54, 111 )
+texture = ExtResource( 3 )
 
 [node name="GridContainer" type="GridContainer" parent="Loadout"]
-margin_left = 7.0
-margin_top = 14.0
-margin_right = 106.0
-margin_bottom = 38.0
+margin_left = 3.0
+margin_top = 55.0
+margin_right = 102.0
+margin_bottom = 148.0
 columns = 3
 
 [node name="InfoBar" type="Node2D" parent="."]
 
-[node name="Backing" type="ColorRect" parent="InfoBar"]
-margin_left = 4.0
-margin_top = 72.0
-margin_right = 115.0
-margin_bottom = 124.0
-color = Color( 0.0313726, 0.054902, 0.203922, 0.333333 )
+[node name="itemdetails" type="Sprite" parent="InfoBar"]
+position = Vector2( 198, 27 )
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="InfoBar"]
-margin_left = 8.0
-margin_top = 76.0
-margin_right = 111.0
-margin_bottom = 120.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = 133.0
+margin_top = 1.0
+margin_right = 262.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 5 )
 text = "hbdbrddrb"
 autowrap = true
 
@@ -83,12 +71,11 @@ margin_left = 1.0
 margin_top = -3.0
 margin_right = 78.0
 margin_bottom = 12.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 text = "Equip"
 align = 1
 
 [node name="Toss" type="Node2D" parent="InfoBar/ItemOptions/Choices"]
-editor/display_folded = true
 position = Vector2( 118, 93 )
 
 [node name="ColorRect" type="ColorRect" parent="InfoBar/ItemOptions/Choices/Toss"]
@@ -102,7 +89,7 @@ margin_left = 2.0
 margin_top = -3.00001
 margin_right = 79.0
 margin_bottom = 12.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 text = "Toss"
 align = 1
 
