@@ -9,8 +9,9 @@ var items = {
 		'name': 'Stone',
 		'desc': "A frozen mineral soup.",
 		},
-	'impossible_potion': {
-		'name': 'Impossible Potion',
+	'base_potion': {
+		'name': 'Base Potion',
 		'desc': "You shouldn't have this.",
+		'damage': '20'
 		},
 	}
