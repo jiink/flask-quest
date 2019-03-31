@@ -2,16 +2,22 @@ extends Node2D
 
 onready var manager = get_node("/root/ItemManager")
 onready var item_options = get_node("InfoBar/ItemOptions")
+onready var container = get_node("Inventory/GridContainer")
+#onready var item_list = get_node("/root/ItemManager").inventory
+
 var item_selection
 var selection_index = 0
 
 var selected_option = 0
 
+var state = "inventory"
+
+
 func update_list():
 	
 	# main inventory
 	
-	for child in $GridContainer.get_children():
+	for child in $Inventory/GridContainer.get_children():
 		child.queue_free()
 	
 	for item in manager.inventory:
@@ -20,13 +26,13 @@ func update_list():
 		var item_sprite = TextureRect.new()
 		item_sprite.set_name(item.name)
 		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
-		$GridContainer.add_child(item_sprite)
+		$Inventory/GridContainer.add_child(item_sprite)
 	
 	# loadout
 	
 	for child in $Loadout/GridContainer.get_children():
 		child.queue_free()
-	
+
 	for item in manager.loadout:
 		var item_codename = item
 		item = manager.items[item]
@@ -34,11 +40,13 @@ func update_list():
 		item_sprite.set_name(item.name)
 		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
 		$Loadout/GridContainer.add_child(item_sprite)
+		
+	print("ld: %s\ninv: %s" % [manager.loadout, manager.inventory])
 
 func update_item_selection(index):
-	selection_index = clamp(selection_index, 0, manager.inventory.size()-1)
-	if manager.inventory.size() > 0:
-		item_selection.set_position($GridContainer.get_children()[selection_index].get_global_position() + Vector2(8,8)) 
+	selection_index = clamp(selection_index, 0, get_item_list().size()-1)
+	if get_item_list().size() > 0:
+		item_selection.set_position(container.get_children()[selection_index].get_global_position() + Vector2(8,8)) 
 
 func _ready():
 	update_list()
@@ -68,10 +76,20 @@ func _process(delta):
 				selection_index -= 1
 				update_item_selection(selection_index)
 			
-			if Input.is_action_just_pressed("a") and manager.inventory.size() > 0:
-				$InfoBar/Label.text = "%s\n%s" % [manager.items[manager.inventory[selection_index]].name,
-												  manager.items[manager.inventory[selection_index]].desc]
+			if Input.is_action_just_pressed("a") and get_item_list().size() > 0:
+				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
+												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
+			
+			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+				if state == "inventory":
+					if manager.loadout.size() > 0:
+						state = "other"
+						container = get_node("Loadout/GridContainer")
+				else:
+					state = "inventory"
+					container = get_node("Inventory/GridContainer")
+				update_item_selection(selection_index)
 		else:
 			if Input.is_action_just_pressed("up"):
 				selected_option -= 1
@@ -87,17 +105,31 @@ func _process(delta):
 					$InfoBar.set_visible(false)
 				
 				elif item_options.get_node("Choices").get_child(selected_option).name == "Equip":
-					if manager.loadout.size() <3:
+					if state == "inventory":
+						if manager.loadout.size() <3:
+							equip_item(selection_index)
+							$InfoBar.set_visible(false)
+						else:
+							print("loadout full")
+					else:
 						equip_item(selection_index)
 						$InfoBar.set_visible(false)
-					else:
-						print("loadout full")
 func toss_item(ind):
 	manager.inventory.remove(ind)
 	if $InfoBar.visible:
 		update_item_selection(selection_index)
 
 func equip_item(ind):
-	manager.loadout.append(manager.inventory[ind])
-	toss_item(ind)
+	if state == "inventory":
+		manager.loadout.append(manager.inventory[ind])
+		toss_item(ind)
+	else:
+		manager.inventory.append(manager.loadout[ind])
+		manager.loadout.remove(ind)
+		update_item_selection(selection_index)
 	update_list()
+	
+func get_item_list():
+	if state == "inventory":
+		return get_node("/root/ItemManager").inventory
+	return get_node("/root/ItemManager").loadout
