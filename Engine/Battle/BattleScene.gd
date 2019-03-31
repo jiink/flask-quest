@@ -123,6 +123,7 @@ func get_enemy_choice():
 	if Input.is_action_just_pressed("a"):
 		#attack()
 		# ^ whoah WHOIOAH whOAH there bucko, we gotta fill green up first
+		yield(get_tree().create_timer(0.01), "timeout")
 		state = "pouring"
 		start_pouring_event()
 	elif Input.is_action_just_pressed("b"):
@@ -151,7 +152,8 @@ func get_foes():
 
 func attack():
 	print("attaaaack " + get_foes()[selected_foe].name)
-	get_foes()[selected_foe].call("get_hurt", 20)
+	get_foes()[selected_foe].call("get_hurt",
+		int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
 	#emit_signal("hit_foe", get_tree().get_nodes_in_group("foes")[i])
 	
 	#selected_foe = null
@@ -159,7 +161,8 @@ func attack():
 	
 	state = "player turn"
 	battle_choice_confirmed = false
-	close_chems()
+	#close_chems()
+	$PouringEvent.reset()
 	
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
@@ -178,8 +181,10 @@ func close_chems():
 	emit_signal("close_chems")
 
 func start_pouring_event():
+	#yield(get_tree().create_timer(0.1), "timeout")
 	var pouring = get_node("PouringEvent")
 	pouring.visible = true
+	close_chems()
 
 func exit_battle():
 	global.end_battle()

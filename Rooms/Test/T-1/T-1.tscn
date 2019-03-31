@@ -87,7 +87,6 @@ player_new_position = Vector2( 98, 63 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Boque" parent="YSort" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( 304, 112 )
 
 [node name="DialogueTree" parent="YSort/Boque" instance=ExtResource( 7 )]
@@ -120,6 +119,11 @@ args = [  ]
 key = "yep"
 message = "heck you. "
 text_delay = 0.0
+args = [  ]
+
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 9 )]
+text_delay = 0.0
+function = "enter_battle"
 args = [  ]
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 9 )]

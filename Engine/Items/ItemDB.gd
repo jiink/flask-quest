@@ -12,6 +12,6 @@ var items = {
 	'base_potion': {
 		'name': 'Base Potion',
 		'desc': "You shouldn't have this.",
-		'damage': '20'
+		'damage': '10'
 		},
 	}

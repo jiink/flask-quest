@@ -129,6 +129,21 @@ margin_bottom = 61.0
 rect_pivot_offset = Vector2( 29.99, 3 )
 color = Color( 0.803922, 0.054902, 0.054902, 1 )
 
+[node name="FillTarget" type="Node2D" parent="PouringEvent"]
+position = Vector2( 178, 145 )
+rotation = -1.5708
+
+[node name="Polygon2D" type="Polygon2D" parent="PouringEvent/FillTarget"]
+color = Color( 0.890196, 0.54902, 0.215686, 1 )
+polygon = PoolVector2Array( 0, 7, 8, 0, -8, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="PouringEvent/FillTarget"]
+margin_left = -1.0
+margin_top = 3.0
+margin_right = 1.0
+margin_bottom = 43.0
+color = Color( 0.890196, 0.54902, 0.215686, 1 )
+
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 192, 108 )
 __meta__ = {
