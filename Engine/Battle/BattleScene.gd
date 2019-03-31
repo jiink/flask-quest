@@ -92,7 +92,11 @@ func set_chem_arrow_pos():
 	if selected_chem != null:
 		$SelectedChemArrow.visible = true
 		$SelectedChemArrow.position.x = 100
-		$SelectedChemArrow.position.y = $BattleChoices/Chemicals.get_child(selected_chem).get_global_transform()[2][1] - 22 
+		#$SelectedChemArrow.position.y = $BattleChoices/Chemicals.get_child(selected_chem).get_global_transform()[2][1] - 22 
+		$SelectedChemArrow/Tween.interpolate_property($SelectedChemArrow, "position:y",
+			$SelectedChemArrow.position.y, $BattleChoices/Chemicals.get_child(selected_chem).get_global_transform()[2][1] - 22,
+			0.05, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$SelectedChemArrow/Tween.start()
 	else:
 		$SelectedChemArrow.visible = false
 
@@ -113,7 +117,12 @@ func get_enemy_choice():
 func set_arrow_pos():
 	if selected_foe != null:
 		$SelectedFoeArrow.visible = true
-		$SelectedFoeArrow.position.x = get_foes()[selected_foe].position.x
+		#$SelectedFoeArrow.position.x = get_foes()[selected_foe].position.x
+		$SelectedFoeArrow/Tween.interpolate_property($SelectedFoeArrow, "position:x",
+			$SelectedFoeArrow.position.x, get_foes()[selected_foe].position.x,
+			0.05, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		# DONT FORGET TO START THE TWEEN U MORON!
+		$SelectedFoeArrow/Tween.start()
 		$SelectedFoeArrow.position.y = 64 
 	else:
 		$SelectedFoeArrow.visible = false
