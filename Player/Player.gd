@@ -23,6 +23,16 @@ func _process(delta):
 	move_and_slide(movement)
 	change_izone_pos()
 		
+	$AnimatedSprite.animation = direction
+	if sprint:
+		$AnimatedSprite.speed_scale = 2.73
+	else:
+		$AnimatedSprite.speed_scale = 1.3
+	if motion.length() > 0:
+		$AnimatedSprite.playing = true
+	else:
+		$AnimatedSprite.playing = false
+		$AnimatedSprite.frame = 0
 func get_inputs():
 	motion = Vector2(0, 0)
 	if Input.is_action_pressed("up"):
@@ -39,20 +49,19 @@ func get_inputs():
 		Vector2(0, -1):
 			direction = "up"
 		Vector2(1, -1):
-			direction = "upright"
+			direction = "rightup"
 		Vector2(1, 0):
 			direction = "right"
 		Vector2(1, 1):
-			direction = "downright"
+			direction = "rightdown"
 		Vector2(0, 1):
 			direction = "down"
 		Vector2(-1, 1):
-			direction = "downleft"
+			direction = "leftdown"
 		Vector2(-1, 0):
 			direction = "left"
 		Vector2(-1, -1):
-			direction = "upleft"
-			
+			direction = "leftup"
 	sprint = Input.is_action_pressed("x")
 	
 	if Input.is_action_just_pressed("a"):
