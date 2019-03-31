@@ -19,7 +19,7 @@ func _ready():
 		var foe = load("res://NPC/" + global.initial_enemies[i] + "/" + global.initial_enemies[i] + "Foe.tscn")
 		var foe_instance = foe.instance()
 		foe_instance.set_name(global.initial_enemies[i])
-		foe_instance.position.x = 80 * i + 64
+		foe_instance.position.x = 80 * i + 140
 		foe_instance.position.y = 128
 		$Foes.add_child(foe_instance)
 		
