@@ -2,6 +2,9 @@ extends Node
 
 signal hit_foe
 
+signal open_chems
+signal close_chems
+
 var state = "player turn"
 var selected_foe = 0
 var selected_chem = 0
@@ -15,6 +18,9 @@ onready var item_manager = get_node("/root/ItemManager")
 var foe = load("res://Engine/Battle/BaseFoe.tscn")
 
 func _ready():
+	connect("open_chems", $BattleChoices, "open_chems")
+	connect("close_chems", $BattleChoices, "close_chems")
+	
 	
 	#
 	print(global.initial_enemies)
@@ -45,6 +51,7 @@ func _process(delta):
 		get_move_choice()
 	elif state == "player choose enemy":
 		$SelectedFoeArrow.visible = true
+		get_chem_choice()
 		get_enemy_choice()
 
 func get_move_choice():
@@ -60,21 +67,24 @@ func get_move_choice():
 				selected_battle_choice = "attack"
 	else:
 		if selected_battle_choice == "attack":
-			get_chem_choice()
+			#get_chem_choice()
+			state = "player choose enemy"
+			open_chems()
+			
 	if Input.is_action_just_pressed("a"):
-#		if selected_battle_choice == "attack":
-#			state = "player choose chemical"
-#		elif selected_battle_choice == "item":
-#			state = "player choose item"
-		
+		if not battle_choice_confirmed and selected_battle_choice == "attack":
+			emit_signal("chems_popout")
 		battle_choice_confirmed = true
 	elif Input.is_action_just_pressed("b"):
+		if battle_choice_confirmed and selected_battle_choice == "attack":
+			emit_signal("chems_popin")
+			
 		battle_choice_confirmed = false
 		$SelectedChemArrow.visible = false
 
 func get_chem_choice():
 	# (a % b + b) % b
-	# % is NOT modulo, it's REMAINER!!!
+	# % is NOT modulo, it's REMAINDER!!!
 	var b = item_manager.loadout.size()
 	if Input.is_action_just_pressed("down"):
 		selected_chem = ((selected_chem+1) % b + b) % b
@@ -84,8 +94,8 @@ func get_chem_choice():
 	
 	set_chem_arrow_pos()
 	
-	if Input.is_action_just_pressed("a"):
-		state = "player choose enemy"
+#	if Input.is_action_just_pressed("a"):
+#		state = "player choose enemy"
 		#state = "attacking"
 
 func set_chem_arrow_pos():
@@ -112,12 +122,18 @@ func get_enemy_choice():
 	
 	if Input.is_action_just_pressed("a"):
 		attack()
+	elif Input.is_action_just_pressed("b"):
+		state = "player turn"
+		$SelectedFoeArrow.visible = false
+		battle_choice_confirmed = false
+		close_chems()
 		#state = "attacking"
 
 func set_arrow_pos():
 	if selected_foe != null:
 		$SelectedFoeArrow.visible = true
 		#$SelectedFoeArrow.position.x = get_foes()[selected_foe].position.x
+		
 		$SelectedFoeArrow/Tween.interpolate_property($SelectedFoeArrow, "position:x",
 			$SelectedFoeArrow.position.x, get_foes()[selected_foe].position.x,
 			0.05, Tween.TRANS_LINEAR, Tween.EASE_IN)
@@ -137,7 +153,10 @@ func attack():
 	
 	#selected_foe = null
 	$SelectedFoeArrow.visible = false
+	
 	state = "player turn"
+	battle_choice_confirmed = false
+	close_chems()
 	
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
@@ -145,6 +164,15 @@ func foe_died():
 		selected_foe = (selected_foe - 1) % get_foes().size()
 	else:
 		exit_battle()
+
+func open_chems():
+	$SelectedChemArrow.visible = true
+	emit_signal("open_chems")
+	
+	
+func close_chems():
+	$SelectedChemArrow.visible = false
+	emit_signal("close_chems")
 
 func exit_battle():
 	global.end_battle()

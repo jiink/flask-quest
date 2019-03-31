@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Battle/BattleChoices.gd" type="Script" id=3]
+[ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=4]
+[ext_resource path="res://Engine/Battle/OrangePouring.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -39,6 +41,7 @@ position = Vector2( 192, 108 )
 [node name="Foes" type="YSort" parent="."]
 
 [node name="SelectedFoeArrow" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 
 [node name="Polygon2D" type="Polygon2D" parent="SelectedFoeArrow"]
@@ -48,6 +51,7 @@ polygon = PoolVector2Array( 0, 7, 8, 0, -8, 0 )
 [node name="Tween" type="Tween" parent="SelectedFoeArrow"]
 
 [node name="SelectedChemArrow" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 position = Vector2( 120, 0 )
 rotation = 1.5708
@@ -85,4 +89,14 @@ offset = Vector2( 192, 108 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PouringEvent" type="Node2D" parent="."]
+
+[node name="GreenFlask" type="Sprite" parent="PouringEvent"]
+position = Vector2( 202, 155 )
+texture = ExtResource( 4 )
+
+[node name="orangepouring" type="Sprite" parent="PouringEvent"]
+position = Vector2( 285, 119 )
+texture = ExtResource( 5 )
 
