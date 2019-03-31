@@ -70,6 +70,7 @@ func get_move_choice():
 		battle_choice_confirmed = true
 	elif Input.is_action_just_pressed("b"):
 		battle_choice_confirmed = false
+		$SelectedChemArrow.visible = false
 
 func get_chem_choice():
 	# (a % b + b) % b
