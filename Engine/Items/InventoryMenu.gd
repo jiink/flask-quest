@@ -41,7 +41,7 @@ func update_list():
 		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
 		$Loadout/GridContainer.add_child(item_sprite)
 		
-	print("ld: %s\ninv: %s" % [manager.loadout, manager.inventory])
+	#print("ld: %s\ninv: %s" % [manager.loadout, manager.inventory])
 
 func update_item_selection(index):
 	selection_index = clamp(selection_index, 0, get_item_list().size()-1)

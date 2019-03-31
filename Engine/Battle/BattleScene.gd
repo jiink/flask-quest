@@ -5,6 +5,9 @@ signal hit_foe
 var state = "player turn"
 var selected_foe = 0
 
+var selected_battle_choice = "attack"
+var battle_choice_confirmed = false
+
 onready var global = get_node("/root/global")
 var foe = load("res://Engine/Battle/BaseFoe.tscn")
 
@@ -33,10 +36,25 @@ func _process(delta):
 		get_enemy_choice()
 
 func get_move_choice():
+#	if Input.is_action_just_pressed("a"):
+#		state = "player choose enemy"
+#	elif Input.is_action_just_pressed("b"):
+#		exit_battle()
+	if not battle_choice_confirmed:
+		if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+			if selected_battle_choice == "attack":
+				selected_battle_choice = "item"
+			else:
+				selected_battle_choice = "attack"
+	
 	if Input.is_action_just_pressed("a"):
-		state = "player choose enemy"
+#		if selected_battle_choice == "attack":
+#			state = "player choose chemical"
+#		elif selected_battle_choice == "item":
+#			state = "player choose item"
+		battle_choice_confirmed = true
 	elif Input.is_action_just_pressed("b"):
-		exit_battle()
+		battle_choice_confirmed = false
 		
 func get_enemy_choice():
 	

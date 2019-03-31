@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BattleChoices.png-57db124b2b77400d03d51407d306b511.stex"
+path="res://.import/BattleMenu.png-199b141ba05eaf6a11b5845776435910.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/BattleChoices.png"
-dest_files=[ "res://.import/BattleChoices.png-57db124b2b77400d03d51407d306b511.stex" ]
+source_file="res://Engine/Battle/BattleMenu.png"
+dest_files=[ "res://.import/BattleMenu.png-199b141ba05eaf6a11b5845776435910.stex" ]
 
 [params]
 
