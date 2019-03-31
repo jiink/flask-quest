@@ -72,12 +72,14 @@ func get_move_choice():
 		battle_choice_confirmed = false
 
 func get_chem_choice():
-	
+	# (a % b + b) % b
+	# % is NOT modulo, it's REMAINER!!!
+	var b = item_manager.loadout.size()
 	if Input.is_action_just_pressed("down"):
-			selected_chem = (selected_chem+1) % item_manager.loadout.size()
-			
+		selected_chem = ((selected_chem+1) % b + b) % b
+		
 	elif Input.is_action_just_pressed("up"):
-			selected_chem = (selected_chem-1) % item_manager.loadout.size()
+		selected_chem = ((selected_chem-1) % b + b) % b
 	
 	set_chem_arrow_pos()
 	
