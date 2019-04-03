@@ -5,7 +5,16 @@ signal hit_foe
 signal open_chems
 signal close_chems
 
-var state = "player turn"
+enum {
+	PLAYER_TURN,
+	PLAYER_CHOOSE_ENEMY,
+	POURING,
+}
+	
+
+
+
+var state = PLAYER_TURN
 var selected_foe = 0
 var selected_chem = 0
 
@@ -47,16 +56,16 @@ func _ready():
 		$BattleChoices/Chemicals.add_child(chem_tube)
 		
 func _process(delta):
-	if state == "player turn":
+	if state == PLAYER_TURN:
 		get_move_choice()
-	elif state == "player choose enemy":
+	elif state == PLAYER_CHOOSE_ENEMY:
 		$SelectedFoeArrow.visible = true
 		get_chem_choice()
 		get_enemy_choice()
 
 func get_move_choice():
 #	if Input.is_action_just_pressed("a"):
-#		state = "player choose enemy"
+#		state = PLAYER_CHOOSE_ENEMY
 #	elif Input.is_action_just_pressed("b"):
 #		exit_battle()
 	if not battle_choice_confirmed:
@@ -68,7 +77,7 @@ func get_move_choice():
 	else:
 		if selected_battle_choice == "attack":
 			#get_chem_choice()
-			state = "player choose enemy"
+			state = PLAYER_CHOOSE_ENEMY
 			open_chems()
 			
 	if Input.is_action_just_pressed("a"):
@@ -95,7 +104,7 @@ func get_chem_choice():
 	set_chem_arrow_pos()
 	
 #	if Input.is_action_just_pressed("a"):
-#		state = "player choose enemy"
+#		state = PLAYER_CHOOSE_ENEMY
 		#state = "attacking"
 
 func set_chem_arrow_pos():
@@ -124,10 +133,10 @@ func get_enemy_choice():
 		#attack()
 		# ^ whoah WHOIOAH whOAH there bucko, we gotta fill green up first
 		yield(get_tree().create_timer(0.01), "timeout")
-		state = "pouring"
+		state = POURING
 		start_pouring_event()
 	elif Input.is_action_just_pressed("b"):
-		state = "player turn"
+		state = PLAYER_TURN
 		$SelectedFoeArrow.visible = false
 		battle_choice_confirmed = false
 		close_chems()
@@ -159,7 +168,7 @@ func attack():
 	#selected_foe = null
 	$SelectedFoeArrow.visible = false
 	
-	state = "player turn"
+	state = PLAYER_TURN
 	battle_choice_confirmed = false
 	#close_chems()
 	$PouringEvent.reset()

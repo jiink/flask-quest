@@ -17,7 +17,7 @@ func _ready():
 	visible = false
 
 func _process(delta):
-	if battle.state == "pouring":
+	if battle.state == battle.POURING:
 		# 0-100 to 216-96
 		# output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start)
 		$FillTarget.position.y = 216.0 + ((96.0 - 216.0) / (100.0 - 0.0)) * (target_perc - 0.0)
