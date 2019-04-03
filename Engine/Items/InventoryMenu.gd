@@ -81,15 +81,24 @@ func _process(delta):
 												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
 			
-			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
-				if state == "inventory":
-					if manager.loadout.size() > 0:
-						state = "other"
-						container = get_node("Loadout/GridContainer")
-				else:
-					state = "inventory"
-					container = get_node("Inventory/GridContainer")
-				update_item_selection(selection_index)
+#			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+#				if state == "inventory":
+#					if manager.loadout.size() > 0:
+#						state = "other"
+#						container = get_node("Loadout/GridContainer")
+#				else:
+#					state = "inventory"
+#					container = get_node("Inventory/GridContainer")
+#				update_item_selection(selection_index)
+				
+			if state == "inventory" and get_column() == 0 and Input.is_action_just_pressed("left"):
+				state = "other"
+				container = get_node("Loadout/GridContainer")
+			elif state != "inventory" and get_column() == 2 and Input.is_action_just_pressed("right"):
+				state = "inventory"
+				container = get_node("Inventory/GridContainer")
+			update_item_selection(selection_index)
+			
 		else:
 			if Input.is_action_just_pressed("up"):
 				selected_option -= 1
@@ -114,6 +123,17 @@ func _process(delta):
 					else:
 						equip_item(selection_index)
 						$InfoBar.set_visible(false)
+						
+func get_column():
+	var col_count
+	if state == "inventory":
+		col_count = $Inventory/GridContainer.columns
+	else:
+		col_count = $Loadout/GridContainer.columns
+		
+	return fmod(selection_index, col_count)
+	
+	
 func toss_item(ind):
 	manager.inventory.remove(ind)
 	if $InfoBar.visible:
