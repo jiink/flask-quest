@@ -28,7 +28,8 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed("a"):
 				stopped = true
-				effectiveness = 1.0 - (abs(target_perc - fill_perc) / fill_perc)
+				var error = (abs(target_perc - fill_perc) / fill_perc)
+				effectiveness = 1.0 - clamp(error, 0, 1.0)
 				print("effectiveness: %s" % effectiveness)
 				battle.attack()
 		
