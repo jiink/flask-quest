@@ -103,6 +103,11 @@ func _process(delta):
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
+				
+				if state == INVENTORY:
+					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
+				elif state == LOADOUT:
+					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
 			
 			
 			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("down"):
@@ -140,7 +145,6 @@ func get_column():
 	else:
 		col_count = $Loadout/GridContainer.columns
 		
-	print(fmod(selection_index, col_count))
 	return fmod(selection_index, col_count)
 	
 	
