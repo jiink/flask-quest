@@ -10,8 +10,11 @@ var selection_index = 0
 
 var selected_option = 0
 
-var state = "inventory"
-
+enum {
+	INVENTORY,
+	LOADOUT,
+}
+var state = INVENTORY
 
 func update_list():
 	
@@ -82,20 +85,20 @@ func _process(delta):
 				$InfoBar.set_visible(true)
 			
 #			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
-#				if state == "inventory":
+#				if state == INVENTORY:
 #					if manager.loadout.size() > 0:
-#						state = "other"
+#						state = LOADOUT
 #						container = get_node("Loadout/GridContainer")
 #				else:
-#					state = "inventory"
+#					state = INVENTORY
 #					container = get_node("Inventory/GridContainer")
 #				update_item_selection(selection_index)
 				
-			if state == "inventory" and get_column() == 0 and Input.is_action_just_pressed("left"):
-				state = "other"
+			if state == INVENTORY and get_column() == 0 and Input.is_action_just_pressed("left"):
+				state = LOADOUT
 				container = get_node("Loadout/GridContainer")
-			elif state != "inventory" and get_column() == 2 and Input.is_action_just_pressed("right"):
-				state = "inventory"
+			elif state != INVENTORY and get_column() == 2 and Input.is_action_just_pressed("right"):
+				state = INVENTORY
 				container = get_node("Inventory/GridContainer")
 			update_item_selection(selection_index)
 			
@@ -114,7 +117,7 @@ func _process(delta):
 					$InfoBar.set_visible(false)
 				
 				elif item_options.get_node("Choices").get_child(selected_option).name == "Equip":
-					if state == "inventory":
+					if state == INVENTORY:
 						if manager.loadout.size() <3:
 							equip_item(selection_index)
 							$InfoBar.set_visible(false)
@@ -126,7 +129,7 @@ func _process(delta):
 						
 func get_column():
 	var col_count
-	if state == "inventory":
+	if state == INVENTORY:
 		col_count = $Inventory/GridContainer.columns
 	else:
 		col_count = $Loadout/GridContainer.columns
@@ -140,7 +143,7 @@ func toss_item(ind):
 		update_item_selection(selection_index)
 
 func equip_item(ind):
-	if state == "inventory":
+	if state == INVENTORY:
 		manager.loadout.append(manager.inventory[ind])
 		toss_item(ind)
 	else:
@@ -150,6 +153,6 @@ func equip_item(ind):
 	update_list()
 	
 func get_item_list():
-	if state == "inventory":
+	if state == INVENTORY:
 		return get_node("/root/ItemManager").inventory
 	return get_node("/root/ItemManager").loadout
