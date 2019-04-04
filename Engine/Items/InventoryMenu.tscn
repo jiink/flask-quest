@@ -21,7 +21,7 @@ margin_left = 288.0
 margin_top = -118.0
 margin_right = 376.0
 margin_bottom = 66.0
-columns = 15
+columns = 3
 
 [node name="Loadout" type="Node2D" parent="."]
 

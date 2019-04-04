@@ -73,34 +73,40 @@ func _process(delta):
 		if not $InfoBar.visible:
 			
 			if Input.is_action_just_pressed("right"):
-				selection_index += 1
-				update_item_selection(selection_index)
+				
+				if state == LOADOUT:
+					if get_column() == manager.loadout.size() - 1:
+						state = INVENTORY
+						container = get_node("Inventory/GridContainer")
+					else:
+						selection_index += 1
+				
+				elif state == INVENTORY and get_column() != 2:
+					selection_index += 1
 			elif Input.is_action_just_pressed("left"):
+				
+				if state == INVENTORY and get_column() == 0:
+					state = LOADOUT
+					container = get_node("Loadout/GridContainer")
+				
+				
 				selection_index -= 1
-				update_item_selection(selection_index)
+				
 			
-			if Input.is_action_just_pressed("a") and get_item_list().size() > 0:
+			elif Input.is_action_just_pressed("up"):
+				selection_index -= 3
+			
+			elif Input.is_action_just_pressed("down"):
+				selection_index += 3
+			
+			elif Input.is_action_just_pressed("a") and get_item_list().size() > 0:
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
 			
-#			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
-#				if state == INVENTORY:
-#					if manager.loadout.size() > 0:
-#						state = LOADOUT
-#						container = get_node("Loadout/GridContainer")
-#				else:
-#					state = INVENTORY
-#					container = get_node("Inventory/GridContainer")
-#				update_item_selection(selection_index)
-				
-			if state == INVENTORY and get_column() == 0 and Input.is_action_just_pressed("left"):
-				state = LOADOUT
-				container = get_node("Loadout/GridContainer")
-			elif state != INVENTORY and get_column() == 2 and Input.is_action_just_pressed("right"):
-				state = INVENTORY
-				container = get_node("Inventory/GridContainer")
-			update_item_selection(selection_index)
+			
+			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("down"):
+				update_item_selection(selection_index)
 			
 		else:
 			if Input.is_action_just_pressed("up"):
@@ -134,6 +140,7 @@ func get_column():
 	else:
 		col_count = $Loadout/GridContainer.columns
 		
+	print(fmod(selection_index, col_count))
 	return fmod(selection_index, col_count)
 	
 	
