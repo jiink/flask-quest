@@ -13,7 +13,6 @@ polygon = PoolVector2Array( -1, 1.00001, 1, 1.00001, 1, -1, -1, -0.999992 )
 [node name="1-1" type="Node"]
 
 [node name="TileMaps" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="TileMaps"]
 tile_set = ExtResource( 1 )
