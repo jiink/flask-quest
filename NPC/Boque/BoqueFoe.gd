@@ -7,8 +7,8 @@ func _ready():
 	hp = max_hp
 	update_hp_label()
 	
-	$AnimationPlayer.play("Idle")
-	$AnimationPlayer.seek(rand_range(0,0.9))
+	#$AnimationPlayer.play("Idle")
+	#$AnimationPlayer.seek(rand_range(0,0.9))
 	
 func _process(delta):
 	pass

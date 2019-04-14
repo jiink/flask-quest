@@ -16,6 +16,7 @@ func _ready():
 	update_hp_label()
 	
 func get_hurt(damage):
+	$BaseAnimationPlayer.play("hurt")
 	hp -= damage
 	update_hp_label()
 	
