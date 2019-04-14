@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -22,6 +22,60 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 0.241484, 1.03526 ),
 "update": 0,
 "values": [ Vector2( -7, 2 ), Vector2( 25, 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slide in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GreenFlask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.120742, 1 ),
+"update": 0,
+"values": [ Vector2( 202, 278.624 ), Vector2( 202, 155 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orangepouring:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.120742, 1 ),
+"update": 0,
+"values": [ Vector2( 463.362, 120 ), Vector2( 276, 120 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "slide out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GreenFlask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.189465, 0.120742 ),
+"update": 0,
+"values": [ Vector2( 202, 155 ), Vector2( 202, 278.624 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orangepouring:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.217638, 0.120742 ),
+"update": 0,
+"values": [ Vector2( 276, 120 ), Vector2( 463.362, 120 ) ]
 }
 
 [node name="BattleScene" type="Node"]
@@ -90,6 +144,7 @@ color = Color( 0.105882, 0.301961, 0.156863, 1 )
 script = ExtResource( 4 )
 
 [node name="orangepouring" type="Sprite" parent="PouringEvent"]
+editor/display_folded = true
 position = Vector2( 276, 120 )
 texture = ExtResource( 5 )
 
@@ -108,6 +163,7 @@ rect_pivot_offset = Vector2( 5, 0 )
 color = Color( 0.803922, 0.054902, 0.054902, 1 )
 
 [node name="GreenFlask" type="Sprite" parent="PouringEvent"]
+editor/display_folded = true
 position = Vector2( 202, 155 )
 texture = ExtResource( 6 )
 
@@ -130,6 +186,7 @@ rect_pivot_offset = Vector2( 29.99, 3 )
 color = Color( 0.803922, 0.054902, 0.054902, 1 )
 
 [node name="FillTarget" type="Node2D" parent="PouringEvent"]
+editor/display_folded = true
 position = Vector2( 178, 145 )
 rotation = -1.5708
 
@@ -143,6 +200,11 @@ margin_top = 3.0
 margin_right = 1.0
 margin_bottom = 43.0
 color = Color( 0.890196, 0.54902, 0.215686, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent"]
+playback_speed = 2.0
+"anims/slide in" = SubResource( 2 )
+"anims/slide out" = SubResource( 3 )
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 192, 108 )
