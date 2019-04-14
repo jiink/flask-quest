@@ -31,7 +31,8 @@ func _process(delta):
 				var error = (abs(target_perc - fill_perc) / fill_perc)
 				effectiveness = 1.0 - clamp(error, 0, 1.0)
 				print("effectiveness: %s" % effectiveness)
-				battle.attack()
+				battle.start_chem_attack()
+				stop()
 		
 func update_liq(perc):
 	# 0-100 to 0-40
@@ -42,3 +43,6 @@ func reset():
 	visible = false
 	fill_perc = 0.0
 	stopped = false
+
+func stop():
+	visible = false

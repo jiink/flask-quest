@@ -161,8 +161,9 @@ func get_foes():
 
 func attack():
 	print("attaaaack " + get_foes()[selected_foe].name)
-	get_foes()[selected_foe].call("get_hurt",
-		int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
+	var att_damage = int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness)
+	get_foes()[selected_foe].call("get_hurt", att_damage)
+	
 	#emit_signal("hit_foe", get_tree().get_nodes_in_group("foes")[i])
 	
 	#selected_foe = null
@@ -188,6 +189,16 @@ func open_chems():
 func close_chems():
 	$SelectedChemArrow.visible = false
 	emit_signal("close_chems")
+
+func start_chem_attack():
+	var chem_splash = load("res://Items/Chemicals/%s_splash.tscn" % item_manager.loadout[selected_chem])
+	chem_splash = chem_splash.instance()
+	chem_splash.position = get_foes()[selected_foe].position
+	add_child(chem_splash)
+
+func chem_hit_foe():
+	print("wow you hit something")
+	attack()
 
 func start_pouring_event():
 	#yield(get_tree().create_timer(0.1), "timeout")
