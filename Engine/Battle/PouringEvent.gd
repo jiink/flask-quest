@@ -14,6 +14,7 @@ var effectiveness = 1.0
 var done_sliding = false
 
 var firt = false
+var overflowed = false
 
 func _ready():
 	visible = false
@@ -34,7 +35,10 @@ func _process(delta):
 				update_liq(fill_perc)
 				
 				
-				if Input.is_action_just_pressed("a"):
+				if Input.is_action_just_pressed("a") or fill_perc > 100:
+					if fill_perc > 100:
+						overflowed = true
+						
 					stopped = true
 					var error = (abs(target_perc - fill_perc) / fill_perc)
 					effectiveness = 1.0 - clamp(error, 0, 1.0)
