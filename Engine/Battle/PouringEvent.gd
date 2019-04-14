@@ -43,7 +43,8 @@ func _process(delta):
 					done_sliding = false
 					
 					stop()
-		
+	else:
+		firt = false
 func update_liq(perc):
 	# 0-100 to 0-40
 	var new_size = perc * (40.0/100.0)
