@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Battle/BattleChoices.gd" type="Script" id=3]
-[ext_resource path="res://Engine/Battle/PouringEvent.gd" type="Script" id=4]
-[ext_resource path="res://Engine/Battle/OrangePouring.png" type="Texture" id=5]
-[ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=6]
-[ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=7]
+[ext_resource path="res://Engine/Battle/HPBar.gd" type="Script" id=4]
+[ext_resource path="res://Engine/Battle/PouringEvent.gd" type="Script" id=5]
+[ext_resource path="res://Engine/Battle/OrangePouring.png" type="Texture" id=6]
+[ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=7]
+[ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -138,15 +139,35 @@ margin_left = -25.0
 margin_top = -61.0
 margin_right = 24.0
 margin_bottom = -17.0
-color = Color( 0.105882, 0.301961, 0.156863, 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="GreenHPBar" type="ColorRect" parent="BattleChoices"]
+show_behind_parent = true
+margin_left = -21.0
+margin_top = -59.0
+margin_right = -3.0
+margin_bottom = -28.0
+rect_pivot_offset = Vector2( 9, 31 )
+color = Color( 0.262745, 0.796078, 0.152941, 1 )
+script = ExtResource( 4 )
+
+[node name="OrangeHPBar" type="ColorRect" parent="BattleChoices"]
+show_behind_parent = true
+margin_left = 2.0
+margin_top = -59.0
+margin_right = 20.0
+margin_bottom = -28.0
+rect_pivot_offset = Vector2( 9, 31 )
+color = Color( 0.85098, 0.52549, 0.141176, 1 )
+script = ExtResource( 4 )
 
 [node name="PouringEvent" type="Node2D" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="orangepouring" type="Sprite" parent="PouringEvent"]
 editor/display_folded = true
 position = Vector2( 276, 120 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="LiquidPouring" type="ColorRect" parent="PouringEvent/orangepouring"]
 show_behind_parent = true
@@ -165,11 +186,11 @@ color = Color( 0.803922, 0.054902, 0.054902, 1 )
 [node name="GreenFlask" type="Sprite" parent="PouringEvent"]
 editor/display_folded = true
 position = Vector2( 202, 155 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Masking" type="Light2D" parent="PouringEvent/GreenFlask"]
 position = Vector2( -1, -1 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 mode = 3
 range_item_cull_mask = 1024
 __meta__ = {
