@@ -69,9 +69,15 @@ func _process(delta):
 		match int(randf() * 2):
 			0:
 				hurt("green", 23)
+				if $"/root/PlayerStats".green_hp < 0:
+					hurt("orange", 23)
 			1:
 				hurt("orange", 23)
-		
+				if $"/root/PlayerStats".orange_hp < 0:
+					hurt("green", 23)
+			_:
+				hurt("green", 23)
+				
 		state = PLAYER_TURN
 
 func get_move_choice():
@@ -181,6 +187,10 @@ func hurt(who, damage):
 			$BattleChoices/OrangeHPBar.update_bar()
 		_:
 			who.call("get_hurt", damage)
+	if pstats.green_hp < 0 and pstats.orange_hp < 0:
+		get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
+		exit_battle()
+		
 	print("%s took %s damage" % [who, damage])
 	
 func foe_died():
