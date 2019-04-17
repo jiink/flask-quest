@@ -64,6 +64,15 @@ func _process(delta):
 		$SelectedFoeArrow.visible = true
 		get_chem_choice()
 		get_enemy_choice()
+	elif state == ENEMY_TURN:
+		
+		match int(randf() * 2):
+			0:
+				hurt("green", 23)
+			1:
+				hurt("orange", 23)
+		
+		state = PLAYER_TURN
 
 func get_move_choice():
 #	if Input.is_action_just_pressed("a"):
@@ -162,8 +171,18 @@ func get_foes():
 	return get_tree().get_nodes_in_group("foes")
 
 func hurt(who, damage):
-	who.call("get_hurt", damage)
-
+	var pstats = $"/root/PlayerStats"
+	match who:
+		"green":
+			pstats.green_hp -= damage
+			$BattleChoices/GreenHPBar.update_bar()
+		"orange":
+			pstats.orange_hp -= damage
+			$BattleChoices/OrangeHPBar.update_bar()
+		_:
+			who.call("get_hurt", damage)
+	print("%s took %s damage" % [who, damage])
+	
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
 	if get_foes().size()-1 != 0:

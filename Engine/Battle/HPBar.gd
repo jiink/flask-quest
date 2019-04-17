@@ -18,5 +18,7 @@ func update_bar():
 		hp = stats.green_hp
 	elif name == "OrangeHPBar":
 		hp = stats.orange_hp
-		 
+		
+	hp = float(hp)
+	max_hp = float(max_hp)
 	rect_scale.y = hp / max_hp
