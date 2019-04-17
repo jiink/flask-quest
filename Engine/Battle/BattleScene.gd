@@ -209,7 +209,8 @@ func chem_hit_foe():
 	
 	hurt(get_foes()[selected_foe], 
 			int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
-		
+
+func chem_anim_complete():
 	state = WAIT
 	$SelectedFoeArrow.visible = false
 	battle_choice_confirmed = false
@@ -222,6 +223,7 @@ func start_pouring_event():
 	var pouring = get_node("PouringEvent")
 	pouring.visible = true
 	close_chems()
+
 
 func exit_battle():
 	global.end_battle()
