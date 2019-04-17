@@ -6,9 +6,11 @@ signal open_chems
 signal close_chems
 
 enum {
+	WAIT,
 	PLAYER_TURN,
 	PLAYER_CHOOSE_ENEMY,
 	POURING,
+	ENEMY_TURN,
 }
 	
 
@@ -159,21 +161,9 @@ func set_arrow_pos():
 func get_foes():
 	return get_tree().get_nodes_in_group("foes")
 
-func attack():
-	print("attaaaack " + get_foes()[selected_foe].name)
-	var att_damage = int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness)
-	get_foes()[selected_foe].call("get_hurt", att_damage)
-	
-	#emit_signal("hit_foe", get_tree().get_nodes_in_group("foes")[i])
-	
-	#selected_foe = null
-	$SelectedFoeArrow.visible = false
-	
-	state = PLAYER_TURN
-	battle_choice_confirmed = false
-	#close_chems()
-	$PouringEvent.reset()
-	
+func hurt(who, damage):
+	who.call("get_hurt", damage)
+
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
 	if get_foes().size()-1 != 0:
@@ -184,8 +174,7 @@ func foe_died():
 func open_chems():
 	$SelectedChemArrow.visible = true
 	emit_signal("open_chems")
-	
-	
+
 func close_chems():
 	$SelectedChemArrow.visible = false
 	emit_signal("close_chems")
@@ -198,7 +187,16 @@ func start_chem_attack():
 
 func chem_hit_foe():
 	print("wow you hit something")
-	attack()
+	
+	hurt(get_foes()[selected_foe], 
+			int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
+		
+	state = WAIT
+	$SelectedFoeArrow.visible = false
+	battle_choice_confirmed = false
+	$PouringEvent.reset()
+	yield(get_tree().create_timer(0.8), "timeout")
+	state = ENEMY_TURN
 
 func start_pouring_event():
 	#yield(get_tree().create_timer(0.1), "timeout")
