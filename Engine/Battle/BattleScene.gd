@@ -11,6 +11,7 @@ enum {
 	PLAYER_CHOOSE_ENEMY,
 	POURING,
 	ENEMY_TURN,
+	DODGE_GAME
 }
 	
 
@@ -66,20 +67,29 @@ func _process(delta):
 		get_enemy_choice()
 	elif state == ENEMY_TURN:
 		
-		match int(randf() * 2):
-			0:
-				hurt("green", 23)
-				if $"/root/PlayerStats".green_hp < 0:
-					hurt("orange", 23)
-			1:
-				hurt("orange", 23)
-				if $"/root/PlayerStats".orange_hp < 0:
-					hurt("green", 23)
-			_:
-				hurt("green", 23)
-				
-		state = PLAYER_TURN
-
+#		match int(randf() * 2):
+#			0:
+#				hurt("green", 23)
+#				if $"/root/PlayerStats".green_hp < 0:
+#					hurt("orange", 23)
+#			1:
+#				hurt("orange", 23)
+#				if $"/root/PlayerStats".orange_hp < 0:
+#					hurt("green", 23)
+#			_:
+#				hurt("green", 23)
+#
+#		state = PLAYER_TURN
+		
+		var dodger_field = load("res://Engine/Battle/Dodger/DodgerField.tscn")
+		dodger_field = dodger_field.instance()
+		dodger_field.set_position(Vector2(192, 108))
+		add_child(dodger_field)
+		
+		$Tint.visible = true
+		state = DODGE_GAME
+		
+		
 func get_move_choice():
 #	if Input.is_action_just_pressed("a"):
 #		state = PLAYER_CHOOSE_ENEMY

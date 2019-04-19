@@ -28,6 +28,5 @@ rotation = 3.14159
 position = Vector2( 0, 31 )
 texture = ExtResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="DebugCam" type="Camera2D" parent="."]
 
