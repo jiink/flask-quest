@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet/Bullet.gd" type="Script" id=2]
+
+[node name="Attack1" type="Node"]
+
+[node name="Bullet" type="Area2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 104.69, -19.855 )
+script = ExtResource( 2 )
+
+[node name="Bullet2" type="Area2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 171.172, -70.8247 )
+script = ExtResource( 2 )
+
+[node name="Bullet3" type="Area2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 245.746, -102.558 )
+script = ExtResource( 2 )
+
+[node name="Bullet4" type="Area2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 355.227, -83.5181 )
+script = ExtResource( 2 )
+
+[node name="Bullet5" type="Area2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 463.121, -24.811 )
+script = ExtResource( 2 )
+

@@ -37,3 +37,6 @@ func move_players(delta):
 	
 	$GreenDodger.set_rotation_degrees(rot_green)
 	$OrangeDodger.set_rotation_degrees(rot_orange)
+	
+func run():
+	pass

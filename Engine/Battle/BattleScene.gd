@@ -90,6 +90,8 @@ func _process(delta):
 		$Tint.visible = true
 		state = DODGE_GAME
 		
+	elif state == DODGE_GAME:
+		do_dodge_game()
 		
 func get_move_choice():
 #	if Input.is_action_just_pressed("a"):
@@ -245,6 +247,9 @@ func start_pouring_event():
 	pouring.visible = true
 	close_chems()
 
+func do_dodge_game():
+	if $DodgerField.visible:
+		$DodgerField.run()
 
 func exit_battle():
 	global.end_battle()
