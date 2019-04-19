@@ -24,37 +24,32 @@ __meta__ = {
 [node name="dodge_circle_below" type="Sprite" parent="dodge_circle"]
 texture = ExtResource( 3 )
 
-[node name="GreenDodger" type="Node2D" parent="."]
+[node name="Dodgers" type="Node2D" parent="."]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="GreenSprite" type="Sprite" parent="GreenDodger"]
+[node name="GreenSprite" type="Sprite" parent="Dodgers"]
 position = Vector2( 0, 31 )
 texture = ExtResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="GreenDodger/GreenSprite"]
+[node name="Area2D" type="Area2D" parent="Dodgers/GreenSprite"]
 position = Vector2( 0, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenDodger/GreenSprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dodgers/GreenSprite/Area2D"]
 shape = SubResource( 1 )
 
-[node name="OrangeDodger" type="Node2D" parent="."]
+[node name="OrangeSprite" type="Sprite" parent="Dodgers"]
+position = Vector2( -7.85906e-005, -31 )
 rotation = 3.14159
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="OrangeSprite" type="Sprite" parent="OrangeDodger"]
-position = Vector2( 0, 31 )
 texture = ExtResource( 5 )
 
-[node name="Area2D2" type="Area2D" parent="OrangeDodger/OrangeSprite"]
+[node name="Area2D2" type="Area2D" parent="Dodgers/OrangeSprite"]
 position = Vector2( 0, 1 )
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangeDodger/OrangeSprite/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dodgers/OrangeSprite/Area2D2"]
 shape = SubResource( 1 )
 
 [node name="DebugCam" type="Camera2D" parent="."]
@@ -64,7 +59,21 @@ current = true
 position = Vector2( 4, -43 )
 
 [node name="Bullet" parent="." instance=ExtResource( 6 )]
-position = Vector2( -89, 31 )
+position = Vector2( -77.5585, 53.6131 )
+face_center = true
+
+[node name="Bullet2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -93.372, -169.774 )
+face_center = true
 type = 1
-speed = 30.0
+
+[node name="Bullet3" parent="." instance=ExtResource( 6 )]
+position = Vector2( -52.7855, -184.082 )
+face_center = true
+type = 1
+
+[node name="Bullet4" parent="." instance=ExtResource( 6 )]
+position = Vector2( -4.02322, -189.046 )
+face_center = true
+type = 1
 
