@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/Dodger/dodge_circle.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Battle/Dodger/dodge_circle_below.png" type="Texture" id=3]
 [ext_resource path="res://Engine/Battle/Dodger/green_dodger.png" type="Texture" id=4]
 [ext_resource path="res://Engine/Battle/Dodger/orange_dodger.png" type="Texture" id=5]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet/Bullet.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 3 )
@@ -29,32 +30,31 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="GreenDodger"]
+[node name="GreenSprite" type="Sprite" parent="GreenDodger"]
 position = Vector2( 0, 31 )
 texture = ExtResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="GreenDodger/Sprite"]
+[node name="Area2D" type="Area2D" parent="GreenDodger/GreenSprite"]
 position = Vector2( 0, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenDodger/Sprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenDodger/GreenSprite/Area2D"]
 shape = SubResource( 1 )
 
 [node name="OrangeDodger" type="Node2D" parent="."]
-editor/display_folded = true
 rotation = 3.14159
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="OrangeDodger"]
+[node name="OrangeSprite" type="Sprite" parent="OrangeDodger"]
 position = Vector2( 0, 31 )
 texture = ExtResource( 5 )
 
-[node name="Area2D2" type="Area2D" parent="OrangeDodger/Sprite"]
+[node name="Area2D2" type="Area2D" parent="OrangeDodger/OrangeSprite"]
 position = Vector2( 0, 1 )
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangeDodger/Sprite/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangeDodger/OrangeSprite/Area2D2"]
 shape = SubResource( 1 )
 
 [node name="DebugCam" type="Camera2D" parent="."]
@@ -62,4 +62,9 @@ current = true
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 4, -43 )
+
+[node name="Bullet" parent="." instance=ExtResource( 6 )]
+position = Vector2( -89, 31 )
+type = 1
+speed = 30.0
 
