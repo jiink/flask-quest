@@ -11,7 +11,11 @@ var max_rot_speed = 3.0
 var rot_friction = 42
 
 func _process(delta):
+	if visible:
+		move_players(delta)
 	
+
+func move_players(delta):
 	rot_green_v =  clamp(rot_green_v, -max_rot_speed, max_rot_speed)
 	if Input.is_action_pressed("left"):
 		rot_green_v -= rot_speed * delta

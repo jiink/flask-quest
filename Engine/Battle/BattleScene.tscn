@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=7]
 [ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=8]
 [ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=9]
+[ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -240,4 +241,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.345098 )
 script = ExtResource( 9 )
+
+[node name="DodgerField" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 192, 108 )
 
