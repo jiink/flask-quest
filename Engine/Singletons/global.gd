@@ -87,4 +87,7 @@ func swap_scenes():
 	game_saver.load(0)
 
 func connect_to_transition():
-	connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")
+	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
+		connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")
+	else:
+		print("Couldn't do scene transition")
