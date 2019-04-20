@@ -17,14 +17,14 @@ func _ready():
 	connect("area_entered", self, "area_entered")
 	
 	if face_center:
-		if get_parent().name == "DodgerField":
-			look_at(get_parent().position)
+		if $"../..".name == "DodgerField":
+			look_at($"../..".position)
 		else:
 			print("Warning: Projectile couldn't face center")
 	elif face_node != null:
 		look_at(get_node(face_node).position)
-	
-	if face_center and face_node != null:
+		
+	if face_center and face_node != "":
 		print("Warning: Can't face two places at once; facing center")
 	
 	vec = Vector2(speed, 0).rotated(rotation)
@@ -46,7 +46,7 @@ func _process(delta):
 	vec *= speed_change
 	
 func area_entered(area):
-	print("something was hit...")
+	print("AREA ENTERRRRED\nsomething was hit...")
 	if area.get_parent().name == "GreenSprite" and type != GREEN:
 		print("... it was green")
 		if has_node("../../.."):
