@@ -20,7 +20,8 @@ func _ready():
 		if $"../..".name == "DodgerField":
 			look_at($"../..".position)
 		else:
-			print("Warning: Projectile couldn't face center")
+			print("Warning: Projectile couldn't face field; trying other way")
+			look_at(Vector2(192, 108))
 	elif face_node != null:
 		look_at(get_node(face_node).position)
 		
