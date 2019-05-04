@@ -11,21 +11,22 @@ var current_enemies = initial_enemies
 var battle_bg
 var prev_scene = null
 
-func custompause(node):
+func custompause(node, x):
+	x = !x
 	for N in node.get_children():
 		if N.get_child_count() > 0:
-			N.set_process(false)
-			N.set_process_internal(false)
-			N.set_process_input(false)
-			N.set_process_internal(false)
-			N.set_physics_process(false)
-			custompause(N)
+			N.set_process(x)
+			N.set_process_internal(x)
+			N.set_process_input(x)
+			N.set_process_internal(x)
+			N.set_physics_process(x)
+			custompause(N, !x)
 		else:
-			N.set_process(false)
-			N.set_process_internal(false)
-			N.set_process_input(false)
-			N.set_process_internal(false)
-			N.set_physics_process(false)
+			N.set_process(x)
+			N.set_process_internal(x)
+			N.set_process_input(x)
+			N.set_process_internal(x)
+			N.set_physics_process(x)
 			print("- "+N.get_name())
 
 func start_battle(foes):
@@ -40,16 +41,9 @@ func start_battle(foes):
 	get_tree().get_current_scene().get_node("Camera").current = false
 	#get_tree().paused = true
 	
-	custompause(get_tree().get_current_scene())
+	custompause(get_tree().get_current_scene(), true)
 	
 	for child in get_tree().get_current_scene().get_children():
-#		child.set_process(false)
-#		child.set_process_internal(false)
-#		child.set_process_input(false)
-#		child.set_process_internal(false)
-#		child.set_physics_process(false)
-
-		#child.paused = true
 		if not child.get("visible") == null:
 			child.visible = false
 		
@@ -71,10 +65,13 @@ func start_battle(foes):
 
 func end_battle():
 	get_tree().get_current_scene().get_node("BattleScene").queue_free()
-	get_tree().paused = false
+	
+	custompause(get_tree().get_current_scene(), false)
+	
 	for child in get_tree().get_current_scene().get_children():
 		if not child.get("visible") == null:
 			child.visible = true
+
 ################## scene ##################
 
 var player_new_position
