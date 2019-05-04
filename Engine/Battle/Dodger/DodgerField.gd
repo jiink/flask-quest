@@ -11,6 +11,7 @@ var attacks_spawned = false
 var battle
 
 func _ready():
+
 	if get_node("..").name == "BattleScene":
 		battle = get_node("..")
 	else:

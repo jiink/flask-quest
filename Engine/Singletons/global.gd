@@ -11,6 +11,23 @@ var current_enemies = initial_enemies
 var battle_bg
 var prev_scene = null
 
+func custompause(node):
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			N.set_process(false)
+			N.set_process_internal(false)
+			N.set_process_input(false)
+			N.set_process_internal(false)
+			N.set_physics_process(false)
+			custompause(N)
+		else:
+			N.set_process(false)
+			N.set_process_internal(false)
+			N.set_process_input(false)
+			N.set_process_internal(false)
+			N.set_physics_process(false)
+			print("- "+N.get_name())
+
 func start_battle(foes):
 	initial_enemies = ["Boque", "Boque", "Boque"]
 	#print(get_tree().get_current_scene())
@@ -18,13 +35,24 @@ func start_battle(foes):
 #	prev_scene = (str(get_tree().get_current_scene().get_path()) + ".tscn").replace("/root", "res:/")
 	
 	var battle_scene = load("res://Engine/Battle/BattleScene.tscn").instance()
+	
+	
 	get_tree().get_current_scene().get_node("Camera").current = false
-	get_tree().paused = true
+	#get_tree().paused = true
+	
+	custompause(get_tree().get_current_scene())
+	
 	for child in get_tree().get_current_scene().get_children():
-		#child.set_process(false)
+#		child.set_process(false)
+#		child.set_process_internal(false)
+#		child.set_process_input(false)
+#		child.set_process_internal(false)
+#		child.set_physics_process(false)
+
 		#child.paused = true
 		if not child.get("visible") == null:
 			child.visible = false
+		
 	
 	get_tree().get_current_scene().add_child(battle_scene)
 	

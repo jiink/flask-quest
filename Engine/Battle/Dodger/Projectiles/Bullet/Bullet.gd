@@ -14,6 +14,7 @@ export(float) var speed_change = 1
 var vec
 
 func _ready():
+
 	connect("area_entered", self, "area_entered")
 	
 	if face_center:
