@@ -50,4 +50,6 @@ rotation = 3.14159
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dodgers/OrangeSprite/Area2D2"]
 shape = SubResource( 1 )
 
+[node name="Attacks" type="Node2D" parent="."]
+
 [node name="DebugCam" type="Camera2D" parent="."]

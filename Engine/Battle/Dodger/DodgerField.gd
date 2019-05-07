@@ -31,13 +31,20 @@ func _process(delta):
 			var attack_scene = load(attack_scene_path)
 			attack_scene = attack_scene.instance()
 			attack_scene.position = Vector2(-192, -108)
-			add_child(attack_scene)
+			$Attacks.add_child(attack_scene)
+			get_node("Attacks/Attack%s/Timer" % attack_num).connect("timeout", self, "att_timeout")
+			
 			print("should have loaded attack scene")
 			attacks_spawned = true
 			for child in get_children():
 				print("Child: %s" % child.name)
-	
-
+		
+		$Dodgers/GreenSprite.visible = not $"/root/PlayerStats".green_hp <= 0
+		$Dodgers/OrangeSprite.visible = not $"/root/PlayerStats".orange_hp <= 0
+		
+		if $"/root/PlayerStats".green_hp <= 0 and $"/root/PlayerStats".orange_hp <= 0:
+			stop()
+			
 func move_players(delta):
 	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
 	if Input.is_action_pressed("left"):
@@ -49,6 +56,16 @@ func move_players(delta):
 	
 	rot += rot_v
 	$Dodgers.set_rotation_degrees(rot)
-	
+
+func stop():
+	attacks_spawned = false
+	battle.end_dodge_game()
+
+func att_timeout():
+	for i in $Attacks.get_children():
+		i.queue_free()
+	print("time's up!")
+	stop()
+
 func run():
 	pass

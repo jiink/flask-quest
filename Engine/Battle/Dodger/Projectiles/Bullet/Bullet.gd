@@ -18,8 +18,8 @@ func _ready():
 	connect("area_entered", self, "area_entered")
 	
 	if face_center:
-		if $"../..".name == "DodgerField":
-			look_at($"../..".position)
+		if $"../../..".name == "DodgerField":
+			look_at($"../../..".position)
 		else:
 			print("Warning: Projectile couldn't face field; trying other way")
 			look_at(Vector2(192, 108))
@@ -51,11 +51,11 @@ func area_entered(area):
 	print("AREA ENTERRRRED\nsomething was hit...")
 	if area.get_parent().name == "GreenSprite" and type != GREEN:
 		print("... it was green")
-		if has_node("../../.."):
-			get_node("../../..").call("hurt", "green", damage)
+		if has_node("../../../.."):
+			get_node("../../../..").call("hurt", "green", damage)
 		queue_free()
 	elif area.get_parent().name == "OrangeSprite" and type != ORANGE:
 		print("... it was orange")
-		if has_node("../../.."):
-			get_node("../../..").call("hurt", "orange", damage)
+		if has_node("../../../.."):
+			get_node("../../../..").call("hurt", "orange", damage)
 		queue_free()

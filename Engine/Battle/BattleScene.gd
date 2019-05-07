@@ -85,10 +85,7 @@ func _process(delta):
 #		dodger_field = dodger_field.instance()
 #		dodger_field.set_position(Vector2(192, 108))
 #		add_child(dodger_field)
-
-		$DodgerField.visible = true
-		$Tint.visible = true
-		state = DODGE_GAME
+		start_dodge_game()
 		
 	elif state == DODGE_GAME:
 		do_dodge_game()
@@ -250,6 +247,16 @@ func start_pouring_event():
 func do_dodge_game():
 	if $DodgerField.visible:
 		$DodgerField.run()
+
+func start_dodge_game():
+	$DodgerField.visible = true
+	$Tint.visible = true
+	state = DODGE_GAME
+
+func end_dodge_game():
+	$DodgerField.visible = false
+	$Tint.visible = false
+	state = PLAYER_TURN
 
 func exit_battle():
 	global.end_battle()

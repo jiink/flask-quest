@@ -48,3 +48,9 @@ position = Vector2( 200, 100 )
 pause_mode = 2
 shape = SubResource( 1 )
 
+[node name="Timer" type="Timer" parent="." groups=[
+"attacks",
+]]
+wait_time = 3.0
+one_shot = true
+autostart = true
