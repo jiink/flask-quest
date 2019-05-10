@@ -1,56 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/AttackBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/Boque/Attacks/Attack1.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.7565, 43.3553 )
+[node name="Attack1" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
-[node name="Attack1" type="Node2D"]
+[node name="Timer" parent="." index="0"]
+wait_time = 12.0
 
-[node name="Bullet" parent="." instance=ExtResource( 1 )]
-position = Vector2( 104.69, -19.855 )
-face_center = true
-
-[node name="Bullet6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128.311, 57.5233 )
-face_center = true
-speed = 10.0
-
-[node name="Bullet2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 171.172, -70.8247 )
-face_center = true
-
-[node name="Bullet3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 245.746, -102.558 )
-face_center = true
-
-[node name="Bullet4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 355.227, -83.5181 )
-face_center = true
-
-[node name="Bullet5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 463.121, -24.811 )
-face_center = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_left = 173.111
-margin_top = 82.2586
-margin_right = 213.111
-margin_bottom = 122.259
-color = Color( 1, 0, 0, 1 )
-
-[node name="Area2D" type="Area2D" parent="."]
-pause_mode = 2
-position = Vector2( 200, 100 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-pause_mode = 2
-shape = SubResource( 1 )
-
-[node name="Timer" type="Timer" parent="." groups=[
-"attacks",
-]]
-wait_time = 3.0
-one_shot = true
+[node name="FireTimer" type="Timer" parent="." index="1"]
+wait_time = 0.2
 autostart = true
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

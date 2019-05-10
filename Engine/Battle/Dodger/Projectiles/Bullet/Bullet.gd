@@ -1,7 +1,5 @@
 extends Area2D
 
-#TODO: MAKE BULLET DESTROY SELF!!!!!!!!!!11
-
 export(bool) var face_center = false
 export(NodePath) var face_node
 enum {NORMAL, GREEN, ORANGE}
@@ -12,6 +10,10 @@ export(float) var speed = 100
 export(float) var speed_change = 1
 
 var vec
+
+export(float) var death_time = 10.0
+
+var death_timer
 
 func _ready():
 
@@ -42,6 +44,12 @@ func _ready():
 			print("Error: Invalid projectile type; setting to NORMAL")
 			type = NORMAL
 	
+	death_timer = Timer.new()
+	death_timer.set_name("Death Timer")
+	death_timer.one_shot = true
+	add_child(death_timer)
+	death_timer.start(death_time)
+	death_timer.connect("timeout", self, "death_timer_timeout")
 	
 func _process(delta):
 	position += vec * delta
@@ -59,3 +67,6 @@ func area_entered(area):
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "orange", damage)
 		queue_free()
+
+func death_timer_timeout():
+	queue_free()

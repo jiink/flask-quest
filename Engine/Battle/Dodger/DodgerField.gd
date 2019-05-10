@@ -60,6 +60,8 @@ func move_players(delta):
 func stop():
 	attacks_spawned = false
 	battle.end_dodge_game()
+	rot = 0.0
+	rot_v = 0.0
 
 func att_timeout():
 	for i in $Attacks.get_children():
