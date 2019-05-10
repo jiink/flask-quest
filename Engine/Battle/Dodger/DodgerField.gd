@@ -23,21 +23,36 @@ func _process(delta):
 		move_players(delta)
 		
 		if not attacks_spawned and battle != null:
-			var foe = battle.get_foes()[0]
-			var attack_num = 1
-			var attack_scene_path = "res://NPC/%s/Attacks/Attack%s.tscn" % [foe.name.replace("Foe", ""), attack_num]
-			print(attack_scene_path)
 			
-			var attack_scene = load(attack_scene_path)
-			attack_scene = attack_scene.instance()
-			attack_scene.position = Vector2(-192, -108)
-			$Attacks.add_child(attack_scene)
-			get_node("Attacks/Attack%s/Timer" % attack_num).connect("timeout", self, "att_timeout")
-			
-			print("should have loaded attack scene")
+			for f in battle.get_foes().size():
+				var foe = battle.get_foes()[f]
+				var foe_name = foe.get_name()
+				foe_name = foe_name.replace("@", "")
+				foe_name = foe_name.replace("Foe", "")
+				for i in range(9):
+					foe_name = foe_name.replace(str(i), "")
+				print(foe_name)
+				var att_dir = get_attacks_in_dir("res://NPC/%s/Attacks/" % foe_name)
+				var look = "res://NPC/%s/Attacks/" % foe_name
+				
+				print("att dir size: %s" % att_dir.size())
+				var attack_num = randi() % att_dir.size() + 1
+				print("loop %s: attack nuber:: %s" % [f, attack_num])
+				#print(get_attacks_in_dir("res://NPC/%s/Attacks/" % foe.name.replace("Foe", "")))
+				var attack_scene_path = "res://NPC/%s/Attacks/Attack%s.tscn" % [foe_name, attack_num]
+				
+				var attack_scene = load(attack_scene_path)
+				attack_scene = attack_scene.instance()
+				attack_scene.position = Vector2(-192, -108)
+				$Attacks.add_child(attack_scene)
+				
+				##TODO: FIX THIS DOWN HERE !!
+				get_node("Attacks/Attack%s/Timer" % attack_num).connect("timeout", self, "att_timeout")
+				
+	#			print("should have loaded attack scene")
+	#			for child in get_children():
+	#				print("Child: %s" % child.name)
 			attacks_spawned = true
-			for child in get_children():
-				print("Child: %s" % child.name)
 		
 		$Dodgers/GreenSprite.visible = not $"/root/PlayerStats".green_hp <= 0
 		$Dodgers/OrangeSprite.visible = not $"/root/PlayerStats".orange_hp <= 0
@@ -71,3 +86,20 @@ func att_timeout():
 
 func run():
 	pass
+
+func get_attacks_in_dir(path):
+	var files = []
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with(".") and file.ends_with(".tscn"):
+			files.append(file)
+
+#	dir.list_dir_end()
+
+	return files
