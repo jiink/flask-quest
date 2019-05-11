@@ -6,6 +6,8 @@
 
 [node name="BoqueFoe" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+lines = [ "This isn't working.", "Can I go home?", "What did you break this time?", "You should work more." ]
+talk_chance = 33.0
 
 [node name="ColorRect" parent="." index="0"]
 margin_left = -25.0

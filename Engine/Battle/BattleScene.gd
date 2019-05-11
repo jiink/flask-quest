@@ -111,6 +111,10 @@ func get_move_choice():
 #		if not battle_choice_confirmed and selected_battle_choice == "attack":
 #			emit_signal("chems_popout")
 		battle_choice_confirmed = true
+		
+		for foe in get_foes():
+			foe.say_line()
+		
 	elif Input.is_action_just_pressed("b"):
 #		if battle_choice_confirmed and selected_battle_choice == "attack":
 #			emit_signal("chems_popin")
