@@ -150,7 +150,7 @@ margin_top = -59.0
 margin_right = -3.0
 margin_bottom = -28.0
 rect_pivot_offset = Vector2( 9, 31 )
-color = Color( 0.262745, 0.796078, 0.152941, 1 )
+color = Color( 0.447059, 0.815686, 0.192157, 1 )
 script = ExtResource( 4 )
 
 [node name="OrangeHPBar" type="ColorRect" parent="BattleChoices"]

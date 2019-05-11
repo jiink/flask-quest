@@ -192,9 +192,11 @@ func hurt(who, damage):
 		"green":
 			pstats.green_hp -= damage
 			$BattleChoices/GreenHPBar.update_bar()
+			$DodgerField/dodge_circle/GreenHPBar.update_bar()
 		"orange":
 			pstats.orange_hp -= damage
 			$BattleChoices/OrangeHPBar.update_bar()
+			$DodgerField/dodge_circle/OrangeHPBar.update_bar()
 		_:
 			who.call("get_hurt", damage)
 	if pstats.green_hp < 0 and pstats.orange_hp < 0:
