@@ -10,6 +10,8 @@ var rot_friction = 42
 var attacks_spawned = false
 var battle
 
+var active_battle_timer
+
 func _ready():
 
 	if get_node("..").name == "BattleScene":
@@ -23,6 +25,8 @@ func _process(delta):
 		move_players(delta)
 		
 		if not attacks_spawned and battle != null:
+			
+			var timers = []
 			
 			for f in battle.get_foes().size():
 				var foe = battle.get_foes()[f]
@@ -46,12 +50,22 @@ func _process(delta):
 				attack_scene.position = Vector2(-192, -108)
 				$Attacks.add_child(attack_scene)
 				
-				##TODO: FIX THIS DOWN HERE !!
-				get_node("Attacks/Attack%s/Timer" % attack_num).connect("timeout", self, "att_timeout")
+				#get_node("Attacks/Attack%s/Timer" % attack_num).connect("timeout", self, "att_timeout")
+				timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
 				
 	#			print("should have loaded attack scene")
 	#			for child in get_children():
 	#				print("Child: %s" % child.name)
+			
+			var longest_timer_time = 0.1
+			var timer_index = 0
+			for i in range($Attacks.get_child_count()):
+				if timers[i].wait_time > longest_timer_time:
+					longest_timer_time = timers[i].wait_time
+					timer_index = i
+			active_battle_timer = timers[timer_index]
+			
+			active_battle_timer.connect("timeout", self, "att_timeout")
 			attacks_spawned = true
 		
 		$Dodgers/GreenSprite.visible = not $"/root/PlayerStats".green_hp <= 0
@@ -59,6 +73,9 @@ func _process(delta):
 		
 		if $"/root/PlayerStats".green_hp <= 0 and $"/root/PlayerStats".orange_hp <= 0:
 			stop()
+			
+	if active_battle_timer != null:
+		$dodge_circle/TimeBar.value = int(100 * (active_battle_timer.time_left / active_battle_timer.wait_time))
 			
 func move_players(delta):
 	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
@@ -82,6 +99,7 @@ func att_timeout():
 	for i in $Attacks.get_children():
 		i.queue_free()
 	print("time's up!")
+	active_battle_timer = null
 	stop()
 
 func run():
