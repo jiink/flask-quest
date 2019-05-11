@@ -56,13 +56,15 @@ func _process(delta):
 	vec *= speed_change
 	
 func area_entered(area):
-	print("AREA ENTERRRRED\nsomething was hit...")
-	if area.get_parent().name == "GreenSprite" and type != GREEN:
+	var thingy = area.get_parent()
+#	var pstats = get_node("/root/PlayerStats")
+	print("something was hit...")
+	if area.get_parent().name == "GreenSprite" and type != GREEN and thingy.visible:
 		print("... it was green")
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "green", damage)
 		queue_free()
-	elif area.get_parent().name == "OrangeSprite" and type != ORANGE:
+	elif area.get_parent().name == "OrangeSprite" and type != ORANGE and thingy.visible:
 		print("... it was orange")
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "orange", damage)

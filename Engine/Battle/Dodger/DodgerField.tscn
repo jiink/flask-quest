@@ -77,7 +77,7 @@ position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
 [node name="OrangeSprite" type="Sprite" parent="Dodgers"]
-position = Vector2( -7.85906e-005, -31 )
+position = Vector2( -7.85906e-05, -31 )
 rotation = 3.14159
 texture = ExtResource( 8 )
 
@@ -91,3 +91,4 @@ shape = SubResource( 1 )
 [node name="Attacks" type="Node2D" parent="."]
 
 [node name="DebugCam" type="Camera2D" parent="."]
+
