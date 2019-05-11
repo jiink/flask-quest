@@ -10,7 +10,16 @@ var rot_friction = 42
 var attacks_spawned = false
 var battle
 
+var shielded = false
+var shield_time = 0.1
+var shield_delay = 0.2
+
 var active_battle_timer
+
+onready var pstats = $"/root/PlayerStats"
+onready var green = $Dodgers/GreenSprite
+onready var orange = $Dodgers/OrangeSprite
+
 
 func _ready():
 
@@ -19,10 +28,19 @@ func _ready():
 	else:
 		print("Warning: Parent not BattleScene")
 		battle = null
-		
+	
+	$ShieldTimer.connect("timeout", self, "shield_timer_timeout")
+	
 func _process(delta):
 	if visible:
 		move_players(delta)
+		
+		if $ShieldDelay.is_stopped():
+			if Input.is_action_just_pressed("a"):
+				shielded = true
+				green.get_node("InstaShield").visible = true
+				orange.get_node("InstaShield").visible = true
+				$ShieldTimer.start(shield_time)
 		
 		if not attacks_spawned and battle != null:
 			
@@ -68,10 +86,10 @@ func _process(delta):
 			active_battle_timer.connect("timeout", self, "att_timeout")
 			attacks_spawned = true
 		
-		$Dodgers/GreenSprite.visible = not $"/root/PlayerStats".green_hp <= 0
-		$Dodgers/OrangeSprite.visible = not $"/root/PlayerStats".orange_hp <= 0
+		$Dodgers/GreenSprite.visible = not pstats.green_hp <= 0
+		$Dodgers/OrangeSprite.visible = not pstats.orange_hp <= 0
 		
-		if $"/root/PlayerStats".green_hp <= 0 and $"/root/PlayerStats".orange_hp <= 0:
+		if pstats.green_hp <= 0 and pstats.orange_hp <= 0:
 			stop()
 			
 	if active_battle_timer != null:
@@ -104,6 +122,12 @@ func att_timeout():
 
 func run():
 	pass
+
+func shield_timer_timeout():
+	shielded = false
+	green.get_node("InstaShield").visible = false
+	orange.get_node("InstaShield").visible = false
+	$ShieldDelay.start(shield_delay)
 
 func get_attacks_in_dir(path):
 	var files = []
