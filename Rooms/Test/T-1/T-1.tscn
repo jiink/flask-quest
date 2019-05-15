@@ -143,7 +143,7 @@ face_texture = ExtResource( 8 )
 message = "battle time"
 text_delay = 0.0
 function = "enter_battle"
-args = [ [ "Boque", "Boque" ] ]
+args = [ [ "Boque" ] ]
 
 [node name="Player" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 265, 103 )
