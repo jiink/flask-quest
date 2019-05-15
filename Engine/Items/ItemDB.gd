@@ -14,4 +14,11 @@ var items = {
 		'desc': "You shouldn't have this.",
 		'damage': '10'
 		},
+	'fire_chemical': {
+		'name': 'Liquid Heiss',
+		'desc': 'Made by Scharles Heiss himself.',
+		'damage': '10',
+		'effects': 'on_fire',
+		'effect_chance': '0.33',
+		},
 	}

@@ -27,7 +27,7 @@ func custompause(node, x):
 			N.set_process_input(x)
 			N.set_process_internal(x)
 			N.set_physics_process(x)
-			print("- "+N.get_name())
+#			print("- "+N.get_name())
 
 func start_battle(foes):
 	initial_enemies = foes

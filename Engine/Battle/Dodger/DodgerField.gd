@@ -91,7 +91,8 @@ func _process(delta):
 		
 		if pstats.green_hp <= 0 and pstats.orange_hp <= 0:
 			stop()
-			
+			get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
+		
 	if active_battle_timer != null:
 		$dodge_circle/TimeBar.value = int(100 * (active_battle_timer.time_left / active_battle_timer.wait_time))
 			

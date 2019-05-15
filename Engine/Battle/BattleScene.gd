@@ -52,7 +52,10 @@ func _ready():
 	# put down the chemicals
 	print(item_manager.loadout)
 	for i in range(item_manager.loadout.size()):
-		var chem_tube = load("res://Items/Chemicals/%s.tscn" % item_manager.loadout[i])
+		var chem_codename = item_manager.loadout[i]
+		var chem_tube = load("res://Items/Chemicals/%s/%s.tscn" % [chem_codename, chem_codename])
+		if not chem_tube:
+			print("critical: %s.tscn does not exist." % chem_codename)
 		chem_tube = chem_tube.instance()
 		chem_tube.set_name(item_manager.loadout[i])
 		chem_tube.position = Vector2(0, -27 + 35 * i)
@@ -227,7 +230,7 @@ func close_chems():
 	emit_signal("close_chems")
 
 func start_chem_attack():
-	var chem_splash = load("res://Items/Chemicals/%s_splash.tscn" % item_manager.loadout[selected_chem])
+	var chem_splash = load("res://Items/Chemicals/%s/%s_splash.tscn" % [item_manager.loadout[selected_chem], item_manager.loadout[selected_chem]])
 	chem_splash = chem_splash.instance()
 	chem_splash.position = get_foes()[selected_foe].position
 	add_child(chem_splash)

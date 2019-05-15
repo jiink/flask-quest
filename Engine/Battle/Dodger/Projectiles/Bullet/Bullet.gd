@@ -59,15 +59,15 @@ func area_entered(area):
 	var thingy = area.get_parent()
 	var dfield = get_node("../../..")
 #	var pstats = get_node("/root/PlayerStats")
-	print("something was hit...")
+#	print("something was hit...")
 	
 	if area.get_parent().name == "GreenSprite" and type != GREEN and thingy.visible and not dfield.shielded:
-		print("... it was green")
+#		print("... it was green")
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "green", damage)
 		queue_free()
 	elif area.get_parent().name == "OrangeSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
-		print("... it was orange")
+#		print("... it was orange")
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "orange", damage)
 		queue_free()
