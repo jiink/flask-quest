@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Items/Chemicals/base_potion/base_potion_splash.tscn" type="PackedScene" id=1]
+
+[node name="fire_chemical_splash" index="0" instance=ExtResource( 1 )]
+modulate = Color( 0.976471, 0.831373, 0.12549, 1 )
+

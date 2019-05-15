@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Items/Chemicals/base_potion/basePotionBattle.png" type="Texture" id=1]
+[ext_resource path="res://Engine/AnimateSpritesheet.gd" type="Script" id=2]
+[ext_resource path="res://Engine/Battle/testTube.png" type="Texture" id=3]
+
+
+[node name="BaseChemical" type="Node2D"]
+
+[node name="basePotionBattle" type="Sprite" parent="."]
+position = Vector2( 16, -8 )
+texture = ExtResource( 1 )
+hframes = 3
+script = ExtResource( 2 )
+anim_speed = 0.2
+
+[node name="GlassTube" type="Sprite" parent="."]
+position = Vector2( 16, -8 )
+texture = ExtResource( 3 )
+

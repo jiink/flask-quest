@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Items/Chemicals/base_potion/base_potion_splash.gd" type="Script" id=1]
+[ext_resource path="res://Items/Chemicals/base_potion/base_potion_anim.png" type="Texture" id=2]
+
+
+
+[node name="base_potion_splash" type="Node2D"]
+script = ExtResource( 1 )
+hitframe = 9
+anim_speed = 0.25
+
+[node name="base_potion_anim" type="Sprite" parent="."]
+modulate = Color( 0.807843, 0.960784, 0.968627, 1 )
+position = Vector2( 0, -6 )
+texture = ExtResource( 2 )
+hframes = 12
+
