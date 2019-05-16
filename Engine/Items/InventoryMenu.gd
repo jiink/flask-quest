@@ -41,7 +41,11 @@ func update_list():
 		item = manager.items[item]
 		var item_sprite = TextureRect.new()
 		item_sprite.set_name(item.name)
-		item_sprite.set_texture(load("res://Items/Sprites/%s.png" % item_codename))
+		var sprite_texture = load("res://Items/Sprites/%s.png" % item_codename)
+		if not sprite_texture:
+			sprite_texture = load("res://Items/Sprites/missing_item.png")
+		item_sprite.set_texture(sprite_texture)
+			
 		$Loadout/GridContainer.add_child(item_sprite)
 		
 	#print("ld: %s\ninv: %s" % [manager.loadout, manager.inventory])
