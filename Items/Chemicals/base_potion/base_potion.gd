@@ -38,18 +38,18 @@ func _ready():
 	elif effects.size() <= 0:
 		has_effects = false
 
-func do_thing(foes, selected_foe):
-	battle.hurt(foes[selected_foe], damage + (damage_randomness * 2 - damage_randomness))
-	
+func do_thing(foes, selected_foe, effectiveness):
+	var d = damage + (damage_randomness * 2 - damage_randomness) * effectiveness
+	battle.hurt(foes[selected_foe], d)
 	if has_effects:
-		var selected_effect = {}
-#		var r = randf()
-		var e
-		for i in range(effect_chances.size()):
-			if randf() <= effect_chances[i]:
-				e = i
-				break
-		selected_effect = {effect_names[e] : effect_levels[e]}
-#		print("--Chemical's chosen effect: %s" % selected_effect)
-#	else:
-#		print("--no effects to inflict")
+		battle.inflict_effect(foes[selected_foe], get_effect())
+
+func get_effect():
+	var selected_effect = {}
+	var e
+	for i in range(effect_chances.size()):
+		if randf() <= effect_chances[i]:
+			e = i
+			break
+	selected_effect = {effect_names[e] : effect_levels[e]}
+	return selected_effect

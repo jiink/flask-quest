@@ -221,6 +221,12 @@ func foe_died():
 	else:
 		exit_battle()
 
+func inflict_effect(who, eff):
+	var eff_scene = load("res://Engine/Battle/StatusEffects/%s.tscn" % eff.keys()[0]).instance()
+	eff_scene.level = eff.values()[0]
+	who.add_child(eff_scene)
+	print("%s inflicted on %s!" % [eff_scene.name, who.name])
+	
 func open_chems():
 	$SelectedChemArrow.visible = true
 	emit_signal("open_chems")
@@ -238,7 +244,7 @@ func start_chem_attack():
 func chem_hit_foe():
 	print("wow you hit something")
 	var chemical_node = $BattleChoices/Chemicals.get_child(selected_chem)
-	chemical_node.do_thing(get_foes(), selected_foe)
+	chemical_node.do_thing(get_foes(), selected_foe, $PouringEvent.effectiveness)
 #	hurt(get_foes()[selected_foe], 
 #			int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
 
@@ -269,6 +275,9 @@ func end_dodge_game():
 	$DodgerField.visible = false
 	$Tint.visible = false
 	state = PLAYER_TURN
+	
+	# uh maybe this should move somewhere else at some point
+	get_tree().call_group("status_effects", "do_effect")
 
 func exit_battle():
 	global.end_battle()

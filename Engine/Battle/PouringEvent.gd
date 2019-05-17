@@ -40,7 +40,7 @@ func _process(delta):
 						overflowed = true
 						
 					stopped = true
-					var error = (abs(target_perc - fill_perc) / fill_perc)
+					var error = (abs(target_perc - fill_perc) / fill_perc) - 0.15
 					effectiveness = 1.0 - clamp(error, 0, 1.0)
 					print("effectiveness: %s" % effectiveness)
 					#battle.start_chem_attack()
