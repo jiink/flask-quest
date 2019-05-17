@@ -237,9 +237,10 @@ func start_chem_attack():
 
 func chem_hit_foe():
 	print("wow you hit something")
-	
-	hurt(get_foes()[selected_foe], 
-			int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
+	var chemical_node = $BattleChoices/Chemicals.get_child(selected_chem)
+	chemical_node.do_thing(get_foes(), selected_foe)
+#	hurt(get_foes()[selected_foe], 
+#			int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
 
 func chem_anim_complete():
 	state = WAIT
