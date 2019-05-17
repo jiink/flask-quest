@@ -158,6 +158,7 @@ func get_foes():
 	return get_tree().get_nodes_in_group("foes")
 
 func hurt(who, damage):
+	damage = int(round(damage))
 	var pstats = $"/root/PlayerStats"
 	match who:
 		"green":
