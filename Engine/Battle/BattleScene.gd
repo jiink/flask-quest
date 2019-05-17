@@ -34,7 +34,6 @@ func _ready():
 	connect("close_chems", $BattleChoices, "close_chems")
 	
 	
-	#
 	print(global.initial_enemies)
 	for i in range(global.initial_enemies.size()):
 		var foe = load("res://NPC/" + global.initial_enemies[i] + "/" + global.initial_enemies[i] + "Foe.tscn")
@@ -69,35 +68,12 @@ func _process(delta):
 		get_chem_choice()
 		get_enemy_choice()
 	elif state == ENEMY_TURN:
-		
-#		match int(randf() * 2):
-#			0:
-#				hurt("green", 23)
-#				if $"/root/PlayerStats".green_hp < 0:
-#					hurt("orange", 23)
-#			1:
-#				hurt("orange", 23)
-#				if $"/root/PlayerStats".orange_hp < 0:
-#					hurt("green", 23)
-#			_:
-#				hurt("green", 23)
-#
-#		state = PLAYER_TURN
-		
-#		var dodger_field = load("res://Engine/Battle/Dodger/DodgerField.tscn")
-#		dodger_field = dodger_field.instance()
-#		dodger_field.set_position(Vector2(192, 108))
-#		add_child(dodger_field)
 		start_dodge_game()
 		
 	elif state == DODGE_GAME:
 		do_dodge_game()
 		
 func get_move_choice():
-#	if Input.is_action_just_pressed("a"):
-#		state = PLAYER_CHOOSE_ENEMY
-#	elif Input.is_action_just_pressed("b"):
-#		exit_battle()
 	if not battle_choice_confirmed:
 		if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
 			if selected_battle_choice == "attack":
@@ -106,22 +82,16 @@ func get_move_choice():
 				selected_battle_choice = "attack"
 	else:
 		if selected_battle_choice == "attack":
-			#get_chem_choice()
 			state = PLAYER_CHOOSE_ENEMY
 			open_chems()
 			
 	if Input.is_action_just_pressed("a"):
-#		if not battle_choice_confirmed and selected_battle_choice == "attack":
-#			emit_signal("chems_popout")
 		battle_choice_confirmed = true
 		
 		for foe in get_foes():
 			foe.say_line()
 		
-	elif Input.is_action_just_pressed("b"):
-#		if battle_choice_confirmed and selected_battle_choice == "attack":
-#			emit_signal("chems_popin")
-			
+	elif Input.is_action_just_pressed("b"):			
 		battle_choice_confirmed = false
 		$SelectedChemArrow.visible = false
 
@@ -137,15 +107,11 @@ func get_chem_choice():
 	
 	set_chem_arrow_pos()
 	
-#	if Input.is_action_just_pressed("a"):
-#		state = PLAYER_CHOOSE_ENEMY
-		#state = "attacking"
 
 func set_chem_arrow_pos():
 	if selected_chem != null:
 		$SelectedChemArrow.visible = true
 		$SelectedChemArrow.position.x = 100
-		#$SelectedChemArrow.position.y = $BattleChoices/Chemicals.get_child(selected_chem).get_global_transform()[2][1] - 22 
 		$SelectedChemArrow/Tween.interpolate_property($SelectedChemArrow, "position:y",
 			$SelectedChemArrow.position.y, $BattleChoices/Chemicals.get_child(selected_chem).get_global_transform()[2][1] - 22,
 			0.05, Tween.TRANS_LINEAR, Tween.EASE_IN)
@@ -174,12 +140,10 @@ func get_enemy_choice():
 		$SelectedFoeArrow.visible = false
 		battle_choice_confirmed = false
 		close_chems()
-		#state = "attacking"
 
 func set_arrow_pos():
 	if selected_foe != null:
 		$SelectedFoeArrow.visible = true
-		#$SelectedFoeArrow.position.x = get_foes()[selected_foe].position.x
 		
 		$SelectedFoeArrow/Tween.interpolate_property($SelectedFoeArrow, "position:x",
 			$SelectedFoeArrow.position.x, get_foes()[selected_foe].position.x,
@@ -245,8 +209,6 @@ func chem_hit_foe():
 	print("wow you hit something")
 	var chemical_node = $BattleChoices/Chemicals.get_child(selected_chem)
 	chemical_node.do_thing(get_foes(), selected_foe, $PouringEvent.effectiveness)
-#	hurt(get_foes()[selected_foe], 
-#			int(int(item_manager.items[item_manager.loadout[selected_chem]].damage) * $PouringEvent.effectiveness))
 
 func chem_anim_complete():
 	state = WAIT

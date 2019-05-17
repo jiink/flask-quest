@@ -60,7 +60,7 @@ func _process(delta):
 				print("att dir size: %s" % att_dir.size())
 				var attack_num = randi() % att_dir.size() + 1
 				print("loop %s: attack nuber:: %s" % [f, attack_num])
-				#print(get_attacks_in_dir("res://NPC/%s/Attacks/" % foe.name.replace("Foe", "")))
+
 				var attack_scene_path = "res://NPC/%s/Attacks/Attack%s.tscn" % [foe_name, attack_num]
 				
 				var attack_scene = load(attack_scene_path)
@@ -68,13 +68,8 @@ func _process(delta):
 				attack_scene.position = Vector2(-192, -108)
 				$Attacks.add_child(attack_scene)
 				
-				#get_node("Attacks/Attack%s/Timer" % attack_num).connect("timeout", self, "att_timeout")
 				timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
 				
-	#			print("should have loaded attack scene")
-	#			for child in get_children():
-	#				print("Child: %s" % child.name)
-			
 			var longest_timer_time = 0.1
 			var timer_index = 0
 			for i in range($Attacks.get_child_count()):
