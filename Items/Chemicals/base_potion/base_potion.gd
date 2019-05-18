@@ -34,7 +34,7 @@ func _ready():
 			var lvl = fx.replace(nam, "")
 			lvl = 1 if lvl == "" else lvl
 			effect_names.append(nam)
-			effect_levels.append(lvl)
+			effect_levels.append(int(lvl))
 	elif effects.size() <= 0:
 		has_effects = false
 
