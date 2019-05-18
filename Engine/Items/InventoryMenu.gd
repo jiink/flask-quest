@@ -14,7 +14,11 @@ enum {
 	INVENTORY,
 	LOADOUT,
 }
+
 var state = INVENTORY
+var in_battle = false
+var battle
+var bchoicenode
 
 func update_list():
 	
@@ -49,7 +53,11 @@ func update_list():
 		$Loadout/GridContainer.add_child(item_sprite)
 		
 	#print("ld: %s\ninv: %s" % [manager.loadout, manager.inventory])
-
+	
+	if in_battle:
+		battle.update_chem_loadout()
+	
+	
 func update_item_selection(index):
 	selection_index = clamp(selection_index, 0, get_item_list().size()-1)
 	if get_item_list().size() > 0:
@@ -62,17 +70,14 @@ func _ready():
 	item_selection.set_texture(load("res://Items/Sprites/itemSelection.png"))
 	add_child(item_selection)
 	update_item_selection(selection_index)
-	
-	
+	$InfoBar.set_visible(false)
+	in_battle = not has_node("../Diag")
+	if in_battle:
+		battle = get_parent()
+		bchoicenode = battle.get_node("BattleChoices")
+		
 func _process(delta):
-	
-	if Input.is_action_just_pressed("b") and get_node("../Diag").visible == false:
-		if not $InfoBar.visible:
-			set_visible(!visible)
-			get_tree().get_nodes_in_group("Player")[0].frozen = visible
-		else:
-			$InfoBar.set_visible(false)
-	
+
 	if visible:
 		if not $InfoBar.visible:
 			
@@ -142,6 +147,31 @@ func _process(delta):
 						equip_item(selection_index)
 						$InfoBar.set_visible(false)
 						
+
+	if not in_battle:
+		
+		if Input.is_action_just_pressed("b") and get_node("../Diag").visible == false:
+			if not $InfoBar.visible:
+				set_visible(!visible)
+				get_tree().get_nodes_in_group("Player")[0].frozen = visible
+			else:
+				$InfoBar.set_visible(false)
+	else:
+		
+#		if bchoicenode.ready_for_inv:
+		if battle.selected_battle_choice == "item":
+			
+			if Input.is_action_just_pressed("a"):
+				if not visible:
+					set_visible(true)
+			elif Input.is_action_just_pressed("b"):
+				if visible:
+					if not $InfoBar.visible:
+						set_visible(false)
+					else:
+						$InfoBar.set_visible(false)
+	
+
 func get_column():
 	var col_count
 	if state == INVENTORY:

@@ -3,6 +3,8 @@ extends Sprite
 onready var battle = get_owner()
 onready var chem_anim = get_node("AnimationPlayer")
 
+var ready_for_inv = false
+
 func _ready():
 	chem_anim.connect("animation_finished", self, "chem_anim_finish")
 	chem_anim.play_backwards("Popout")
@@ -16,8 +18,10 @@ func _process(delta):
 	elif battle.selected_battle_choice == "item":
 		if battle.battle_choice_confirmed:
 			frame = 4
+			ready_for_inv = true
 		else:
 			frame = 3
+			ready_for_inv = false
 		
 		
 

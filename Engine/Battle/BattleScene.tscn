@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Engine/Battle/OrangePouring.png" type="Texture" id=6]
 [ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=7]
 [ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=8]
-[ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=9]
-[ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=10]
+[ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -122,6 +123,7 @@ polygon = PoolVector2Array( 0, 7, 8, 0, -8, 0 )
 [node name="Tween" type="Tween" parent="SelectedChemArrow"]
 
 [node name="BattleChoices" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 32, 105 )
 texture = ExtResource( 2 )
 hframes = 5
@@ -229,21 +231,24 @@ playback_speed = 2.0
 "anims/slide in" = SubResource( 2 )
 "anims/slide out" = SubResource( 3 )
 
-[node name="Camera" type="Camera2D" parent="."]
-offset = Vector2( 192, 108 )
-current = true
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="InventoryMenu" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="Tint" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.345098 )
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
-[node name="DodgerField" parent="." instance=ExtResource( 10 )]
+[node name="DodgerField" parent="." instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 192, 108 )
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2( 192, 108 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
 

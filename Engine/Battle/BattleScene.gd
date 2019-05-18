@@ -11,7 +11,8 @@ enum {
 	PLAYER_CHOOSE_ENEMY,
 	POURING,
 	ENEMY_TURN,
-	DODGE_GAME
+	DODGE_GAME,
+	INVENTORY_OPEN,
 }
 	
 
@@ -49,6 +50,12 @@ func _ready():
 	$BattleBG.texture = global.battle_bg
 	
 	# put down the chemicals
+	update_chem_loadout()
+		
+func update_chem_loadout():
+	for c in $BattleChoices/Chemicals.get_children():
+		c.queue_free()
+	
 	print(item_manager.loadout)
 	for i in range(item_manager.loadout.size()):
 		var chem_codename = item_manager.loadout[i]
@@ -59,7 +66,12 @@ func _ready():
 		chem_tube.set_name(item_manager.loadout[i])
 		chem_tube.position = Vector2(0, -27 + 35 * i)
 		$BattleChoices/Chemicals.add_child(chem_tube)
-		
+	
+	if $BattleChoices/Chemicals.get_child_count() > 0:
+		selected_chem = 0
+	else:
+		selected_chem = null
+	
 func _process(delta):
 	if state == PLAYER_TURN:
 		get_move_choice()
@@ -72,6 +84,9 @@ func _process(delta):
 		
 	elif state == DODGE_GAME:
 		do_dodge_game()
+	
+	elif state == INVENTORY_OPEN:
+		do_inventory()
 		
 func get_move_choice():
 	if not battle_choice_confirmed:
@@ -248,6 +263,9 @@ func end_dodge_game():
 	
 	# uh maybe this should move somewhere else at some point
 	get_tree().call_group("status_effects", "do_effect")
+
+func do_inventory():
+	pass
 
 func exit_battle():
 	global.end_battle()
