@@ -187,6 +187,13 @@ func foe_died():
 		exit_battle()
 
 func inflict_effect(who, eff):
+#	print("who.has_node(eff.keys()[0]):%s"%who.has_node(eff.keys()[0]))
+	var fx_name = eff.keys()[0]
+	var fx_lvl = eff.values()[0]
+	
+	if who.has_node(fx_name):
+		who.get_node(fx_name).remove()
+		
 	var eff_scene = load("res://Engine/Battle/StatusEffects/%s.tscn" % eff.keys()[0]).instance()
 	eff_scene.level = eff.values()[0]
 	who.add_child(eff_scene)

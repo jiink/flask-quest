@@ -21,8 +21,8 @@ func do_effect():
 	
 	duration -= 1
 	if duration <= 0:
-		relief()
+		remove()
 
-func relief():
+func remove():
 	parent.get_node("Sprite").get_material().set_shader(null)
 	queue_free()

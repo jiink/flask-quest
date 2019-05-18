@@ -10,7 +10,6 @@ func _ready():
 
 func _process(delta):
 	position += vec
-	print(vec)
 	vec.y += 0.1
 
 func _on_Timer_timeout():
