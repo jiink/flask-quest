@@ -16,6 +16,8 @@ var done_sliding = false
 var firt = false
 var overflowed = false
 
+var chemical
+
 func _ready():
 	visible = false
 	$AnimationPlayer.connect("animation_finished", self, "slide_finished")
@@ -25,8 +27,13 @@ func _process(delta):
 		if not firt:
 			firt = true
 			$AnimationPlayer.play("slide in")
+			chemical = battle.get_node("BattleChoices/Chemicals").get_child(battle.selected_chem)
 		
 		if done_sliding:
+			fill_speed = chemical.fill_speed
+			target_perc = chemical.fill_target
+			
+			
 			# 0-100 to 216-96
 			# output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start)
 			$FillTarget.position.y = 216.0 + ((96.0 - 216.0) / (100.0 - 0.0)) * (target_perc - 0.0)

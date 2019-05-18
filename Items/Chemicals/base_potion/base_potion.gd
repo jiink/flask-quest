@@ -12,6 +12,9 @@ var has_effects = true
 
 onready var battle = get_node("../../..")
 
+export(float) var fill_target = 50.0
+export(float) var fill_speed = 0.8
+
 func _ready():
 	
 	if effects.size() != effect_chance_ratios.size():
