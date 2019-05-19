@@ -198,14 +198,15 @@ func toss_item(ind):
 		update_item_selection(selection_index)
 
 func equip_item(ind):
-	if state == INVENTORY:
-		manager.loadout.append(manager.inventory[ind])
-		toss_item(ind)
-	else:
-		manager.inventory.append(manager.loadout[ind])
-		manager.loadout.remove(ind)
-		update_item_selection(selection_index)
-	update_list()
+	if manager.items[get_item_list()[selection_index]].has('equippable'):
+		if state == INVENTORY:
+			manager.loadout.append(manager.inventory[ind])
+			toss_item(ind)
+		else:
+			manager.inventory.append(manager.loadout[ind])
+			manager.loadout.remove(ind)
+			update_item_selection(selection_index)
+		update_list()
 	
 func get_item_list():
 	if state == INVENTORY:

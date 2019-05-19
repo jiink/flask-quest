@@ -12,10 +12,11 @@ var items = {
 	'base_potion': {
 		'name': 'Base Potion',
 		'desc': "You shouldn't have this.",
-		'damage': '10'
+		'equippable': 'y',
 		},
 	'fire_chemical': {
 		'name': 'Liquid Heiss',
 		'desc': 'Made by Scharles Heiss himself.',
+		'equippable': 'y',
 		},
 	}
