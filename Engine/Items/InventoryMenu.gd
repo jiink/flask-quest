@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var manager = get_node("/root/ItemManager")
-onready var item_options = get_node("InfoBar/ItemOptions")
+onready var item_options = get_node("InfoBar/ItemOptions/Choices")
 onready var container = get_node("Inventory/GridContainer")
 #onready var item_list = get_node("/root/ItemManager").inventory
 
@@ -114,45 +114,49 @@ func _process(delta):
 												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
 				
-				if state == INVENTORY:
-					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
-				elif state == LOADOUT:
-					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
+#				if state == INVENTORY:
+#					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
+#				elif state == LOADOUT:
+#					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
 			
 			
 			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("down"):
 				update_item_selection(selection_index)
 			
 		else:
-			if Input.is_action_just_pressed("up"):
+			if Input.is_action_just_pressed("left"):
 				selected_option -= 1
-			elif Input.is_action_just_pressed("down"):
+			elif Input.is_action_just_pressed("right"):
 				selected_option += 1
-			selected_option = clamp(selected_option, 0, item_options.get_node("Choices").get_children().size() - 1)
-			item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
+			selected_option = clamp(selected_option, 0, item_options.get_children().size() - 1)
+#			item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
+			update_item_action_icons()
 			
 			if Input.is_action_just_pressed("a"):
-				if item_options.get_node("Choices").get_child(selected_option).name == "Toss":
-					toss_item(selection_index)
-					update_list()
-					$InfoBar.set_visible(false)
-					if in_battle and state == LOADOUT:
-						loadout_changed = true
+				match item_options.get_child(selected_option).name:
+					"Toss":
+						toss_item(selection_index)
+						update_list()
+						$InfoBar.set_visible(false)
+						if in_battle and state == LOADOUT:
+							loadout_changed = true
 				
-				elif item_options.get_node("Choices").get_child(selected_option).name == "Equip":
-					if state == INVENTORY:
-						if manager.loadout.size() <3:
+					"Equip":
+						if state == INVENTORY:
+							if manager.loadout.size() <3:
+								equip_item(selection_index)
+								$InfoBar.set_visible(false)
+								if in_battle and state == LOADOUT:
+									loadout_changed = true
+							else:
+								print("loadout full")
+						else:
 							equip_item(selection_index)
 							$InfoBar.set_visible(false)
 							if in_battle and state == LOADOUT:
 								loadout_changed = true
-						else:
-							print("loadout full")
-					else:
-						equip_item(selection_index)
-						$InfoBar.set_visible(false)
-						if in_battle and state == LOADOUT:
-							loadout_changed = true
+					"Use":
+						print("Using items isn't a thing yet")
 
 	if not in_battle:
 		
@@ -208,7 +212,12 @@ func equip_item(ind):
 			manager.loadout.remove(ind)
 			update_item_selection(selection_index)
 		update_list()
-	
+
+func update_item_action_icons():
+	for c in item_options.get_children():
+		c.frame = 1
+	item_options.get_child(selected_option).frame = 0
+
 func get_item_list():
 	if state == INVENTORY:
 		return get_node("/root/ItemManager").inventory
