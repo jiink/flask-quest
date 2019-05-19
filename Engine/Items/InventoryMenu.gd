@@ -19,6 +19,7 @@ var state = INVENTORY
 var in_battle = false
 var battle
 var bchoicenode
+var loadout_changed = false
 
 func update_list():
 	
@@ -135,18 +136,23 @@ func _process(delta):
 					toss_item(selection_index)
 					update_list()
 					$InfoBar.set_visible(false)
+					if in_battle and state == LOADOUT:
+						loadout_changed = true
 				
 				elif item_options.get_node("Choices").get_child(selected_option).name == "Equip":
 					if state == INVENTORY:
 						if manager.loadout.size() <3:
 							equip_item(selection_index)
 							$InfoBar.set_visible(false)
+							if in_battle and state == LOADOUT:
+								loadout_changed = true
 						else:
 							print("loadout full")
 					else:
 						equip_item(selection_index)
 						$InfoBar.set_visible(false)
-						
+						if in_battle and state == LOADOUT:
+							loadout_changed = true
 
 	if not in_battle:
 		
@@ -168,6 +174,10 @@ func _process(delta):
 				if visible:
 					if not $InfoBar.visible:
 						set_visible(false)
+						if loadout_changed:
+							yield(get_tree().create_timer(0.8), "timeout")
+							battle.state = battle.ENEMY_TURN
+							loadout_changed = false
 					else:
 						$InfoBar.set_visible(false)
 	
