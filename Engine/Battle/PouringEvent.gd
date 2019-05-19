@@ -21,12 +21,15 @@ var chemical
 func _ready():
 	visible = false
 	$AnimationPlayer.connect("animation_finished", self, "slide_finished")
+	liq.value = 0
+	
 
 func _process(delta):
 	if battle.state == battle.POURING:
 		if not firt:
 			firt = true
 			$AnimationPlayer.play("slide in")
+			visible = true
 			chemical = battle.get_node("BattleChoices/Chemicals").get_child(battle.selected_chem)
 		
 		if done_sliding:
@@ -57,9 +60,7 @@ func _process(delta):
 	else:
 		firt = false
 func update_liq(perc):
-	# 0-100 to 0-40
-	var new_size = perc * (40.0/100.0)
-	liq.rect_scale.y = new_size
+	liq.value = perc
 
 func slide_finished(anim):
 	#print("hey sliding finished, current anim = %s" % $AnimationPlayer.current_animation )

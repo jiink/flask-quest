@@ -248,7 +248,7 @@ func chem_anim_complete():
 func start_pouring_event():
 	#yield(get_tree().create_timer(0.1), "timeout")
 	var pouring = get_node("PouringEvent")
-	pouring.visible = true
+#	pouring.visible = true
 	close_chems()
 
 func do_dodge_game():
