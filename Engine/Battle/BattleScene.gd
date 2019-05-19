@@ -12,11 +12,13 @@ enum {
 	POURING,
 	ENEMY_TURN,
 	DODGE_GAME,
-	INVENTORY_OPEN,
 }
 	
-
-
+enum {
+	MENU,
+	INV,
+}
+var focused_menu = MENU
 
 var state = PLAYER_TURN
 var selected_foe = 0
@@ -85,30 +87,32 @@ func _process(delta):
 	elif state == DODGE_GAME:
 		do_dodge_game()
 	
-	elif state == INVENTORY_OPEN:
-		do_inventory()
 		
 func get_move_choice():
-	if not battle_choice_confirmed:
-		if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+	if focused_menu == MENU:
+		if not battle_choice_confirmed:
+			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+				if selected_battle_choice == "attack":
+					selected_battle_choice = "item"
+				else:
+					selected_battle_choice = "attack"
+		else:
 			if selected_battle_choice == "attack":
-				selected_battle_choice = "item"
-			else:
-				selected_battle_choice = "attack"
-	else:
-		if selected_battle_choice == "attack":
-			state = PLAYER_CHOOSE_ENEMY
-			open_chems()
+				state = PLAYER_CHOOSE_ENEMY
+				open_chems()
+				
+		if Input.is_action_just_pressed("a"):
+			focused_menu = INV if selected_battle_choice == "item" else focused_menu
+			battle_choice_confirmed = true
 			
-	if Input.is_action_just_pressed("a"):
-		battle_choice_confirmed = true
-		
-		for foe in get_foes():
-			foe.say_line()
-		
-	elif Input.is_action_just_pressed("b"):			
-		battle_choice_confirmed = false
-		$SelectedChemArrow.visible = false
+			for foe in get_foes():
+				foe.say_line()
+			
+		elif Input.is_action_just_pressed("b"):
+			battle_choice_confirmed = false
+			$SelectedChemArrow.visible = false
+	elif focused_menu == INV:
+		focused_menu = MENU if not $InventoryMenu.visible else focused_menu
 
 func get_chem_choice():
 	# (a % b + b) % b

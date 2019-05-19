@@ -165,7 +165,7 @@ func _process(delta):
 	else:
 		
 #		if bchoicenode.ready_for_inv:
-		if battle.selected_battle_choice == "item":
+		if battle.selected_battle_choice == "item" and battle.state == battle.PLAYER_TURN:
 			
 			if Input.is_action_just_pressed("a"):
 				if not visible:
@@ -174,6 +174,7 @@ func _process(delta):
 				if visible:
 					if not $InfoBar.visible:
 						set_visible(false)
+						battle.battle_choice_confirmed = false
 						if loadout_changed:
 							yield(get_tree().create_timer(0.8), "timeout")
 							battle.state = battle.ENEMY_TURN
