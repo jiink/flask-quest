@@ -185,5 +185,4 @@ position = Vector2( 344, 127 )
 [node name="Position2D" type="Position2D" parent="TelePortal"]
 position = Vector2( -248, -58 )
 
-
 [editable path="HUD"]
