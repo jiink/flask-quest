@@ -7,7 +7,6 @@ export(int, "NORMAL", "GREEN", "ORANGE") var type
 export(int) var damage = 15
 
 export(float) var speed = 100
-export(float) var speed_change = 1
 
 var vec
 
@@ -53,7 +52,6 @@ func _ready():
 	
 func _process(delta):
 	position += vec * delta
-	vec *= speed_change
 	
 func area_entered(area):
 	var thingy = area.get_parent()

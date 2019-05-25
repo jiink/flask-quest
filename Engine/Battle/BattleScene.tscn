@@ -186,6 +186,7 @@ texture = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="liquid" type="Sprite" parent="PouringEvent/orangepouring"]
+modulate = Color( 1, 1, 1, 0.878431 )
 position = Vector2( 9.638, -9 )
 texture = ExtResource( 8 )
 
@@ -227,8 +228,7 @@ texture_progress = ExtResource( 12 )
 fill_mode = 3
 
 [node name="FillTarget" type="Node2D" parent="PouringEvent"]
-editor/display_folded = true
-position = Vector2( 178, 145 )
+position = Vector2( 178, 266.95 )
 rotation = -1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="PouringEvent/FillTarget"]

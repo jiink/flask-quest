@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bullet.png-95dff536a17375b70ac2b189e405f472.stex"
+path="res://.import/bullet.png-1285311af18c4cf3c42be0f2cbace185.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/Dodger/Projectiles/Bullet/bullet.png"
-dest_files=[ "res://.import/bullet.png-95dff536a17375b70ac2b189e405f472.stex" ]
+source_file="res://Engine/Battle/Dodger/Projectiles/bullet.png"
+dest_files=[ "res://.import/bullet.png-1285311af18c4cf3c42be0f2cbace185.stex" ]
 
 [params]
 

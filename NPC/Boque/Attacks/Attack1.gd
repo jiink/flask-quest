@@ -1,7 +1,7 @@
 extends Node2D
 
 var b_count = 5
-var b = load("res://Engine/Battle/Dodger/Projectiles/Bullet/Bullet.tscn")
+var b = load("res://Engine/Battle/Dodger/Projectiles/Bullet.tscn")
 var spd = randf() * .5 - .2
 
 func _on_FireTimer_timeout():

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet/bullet.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 1 )
@@ -9,6 +9,7 @@ extents = Vector2( 6, 1 )
 [node name="Bullet" type="Area2D"]
 pause_mode = 2
 script = ExtResource( 1 )
+speed_change = 1.01
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 2
