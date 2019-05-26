@@ -85,7 +85,7 @@ func update_boxes(new_target):
 		visible_new_text = new_text.replace(l, "")
 		
 	# set delays
-	if target_piece.text_delay != null:
+	if target_piece.text_delay != null and target_piece.text_delay != 0:
 		text_time = target_piece.text_delay
 	else:
 		text_time = target_tree.default_text_delay
@@ -108,9 +108,9 @@ func update_boxes(new_target):
 		$Choices/Choice2.text = ""
 		$Choices.set_visible(false)
 	
-	$TextBox/Timer.wait_time = 0.03
+	#$TextBox/Timer.wait_time = 0.03
 		
-	$TextBox/Timer.start()
+	$TextBox/Timer.start(text_time)
 		
 	# face
 	has_face = !(target_tree.face_texture == null or target_piece.no_face)
@@ -158,10 +158,9 @@ func update_boxes(new_target):
 func next_letter_time():
 	if text_index < new_text.length() - 1:
 		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
-			$TextBox/Timer.wait_time = text_time + 0.1
+			$TextBox/Timer.start(text_time + 0.15)
 		else:
-			$TextBox/Timer.wait_time = text_time
-			
+			$TextBox/Timer.start(text_time)
 		text_index += 1
 		if new_text[text_index] != "`":
 			$TextBox.text += new_text[text_index]
