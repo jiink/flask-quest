@@ -20,7 +20,7 @@ func _process(delta):
 			move_and_slide(Vector2(speed, 0).rotated(angle))
 		else:
 			queue_free()
-			$"/root/global".start_battle(["Boque"])
+			$"/root/global".start_battle(["Wormo", "Wormo", "Wormo"])
 	else:
 		moving = false
 		

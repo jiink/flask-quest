@@ -160,12 +160,21 @@ position = Vector2( 339, 52 )
 [node name="Wormo" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 62, 58 )
 
+[node name="Wormo2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 136, 52 )
+
+[node name="Wormo3" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 48, 98 )
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
 texture = ExtResource( 13 )
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
 energy = 0.92
 shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 286, 118 )
@@ -173,6 +182,9 @@ texture = ExtResource( 13 )
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
 shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TestItem" parent="." instance=ExtResource( 14 )]
 position = Vector2( 166, 111 )
