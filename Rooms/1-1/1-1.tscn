@@ -69,10 +69,10 @@ rect_pivot_offset = Vector2( 418, 592 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="YSort" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 250.996, 119.574 )
+light_mask = 513
+position = Vector2( 263.076, 141.974 )
 
 [node name="Lights" type="Node" parent="."]
 
@@ -91,10 +91,10 @@ margin_bottom = -88.0
 color = Color( 0, 0, 0, 0.411765 )
 
 [node name="Light2D" type="Light2D" parent="Lights"]
-position = Vector2( 330, 90 )
+position = Vector2( 296, 88 )
 scale = Vector2( 0.569146, 0.569146 )
 texture = ExtResource( 4 )
-offset = Vector2( -59.0077, -3.36929 )
+range_item_cull_mask = 513
 
 [node name="Light2D5" type="Light2D" parent="Lights"]
 position = Vector2( 299, -242 )
@@ -110,10 +110,9 @@ texture = ExtResource( 4 )
 offset = Vector2( -59.0077, -3.36929 )
 
 [node name="Light2D2" type="Light2D" parent="Lights"]
-position = Vector2( 155.235, 89.5807 )
+position = Vector2( 120, 88 )
 scale = Vector2( 0.569146, 0.569146 )
 texture = ExtResource( 4 )
-offset = Vector2( -59.0077, -3.36929 )
 
 [node name="Light2D3" type="Light2D" parent="Lights"]
 position = Vector2( 581.286, 62.543 )
@@ -154,4 +153,3 @@ occluder = SubResource( 1 )
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
-

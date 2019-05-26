@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Rooms/Test/T-1/TestRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -11,11 +11,12 @@
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Engine/light.png" type="Texture" id=12]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=16]
+[ext_resource path="res://NPC/Wormo/Wormo.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Engine/light.png" type="Texture" id=13]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=17]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -156,29 +157,32 @@ position = Vector2( 316, 53 )
 [node name="SaveTester3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 339, 52 )
 
+[node name="Wormo" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 62, 58 )
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
 energy = 0.92
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 286, 118 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
 shadow_enabled = true
 
-[node name="TestItem" parent="." instance=ExtResource( 13 )]
+[node name="TestItem" parent="." instance=ExtResource( 14 )]
 position = Vector2( 166, 111 )
 z_index = -2
 
-[node name="Camera" parent="." instance=ExtResource( 14 )]
+[node name="Camera" parent="." instance=ExtResource( 15 )]
 
-[node name="HUD" parent="." instance=ExtResource( 15 )]
+[node name="HUD" parent="." instance=ExtResource( 16 )]
 
-[node name="TelePortal" parent="." instance=ExtResource( 16 )]
+[node name="TelePortal" parent="." instance=ExtResource( 17 )]
 modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
 position = Vector2( 344, 127 )
 
