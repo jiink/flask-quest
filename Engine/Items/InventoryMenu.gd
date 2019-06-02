@@ -156,8 +156,18 @@ func _process(delta):
 							if in_battle and state == LOADOUT:
 								loadout_changed = true
 					"Use":
-						print("Using items isn't a thing yet")
-
+#						print("Using items isn't a thing yet")
+						var item_script_path = "res://Items/Scripts/%s.gd" % get_item_list()[selection_index]
+						var directory = Directory.new()
+						var doFileExists = directory.file_exists(item_script_path)
+						if doFileExists:
+							var item_script = load(item_script_path).new()
+							item_script.use()
+							toss_item(selection_index)
+							update_list()
+							$InfoBar.set_visible(false)
+						else:
+							print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
 	if not in_battle:
 		
 		if Input.is_action_just_pressed("b") and get_node("../Diag").visible == false:

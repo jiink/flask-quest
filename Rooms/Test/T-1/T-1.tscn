@@ -161,7 +161,7 @@ position = Vector2( 339, 52 )
 position = Vector2( 62, 58 )
 
 [node name="Wormo2" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 136, 52 )
+position = Vector2( 135, 53 )
 
 [node name="Wormo3" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 48, 98 )
