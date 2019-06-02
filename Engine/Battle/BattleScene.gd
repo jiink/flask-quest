@@ -258,13 +258,14 @@ func do_dodge_game():
 func start_dodge_game():
 	$DodgerField.visible = true
 	$Tint.visible = true
+	$DodgerField/AnimationPlayer.play("appear")
 	state = DODGE_GAME
 
 func end_dodge_game():
 	$DodgerField.visible = false
 	$Tint.visible = false
 	state = PLAYER_TURN
-	
+	$DodgerField/AnimationPlayer.play_backwards("appear")
 	# uh maybe this should move somewhere else at some point
 	get_tree().call_group("status_effects", "do_effect")
 

@@ -30,6 +30,7 @@ func _ready():
 		battle = null
 	
 	$ShieldTimer.connect("timeout", self, "shield_timer_timeout")
+	$AnimationPlayer.play_backwards("appear")
 	
 func _process(delta):
 	if visible:

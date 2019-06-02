@@ -72,4 +72,3 @@ align = 1
 [node name="BaseAnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 3.0
 anims/hurt = SubResource( 1 )
-
