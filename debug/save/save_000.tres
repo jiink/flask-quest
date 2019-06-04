@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 data = {
-"test_SaveTester": "red",
+"test_SaveTester": "blue",
 "test_SaveTester2": "red",
 "test_SaveTester3": "red"
 }
