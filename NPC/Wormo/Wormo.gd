@@ -12,15 +12,14 @@ onready var target = get_tree().get_nodes_in_group("Player")[0]
 func _process(delta):
 	target_dist = get_global_transform().origin.distance_to(target.get_global_transform().origin)
 	if target_dist < follow_dist:
-		if target_dist > 5:
-			moving = true
-			var angle = target.get_global_transform().origin.angle_to_point(get_global_transform().origin)
-	#		print("%s PI" % [angle/PI])
-			$Sprite.flip_h = abs(angle) >= PI*0.5
-			move_and_slide(Vector2(speed, 0).rotated(angle))
-		else:
-			queue_free()
-			$"/root/global".start_battle(["Wormo", "Wormo", "Wormo"])
+			if not is_touching_player():
+				moving = true
+				var angle = target.get_global_transform().origin.angle_to_point(get_global_transform().origin)
+				$Sprite.flip_h = abs(angle) >= PI*0.5
+				move_and_slide(Vector2(speed, 0).rotated(angle))
+			else:
+				queue_free()
+				$"/root/global".start_battle(["Wormo", "Wormo", "Wormo"])
 	else:
 		moving = false
 		
@@ -32,3 +31,5 @@ func _process(delta):
 			$Sprite.frame = 0
 			$AnimationPlayer.stop()
 			
+func is_touching_player():
+	return $CollisionShape2D.get_global_transform().origin.distance_to(target.get_global_transform().origin) < 16
