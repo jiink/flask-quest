@@ -45,8 +45,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=384
 window/size/height=216
-window/size/test_width=768
-window/size/test_height=432
+window/size/test_width=1536
+window/size/test_height=864
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
