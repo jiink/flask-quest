@@ -2,7 +2,9 @@ extends Node
 
 # player vars
 var player_hp = 100
-
+func get_player():
+	return get_tree().get_nodes_in_group("Player")[0]
+	
 ################## battle ##################
 
 # battle vars
@@ -30,29 +32,48 @@ func custompause(node, x):
 #			print("- "+N.get_name())
 
 func start_battle(foes):
-	initial_enemies = foes
+	get_player().frozen = true
+	
+	var hud = get_tree().get_current_scene().get_node("HUD")
+	
+	if not hud.has_node("BattleStartTransition"):
+		initial_enemies = foes
+		var battle_start_transition = preload("res://Engine/Battle/BattleStartTransition.tscn").instance()
+		hud.add_child(battle_start_transition)
+	
+		for f in get_tree().get_nodes_in_group("WorldFoes"):
+			f.speed = 90
+			f.follow_distance *= 1.5
+	else:
+		for n in foes:
+			initial_enemies.append(n)
+	
+	
+
+
+
 #	initial_enemies = ["Boque", "Boque", "Boque"]
 	#print(get_tree().get_current_scene())
 	#print(get_tree().get_current_scene().get_path())
 #	prev_scene = (str(get_tree().get_current_scene().get_path()) + ".tscn").replace("/root", "res:/")
-	
-	var battle_scene = load("res://Engine/Battle/BattleScene.tscn").instance()
-	
-	
-	get_tree().get_current_scene().get_node("Camera").current = false
-	#get_tree().paused = true
-	
-	custompause(get_tree().get_current_scene(), true)
-	
-	for child in get_tree().get_current_scene().get_children():
-		if not child.get("visible") == null:
-			child.visible = false
-		
-	
-	get_tree().get_current_scene().add_child(battle_scene)
-	
-	get_tree().get_current_scene().get_node("BattleScene/Camera").current = true
-	
+#
+#	var battle_scene = load("res://Engine/Battle/BattleScene.tscn").instance()
+#
+#
+#	get_tree().get_current_scene().get_node("Camera").current = false
+#	#get_tree().paused = true
+#
+#	custompause(get_tree().get_current_scene(), true)
+#
+#	for child in get_tree().get_current_scene().get_children():
+#		if not child.get("visible") == null:
+#			child.visible = false
+#
+#
+#	get_tree().get_current_scene().add_child(battle_scene)
+#
+#	get_tree().get_current_scene().get_node("BattleScene/Camera").current = true
+#
 	
 	#print("after battle start: %s" % get_tree().get_current_scene().get_children())
 	
