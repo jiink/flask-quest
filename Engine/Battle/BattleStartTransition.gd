@@ -22,6 +22,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	for i in get_tree().get_nodes_in_group("WorldFoes"):
 		if not i.is_processing():
-			queue_free()
+			i.queue_free()
 			
 	queue_free()
