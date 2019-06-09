@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 
-[node name="BoqueFoe" instance=ExtResource( 1 )]
+[node name="BoqueFoe" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 lines = [ "This isn't working.", "Can I go home?", "What did you break this time?", "You should work more." ]
 talk_chance = 33.0
@@ -18,7 +18,7 @@ margin_bottom = 6.0
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource( 1 )
-position = Vector2( 3, -39 )
+position = Vector2( 2, -37 )
 scale = Vector2( 1, 1.00515 )
 texture = ExtResource( 3 )
 

@@ -7,7 +7,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "hurt"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath("Sprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -56,7 +56,7 @@ margin_bottom = 8.0
 color = Color( 0, 0, 0, 0.116 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2, -57 )
+position = Vector2( 2, -55 )
 texture = ExtResource( 2 )
 
 [node name="HPLabel" type="Label" parent="."]
