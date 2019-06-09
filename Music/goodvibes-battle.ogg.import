@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/goodvibes-battle.ogg-3114821920d401d065f400f479e316c6.oggstr"
+
+[deps]
+
+source_file="res://Music/goodvibes-battle.ogg"
+dest_files=[ "res://.import/goodvibes-battle.ogg-3114821920d401d065f400f479e316c6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

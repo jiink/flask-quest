@@ -23,5 +23,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	for i in get_tree().get_nodes_in_group("WorldFoes"):
 		if not i.is_processing():
 			i.queue_free()
-			
+	
+	$"/root/MusicManager".update_music("battle")
+	
 	queue_free()
