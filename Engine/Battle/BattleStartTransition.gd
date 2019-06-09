@@ -1,7 +1,9 @@
 extends Node2D
 
-
-
+func _ready():
+	$"/root/MusicManager/AnimationPlayer".play("fade_out")
+	pass
+	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	var battle_scene = load("res://Engine/Battle/BattleScene.tscn").instance()
 	
@@ -25,5 +27,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			i.queue_free()
 	
 	$"/root/MusicManager".update_music("battle")
-	
+	$"/root/MusicManager/AnimationPlayer".play("fade_in")
 	queue_free()
