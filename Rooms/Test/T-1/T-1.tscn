@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Rooms/Test/T-1/TestRoom.gd" type="Script" id=1]
+[ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=4]
