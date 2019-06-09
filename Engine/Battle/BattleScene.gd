@@ -275,5 +275,5 @@ func do_inventory():
 func exit_battle():
 	global.end_battle()
 	$"/root/MusicManager".update_music("level")
-	pass
+	get_tree().get_nodes_in_group("Player")[0].frozen = false
 	
