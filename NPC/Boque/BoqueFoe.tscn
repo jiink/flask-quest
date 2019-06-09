@@ -13,12 +13,12 @@ talk_chance = 33.0
 max_hp = 40
 
 [node name="ColorRect" parent="." index="0"]
-margin_left = -25.0
-margin_top = 34.0
-margin_right = 21.0
-margin_bottom = 45.0
+margin_top = -5.0
+margin_bottom = 6.0
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource( 1 )
+position = Vector2( 3, -39 )
 scale = Vector2( 1, 1.00515 )
 texture = ExtResource( 3 )
+
