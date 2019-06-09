@@ -59,28 +59,32 @@ func _process(delta):
 				var look = "res://NPC/%s/Attacks/" % foe_name
 				
 				print("att dir size: %s" % att_dir.size())
-				var attack_num = randi() % att_dir.size() + 1
-				print("loop %s: attack nuber:: %s" % [f, attack_num])
-
-				var attack_scene_path = "res://NPC/%s/Attacks/Attack%s.tscn" % [foe_name, attack_num]
-				
-				var attack_scene = load(attack_scene_path)
-				attack_scene = attack_scene.instance()
-				attack_scene.position = Vector2(-192, -108)
-				$Attacks.add_child(attack_scene)
-				
-				timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
+				if att_dir.size() > 0:
+					var attack_num = randi() % att_dir.size() + 1
+					print("loop %s: attack nuber:: %s" % [f, attack_num])
+	
+					var attack_scene_path = "res://NPC/%s/Attacks/Attack%s.tscn" % [foe_name, attack_num]
+					
+					var attack_scene = load(attack_scene_path)
+					attack_scene = attack_scene.instance()
+					attack_scene.position = Vector2(-192, -108)
+					$Attacks.add_child(attack_scene)
+					
+					timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
 				
 			var longest_timer_time = 0.1
 			var timer_index = 0
-			for i in range($Attacks.get_child_count()):
-				if timers[i].wait_time > longest_timer_time:
-					longest_timer_time = timers[i].wait_time
-					timer_index = i
-			active_battle_timer = timers[timer_index]
+			if timers.size() > 0:
+				for i in range($Attacks.get_child_count()):
+					if timers[i].wait_time > longest_timer_time:
+						longest_timer_time = timers[i].wait_time
+						timer_index = i
+				active_battle_timer = timers[timer_index]
 			
-			active_battle_timer.connect("timeout", self, "att_timeout")
-			attacks_spawned = true
+				active_battle_timer.connect("timeout", self, "att_timeout")
+				attacks_spawned = true
+			else:
+				att_timeout()
 		
 		$Dodgers/GreenSprite.visible = not pstats.green_hp <= 0
 		$Dodgers/OrangeSprite.visible = not pstats.orange_hp <= 0
