@@ -1,9 +1,16 @@
 extends Node2D
 
+export(int) var shader_frequency = 0
+export(float) var shader_depth = 0.0
+
 func _ready():
 	$"/root/MusicManager/AnimationPlayer".play("fade_out")
 	pass
 	
+func _process(delta):
+	$Shader.get_material().set_shader_param("frequency", shader_frequency)
+	$Shader.get_material().set_shader_param("depth", shader_depth)
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	for i in get_tree().get_nodes_in_group("WorldFoes"):
