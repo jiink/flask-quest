@@ -3,9 +3,7 @@ extends "res://Engine/Battle/BaseFoe.gd"
 
 
 func _ready():
-	max_hp = 45
-	hp = max_hp
-	update_hp_label()
+	pass
 	
 	#$AnimationPlayer.play("Idle")
 	#$AnimationPlayer.seek(rand_range(0,0.9))

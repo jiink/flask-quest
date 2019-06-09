@@ -5,15 +5,13 @@ signal foe_died
 export(Array, String) var lines
 export(float) var talk_chance = 100.0
 
-var max_hp
+export(int) var max_hp = 100
 var hp
 
 var damage = 15
 
 func _ready():
-	max_hp = 100
 	hp = max_hp
-	
 	#connect("foe_died", get_node("/root/BattleScene"), "foe_died")
 	connect("foe_died", get_node("../.."), "foe_died")
 	update_hp_label()
