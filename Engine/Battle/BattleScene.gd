@@ -274,5 +274,6 @@ func do_inventory():
 
 func exit_battle():
 	global.end_battle()
+	$"/root/MusicManager".update_music("level")
 	pass
 	
