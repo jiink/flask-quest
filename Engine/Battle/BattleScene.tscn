@@ -89,6 +89,10 @@ tracks/1/keys = {
 [node name="BattleScene" type="Node"]
 pause_mode = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 189.383, 128.37 ],
+"_edit_vertical_guides_": [ 84.0712, 345.03 ]
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -267,3 +271,4 @@ current = true
 __meta__ = {
 "_edit_lock_": true
 }
+
