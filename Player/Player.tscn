@@ -1,14 +1,14 @@
 [gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/sprites/greenleft1.png" type="Texture" id=2]
-[ext_resource path="res://Player/sprites/greenleft2.png" type="Texture" id=3]
-[ext_resource path="res://Player/sprites/greenleft3.png" type="Texture" id=4]
-[ext_resource path="res://Player/sprites/greenleft4.png" type="Texture" id=5]
-[ext_resource path="res://Player/sprites/greenright1.png" type="Texture" id=6]
-[ext_resource path="res://Player/sprites/greenright2.png" type="Texture" id=7]
-[ext_resource path="res://Player/sprites/greenright3.png" type="Texture" id=8]
-[ext_resource path="res://Player/sprites/greenright4.png" type="Texture" id=9]
+[ext_resource path="res://Player/sprites/greenright1.png" type="Texture" id=2]
+[ext_resource path="res://Player/sprites/greenright2.png" type="Texture" id=3]
+[ext_resource path="res://Player/sprites/greenright3.png" type="Texture" id=4]
+[ext_resource path="res://Player/sprites/greenright4.png" type="Texture" id=5]
+[ext_resource path="res://Player/sprites/greenleft1.png" type="Texture" id=6]
+[ext_resource path="res://Player/sprites/greenleft2.png" type="Texture" id=7]
+[ext_resource path="res://Player/sprites/greenleft3.png" type="Texture" id=8]
+[ext_resource path="res://Player/sprites/greenleft4.png" type="Texture" id=9]
 [ext_resource path="res://Player/sprites/greenup1.png" type="Texture" id=10]
 [ext_resource path="res://Player/sprites/greenup2.png" type="Texture" id=11]
 [ext_resource path="res://Player/sprites/greenup3.png" type="Texture" id=12]
@@ -21,14 +21,14 @@
 [ext_resource path="res://Player/sprites/greenrightdown2.png" type="Texture" id=19]
 [ext_resource path="res://Player/sprites/greenrightdown3.png" type="Texture" id=20]
 [ext_resource path="res://Player/sprites/greenrightdown4.png" type="Texture" id=21]
-[ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=22]
-[ext_resource path="res://Player/sprites/greenleftdown2.png" type="Texture" id=23]
-[ext_resource path="res://Player/sprites/greenleftdown3.png" type="Texture" id=24]
-[ext_resource path="res://Player/sprites/greenleftdown4.png" type="Texture" id=25]
-[ext_resource path="res://Player/sprites/greenrightup1.png" type="Texture" id=26]
-[ext_resource path="res://Player/sprites/greenrightup2.png" type="Texture" id=27]
-[ext_resource path="res://Player/sprites/greenrightup3.png" type="Texture" id=28]
-[ext_resource path="res://Player/sprites/greenrightup4.png" type="Texture" id=29]
+[ext_resource path="res://Player/sprites/greenrightup1.png" type="Texture" id=22]
+[ext_resource path="res://Player/sprites/greenrightup2.png" type="Texture" id=23]
+[ext_resource path="res://Player/sprites/greenrightup3.png" type="Texture" id=24]
+[ext_resource path="res://Player/sprites/greenrightup4.png" type="Texture" id=25]
+[ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=26]
+[ext_resource path="res://Player/sprites/greenleftdown2.png" type="Texture" id=27]
+[ext_resource path="res://Player/sprites/greenleftdown3.png" type="Texture" id=28]
+[ext_resource path="res://Player/sprites/greenleftdown4.png" type="Texture" id=29]
 [ext_resource path="res://Player/sprites/greenleftup1.png" type="Texture" id=30]
 [ext_resource path="res://Player/sprites/greenleftup2.png" type="Texture" id=31]
 [ext_resource path="res://Player/sprites/greenleftup3.png" type="Texture" id=32]
@@ -38,8 +38,8 @@
 polygon = PoolVector2Array( 8, 1, 8, 1, -8, 1, -8, 1 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 3.23958
-height = 9.22699
+radius = 3.0
+height = 6.0
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 6 )
@@ -48,12 +48,12 @@ extents = Vector2( 8, 6 )
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -73,12 +73,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
 "loop": true,
-"name": "leftdown",
+"name": "rightup",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "rightup",
+"name": "leftdown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
@@ -91,6 +91,10 @@ animations = [ {
 "Player",
 ]]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ 8.0, -8.0 ]
+}
 speed = 60
 sprintMultiplier = 2.1
 
@@ -100,7 +104,6 @@ show_behind_parent = true
 occluder = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -2 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
