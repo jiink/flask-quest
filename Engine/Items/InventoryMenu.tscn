@@ -77,4 +77,3 @@ position = Vector2( 228, 39 )
 texture = ExtResource( 8 )
 hframes = 2
 frame = 1
-

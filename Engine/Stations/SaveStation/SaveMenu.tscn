@@ -1,39 +1,59 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Engine/Stations/SaveStation/save_slots_bg.png" type="Texture" id=1]
-[ext_resource path="res://Engine/Stations/SaveStation/save_slots.png" type="Texture" id=2]
-[ext_resource path="res://Engine/Stations/SaveStation/save_bg.png" type="Texture" id=3]
-[ext_resource path="res://Engine/Stations/SaveStation/save_fg.png" type="Texture" id=4]
-[ext_resource path="res://Engine/Stations/SaveStation/save_button.png" type="Texture" id=5]
-[ext_resource path="res://Engine/Stations/SaveStation/back_button.png" type="Texture" id=6]
-[ext_resource path="res://Engine/Stations/SaveStation/trash_button.png" type="Texture" id=7]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveMenu.gd" type="Script" id=1]
+[ext_resource path="res://Engine/Stations/SaveStation/save_slots_bg.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Stations/SaveStation/save_slots.png" type="Texture" id=3]
+[ext_resource path="res://Engine/Stations/SaveStation/save_bg.png" type="Texture" id=4]
+[ext_resource path="res://Engine/Stations/SaveStation/save_fg.png" type="Texture" id=5]
+[ext_resource path="res://Engine/Stations/SaveStation/save_button.png" type="Texture" id=6]
+[ext_resource path="res://Engine/Stations/SaveStation/back_button.png" type="Texture" id=7]
+[ext_resource path="res://Engine/Stations/SaveStation/trash_button.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "slot_switch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="SaveMenu" type="Node2D"]
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 96.0 ]
 }
 
 [node name="save_slots_bg" type="Sprite" parent="."]
 position = Vector2( 192, 108 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="save_slots" type="Sprite" parent="."]
-position = Vector2( 192, 176 )
-texture = ExtResource( 2 )
+position = Vector2( 192, 177 )
+texture = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="save_slots"]
 
 [node name="save_bg" type="Sprite" parent="."]
 position = Vector2( 192, 108 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="save_fg" type="Sprite" parent="."]
 position = Vector2( 192, 108 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -41,19 +61,22 @@ __meta__ = {
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="save_button" type="Sprite" parent="Buttons"]
-position = Vector2( 137, 126 )
-texture = ExtResource( 5 )
-offset = Vector2( 0, 0.5 )
-hframes = 2
-
-[node name="back_button" type="Sprite" parent="Buttons"]
-position = Vector2( 175, 126 )
+position = Vector2( 137, 127 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 0.5 )
 hframes = 2
 
-[node name="trash_button" type="Sprite" parent="Buttons"]
-position = Vector2( 254, 126 )
+[node name="back_button" type="Sprite" parent="Buttons"]
+position = Vector2( 175, 127 )
 texture = ExtResource( 7 )
+offset = Vector2( 0, 0.5 )
+hframes = 2
+
+[node name="trash_button" type="Sprite" parent="Buttons"]
+position = Vector2( 254, 127 )
+texture = ExtResource( 8 )
 offset = Vector2( 0.5, 0.5 )
 hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons"]
+anims/slot_switch = SubResource( 1 )

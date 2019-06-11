@@ -93,7 +93,7 @@ player_new_position = Vector2( 98, 63 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="SaveStation" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 345, 92 )
+position = Vector2( 345, 81 )
 
 [node name="Boque" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 304, 112 )
@@ -154,7 +154,7 @@ function = "enter_battle"
 args = [ [ "Boque" ] ]
 
 [node name="Player" parent="YSort" instance=ExtResource( 13 )]
-position = Vector2( 306, 87 )
+position = Vector2( 265, 103 )
 
 [node name="SaveTester" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 293, 53 )
