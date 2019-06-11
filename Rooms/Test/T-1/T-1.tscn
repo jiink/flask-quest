@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -7,18 +7,19 @@
 [ext_resource path="res://Rooms/Test/Assets/TestRoomTileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=6]
 [ext_resource path="res://Rooms/Test/Assets/WarpPortal.tscn" type="PackedScene" id=7]
-[ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=9]
-[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=10]
-[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=13]
-[ext_resource path="res://NPC/Wormo/Wormo.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Engine/light.png" type="Texture" id=15]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=11]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=14]
+[ext_resource path="res://NPC/Wormo/Wormo.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Engine/light.png" type="Texture" id=16]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=20]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -91,88 +92,91 @@ player_new_position = Vector2( 98, 63 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Boque" parent="YSort" instance=ExtResource( 8 )]
+[node name="SaveStation" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 345, 81 )
+
+[node name="Boque" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 304, 112 )
 
-[node name="DialogueTree" parent="YSort/Boque" instance=ExtResource( 9 )]
-face_texture = ExtResource( 10 )
+[node name="DialogueTree" parent="YSort/Boque" instance=ExtResource( 10 )]
+face_texture = ExtResource( 11 )
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree" instance=ExtResource( 11 )]
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree" instance=ExtResource( 12 )]
 message = "hello. blah blah. blahblah? bababa, baba."
 text_delay = 0.0
 function = "test_react"
 args = [  ]
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 11 )]
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 12 )]
 key = "yeah"
 message = "cool"
 text_delay = 0.0
 args = [  ]
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 11 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 12 )]
 key = "no"
 message = "man"
 text_delay = 0.0
 args = [  ]
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" instance=ExtResource( 11 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" instance=ExtResource( 12 )]
 message = "really?"
 text_delay = 0.07
 args = [  ]
 
-[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 11 )]
+[node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 12 )]
 key = "yep"
 message = "heck you. "
 text_delay = 0.0
 args = [  ]
 
-[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 11 )]
+[node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 12 )]
 text_delay = 0.0
 function = "enter_battle"
 args = [  ]
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 11 )]
+[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 12 )]
 key = "nope"
 message = "wow dumy"
 text_delay = 0.0
 args = [  ]
 
-[node name="Boque2" parent="YSort" instance=ExtResource( 8 )]
+[node name="Boque2" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 226, 106 )
 
-[node name="DialogueTree" parent="YSort/Boque2" instance=ExtResource( 9 )]
-face_texture = ExtResource( 10 )
+[node name="DialogueTree" parent="YSort/Boque2" instance=ExtResource( 10 )]
+face_texture = ExtResource( 11 )
 
-[node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 11 )]
+[node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 12 )]
 message = "battle time"
 text_delay = 0.0
 function = "enter_battle"
 args = [ [ "Boque" ] ]
 
-[node name="Player" parent="YSort" instance=ExtResource( 12 )]
+[node name="Player" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 265, 103 )
 
-[node name="SaveTester" parent="YSort" instance=ExtResource( 13 )]
+[node name="SaveTester" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 293, 53 )
 
-[node name="SaveTester2" parent="YSort" instance=ExtResource( 13 )]
+[node name="SaveTester2" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 316, 53 )
 
-[node name="SaveTester3" parent="YSort" instance=ExtResource( 13 )]
+[node name="SaveTester3" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 339, 52 )
 
-[node name="Wormo" parent="YSort" instance=ExtResource( 14 )]
+[node name="Wormo" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 62, 58 )
 
-[node name="Wormo2" parent="YSort" instance=ExtResource( 14 )]
-position = Vector2( 135, 53 )
+[node name="Wormo2" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 51, 36 )
 
-[node name="Wormo3" parent="YSort" instance=ExtResource( 14 )]
+[node name="Wormo3" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 48, 98 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
 energy = 0.92
 shadow_enabled = true
@@ -182,7 +186,7 @@ __meta__ = {
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 286, 118 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
 shadow_enabled = true
@@ -190,20 +194,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TestItem" parent="." instance=ExtResource( 16 )]
+[node name="TestItem" parent="." instance=ExtResource( 17 )]
 position = Vector2( 166, 111 )
 z_index = -2
 
-[node name="Camera" parent="." instance=ExtResource( 17 )]
+[node name="Camera" parent="." instance=ExtResource( 18 )]
 
-[node name="HUD" parent="." instance=ExtResource( 18 )]
+[node name="HUD" parent="." instance=ExtResource( 19 )]
 
-[node name="TelePortal" parent="." instance=ExtResource( 19 )]
+[node name="TelePortal" parent="." instance=ExtResource( 20 )]
 modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
 position = Vector2( 344, 127 )
 
 [node name="Position2D" type="Position2D" parent="TelePortal"]
 position = Vector2( -248, -58 )
-
 
 [editable path="HUD"]
