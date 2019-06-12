@@ -16,7 +16,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
 		save_slot_selection = clamp(save_slot_selection, 1, 3)
 		#$save_slots.position.y = save_slot_positions[save_slot_selection - 1]
-
+		
+		$Buttons/AnimationPlayer.stop(true)
 		$Buttons/AnimationPlayer.play("slot_switch")
 		
 		$save_slots/Tween.interpolate_property($save_slots, "position:y", $save_slots.position.y, 
