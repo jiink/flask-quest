@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource( 1 )
 data = {
-"player_spawn_pos": Vector2( 346.92, 91.9203 ),
+"player_spawn_pos": Vector2( 344.975, 99.5885 ),
 "player_spawn_scene": "res://RoomsTestRoom.tscn",
 "test_SaveTester": "red",
-"test_SaveTester2": "red",
-"test_SaveTester3": "blue"
+"test_SaveTester2": "blue",
+"test_SaveTester3": "red"
 }

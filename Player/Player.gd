@@ -33,6 +33,7 @@ func _process(delta):
 	else:
 		$AnimatedSprite.playing = false
 		$AnimatedSprite.frame = 0
+		
 func get_inputs():
 	motion = Vector2(0, 0)
 	if Input.is_action_pressed("up"):

@@ -24,6 +24,20 @@ func _process(delta):
 		save_slot_positions[save_slot_selection - 1], .3, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		$save_slots/Tween.start()
 	
+	elif Input.is_action_just_pressed("a"):
+		$"/root/GameSaver".save_from_save_station(save_slot_selection)
+		print("SAVVED")
+		close()
+		
+	
 	elif Input.is_action_just_pressed("b"):
-		get_tree().get_nodes_in_group("Player")[0].frozen = false
-		queue_free()
+		close()
+
+func close():
+	get_tree().get_nodes_in_group("Player")[0].frozen = false
+	queue_free()
+
+func _on_LoadButton_pressed():
+	$"/root/GameSaver".load_from_save_station(save_slot_selection)
+	print("LOOOADED??")
+	close()

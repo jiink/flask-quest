@@ -22,4 +22,3 @@ position = Vector2( 1, 17 )
 position = Vector2( 3.97, -7.35 )
 shape = SubResource( 1 )
 one_way_collision_margin = 0.0
-
