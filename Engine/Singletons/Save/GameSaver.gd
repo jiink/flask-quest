@@ -69,12 +69,12 @@ func save_from_save_station(id):
 	
 	for node in get_tree().get_nodes_in_group("save"):
 		node.save(save_game)
-#	print("[[[[[[[[ %s" % get_tree().get_edited_scene_root())
+#	print("[[[[[[[[ %s" % get_tree().get_current_scene().filename)
 #	print("{{{{{{{{ %s" % get_tree().get_edited_scene_root().filename)
 #	print("(((((((( %s" % get_tree().get_current_scene().get_script().get_path().get_base_dir())
-	var the_pathhh = "%s/%s.tscn" % [get_tree().get_current_scene().get_script().get_path().get_base_dir(), get_tree().get_current_scene().name]
-	print("spawn scene being saved: %s" % the_pathhh)
-	save_game.data["player_spawn_scene"] = the_pathhh
+#	var the_pathhh = "%s/%s.tscn" % [get_tree().get_current_scene().get_script().get_path().get_base_dir(), get_tree().get_current_scene().name]
+	print("spawn scene being saved: %s" % get_tree().get_current_scene().filename)
+	save_game.data["player_spawn_scene"] = get_tree().get_current_scene().filename
 	
 	print("spawn position being saved: %s" % get_tree().get_nodes_in_group("Player")[0].position)
 	save_game.data["player_spawn_pos"] = get_tree().get_nodes_in_group("Player")[0].position
