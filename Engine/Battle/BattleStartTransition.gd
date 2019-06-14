@@ -16,7 +16,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	for i in get_tree().get_nodes_in_group("WorldFoes"):
 		if not i.is_processing():
 			i.queue_free()
-			
+		else:
+			i.speed /= 1.5
+			i.follow_distance /= 1.5
 
 	var battle_scene = preload("res://Engine/Battle/BattleScene.tscn").instance()
 	

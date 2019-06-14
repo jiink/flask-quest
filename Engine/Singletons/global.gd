@@ -42,7 +42,7 @@ func start_battle(foes):
 		hud.add_child(battle_start_transition)
 	
 		for f in get_tree().get_nodes_in_group("WorldFoes"):
-			f.speed = 90
+			f.speed *= 1.5
 			f.follow_distance *= 1.5
 	else:
 		for n in foes:
