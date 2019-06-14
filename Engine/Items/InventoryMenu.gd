@@ -174,6 +174,7 @@ func _process(delta):
 			if not $InfoBar.visible:
 				set_visible(!visible)
 				get_tree().get_nodes_in_group("Player")[0].frozen = visible
+				update_list()
 			else:
 				$InfoBar.set_visible(false)
 	else:
@@ -184,6 +185,7 @@ func _process(delta):
 			if Input.is_action_just_pressed("a"):
 				if not visible:
 					set_visible(true)
+					update_list()
 			elif Input.is_action_just_pressed("b"):
 				if visible:
 					if not $InfoBar.visible:

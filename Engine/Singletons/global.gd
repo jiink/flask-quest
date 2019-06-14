@@ -12,6 +12,7 @@ var initial_enemies = []
 var current_enemies = initial_enemies
 var battle_bg
 var prev_scene = null
+var in_battle = false
 
 func custompause(node, x):
 	x = !x
@@ -47,7 +48,7 @@ func start_battle(foes):
 	else:
 		for n in foes:
 			initial_enemies.append(n)
-	
+		in_battle = true
 	
 
 
@@ -93,7 +94,9 @@ func end_battle():
 	for child in get_tree().get_current_scene().get_children():
 		if not child.get("visible") == null:
 			child.visible = true
-
+	
+	in_battle = false
+	
 ################## scene ##################
 
 var player_new_position

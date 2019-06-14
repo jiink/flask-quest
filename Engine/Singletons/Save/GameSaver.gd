@@ -49,7 +49,15 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	
 	var spawn_pos = save_game.data["player_spawn_pos"]
 	get_tree().get_nodes_in_group("Player")[0].position = spawn_pos
-
+	
+	$"/root/PlayerStats".green_hp = save_game.data["green_hp"]
+	$"/root/PlayerStats".green_max_hp = save_game.data["green_max_hp"]
+	$"/root/PlayerStats".orange_hp = save_game.data["orange_hp"]
+	$"/root/PlayerStats".orange_max_hp = save_game.data["orange_max_hp"]
+	$"/root/ItemManager".inventory = save_game.data["inventory"]
+	$"/root/ItemManager".loadout = save_game.data["loadout"]
+	
+	
 func save_from_save_station(id):
 	
 	var save_game := SaveGame.new()
@@ -59,10 +67,21 @@ func save_from_save_station(id):
 	
 	var the_pathhh = str(get_tree().get_current_scene().get_script().get_path().get_base_dir()) + get_tree().get_current_scene().name + ".tscn"
 	print("spawn scene being saved: %s" % the_pathhh)
-	print("spawn position being saved: %s" % get_tree().get_nodes_in_group("Player")[0].position) 
 	save_game.data["player_spawn_scene"] = the_pathhh
+	
+	print("spawn position being saved: %s" % get_tree().get_nodes_in_group("Player")[0].position)
 	save_game.data["player_spawn_pos"] = get_tree().get_nodes_in_group("Player")[0].position
 	
+	print("health being saved: %s/%s, %s/%s" % [$"/root/PlayerStats".green_hp, $"/root/PlayerStats".green_max_hp, $"/root/PlayerStats".orange_hp, $"/root/PlayerStats".orange_max_hp]) 
+	save_game.data["green_hp"] = $"/root/PlayerStats".green_hp
+	save_game.data["green_max_hp"] = $"/root/PlayerStats".green_max_hp
+	save_game.data["orange_hp"] = $"/root/PlayerStats".orange_hp
+	save_game.data["orange_max_hp"] = $"/root/PlayerStats".orange_max_hp
+	
+	print("inventory being saved: %s" % [$"/root/ItemManager".inventory])
+	save_game.data["inventory"] = $"/root/ItemManager".inventory
+	print("loadout being saved: %s" % [$"/root/ItemManager".loadout])
+	save_game.data["loadout"] = $"/root/ItemManager".loadout
 	
 	var directory = Directory.new()
 	if not directory.dir_exists (SAVE_FOLDER):

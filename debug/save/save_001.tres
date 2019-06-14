@@ -5,9 +5,15 @@
 [resource]
 script = ExtResource( 1 )
 data = {
-"player_spawn_pos": Vector2( 346.92, 91.9203 ),
+"green_hp": 35,
+"green_max_hp": 50,
+"inventory": [ "stone", "stick", "stick" ],
+"loadout": [ "base_potion", "fire_chemical", "base_potion" ],
+"orange_hp": 35,
+"orange_max_hp": 50,
+"player_spawn_pos": Vector2( 330.966, 94.4318 ),
 "player_spawn_scene": "res://RoomsTestRoom.tscn",
 "test_SaveTester": "blue",
 "test_SaveTester2": "blue",
-"test_SaveTester3": "blue"
+"test_SaveTester3": "red"
 }
