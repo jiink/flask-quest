@@ -154,7 +154,7 @@ function = "enter_battle"
 args = [ [ "Boque" ] ]
 
 [node name="Player" parent="YSort" instance=ExtResource( 13 )]
-position = Vector2( 265, 103 )
+position = Vector2( 274.93, 80.7559 )
 
 [node name="SaveTester" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 293, 53 )
@@ -208,5 +208,6 @@ position = Vector2( 344, 127 )
 
 [node name="Position2D" type="Position2D" parent="TelePortal"]
 position = Vector2( -248, -58 )
+
 
 [editable path="HUD"]

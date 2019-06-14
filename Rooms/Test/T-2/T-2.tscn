@@ -65,3 +65,4 @@ position = Vector2( 98, 63 )
 follow_player = false
 
 [node name="HUD" parent="." instance=ExtResource( 8 )]
+

@@ -123,6 +123,7 @@ func start_scene_switch(new_scene, new_player_position):
 	
 
 func swap_scenes():
+	print("about to do change_scene(%s)" % next_scene)
 	get_tree().change_scene(next_scene)
 	
 	yield(get_tree().create_timer(0.01), "timeout")

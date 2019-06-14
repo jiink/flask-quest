@@ -5,9 +5,9 @@ const SaveGame = preload("res://Engine/Singletons/Save/SaveGame.gd")
 var SAVE_FOLDER = "res://debug/save"
 var SAVE_NAME_TEMPLATE = "save_%03d.tres"
 
-func _ready(): # HAHA don't do this, kids
-	yield(get_tree().create_timer(0.1), "timeout") 
-	load_from_save_station(1)
+#func _ready(): # HAHA don't do this, kids
+#	yield(get_tree().create_timer(0.1), "timeout") 
+#	load_from_save_station(1)
 
 func save(id):
 	
