@@ -9,6 +9,8 @@ func _ready():
 		max_hp = stats.green_max_hp
 	elif name == "OrangeHPBar":
 		max_hp = stats.orange_max_hp
+	
+	update_bar()
 
 
 func update_bar():

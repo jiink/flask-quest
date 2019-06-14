@@ -39,6 +39,7 @@ func load(id):
 
 func load_from_save_station(id): # yeah im a role model and copied the other function becuase m
 	var save_file_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
+	print("LOADING from %s" % save_file_path)
 	var file = File.new()
 	if not file.file_exists(save_file_path):
 		print("save file %s doesn't exist" % save_file_path)
@@ -92,7 +93,9 @@ func save_from_save_station(id):
 		directory.make_dir_recursive(SAVE_FOLDER)
 		
 	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
+	print("SAVING to %s" % save_path)
 	var error = ResourceSaver.save(save_path, save_game)
 	
 	if error != OK:
 		print("Couldn't write save %s to %s" % [id, save_path])
+	
