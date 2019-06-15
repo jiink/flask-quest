@@ -103,23 +103,26 @@ var player_new_position
 var next_scene
 var next_player_position
 
-signal transition_close
+#signal transition_close
 
 onready var game_saver = get_node("/root/GameSaver")
 
 func _ready():
-	connect_to_transition()
+#	connect_to_transition()
 	#(#get_tree().get_nodes_in_group("Camera")[0].get_node("../HUD/SceneTransition"), "fade_out")
-
+	pass
+	
 func start_scene_switch(new_scene, new_player_position):
 	# save!!!
-	game_saver.save(0) # todo: slot changing
+	game_saver.save(1) # todo: slot changing
 	
-	print("changing scenes")
+	print("changing scenes to %s..." % new_scene)
 	next_scene = new_scene
 	next_player_position = new_player_position
-	emit_signal("transition_close")
 	
+#	emit_signal("transition_close")
+	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
+		get_tree().get_current_scene().get_node("HUD/SceneTransition").fade_out()
 	
 
 func swap_scenes():
@@ -127,7 +130,7 @@ func swap_scenes():
 	get_tree().change_scene(next_scene)
 	
 	yield(get_tree().create_timer(0.01), "timeout")
-	connect_to_transition()
+#	connect_to_transition()
 	if next_player_position != null:
 		get_tree().get_nodes_in_group("Player")[0].position = next_player_position
 	else:
@@ -135,10 +138,10 @@ func swap_scenes():
 	
 	# load!!
 	
-	game_saver.load(0)
+#	game_saver.load(1)
 
-func connect_to_transition():
-	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
-		connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")
-	else:
-		print("Couldn't do scene transition")
+#func connect_to_transition():
+#	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
+#		connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")
+#	else:
+#		print("Couldn't do scene transition")

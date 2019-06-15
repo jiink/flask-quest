@@ -5,6 +5,7 @@ func _ready():
 	
 	visible = true
 	$AnimationPlayer.play("open")
+	$"/root/GameSaver".load(1)
 	
 func fade_out():
 	visible = true

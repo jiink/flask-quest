@@ -19,11 +19,11 @@ func update_colors():
 		$ColorRect.color = Color(0, 0, 200)
 
 func save(save_game):
+	print("saving %s" % state)
 	save_game.data[SAVE_KEY] = state
 	update_colors()
 	
 func load(save_game):
-	print("current: %s, new: %s" % [state, save_game.data[SAVE_KEY]])
+	print("loading %s" % save_game.data[SAVE_KEY])
 	state = save_game.data[SAVE_KEY]
-	print("after loading: %s" % state)
 	update_colors()
