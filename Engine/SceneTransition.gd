@@ -14,3 +14,7 @@ func fade_out():
 func alert_global(anim):
 	if anim == "close":
 		get_node("/root/global").swap_scenes()
+		
+		
+	elif anim == "open":
+		visible = false
