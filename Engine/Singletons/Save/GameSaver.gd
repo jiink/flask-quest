@@ -28,10 +28,10 @@ func save(id):
 #		directory.make_dir_recursive(SAVE_FOLDER)
 #		print("!!!!!!!!!!!!!!!!!!! MADE DIRECTORRYYRYRYRYR")
 #	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
-#	var error = ResourceSaver.save(save_path, save_game)
-#
-#	if error != OK:
-#		print("Couldn't write save %s to %s" % [id, save_path])
+	var error = ResourceSaver.save(save_file_path, save_game)
+
+	if error != OK:
+		print("Couldn't write save %s to %s" % [id, save_file_path])
 
 func load(id):
 	var save_file_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)

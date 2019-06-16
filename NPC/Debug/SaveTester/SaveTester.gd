@@ -21,6 +21,7 @@ func update_colors():
 func save(save_game):
 	print("saving %s" % state)
 	save_game.data[SAVE_KEY] = state
+#	print("saved %s" % save_game.data[SAVE_KEY])
 	update_colors()
 	
 func load(save_game):
