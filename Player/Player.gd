@@ -7,6 +7,7 @@ var sprint = false
 var motion = Vector2(0, 0)
 var direction = "right"
 var frozen = false
+var invincible = false
 
 onready var interactionZone = $Interaction/InteractionZone
 
@@ -73,7 +74,7 @@ func get_inputs():
 				area.get_owner().interact()
 				break
 				
-	
+		
 func change_izone_pos():
 	match direction:
 		"up":
@@ -92,3 +93,12 @@ func change_izone_pos():
 			interactionZone.position = $Interaction/Left.position
 		"upleft":
 			interactionZone.position = $Interaction/Up.position + $Interaction/Left.position 
+
+func go_invincible(time):
+	invincible = true
+	$AnimationPlayer.play("invincibility")
+	$InvincibilityTimer.start(time)
+
+func _on_InvincibilityTimer_timeout():
+	invincible = false
+	$AnimationPlayer.stop(true)

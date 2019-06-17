@@ -95,6 +95,8 @@ func end_battle():
 		if not child.get("visible") == null:
 			child.visible = true
 	
+	get_player().go_invincible(3.0)
+	
 	in_battle = false
 	
 ################## scene ##################

@@ -22,7 +22,8 @@ func _process(delta):
 				$Sprite.flip_h = abs(angle) >= PI*0.5
 				move_and_slide(Vector2(speed, 0).rotated(angle))
 			else:
-				trigger()
+				if not target.get("invincible"):
+					trigger()
 	else:
 		moving = false
 		
