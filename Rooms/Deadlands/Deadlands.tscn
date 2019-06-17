@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Engine/TemplateRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=3]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
