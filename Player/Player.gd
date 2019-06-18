@@ -9,9 +9,20 @@ var direction = "right"
 var frozen = false
 var invincible = false
 
+var previous_position
+var position_history = []
+var followed = true
+
 onready var interactionZone = $Interaction/InteractionZone
 
+func _ready():
+	for i in range(24):
+		position_history.append(position)
+
 func _process(delta):
+	
+	previous_position = position
+	
 	#if not get_owner().get_node("HUD/Diag").visible:
 	if not frozen:
 		get_inputs()
@@ -34,7 +45,12 @@ func _process(delta):
 	else:
 		$AnimatedSprite.playing = false
 		$AnimatedSprite.frame = 0
-		
+	
+	if position != previous_position:
+		position_history.pop_back()
+		position_history.push_front(position)
+	
+	
 func get_inputs():
 	motion = Vector2(0, 0)
 	if Input.is_action_pressed("up"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -13,13 +13,14 @@
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=11]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=14]
-[ext_resource path="res://NPC/Wormo/Wormo.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Engine/light.png" type="Texture" id=16]
-[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=14]
+[ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=15]
+[ext_resource path="res://NPC/Wormo/Wormo.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Engine/light.png" type="Texture" id=17]
+[ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=21]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -96,6 +97,7 @@ player_new_position = Vector2( 98, 63 )
 position = Vector2( 345, 81 )
 
 [node name="Boque" parent="YSort" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 304, 112 )
 
 [node name="DialogueTree" parent="YSort/Boque" instance=ExtResource( 10 )]
@@ -142,6 +144,7 @@ text_delay = 0.0
 args = [  ]
 
 [node name="Boque2" parent="YSort" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 226, 106 )
 
 [node name="DialogueTree" parent="YSort/Boque2" instance=ExtResource( 10 )]
@@ -156,27 +159,32 @@ args = [ [ "Boque" ] ]
 [node name="Player" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 274.93, 80.7559 )
 
-[node name="SaveTester" parent="YSort" instance=ExtResource( 14 )]
+[node name="Orange" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 249, 108 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="SaveTester" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 293, 53 )
 
-[node name="SaveTester2" parent="YSort" instance=ExtResource( 14 )]
+[node name="SaveTester2" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 316, 53 )
 
-[node name="SaveTester3" parent="YSort" instance=ExtResource( 14 )]
+[node name="SaveTester3" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 339, 52 )
 
-[node name="Wormo" parent="YSort" instance=ExtResource( 15 )]
+[node name="Wormo" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 62, 58 )
 
-[node name="Wormo2" parent="YSort" instance=ExtResource( 15 )]
+[node name="Wormo2" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 51, 36 )
 
-[node name="Wormo3" parent="YSort" instance=ExtResource( 15 )]
+[node name="Wormo3" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 48, 98 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 color = Color( 0.180176, 0.411964, 0.960938, 1 )
 energy = 0.92
 shadow_enabled = true
@@ -186,7 +194,7 @@ __meta__ = {
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 286, 118 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 color = Color( 0.878906, 0.102997, 0.102997, 1 )
 energy = 0.69
 shadow_enabled = true
@@ -194,15 +202,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TestItem" parent="." instance=ExtResource( 17 )]
+[node name="TestItem" parent="." instance=ExtResource( 18 )]
 position = Vector2( 166, 111 )
 z_index = -2
 
-[node name="Camera" parent="." instance=ExtResource( 18 )]
+[node name="Camera" parent="." instance=ExtResource( 19 )]
 
-[node name="HUD" parent="." instance=ExtResource( 19 )]
+[node name="HUD" parent="." instance=ExtResource( 20 )]
 
-[node name="TelePortal" parent="." instance=ExtResource( 20 )]
+[node name="TelePortal" parent="." instance=ExtResource( 21 )]
 modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
 position = Vector2( 344, 127 )
 
