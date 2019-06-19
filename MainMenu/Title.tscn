@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://MainMenu/Title.gd" type="Script" id=1]
 [ext_resource path="res://MainMenu/behind_buttons.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://MainMenu/quit.png" type="Texture" id=9]
 [ext_resource path="res://MainMenu/quit_hover.png" type="Texture" id=10]
 [ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=12]
 
 [node name="Title" type="Node2D"]
 script = ExtResource( 1 )
@@ -59,6 +60,7 @@ texture = ExtResource( 10 )
 offset = Vector2( 0.5, 0.5 )
 
 [node name="SaveSelect" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="SaveSelect"]
@@ -96,3 +98,26 @@ margin_bottom = 41.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color_shadow = Color( 0.133333, 0.12549, 0.203922, 1 )
 text = "Save 3"
+
+[node name="QuitConfirmation" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="QuitConfirmation"]
+margin_left = 100.0
+margin_top = 106.0
+margin_right = 226.0
+margin_bottom = 159.0
+rect_scale = Vector2( 1.46, 1 )
+color = Color( 0.133333, 0.12549, 0.203922, 0.827451 )
+
+[node name="Label" type="Label" parent="QuitConfirmation"]
+margin_left = 107.0
+margin_top = 109.0
+margin_right = 280.0
+margin_bottom = 140.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.12549, 0.203922, 1 )
+text = "ARE YOU SURE YOU WANT TO QUIT?
+Y/N"
+align = 1
+autowrap = true
