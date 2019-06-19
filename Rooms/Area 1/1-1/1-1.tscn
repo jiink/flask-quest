@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area 1/1-1/1-1tiles.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Rooms/Area 1/CitySillouette/city2.png" type="Texture" id=7]
 [ext_resource path="res://Rooms/Area 1/CitySillouette/city3.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/Area 1/CitySillouette/city4.png" type="Texture" id=9]
+[ext_resource path="res://Rooms/Area 1/CitySillouette/city5.png" type="Texture" id=10]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=11]
 
 [node name="1-1" index="0" instance=ExtResource( 1 )]
 
@@ -128,8 +130,20 @@ motion_mirroring = Vector2( 384, 0 )
 texture = ExtResource( 9 )
 offset = Vector2( 192, 0 )
 
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Background/ParallaxBackground" index="6"]
+position = Vector2( 192, -89.54 )
+motion_scale = Vector2( 0.7, 0.7 )
+motion_offset = Vector2( 50, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer7" index="0"]
+texture = ExtResource( 10 )
+offset = Vector2( 192, 0 )
+
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 464, -425 )
+position = Vector2( 239, 80 )
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 11 )]
 
 [editable path="TileMaps"]
 
