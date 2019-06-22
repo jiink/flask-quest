@@ -55,7 +55,6 @@ offset = Vector2( 0.5, 0.5 )
 
 [node name="quit_hover" type="Sprite" parent="Buttons/quit"]
 visible = false
-scale = Vector2( 1.05263, 1 )
 texture = ExtResource( 10 )
 offset = Vector2( 0.5, 0.5 )
 
