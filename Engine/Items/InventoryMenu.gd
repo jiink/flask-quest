@@ -3,7 +3,11 @@ extends Node2D
 onready var manager = get_node("/root/ItemManager")
 onready var item_options = get_node("InfoBar/ItemOptions/Choices")
 onready var container = get_node("Inventory/GridContainer")
+onready var audio = get_node("AudioStreamPlayer")
 #onready var item_list = get_node("/root/ItemManager").inventory
+
+onready var horiz_sound = preload("res://SoundEffects/ui_move_1.wav")
+onready var vert_sound = preload("res://SoundEffects/ui_move_2.wav")
 
 var item_selection
 var selection_index = 0
@@ -93,6 +97,8 @@ func _process(delta):
 				
 				elif state == INVENTORY and get_column() != 2:
 					selection_index += 1
+				
+				
 			elif Input.is_action_just_pressed("left"):
 				
 				if state == INVENTORY and get_column() == 0:
@@ -101,14 +107,11 @@ func _process(delta):
 				
 				
 				selection_index -= 1
-				
-			
+								
 			elif Input.is_action_just_pressed("up"):
 				selection_index -= 3
-			
 			elif Input.is_action_just_pressed("down"):
 				selection_index += 3
-			
 			elif Input.is_action_just_pressed("a") and get_item_list().size() > 0:
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 												  manager.items[get_item_list()[selection_index]].desc]
@@ -168,6 +171,12 @@ func _process(delta):
 							$InfoBar.set_visible(false)
 						else:
 							print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
+		if Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left"):
+				audio.stream = horiz_sound
+				audio.play()
+		elif Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+				audio.stream = vert_sound
+				audio.play()
 	if not in_battle:
 		
 		if Input.is_action_just_pressed("b") and get_node("../Diag").visible == false:
