@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/moveselect.wav-3ed49cc23f464e879e62c56e46da2832.sample"
+
+[deps]
+
+source_file="res://SoundEffects/moveselect.wav"
+dest_files=[ "res://.import/moveselect.wav-3ed49cc23f464e879e62c56e46da2832.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
