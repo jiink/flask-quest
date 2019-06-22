@@ -8,8 +8,8 @@ func _ready():
 	play()
 	
 func update_music(type):
-	current_level_music = get_tree().get_current_scene().level_music
-	current_battle_music = get_tree().get_current_scene().battle_music
+	current_level_music = get_tree().get_current_scene().get("level_music")
+	current_battle_music = get_tree().get_current_scene().get("battle_music")
 	match type:
 		"level":
 			set_stream(current_level_music)
