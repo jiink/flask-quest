@@ -4,6 +4,10 @@ enum {RESUME, OPTION, QUIT}
 var selected_option = RESUME
 onready var hud = $".."
 onready var player = get_tree().get_nodes_in_group("Player")[0]
+
+onready var open_sound = preload("res://SoundEffects/pause_menu_open.wav")
+onready var close_sound = preload("res://SoundEffects/pause_menu_close.wav")
+
 func _ready():
 	pass
 
@@ -50,8 +54,21 @@ func open():
 	
 	$BackgroundShader.visible = true
 	
+	$AudioStreamPlayer2D.stream = open_sound
+	$AudioStreamPlayer2D.play()
 	
+	$Tween.interpolate_property(self, "position:y", 256, 0, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	$Tween.start()
 
 func close():
-	visible = false
+	
 	player.frozen = false
+	
+	$AudioStreamPlayer2D.stream = close_sound
+	$AudioStreamPlayer2D.play()
+	
+	
+	$Tween.interpolate_property(self, "position:y", 0, -256, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	$Tween.start()
+	yield(get_tree().create_timer(.15), "timeout")
+	visible = false
