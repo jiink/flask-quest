@@ -8,6 +8,8 @@ export(float) var talk_chance = 100.0
 export(int) var max_hp = 100
 var hp
 
+export(Array, String) var types
+
 var damage = 15
 
 func _ready():
