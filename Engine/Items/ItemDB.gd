@@ -22,5 +22,6 @@ var items = {
 	'elevator_card': {
 		'name': 'Elevator Card',
 		'desc': 'Now you can ride the elevator.',
+		'droppable' : false,
 		},
 	}
