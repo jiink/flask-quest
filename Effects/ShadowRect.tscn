@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="ShadowRect" type="ColorRect"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+color = Color( 0.133333, 0.12549, 0.203922, 0.25098 )
