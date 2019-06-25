@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1tiles.tscn" type="PackedScene" id=2]
@@ -11,6 +11,12 @@
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city4.png" type="Texture" id=9]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city5.png" type="Texture" id=10]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableL.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/excited.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/beakers2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableM.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Rooms/Area1/Assets/beakers1.png" type="Texture" id=16]
+[ext_resource path="res://Rooms/Area1/Assets/labdoor1.png" type="Texture" id=17]
 
 [node name="1-1" index="0" instance=ExtResource( 1 )]
 
@@ -141,9 +147,34 @@ texture = ExtResource( 10 )
 offset = Vector2( 192, 0 )
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 239, 80 )
+position = Vector2( 249, 70 )
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 11 )]
+
+[node name="Props" type="YSort" parent="YSort" index="2"]
+
+[node name="tableL" parent="YSort/Props" index="0" instance=ExtResource( 12 )]
+position = Vector2( 208, 80 )
+
+[node name="excited" parent="YSort/Props" index="1" instance=ExtResource( 13 )]
+position = Vector2( 296, 16 )
+
+[node name="beakers2" parent="YSort/Props" index="2" instance=ExtResource( 14 )]
+position = Vector2( 273, 21 )
+
+[node name="tableM" parent="YSort/Props" index="3" instance=ExtResource( 15 )]
+position = Vector2( 296, 144 )
+
+[node name="beakers1" type="Sprite" parent="YSort/Props/tableM" index="1"]
+position = Vector2( 16, -12 )
+texture = ExtResource( 16 )
+
+[node name="LabDoor" type="Node2D" parent="YSort/Props" index="4"]
+
+[node name="closed" type="Sprite" parent="YSort/Props/LabDoor" index="0"]
+position = Vector2( 238, 32 )
+scale = Vector2( 2.875, 1 )
+texture = ExtResource( 17 )
 
 [editable path="TileMaps"]
 
