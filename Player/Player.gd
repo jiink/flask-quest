@@ -46,6 +46,7 @@ func _process(delta):
 		$AnimatedSprite.playing = false
 		$AnimatedSprite.frame = 0
 	
+	
 	if position != previous_position:
 		position_history.pop_back()
 		position_history.push_front(position)
@@ -118,3 +119,8 @@ func go_invincible(time):
 func _on_InvincibilityTimer_timeout():
 	invincible = false
 	$AnimationPlayer.stop(true)
+
+func do_floaty_text(s):
+	var floaty_text = preload("res://Engine/FloatyText.tscn").instance()
+	add_child(floaty_text)
+	floaty_text.text = s
