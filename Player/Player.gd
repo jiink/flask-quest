@@ -29,7 +29,7 @@ func _process(delta):
 	else:
 		# stop player when diag box is up.
 		motion = Vector2(0,0)
-	motion = motion.normalized()
+#	motion = motion.normalized()
 	
 	var movement = motion * speed if not sprint else motion * speed * sprintMultiplier
 	move_and_slide(movement)
