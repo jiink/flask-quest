@@ -172,8 +172,7 @@ texture = ExtResource( 16 )
 [node name="LabDoor" type="Node2D" parent="YSort/Props" index="4"]
 
 [node name="closed" type="Sprite" parent="YSort/Props/LabDoor" index="0"]
-position = Vector2( 238, 32 )
-scale = Vector2( 2.875, 1 )
+position = Vector2( 208, 32 )
 texture = ExtResource( 17 )
 
 [editable path="TileMaps"]
