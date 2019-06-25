@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableL.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area1/Assets/tablevertical.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.11, 7 )
+
+[node name="tableVertical" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" parent="." index="0"]
+position = Vector2( 0, -1 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource( 1 )
