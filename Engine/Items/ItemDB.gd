@@ -24,4 +24,9 @@ var items = {
 		'desc': 'Now you can ride the elevator.',
 		'droppable' : false,
 		},
+	'miniman_item': {
+		'name': 'Miniman',
+		'desc': 'You feel an urge to slam this thing into the lab doors.',
+		'droppable' : false,
+		},
 	}

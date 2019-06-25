@@ -182,27 +182,12 @@ color = Color( 0.564706, 0.733333, 0.917647, 1 )
 [node name="ElevatorCardPickup" parent="YSort" index="0" instance=ExtResource( 12 )]
 position = Vector2( 644, -221 )
 
-[node name="ElevatorCardPickup2" parent="YSort" index="1" instance=ExtResource( 12 )]
-position = Vector2( 631, -232 )
+[node name="Player" parent="YSort" index="1"]
+position = Vector2( 234, 63 )
 
-[node name="ElevatorCardPickup3" parent="YSort" index="2" instance=ExtResource( 12 )]
-position = Vector2( 574, -229 )
+[node name="Orange" parent="YSort" index="2" instance=ExtResource( 13 )]
 
-[node name="ElevatorCardPickup4" parent="YSort" index="3" instance=ExtResource( 12 )]
-position = Vector2( 576, -202 )
-
-[node name="ElevatorCardPickup5" parent="YSort" index="4" instance=ExtResource( 12 )]
-position = Vector2( 592, -229 )
-
-[node name="ElevatorCardPickup6" parent="YSort" index="5" instance=ExtResource( 12 )]
-position = Vector2( 594, -197 )
-
-[node name="Player" parent="YSort" index="6"]
-position = Vector2( 615, -215 )
-
-[node name="Orange" parent="YSort" index="7" instance=ExtResource( 13 )]
-
-[node name="Props" type="YSort" parent="YSort" index="8"]
+[node name="Props" type="YSort" parent="YSort" index="3"]
 
 [node name="tableL" parent="YSort/Props" index="0" instance=ExtResource( 14 )]
 position = Vector2( 208, 80 )
@@ -226,7 +211,7 @@ texture = ExtResource( 18 )
 position = Vector2( 208, 32 )
 texture = ExtResource( 19 )
 
-[node name="Miniman" parent="YSort" index="9" instance=ExtResource( 20 )]
+[node name="Miniman" parent="YSort" index="4" instance=ExtResource( 20 )]
 position = Vector2( 141, 28 )
 
 [editable path="TileMaps"]
