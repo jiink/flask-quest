@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg_city_01.png-22e1e5c51d7963b93b4aa5ad1aa7e533.stex"
+path="res://.import/city4.png-373313cfc96f67c7b2f4d60417ae9d6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area 1/1-1/bg_city_01.png"
-dest_files=[ "res://.import/bg_city_01.png-22e1e5c51d7963b93b4aa5ad1aa7e533.stex" ]
+source_file="res://Rooms/Area1/Assets/CitySillouette/city4.png"
+dest_files=[ "res://.import/city4.png-373313cfc96f67c7b2f4d60417ae9d6e.stex" ]
 
 [params]
 
