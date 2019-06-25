@@ -19,4 +19,8 @@ var items = {
 		'desc': 'Made by Scharles Heiss himself.',
 		'equippable': true,
 		},
+	'elevator_card': {
+		'name': 'Elevator Card',
+		'desc': 'Now you can ride the elevator.',
+		},
 	}

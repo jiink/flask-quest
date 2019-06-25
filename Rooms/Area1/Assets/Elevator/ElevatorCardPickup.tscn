@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Rooms/Area1/Assets/flashing_elevatorcard_2.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area1/Assets/Elevator/ElevatorCardPickup.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -19,11 +20,21 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="flashing_elevatorcard_2" type="Sprite"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 7 )
+
+[node name="ElevatorCardPickup" type="Sprite"]
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1
+script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )

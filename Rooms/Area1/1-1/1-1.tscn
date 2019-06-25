@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1tiles.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Rooms/Area1/Assets/beakers1.png" type="Texture" id=16]
 [ext_resource path="res://Rooms/Area1/Assets/labdoor1.png" type="Texture" id=17]
 [ext_resource path="res://NPC/Tinytube/Tinytube.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Rooms/Area1/Assets/Elevator/ElevatorCardPickup.tscn" type="PackedScene" id=19]
 
 [node name="1-1" index="0" instance=ExtResource( 1 )]
 
@@ -197,6 +198,9 @@ texture = ExtResource( 17 )
 
 [node name="Tinytube" parent="YSort" index="3" instance=ExtResource( 18 )]
 position = Vector2( 138.462, 25.0873 )
+
+[node name="ElevatorCardPickup" parent="YSort" index="4" instance=ExtResource( 19 )]
+position = Vector2( 144.501, 57.0305 )
 
 [editable path="TileMaps"]
 
