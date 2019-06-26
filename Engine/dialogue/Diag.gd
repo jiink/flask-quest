@@ -97,8 +97,8 @@ func update_boxes(new_target):
 	if target_tree.voice_sound != null:
 		voice_sound = target_tree.voice_sound
 		audio.set_stream(voice_sound)
-	if target_tree.voice_sound != null:
-		voice_variation = target_tree.voice_variation
+	if target_tree.voice_variation != null:
+		voice_variation = clamp(target_tree.voice_variation, 0.0, 0.9)
 	
 	# set font
 	if target_tree.default_font != null:
