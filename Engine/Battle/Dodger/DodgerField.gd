@@ -33,7 +33,7 @@ func _ready():
 	$AnimationPlayer.play_backwards("appear")
 	
 func _process(delta):
-	if visible:
+	if battle.state == battle.DODGE_GAME:
 		move_players(delta)
 		
 		if $ShieldDelay.is_stopped():

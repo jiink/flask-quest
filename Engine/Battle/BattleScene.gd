@@ -242,7 +242,7 @@ func chem_anim_complete():
 	$SelectedFoeArrow.visible = false
 	battle_choice_confirmed = false
 	$PouringEvent.reset()
-	yield(get_tree().create_timer(0.8), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	state = ENEMY_TURN
 
 func start_pouring_event():
@@ -259,6 +259,10 @@ func start_dodge_game():
 	$DodgerField.visible = true
 	$Tint.visible = true
 	$DodgerField/AnimationPlayer.play("appear")
+	
+	# give some time for the show-up animation to finish
+	yield(get_tree().create_timer(0.8), "timeout")
+	
 	state = DODGE_GAME
 
 func end_dodge_game():
