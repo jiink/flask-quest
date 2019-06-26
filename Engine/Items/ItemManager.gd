@@ -9,7 +9,6 @@ func give_item(the_item):
 	if is_inventory_full():
 		if player:
 			player.do_floaty_text("Inventory full!")
-		print("Inventory full")
 		return false
 	else:
 		inventory.append(the_item)

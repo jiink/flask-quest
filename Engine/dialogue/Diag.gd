@@ -3,6 +3,8 @@ extends Node2D
 var new_text = ""
 var text_index = -1
 var text_time = 0.04
+var voice_sound = null
+var voice_variation = 0.3
 var selected_choice = 0
 var select_graphic_offset = 0
 var choices = []
@@ -25,6 +27,7 @@ var first = true
 # use tres
 var text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
 
+onready var audio = $AudioStreamPlayer
 
 func _ready():
 	$TextBox/Timer.connect("timeout", self, "next_letter_time")
@@ -89,6 +92,13 @@ func update_boxes(new_target):
 		text_time = target_piece.text_delay
 	else:
 		text_time = target_tree.default_text_delay
+	
+	# set sound
+	if target_tree.voice_sound != null:
+		voice_sound = target_tree.voice_sound
+		audio.set_stream(voice_sound)
+	if target_tree.voice_sound != null:
+		voice_variation = target_tree.voice_variation
 	
 	# set font
 	if target_tree.default_font != null:
@@ -170,6 +180,8 @@ func next_letter_time():
 		$TextBox/Timer.stop()
 		$Choices.set_visible(not choices.empty())
 		#close()
+		
+	play_sound()
 
 func run_func():
 	print("stored func: %s" % stored_function)
@@ -201,7 +213,9 @@ func run_func():
 		stored_function = ""
 		stored_function_args = []
 
-
+func play_sound():
+	audio.pitch_scale = randf() * voice_variation + (1.0 - voice_variation*0.5)
+	audio.play()
 
 func open():
 	set_visible(true)

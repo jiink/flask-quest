@@ -7,141 +7,78 @@
 [ext_resource path="res://Engine/dialogue/dialogue_choice.png" type="Texture" id=5]
 [ext_resource path="res://Engine/dialogue/dialogue_choice_selected.png" type="Texture" id=6]
 
-[node name="Diag" type="Node2D" index="0"]
-
+[node name="Diag" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="dialogue_box" type="Sprite" parent="." index="0"]
-
+[node name="dialogue_box" type="Sprite" parent="."]
 position = Vector2( 192, 24 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Face" type="Sprite" parent="." index="1"]
-
+[node name="Face" type="Sprite" parent="."]
 position = Vector2( 22, 24 )
 texture = ExtResource( 3 )
 vframes = 8
 hframes = 8
-_sections_unfolded = [ "Animation", "Transform" ]
 
-[node name="TextBox" type="Label" parent="." index="2"]
-
+[node name="TextBox" type="Label" parent="."]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 45.0
 margin_top = 3.0
 margin_right = 363.0
 margin_bottom = 43.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labor"
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Margin", "custom_fonts" ]
 
-[node name="Timer" type="Timer" parent="TextBox" index="0"]
+[node name="Timer" type="Timer" parent="TextBox"]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-
-[node name="Choices" type="Node2D" parent="." index="3"]
-
+[node name="Choices" type="Node2D" parent="."]
 position = Vector2( 333, 51 )
-_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="dialogue_choice" type="Sprite" parent="Choices" index="0"]
-
+[node name="dialogue_choice" type="Sprite" parent="Choices"]
 position = Vector2( 16, 10 )
 texture = ExtResource( 5 )
 
-[node name="dialogue_choice2" type="Sprite" parent="Choices" index="1"]
-
+[node name="dialogue_choice2" type="Sprite" parent="Choices"]
 position = Vector2( 16, 40 )
 texture = ExtResource( 5 )
 
-[node name="Selection" type="Node2D" parent="Choices" index="2"]
-
+[node name="Selection" type="Node2D" parent="Choices"]
 position = Vector2( 4, 0 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="dialogue_choice_selected" type="Sprite" parent="Choices/Selection" index="0"]
-
+[node name="dialogue_choice_selected" type="Sprite" parent="Choices/Selection"]
 position = Vector2( 12, 10 )
 texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Choice1" type="Label" parent="Choices" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Choice1" type="Label" parent="Choices"]
 margin_left = -21.0
 margin_top = 2.0
 margin_right = 53.0
 margin_bottom = 18.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 text = "Yes"
 align = 1
 valign = 1
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Choice2" type="Label" parent="Choices" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Choice2" type="Label" parent="Choices"]
 margin_left = -22.0
 margin_top = 31.0
 margin_right = 52.0
 margin_bottom = 47.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 text = "No"
 align = 1
 valign = 1
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Rect", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boque_speech.wav-f7d390235eb7769e30936f284ce8ea09.sample"
+
+[deps]
+
+source_file="res://NPC/Boque/boque_speech.wav"
+dest_files=[ "res://.import/boque_speech.wav-f7d390235eb7769e30936f284ce8ea09.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
