@@ -11,6 +11,7 @@ script = ExtResource( 2 )
 lines = [ "This isn't working.", "Can I go home?", "What did you break this time?", "You should work more." ]
 talk_chance = 33.0
 max_hp = 15
+dollar_reward = 10
 
 [node name="ColorRect" parent="." index="0"]
 margin_top = -5.0

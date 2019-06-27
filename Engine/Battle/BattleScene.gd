@@ -32,6 +32,8 @@ onready var item_manager = get_node("/root/ItemManager")
 
 var foe = load("res://Engine/Battle/BaseFoe.tscn")
 
+var total_dollar_reward = 0
+
 func _ready():
 	connect("open_chems", $BattleChoices, "open_chems")
 	connect("close_chems", $BattleChoices, "close_chems")
@@ -200,6 +202,9 @@ func hurt(who, damage):
 	
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
+	
+	total_dollar_reward += int(get_foes()[selected_foe].dollar_reward * 0.85 + (randf() * 0.3))
+	
 	if get_foes().size()-1 != 0:
 		selected_foe = (selected_foe - 1) % get_foes().size()
 	else:

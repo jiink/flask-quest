@@ -2,6 +2,7 @@ extends Node2D
 
 onready var manager = get_node("/root/ItemManager")
 onready var item_options = get_node("InfoBar/ItemOptions/Choices")
+onready var money_label = get_node("Money")
 onready var container = get_node("Inventory/GridContainer")
 onready var audio = get_node("AudioStreamPlayer")
 #onready var item_list = get_node("/root/ItemManager").inventory
@@ -58,6 +59,10 @@ func update_list():
 		$Loadout/GridContainer.add_child(item_sprite)
 		
 	#print("ld: %s\ninv: %s" % [manager.loadout, manager.inventory])
+	
+	# money label
+	
+	money_label.text = "$%s" % PlayerStats.dollars
 	
 	if in_battle:
 		battle.update_chem_loadout()

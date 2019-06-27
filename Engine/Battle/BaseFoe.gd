@@ -10,6 +10,8 @@ var hp
 
 export(Array, String) var types
 
+export(int) var dollar_reward = 6
+
 var damage = 15
 
 func _ready():

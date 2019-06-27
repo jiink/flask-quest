@@ -70,12 +70,16 @@ func save_from_save_station(id):
 	save_game.data["green_max_hp"] = $"/root/PlayerStats".green_max_hp
 	save_game.data["orange_hp"] = $"/root/PlayerStats".orange_hp
 	save_game.data["orange_max_hp"] = $"/root/PlayerStats".orange_max_hp
+	print("Dollar amount being saved: %s" % [$"/root/PlayerStats".dollars])
+	save_game.data["dollars"] = $"/root/PlayerStats".dollars
+	
 	
 	print("inventory being saved: %s" % [$"/root/ItemManager".inventory])
 	save_game.data["inventory"] = $"/root/ItemManager".inventory
 	print("loadout being saved: %s" % [$"/root/ItemManager".loadout])
 	save_game.data["loadout"] = $"/root/ItemManager".loadout
 	
+		
 	var directory = Directory.new()
 	if not directory.dir_exists (SAVE_FOLDER):
 		directory.make_dir_recursive(SAVE_FOLDER)

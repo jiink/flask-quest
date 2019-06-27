@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -17,7 +17,8 @@
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Engine/Battle/Win.gd" type="Script" id=16]
 [ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=17]
-[ext_resource path="res://Engine/Battle/Fade.gd" type="Script" id=18]
+[ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Engine/Battle/Fade.gd" type="Script" id=19]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -285,6 +286,7 @@ playback_speed = 2.0
 visible = false
 
 [node name="Tint" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -18.0
@@ -307,9 +309,9 @@ color = Color( 0.054902, 0.0666667, 0.109804, 1 )
 polygon = PoolVector2Array( 0, 96, 416, 96, 384, 128, -32, 128 )
 
 [node name="Label" type="Label" parent="Win/TopBar"]
-margin_left = 118.0
+margin_left = 124.0
 margin_top = 99.0
-margin_right = 201.0
+margin_right = 207.0
 margin_bottom = 115.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = ExtResource( 17 )
@@ -322,6 +324,16 @@ position = Vector2( 418, 37 )
 color = Color( 0.447059, 0.815686, 0.192157, 1 )
 polygon = PoolVector2Array( -21, 96, 397, 96, 384, 107, -32, 107 )
 
+[node name="Label" type="Label" parent="Win/BottomBar"]
+margin_left = 176.0
+margin_top = 93.0
+margin_right = 223.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 18 )
+custom_colors/font_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+text = "+ $0"
+align = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Win"]
 anims/roll_in = SubResource( 4 )
 
@@ -329,12 +341,14 @@ anims/roll_in = SubResource( 4 )
 wait_time = 3.0
 one_shot = true
 
+[node name="Tween" type="Tween" parent="Win"]
+
 [node name="Fade" type="ColorRect" parent="."]
 visible = false
 margin_right = 383.0
 margin_bottom = 215.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 
 [node name="Tween" type="Tween" parent="Fade"]
 
@@ -344,5 +358,6 @@ current = true
 __meta__ = {
 "_edit_lock_": true
 }
+[connection signal="animation_finished" from="Win/AnimationPlayer" to="Win" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Win/TimeUntilFade" to="Win" method="_on_TimeUntilFade_timeout"]
 [connection signal="tween_completed" from="Fade/Tween" to="Fade" method="_on_Tween_tween_completed"]
