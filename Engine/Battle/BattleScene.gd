@@ -203,7 +203,9 @@ func foe_died():
 	if get_foes().size()-1 != 0:
 		selected_foe = (selected_foe - 1) % get_foes().size()
 	else:
-		exit_battle()
+		state = WAIT
+		$Win.start()
+#		exit_battle()
 
 func inflict_effect(who, eff):
 #	print("who.has_node(eff.keys()[0]):%s"%who.has_node(eff.keys()[0]))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=14]
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Engine/Battle/Win.gd" type="Script" id=16]
+[ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Engine/Battle/Fade.gd" type="Script" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -84,6 +87,33 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0.217638, 1 ),
 "update": 0,
 "values": [ Vector2( 275, 120 ), Vector2( 458, 176 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "roll_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 0.258816, 0.258816, 1 ),
+"update": 0,
+"values": [ Vector2( 418, 0 ), Vector2( 418, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 0.217638, 0.217638, 1 ),
+"update": 0,
+"values": [ Vector2( 418, 37 ), Vector2( 418, 37 ), Vector2( 0, 37 ) ]
 }
 
 [node name="BattleScene" type="Node"]
@@ -265,10 +295,51 @@ script = ExtResource( 14 )
 visible = false
 position = Vector2( 192, 108 )
 
+[node name="Win" type="Node2D" parent="."]
+script = ExtResource( 16 )
+
+[node name="TopBar" type="Polygon2D" parent="Win"]
+position = Vector2( 418, 0 )
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+polygon = PoolVector2Array( 0, 96, 416, 96, 384, 128, -32, 128 )
+
+[node name="Label" type="Label" parent="Win/TopBar"]
+margin_left = 118.0
+margin_top = 99.0
+margin_right = 201.0
+margin_bottom = 115.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0.447059, 0.815686, 0.192157, 1 )
+text = "SUCCESS"
+align = 1
+
+[node name="BottomBar" type="Polygon2D" parent="Win"]
+position = Vector2( 418, 37 )
+color = Color( 0.447059, 0.815686, 0.192157, 1 )
+polygon = PoolVector2Array( -21, 96, 397, 96, 384, 107, -32, 107 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Win"]
+anims/roll_in = SubResource( 4 )
+
+[node name="TimeUntilFade" type="Timer" parent="Win"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+margin_right = 383.0
+margin_bottom = 215.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+script = ExtResource( 18 )
+
+[node name="Tween" type="Tween" parent="Fade"]
+
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 192, 108 )
 current = true
 __meta__ = {
 "_edit_lock_": true
 }
-
+[connection signal="timeout" from="Win/TimeUntilFade" to="Win" method="_on_TimeUntilFade_timeout"]
+[connection signal="tween_completed" from="Fade/Tween" to="Fade" method="_on_Tween_tween_completed"]
