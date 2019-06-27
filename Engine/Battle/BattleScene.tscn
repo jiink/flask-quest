@@ -285,9 +285,12 @@ playback_speed = 2.0
 visible = false
 
 [node name="Tint" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -14.0
+margin_right = 13.0
+margin_bottom = 13.0
 color = Color( 0, 0, 0, 0.345098 )
 script = ExtResource( 14 )
 

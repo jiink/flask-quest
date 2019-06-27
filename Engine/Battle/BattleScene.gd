@@ -258,14 +258,15 @@ func do_dodge_game():
 		$DodgerField.run()
 
 func start_dodge_game():
-	$DodgerField.visible = true
-	$Tint.visible = true
-	$DodgerField/AnimationPlayer.play("appear")
-	
-	# give some time for the show-up animation to finish
-	yield(get_tree().create_timer(0.8), "timeout")
-	
-	state = DODGE_GAME
+	if get_foes().size() > 0:
+		$DodgerField.visible = true
+		$Tint.visible = true
+		$DodgerField/AnimationPlayer.play("appear")
+		
+		# give some time for the show-up animation to finish
+		yield(get_tree().create_timer(0.8), "timeout")
+		
+		state = DODGE_GAME
 
 func end_dodge_game():
 	$DodgerField.visible = false
