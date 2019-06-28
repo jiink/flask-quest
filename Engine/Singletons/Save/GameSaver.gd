@@ -110,6 +110,7 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	var spawn_pos = save_game.data["player_spawn_pos"]
 	get_tree().get_nodes_in_group("Player")[0].position = spawn_pos
 	
+	
 #	for node in get_tree().get_nodes_in_group("save"):
 #		node.load(save_game)
 
@@ -121,6 +122,6 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	$"/root/ItemManager".inventory = save_game.data["inventory"]
 	$"/root/ItemManager".loadout = save_game.data["loadout"]
 	
-	
+	$"/root/MusicManager".update_music("level")
 
 	

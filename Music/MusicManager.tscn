@@ -66,3 +66,5 @@ script = ExtResource( 1 )
 autoplay = "fade_in"
 anims/fade_in = SubResource( 2 )
 anims/fade_out = SubResource( 1 )
+
+[node name="SecondaryTrack" type="AudioStreamPlayer" parent="."]
