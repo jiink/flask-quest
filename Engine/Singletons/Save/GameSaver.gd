@@ -117,6 +117,7 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	$"/root/PlayerStats".green_max_hp = save_game.data["green_max_hp"]
 	$"/root/PlayerStats".orange_hp = save_game.data["orange_hp"]
 	$"/root/PlayerStats".orange_max_hp = save_game.data["orange_max_hp"]
+	$"/root/PlayerStats".dollars = save_game.data["dollars"]
 	$"/root/ItemManager".inventory = save_game.data["inventory"]
 	$"/root/ItemManager".loadout = save_game.data["loadout"]
 	
