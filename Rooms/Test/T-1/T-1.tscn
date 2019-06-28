@@ -164,7 +164,7 @@ args = [ [ "Boque" ] ]
 position = Vector2( 274.93, 80.7559 )
 
 [node name="Orange" parent="YSort" instance=ExtResource( 15 )]
-position = Vector2( 249, 108 )
+position = Vector2( 291, 81 )
 
 [node name="SaveTester" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 293, 53 )

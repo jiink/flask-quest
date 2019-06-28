@@ -1,10 +1,16 @@
 extends KinematicBody2D
 
-onready var leader = get_node("../Player")
 var follow_distance = 23
 var previous_position = Vector2(0.0, 0.0)
 var motion
 var direction = "down"
+
+onready var leader = get_node("../Player")
+
+func _ready():
+	set_process(false)
+	yield(get_tree().create_timer(0.1), "timeout")
+	set_process(true)
 
 func _process(delta):
 	previous_position = position

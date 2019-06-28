@@ -104,6 +104,7 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	
 	var spawn_scene = save_game.data["player_spawn_scene"]
 	get_tree().change_scene(spawn_scene)
+	
 	yield(get_tree().create_timer(0.1), "timeout")
 	
 	var spawn_pos = save_game.data["player_spawn_pos"]
