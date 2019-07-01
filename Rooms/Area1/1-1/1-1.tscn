@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -19,16 +19,22 @@
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/beakers2.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableM.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area1/Assets/beakers1.png" type="Texture" id=19]
-[ext_resource path="res://Rooms/Area1/Assets/labdoor1.png" type="Texture" id=20]
-[ext_resource path="res://Rooms/Area1/Assets/exploded_labdoor.png" type="Texture" id=21]
-[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=23]
-[ext_resource path="res://NPC/Miniman/Miniman.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Rooms/Area1/1-1/LabDoor.gd" type="Script" id=21]
+[ext_resource path="res://Rooms/Area1/Assets/labdoor1.png" type="Texture" id=22]
+[ext_resource path="res://Rooms/Area1/Assets/exploded_labdoor.png" type="Texture" id=23]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=26]
+[ext_resource path="res://NPC/Miniman/Miniman.tscn" type="PackedScene" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 21, 10 )
+extents = Vector2( 17, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 18, 4 )
 
 [node name="1-1" index="0" groups=[
@@ -219,51 +225,95 @@ position = Vector2( 296, 144 )
 position = Vector2( 16, -12 )
 texture = ExtResource( 19 )
 
-[node name="LabDoor" type="Node2D" parent="YSort/Props" index="4"]
+[node name="SaveStation" parent="YSort/Props" index="4" instance=ExtResource( 20 )]
+position = Vector2( 448, -361 )
+
+[node name="LabDoor" type="Node2D" parent="YSort/Props" index="5"]
 position = Vector2( 208, 48 )
+script = ExtResource( 21 )
 
 [node name="closed" type="Sprite" parent="YSort/Props/LabDoor" index="0"]
 position = Vector2( 0, -16 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 
 [node name="open" type="Sprite" parent="YSort/Props/LabDoor" index="1"]
 visible = false
-texture = ExtResource( 21 )
+texture = ExtResource( 23 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort/Props/LabDoor" index="2"]
+[node name="Area2D" type="Area2D" parent="YSort/Props/LabDoor" index="2"]
+editor/display_folded = true
+position = Vector2( 0, -3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/Area2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="DialogueTree" parent="YSort/Props/LabDoor" index="3" instance=ExtResource( 24 )]
+
+[node name="IfNoMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="0" instance=ExtResource( 25 )]
+message = "PERHAPS something corrosive could let you through!"
+text_delay = 0.0
+no_face = true
+args = [  ]
+
+[node name="IfYesMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="1" instance=ExtResource( 25 )]
+message = "Yeet Miniman at the door?"
+text_delay = 0.0
+no_face = true
+args = [  ]
+
+[node name="DiagPiece" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="0" instance=ExtResource( 25 )]
+key = "Yes"
+message = "Here goes!"
+text_delay = 0.0
+no_face = true
+function = "toss_miniman"
+args = [  ]
+
+[node name="DiagPiece2" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="1" instance=ExtResource( 25 )]
+key = "No"
+message = "Okay"
+text_delay = 0.0
+no_face = true
+args = [  ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/Props/LabDoor" index="4"]
+editor/display_folded = true
+visible = false
 position = Vector2( 0, -17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/StaticBody2D" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="ClosedCollision" type="StaticBody2D" parent="YSort/Props/LabDoor" index="3"]
+[node name="ClosedCollision" type="StaticBody2D" parent="YSort/Props/LabDoor" index="5"]
+editor/display_folded = true
+visible = false
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/ClosedCollision" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="PositionPortal" parent="YSort/Props/LabDoor" index="4" instance=ExtResource( 22 )]
+[node name="PositionPortal" parent="YSort/Props/LabDoor" index="6" instance=ExtResource( 26 )]
+editor/display_folded = true
+visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal" index="1"]
 position = Vector2( -1, -161 )
 
-[node name="PositionPortal2" parent="YSort/Props/LabDoor" index="5" instance=ExtResource( 22 )]
+[node name="PositionPortal2" parent="YSort/Props/LabDoor" index="7" instance=ExtResource( 26 )]
+editor/display_folded = true
 position = Vector2( 0, -141 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal2" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal2" index="1"]
 position = Vector2( -1, 152 )
 
-[node name="SaveStation" parent="YSort/Props" index="5" instance=ExtResource( 23 )]
-position = Vector2( 448, -361 )
-
-[node name="Miniman" parent="YSort" index="4" instance=ExtResource( 24 )]
+[node name="Miniman" parent="YSort" index="4" instance=ExtResource( 27 )]
 position = Vector2( 141, 28 )
 
 [editable path="TileMaps"]
