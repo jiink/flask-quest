@@ -88,5 +88,4 @@ expand = true
 margin_right = 384.0
 margin_bottom = 216.0
 color = Color( 0.133333, 0.12549, 0.203922, 0 )
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
