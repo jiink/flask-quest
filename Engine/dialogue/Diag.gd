@@ -156,10 +156,12 @@ func update_boxes(new_target):
 		$Face.frame = face_index
 		$Face.visible = true
 		$TextBox.margin_left = 55
+		$FaceBorder.visible = true
 	else:
 		# we just want text, and no face displayed
 		$Face.visible = false
 		$TextBox.margin_left = 12
+		$FaceBorder.visible = false
 	
 	# function
 	

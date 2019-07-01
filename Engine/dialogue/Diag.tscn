@@ -17,6 +17,12 @@ __meta__ = {
 position = Vector2( 192, 24 )
 texture = ExtResource( 2 )
 
+[node name="FaceBorder" type="ColorRect" parent="."]
+margin_left = 5.0
+margin_top = 7.0
+margin_right = 39.0
+margin_bottom = 41.0
+
 [node name="Face" type="Sprite" parent="."]
 position = Vector2( 22, 24 )
 texture = ExtResource( 3 )
