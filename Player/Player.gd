@@ -88,8 +88,8 @@ func get_inputs():
 		#interactionZone.monitoring = true
 		#print(interactionZone.get_overlapping_areas())
 		for area in interactionZone.get_overlapping_areas():
-			if area.get_owner().has_method("interact"):
-				area.get_owner().interact()
+			if area.get_parent().has_method("interact"):
+				area.get_parent().interact()
 				break
 				
 		
