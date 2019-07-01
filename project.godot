@@ -31,6 +31,7 @@ GameSaver="*res://Engine/Singletons/Save/GameSaver.gd"
 ItemManager="*res://Engine/Items/ItemManager.gd"
 PlayerStats="*res://Engine/Singletons/PlayerStats.gd"
 MusicManager="*res://Music/MusicManager.tscn"
+DiagHelper="*res://Engine/dialogue/DiagHelper.gd"
 
 [debug]
 

@@ -65,11 +65,13 @@ func _process(delta):
 					text_index = $TextBox.text.length() - 1
 					
 
-func start_talk(obj):
+func start_talk(obj, starting_branch):
 	print("start_talk exec'd")
+	if starting_branch == null:
+		starting_branch = "DiagPiece"
 	# go to first diagpiece 
 	target_tree = obj.get_node("DialogueTree/")
-	obj = target_tree.get_node("DiagPiece/")
+	obj = target_tree.get_node("%s/" % starting_branch)
 	open()
 	update_boxes(obj)
 	
