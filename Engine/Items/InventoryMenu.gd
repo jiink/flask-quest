@@ -224,9 +224,13 @@ func get_column():
 	
 	
 func toss_item(ind):
-	manager.inventory.remove(ind)
-	if $InfoBar.visible:
-		update_item_selection(selection_index)
+	if not manager.items[get_item_list()[selection_index]].has('droppable'):
+		manager.inventory.remove(ind)
+		if $InfoBar.visible:
+			update_item_selection(selection_index)
+	else:
+		print("Failed to throw away item")
+		get_tree().get_nodes_in_group("Player")[0].do_floaty_text("But this is important...")
 
 func equip_item(ind):
 	if manager.items[get_item_list()[selection_index]].has('equippable'):
