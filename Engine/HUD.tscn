@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Engine/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Engine/dialogue/Diag.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Engine/SceneTransition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Engine/OptionsAndPause/PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Engine/PositionTransition.tscn" type="PackedScene" id=6]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -20,3 +21,5 @@ visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource( 5 )]
 visible = false
+
+[node name="PositionTransition" parent="." instance=ExtResource( 6 )]
