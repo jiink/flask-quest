@@ -110,6 +110,8 @@ var next_player_position
 onready var game_saver = get_node("/root/GameSaver")
 
 func _ready():
+	# change background color
+	VisualServer.set_default_clear_color(Color("0e111c"))
 #	connect_to_transition()
 	#(#get_tree().get_nodes_in_group("Camera")[0].get_node("../HUD/SceneTransition"), "fade_out")
 	pass
