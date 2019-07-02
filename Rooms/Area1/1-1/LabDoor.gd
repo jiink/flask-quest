@@ -10,6 +10,7 @@ func interact():
 
 func toss_miniman():
 	print("OK OK OK OK OK OK ok miniman miniman lets pretend miniman was thrown")
-	ItemManager.inventory.remove("miniman_item")
-	get_owner().lab_door_open = true
-	get_owner().update_lab_door()
+	get_owner().get_node("MinimanDoorEvent").start_event()
+#	ItemManager.inventory.remove("miniman_item")
+#	get_owner().lab_door_open = true
+#	get_owner().update_lab_door()
