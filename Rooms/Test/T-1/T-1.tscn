@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -21,7 +21,6 @@
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Rooms/Test/Assets/TelePortal.tscn" type="PackedScene" id=22]
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
@@ -211,12 +210,5 @@ z_index = -2
 [node name="Camera" parent="." instance=ExtResource( 20 )]
 
 [node name="HUD" parent="." instance=ExtResource( 21 )]
-
-[node name="TelePortal" parent="." instance=ExtResource( 22 )]
-modulate = Color( 0.141176, 0.741176, 0.901961, 1 )
-position = Vector2( 344, 127 )
-
-[node name="Position2D" type="Position2D" parent="TelePortal"]
-position = Vector2( -248, -58 )
 
 [editable path="HUD"]
