@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elevator.png-52bb7d6c42fa5b642b143f7355c61e01.stex"
+path="res://.import/elevator_room.png-c10526317ea296adca4840cd3ddbe3dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area1/Assets/Elevator/elevator.png"
-dest_files=[ "res://.import/elevator.png-52bb7d6c42fa5b642b143f7355c61e01.stex" ]
+source_file="res://Rooms/Area1/Assets/Elevator/elevator_room.png"
+dest_files=[ "res://.import/elevator_room.png-c10526317ea296adca4840cd3ddbe3dc.stex" ]
 
 [params]
 

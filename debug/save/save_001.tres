@@ -8,7 +8,7 @@ data = {
 "dollars": 0,
 "green_hp": 100,
 "green_max_hp": 100,
-"inventory": [ "stone", "stick", "stick" ],
+"inventory": [ "elevator_card" ],
 "loadout": [ "base_potion", "fire_chemical", "base_potion" ],
 "orange_hp": 100,
 "orange_max_hp": 100,

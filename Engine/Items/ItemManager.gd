@@ -1,8 +1,8 @@
 extends "res://Engine/Items/ItemDB.gd"
 
-var inventory = ['stone', 'stick', 'stick']
+var inventory = ['elevator_card']
 var loadout = ['base_potion', 'fire_chemical', 'base_potion']
-var inventory_capacity = 4
+var inventory_capacity = 20
 
 func give_item(the_item):
 	var player = get_tree().get_nodes_in_group("Player")[0]
