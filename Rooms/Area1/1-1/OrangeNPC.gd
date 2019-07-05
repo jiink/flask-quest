@@ -8,3 +8,4 @@ func interact():
 
 func start_brainjar_event():
 	print("let's pretend we started the event in which the brain in a jar appears")
+	get_owner().start_brainjar_event()
