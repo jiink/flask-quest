@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/orange_speech.wav-33b0822f5773f772e59d214ba8b482e8.sample"
+
+[deps]
+
+source_file="res://Player/orange_sprites/orange_speech.wav"
+dest_files=[ "res://.import/orange_speech.wav-33b0822f5773f772e59d214ba8b482e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

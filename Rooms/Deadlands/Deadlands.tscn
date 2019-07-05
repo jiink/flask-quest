@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=3]
-
+[ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -47,7 +45,7 @@ tracks/2/keys = {
 
 [node name="Deadlands" instance=ExtResource( 1 )]
 
-[node name="Player" parent="YSort" index="0" instance=ExtResource( 2 )]
+[node name="Player" parent="YSort" index="0"]
 position = Vector2( 182.449, 104.257 )
 
 [node name="Camera" parent="." index="3"]
@@ -68,7 +66,7 @@ margin_bottom = 116.0
 rect_rotation = -5.47185
 rect_scale = Vector2( 4.51061, 4.24855 )
 rect_pivot_offset = Vector2( 22.5, 6.5 )
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_outline_modulate = Color( 0.388235, 0.976471, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.137255, 0.145098, 0.137255, 1 )
 text = "U ded!!"
@@ -80,6 +78,5 @@ uppercase = true
 autoplay = "default"
 playback_speed = 0.3
 anims/default = SubResource( 1 )
-
 
 [editable path="HUD"]
