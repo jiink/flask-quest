@@ -31,13 +31,13 @@ func set_orange_state(i):
 	
 	disabled_orange.visible = false
 	npc_orange.visible = false
-	npc_orange.get_node("StaticBody2D/CollisionShape2D2").disabled = true
+	npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", true)
 	match i:
 		2:
 			disabled_orange.visible = true
 		1:
 			npc_orange.visible = true
-			npc_orange.get_node("StaticBody2D/CollisionShape2D2").disabled = false
+			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", false)
 			disabled_orange.queue_free()
 
 func start_brainjar_event():
