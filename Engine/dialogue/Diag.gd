@@ -48,8 +48,8 @@ func _process(delta):
 			if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
-						update_boxes(D)
 						run_func()
+						update_boxes(D)
 						break
 		else:
 			if Input.is_action_just_pressed("a"):
@@ -57,8 +57,8 @@ func _process(delta):
 					if target_piece.get_children():
 						update_boxes(target_piece.get_child(0))
 					else:
-						close()
 						run_func()
+						close()
 					
 				elif $TextBox.text.length() > 2 and target_piece.skippable:
 					$TextBox.text = visible_new_text
