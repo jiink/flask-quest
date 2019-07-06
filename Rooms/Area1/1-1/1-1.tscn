@@ -163,7 +163,7 @@ extents = Vector2( 17, 5 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" index="0" groups=[
+[node name="1-1" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -479,7 +479,7 @@ skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 26 )]
 key = "Okay"
-message = "Hu- You hear that?"
+message = "Hu- ```You` hear that?"
 text_delay = 0.0
 expression = "suspicious"
 function = "start_brainjar_event"
@@ -488,7 +488,7 @@ skippable = false
 
 [node name="DiagPiece2" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="1" instance=ExtResource( 26 )]
 key = "Nah"
-message = "Hu- You hear that?"
+message = "Hu- ```You` hear that?"
 text_delay = 0.0
 expression = "suspicious"
 function = "start_brainjar_event"
@@ -709,6 +709,27 @@ margin_top = -10.0
 margin_right = 4.0
 margin_bottom = 2.0
 color = Color( 0.627451, 0.227451, 0.227451, 1 )
+
+[node name="DialogueTree" parent="YSort/BrainJarNPC" index="1" instance=ExtResource( 23 )]
+
+[node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 26 )]
+message = "BLAMMO!!"
+text_delay = 0.0
+no_face = true
+args = [  ]
+
+[node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 26 )]
+message = "Dialogue for this event goes here!"
+text_delay = 0.0
+no_face = true
+args = [  ]
+
+[node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 26 )]
+message = "Okay, battle starts now"
+text_delay = 0.0
+no_face = true
+function = "start_brainjar_battle"
+args = [  ]
 
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
 position = Vector2( 200, -162 )

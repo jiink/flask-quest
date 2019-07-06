@@ -50,3 +50,5 @@ func start_brainjar_event():
 			Color("FFFFFFFF"), Color("00FFFFFF"),
 			0.8, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	m.get_node("Tween").start()
+	yield(get_tree().create_timer(0.1), "timeout")
+	DiagHelper.start_talk(brainjar_npc)
