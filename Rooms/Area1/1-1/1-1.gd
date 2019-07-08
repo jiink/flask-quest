@@ -20,6 +20,7 @@ func update_lab_door():
 		lab_door.get_node("closed").visible = false
 		lab_door.get_node("open").visible = true
 		lab_door.get_node("ClosedCollision/CollisionShape2D").disabled = true
+		$YSort/Miniman.queue_free()
 	else:
 		lab_door.get_node("closed").visible = true
 		lab_door.get_node("open").visible = false
