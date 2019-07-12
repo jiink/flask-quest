@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Engine/Battle/BaseFoe.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/missingFoe.png" type="Texture" id=2]
-[ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hurt"
@@ -60,10 +60,10 @@ position = Vector2( 2, -55 )
 texture = ExtResource( 2 )
 
 [node name="HPLabel" type="Label" parent="."]
-margin_left = -20.0
-margin_top = 9.0
-margin_right = 20.0
-margin_bottom = 23.0
+margin_left = -19.5922
+margin_top = 6.75703
+margin_right = 20.4078
+margin_bottom = 20.757
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.515625, 0.368591, 0.368591, 1 )
 custom_colors/font_color_shadow = Color( 0.152344, 0.0702209, 0.0702209, 1 )
