@@ -5,6 +5,7 @@ export(NodePath) var face_node
 enum {NORMAL, GREEN, ORANGE}
 export(int, "NORMAL", "GREEN", "ORANGE") var type
 export(int) var damage = 15
+export(bool) var destructable = true
 
 export(float) var speed = 100
 
@@ -63,12 +64,14 @@ func area_entered(area):
 #		print("... it was green")
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "green", damage)
-		queue_free()
+		if destructable:
+			queue_free()
 	elif area.get_parent().name == "OrangeSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
 #		print("... it was orange")
 		if has_node("../../../.."):
 			get_node("../../../..").call("hurt", "orange", damage)
-		queue_free()
+		if destructable:
+			queue_free()
 
 func death_timer_timeout():
 	queue_free()
