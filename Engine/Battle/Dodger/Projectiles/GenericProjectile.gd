@@ -5,6 +5,7 @@ export(NodePath) var face_node
 enum {NORMAL, GREEN, ORANGE}
 export(int, "NORMAL", "GREEN", "ORANGE") var type
 export(int) var damage = 15
+export(int) var damage_randomness = 0.1
 export(bool) var destructable = true
 
 export(float) var speed = 100
@@ -55,6 +56,7 @@ func _process(delta):
 	position += vec * delta
 	
 func area_entered(area):
+	var damage_dealt = damage + (randf() * damage_randomness - damage_randomness * 0.5)
 	var thingy = area.get_parent()
 	var dfield = get_node("../../..")
 #	var pstats = get_node("/root/PlayerStats")
