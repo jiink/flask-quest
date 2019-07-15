@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -42,7 +42,8 @@
 [ext_resource path="res://Rooms/Area1/1-1/Elevator.gd" type="Script" id=40]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=41]
 [ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=42]
-[ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=43]
+[ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=43]
+[ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=44]
 
 [sub_resource type="Animation" id=1]
 resource_name = "main"
@@ -161,7 +162,24 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 17, 5 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="Animation" id=13]
+resource_name = "default"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 50, 10 )
 
 [node name="1-1" index="0" groups=[
@@ -700,14 +718,17 @@ shape = SubResource( 12 )
 position = Vector2( 208, 52 )
 script = ExtResource( 42 )
 
-[node name="ColorRect" type="ColorRect" parent="YSort/BrainJarNPC" index="0"]
-margin_left = -4.0
-margin_top = -10.0
-margin_right = 4.0
-margin_bottom = 2.0
-color = Color( 0.627451, 0.227451, 0.227451, 1 )
+[node name="Sprite" type="Sprite" parent="YSort/BrainJarNPC" index="0"]
+position = Vector2( 0, -5 )
+texture = ExtResource( 43 )
+hframes = 2
+frame = 1
 
-[node name="DialogueTree" parent="YSort/BrainJarNPC" index="1" instance=ExtResource( 24 )]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="1"]
+autoplay = "default"
+anims/default = SubResource( 13 )
+
+[node name="DialogueTree" parent="YSort/BrainJarNPC" index="2" instance=ExtResource( 24 )]
 
 [node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 27 )]
 message = "BLAMMO!!"
@@ -730,10 +751,10 @@ args = [  ]
 
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
 position = Vector2( 200, -162 )
-script = ExtResource( 43 )
+script = ExtResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 
 [editable path="TileMaps"]

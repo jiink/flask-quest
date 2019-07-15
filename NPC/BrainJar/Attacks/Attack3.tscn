@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Engine/Battle/Dodger/AttackBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPC/BrainJar/Attacks/Attack3.gd" type="Script" id=2]
 [ext_resource path="res://NPC/BrainJar/ThoughtCloudPiece.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=4]
+[ext_resource path="res://NPC/BrainJar/Attacks/GreenThought.gd" type="Script" id=4]
+[ext_resource path="res://NPC/BrainJar/BJarThought1.png" type="Texture" id=5]
+[ext_resource path="res://NPC/BrainJar/ThoughtCloudPiece.gd" type="Script" id=6]
+[ext_resource path="res://NPC/BrainJar/BJarThought0.png" type="Texture" id=7]
 
-[node name="Attack3" index="0" instance=ExtResource( 1 )]
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Attack3" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Timer" parent="." index="0"]
@@ -118,20 +125,36 @@ position = Vector2( 279.016, 40.8975 )
 [node name="ThoughtCloudPiece21" parent="ThoughtCloud" index="34" instance=ExtResource( 3 )]
 position = Vector2( 316.08, 66.2567 )
 
-[node name="Label" type="Label" parent="." index="2"]
-margin_left = 182.765
-margin_top = 26.6939
-margin_right = 222.765
-margin_bottom = 51.6939
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "...
-"
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="GreenThought" type="Area2D" parent="ThoughtCloud" index="35"]
+position = Vector2( -5, 0 )
+script = ExtResource( 4 )
+type = 1
+destructable = false
+death_time = 30.0
 
-[node name="BetweenDropsTimer" type="Timer" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThoughtCloud/GreenThought" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="ThoughtCloud/GreenThought" index="1"]
+position = Vector2( 188, 36 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="OrangeX" type="Area2D" parent="ThoughtCloud" index="36"]
+editor/display_folded = true
+script = ExtResource( 6 )
+type = 2
+destructable = false
+death_time = 30.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThoughtCloud/OrangeX" index="0"]
+shape = SubResource( 2 )
+
+[node name="BJarThought0" type="Sprite" parent="ThoughtCloud/OrangeX" index="1"]
+position = Vector2( 188, 36 )
+texture = ExtResource( 7 )
+
+[node name="BetweenDropsTimer" type="Timer" parent="." index="2"]
 wait_time = 0.5
 autostart = true
 [connection signal="timeout" from="BetweenDropsTimer" to="." method="_on_BetweenDropsTimer_timeout"]

@@ -6,14 +6,16 @@ var dropping = false
 
 func _ready():
 	scale += Vector2(randf() * 0.1, randf() * 0.1)
-	$AnimationPlayer.playback_speed += randf() * 0.15
-	$AnimationPlayer.seek(randf() * $AnimationPlayer.current_animation_length)
-	$Spin.playback_speed += randf() * 0.15
-	$Spin.seek(randf() * $AnimationPlayer.current_animation_length)
+	if $AnimationPlayer and $Spin:
+		$AnimationPlayer.playback_speed += randf() * 0.15
+		$AnimationPlayer.seek(randf() * $AnimationPlayer.current_animation_length)
+		$Spin.playback_speed += randf() * 0.15
+		$Spin.seek(randf() * $AnimationPlayer.current_animation_length)
 	
 func drop():
 	dropping = true
-	$Spin.stop()
+	if $Spin:
+		$Spin.stop()
 	
 func _process(delta):
 	if dropping:
