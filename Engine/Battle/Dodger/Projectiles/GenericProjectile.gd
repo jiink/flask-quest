@@ -5,12 +5,12 @@ export(NodePath) var face_node
 enum {NORMAL, GREEN, ORANGE}
 export(int, "NORMAL", "GREEN", "ORANGE") var type
 export(int) var damage = 15
-export(int) var damage_randomness = 0.1
+export(float) var damage_randomness = 0.1
 export(bool) var destructable = true
 
-export(float) var speed = 100
 
-var vec
+
+
 
 export(float) var death_time = 10.0
 
@@ -32,7 +32,7 @@ func _ready():
 	if face_center and face_node != "":
 		print("Warning: Can't face two places at once; facing center")
 	
-	vec = Vector2(speed, 0).rotated(rotation)
+	
 	
 	match type:
 		NORMAL:
@@ -52,8 +52,6 @@ func _ready():
 	death_timer.start(death_time)
 	death_timer.connect("timeout", self, "death_timer_timeout")
 	
-func _process(delta):
-	position += vec * delta
 	
 func area_entered(area):
 	var damage_dealt = damage + (randf() * damage_randomness - damage_randomness * 0.5)

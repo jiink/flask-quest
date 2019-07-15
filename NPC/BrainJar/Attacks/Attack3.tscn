@@ -1,64 +1,137 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Engine/Battle/Dodger/AttackBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Engine/Battle/Dodger/Projectiles/GenericProjectile.gd" type="Script" id=2]
+[ext_resource path="res://NPC/BrainJar/Attacks/Attack3.gd" type="Script" id=2]
+[ext_resource path="res://NPC/BrainJar/ThoughtCloudPiece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.40488, 207.426 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "default"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Line:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2.2, 8.6, 9.2 ),
-"transitions": PoolRealArray( 3.03143, 1, 2.2974, 1 ),
-"update": 0,
-"values": [ Vector2( 192, -208 ), Vector2( 192, 108 ), Vector2( 192, 108 ), Vector2( 600, 108 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Line:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 3.2, 4.3, 5.4, 7.2, 7.9, 8.5 ),
-"transitions": PoolRealArray( 3.03143, 3.03143, 1, 0.435275, 1, 2.92817, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 34.0, 34.0, -99.0, -99.0, -90.0 ]
-}
-
-[node name="Attack2" index="0" instance=ExtResource( 1 )]
+[node name="Attack3" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="Timer" parent="." index="0"]
 wait_time = 10.5
 
-[node name="Line" type="Area2D" parent="." index="1"]
-position = Vector2( 600, 108 )
-rotation = -1.5708
-script = ExtResource( 2 )
-damage = 22
-destructable = false
-speed = 0.0
-death_time = 20.0
+[node name="ThoughtCloud" type="Node2D" parent="." index="1"]
 
-[node name="ColorRect" type="ColorRect" parent="Line" index="0"]
-margin_left = -8.0
-margin_top = -209.62
-margin_right = 8.0
-margin_bottom = -165.89
-rect_scale = Vector2( 0.624755, 9.50197 )
-rect_pivot_offset = Vector2( 8, 0 )
+[node name="ThoughtCloudPiece" parent="ThoughtCloud" index="0" instance=ExtResource( 3 )]
+position = Vector2( 190.827, 22.0712 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Line" index="1"]
-shape = SubResource( 1 )
+[node name="ThoughtCloudPiece2" parent="ThoughtCloud" index="1" instance=ExtResource( 3 )]
+position = Vector2( 138.655, 29.4223 )
 
-[node name="AnimationTree" type="AnimationPlayer" parent="." index="2"]
-autoplay = "default"
-anims/default = SubResource( 2 )
+[node name="ThoughtCloudPiece3" parent="ThoughtCloud" index="2" instance=ExtResource( 3 )]
+position = Vector2( 211.049, 26.6263 )
+
+[node name="ThoughtCloudPiece4" parent="ThoughtCloud" index="3" instance=ExtResource( 3 )]
+position = Vector2( 145.457, 49.1314 )
+
+[node name="ThoughtCloudPiece5" parent="ThoughtCloud" index="4" instance=ExtResource( 3 )]
+position = Vector2( 166.333, 55.8135 )
+
+[node name="ThoughtCloudPiece6" parent="ThoughtCloud" index="5" instance=ExtResource( 3 )]
+position = Vector2( 163.599, 37.4118 )
+
+[node name="ThoughtCloudPiece28" parent="ThoughtCloud" index="6" instance=ExtResource( 3 )]
+position = Vector2( 153.613, 28.8127 )
+
+[node name="ThoughtCloudPiece29" parent="ThoughtCloud" index="7" instance=ExtResource( 3 )]
+position = Vector2( 153.613, 28.8127 )
+
+[node name="ThoughtCloudPiece7" parent="ThoughtCloud" index="8" instance=ExtResource( 3 )]
+position = Vector2( 202.327, 59.5438 )
+
+[node name="ThoughtCloudPiece8" parent="ThoughtCloud" index="9" instance=ExtResource( 3 )]
+position = Vector2( 179.754, 32.3536 )
+
+[node name="ThoughtCloudPiece9" parent="ThoughtCloud" index="10" instance=ExtResource( 3 )]
+position = Vector2( 215.033, 16.8779 )
+
+[node name="ThoughtCloudPiece10" parent="ThoughtCloud" index="11" instance=ExtResource( 3 )]
+position = Vector2( 198.01, 37.4323 )
+
+[node name="ThoughtCloudPiece11" parent="ThoughtCloud" index="12" instance=ExtResource( 3 )]
+position = Vector2( 228.765, 21.7649 )
+
+[node name="ThoughtCloudPiece12" parent="ThoughtCloud" index="13" instance=ExtResource( 3 )]
+position = Vector2( 181.736, 48.8406 )
+
+[node name="ThoughtCloudPiece25" parent="ThoughtCloud" index="14" instance=ExtResource( 3 )]
+position = Vector2( 208.476, 52.8363 )
+
+[node name="ThoughtCloudPiece26" parent="ThoughtCloud" index="15" instance=ExtResource( 3 )]
+position = Vector2( 202.022, 20.871 )
+
+[node name="ThoughtCloudPiece27" parent="ThoughtCloud" index="16" instance=ExtResource( 3 )]
+position = Vector2( 202.022, 20.871 )
+
+[node name="ThoughtCloudPiece22" parent="ThoughtCloud" index="17" instance=ExtResource( 3 )]
+position = Vector2( 150.078, 39.0051 )
+
+[node name="ThoughtCloudPiece23" parent="ThoughtCloud" index="18" instance=ExtResource( 3 )]
+position = Vector2( 194.338, 47.3038 )
+
+[node name="ThoughtCloudPiece24" parent="ThoughtCloud" index="19" instance=ExtResource( 3 )]
+position = Vector2( 194.338, 47.3038 )
+
+[node name="ThoughtCloudPiece13" parent="ThoughtCloud" index="20" instance=ExtResource( 3 )]
+position = Vector2( 224.889, 36.4518 )
+
+[node name="ThoughtCloudPiece14" parent="ThoughtCloud" index="21" instance=ExtResource( 3 )]
+position = Vector2( 164.924, 17.8777 )
+
+[node name="ThoughtCloudPiece30" parent="ThoughtCloud" index="22" instance=ExtResource( 3 )]
+position = Vector2( 170.195, 26.4768 )
+
+[node name="ThoughtCloudPiece34" parent="ThoughtCloud" index="23" instance=ExtResource( 3 )]
+position = Vector2( 178.281, 21.9581 )
+
+[node name="ThoughtCloudPiece31" parent="ThoughtCloud" index="24" instance=ExtResource( 3 )]
+position = Vector2( 172.136, 45.9732 )
+
+[node name="ThoughtCloudPiece35" parent="ThoughtCloud" index="25" instance=ExtResource( 3 )]
+position = Vector2( 158.104, 47.638 )
+
+[node name="ThoughtCloudPiece15" parent="ThoughtCloud" index="26" instance=ExtResource( 3 )]
+position = Vector2( 180.427, 14.3455 )
+
+[node name="ThoughtCloudPiece16" parent="ThoughtCloud" index="27" instance=ExtResource( 3 )]
+position = Vector2( 207.856, 43.1596 )
+
+[node name="ThoughtCloudPiece32" parent="ThoughtCloud" index="28" instance=ExtResource( 3 )]
+position = Vector2( 211.423, 36.5004 )
+
+[node name="ThoughtCloudPiece33" parent="ThoughtCloud" index="29" instance=ExtResource( 3 )]
+position = Vector2( 218.558, 46.0135 )
+
+[node name="ThoughtCloudPiece17" parent="ThoughtCloud" index="30" instance=ExtResource( 3 )]
+position = Vector2( 227.322, 53.0894 )
+
+[node name="ThoughtCloudPiece18" parent="ThoughtCloud" index="31" instance=ExtResource( 3 )]
+position = Vector2( 240.977, 39.4345 )
+
+[node name="ThoughtCloudPiece19" parent="ThoughtCloud" index="32" instance=ExtResource( 3 )]
+position = Vector2( 275.602, 49.6757 )
+
+[node name="ThoughtCloudPiece20" parent="ThoughtCloud" index="33" instance=ExtResource( 3 )]
+position = Vector2( 279.016, 40.8975 )
+
+[node name="ThoughtCloudPiece21" parent="ThoughtCloud" index="34" instance=ExtResource( 3 )]
+position = Vector2( 316.08, 66.2567 )
+
+[node name="Label" type="Label" parent="." index="2"]
+margin_left = 182.765
+margin_top = 26.6939
+margin_right = 222.765
+margin_bottom = 51.6939
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "...
+"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BetweenDropsTimer" type="Timer" parent="." index="3"]
+wait_time = 0.5
+autostart = true
+[connection signal="timeout" from="BetweenDropsTimer" to="." method="_on_BetweenDropsTimer_timeout"]
