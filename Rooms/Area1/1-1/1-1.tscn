@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
-[ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Area1/1-1/lab_battle_background.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Area1/Assets/labs.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Rooms/Area1/1-1/MinimanDoorEvent.gd" type="Script" id=5]
 [ext_resource path="res://NPC/Miniman/miniman_jumping.png" type="Texture" id=6]
