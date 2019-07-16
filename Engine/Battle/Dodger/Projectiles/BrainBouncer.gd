@@ -1,4 +1,4 @@
-extends "res://Engine/Battle/Dodger/Projectiles/GenericProjectile.gd"
+extends "res://Engine/Battle/Dodger/Projectiles/Bullet.gd"
 
 var bounce_height = 64
 var original_y

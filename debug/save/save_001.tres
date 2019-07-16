@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 data = {
 "1-1_lab_door_open": true,
-"1-1_orange_state": 2,
+"1-1_orange_state": 1,
 "dollars": 0,
 "green_hp": 100,
 "green_max_hp": 100,
@@ -14,7 +14,7 @@ data = {
 "loadout": [ "base_potion", "fire_chemical", "base_potion" ],
 "orange_hp": 100,
 "orange_max_hp": 100,
-"player_spawn_pos": Vector2( 614.072, -225.503 ),
+"player_spawn_pos": Vector2( 255, 65 ),
 "player_spawn_scene": "res://Rooms/Area1/1-1/1-1.tscn",
 "test_SaveTester": "blue",
 "test_SaveTester2": "blue",

@@ -19,7 +19,7 @@ func drop():
 	
 func _process(delta):
 	if dropping:
-		y_velocity += 0.1
+		y_velocity += 0.05
 		position.y += y_velocity
 		if position.y > 300:
 			queue_free()

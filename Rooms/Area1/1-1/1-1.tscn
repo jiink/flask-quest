@@ -182,7 +182,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" index="0" groups=[
+[node name="1-1" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -462,7 +462,7 @@ __meta__ = {
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 587, 99 )
+position = Vector2( 255, 65 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 script = ExtResource( 21 )
@@ -492,14 +492,12 @@ message = "Where are we? ...What are we? What is this place? ```I HAVE SO MANY Q
 text_delay = 0.0
 expression = "happy"
 args = [  ]
-skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 27 )]
 message = "Hey, you know what... you look a lot like me. Could we be... related?"
 text_delay = 0.0
 expression = "sidemouth"
 args = [  ]
-skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 27 )]
 message = "Hu- ```You` hear that?"
