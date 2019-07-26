@@ -126,7 +126,7 @@ position = Vector2( 279.016, 40.8975 )
 position = Vector2( 316.08, 66.2567 )
 
 [node name="GreenThought" type="Area2D" parent="ThoughtCloud" index="35"]
-position = Vector2( -5, 0 )
+position = Vector2( -4, 1 )
 script = ExtResource( 4 )
 type = 1
 destructable = false
