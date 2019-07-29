@@ -55,6 +55,7 @@ func _process(delta):
 			if Input.is_action_just_pressed("a"):
 				if $TextBox.text == visible_new_text:
 					if target_piece.get_children():
+						run_func()
 						update_boxes(target_piece.get_child(0))
 					else:
 						run_func()
