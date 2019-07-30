@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 data = {
 "1-1_lab_door_open": true,
-"1-1_orange_state": 1,
+"1-1_orange_state": 0,
 "dollars": 0,
 "green_hp": 100,
 "green_max_hp": 100,

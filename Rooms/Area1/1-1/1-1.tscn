@@ -181,7 +181,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 resource_name = "default"
 length = 0.5
 tracks/0/type = "value"
@@ -197,10 +197,10 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -5 ), Vector2( 45, 0 ), Vector2( 99, 31 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" groups=[
+[node name="1-1" index="0" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -480,7 +480,7 @@ __meta__ = {
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 209, 71 )
+position = Vector2( 590, 88 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 319, 104 )
@@ -742,7 +742,7 @@ autoplay = "default"
 anims/default = SubResource( 14 )
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="2"]
-anims/default = SubResource( 16 )
+anims/default = SubResource( 15 )
 
 [node name="DialogueTree" parent="YSort/BrainJarNPC" index="3" instance=ExtResource( 24 )]
 
@@ -771,7 +771,7 @@ position = Vector2( 200, -162 )
 script = ExtResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 
 [editable path="TileMaps"]

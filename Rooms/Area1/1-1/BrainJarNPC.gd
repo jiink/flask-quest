@@ -5,6 +5,7 @@ func _ready():
 
 func start_brainjar_battle():
 	global.start_battle(["BrainJar"])
-
+	visible = false
+	
 func jump_to_them():
 	$JumpAnimation.play("default")
