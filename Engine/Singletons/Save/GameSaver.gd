@@ -65,6 +65,7 @@ func save_from_save_station(id):
 	print("spawn position being saved: %s" % get_tree().get_nodes_in_group("Player")[0].position)
 	save_game.data["player_spawn_pos"] = get_tree().get_nodes_in_group("Player")[0].position
 	
+	save_game.data["party_members"] = $"/root/PlayerStats".party_members
 	print("health being saved: %s/%s, %s/%s" % [$"/root/PlayerStats".green_hp, $"/root/PlayerStats".green_max_hp, $"/root/PlayerStats".orange_hp, $"/root/PlayerStats".orange_max_hp]) 
 	save_game.data["green_hp"] = $"/root/PlayerStats".green_hp
 	save_game.data["green_max_hp"] = $"/root/PlayerStats".green_max_hp
@@ -113,7 +114,8 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	
 #	for node in get_tree().get_nodes_in_group("save"):
 #		node.load(save_game)
-
+	
+	$"/root/PlayerStats".party_members = save_game.data["party_members"]
 	$"/root/PlayerStats".green_hp = save_game.data["green_hp"]
 	$"/root/PlayerStats".green_max_hp = save_game.data["green_max_hp"]
 	$"/root/PlayerStats".orange_hp = save_game.data["orange_hp"]
