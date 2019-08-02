@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -47,7 +47,8 @@
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=45]
 [ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=46]
 [ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=47]
-[ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=48]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=48]
+[ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=49]
 
 [sub_resource type="Animation" id=1]
 resource_name = "main"
@@ -556,7 +557,7 @@ __meta__ = {
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 830, 318 )
+position = Vector2( 252, 100 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 319, 104 )
@@ -841,9 +842,15 @@ no_face = true
 function = "start_brainjar_battle"
 args = [  ]
 
+[node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 48 )]
+position = Vector2( 168, -243 )
+
+[node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 48 )]
+position = Vector2( 504, -259 )
+
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
 position = Vector2( 200, -162 )
-script = ExtResource( 48 )
+script = ExtResource( 49 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
 shape = SubResource( 19 )
