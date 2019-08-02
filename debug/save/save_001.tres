@@ -8,6 +8,7 @@ data = {
 "1-1_lab_door_open": true,
 "1-1_orange_state": 0,
 "dollars": 0,
+"party_members": ["orange"],
 "green_hp": 100,
 "green_max_hp": 100,
 "inventory": [ "stone", "miniman_item", "elevator_card" ],

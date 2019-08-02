@@ -21,7 +21,9 @@ func _ready():
 	yield(get_tree().create_timer(0.1), "timeout")
 	for i in range(24):
 		position_history.append(position)
-
+	
+	
+	
 func _process(delta):
 	
 	previous_position = position
