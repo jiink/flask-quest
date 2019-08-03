@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Battle/BaseFoe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/SecurityMop/security_mop_battle.png" type="Texture" id=2]
+
+[node name="BaseFoe" index="0" instance=ExtResource( 1 )]
+max_hp = 15
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 2 )
