@@ -1,10 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://NPC/SecurityMop/SecurityMop.gd" type="Script" id=1]
-[ext_resource path="res://Engine/white.png" type="Texture" id=2]
+[ext_resource path="res://NPC/SecurityMop/security_mop.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "default"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
 
 [node name="SecurityMop" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -14,10 +31,14 @@ follow_distance = 30
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.764706, 0.835294, 0.117647, 1 )
-position = Vector2( 0, -1.5 )
-scale = Vector2( 0.1875, 0.140625 )
+position = Vector2( 0, -5 )
 texture = ExtResource( 2 )
+hframes = 2
+frame = 1
 
 [node name="DirectionChangeTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 2 )
