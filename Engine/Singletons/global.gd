@@ -6,7 +6,10 @@ signal scene_changed
 var player_hp = 100
 
 func get_player():
-	return get_tree().get_nodes_in_group("Player")[0]
+	if get_tree().get_nodes_in_group("Player"):
+		return get_tree().get_nodes_in_group("Player")[0]
+	else:
+		return null
 	
 ################## battle ##################
 

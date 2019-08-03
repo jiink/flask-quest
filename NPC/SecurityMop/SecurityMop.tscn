@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://NPC/SecurityMop/SecurityMop.gd" type="Script" id=1]
+[ext_resource path="res://Engine/white.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 3 )
+
+[node name="SecurityMop" type="KinematicBody2D"]
+script = ExtResource( 1 )
+follow_distance = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.764706, 0.835294, 0.117647, 1 )
+position = Vector2( 0, -1.5 )
+scale = Vector2( 0.1875, 0.140625 )
+texture = ExtResource( 2 )
+
+[node name="DirectionChangeTimer" type="Timer" parent="."]
+autostart = true
