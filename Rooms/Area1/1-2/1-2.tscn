@@ -24,11 +24,11 @@ position = Vector2( 1, -15 )
 z_index = -20
 texture = ExtResource( 4 )
 
-[node name="Door" type="Sprite" parent="EnteranceElevator" index="1"]
+[node name="Doors" type="Sprite" parent="EnteranceElevator" index="1"]
 position = Vector2( 0, -15 )
 texture = ExtResource( 5 )
 hframes = 25
-frame = 24
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnteranceElevator" index="2"]
 anims/elevator_open_animation = ExtResource( 6 )

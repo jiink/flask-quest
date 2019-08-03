@@ -15,6 +15,7 @@ func set_elevator_open(new_state):
 	if new_state == true:
 		if state == false:
 			get_node("AnimationPlayer").play("open_doors")
+			yield(get_node("AnimationPlayer"), "animation_finished")
 			get_node("ClosedBody/CollisionShape2D").disabled = true
 	else:
 		if state == true:
