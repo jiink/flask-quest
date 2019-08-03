@@ -9,8 +9,5 @@ extents = Vector2( 16, 6.14 )
 [node name="tableS" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
 
-[node name="StaticBody2D" parent="." index="0"]
-visible = false
-
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource( 1 )
