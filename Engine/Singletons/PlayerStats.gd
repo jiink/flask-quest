@@ -12,7 +12,11 @@ var orange_hp = 100
 
 var dollars = 0
 
-
 func _ready():
-	if "orange" in party_members:
-		global.get_player().get_node("../").call_deferred("add_child", orange.instance())
+	global.connect("scene_changed", self, "on_scene_change")
+	
+
+func on_scene_change():
+	if global.get_player():
+		if "orange" in party_members:
+			global.get_player().get_parent("../").call_deferred("add_child", orange.instance())

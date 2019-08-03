@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -45,10 +45,10 @@
 [ext_resource path="res://NPC/Miniman/Miniman.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Rooms/Area1/1-1/Elevator.gd" type="Script" id=44]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=45]
-[ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=46]
-[ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=47]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=48]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/stool.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevator_open_animation.tres" type="Animation" id=46]
+[ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=47]
+[ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=48]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=49]
 [ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=50]
 
 [sub_resource type="Animation" id=1]
@@ -198,26 +198,10 @@ extents = Vector2( 18, 4 )
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 10, 18 )
 
-[sub_resource type="Animation" id=15]
-length = 1.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Doors:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
-}
-
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 17, 5 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=16]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -233,7 +217,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -248,7 +232,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -5 ), Vector2( 45, 0 ), Vector2( 99, 31 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 50, 10 )
 
 [node name="1-1" index="0" groups=[
@@ -394,6 +378,9 @@ tile_data = PoolIntArray( -1245174, 0, 196613, -1245173, 0, 196613, -1245172, 0,
 [node name="Collisions" parent="TileMaps" index="12"]
 tile_data = PoolIntArray( -1572838, 0, 0, -1572837, 0, 0, -1572836, 0, 0, -1572835, 0, 0, -1572834, 0, 0, -1572833, 0, 0, -1507302, 0, 0, -1507297, 0, 0, -1441766, 0, 0, -1441761, 0, 0, -1376230, 0, 0, -1376225, 0, 0, -1310694, 0, 0, -1310689, 0, 0, -1245158, 0, 0, -1245153, 0, 0, -1179622, 0, 0, -1179617, 0, 0, -1114091, 0, 0, -1114090, 0, 0, -1114089, 0, 0, -1114088, 0, 0, -1114087, 0, 0, -1114086, 0, 0, -1114081, 0, 0, -1114080, 0, 0, -1114079, 0, 0, -1114078, 0, 0, -1114077, 0, 0, -1048566, 0, 0, -1048565, 0, 0, -1048564, 0, 0, -1048563, 0, 0, -1048562, 0, 0, -1048561, 0, 0, -1048560, 0, 0, -1048559, 0, 0, -1048558, 0, 0, -1048557, 0, 0, -1048556, 0, 0, -1048540, 0, 0, -1048539, 0, 0, -1048538, 0, 0, -1048537, 0, 0, -1048536, 0, 0, -1048535, 0, 0, -1048534, 0, 0, -983031, 0, 0, -982998, 0, 0, -917495, 0, 0, -917462, 0, 0, -851959, 0, 0, -851926, 0, 0, -786423, 0, 0, -786390, 0, 0, -720887, 0, 0, -720881, 0, 0, -720880, 0, 0, -720879, 0, 0, -720878, 0, 0, -720877, 0, 0, -720876, 0, 0, -720875, 0, 0, -720874, 0, 0, -720873, 0, 0, -720872, 0, 0, -720871, 0, 0, -720870, 0, 0, -720869, 0, 0, -720868, 0, 0, -720867, 0, 0, -720866, 0, 0, -720865, 0, 0, -720864, 0, 0, -720863, 0, 0, -720862, 0, 0, -720861, 0, 0, -720860, 0, 0, -720859, 0, 0, -720858, 0, 0, -720857, 0, 0, -720856, 0, 0, -720855, 0, 0, -720854, 0, 0, -655351, 0, 0, -655345, 0, 0, -589815, 0, 0, -589809, 0, 0, -524279, 0, 0, -524273, 0, 0, -458743, 0, 0, -458737, 0, 0, -393206, 0, 0, -393205, 0, 0, -393202, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 196612, 0, 0, 196613, 0, 0, 196629, 0, 0, 196642, 0, 0, 196643, 0, 0, 196646, 0, 0, 262148, 0, 0, 262149, 0, 0, 262165, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262183, 0, 0, 327684, 0, 0, 327685, 0, 0, 327701, 0, 0, 327711, 0, 0, 327719, 0, 0, 393220, 0, 0, 393221, 0, 0, 393238, 0, 0, 393246, 0, 0, 393255, 0, 0, 458756, 0, 0, 458757, 0, 0, 458774, 0, 0, 458782, 0, 0, 458791, 0, 0, 524292, 0, 0, 524293, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524309, 0, 0, 524319, 0, 0, 524327, 0, 0, 589828, 0, 0, 589829, 0, 0, 589834, 0, 0, 589839, 0, 0, 589845, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 655364, 0, 0, 655370, 0, 0, 655375, 0, 0, 655381, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0 )
 
+[node name="Background" parent="." index="3"]
+editor/display_folded = true
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground" index="0"]
@@ -533,14 +520,7 @@ player_new_position = Vector2( 256, 41 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorRoom/ScenePortal" index="0"]
 shape = SubResource( 6 )
 
-[node name="ColorRect10" type="ColorRect" parent="." index="5"]
-margin_left = 496.0
-margin_top = 16.0
-margin_right = 624.0
-margin_bottom = 128.0
-color = Color( 0, 0, 0, 0.509804 )
-
-[node name="Light2D" type="Light2D" parent="." index="6"]
+[node name="Light2D" type="Light2D" parent="." index="5"]
 position = Vector2( 298, 89 )
 texture = ExtResource( 23 )
 texture_scale = 0.59
@@ -549,10 +529,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Light2D2" type="Light2D" parent="." index="7"]
-position = Vector2( 136, 128 )
+[node name="Light2D2" type="Light2D" parent="." index="6"]
+position = Vector2( 121, 88 )
 texture = ExtResource( 23 )
-offset = Vector2( -15, -40 )
 texture_scale = 0.59
 color = Color( 0.564706, 0.733333, 0.917647, 1 )
 __meta__ = {
@@ -563,7 +542,7 @@ __meta__ = {
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 276, 105 )
+position = Vector2( 252, 100 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 319, 104 )
@@ -785,19 +764,19 @@ hframes = 25
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Elevator" index="2"]
-anims/open_doors = SubResource( 15 )
+anims/open_doors = ExtResource( 46 )
 
 [node name="ClosedBody" type="StaticBody2D" parent="YSort/Elevator" index="3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Elevator/ClosedBody" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
 [node name="PositionPortal" parent="YSort/Elevator" index="4" instance=ExtResource( 42 )]
 visible = false
 position = Vector2( 0, -6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="YSort/Elevator/PositionPortal" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Elevator/PositionPortal" index="1"]
 position = Vector2( 212, 265 )
@@ -808,23 +787,23 @@ position = Vector2( 0, 8 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="YSort/Elevator/Area2D" index="0"]
 position = Vector2( 0, -6 )
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
 [node name="BrainJarNPC" type="Node2D" parent="YSort" index="6"]
 position = Vector2( 208, 52 )
-script = ExtResource( 46 )
+script = ExtResource( 47 )
 
 [node name="Sprite" type="Sprite" parent="YSort/BrainJarNPC" index="0"]
 position = Vector2( 1.67178, -4.39208 )
-texture = ExtResource( 47 )
+texture = ExtResource( 48 )
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="1"]
 autoplay = "default"
-anims/default = SubResource( 17 )
+anims/default = SubResource( 16 )
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="2"]
-anims/default = SubResource( 18 )
+anims/default = SubResource( 17 )
 
 [node name="DialogueTree" parent="YSort/BrainJarNPC" index="3" instance=ExtResource( 28 )]
 
@@ -848,21 +827,18 @@ no_face = true
 function = "start_brainjar_battle"
 args = [  ]
 
-[node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 48 )]
+[node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 49 )]
 position = Vector2( 168, -243 )
 
-[node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 48 )]
+[node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 49 )]
 position = Vector2( 504, -259 )
 
-[node name="stool" parent="YSort" index="9" instance=ExtResource( 49 )]
-position = Vector2( 127, 45 )
-
-[node name="TriggerZone" type="Area2D" parent="." index="9"]
+[node name="TriggerZone" type="Area2D" parent="." index="8"]
 position = Vector2( 200, -162 )
 script = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
-shape = SubResource( 19 )
+shape = SubResource( 18 )
 [connection signal="body_entered" from="ElevatorRoom/TriggerField" to="ElevatorRoom" method="_on_TriggerField_body_entered"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 

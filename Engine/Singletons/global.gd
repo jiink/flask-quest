@@ -1,7 +1,10 @@
 extends Node
 
+signal scene_changed
+
 # player vars
 var player_hp = 100
+
 func get_player():
 	return get_tree().get_nodes_in_group("Player")[0]
 	
@@ -140,6 +143,7 @@ func swap_scenes():
 	else:
 		print("warning: new player pos is null")
 	
+	emit_signal("scene_changed")
 	# load!!
 	
 #	game_saver.load(1)
