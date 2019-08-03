@@ -19,4 +19,4 @@ func _ready():
 func on_scene_change():
 	if global.get_player():
 		if "orange" in party_members:
-			global.get_player().get_parent("../").call_deferred("add_child", orange.instance())
+			global.get_player().get_parent().call_deferred("add_child", orange.instance())
