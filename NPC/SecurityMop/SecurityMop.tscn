@@ -24,8 +24,9 @@ tracks/0/keys = {
 }
 
 [node name="SecurityMop" type="KinematicBody2D"]
+collision_mask = 32769
 script = ExtResource( 1 )
-follow_distance = 30
+follow_distance = 56
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

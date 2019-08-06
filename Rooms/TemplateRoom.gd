@@ -8,3 +8,4 @@ export(AudioStream) var battle_music
 func _ready():
 	
 	global.battle_bg = battle_bg
+	
