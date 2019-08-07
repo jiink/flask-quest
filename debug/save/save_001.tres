@@ -19,5 +19,6 @@ data = {
 "player_spawn_scene": "res://Rooms/Area1/1-1/1-1.tscn",
 "test_SaveTester": "blue",
 "test_SaveTester2": "blue",
-"test_SaveTester3": "blue"
+"test_SaveTester3": "blue",
+"1-2_tv_event_seen": false
 }
