@@ -63,7 +63,7 @@ func _process(delta):
 					var attack_num = randi() % att_dir.size() + 1
 					print("loop %s: attack nuber:: %s" % [f, attack_num])
 	
-					var attack_scene_path = "res://NPC/%s/Attacks/Attack%s.tscn" % [foe_name, attack_num]
+					var attack_scene_path = "res://NPC/%s/Attacks/%sAttack%s.tscn" % [foe_name, foe_name, attack_num]
 					
 					var attack_scene = load(attack_scene_path)
 					attack_scene = attack_scene.instance()
