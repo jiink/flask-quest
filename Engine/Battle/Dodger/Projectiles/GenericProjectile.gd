@@ -56,7 +56,8 @@ func _ready():
 func area_entered(area):
 	var damage_dealt = damage + (randf() * damage_randomness - damage_randomness * 0.5)
 	var thingy = area.get_parent()
-	var dfield = get_owner().get_node("../..")
+	var dfield
+	if get_owner(): dfield = get_owner().get_node("../..")
 #	var pstats = get_node("/root/PlayerStats")
 #	print("something was hit...")
 	

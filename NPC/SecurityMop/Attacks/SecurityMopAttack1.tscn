@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Battle/Dodger/AttackBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/SecurityMop/Attacks/SecurityMopAttack1.gd" type="Script" id=2]
+
+[node name="SecurityMopAttack1" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Timer" parent="." index="0"]
+wait_time = 10.0
+
+[node name="BubbleSpawnTimer" type="Timer" parent="." index="1"]
+wait_time = 0.3
+autostart = true
+[connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_BubbleSpawnTimer_timeout"]

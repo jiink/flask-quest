@@ -20,6 +20,8 @@ var battle_bg
 var prev_scene = null
 var in_battle = false
 
+var center = Vector2(384/2, 216/2)
+
 func custompause(node, x):
 	x = !x
 	for N in node.get_children():

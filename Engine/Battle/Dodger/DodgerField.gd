@@ -70,7 +70,8 @@ func _process(delta):
 					attack_scene.position = Vector2(-192, -108)
 					$Attacks.add_child(attack_scene)
 					
-					timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
+					#timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
+					timers.append(attack_scene.get_node("Timer"))
 				
 			var longest_timer_time = 0.1
 			var timer_index = 0
