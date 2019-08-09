@@ -18,7 +18,7 @@ func _on_BubbleSpawnTimer_timeout():
 func spawn_bubble():
 	var bubble = bubble_scene.instance()
 	bubble.rotation_degrees = randi() % 359
-	bubble.size = 1.0 + randf() * 0.7
+	bubble.size = 1.5 + randf() * 0.8
 	bubble.spin_speed = 0.005 + randf() * 0.02
 	bubble.position = global.center
 	add_child(bubble)
