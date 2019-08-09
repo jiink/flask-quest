@@ -1,10 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-3/1-3tilemap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=3]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/stool.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=5]
 
-[node name="1-3" index="0" instance=ExtResource( 1 )]
+[node name="1-3" instance=ExtResource( 1 )]
 
 [node name="TileMap" parent="Tilemaps" index="0" instance=ExtResource( 2 )]
+
+[node name="AbovePlayer" type="TileMap" parent="Tilemaps" index="1"]
+z_index = 100
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 1245193, 0, 458753, 1245194, 0, 458753, 1245195, 0, 458753, 1245196, 0, 458753, 1507335, 0, 0, 1507336, 0, 0, 1507341, 0, 0, 1507342, 0, 0 )
+
+[node name="stool2" parent="YSort" index="1" instance=ExtResource( 4 )]
+position = Vector2( 74, 101 )
+
+[node name="stool" parent="YSort" index="2" instance=ExtResource( 4 )]
+position = Vector2( 74, 135 )
+
+[node name="BAMBOOP" parent="YSort" index="3" instance=ExtResource( 5 )]
+position = Vector2( 360, 16 )
+
+[node name="BAMBOOP2" parent="YSort" index="4" instance=ExtResource( 5 )]
+position = Vector2( 248, 80 )
 
 [editable path="HUD"]
