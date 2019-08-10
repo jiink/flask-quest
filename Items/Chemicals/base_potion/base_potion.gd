@@ -1,7 +1,6 @@
 extends Node2D
 
 export(int) var damage = 10
-export(int) var damage_randomness = 2
 export(Array, String) var effects = []
 export(Array, float) var effect_chance_ratios = []
 
@@ -42,7 +41,8 @@ func _ready():
 		has_effects = false
 
 func do_thing(foes, selected_foe, effectiveness):
-	var d = damage + (damage_randomness * 2 - damage_randomness) * effectiveness
+#	var d = damage + (damage_randomness * 2 - damage_randomness) * effectiveness
+	var d = damage * effectiveness
 	battle.hurt(foes[selected_foe], d)
 	if has_effects:
 		battle.inflict_effect(foes[selected_foe], get_effect())
