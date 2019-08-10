@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Items/Chemicals/base_potion/base_potion.tscn" type="PackedScene" id=1]
+
+[node name="BrainJuice" instance=ExtResource( 1 )]
+damage = 50
+fill_target = 80.0
+fill_speed = 0.3
+
+[node name="basePotionBattle" parent="." index="0"]
+modulate = Color( 1, 0.109804, 0.109804, 1 )
+
+[node name="GlassTube" parent="." index="1"]
+modulate = Color( 0.745098, 1, 0.611765, 1 )

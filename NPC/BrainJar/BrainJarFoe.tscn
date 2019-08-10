@@ -4,7 +4,7 @@
 [ext_resource path="res://NPC/BrainJar/BrainJarFoeDefault.png" type="Texture" id=2]
 
 [node name="BrainJarFoe" instance=ExtResource( 1 )]
-max_hp = 25
+max_hp = 200
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 1, -33 )
