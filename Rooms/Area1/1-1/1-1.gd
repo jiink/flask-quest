@@ -37,17 +37,19 @@ func set_orange_state(i):
 	match i:
 		2:
 			disabled_orange.visible = true
+			PlayerStats.party_members = []
 		1:
 			npc_orange.visible = true
 			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", false)
 			if disabled_orange: disabled_orange.queue_free()
+			PlayerStats.party_members = []
 		0:
 			npc_orange.visible = false
 			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", true)
-			disabled_orange.queue_free()
+			if disabled_orange: disabled_orange.queue_free()
 			var orange_follower = preload("res://Player/Orange.tscn").instance()
 			$YSort.add_child(orange_follower)
-			
+			PlayerStats.party_members = ["orange"]
 			
 
 func start_brainjar_event():
@@ -62,3 +64,7 @@ func start_brainjar_event():
 	m.get_node("Tween").start()
 	yield(get_tree().create_timer(0.1), "timeout")
 	DiagHelper.start_talk(brainjar_npc)
+
+func on_brainjar_defeat():
+	set_orange_state(0)
+	

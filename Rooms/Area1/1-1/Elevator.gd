@@ -3,7 +3,7 @@ extends Node2D
 var state = false
 
 func _ready():
-	$Doors.frame = 0
+	$Door.frame = 0
 
 func interact():
 	if ItemManager.inventory.has("elevator_card"):

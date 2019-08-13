@@ -1,6 +1,6 @@
 extends "res://Engine/Items/ItemDB.gd"
 
-var inventory = ['stone']
+var inventory = ['stone', 'elevator_card']
 var loadout = ['base_potion', 'fire_chemical', 'base_potion']
 var inventory_capacity = 20
 

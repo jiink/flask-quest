@@ -539,7 +539,7 @@ __meta__ = {
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 252, 100 )
+position = Vector2( 566, 109 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 319, 104 )
@@ -754,7 +754,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Doors" type="Sprite" parent="YSort/Elevator" index="1"]
+[node name="Door" type="Sprite" parent="YSort/Elevator" index="1"]
 position = Vector2( 0, -11 )
 texture = ExtResource( 45 )
 hframes = 25
