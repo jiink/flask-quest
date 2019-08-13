@@ -242,7 +242,7 @@ func start_chem_attack():
 func chem_hit_foe():
 	print("wow you hit something")
 	var chemical_node = $BattleChoices/Chemicals.get_child(selected_chem)
-	chemical_node.do_thing(get_foes(), selected_foe, $PouringEvent.effectiveness)
+	chemical_node.do_thing(get_foes(), selected_foe, $PouringEvent.output_damage)
 
 func chem_anim_complete():
 	state = WAIT

@@ -7,10 +7,7 @@ onready var liq = get_node("GreenFlask/LiquidFilled")
 var fill_perc = 0.0
 var stopped = false
 
-var target_perc = 50.0
-var fill_speed = 0.8
-
-var effectiveness = 1.0
+var output_damage = 0
 var done_sliding = false
 
 var firt = false
@@ -33,15 +30,12 @@ func _process(delta):
 			chemical = battle.get_node("BattleChoices/Chemicals").get_child(battle.selected_chem)
 		
 		if done_sliding:
-			fill_speed = chemical.fill_speed
-			target_perc = chemical.fill_target
-			
 			
 			# 0-100 to 216-96
 			# output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start)
-			$FillTarget.position.y = 216.0 + ((96.0 - 216.0) / (100.0 - 0.0)) * (target_perc - 0.0)
+			$FillTarget.position.y = 216.0 + ((96.0 - 216.0) / (100.0 - 0.0)) * (chemical.fill_target - 0.0)
 			if not stopped:
-				fill_perc += fill_speed * 60 * delta
+				fill_perc += chemical.fill_speed * 60 * delta
 				update_liq(fill_perc)
 				
 				
@@ -50,10 +44,18 @@ func _process(delta):
 						overflowed = true
 						
 					stopped = true
-					var error = (abs(target_perc - fill_perc) / fill_perc) - 0.15
-					effectiveness = 1.0 - clamp(error, 0, 1.0)
-					print("effectiveness: %s" % effectiveness)
-					#battle.start_chem_attack()
+					output_damage = 0
+					
+					if fill_perc < chemical.fill_target + chemical.fill_tolerance and fill_perc > chemical.fill_target - chemical.fill_tolerance:
+						
+						var dist_to_target = float(abs(chemical.fill_target - fill_perc)) / float(chemical.fill_target)
+						output_damage = chemical.min_damage + (chemical.damage - chemical.min_damage) * (1 - dist_to_target)
+						
+						if int(fill_perc) == chemical.fill_target:
+							output_damage = chemical.damage * chemical.perfect_multiplier
+						output_damage = int(output_damage)
+#						print("damage info:\nfill_perc: %s\ndist_to_target: %s\noutput_damage: %s" % [fill_perc, dist_to_target, output_damage])
+					
 					done_sliding = false
 					
 					stop()

@@ -1,6 +1,13 @@
 extends Node2D
 
-export(int) var damage = 10
+export(int) var damage = 100
+export(int) var min_damage = 23
+export(float) var perfect_multiplier = 2.3
+export(int) var fill_tolerance = 25
+export(int) var fill_target = 50
+export(float) var fill_speed = 0.8
+
+
 export(Array, String) var effects = []
 export(Array, float) var effect_chance_ratios = []
 
@@ -10,9 +17,6 @@ var effect_levels = []
 var has_effects = true
 
 onready var battle = get_node("../../..")
-
-export(float) var fill_target = 50.0
-export(float) var fill_speed = 0.8
 
 func _ready():
 	
@@ -40,10 +44,8 @@ func _ready():
 	elif effects.size() <= 0:
 		has_effects = false
 
-func do_thing(foes, selected_foe, effectiveness):
-#	var d = damage + (damage_randomness * 2 - damage_randomness) * effectiveness
-	var d = damage * effectiveness
-	battle.hurt(foes[selected_foe], d)
+func do_thing(foes, selected_foe, output_damage):
+	battle.hurt(foes[selected_foe], output_damage)
 	if has_effects:
 		battle.inflict_effect(foes[selected_foe], get_effect())
 
