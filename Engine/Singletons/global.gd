@@ -107,6 +107,8 @@ func end_battle():
 	
 	in_battle = false
 	
+	get_tree().get_current_scene().get_node("Camera").current = true
+	
 ################## scene ##################
 
 var player_new_position
