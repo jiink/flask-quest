@@ -196,7 +196,7 @@ func hurt(who, damage):
 			who.call("get_hurt", damage)
 	if pstats.green_hp < 0 and pstats.orange_hp < 0:
 		get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
-		exit_battle()
+#		exit_battle()
 		
 	print("%s took %s damage" % [who, damage])
 	

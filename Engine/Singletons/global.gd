@@ -1,6 +1,7 @@
 extends Node
 
 signal scene_changed
+signal battle_won
 
 # player vars
 var player_hp = 100
@@ -108,6 +109,8 @@ func end_battle():
 	in_battle = false
 	
 	get_tree().get_current_scene().get_node("Camera").current = true
+	
+	emit_signal("battle_won")
 	
 ################## scene ##################
 
