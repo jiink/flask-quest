@@ -57,7 +57,7 @@ position = Vector2( -456, 119 )
 position = Vector2( 376, 119 )
 
 [node name="streetlamp29" parent="YSort" index="6" instance=ExtResource( 5 )]
-position = Vector2( 1144, 55 )
+position = Vector2( 1128, 55 )
 
 [node name="streetlamp30" parent="YSort" index="7" instance=ExtResource( 5 )]
 position = Vector2( 1128, -105 )
@@ -90,13 +90,13 @@ position = Vector2( 1721, -1161 )
 position = Vector2( 1352, -841 )
 
 [node name="streetlamp15" parent="YSort" index="17" instance=ExtResource( 5 )]
-position = Vector2( 1144, -840 )
+position = Vector2( 1128, -840 )
 
 [node name="streetlamp14" parent="YSort" index="18" instance=ExtResource( 5 )]
 position = Vector2( 1352, -698 )
 
 [node name="streetlamp16" parent="YSort" index="19" instance=ExtResource( 5 )]
-position = Vector2( 1144, -697 )
+position = Vector2( 1128, -697 )
 
 [node name="streetlamp10" parent="YSort" index="20" instance=ExtResource( 5 )]
 position = Vector2( 1416, -1161 )
