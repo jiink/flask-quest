@@ -17,5 +17,7 @@ func _on_TVTriggerZone_body_entered(body):
 		start_tv_event()
 
 func start_tv_event():
-	print("time for the event")
+	print("time for the tv event")
+	$TV.set_tv_active(true)
+	DiagHelper.start_talk($TV)
 	tv_event_seen = true

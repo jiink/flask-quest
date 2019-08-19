@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-2/1-2.gd" type="Script" id=2]
@@ -23,9 +23,13 @@
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableVertical.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=22]
 [ext_resource path="res://NPC/SecurityMop/SecurityMop.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Rooms/Area1/Assets/tv_side.png" type="Texture" id=24]
-[ext_resource path="res://Rooms/Area1/Assets/tv_side_light.png" type="Texture" id=25]
-[ext_resource path="res://Rooms/Area1/1-2/tv_side_light.gd" type="Script" id=26]
+[ext_resource path="res://Rooms/Area1/1-2/TV.gd" type="Script" id=24]
+[ext_resource path="res://Rooms/Area1/Assets/tv_side.png" type="Texture" id=25]
+[ext_resource path="res://Rooms/Area1/Assets/tv_side_light.png" type="Texture" id=26]
+[ext_resource path="res://Rooms/Area1/1-2/tv_side_light.gd" type="Script" id=27]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=28]
+[ext_resource path="res://NPC/Stercus/stercusFaces.png" type="Texture" id=29]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 7 )
@@ -247,17 +251,34 @@ shape = SubResource( 3 )
 
 [node name="TV" type="Node2D" parent="." index="11"]
 position = Vector2( 29, 137 )
+script = ExtResource( 24 )
 
 [node name="tv_side" type="Sprite" parent="TV" index="0"]
 position = Vector2( -1, -1 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 
 [node name="tv_side_light" type="Light2D" parent="TV" index="1"]
 position = Vector2( 23, -1 )
-texture = ExtResource( 25 )
+texture = ExtResource( 26 )
 color = Color( 0.686275, 0.937255, 0.913725, 1 )
 energy = 0.8
-script = ExtResource( 26 )
+script = ExtResource( 27 )
+
+[node name="DialogueTree" parent="TV" index="2" instance=ExtResource( 28 )]
+default_text_delay = 0.05
+face_texture = ExtResource( 29 )
+
+[node name="DiagPiece" parent="TV/DialogueTree" index="0" instance=ExtResource( 30 )]
+message = "AAAAAAAAAAAAAAten``tion!!"
+text_delay = 0.0
+expression = "misc"
+args = [  ]
+
+[node name="DiagPiece2" parent="TV/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
+message = "I have an announcement to make!"
+text_delay = 0.0
+expression = "stare"
+args = [  ]
 
 [node name="HUD" parent="." index="13"]
 editor/display_folded = true
