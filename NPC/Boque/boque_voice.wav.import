@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/boque_speech.wav-f7d390235eb7769e30936f284ce8ea09.sample"
+path="res://.import/boque_voice.wav-a15830ccb073c1e86cec39ca7d56f995.sample"
 
 [deps]
 
-source_file="res://NPC/Boque/boque_speech.wav"
-dest_files=[ "res://.import/boque_speech.wav-f7d390235eb7769e30936f284ce8ea09.sample" ]
+source_file="res://NPC/Boque/boque_voice.wav"
+dest_files=[ "res://.import/boque_voice.wav-a15830ccb073c1e86cec39ca7d56f995.sample" ]
 
 [params]
 

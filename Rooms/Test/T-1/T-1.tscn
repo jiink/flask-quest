@@ -11,7 +11,7 @@
 [ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=11]
-[ext_resource path="res://NPC/Boque/boque_speech.wav" type="AudioStream" id=12]
+[ext_resource path="res://NPC/Boque/boque_voice.wav" type="AudioStream" id=12]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=15]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=21]
+
 
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
