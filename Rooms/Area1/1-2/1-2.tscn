@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-2/1-2.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=29]
 [ext_resource path="res://NPC/Stercus/stercusFaces.png" type="Texture" id=30]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Player/orange_sprites/orange_faces.png" type="Texture" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 7 )
@@ -272,16 +273,83 @@ default_text_delay = 0.05
 face_texture = ExtResource( 30 )
 
 [node name="DiagPiece" parent="TV/DialogueTree" index="0" instance=ExtResource( 31 )]
-message = "AAAAAAAAAAAAAAten``tion!!"
+message = "Okay, Stultus, did you get the papers like I told you to?"
+text_delay = 0.0
+expression = "openmouth"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece3" parent="TV/DialogueTree/DiagPiece" index="0" instance=ExtResource( 31 )]
+message = "...   ```I'm sorry, who are YOU?"
+text_delay = 0.0
+expression = "bigsurprise"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece2" parent="TV/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 31 )]
+message = "I mean, ``WHAT`` are you?"
+text_delay = 0.0
+expression = "neutral"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece3" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2" index="0" instance=ExtResource( 31 )]
+message = "AND WHAT ARE YOU DOING ``IN ``MY ``LAB?!"
+text_delay = 0.0
+expression = "angry"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece4" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 31 )]
+message = "I GOT A WEAPON TO MAKE! I'M ON A SCHEDULE! I DON'T HAVE TIME FOR YOUR-"
 text_delay = 0.0
 expression = "misc"
 args = [  ]
+skippable = false
 
-[node name="DiagPiece2" parent="TV/DialogueTree/DiagPiece" index="0" instance=ExtResource( 31 )]
-message = "I've come`` to make`` an` ANNOUNCEMENT!"
+[node name="DiagPiece5" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 31 )]
+message = "Wait. Maybe you could help me...`` Have you seen any`` perniciosissimus interitus malorum`` laying around?"
 text_delay = 0.0
-expression = "stare"
+expression = "smug"
 args = [  ]
+skippable = false
+
+[node name="DiagPiece6" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 31 )]
+message = "PIM? No? You haven't seen any?"
+text_delay = 0.0
+expression = "neutral"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece7" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 31 )]
+message = "T`h`e`n ``WHAT ARE YOU DOING HERE? ARE YOU TRYING TO GET IN TROUBLE, LITTLE MAN?"
+text_delay = 0.02
+expression = "angry"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece8" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" index="0" instance=ExtResource( 31 )]
+message = "WHY ARE YOU WASTING MY TIME? DO YOU THINK THIS IS SOME KIND OF JOKE? AAAAAAAAA-"
+text_delay = 0.02
+expression = "misc"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece9" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 31 )]
+message = "The video call abruptly ends with the last thing seen being Stercus's fist flying toward the camera."
+text_delay = 0.03
+no_face = true
+expression = "misc"
+args = [  ]
+skippable = false
+
+[node name="DiagPiece10" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9" index="0" instance=ExtResource( 31 )]
+message = "That guy is... scary."
+text_delay = 0.05
+expression = "sidemouth"
+face_texture = ExtResource( 32 )
+args = [  ]
+skippable = false
 
 [node name="HUD" parent="." index="13"]
 editor/display_folded = true
