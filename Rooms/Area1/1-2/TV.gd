@@ -10,6 +10,7 @@ func set_tv_active(on):
 	if on:
 		$tv_side_light.set_process(true)
 		$tv_side_light.enabled = true
+		$AudioStreamPlayer.play()
 	else:
 		$tv_side_light.set_process(false)
 		$tv_side_light.enabled = false
