@@ -157,7 +157,7 @@ texture = ExtResource( 15 )
 position = Vector2( 0, -15 )
 texture = ExtResource( 16 )
 hframes = 25
-frame = 1
+frame = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnteranceElevator" index="2"]
 anims/elevator_open_animation = ExtResource( 17 )
@@ -275,7 +275,7 @@ expression = "misc"
 args = [  ]
 
 [node name="DiagPiece2" parent="TV/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
-message = "I have an announcement to make!"
+message = "I've come`` to make`` an` ANNOUNCEMENT!"
 text_delay = 0.0
 expression = "stare"
 args = [  ]
