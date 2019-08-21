@@ -30,7 +30,7 @@ global="*res://Engine/Singletons/global.gd"
 GameSaver="*res://Engine/Singletons/Save/GameSaver.gd"
 ItemManager="*res://Engine/Items/ItemManager.gd"
 PlayerStats="*res://Engine/Singletons/PlayerStats.gd"
-MusicManager="*res://Music/MusicManager.tscn"
+MusicManager="*res://Engine/Singletons/MusicManager.tscn"
 DiagHelper="*res://Engine/dialogue/DiagHelper.gd"
 
 [debug]
