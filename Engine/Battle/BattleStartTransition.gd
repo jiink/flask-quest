@@ -37,5 +37,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	get_tree().get_current_scene().get_node("BattleScene/Camera").current = true
 	
-	$"/root/MusicManager".update_music("battle")
+#	$"/root/MusicManager".update_music("none")
+	
 	queue_free()

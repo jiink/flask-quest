@@ -16,16 +16,21 @@ func update_music(type):
 		current_level_music = get_tree().get_current_scene().get("level_music")
 		current_battle_music = get_tree().get_current_scene().get("battle_music")
 	
-	if previous_type == "level" and type != "level":
-		level_music_pos_marker = get_playback_position()
+	if previous_type == "level" and typeof(type) == TYPE_STRING:
+		if type != "level":
+			level_music_pos_marker = get_playback_position()
 	
 	match type:
 		"level":
 			set_stream(current_level_music)
 		"battle":
 			set_stream(current_battle_music)
+		"none":
+			set_stream(null)
 		_:
-			print("did you call update_music() wrong?")
+			set_stream(type) # for custom music
+#			print("did you call update_music() wrong?")
+			type = "custom"
 			
 	if get_stream() != null:
 		if type == "level":

@@ -14,9 +14,10 @@ export(int) var dollar_reward = 6
 
 var damage = 15
 
+export(AudioStream) var custom_music
+
 func _ready():
 	hp = max_hp
-	#connect("foe_died", get_node("/root/BattleScene"), "foe_died")
 	connect("foe_died", get_node("../.."), "foe_died")
 	update_hp_label()
 	

@@ -24,7 +24,7 @@ func _ready():
 	
 	
 	
-func _process(delta):
+func _process(delta):	
 	
 	previous_position = position
 	
