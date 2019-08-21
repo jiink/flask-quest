@@ -57,7 +57,7 @@ margin_left = -209.0
 margin_top = -402.0
 margin_right = 1805.0
 margin_bottom = 590.0
-color = Color( 0.0980392, 0.00784314, 0.0980392, 0.670588 )
+color = Color( 0.101961, 0.0509804, 0.0666667, 0.568627 )
 
 [node name="CompleteDarkness" type="Node" parent="Tilemaps" index="2"]
 editor/display_folded = true
