@@ -8,9 +8,12 @@ var motion = Vector2(0, 0)
 var direction = "right"
 var frozen = false
 var invincible = false
+var in_water = false
 
 var previous_position
 var position_history = []
+var in_water_history = []
+
 var followed = true
 
 onready var interactionZone = $Interaction/InteractionZone
@@ -21,6 +24,7 @@ func _ready():
 	yield(get_tree().create_timer(0.1), "timeout")
 	for i in range(24):
 		position_history.append(position)
+		in_water_history.append(in_water)
 	
 	
 	
@@ -55,7 +59,13 @@ func _process(delta):
 	if position != previous_position:
 		position_history.pop_back()
 		position_history.push_front(position)
+		
+		in_water_history.pop_back()
+		in_water_history.push_front(in_water)
 	
+	if Input.is_action_just_pressed("y"):
+		set_in_water(not in_water)
+
 	
 func get_inputs():
 	motion = Vector2(0, 0)
@@ -115,6 +125,20 @@ func change_izone_pos():
 			interactionZone.position = $Interaction/Left.position
 		"upleft":
 			interactionZone.position = $Interaction/Up.position + $Interaction/Left.position 
+
+func set_in_water(setting):
+	in_water = setting
+	if setting:
+		if has_node("InWaterEffect"):
+			$InWaterEffect.visible = true
+		else:
+			add_child(load("res://Player/InWaterEffect.tscn").instance())
+		$AnimatedSprite.offset.y = 4
+		speed /= 1.8
+	else:
+		$InWaterEffect.visible = false
+		$AnimatedSprite.offset.y = 0
+		speed *= 1.8
 
 func go_invincible(time):
 	invincible = true

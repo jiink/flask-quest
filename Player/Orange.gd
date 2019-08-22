@@ -5,6 +5,8 @@ var previous_position = Vector2(0.0, 0.0)
 var motion
 var direction = "down"
 
+var in_water = false
+
 onready var leader = get_node("../Player")
 
 func _ready():
@@ -44,6 +46,26 @@ func _process(delta):
 	else:
 		$AnimatedSprite.playing = false
 		$AnimatedSprite.frame = 0
+
+	in_water = leader.in_water_history[follow_distance]
+	set_in_water(in_water)
+
+func set_in_water(setting):
+	in_water = setting
+	if setting:
+		if has_node("InWaterEffect"):
+			$InWaterEffect.visible = true
+		else:
+			var wf = load("res://Player/InWaterEffect.tscn").instance()
+			add_child(wf)
+			wf.get_node("Light2D").range_item_cull_mask = 2048
+			$AnimatedSprite.light_mask = 2049
+			
+		$AnimatedSprite.offset.y = 4
+	else:
+		if has_node("InWaterEffect"):
+			$InWaterEffect.visible = false
+		$AnimatedSprite.offset.y = 0
 
 func make_one(num):
 	if num < 0:

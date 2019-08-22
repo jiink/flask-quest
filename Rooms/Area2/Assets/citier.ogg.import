@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/citier.ogg-0d6a3e4b700b6e38fac368a44eb05cf7.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area2/Assets/citier.ogg"
+dest_files=[ "res://.import/citier.ogg-0d6a3e4b700b6e38fac368a44eb05cf7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
