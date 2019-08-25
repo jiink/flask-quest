@@ -1,10 +1,7 @@
 extends Area2D
 
-var shape
-
 func _ready():
 	if get_child(0).get_class() == "CollisionShape2D":
-		shape = get_child(0)
 		connect("body_entered", self, "on_body_entered")
 		connect("body_exited", self, "on_body_exited")
 	else:
