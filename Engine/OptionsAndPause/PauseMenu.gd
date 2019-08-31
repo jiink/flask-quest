@@ -45,6 +45,7 @@ func _process(delta):
 			
 	else:
 		if Input.is_action_just_pressed("esc"):
+			print("hud visidiblity: %s" % hud.get_visibility())
 			if not hud.get_visibility():
 				open()
 

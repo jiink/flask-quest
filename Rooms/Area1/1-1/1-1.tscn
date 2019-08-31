@@ -235,7 +235,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" groups=[
+[node name="1-1" index="0" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )

@@ -23,3 +23,4 @@ visible = false
 visible = false
 
 [node name="PositionTransition" parent="." instance=ExtResource( 6 )]
+visible = false
