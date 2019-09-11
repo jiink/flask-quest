@@ -4,6 +4,8 @@ var current_level_music
 var current_battle_music
 
 var level_music_pos_marker = 0.0
+
+var music_type = "level"
 var previous_type = "level"
 
 var transition_length = 0.7
@@ -17,12 +19,13 @@ func _ready():
 	yield(get_tree().create_timer(0.1), "timeout")
 #	update_music("level")
 	
-	focus.set_stream(current_level_music)
 	current_level_music = get_tree().get_current_scene().get("level_music")
+	focus.set_stream(current_level_music)
 	
 
 	focus.play()
 	set_process(true)
+	
 
 func _process(delta):
 	if focus.get_playback_position() >= focus.stream.get_length() - aftermath_length:
@@ -35,6 +38,9 @@ func _process(delta):
 		
 		focus.set_stream(current_level_music)
 		focus.play()
+	
+#	if Input.is_action_just_pressed("y"):
+#		fade_music_out("level")
 
 func update_music(type):
 #	if get_tree().get_current_scene().get("level_music") and get_tree().get_current_scene().get("battle_music"):
@@ -43,11 +49,12 @@ func update_music(type):
 #
 #	if previous_type == "level" and typeof(type) == TYPE_STRING:
 #		if type != "level":
-#			level_music_pos_marker = get_playback_position()
+#			level_music_pos_marker = focus.get_playback_position()
 #
 #	match type:
 #		"level":
 #			set_stream(current_level_music)
+#
 #		"battle":
 #			set_stream(current_battle_music)
 #		"none":
@@ -68,3 +75,14 @@ func update_music(type):
 #
 #	previous_type = type
 	pass
+	
+func fade_music_out(type):
+	if type == "level":
+		$Tween.interpolate_property($MainPlayer, "volume_db",
+			null, 0.0,
+			transition_length, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+	
+	
+	$Tween.interpolate_property($AssistantPlayer, "volume_db",
+			null, 0.0,
+			transition_length, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
