@@ -4,7 +4,9 @@ export(int) var shader_frequency = 0
 export(float) var shader_depth = 0.0
 
 func _ready():
-	$"/root/MusicManager/AnimationPlayer".play("fade_out")
+#	$"/root/MusicManager/AnimationPlayer".play("fade_out")
+	
+	pass
 	
 func _process(delta):
 	$Shader.get_material().set_shader_param("frequency", shader_frequency)

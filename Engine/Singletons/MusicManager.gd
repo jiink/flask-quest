@@ -13,6 +13,11 @@ var transition_length = 0.7
 var aftermath_length = 0.2
 
 onready var focus = $MainPlayer
+var assistant_mode = false
+
+var focus_prefix
+var focus_suffix
+
 
 func _ready():
 	set_process(false)
@@ -29,12 +34,10 @@ func _ready():
 
 func _process(delta):
 	if focus.get_playback_position() >= focus.stream.get_length() - aftermath_length:
-		if focus == $MainPlayer:
-			focus = $AssistantPlayer
-		elif focus == $AssistantPlayer:
-			focus = $MainPlayer
-		else:
-			print("focus is %s" % focus)
+		assistant_mode = not assistant_mode
+		focus_prefix = "Battle" if music_type == "battle" else "Main"
+		focus_suffix = "Assistant" if assistant_mode else ""
+		focus = get_node(focus_prefix+"Player"+focus_suffix)
 		
 		focus.set_stream(current_level_music)
 		focus.play()
@@ -43,9 +46,9 @@ func _process(delta):
 #		fade_music_out("level")
 
 func update_music(type):
-#	if get_tree().get_current_scene().get("level_music") and get_tree().get_current_scene().get("battle_music"):
-#		current_level_music = get_tree().get_current_scene().get("level_music")
-#		current_battle_music = get_tree().get_current_scene().get("battle_music")
+	if get_tree().get_current_scene().get("level_music") and get_tree().get_current_scene().get("battle_music"):
+		current_level_music = get_tree().get_current_scene().get("level_music")
+		current_battle_music = get_tree().get_current_scene().get("battle_music")
 #
 #	if previous_type == "level" and typeof(type) == TYPE_STRING:
 #		if type != "level":
@@ -76,13 +79,25 @@ func update_music(type):
 #	previous_type = type
 	pass
 	
-func fade_music_out(type):
-	if type == "level":
-		$Tween.interpolate_property($MainPlayer, "volume_db",
-			null, 0.0,
-			transition_length, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+func fade_music(type, mode):
+	var target_vol = 0.0 if mode else -80.0
+	var target_players = [get_node("BattlePlayer"), get_node("BattlePlayerAssistant")] if type == "battle" else [get_node("MainPlayer"), get_node("MainPlayerAssistant")]
 	
+	print("going to fade %s music to %s" % [type, target_vol])
 	
-	$Tween.interpolate_property($AssistantPlayer, "volume_db",
-			null, 0.0,
-			transition_length, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+	if mode == true:
+		if target_players[1 if assistant_mode else 0].playing == false:
+			target_players[1 if assistant_mode else 0].playing = true
+		
+	for i in range(2):
+	
+		$Tween.interpolate_property(target_players[i], "volume_db",
+				null, target_vol,
+				transition_length, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+
+	
+	$Tween.start()
+	if mode == false:
+		yield($Tween, "tween_completed")
+		print("tween completed")
+		for i in range(2): target_players[i].playing = false

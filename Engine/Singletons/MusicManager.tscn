@@ -7,8 +7,10 @@ script = ExtResource( 1 )
 
 [node name="MainPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="AssistantPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MainPlayerAssistant" type="AudioStreamPlayer" parent="."]
 
 [node name="BattlePlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="BattlePlayerAssistant" type="AudioStreamPlayer" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
