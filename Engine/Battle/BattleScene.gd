@@ -57,6 +57,7 @@ func _ready():
 			custom_music_gonna_play = true
 			break
 	if not custom_music_gonna_play:
+		print("There is NO custom music to play!!!!")
 		MusicManager.update_music("battle")
 	
 	# battle bg
