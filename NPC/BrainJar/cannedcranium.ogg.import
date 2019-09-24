@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cannedcranium.ogg-867e6fcf04fb0f2143bea918b15de796.oggstr"
+
+[deps]
+
+source_file="res://NPC/BrainJar/cannedcranium.ogg"
+dest_files=[ "res://.import/cannedcranium.ogg-867e6fcf04fb0f2143bea918b15de796.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
