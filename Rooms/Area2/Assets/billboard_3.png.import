@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trafficlightfront.png-d6683665fd17675671c05aa6f4b7d856.stex"
+path="res://.import/billboard_3.png-31dc88ed820812c83359dd95e2f31c37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/trafficlightfront.png"
-dest_files=[ "res://.import/trafficlightfront.png-d6683665fd17675671c05aa6f4b7d856.stex" ]
+source_file="res://Rooms/Area2/Assets/billboard_3.png"
+dest_files=[ "res://.import/billboard_3.png-31dc88ed820812c83359dd95e2f31c37.stex" ]
 
 [params]
 
