@@ -11,5 +11,5 @@ dest_files=[ "res://.import/goodvibes.ogg-87a4e9a52e5667cfd92b8da236a2bd9a.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

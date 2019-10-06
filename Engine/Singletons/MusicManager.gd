@@ -3,14 +3,15 @@ extends Node
 var current_level_music
 var current_battle_music
 
-var level_music_pos_marker = 0.0
+var music_pos_marker = 0.0
 
 var music_type = "level"
 var previous_type = "level"
 
-var transition_length = 0.7
+var transition_length = 1.0
 
 var aftermath_length = 0.2
+#13.5 for goodvibes # 0.2 for test
 
 onready var focus = $MainPlayer
 var assistant_mode = false
@@ -18,6 +19,10 @@ var assistant_mode = false
 var focus_prefix
 var focus_suffix
 
+var aftermath_lengths = {
+	"goodvibes" : 13.5,
+	
+}
 
 func _ready():
 	
@@ -32,6 +37,7 @@ func _ready():
 
 #	focus.play()
 	play_focus()
+	aftermath_length = get_track_aftermath_length(current_level_music.get_path())
 	set_process(true)
 	
 func _process(delta):
@@ -40,15 +46,10 @@ func _process(delta):
 		assistant_mode = not assistant_mode
 
 		play_focus()
+	
+	if Input.is_action_pressed("y"):
+		focus.seek(focus.get_playback_position()+1.0)
 
-
-func get_status():
-	print("-------musicmanager status--------")
-	print("focus: %s" % focus.name)
-	print("MainPlayer: %s" % $MainPlayer.get_playback_position())
-	print("MainPlayerAssistant: %s" % $MainPlayerAssistant.get_playback_position())
-	print("BattlePlayer: %s" % $BattlePlayer.get_playback_position())
-	print("BattlePlayerAssistant: %s" % $BattlePlayerAssistant.get_playback_position())
 
 func play_focus(from_where = 0.0):
 	
@@ -69,10 +70,13 @@ func update_music(type):
 		current_level_music = get_tree().get_current_scene().get("level_music")
 		current_battle_music = get_tree().get_current_scene().get("battle_music")
 
-	if previous_type == "level" and typeof(type) == TYPE_STRING:
-		if type != "level":
-			level_music_pos_marker = focus.get_playback_position()
+#	if previous_type == "level" and typeof(type) == TYPE_STRING:
+#		if type != "level":
+#			music_pos_marker = focus.get_playback_position()
 #
+	if (previous_type != type) and (typeof(type) == TYPE_STRING):
+		music_pos_marker = focus.get_playback_position()
+	
 	match type:
 		"level":
 			
@@ -94,10 +98,14 @@ func update_music(type):
 			set_main_streams(type) # for custom music
 #			print("did you call update_music() wrong?")
 			type = "custom"
+			
+	# change aftermath_length
+	aftermath_length = get_track_aftermath_length(focus.get_stream().get_path())
+
 #
 #	if get_stream() != null:
 #	if type == "level":
-	play_focus(level_music_pos_marker)
+	play_focus(music_pos_marker)
 #	else:
 #		play()
 #	$AnimationPlayer.play("fade_in")
@@ -108,7 +116,7 @@ func update_music(type):
 	pass
 	
 func fade_music(type, mode):
-	var target_vol = 0.0 if mode else -80.0
+	var target_vol = 0.0 if mode else -36.0
 	var target_players = [get_node("BattlePlayer"), get_node("BattlePlayerAssistant")] if type == "battle" else [get_node("MainPlayer"), get_node("MainPlayerAssistant")]
 	
 	print("going to fade %s music to %s" % [type, target_vol])
@@ -121,7 +129,7 @@ func fade_music(type, mode):
 	
 		$Tween.interpolate_property(target_players[i], "volume_db",
 				null, target_vol,
-				transition_length, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+				transition_length, Tween.TRANS_QUAD, Tween.TRANS_LINEAR)
 
 	
 	$Tween.start()
@@ -137,3 +145,10 @@ func set_main_streams(stream_in):
 func set_battle_streams(stream_in):
 	$BattlePlayer.set_stream(stream_in)
 	$BattlePlayerAssistant.set_stream(stream_in)
+
+func get_track_aftermath_length(path_name):
+	for key in aftermath_lengths:
+		if path_name.find(key) > -1:
+			print( aftermath_lengths[key])
+			return aftermath_lengths[key]
+	

@@ -63,11 +63,6 @@ func _process(delta):
 		in_water_history.pop_back()
 		in_water_history.push_front(in_water)
 	
-	if Input.is_action_just_pressed("y"):
-#		set_in_water(not in_water)
-		MusicManager.fade_music("level", false)
-	if Input.is_action_just_pressed("x"):
-		MusicManager.fade_music("level", true)
 	
 func get_inputs():
 	motion = Vector2(0, 0)
