@@ -21,6 +21,9 @@ var focus_suffix
 
 var aftermath_lengths = {
 	"goodvibes" : 13.5,
+	"lanetta" : 0,
+	"sewers" : 0,
+	"maloffice" : 0,
 	
 }
 
