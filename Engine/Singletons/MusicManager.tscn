@@ -23,11 +23,13 @@ volume_db = -36.0
 layer = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 margin_right = 195.0
 margin_bottom = 218.0
 color = Color( 0.054902, 0.0666667, 0.109804, 0.247059 )
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 9.0
 margin_top = 6.0
 margin_right = 53.0

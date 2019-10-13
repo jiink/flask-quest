@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/maloffice_battle.ogg-c3cbf220f8c1301c41f90ca9c06eaed3.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area4/Assets/maloffice_battle.ogg"
+dest_files=[ "res://.import/maloffice_battle.ogg-c3cbf220f8c1301c41f90ca9c06eaed3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -20,9 +20,14 @@ var focus_prefix
 var focus_suffix
 
 var aftermath_lengths = {
+	"labs" : 0,
 	"goodvibes" : 13.5,
 	"cannedcranium": 1.45,
 	"maloffice": 3.99,
+	"lanetta" : 0,
+	"sewers" : 0,
+	"maloffice" : 0,
+	
 }
 
 func _ready():

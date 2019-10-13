@@ -3,7 +3,7 @@
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
 [ext_resource path="res://Rooms/Area1/1-1/lab_battle_background.png" type="Texture" id=3]
-[ext_resource path="res://Engine/looptest.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Rooms/Area1/Assets/labs.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Rooms/Area1/1-1/MinimanDoorEvent.gd" type="Script" id=5]
 [ext_resource path="res://NPC/Miniman/miniman_jumping.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/Area1/1-1/1-1tiles.tscn" type="PackedScene" id=7]
@@ -22,7 +22,7 @@
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=20]
 [ext_resource path="res://Engine/white.png" type="Texture" id=21]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Engine/light.png" type="Texture" id=23]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=23]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/ElevatorCardPickup.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Rooms/Area1/1-1/OrangeNPC.gd" type="Script" id=25]
 [ext_resource path="res://Player/orange_sprites/orangeright1.png" type="Texture" id=26]
@@ -270,6 +270,7 @@ margin_right = 479.0
 margin_bottom = 299.0
 
 [node name="TileMaps" parent="." index="2" instance=ExtResource( 7 )]
+editor/display_folded = true
 
 [node name="ColorRect" type="ColorRect" parent="TileMaps" index="0"]
 margin_left = -345.0
@@ -450,6 +451,7 @@ texture = ExtResource( 15 )
 offset = Vector2( 192, 0 )
 
 [node name="ElevatorRoom" type="Node2D" parent="." index="4"]
+editor/display_folded = true
 position = Vector2( 816, 307 )
 script = ExtResource( 16 )
 
@@ -535,6 +537,9 @@ color = Color( 0.564706, 0.733333, 0.917647, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="YSort" parent="." index="7"]
+editor/display_folded = true
 
 [node name="ElevatorCardPickup" parent="YSort" index="0" instance=ExtResource( 24 )]
 position = Vector2( 451, -354 )
@@ -832,11 +837,15 @@ position = Vector2( 168, -243 )
 position = Vector2( 504, -259 )
 
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
+editor/display_folded = true
 position = Vector2( 200, -162 )
 script = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
 shape = SubResource( 18 )
+
+[node name="HUD" parent="." index="10"]
+editor/display_folded = true
 [connection signal="body_entered" from="ElevatorRoom/TriggerField" to="ElevatorRoom" method="_on_TriggerField_body_entered"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 

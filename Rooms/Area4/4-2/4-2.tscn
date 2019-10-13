@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area4/Assets/maloffice-02.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Rooms/Area4/Assets/maloffice_battle.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Rooms/Area4/4-2/4-2_tiled.tmx" type="PackedScene" id=4]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_8.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_7.png" type="Texture" id=6]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_6.png" type="Texture" id=7]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_5.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_4.png" type="Texture" id=9]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_3.png" type="Texture" id=10]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_2.png" type="Texture" id=11]
+[ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_1.png" type="Texture" id=12]
+
+[node name="4-2" index="0" instance=ExtResource( 1 )]
+level_music = ExtResource( 2 )
+battle_music = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D" parent="Tilemaps" index="0"]
+
+[node name="ColorRect" type="ColorRect" parent="Tilemaps/Node2D" index="0"]
+margin_left = -619.0
+margin_top = -96.0
+margin_right = 820.0
+margin_bottom = 193.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Tilemaps/Node2D" index="1"]
+margin_left = -615.0
+margin_top = -449.0
+margin_right = 200.0
+margin_bottom = -240.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="Tilemaps/Node2D" index="2"]
+margin_left = -1169.0
+margin_top = -451.0
+margin_right = -571.0
+margin_bottom = 264.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Tilemaps/Node2D" index="3"]
+margin_left = 37.0
+margin_top = -257.0
+margin_right = 852.0
+margin_bottom = 32.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Tilemaps/Node2D" index="4"]
+margin_left = -131.0
+margin_top = -449.0
+margin_right = 684.0
+margin_bottom = -160.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="4-2_tiled" parent="Tilemaps" index="1" instance=ExtResource( 4 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground" index="0"]
+editor/display_folded = true
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_8" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground" index="1"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_7" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer2" index="0"]
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground" index="2"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_6" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer3" index="0"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 7 )
+offset = Vector2( -192, 0 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground" index="3"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_5" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer4" index="0"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/ParallaxBackground" index="4"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_4" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer5" index="0"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 9 )
+offset = Vector2( -185.34, 0 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Background/ParallaxBackground" index="5"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_3" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer6" index="0"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 10 )
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Background/ParallaxBackground" index="6"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_2" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer7" index="0"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, -39 )
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="Background/ParallaxBackground" index="7"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="forest_1" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer8" index="0"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 12 )
+offset = Vector2( 0, -53 )
+
+[node name="Player" parent="YSort" index="0"]
+position = Vector2( 16, 13 )
+
+[editable path="HUD"]
