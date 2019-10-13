@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area4/Assets/maloffice-01.ogg" type="AudioStream" id=2]
@@ -10,17 +10,22 @@
 [ext_resource path="res://Rooms/Area4/Assets/poster_4.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/Area4/Assets/poster_3.png" type="Texture" id=9]
 [ext_resource path="res://Rooms/Area4/Assets/poster_1.png" type="Texture" id=10]
-[ext_resource path="res://Rooms/Area4/Assets/elevator_stop.png" type="Texture" id=11]
-[ext_resource path="res://Rooms/Area4/Assets/elevator.png" type="Texture" id=12]
-[ext_resource path="res://Engine/white.png" type="Texture" id=13]
-[ext_resource path="res://Rooms/Area4/Assets/elevatordoor.png" type="Texture" id=14]
-[ext_resource path="res://Rooms/Area4/Assets/receptionist.png" type="Texture" id=15]
-[ext_resource path="res://Rooms/Area4/Assets/stalls.png" type="Texture" id=16]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/gold_urinal.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/lobbydesk.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Engine/light4.png" type="Texture" id=19]
-[ext_resource path="res://Engine/light2.png" type="Texture" id=20]
-[ext_resource path="res://Rooms/Area4/Assets/stallman.png" type="Texture" id=21]
+[ext_resource path="res://Rooms/Area4/Assets/man_sign.png" type="Texture" id=11]
+[ext_resource path="res://Rooms/Area4/Assets/elevator_stop.png" type="Texture" id=12]
+[ext_resource path="res://Rooms/Area4/Assets/elevator.png" type="Texture" id=13]
+[ext_resource path="res://Engine/white.png" type="Texture" id=14]
+[ext_resource path="res://Rooms/Area4/Assets/elevatordoor.png" type="Texture" id=15]
+[ext_resource path="res://Rooms/Area4/Assets/receptionist.png" type="Texture" id=16]
+[ext_resource path="res://Rooms/Area4/Assets/stalls.png" type="Texture" id=17]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/gold_urinal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/lobbydesk.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/cubicles.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Engine/light4.png" type="Texture" id=21]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=22]
+[ext_resource path="res://Rooms/Area4/Assets/stallman.png" type="Texture" id=23]
+[ext_resource path="res://Rooms/Area4/Assets/cubicle_monitor_straight.png" type="Texture" id=24]
+[ext_resource path="res://Rooms/Area4/Assets/cubicle_monitor_curved.png" type="Texture" id=25]
+[ext_resource path="res://Rooms/Area4/Assets/cubicle_chair.png" type="Texture" id=26]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -130,26 +135,31 @@ texture = ExtResource( 9 )
 position = Vector2( -701, -240 )
 texture = ExtResource( 10 )
 
-[node name="ColorRect" type="ColorRect" parent="." index="8"]
+[node name="man_sign" type="Sprite" parent="." index="8"]
+position = Vector2( -366, -56 )
+texture = ExtResource( 11 )
+
+[node name="ColorRect" type="ColorRect" parent="." index="9"]
 margin_left = 591.0
 margin_top = -517.0
-margin_right = 1166.0
+margin_right = 1241.0
 margin_bottom = -47.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="elevator_stop" type="Sprite" parent="." index="9"]
+[node name="elevator_stop" type="Sprite" parent="." index="10"]
 position = Vector2( 993, -288 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 hframes = 49
+frame = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="elevator_stop" index="0"]
 anims/default = SubResource( 1 )
 
-[node name="elevator" type="Sprite" parent="." index="10"]
+[node name="elevator" type="Sprite" parent="." index="11"]
 position = Vector2( 830, -288 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 hframes = 16
-frame = 2
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="elevator" index="0"]
 autoplay = "motion"
@@ -159,12 +169,12 @@ anims/motion = SubResource( 3 )
 [node name="Light2D" type="Light2D" parent="elevator" index="1"]
 position = Vector2( 0, 23.25 )
 scale = Vector2( 0.5, 0.726563 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 energy = 1.4
 
-[node name="elevatordoor" type="Sprite" parent="." index="11"]
+[node name="elevatordoor" type="Sprite" parent="." index="12"]
 position = Vector2( -241, -1936 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="elevatordoor" index="0"]
@@ -172,7 +182,7 @@ anims/open = SubResource( 4 )
 
 [node name="receptionist" type="Sprite" parent="YSort" index="0"]
 position = Vector2( -768, 261 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 offset = Vector2( 0, -21 )
 hframes = 86
 frame = 1
@@ -183,9 +193,9 @@ anims/Default = SubResource( 5 )
 
 [node name="stalls" type="Sprite" parent="YSort" index="1"]
 position = Vector2( 120, 42 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
-[node name="gold_urinal" parent="YSort" index="2" instance=ExtResource( 17 )]
+[node name="gold_urinal" parent="YSort" index="2" instance=ExtResource( 18 )]
 position = Vector2( 112, -232 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="YSort/gold_urinal" index="1"]
@@ -197,10 +207,16 @@ shape = SubResource( 6 )
 [node name="Player" parent="YSort" index="3"]
 position = Vector2( 121, -218 )
 
-[node name="lobbydesk" parent="YSort" index="4" instance=ExtResource( 18 )]
+[node name="lobbydesk" parent="YSort" index="4" instance=ExtResource( 19 )]
 position = Vector2( -768, 260 )
 
-[node name="Darkness" type="Node2D" parent="." index="13"]
+[node name="cubicles" parent="YSort" index="5" instance=ExtResource( 20 )]
+position = Vector2( -298, -660 )
+
+[node name="cubicles2" parent="YSort" index="6" instance=ExtResource( 20 )]
+position = Vector2( -285, -767 )
+
+[node name="Darkness" type="Node2D" parent="." index="14"]
 editor/display_folded = true
 
 [node name="ColorRect" type="ColorRect" parent="Darkness" index="0"]
@@ -210,23 +226,23 @@ margin_right = 340.0
 margin_bottom = -128.0
 color = Color( 0, 0, 0, 0.384314 )
 
-[node name="Lights" type="Node2D" parent="." index="14"]
+[node name="Lights" type="Node2D" parent="." index="15"]
 
 [node name="Light2D" type="Light2D" parent="Lights" index="0"]
 position = Vector2( 120, -240 )
 scale = Vector2( 0.625, 0.625 )
-texture = ExtResource( 19 )
+texture = ExtResource( 21 )
 color = Color( 1, 0.501961, 0.501961, 1 )
 energy = 1.3
 
 [node name="Light2D2" type="Light2D" parent="Lights" index="1"]
 position = Vector2( -18, -301 )
 scale = Vector2( 0.642578, 0.642578 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 color = Color( 0.972549, 0.419608, 0.176471, 1 )
 energy = 1.2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="17"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="18"]
 position = Vector2( -968, -258 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
@@ -237,8 +253,135 @@ shape = SubResource( 7 )
 position = Vector2( 334, -66 )
 shape = SubResource( 8 )
 
-[node name="stallman" type="Sprite" parent="." index="18"]
+[node name="stallman" type="Sprite" parent="." index="19"]
 position = Vector2( 121, 9 )
-texture = ExtResource( 21 )
+texture = ExtResource( 23 )
+
+[node name="cubicles" type="Node2D" parent="." index="20"]
+position = Vector2( 121, 9 )
+
+[node name="cubicle_monitor_straight" type="Sprite" parent="cubicles" index="0"]
+position = Vector2( -563, -680 )
+texture = ExtResource( 24 )
+hframes = 8
+
+[node name="cubicle_monitor_straight2" type="Sprite" parent="cubicles" index="1"]
+position = Vector2( -511, -680 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 1
+
+[node name="cubicle_monitor_straight3" type="Sprite" parent="cubicles" index="2"]
+position = Vector2( -469, -682 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 5
+
+[node name="cubicle_monitor_straight4" type="Sprite" parent="cubicles" index="3"]
+position = Vector2( -373, -680 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 2
+
+[node name="cubicle_monitor_straight5" type="Sprite" parent="cubicles" index="4"]
+position = Vector2( -325, -681 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 7
+
+[node name="cubicle_monitor_straight7" type="Sprite" parent="cubicles" index="5"]
+position = Vector2( -553, -787 )
+texture = ExtResource( 24 )
+hframes = 8
+
+[node name="cubicle_monitor_straight8" type="Sprite" parent="cubicles" index="6"]
+position = Vector2( -454, -787 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 4
+
+[node name="cubicle_monitor_straight9" type="Sprite" parent="cubicles" index="7"]
+position = Vector2( -406, -787 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 6
+
+[node name="cubicle_monitor_curved" type="Sprite" parent="cubicles" index="8"]
+position = Vector2( -262, -789 )
+texture = ExtResource( 25 )
+hframes = 2
+
+[node name="cubicle_monitor_curved2" type="Sprite" parent="cubicles" index="9"]
+position = Vector2( -502, -787 )
+texture = ExtResource( 25 )
+hframes = 2
+frame = 1
+
+[node name="cubicle_monitor_straight10" type="Sprite" parent="cubicles" index="10"]
+position = Vector2( -357, -788 )
+texture = ExtResource( 24 )
+hframes = 8
+
+[node name="cubicle_monitor_straight6" type="Sprite" parent="cubicles" index="11"]
+position = Vector2( -275, -680 )
+texture = ExtResource( 24 )
+hframes = 8
+frame = 3
+
+[node name="cubicle_chair" type="Sprite" parent="cubicles" index="12"]
+position = Vector2( -562, -656 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair8" type="Sprite" parent="cubicles" index="13"]
+position = Vector2( -550, -764 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair2" type="Sprite" parent="cubicles" index="14"]
+position = Vector2( -513, -657 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair10" type="Sprite" parent="cubicles" index="15"]
+position = Vector2( -502, -765 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair3" type="Sprite" parent="cubicles" index="16"]
+position = Vector2( -466, -655 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair14" type="Sprite" parent="cubicles" index="17"]
+position = Vector2( -453, -763 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair4" type="Sprite" parent="cubicles" index="18"]
+position = Vector2( -418, -662 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair9" type="Sprite" parent="cubicles" index="19"]
+position = Vector2( -405, -767 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair5" type="Sprite" parent="cubicles" index="20"]
+position = Vector2( -372, -657 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair13" type="Sprite" parent="cubicles" index="21"]
+position = Vector2( -358, -765 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair6" type="Sprite" parent="cubicles" index="22"]
+position = Vector2( -322, -658 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair12" type="Sprite" parent="cubicles" index="23"]
+position = Vector2( -309, -766 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair7" type="Sprite" parent="cubicles" index="24"]
+position = Vector2( -275, -657 )
+texture = ExtResource( 26 )
+
+[node name="cubicle_chair11" type="Sprite" parent="cubicles" index="25"]
+position = Vector2( -261, -764 )
+texture = ExtResource( 26 )
 
 [editable path="HUD"]
