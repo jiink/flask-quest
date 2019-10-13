@@ -20,6 +20,7 @@ var focus_prefix
 var focus_suffix
 
 var aftermath_lengths = {
+	"labs" : 0,
 	"goodvibes" : 13.5,
 	"lanetta" : 0,
 	"sewers" : 0,

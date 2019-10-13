@@ -2,13 +2,5 @@
 
 [ext_resource path="res://Engine/dialogue/DialogueTree.gd" type="Script" id=1]
 
-
-
 [node name="DialogueTree" type="Node"]
-
 script = ExtResource( 1 )
-default_font = null
-default_text_delay = 0.03
-face_texture = null
-
-
