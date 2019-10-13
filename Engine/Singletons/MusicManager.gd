@@ -26,7 +26,6 @@ var aftermath_lengths = {
 	"maloffice": 3.99,
 	"lanetta" : 0,
 	"sewers" : 0,
-	"maloffice" : 0,
 	
 }
 
