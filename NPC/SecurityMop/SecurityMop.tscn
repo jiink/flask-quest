@@ -23,7 +23,9 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="SecurityMop" type="KinematicBody2D"]
+[node name="SecurityMop" type="KinematicBody2D" groups=[
+"WorldFoes",
+]]
 collision_mask = 32769
 script = ExtResource( 1 )
 follow_distance = 56
