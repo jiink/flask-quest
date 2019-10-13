@@ -2,6 +2,7 @@ extends Node
 
 var current_level_music
 var current_battle_music
+var current_custom_battle_music
 
 var music_pos_marker = 0.0
 
@@ -20,13 +21,13 @@ var focus_prefix
 var focus_suffix
 
 var aftermath_lengths = {
-	"labs" : 0,
+	"labs" : 1.24,
 	"goodvibes" : 13.5,
 	"cannedcranium": 1.45,
 	"maloffice": 3.99,
 	"lanetta" : 0,
 	"sewers" : 0,
-	
+	"odd": 0.0
 }
 
 func _ready():
@@ -58,12 +59,22 @@ func _process(delta):
 
 func play_focus(from_where = 0.0):
 	
-	focus_prefix = "Battle" if music_type == "battle" else "Main"
+	focus_prefix = "Battle" if (music_type == "battle" or music_type == "custom") else "Main"
 	focus_suffix = "Assistant" if assistant_mode else ""
 	focus = get_node(focus_prefix+"Player"+focus_suffix)
 	
-	focus.set_stream(current_battle_music if music_type == "battle" else current_level_music)
-	
+	if music_type == "battle":
+		focus.set_stream(current_battle_music)
+		aftermath_length = get_track_aftermath_length(current_battle_music.get_path())
+	elif music_type == "level":
+		focus.set_stream(current_level_music)
+		aftermath_length = get_track_aftermath_length(current_level_music.get_path())
+	elif music_type == "custom":
+		focus.set_stream(current_custom_battle_music)
+		aftermath_length = get_track_aftermath_length(current_custom_battle_music.get_path())
+	else:
+		print("trouble in play_focus, music_type = %s" % music_type)
+		
 	print("Now playing %s from %s seconds" % [music_type, from_where])
 	focus.play(from_where)
 	
@@ -73,7 +84,8 @@ func update_music(type):
 	if (typeof(type) == TYPE_STRING):
 		music_type = type
 	else:
-		music_type = "other"
+		music_type = "custom"
+		
 	if get_tree().get_current_scene().get("level_music") and get_tree().get_current_scene().get("battle_music"):
 		current_level_music = get_tree().get_current_scene().get("level_music")
 		current_battle_music = get_tree().get_current_scene().get("battle_music")
@@ -103,8 +115,11 @@ func update_music(type):
 			fade_music("level", false)
 			fade_music("battle", false)
 		_:
-			set_main_streams(type) # for custom music
+			current_custom_battle_music = type
+			set_battle_streams(current_custom_battle_music) # for custom music
 #			print("did you call update_music() wrong?")
+			fade_music("level", false)
+			fade_music("battle", true)
 			type = "custom"
 			
 	# change aftermath_length
