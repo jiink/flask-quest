@@ -21,7 +21,8 @@ var focus_suffix
 
 var aftermath_lengths = {
 	"goodvibes" : 13.5,
-	
+	"cannedcranium": 1.45,
+	"maloffice": 3.99,
 }
 
 func _ready():
@@ -65,7 +66,10 @@ func play_focus(from_where = 0.0):
 	
 	
 func update_music(type):
-	music_type = type
+	if (typeof(type) == TYPE_STRING):
+		music_type = type
+	else:
+		music_type = "other"
 	if get_tree().get_current_scene().get("level_music") and get_tree().get_current_scene().get("battle_music"):
 		current_level_music = get_tree().get_current_scene().get("level_music")
 		current_battle_music = get_tree().get_current_scene().get("battle_music")
@@ -74,7 +78,7 @@ func update_music(type):
 #		if type != "level":
 #			music_pos_marker = focus.get_playback_position()
 #
-	if (previous_type != type) and (typeof(type) == TYPE_STRING):
+	if (typeof(type) == TYPE_STRING) and (previous_type != type):
 		music_pos_marker = focus.get_playback_position()
 	
 	match type:
@@ -149,6 +153,5 @@ func set_battle_streams(stream_in):
 func get_track_aftermath_length(path_name):
 	for key in aftermath_lengths:
 		if path_name.find(key) > -1:
-			print( aftermath_lengths[key])
 			return aftermath_lengths[key]
 	

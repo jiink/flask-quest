@@ -50,15 +50,15 @@ func _ready():
 		
 	global.current_enemies = global.initial_enemies
 	
-	var custom_music_gonna_play = false
-	for foe in get_foes():
-		if foe.custom_music != null:
-			MusicManager.update_music(foe.custom_music)
-			custom_music_gonna_play = true
-			break
-	if not custom_music_gonna_play:
-		print("There is NO custom music to play!!!!")
-		MusicManager.update_music("battle")
+#	var custom_music_gonna_play = false
+#	for foe in get_foes():
+#		if foe.custom_music != null:
+#			MusicManager.update_music(foe.custom_music)
+#			custom_music_gonna_play = true
+#			break
+#	if not custom_music_gonna_play:
+#		print("There is NO custom music to play!!!!")
+#		MusicManager.update_music("battle")
 	
 	# battle bg
 	$BattleBG.texture = global.battle_bg

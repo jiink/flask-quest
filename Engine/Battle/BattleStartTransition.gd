@@ -5,9 +5,18 @@ export(float) var shader_depth = 0.0
 
 func _ready():
 #	$"/root/MusicManager/AnimationPlayer".play("fade_out")
-	
-	pass
-	
+#	for i in get_tree().get_nodes_in_group("WorldFoes"):
+#		print("AAAAAAAAAAAAAAAAAAA" + str(i))
+
+	var foe = load("res://NPC/" + global.initial_enemies[0] + "/" + global.initial_enemies[0] + "Foe.tscn")
+	var foe_instance = foe.instance()
+	if foe_instance.custom_music != null:
+		MusicManager.update_music(foe_instance.custom_music)
+	else:
+		print("There is NO custom music to play!!!!")
+		MusicManager.update_music("battle")
+	print("AAAAAAAAAAAAAAAAAAAAAAAAAA" + foe_instance.name)
+	foe_instance.queue_free()
 func _process(delta):
 	$Shader.get_material().set_shader_param("frequency", shader_frequency)
 	$Shader.get_material().set_shader_param("depth", shader_depth)
@@ -17,6 +26,7 @@ func _process(delta):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	for i in get_tree().get_nodes_in_group("WorldFoes"):
+		print("BBBBBBBBBBBBBBBB" + str(i))
 		if not i.is_processing():
 			i.queue_free()
 		else:
