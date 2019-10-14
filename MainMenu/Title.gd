@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Rooms/TemplateRoom.gd"
 
 enum {OPTIONS, PLAY, QUIT}
 enum {MAIN, SAVES, QUITCONFIRM}
