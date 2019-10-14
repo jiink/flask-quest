@@ -21,12 +21,13 @@ var focus_prefix
 var focus_suffix
 
 var aftermath_lengths = {
-	"labs" : 1.24,
-	"goodvibes" : 13.5,
-	"cannedcranium": 1.45,
-	"maloffice": 3.99,
-	"lanetta" : 0,
-	"sewers" : 0,
+	"labs-2" : 1.50,
+	"labs" : 0.05,
+	"goodvibes" : 13.517,
+	"cannedcranium": 1.332,
+	"maloffice": 3.996,
+	"lanetta" : 1.869,
+	"sewers" : 0.08,
 	"odd": 0.0
 }
 
@@ -173,4 +174,6 @@ func get_track_aftermath_length(path_name):
 	for key in aftermath_lengths:
 		if path_name.find(key) > -1:
 			return aftermath_lengths[key]
+	print("couldn't get aftermath length!")
+	return 0.0
 	
