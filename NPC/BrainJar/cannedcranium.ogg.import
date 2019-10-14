@@ -11,5 +11,5 @@ dest_files=[ "res://.import/cannedcranium.ogg-867e6fcf04fb0f2143bea918b15de796.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Engine/Battle/BaseFoe.tscn" type="PackedScene" id=1]
-[ext_resource path="res://NPC/BrainJar/BrainJarFoeDefault.png" type="Texture" id=2]
+[ext_resource path="res://NPC/BrainJar/cannedcranium.ogg" type="AudioStream" id=2]
+[ext_resource path="res://NPC/BrainJar/BrainJarFoeDefault.png" type="Texture" id=3]
 
 [node name="BrainJarFoe" instance=ExtResource( 1 )]
 max_hp = 200
+custom_music = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 1, -33 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )

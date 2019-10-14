@@ -11,5 +11,5 @@ dest_files=[ "res://.import/labs-2-battle.ogg-4a6d0c6184a9fbeafed11ec794f2dcbf.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
