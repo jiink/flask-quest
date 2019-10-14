@@ -93,6 +93,10 @@ vnen.tiled_importer={
 "tile_metadata": false,
 "uv_clip": true
 }
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 
