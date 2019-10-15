@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Rooms/Area4/Assets/SecurityCamArea.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -237,5 +238,8 @@ z_index = -2
 [node name="Camera" parent="." instance=ExtResource( 24 )]
 
 [node name="HUD" parent="." instance=ExtResource( 25 )]
+
+[node name="SecurityCamArea" parent="." instance=ExtResource( 26 )]
+position = Vector2( 408, 90 )
 
 [editable path="HUD"]

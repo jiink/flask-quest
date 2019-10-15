@@ -30,8 +30,8 @@
 [ext_resource path="res://Rooms/Area1/Assets/tv_side_light.png" type="Texture" id=28]
 [ext_resource path="res://Rooms/Area1/1-2/tv_side_light.gd" type="Script" id=29]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Player/ribbit_sprites/ribbitsheet.png" type="Texture" id=31]
-[ext_resource path="res://Player/ribbit_sprites/ribbit_speech.wav" type="AudioStream" id=32]
+[ext_resource path="res://NPC/Stercus/stercusFaces.png" type="Texture" id=31]
+[ext_resource path="res://NPC/Stercus/stercus_voice.wav" type="AudioStream" id=32]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Player/orange_sprites/orange_faces.png" type="Texture" id=34]
 [ext_resource path="res://SoundEffects/activation0.wav" type="AudioStream" id=35]
@@ -341,7 +341,7 @@ script = ExtResource( 29 )
 default_text_delay = 0.05
 face_texture = ExtResource( 31 )
 voice_sound = ExtResource( 32 )
-voice_variation = 0.05
+voice_variation = 0.4
 
 [node name="DiagPiece" parent="TV/DialogueTree" index="0" instance=ExtResource( 33 )]
 message = "Okay, Stultus, did you get the papers like I told you to?"
