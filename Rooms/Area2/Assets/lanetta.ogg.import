@@ -11,5 +11,5 @@ dest_files=[ "res://.import/lanetta.ogg-c9c55e4c634fbab79380dba977344bd3.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

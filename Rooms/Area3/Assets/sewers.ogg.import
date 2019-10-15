@@ -11,5 +11,5 @@ dest_files=[ "res://.import/sewers.ogg-42efed879576938c0fad36d056a097aa.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

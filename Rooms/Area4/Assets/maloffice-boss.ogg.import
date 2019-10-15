@@ -11,5 +11,5 @@ dest_files=[ "res://.import/maloffice-boss.ogg-40e3e532777bc7a7a490a4124f326950.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

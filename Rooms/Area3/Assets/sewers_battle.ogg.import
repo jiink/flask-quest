@@ -11,5 +11,5 @@ dest_files=[ "res://.import/sewers_battle.ogg-24f6370b6d77b55236186a9dade1bd7d.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

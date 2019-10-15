@@ -11,5 +11,5 @@ dest_files=[ "res://.import/maloffice-02.ogg-4cbc70341502700e241eb7d75665c9a2.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
