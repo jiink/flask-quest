@@ -7,18 +7,18 @@ script = ExtResource( 1 )
 data = {
 "1-1_lab_door_open": true,
 "1-1_orange_state": 1,
+"1-2_tv_event_seen": false,
 "dollars": 0,
-"party_members": ["orange"],
 "green_hp": 100,
 "green_max_hp": 100,
-"inventory": [ "stone", "miniman_item", "elevator_card" ],
+"inventory": [ "elevator_card" ],
 "loadout": [ "base_potion", "fire_chemical", "base_potion" ],
 "orange_hp": 100,
 "orange_max_hp": 100,
-"player_spawn_pos": Vector2( 255, 65 ),
-"player_spawn_scene": "res://Rooms/Area1/1-1/1-1.tscn",
+"party_members": [ "orange" ],
+"player_spawn_pos": Vector2( 348.343, 89.0033 ),
+"player_spawn_scene": "res://Rooms/Test/T-1/T-1.tscn",
 "test_SaveTester": "blue",
 "test_SaveTester2": "blue",
-"test_SaveTester3": "blue",
-"1-2_tv_event_seen": false
+"test_SaveTester3": "blue"
 }

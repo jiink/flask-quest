@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area4/Assets/maloffice-02.ogg" type="AudioStream" id=2]
@@ -14,15 +14,15 @@
 [ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_3.png" type="Texture" id=12]
 [ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_2.png" type="Texture" id=13]
 [ext_resource path="res://Rooms/Area4/Assets/forest_background/forest_1.png" type="Texture" id=14]
-[ext_resource path="res://Engine/light2.png" type="Texture" id=15]
-[ext_resource path="res://Engine/light5.png" type="Texture" id=16]
+[ext_resource path="res://Rooms/Area4/Assets/stercus_sign.png" type="Texture" id=15]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=16]
+[ext_resource path="res://Engine/light5.png" type="Texture" id=17]
 
 [node name="4-2" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
 battle_music = ExtResource( 3 )
 
 [node name="BGBlack" type="Node2D" parent="Tilemaps" index="0"]
-editor/display_folded = true
 
 [node name="ColorRect" type="ColorRect" parent="Tilemaps/BGBlack" index="0"]
 margin_left = -619.0
@@ -32,9 +32,9 @@ margin_bottom = 193.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="Tilemaps/BGBlack" index="1"]
-margin_left = -615.0
+margin_left = -613.0
 margin_top = -449.0
-margin_right = 200.0
+margin_right = 202.0
 margin_bottom = -240.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
 
@@ -147,10 +147,15 @@ position = Vector2( 192, 0 )
 texture = ExtResource( 14 )
 offset = Vector2( 0, -53 )
 
+[node name="stercus_sign" type="Sprite" parent="." index="2"]
+position = Vector2( -370, -298 )
+texture = ExtResource( 15 )
+
 [node name="Player" parent="YSort" index="0"]
 position = Vector2( 16, 13 )
 
-[node name="Darkness" type="Node2D" parent="." index="3"]
+[node name="Darkness" type="Node2D" parent="." index="4"]
+editor/display_folded = true
 
 [node name="ColorRect" type="ColorRect" parent="Darkness" index="0"]
 margin_left = -665.0
@@ -194,87 +199,81 @@ margin_right = -560.0
 margin_bottom = -128.0
 color = Color( 0.054902, 0.0666667, 0.109804, 0.34902 )
 
-[node name="Lights" type="Node2D" parent="." index="4"]
+[node name="Lights" type="Node2D" parent="." index="5"]
+editor/display_folded = true
 
 [node name="Light2D" type="Light2D" parent="Lights" index="0"]
 position = Vector2( -527, -84 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D2" type="Light2D" parent="Lights" index="1"]
 position = Vector2( -349, -84 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D6" type="Light2D" parent="Lights" index="2"]
 position = Vector2( -208, -115 )
 scale = Vector2( 0.5, 0.1 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 color = Color( 1, 0.282353, 0.164706, 1 )
 
 [node name="Light2D7" type="Light2D" parent="Lights" index="3"]
 position = Vector2( -496, -115 )
 scale = Vector2( 0.5, 0.1 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 color = Color( 1, 0.282353, 0.164706, 1 )
 
 [node name="Light2D8" type="Light2D" parent="Lights" index="4"]
 position = Vector2( -32, -83 )
 scale = Vector2( 0.5, 0.1 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 color = Color( 1, 0.282353, 0.164706, 1 )
 
 [node name="Light2D3" type="Light2D" parent="Lights" index="5"]
 position = Vector2( -161, -84 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D11" type="Light2D" parent="Lights" index="6"]
 position = Vector2( -245, -84 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D12" type="Light2D" parent="Lights" index="7"]
 position = Vector2( -428, -84 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D4" type="Light2D" parent="Lights" index="8"]
 position = Vector2( 7, -32 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D13" type="Light2D" parent="Lights" index="9"]
 position = Vector2( 12, 30 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 0.541176, 0.552941, 1, 1 )
 
 [node name="Light2D5" type="Light2D" parent="Lights" index="10"]
 position = Vector2( -352, -257.5 )
 scale = Vector2( 0.5, 0.589844 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 color = Color( 1, 0.192157, 0.00784314, 1 )
 energy = 1.6
 
 [node name="Light2D9" type="Light2D" parent="Lights" index="11"]
 position = Vector2( -352, -171 )
 scale = Vector2( 0.5, 0.589844 )
-texture = ExtResource( 15 )
-color = Color( 1, 0.192157, 0.00784314, 1 )
-energy = 1.6
-
-[node name="Light2D10" type="Light2D" parent="Lights" index="12"]
-position = Vector2( -328, -265.7 )
-scale = Vector2( 0.0546874, 0.0367189 )
 texture = ExtResource( 16 )
-color = Color( 0.894118, 0.886275, 1, 1 )
+color = Color( 1, 0.192157, 0.00784314, 1 )
 energy = 1.6
 
 [editable path="HUD"]

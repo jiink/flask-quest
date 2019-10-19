@@ -14,7 +14,7 @@
 [ext_resource path="res://NPC/Boque/Boque.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Player/ribbit_sprites/ribbitsheet.png" type="Texture" id=14]
-[ext_resource path="res://NPC/Boque/boque_voice.wav" type="AudioStream" id=15]
+[ext_resource path="res://Player/ribbit_sprites/ribbit_speech.wav" type="AudioStream" id=15]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=16]
 [ext_resource path="res://NPC/Boque/boqueFaces.png" type="Texture" id=17]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=18]
@@ -133,6 +133,7 @@ position = Vector2( 304, 112 )
 [node name="DialogueTree" parent="YSort/Boque" instance=ExtResource( 13 )]
 face_texture = ExtResource( 14 )
 voice_sound = ExtResource( 15 )
+voice_variation = 0.05
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree" instance=ExtResource( 16 )]
 message = "hello. blah blah. blahblah? bababa, baba."
