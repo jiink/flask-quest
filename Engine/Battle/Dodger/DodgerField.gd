@@ -90,7 +90,7 @@ func _process(delta):
 		$Dodgers/GreenSprite.visible = not pstats.green_hp <= 0
 		$Dodgers/OrangeSprite.visible = not pstats.orange_hp <= 0
 		
-		if pstats.green_hp <= 0 and pstats.orange_hp <= 0:
+		if pstats.green_hp <= 0 or pstats.orange_hp <= 0:
 			stop()
 			get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
 		
