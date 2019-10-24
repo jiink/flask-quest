@@ -92,31 +92,28 @@ func _process(delta):
 		if not $InfoBar.visible:
 			
 			if Input.is_action_just_pressed("right"):
-				
-				if state == LOADOUT:
-					if get_column() == manager.loadout.size() - 1:
-						state = INVENTORY
-						container = get_node("Inventory/GridContainer")
-					else:
-						selection_index += 1
-				
-				elif state == INVENTORY and get_column() != 2:
-					selection_index += 1
-				
+				selection_index += 1
 				
 			elif Input.is_action_just_pressed("left"):
-				
-				if state == INVENTORY and get_column() == 0:
-					state = LOADOUT
-					container = get_node("Loadout/GridContainer")
-				
-				
 				selection_index -= 1
 								
 			elif Input.is_action_just_pressed("up"):
-				selection_index -= 3
+				if state == INVENTORY:
+					if selection_index < 11:
+						selection_index = 0
+						state = LOADOUT
+						container = get_node("Loadout/GridContainer")
+					else:
+						selection_index -= 11
+					
 			elif Input.is_action_just_pressed("down"):
-				selection_index += 3
+				if state == LOADOUT:
+					selection_index = 0
+					state = INVENTORY
+					container = get_node("Inventory/GridContainer")
+				else:
+					selection_index += 11
+				
 			elif Input.is_action_just_pressed("a") and get_item_list().size() > 0:
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 												  manager.items[get_item_list()[selection_index]].desc]
