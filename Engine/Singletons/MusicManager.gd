@@ -54,8 +54,8 @@ func _process(delta):
 
 		play_focus()
 	
-	if Input.is_action_pressed("y"):
-		focus.seek(focus.get_playback_position()+1.0)
+#	if Input.is_action_pressed("y"):
+#		focus.seek(focus.get_playback_position()+1.0)
 
 
 func play_focus(from_where = 0.0):
