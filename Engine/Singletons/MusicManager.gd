@@ -12,7 +12,6 @@ var previous_type = "level"
 var transition_length = 1.0
 
 var aftermath_length = 0.2
-#13.5 for goodvibes # 0.2 for test
 
 onready var focus = $MainPlayer
 var assistant_mode = false
@@ -71,6 +70,7 @@ func play_focus(from_where = 0.0):
 		focus.set_stream(current_level_music)
 		aftermath_length = get_track_aftermath_length(current_level_music.get_path())
 	elif music_type == "custom":
+		from_where = 0.0
 		focus.set_stream(current_custom_battle_music)
 		aftermath_length = get_track_aftermath_length(current_custom_battle_music.get_path())
 	else:
