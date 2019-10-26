@@ -63,7 +63,7 @@ func _process(delta):
 					
 				elif $TextBox.text.length() > 2 and target_piece.skippable:
 					$TextBox.text = visible_new_text
-					text_index = $TextBox.text.length() - 1
+					text_index = new_text.length() - 1
 					
 
 func start_talk(obj, starting_branch):
