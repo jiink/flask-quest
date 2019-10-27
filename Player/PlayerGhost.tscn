@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/PlayerGhost.gd" type="Script" id=2]
+[ext_resource path="res://Player/sprites/ghost/green_ghost_spriteframes.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Player/sprites/ghost/greenghost-sheet.png" type="Texture" id=4]
+[ext_resource path="res://Player/sprites/ghost/ghosteyes.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.3, 6.3 ),
+"transitions": PoolRealArray( 2.63902, 0.378929, 2 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 3, -2 ), Vector2( -3.1, -2.403 ) ]
+}
+
+[node name="PlayerGhost" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+speed = 0
+sprintMultiplier = 0.0
+
+[node name="AnimatedSprite" parent="." index="3"]
+visible = false
+frames = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="4"]
+light_mask = 8193
+position = Vector2( 0, -10 )
+texture = ExtResource( 4 )
+hframes = 8
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
+autoplay = "default"
+playback_speed = 1.5
+anims/default = SubResource( 1 )
+
+[node name="ghosteyes" type="Sprite" parent="Sprite" index="1"]
+position = Vector2( 0, 2 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="8"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 2 )
+
+[editable path="InWaterEffect"]
