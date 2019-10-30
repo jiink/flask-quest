@@ -16,6 +16,9 @@ var damage = 15
 
 export(AudioStream) var custom_music
 
+export(String) var attack_order
+var attack_order_index = 0
+
 func _ready():
 	hp = max_hp
 	connect("foe_died", get_node("../.."), "foe_died")

@@ -60,7 +60,16 @@ func _process(delta):
 				
 				print("att dir size: %s" % att_dir.size())
 				if att_dir.size() > 0:
-					var attack_num = randi() % att_dir.size() + 1
+					var attack_num
+					if foe.attack_order != "":
+						attack_num = foe.attack_order[foe.attack_order_index]
+						print("%s is choosing attack #%s, index %s from his list" % [foe_name, attack_num, foe.attack_order_index])
+						foe.attack_order_index += 1
+						foe.attack_order_index = 0 if foe.attack_order_index >= foe.attack_order.length() else foe.attack_order_index
+					else:
+						print("%s is choosing random attack" % foe_name)
+						attack_num = randi() % att_dir.size() + 1
+						
 					print("loop %s: attack nuber:: %s" % [f, attack_num])
 	
 					var attack_scene_path = "res://NPC/%s/Attacks/%sAttack%s.tscn" % [foe_name, foe_name, attack_num]
