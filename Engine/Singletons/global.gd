@@ -58,7 +58,11 @@ func start_battle(foes):
 		for n in foes:
 			initial_enemies.append(n)
 		in_battle = true
-	
+
+func get_green_dodger():
+	return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/GreenSprite");
+func get_orange_dodger():
+	return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/OrangeSprite");
 
 
 
