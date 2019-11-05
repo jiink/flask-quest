@@ -10,4 +10,4 @@ func _ready():
 
 func _process(delta):
 	position += vec * delta
-	vec *= speed_change
+	speed *= speed_change
