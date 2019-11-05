@@ -67,13 +67,18 @@ func area_entered(area):
 		if dfield.get_parent():
 			dfield.get_parent().call("hurt", "green", damage)
 		if destructable:
-			queue_free()
+#			queue_free()
+			destroy()
 	elif area.get_parent().name == "OrangeSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
 #		print("... it was orange")
 		if dfield.get_parent():
 			dfield.get_parent().call("hurt", "orange", damage)
 		if destructable:
-			queue_free()
+#			queue_free()
+			destroy()
+
+func destroy():
+	queue_free()
 
 func death_timer_timeout():
 	queue_free()
