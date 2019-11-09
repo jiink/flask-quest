@@ -149,7 +149,7 @@ points = PoolVector2Array( -119, -59, 9, 5, -119, 5 )
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( -119, -10, 9, -10, 9, 54 )
 
-[node name="4-1" instance=ExtResource( 1 )]
+[node name="4-1" index="0" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
 battle_music = ExtResource( 3 )
 

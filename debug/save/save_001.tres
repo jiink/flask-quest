@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource( 1 )
 data = {
-"1-1_lab_door_open": true,
-"1-1_orange_state": 1,
+"1-1_lab_door_open": false,
+"1-1_orange_state": 0,
 "1-2_tv_event_seen": false,
 "dollars": 0,
 "green_hp": 100,
 "green_max_hp": 100,
-"inventory": [ "elevator_card" ],
+"inventory": [  ],
 "loadout": [ "base_potion", "fire_chemical", "base_potion" ],
 "orange_hp": 100,
 "orange_max_hp": 100,

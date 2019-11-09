@@ -422,6 +422,9 @@ text_delay = 0.0
 no_face = true
 args = [  ]
 
+[node name="YSort" parent="." index="3"]
+editor/display_folded = true
+
 [node name="streetlamp02" parent="YSort" index="0" instance=ExtResource( 11 )]
 position = Vector2( 2024, -1161 )
 
