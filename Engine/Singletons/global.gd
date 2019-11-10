@@ -60,9 +60,16 @@ func start_battle(foes):
 		in_battle = true
 
 func get_green_dodger():
-	return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/GreenSprite");
+	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/Dodgers/GreenSprite"):
+		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/GreenSprite")
+	else:
+		return null
+		
 func get_orange_dodger():
-	return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/OrangeSprite");
+	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/Dodgers/OrangeSprite"):
+		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/OrangeSprite")
+	else:
+		return null
 
 
 
