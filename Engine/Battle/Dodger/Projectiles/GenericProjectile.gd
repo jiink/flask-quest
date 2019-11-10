@@ -8,7 +8,7 @@ export(int) var damage = 15
 export(float) var damage_randomness = 0.1
 export(bool) var destructable = true
 
-
+signal successful_hit
 
 
 
@@ -79,6 +79,7 @@ func area_entered(area):
 
 func destroy():
 	queue_free()
+	emit_signal("successful_hit")
 
 func death_timer_timeout():
 	queue_free()

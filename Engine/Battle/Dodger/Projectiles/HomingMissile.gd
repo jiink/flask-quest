@@ -1,10 +1,12 @@
 extends "res://Engine/Battle/Dodger/Projectiles/Bullet.gd"
 
+var target_transf = Vector2(128, 128)
+
 func _process(delta):
 	
-	var target_transf = global.get_green_dodger().get_global_transform()
+	target_transf = global.get_green_dodger().get_global_transform()[2] if global.get_green_dodger() else target_transf
 	
-	look_at(target_transf[2])
+	look_at(target_transf)
 	vec = Vector2(speed, 0).rotated(rotation)
 
 func destroy():
@@ -12,3 +14,4 @@ func destroy():
 	get_parent().add_child(boom_instance)
 	boom_instance.position = position
 	queue_free()
+	emit_signal("successful_hit")
