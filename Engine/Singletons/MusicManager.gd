@@ -37,6 +37,8 @@ func _ready():
 #	update_music("level")
 	
 	current_level_music = get_tree().get_current_scene().get("level_music")
+	if current_level_music == null:
+		current_level_music = preload("res://Engine/zzzzzz.ogg")
 	set_main_streams(current_level_music)
 	
 	
