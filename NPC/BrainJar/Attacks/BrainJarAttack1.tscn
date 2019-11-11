@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Engine/Battle/Dodger/AttackBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPC/BrainJar/Attacks/BrainJarAttack1.gd" type="Script" id=2]
 [ext_resource path="res://Engine/Battle/Dodger/Projectiles/HomingMissile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Engine/Battle/BattleSpeechBubble.tscn" type="PackedScene" id=4]
+[ext_resource path="res://NPC/BrainJar/brainjarsketchy.tscn" type="PackedScene" id=5]
 
 [node name="BrainJarAttack1" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -17,20 +18,23 @@ speed = 20.0
 speed_change = 1.002
 
 [node name="BattleSpeechBubble" parent="." index="2" instance=ExtResource( 4 )]
-margin_left = 209.0
-margin_top = 98.0
-margin_right = 398.0
-margin_bottom = 173.0
+margin_left = 218.0
+margin_top = 7.0
+margin_right = 407.0
+margin_bottom = 82.0
 text = "Try not to get hit by this missile.
 Only a * like you would."
 
 [node name="BattleSpeechBubble2" parent="." index="3" instance=ExtResource( 4 )]
 visible = false
-margin_left = 209.0
-margin_top = 98.0
-margin_right = 398.0
-margin_bottom = 173.0
+margin_left = 272.0
+margin_top = 7.0
+margin_right = 461.0
+margin_bottom = 82.0
 text = "What a surprise."
 
 [node name="Tween" type="Tween" parent="." index="4"]
+
+[node name="brainjarsketchy" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 336, 155 )
 [connection signal="successful_hit" from="HomingMissile" to="." method="_on_HomingMissile_successful_hit"]
