@@ -104,7 +104,7 @@ func _process(delta):
 			get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
 		
 	if active_battle_timer != null:
-		$dodge_circle/TimeBar.value = int(100 * (active_battle_timer.time_left / active_battle_timer.wait_time))
+		$DodgeCircle/TimeBar.value = int(100 * (active_battle_timer.time_left / active_battle_timer.wait_time))
 			
 func move_players(delta):
 	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
@@ -156,3 +156,19 @@ func get_attacks_in_dir(path):
 #	dir.list_dir_end()
 
 	return files
+
+func hazard_has_hit(who, damage):
+	damage = int(round(damage))
+	match who:
+		1:
+			PlayerStats.green_hp -= damage
+			PlayerStats.green_hp = clamp(PlayerStats.green_hp, 0, 9999)
+			$DodgeCircle/GreenHPBar.update_bar()
+			$DamageSound.play()
+		2:
+			PlayerStats.orange_hp -= damage
+			PlayerStats.orange_hp = clamp(PlayerStats.orange_hp, 0, 9999)
+			$DodgeCircle/OrangeHPBar.update_bar()
+			$DamageSound.play()
+		_:
+			print("warning: hazard_has_hit %s" % who)

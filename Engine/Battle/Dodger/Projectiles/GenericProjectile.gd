@@ -8,7 +8,7 @@ export(int) var damage = 15
 export(float) var damage_randomness = 0.1
 export(bool) var destructable = true
 
-signal successful_hit
+signal successful_hit(player_num, dmg)
 
 
 
@@ -17,7 +17,13 @@ export(float) var death_time = 10.0
 var death_timer
 
 func _ready():
-
+	var connect_to
+	if get_tree().get_current_scene().name == "AttackTestingField":
+		connect_to = get_tree().get_current_scene()
+	else:
+		connect_to = get_node("../../../..") # battlescene
+	connect("successful_hit", connect_to, "hazard_has_hit")
+	
 	connect("area_entered", self, "area_entered")
 	
 	if face_center:
@@ -61,25 +67,27 @@ func area_entered(area):
 #	print("something was hit...")
 	
 	if area.get_parent().name == "GreenSprite" and type != GREEN and thingy.visible and not dfield.shielded:
-		if dfield:
-			var bscene = dfield.get_parent()
+#		if dfield:
+#			var bscene = dfield.get_parent()
 #		print("... it was green")
-		if dfield.get_parent():
-			dfield.get_parent().call("hurt", "green", damage)
+#		if dfield.get_parent():
+#			dfield.get_parent().call("hurt", "green", damage)
+		emit_signal("successful_hit", 1, damage_dealt)
+		
 		if destructable:
-#			queue_free()
 			destroy()
+			
 	elif area.get_parent().name == "OrangeSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
 #		print("... it was orange")
-		if dfield.get_parent():
-			dfield.get_parent().call("hurt", "orange", damage)
+		emit_signal("successful_hit", 2, damage_dealt)
+#		if dfield.get_parent():
+#			dfield.get_parent().call("hurt", "orange", damage)
 		if destructable:
-#			queue_free()
 			destroy()
 
 func destroy():
 	queue_free()
-	emit_signal("successful_hit")
+	
 
 func death_timer_timeout():
 	queue_free()
