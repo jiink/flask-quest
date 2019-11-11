@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/simulator_bg.png-8e6ca10911ae0d921d03f51ee56092f0.image"
+
+[deps]
+
+source_file="res://Effects/simulator_bg.png"
+dest_files=[ "res://.import/simulator_bg.png-8e6ca10911ae0d921d03f51ee56092f0.image" ]
+
+[params]
+
