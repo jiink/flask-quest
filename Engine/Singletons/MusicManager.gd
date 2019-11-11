@@ -27,7 +27,8 @@ var aftermath_lengths = {
 	"maloffice": 3.996,
 	"lanetta" : 1.869,
 	"sewers" : 0.08,
-	"odd": 0.0
+	"odd": 0.0,
+	"zzzzzz": 0.0
 }
 
 func _ready():
