@@ -59,18 +59,24 @@ func start_battle(foes):
 			initial_enemies.append(n)
 		in_battle = true
 
-func get_green_dodger():
-	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/Dodgers/GreenSprite"):
-		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/GreenSprite")
+func get_dodger(which_player): # 1 for green, 2 for oragne
+	var player_name
+	match which_player:
+		1:
+			player_name = "Green"
+		2:
+			player_name = "Orange"
+		_:
+			print("warning: called get_dodger with a %s" % player_name)
+			
+	if get_tree().get_current_scene().name == "AttackTestingField":
+		return get_tree().get_current_scene().get_node("Dodgers/%sSprite" % player_name)
+		
+	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/Dodgers/%sSprite" % player_name):
+		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/%sSprite" % player_name)
 	else:
 		return null
 		
-func get_orange_dodger():
-	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/Dodgers/OrangeSprite"):
-		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/OrangeSprite")
-	else:
-		return null
-
 
 
 #	initial_enemies = ["Boque", "Boque", "Boque"]

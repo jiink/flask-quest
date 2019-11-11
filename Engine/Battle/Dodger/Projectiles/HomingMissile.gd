@@ -4,7 +4,7 @@ var target_transf = Vector2(128, 128)
 
 func _process(delta):
 	
-	target_transf = global.get_green_dodger().get_global_transform()[2] if global.get_green_dodger() else target_transf
+	target_transf = global.get_dodger(1).get_global_transform()[2] if global.get_dodger(1) else target_transf
 	
 	look_at(target_transf)
 	vec = Vector2(speed, 0).rotated(rotation)
