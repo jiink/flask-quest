@@ -1,7 +1,7 @@
 extends Area2D
 
 export(bool) var face_center = false
-export(NodePath) var face_node
+export(NodePath) var face_node = null
 enum {NORMAL, GREEN, ORANGE}
 export(int, "NORMAL", "GREEN", "ORANGE") var type
 export(int) var damage = 15
