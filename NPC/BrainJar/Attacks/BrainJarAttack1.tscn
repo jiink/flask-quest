@@ -18,19 +18,19 @@ speed = 20.0
 speed_change = 1.002
 
 [node name="BattleSpeechBubble" parent="." index="2" instance=ExtResource( 4 )]
-margin_left = 218.0
-margin_top = 7.0
-margin_right = 407.0
-margin_bottom = 82.0
+margin_left = 217.0
+margin_top = 19.0
+margin_right = 406.0
+margin_bottom = 94.0
 text = "Try not to get hit by this missile.
 Only a * like you would."
 
 [node name="BattleSpeechBubble2" parent="." index="3" instance=ExtResource( 4 )]
 visible = false
 margin_left = 272.0
-margin_top = 7.0
+margin_top = 27.0
 margin_right = 461.0
-margin_bottom = 82.0
+margin_bottom = 102.0
 text = "What a surprise."
 
 [node name="Tween" type="Tween" parent="." index="4"]
