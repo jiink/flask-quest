@@ -32,6 +32,6 @@ autoplay = "default"
 anims/default = SubResource( 1 )
 
 [node name="BadWordTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.06
 autostart = true
 [connection signal="timeout" from="BadWordTimer" to="." method="_on_BadWordTimer_timeout"]

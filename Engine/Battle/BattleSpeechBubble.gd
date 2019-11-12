@@ -20,6 +20,6 @@ func _process(delta):
 
 func _on_BadWordTimer_timeout():
 	badword = badword_pool[rand_range(0, badword_pool.size()-1)]
-	timer.wait_time *= 1.15
+#	timer.wait_time *= 1.15
 	# put '*' in the textbox to make bad word 
 	text = words.replace('*', badword)
