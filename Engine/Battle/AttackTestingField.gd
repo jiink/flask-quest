@@ -43,7 +43,7 @@ func _process(delta):
 	move_players(delta)
 	
 	if $ShieldDelay.is_stopped():
-		if Input.is_action_just_pressed("a"):
+		if Input.is_action_just_pressed("confirm"):
 			shielded = true
 			green.get_node("InstaShield").visible = true
 			orange.get_node("InstaShield").visible = true

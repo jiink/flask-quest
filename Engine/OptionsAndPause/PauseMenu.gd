@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	if visible:
-		if Input.is_action_just_pressed("esc"):
+		if Input.is_action_just_pressed("pause"):
 			close()
 		
 		if Input.is_action_just_pressed("down"):
@@ -29,7 +29,7 @@ func _process(delta):
 				82 + selected_option * 18, .05, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 			$Selection/Tween.start()
 		
-		if Input.is_action_just_pressed("a"):
+		if Input.is_action_just_pressed("confirm"):
 			match selected_option:
 				RESUME:
 					close()
@@ -44,7 +44,7 @@ func _process(delta):
 		
 			
 	else:
-		if Input.is_action_just_pressed("esc"):
+		if Input.is_action_just_pressed("pause"):
 			print("hud visidiblity: %s" % hud.get_visibility())
 			if not hud.get_visibility():
 				open()

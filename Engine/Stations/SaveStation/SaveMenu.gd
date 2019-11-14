@@ -24,13 +24,13 @@ func _process(delta):
 		save_slot_positions[save_slot_selection - 1], .3, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		$save_slots/Tween.start()
 	
-	elif Input.is_action_just_pressed("a"):
+	elif Input.is_action_just_pressed("confirm"):
 		$"/root/GameSaver".save_from_save_station(save_slot_selection)
 		print("SAVVED")
 		close()
 		
 	
-	elif Input.is_action_just_pressed("b"):
+	elif Input.is_action_just_pressed("cancel"):
 		close()
 
 func close():

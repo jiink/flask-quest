@@ -39,7 +39,7 @@ func _process(delta):
 				update_liq(fill_perc)
 				
 				
-				if Input.is_action_just_pressed("a") or fill_perc > 100:
+				if Input.is_action_just_pressed("confirm") or fill_perc > 100:
 					if fill_perc > 100:
 						overflowed = true
 						

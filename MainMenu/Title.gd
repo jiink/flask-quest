@@ -39,7 +39,7 @@ func _process(delta):
 				QUIT:
 					$Buttons/quit.get_children()[0].visible = true
 		
-		if Input.is_action_just_pressed("a"):
+		if Input.is_action_just_pressed("confirm"):
 			match selection:
 				
 				OPTIONS:
@@ -67,16 +67,16 @@ func _process(delta):
 			save_selection = clamp(save_selection, 1, 3)
 			update_save_list_colors()
 		
-		elif Input.is_action_just_pressed("b"):
+		elif Input.is_action_just_pressed("cancel"):
 			$SaveSelect.visible = false
 			focus = MAIN
-		elif Input.is_action_just_pressed("a"):
+		elif Input.is_action_just_pressed("confirm"):
 			$"/root/GameSaver".load_from_save_station(save_selection)
 			
 	elif focus == QUITCONFIRM:
-		if Input.is_action_just_pressed("a") or Input.is_key_pressed(KEY_Y):
+		if Input.is_action_just_pressed("confirm") or Input.is_key_pressed(KEY_Y):
 			get_tree().quit()
-		elif Input.is_action_just_pressed("b") or Input.is_key_pressed(KEY_N):
+		elif Input.is_action_just_pressed("cancel") or Input.is_key_pressed(KEY_N):
 			$QuitConfirmation.visible = false
 			focus = MAIN
 		

@@ -113,14 +113,14 @@ func get_move_choice():
 				state = PLAYER_CHOOSE_ENEMY
 				open_chems()
 				
-		if Input.is_action_just_pressed("a"):
+		if Input.is_action_just_pressed("confirm"):
 			focused_menu = INV if selected_battle_choice == "item" else focused_menu
 			battle_choice_confirmed = true
 			
 			for foe in get_foes():
 				foe.say_line()
 			
-		elif Input.is_action_just_pressed("b"):
+		elif Input.is_action_just_pressed("cancel"):
 			battle_choice_confirmed = false
 			$SelectedChemArrow.visible = false
 	elif focused_menu == INV:
@@ -160,13 +160,13 @@ func get_enemy_choice():
 	
 	set_arrow_pos()
 	
-	if Input.is_action_just_pressed("a"):
+	if Input.is_action_just_pressed("confirm"):
 		#attack()
 		# ^ whoah WHOIOAH whOAH there bucko, we gotta fill green up first
 		yield(get_tree().create_timer(0.01), "timeout")
 		state = POURING
 		start_pouring_event()
-	elif Input.is_action_just_pressed("b"):
+	elif Input.is_action_just_pressed("cancel"):
 		state = PLAYER_TURN
 		$SelectedFoeArrow.visible = false
 		battle_choice_confirmed = false

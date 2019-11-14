@@ -93,9 +93,9 @@ func get_inputs():
 			direction = "left"
 		Vector2(-1, -1):
 			direction = "leftup"
-	sprint = Input.is_action_pressed("x")
+	sprint = Input.is_action_pressed("action")
 	
-	if Input.is_action_just_pressed("a"):
+	if Input.is_action_just_pressed("confirm"):
 		#interactionZone.monitoring = true
 		#print(interactionZone.get_overlapping_areas())
 		for area in interactionZone.get_overlapping_areas():

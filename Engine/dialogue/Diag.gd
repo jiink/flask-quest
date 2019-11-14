@@ -45,14 +45,14 @@ func _process(delta):
 			select_graphic_offset = selected_choice * 30
 			$Choices/Selection.position.y = select_graphic_offset
 			
-			if Input.is_action_just_pressed("a") and $TextBox.text == visible_new_text:
+			if Input.is_action_just_pressed("confirm") and $TextBox.text == visible_new_text:
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
 						run_func()
 						update_boxes(D)
 						break
 		else:
-			if Input.is_action_just_pressed("a"):
+			if Input.is_action_just_pressed("confirm"):
 				if $TextBox.text == visible_new_text:
 					if target_piece.get_children():
 						run_func()
