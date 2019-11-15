@@ -144,7 +144,30 @@ func _ready():
 	VisualServer.set_default_clear_color(Color("0e111c"))
 #	connect_to_transition()
 	#(#get_tree().get_nodes_in_group("Camera")[0].get_node("../HUD/SceneTransition"), "fade_out")
-	pass
+	
+	# apply input config. from inputconfigmenu.gd lol
+	
+	var INPUT_ACTIONS = [ "up", "down", "left", "right", "confirm", "cancel", "action", "special" ]
+	var CONFIG_FILE = "user://input.cfg"
+	
+	var config = ConfigFile.new()
+	var err = config.load(CONFIG_FILE)
+	if err:
+		for action_name in INPUT_ACTIONS:
+			var action_list = InputMap.get_action_list(action_name)
+			var scancode = OS.get_scancode_string(action_list[0].scancode)
+			config.set_value("input", action_name, scancode)
+		config.save(CONFIG_FILE)
+	else:
+		for action_name in config.get_section_keys("input"):
+			var scancode = OS.find_scancode_from_string(config.get_value("input", action_name))
+			var event = InputEventKey.new()
+			event.scancode = scancode
+			
+			for old_event in InputMap.get_action_list(action_name):
+				if old_event is InputEventKey:
+					InputMap.action_erase_event(action_name, old_event)
+			InputMap.action_add_event(action_name, event)
 	
 func start_scene_switch(new_scene, new_player_position):
 	# save!!!
