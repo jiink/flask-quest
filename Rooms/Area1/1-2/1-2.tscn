@@ -232,7 +232,6 @@ position = Vector2( 451, 176 )
 texture = ExtResource( 20 )
 
 [node name="ScenePortal" parent="." index="5" instance=ExtResource( 21 )]
-editor/display_folded = true
 position = Vector2( 464, 28 )
 new_scene = "res://Rooms/Area1/1-3/1-3.tscn"
 
