@@ -149,7 +149,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4.2, 4.6, 4.8, 5 ),
 "transitions": PoolRealArray( 1, 2.46229, 0.258816, 2.46229, 1 ),
 "update": 0,
-"values": [ Vector2( 1e-005, 0.412 ), Vector2( 1e-005, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
+"values": [ Vector2( 1e-05, 0.412 ), Vector2( 1e-05, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ScenePortal:monitoring")
@@ -236,7 +236,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" groups=[
+[node name="1-1" index="0" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -505,7 +505,7 @@ shape = SubResource( 5 )
 
 [node name="DoorLight" type="Light2D" parent="ElevatorRoom" index="5"]
 position = Vector2( 1, 30.5883 )
-scale = Vector2( 1e-005, 0.412 )
+scale = Vector2( 1e-05, 0.412 )
 texture = ExtResource( 22 )
 offset = Vector2( 0, -31 )
 color = Color( 1, 0.976471, 0.423529, 1 )
@@ -567,18 +567,21 @@ message = "Whooooaaaa..."
 text_delay = 0.0
 expression = "sidemouth"
 args = [  ]
+skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 32 )]
 message = "Where are we? ...What are we? What is this place? ```I HAVE SO MANY QUESTIONS!"
 text_delay = 0.0
 expression = "happy"
 args = [  ]
+skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 32 )]
 message = "Hey, you know what... you look a lot like me. Could we be... related?"
 text_delay = 0.0
 expression = "sidemouth"
 args = [  ]
+skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 32 )]
 message = "Hu- ```You` hear that?"
@@ -586,6 +589,7 @@ text_delay = 0.0
 expression = "bigsurprise"
 function = "start_brainjar_event"
 args = [  ]
+skippable = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/OrangeNPC" index="3"]
 position = Vector2( 6.28, 0 )

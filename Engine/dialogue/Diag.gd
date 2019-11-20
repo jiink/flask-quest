@@ -61,7 +61,7 @@ func _process(delta):
 						run_func()
 						close()
 					
-				elif $TextBox.text.length() > 2 and target_piece.skippable:
+				elif $TextBox.text.length() > 2 and (target_piece.skippable or Debug.debug_mode):
 					$TextBox.text = visible_new_text
 					text_index = new_text.length() - 1
 					
