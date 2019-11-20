@@ -126,4 +126,4 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	
 	$"/root/MusicManager".update_music("level")
 
-	
+	global.emit_signal("scene_changed") # yep
