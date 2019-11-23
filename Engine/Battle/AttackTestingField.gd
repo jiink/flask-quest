@@ -24,6 +24,7 @@ export(PackedScene) var attack_scene
 
 
 
+onready var level_music = preload("res://Engine/Battle/AttackTesting.ogg")
 
 func _ready():
 	var attack_scene_instance = attack_scene.instance()

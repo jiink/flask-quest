@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AttackTesting.ogg-22763d69d80c4db586ee78c24e0bfcf3.oggstr"
+
+[deps]
+
+source_file="res://Engine/Battle/AttackTesting.ogg"
+dest_files=[ "res://.import/AttackTesting.ogg-22763d69d80c4db586ee78c24e0bfcf3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
