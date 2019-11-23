@@ -11,7 +11,7 @@ var attacks_spawned = false
 var battle
 
 var shielded = false
-var shield_time = 0.1
+var shield_time = 0.2
 var shield_delay = 0.2
 
 var active_battle_timer
@@ -29,7 +29,7 @@ onready var level_music = preload("res://Engine/Battle/AttackTesting.ogg")
 func _ready():
 	var attack_scene_instance = attack_scene.instance()
 	$Attacks.add_child(attack_scene_instance)
-	attack_scene_instance.position = Vector2(-192, -127)
+	attack_scene_instance.position = Vector2(-192, -108)
 #	if get_node("..").name == "BattleScene":
 #		battle = get_node("..")
 #	else:

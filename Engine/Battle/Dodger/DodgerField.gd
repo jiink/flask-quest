@@ -11,7 +11,7 @@ var attacks_spawned = false
 var battle
 
 var shielded = false
-var shield_time = 0.1
+var shield_time = 0.2
 var shield_delay = 0.2
 
 var active_battle_timer

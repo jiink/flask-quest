@@ -31,7 +31,6 @@ death_time = 60.0
 speed_change = 1.0
 
 [node name="Sprite" parent="." index="0"]
-modulate = Color( 0.878431, 0.937255, 0.937255, 1 )
 position = Vector2( -13, 0 )
 texture = ExtResource( 3 )
 hframes = 5

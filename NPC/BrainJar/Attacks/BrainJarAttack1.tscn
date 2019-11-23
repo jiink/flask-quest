@@ -7,7 +7,7 @@
 [ext_resource path="res://NPC/BrainJar/brainjarsketchy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Engine/Battle/BattleInputHint.tscn" type="PackedScene" id=6]
 
-[node name="BrainJarAttack1" index="0" instance=ExtResource( 1 )]
+[node name="BrainJarAttack1" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Timer" parent="." index="0"]

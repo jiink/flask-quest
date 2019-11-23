@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.78, 4.14 )
 
-[node name="BrainJarAttack2" instance=ExtResource( 1 )]
+[node name="BrainJarAttack2" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Timer" parent="." index="0"]
@@ -75,12 +75,12 @@ shape = SubResource( 1 )
 
 [node name="BattleInputHintLeft" parent="." index="8" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0.498039 )
-position = Vector2( 176, 186 )
+position = Vector2( 175, 192 )
 action_hint = "left"
 
 [node name="BattleInputHintRight" parent="." index="9" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0.498039 )
-position = Vector2( 208, 186 )
+position = Vector2( 207, 192 )
 [connection signal="successful_hit" from="BrainBullet" to="." method="_on_BrainBullet_successful_hit"]
 [connection signal="successful_hit" from="BrainBullet2" to="." method="_on_BrainBullet_successful_hit"]
 [connection signal="successful_hit" from="BrainBullet3" to="." method="_on_BrainBullet_successful_hit"]
