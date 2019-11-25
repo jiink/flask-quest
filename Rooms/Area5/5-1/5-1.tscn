@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Music/goodvibes.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Music/goodvibes-battle.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.tmx" type="PackedScene" id=4]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/tree1_B.tscn" type="PackedScene" id=5]
@@ -18,6 +18,10 @@
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/plant3_B.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/plant2_A.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/plant1_A.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_A.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_C.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_B.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Rooms/Area5/Assets/canopy_shadow.png" type="Texture" id=22]
 
 [node name="5-1" index="0" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
@@ -85,7 +89,7 @@ position = Vector2( 564, 467 )
 position = Vector2( 462, 456 )
 
 [node name="tree3_B2" parent="YSort/Vegetation" index="19" instance=ExtResource( 9 )]
-position = Vector2( 638, 627 )
+position = Vector2( 780, 514 )
 
 [node name="plant5_B2" parent="YSort/Vegetation" index="20" instance=ExtResource( 11 )]
 position = Vector2( 319, 229 )
@@ -113,5 +117,123 @@ position = Vector2( 152, 256 )
 
 [node name="tree2_A3" parent="YSort/Vegetation" index="28" instance=ExtResource( 7 )]
 position = Vector2( 115, 249 )
+
+[node name="tree3_B3" parent="YSort/Vegetation" index="29" instance=ExtResource( 9 )]
+position = Vector2( 502, 706 )
+
+[node name="tree3_A3" parent="YSort/Vegetation" index="30" instance=ExtResource( 8 )]
+position = Vector2( 423, 628 )
+
+[node name="tree3_A4" parent="YSort/Vegetation" index="31" instance=ExtResource( 8 )]
+position = Vector2( 296, 694 )
+
+[node name="tree1_B2" parent="YSort/Vegetation" index="32" instance=ExtResource( 5 )]
+position = Vector2( 115, 767 )
+
+[node name="tree1_A3" parent="YSort/Vegetation" index="33" instance=ExtResource( 10 )]
+position = Vector2( 55, 841 )
+
+[node name="tree1_C3" parent="YSort/Vegetation" index="34" instance=ExtResource( 6 )]
+position = Vector2( 87, 896 )
+
+[node name="tree2_A4" parent="YSort/Vegetation" index="35" instance=ExtResource( 7 )]
+position = Vector2( 30, 1095 )
+
+[node name="tree2_A5" parent="YSort/Vegetation" index="36" instance=ExtResource( 7 )]
+position = Vector2( 100, 1011 )
+
+[node name="tree1_A4" parent="YSort/Vegetation" index="37" instance=ExtResource( 10 )]
+position = Vector2( 156, 1016 )
+
+[node name="tree1_B3" parent="YSort/Vegetation" index="38" instance=ExtResource( 5 )]
+position = Vector2( 8, 924 )
+
+[node name="tree1_A5" parent="YSort/Vegetation" index="39" instance=ExtResource( 10 )]
+position = Vector2( -33, 1035 )
+
+[node name="tree3_A5" parent="YSort/Vegetation" index="40" instance=ExtResource( 8 )]
+position = Vector2( -96, 1070 )
+
+[node name="plant4_A4" parent="YSort/Vegetation" index="41" instance=ExtResource( 14 )]
+position = Vector2( 275, 1010 )
+
+[node name="tree3_A6" parent="YSort/Vegetation" index="42" instance=ExtResource( 8 )]
+position = Vector2( 352, 979 )
+
+[node name="tree3_B4" parent="YSort/Vegetation" index="43" instance=ExtResource( 9 )]
+position = Vector2( 756, 1111 )
+
+[node name="tree2_A6" parent="YSort/Vegetation" index="44" instance=ExtResource( 7 )]
+position = Vector2( 14, 1317 )
+
+[node name="tree2_A7" parent="YSort/Vegetation" index="45" instance=ExtResource( 7 )]
+position = Vector2( 69, 1335 )
+
+[node name="tree2_A8" parent="YSort/Vegetation" index="46" instance=ExtResource( 7 )]
+position = Vector2( 98, 1304 )
+
+[node name="tree2_A9" parent="YSort/Vegetation" index="47" instance=ExtResource( 7 )]
+position = Vector2( 149, 1329 )
+
+[node name="tree2_A10" parent="YSort/Vegetation" index="48" instance=ExtResource( 7 )]
+position = Vector2( 116, 1425 )
+
+[node name="tree2_A11" parent="YSort/Vegetation" index="49" instance=ExtResource( 7 )]
+position = Vector2( 155, 1500 )
+
+[node name="tree3_A7" parent="YSort/Vegetation" index="50" instance=ExtResource( 8 )]
+position = Vector2( 268, 1626 )
+
+[node name="tree3_A8" parent="YSort/Vegetation" index="51" instance=ExtResource( 8 )]
+position = Vector2( 332, 1603 )
+
+[node name="tree3_B5" parent="YSort/Vegetation" index="52" instance=ExtResource( 9 )]
+position = Vector2( 116, 1604 )
+
+[node name="tree1_B4" parent="YSort/Vegetation" index="53" instance=ExtResource( 5 )]
+position = Vector2( 54, 1471 )
+
+[node name="tree1_A6" parent="YSort/Vegetation" index="54" instance=ExtResource( 10 )]
+position = Vector2( -94, 1335 )
+
+[node name="tree1_B5" parent="YSort/Vegetation" index="55" instance=ExtResource( 5 )]
+position = Vector2( -25, 1377 )
+
+[node name="Cabins" type="YSort" parent="YSort" index="2"]
+editor/display_folded = true
+
+[node name="cabin1_A" parent="YSort/Cabins" index="0" instance=ExtResource( 19 )]
+position = Vector2( 499, 1129 )
+
+[node name="cabin1_C" parent="YSort/Cabins" index="1" instance=ExtResource( 20 )]
+position = Vector2( 636, 1459 )
+
+[node name="cabin1_B" parent="YSort/Cabins" index="2" instance=ExtResource( 21 )]
+position = Vector2( 385, 1475 )
+
+[node name="cabin1_B2" parent="YSort/Cabins" index="3" instance=ExtResource( 21 )]
+position = Vector2( 968, 1092 )
+
+[node name="cabin1_A2" parent="YSort/Cabins" index="4" instance=ExtResource( 19 )]
+position = Vector2( 689, 1263 )
+
+[node name="cabin1_A3" parent="YSort/Cabins" index="5" instance=ExtResource( 19 )]
+position = Vector2( 691, 967 )
+
+[node name="cabin1_C2" parent="YSort/Cabins" index="6" instance=ExtResource( 20 )]
+position = Vector2( 1137, 798 )
+
+[node name="cabin1_A4" parent="YSort/Cabins" index="7" instance=ExtResource( 19 )]
+position = Vector2( 770, 785 )
+
+[node name="cabin1_A5" parent="YSort/Cabins" index="8" instance=ExtResource( 19 )]
+position = Vector2( 1149, 1493 )
+
+[node name="cabin1_A6" parent="YSort/Cabins" index="9" instance=ExtResource( 19 )]
+position = Vector2( 172, 1159 )
+
+[node name="canopy_shadow" type="Sprite" parent="." index="3"]
+position = Vector2( 515, 396 )
+texture = ExtResource( 22 )
 
 [editable path="HUD"]
