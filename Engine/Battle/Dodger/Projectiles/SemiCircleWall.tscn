@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/GenericProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/semicircle.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19, 37 )
+
+[node name="SemiCircleWall" instance=ExtResource( 1 )]
+position = Vector2( 19, 0 )
+
+[node name="bullet" parent="." index="0"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
+polygon = PoolVector2Array( -19, -38, -8, -36, 1, -32, 6, -28, 11, -23, 14, -18, 17, -11, 18, -7, 19, 0, 18, 7, 16, 14, 13, 20, 10, 24, 4, 30, -1, 33, -5, 35, -8, 36, -12, 37, -19, 38 )
