@@ -1,0 +1,22 @@
+[remap]
+
+importer="vnen.tiled_importer"
+type="PackedScene"
+path="res://.import/2-2.tmx-28528cad071498ad0a5609f1f69530c3.scn"
+
+[deps]
+
+source_file="res://Rooms/Area2/2-2/2-2.tmx"
+dest_files=[ "res://.import/2-2.tmx-28528cad071498ad0a5609f1f69530c3.scn" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+uv_clip=true
+image_flags=0
+collision_layer=1
+embed_internal_images=true
+save_tiled_properties=false
+add_background=true
+post_import_script=""
