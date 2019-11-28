@@ -66,7 +66,7 @@ func area_entered(area):
 #	var pstats = get_node("/root/PlayerStats")
 #	print("something was hit...")
 	
-	if area.get_parent().name == "GreenSprite" and type == GREEN and thingy.visible and not dfield.shielded:
+	if area.get_parent().name == "GreenSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
 #		if dfield:
 #			var bscene = dfield.get_parent()
 #		print("... it was green")
@@ -77,7 +77,7 @@ func area_entered(area):
 		if destructable:
 			destroy()
 			
-	elif area.get_parent().name == "OrangeSprite" and type == ORANGE and thingy.visible and not dfield.shielded:
+	elif area.get_parent().name == "OrangeSprite" and type != GREEN and thingy.visible and not dfield.shielded:
 #		print("... it was orange")
 		emit_signal("successful_hit", 2, damage_dealt)
 #		if dfield.get_parent():
