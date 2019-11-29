@@ -236,7 +236,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" groups=[
+[node name="1-1" index="0" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -542,9 +542,10 @@ __meta__ = {
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 566, 109 )
+position = Vector2( 224, 101 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
+editor/display_folded = true
 position = Vector2( 319, 104 )
 script = ExtResource( 26 )
 
@@ -837,7 +838,6 @@ position = Vector2( 168, -243 )
 position = Vector2( 504, -259 )
 
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
-editor/display_folded = true
 position = Vector2( 200, -162 )
 script = ExtResource( 51 )
 
@@ -846,6 +846,7 @@ shape = SubResource( 18 )
 
 [node name="HUD" parent="." index="10"]
 editor/display_folded = true
+[connection signal="animation_finished" from="MinimanDoorEvent/AnimationPlayer" to="MinimanDoorEvent" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="ElevatorRoom/TriggerField" to="ElevatorRoom" method="_on_TriggerField_body_entered"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 

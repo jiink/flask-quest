@@ -20,7 +20,7 @@ func update_lab_door():
 		lab_door.get_node("closed").visible = false
 		lab_door.get_node("open").visible = true
 		lab_door.get_node("ClosedCollision/CollisionShape2D").disabled = true
-		if $YSort/Miniman:
+		if get_node("YSort").has_node("Miniman"):
 			$YSort/Miniman.queue_free()
 	else:
 		lab_door.get_node("closed").visible = true
@@ -28,6 +28,8 @@ func update_lab_door():
 		lab_door.get_node("ClosedCollision/CollisionShape2D").disabled = false
 		
 func set_orange_state(i):
+	print("setting orange state from %s to %s" %[orange_state, i])
+	orange_state = i
 	var disabled_orange = $YSort/Props/tableL/OrangeDisabled
 	var npc_orange = $YSort/OrangeNPC
 	if disabled_orange:
@@ -41,11 +43,13 @@ func set_orange_state(i):
 		1:
 			npc_orange.visible = true
 			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", false)
+			npc_orange.get_node("Area2D/CollisionShape2D").set_deferred("disabled", false)
 			if disabled_orange: disabled_orange.queue_free()
 			PlayerStats.party_members = []
 		0:
 			npc_orange.visible = false
 			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", true)
+			npc_orange.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true)
 			if disabled_orange: disabled_orange.queue_free()
 			var orange_follower = preload("res://Player/Orange.tscn").instance()
 			$YSort.add_child(orange_follower)

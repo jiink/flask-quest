@@ -1,10 +1,14 @@
 extends Node2D
 
+var already_started = false
+
 func interact():
 	
 	if not get_owner().lab_door_open:
 		if ItemManager.inventory.has("miniman_item"):
-			DiagHelper.start_talk(self, "IfYesMiniman")
+			if not already_started:
+				DiagHelper.start_talk(self, "IfYesMiniman")
+				already_started = true
 		else:
 			DiagHelper.start_talk(self, "IfNoMiniman")
 
