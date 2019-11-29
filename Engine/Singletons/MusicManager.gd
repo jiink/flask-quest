@@ -42,7 +42,7 @@ func _ready():
 		current_level_music = preload("res://Engine/zzzzzz.ogg")
 	set_main_streams(current_level_music)
 	
-	
+	global.connect("scene_changed", self, "on_scene_change")
 
 #	focus.play()
 	play_focus()
@@ -179,4 +179,14 @@ func get_track_aftermath_length(path_name):
 			return aftermath_lengths[key]
 	print("couldn't get aftermath length!")
 	return 0.0
+
+func on_scene_change():
+	current_level_music = get_tree().get_current_scene().get("level_music")
+	if current_level_music == null:
+		current_level_music = preload("res://Engine/zzzzzz.ogg")
+	set_main_streams(current_level_music)
 	
+	global.connect("scene_changed", self, "on_scene_change")
+
+	play_focus()
+	aftermath_length = get_track_aftermath_length(current_level_music.get_path())
