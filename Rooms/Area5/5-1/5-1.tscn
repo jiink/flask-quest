@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=2]
@@ -21,7 +21,10 @@
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_A.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_C.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_B.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Rooms/Area5/Assets/canopy_shadow.png" type="Texture" id=22]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/transformer_01.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/lamppost_01.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/lamppost_02.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Rooms/Area5/Assets/canopy_shadow.png" type="Texture" id=25]
 
 [node name="5-1" index="0" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
@@ -30,6 +33,7 @@ battle_music = ExtResource( 3 )
 [node name="5-1" parent="Tilemaps" index="0" instance=ExtResource( 4 )]
 
 [node name="Vegetation" type="YSort" parent="YSort" index="1"]
+editor/display_folded = true
 
 [node name="tree1_B" parent="YSort/Vegetation" index="0" instance=ExtResource( 5 )]
 position = Vector2( 491, 273 )
@@ -232,8 +236,85 @@ position = Vector2( 1149, 1493 )
 [node name="cabin1_A6" parent="YSort/Cabins" index="9" instance=ExtResource( 19 )]
 position = Vector2( 172, 1159 )
 
+[node name="Industrial" type="YSort" parent="YSort" index="3"]
+
+[node name="transformer_01" parent="YSort/Industrial" index="0" instance=ExtResource( 22 )]
+position = Vector2( 887, 769 )
+
+[node name="transformer_02" parent="YSort/Industrial" index="1" instance=ExtResource( 22 )]
+position = Vector2( 375, 1221 )
+
+[node name="transformer_03" parent="YSort/Industrial" index="2" instance=ExtResource( 22 )]
+position = Vector2( 289, -88 )
+
+[node name="transformer_04" parent="YSort/Industrial" index="3" instance=ExtResource( 22 )]
+position = Vector2( 329, -88 )
+
+[node name="Lampposts" type="YSort" parent="YSort" index="4"]
+editor/display_folded = true
+
+[node name="lamppost_01" parent="YSort/Lampposts" index="0" instance=ExtResource( 23 )]
+position = Vector2( 992, 821 )
+
+[node name="lamppost_02" parent="YSort/Lampposts" index="1" instance=ExtResource( 24 )]
+position = Vector2( 1037, 1508 )
+
+[node name="lamppost_03" parent="YSort/Lampposts" index="2" instance=ExtResource( 23 )]
+position = Vector2( 526, 1510 )
+
+[node name="lamppost_04" parent="YSort/Lampposts" index="3" instance=ExtResource( 23 )]
+position = Vector2( 283, 1157 )
+
+[node name="lamppost_05" parent="YSort/Lampposts" index="4" instance=ExtResource( 23 )]
+position = Vector2( 716, 1139 )
+
+[node name="lamppost_06" parent="YSort/Lampposts" index="5" instance=ExtResource( 23 )]
+position = Vector2( 1114, 1095 )
+
+[node name="lamppost_07" parent="YSort/Lampposts" index="6" instance=ExtResource( 23 )]
+position = Vector2( 584, 904 )
+
+[node name="lamppost_08" parent="YSort/Lampposts" index="7" instance=ExtResource( 23 )]
+position = Vector2( 388, 757 )
+
+[node name="lamppost_09" parent="YSort/Lampposts" index="8" instance=ExtResource( 23 )]
+position = Vector2( 1368, 990 )
+
+[node name="lamppost_10" parent="YSort/Lampposts" index="9" instance=ExtResource( 24 )]
+position = Vector2( 1434, 1356 )
+
+[node name="lamppost_11" parent="YSort/Lampposts" index="10" instance=ExtResource( 23 )]
+position = Vector2( 1222, 496 )
+
+[node name="lamppost_12" parent="YSort/Lampposts" index="11" instance=ExtResource( 23 )]
+position = Vector2( 1342, 547 )
+
+[node name="lamppost_13" parent="YSort/Lampposts" index="12" instance=ExtResource( 23 )]
+position = Vector2( 1390, 285 )
+
+[node name="lamppost_14" parent="YSort/Lampposts" index="13" instance=ExtResource( 23 )]
+position = Vector2( 1485, 350 )
+
+[node name="lamppost_15" parent="YSort/Lampposts" index="14" instance=ExtResource( 23 )]
+position = Vector2( 1625, 166 )
+
+[node name="lamppost_16" parent="YSort/Lampposts" index="15" instance=ExtResource( 23 )]
+position = Vector2( 1009, 542 )
+
+[node name="lamppost_17" parent="YSort/Lampposts" index="16" instance=ExtResource( 23 )]
+position = Vector2( 168, 558 )
+
+[node name="lamppost_18" parent="YSort/Lampposts" index="17" instance=ExtResource( 23 )]
+position = Vector2( 505, 112 )
+
+[node name="lamppost_19" parent="YSort/Lampposts" index="18" instance=ExtResource( 23 )]
+position = Vector2( 391, 49 )
+
+[node name="lamppost_20" parent="YSort/Lampposts" index="19" instance=ExtResource( 23 )]
+position = Vector2( 840, 6 )
+
 [node name="canopy_shadow" type="Sprite" parent="." index="3"]
 position = Vector2( 515, 396 )
-texture = ExtResource( 22 )
+texture = ExtResource( 25 )
 
 [editable path="HUD"]
