@@ -68,6 +68,11 @@ func start_brainjar_event():
 	m.get_node("Tween").start()
 	yield(get_tree().create_timer(0.1), "timeout")
 	DiagHelper.start_talk(brainjar_npc)
+	# get the miniman item equipped
+	
+	ItemManager.inventory.remove("miniman_item")
+	ItemManager.loadout.remove("miniman_item")
+	ItemManager.loadout[0] = "miniman_item"
 
 func on_brainjar_defeat():
 	set_orange_state(0)
