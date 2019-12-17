@@ -8,7 +8,7 @@ data = {
 "green_hp": 50,
 "green_max_hp": 50,
 "inventory": [ "stick", "stick" ],
-"loadout": [ "base_potion", "fire_chemical", "base_potion" ],
+"loadout": [ "base_chemical", "fire_chemical",  ],
 "orange_hp": 50,
 "orange_max_hp": 50,
 "player_spawn_pos": Vector2( 321.071, 83.3299 ),

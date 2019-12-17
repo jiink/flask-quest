@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base_potion_anim.png-9470b175267405e9fb6255f3b41f72b6.stex"
+path="res://.import/miniman_tube.png-a9cdbc41c82153d4f23a17fd97ce8b03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Chemicals/base_potion/base_potion_anim.png"
-dest_files=[ "res://.import/base_potion_anim.png-9470b175267405e9fb6255f3b41f72b6.stex" ]
+source_file="res://Items/Chemicals/miniman_item/miniman_tube.png"
+dest_files=[ "res://.import/miniman_tube.png-a9cdbc41c82153d4f23a17fd97ce8b03.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

@@ -9,8 +9,8 @@ var items = {
 		'name': 'Stone',
 		'desc': "A frozen mineral soup.",
 		},
-	'base_potion': {
-		'name': 'Base Potion',
+	'base_chemical': {
+		'name': 'Base Chemical',
 		'desc': "You shouldn't have this.",
 		'equippable': true,
 		},
@@ -27,6 +27,7 @@ var items = {
 	'miniman_item': {
 		'name': 'Miniman',
 		'desc': 'You feel an urge to slam this thing into the lab doors.',
+		'equippable': true,
 		'droppable' : false,
 		},
 	}

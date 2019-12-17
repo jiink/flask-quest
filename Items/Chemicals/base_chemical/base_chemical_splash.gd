@@ -11,7 +11,7 @@ export(float) var anim_speed
 var t = 1
 var done = false
 var already_hit = false
-onready var sprite = get_node("base_potion_anim")
+onready var sprite = get_node("BaseChemicalAnim")
 
 func _ready():
 	connect("hit_foe", get_node(".."), "chem_hit_foe")

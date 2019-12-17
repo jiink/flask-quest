@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basePotionBattle.png-069d2780c42fc5eaa91a0ec5aec6a004.stex"
+path="res://.import/base_chemical_liquid.png-002faf2263dc247597e1af7d9edad981.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/basePotionBattle.png"
-dest_files=[ "res://.import/basePotionBattle.png-069d2780c42fc5eaa91a0ec5aec6a004.stex" ]
+source_file="res://Items/Chemicals/base_chemical/base_chemical_liquid.png"
+dest_files=[ "res://.import/base_chemical_liquid.png-002faf2263dc247597e1af7d9edad981.stex" ]
 
 [params]
 

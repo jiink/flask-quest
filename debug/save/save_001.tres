@@ -12,7 +12,7 @@ data = {
 "green_hp": 100,
 "green_max_hp": 100,
 "inventory": [  ],
-"loadout": [ "base_potion", "fire_chemical", "base_potion" ],
+"loadout": [ "base_chemical", "fire_chemical", ],
 "orange_hp": 100,
 "orange_max_hp": 100,
 "party_members": [],
