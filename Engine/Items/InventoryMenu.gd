@@ -183,7 +183,11 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("cancel") and get_node("../Diag").visible == false:
 			if not $InfoBar.visible:
-				set_visible(!visible)
+				if not visible:
+					if not get_tree().get_nodes_in_group("Player")[0].frozen:
+						set_visible(true)
+				else:
+					set_visible(false)
 				get_tree().get_nodes_in_group("Player")[0].frozen = visible
 				update_list()
 			else:
