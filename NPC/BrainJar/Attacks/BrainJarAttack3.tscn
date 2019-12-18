@@ -49,3 +49,9 @@ action_hint = "confirm"
 
 [node name="BrainWaveEmitter" parent="." index="8" instance=ExtResource( 6 )]
 position = Vector2( 19, 107 )
+
+[node name="InitialWait" type="Timer" parent="." index="10"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="InitialWait" to="." method="_on_InitialWait_timeout"]

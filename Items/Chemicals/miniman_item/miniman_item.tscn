@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Items/Chemicals/base_chemical/base_chemical.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/Chemicals/miniman_item/miniman_tube.png" type="Texture" id=2]
+[ext_resource path="res://Items/Chemicals/miniman_item/SayScript.gd" type="Script" id=3]
+[ext_resource path="res://Engine/Battle/SpeechBubble.tscn" type="PackedScene" id=4]
 
 [node name="MinimanItem" instance=ExtResource( 1 )]
 damage = 16
@@ -11,3 +13,19 @@ modulate = Color( 0, 0.956863, 0.976471, 1 )
 
 [node name="Tube" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="SayScript" type="Node2D" parent="." index="2"]
+script = ExtResource( 3 )
+
+[node name="DestroyReminder" parent="SayScript" index="0" instance=ExtResource( 4 )]
+margin_left = -67.0
+margin_top = -41.0
+margin_right = 266.0
+margin_bottom = -16.0
+text = "Hey, remember when
+you tried to destroy me?"
+
+[node name="AnimationPlayer" parent="SayScript/DestroyReminder" index="0"]
+autoplay = ""
+
+[editable path="SayScript/DestroyReminder"]

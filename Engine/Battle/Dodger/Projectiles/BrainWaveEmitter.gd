@@ -2,8 +2,8 @@ extends "res://Engine/Battle/Dodger/Projectiles/GenericProjectile.gd"
 
 onready var wave_scene = preload("res://Engine/Battle/Dodger/Projectiles/BrainWave.tscn")
 
-func _ready():
-	emit_wave()
+#func _ready():
+#	emit_wave()
 	
 func _on_WaveTimer_timeout():
 	emit_wave()

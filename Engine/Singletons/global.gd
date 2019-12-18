@@ -78,7 +78,11 @@ func get_dodger(which_player): # 1 for green, 2 for oragne
 		return null
 		
 
-
+func get_battle_scene():
+	if get_tree().get_current_scene().has_node("BattleScene"):
+		return get_tree().get_current_scene().get_node("BattleScene");
+	return null
+	
 #	initial_enemies = ["Boque", "Boque", "Boque"]
 	#print(get_tree().get_current_scene())
 	#print(get_tree().get_current_scene().get_path())
