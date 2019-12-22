@@ -383,7 +383,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="2-1" index="0" instance=ExtResource( 1 )]
+[node name="2-1" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
 battle_music = ExtResource( 3 )
 
