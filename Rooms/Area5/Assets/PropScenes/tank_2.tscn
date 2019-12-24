@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Rooms/Area5/Assets/transformer_01.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area5/Assets/tank_2.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18, 9 )
+extents = Vector2( 25, 20 )
 
-[node name="transformer_01" type="Sprite"]
+[node name="tank_2" type="Sprite"]
 texture = ExtResource( 1 )
-offset = Vector2( 0, -16 )
+offset = Vector2( 0, -11 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

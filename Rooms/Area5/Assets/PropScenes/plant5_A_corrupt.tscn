@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Rooms/Area5/Assets/transformer_01.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area5/Assets/plant5_A_corrupt.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18, 9 )
+extents = Vector2( 10, 6 )
 
-[node name="transformer_01" type="Sprite"]
+[node name="plant5_A_corrupt" type="Sprite"]
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 
