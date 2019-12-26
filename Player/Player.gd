@@ -25,7 +25,7 @@ func _ready():
 	for i in range(24):
 		position_history.append(position)
 		in_water_history.append(in_water)
-	
+#	print("UH: %s" % Engine.get_frames_per_second())
 	
 	
 func _process(delta):	
@@ -56,12 +56,12 @@ func _process(delta):
 		$AnimatedSprite.frame = 0
 	
 	
-	if position != previous_position:
-		position_history.pop_back()
-		position_history.push_front(position)
-		
-		in_water_history.pop_back()
-		in_water_history.push_front(in_water)
+#	if position != previous_position: 
+#		position_history.pop_back()
+#		position_history.push_front(position)
+#
+#		in_water_history.pop_back()
+#		in_water_history.push_front(in_water)
 	
 	
 func get_inputs():
@@ -150,3 +150,14 @@ func do_floaty_text(s):
 	var floaty_text = preload("res://Engine/FloatyText.tscn").instance()
 	add_child(floaty_text)
 	floaty_text.text = s
+
+
+func _on_HistoryTimer_timeout():
+	if position != previous_position:
+		position_history.pop_back()
+		position_history.push_front(position)
+		
+		in_water_history.pop_back()
+		in_water_history.push_front(in_water)
+		
+	$HistoryTimer.start(0.1)#1/Engine.get_frames_per_second())

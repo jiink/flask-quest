@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
-var follow_distance = 23
+var follow_distance = 5
 var previous_position = Vector2(0.0, 0.0)
 var motion
 var direction = "down"
 
 var in_water = false
+
+#var t = 0
 
 onready var leader = get_node("../Player")
 
@@ -15,8 +17,12 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	previous_position = position
-	position = leader.position_history[follow_distance]
+#	previous_position = position
+#	position = leader.position_history[follow_distance]
+#	t += 1
+	$FollowTween.interpolate_property(self, "position", null, leader.position_history[follow_distance], 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+
+	$FollowTween.start()
 	
 	motion = Vector2(make_one(position.x - previous_position.x), make_one(position.y - previous_position.y))
 	
@@ -37,10 +43,11 @@ func _process(delta):
 			direction = "left"
 		Vector2(-1, -1):
 			direction = "leftup"
-	
+#	if t%20 > t%15 : print($AnimatedSprite.playing)
 	$AnimatedSprite.animation = direction
 	
 	$AnimatedSprite.speed_scale = 1.3
+#	if t%20 == 0:
 	if motion.length() > 0:
 		$AnimatedSprite.playing = true
 	else:
@@ -49,6 +56,8 @@ func _process(delta):
 
 	in_water = leader.in_water_history[follow_distance]
 	set_in_water(in_water)
+	
+	previous_position = position
 
 func set_in_water(setting):
 	in_water = setting
