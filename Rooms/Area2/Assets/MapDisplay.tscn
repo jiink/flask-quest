@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Rooms/Area2/Assets/MapDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Rooms/Area2/Assets/MapDisplayLanetta.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "turn_on"
@@ -69,19 +70,8 @@ color = Color( 0.286275, 0.027451, 0.027451, 1 )
 visible = false
 position = Vector2( 192, 108 )
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DisplayedMap"]
-margin_left = -168.967
-margin_top = -95.5155
-margin_right = 181.033
-margin_bottom = 96.4845
-color = Color( 0.72549, 0.72549, 0.345098, 0.741176 )
-
-[node name="Label" type="Label" parent="CanvasLayer/DisplayedMap"]
-margin_left = -165.967
-margin_top = -22.5155
-margin_right = 172.033
-margin_bottom = -8.5155
-text = "MAP MAP MAP MAP MAP M AP MA MAP MAP MAPM "
+[node name="MapDisplayLanetta" type="Sprite" parent="CanvasLayer/DisplayedMap"]
+texture = ExtResource( 2 )
 
 [node name="LoginScreen" type="Node2D" parent="CanvasLayer"]
 position = Vector2( 192, 108 )
