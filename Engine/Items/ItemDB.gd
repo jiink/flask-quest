@@ -30,4 +30,9 @@ var items = {
 		'equippable': true,
 		'droppable' : false,
 		},
+	'map_login': {
+		'name': 'Map Login Credentials',
+		'desc': 'Use this to log into the Map Machine.',
+		'droppable' : false,
+		},
 	}
