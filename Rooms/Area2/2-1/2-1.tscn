@@ -446,6 +446,7 @@ no_face = true
 args = [  ]
 
 [node name="MalusEntrance" type="Node2D" parent="." index="3"]
+editor/display_folded = true
 position = Vector2( 1872, -1232 )
 script = ExtResource( 10 )
 
@@ -1180,15 +1181,20 @@ script = ExtResource( 78 )
 
 [node name="DialogueTree" parent="YSort/NPC/MalusHinter" index="3" instance=ExtResource( 8 )]
 
-[node name="DiagPiece" parent="YSort/NPC/MalusHinter/DialogueTree" index="0" instance=ExtResource( 9 )]
+[node name="ToGiveCreds" parent="YSort/NPC/MalusHinter/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "I'm supposed to tell you about Stercus."
 text_delay = 0.0
 args = [  ]
 
-[node name="DiagPiece" parent="YSort/NPC/MalusHinter/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+[node name="DiagPiece" parent="YSort/NPC/MalusHinter/DialogueTree/ToGiveCreds" index="0" instance=ExtResource( 9 )]
 message = "He's in Malus, so here's something so you can use the map machine to find out where that is."
 text_delay = 0.0
 function = "give_credentials"
+args = [  ]
+
+[node name="AlreadyHasCreds" parent="YSort/NPC/MalusHinter/DialogueTree" index="1" instance=ExtResource( 9 )]
+message = "Go on, the map machine is just southwest of here."
+text_delay = 0.0
 args = [  ]
 
 [node name="MapMachine" parent="YSort" index="10" instance=ExtResource( 79 )]
