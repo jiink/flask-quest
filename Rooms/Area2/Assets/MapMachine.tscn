@@ -78,11 +78,11 @@ position = Vector2( 0, 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Interaction" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 0, 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
 shape = SubResource( 4 )
 
 [node name="OnArea" type="Area2D" parent="."]
