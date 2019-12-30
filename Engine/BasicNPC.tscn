@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Engine/basic_npc.png" type="Texture" id=1]
+[ext_resource path="res://Engine/BasicNPC.gd" type="Script" id=2]
+[ext_resource path="res://Effects/ShadowRect.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 5, 2 )
+
+[node name="BasicNPC" type="Sprite"]
+position = Vector2( 0, -9 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 23 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 23 )
+
+[node name="ShadowRect" parent="." instance=ExtResource( 3 )]
+show_behind_parent = true
+margin_left = -5.0
+margin_top = 8.0
+margin_right = 4.0
+margin_bottom = 11.0
