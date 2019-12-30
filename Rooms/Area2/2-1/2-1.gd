@@ -6,6 +6,9 @@ var SAVE_KEY = "2-1_"
 
 enum { SIGN_CLOSED, SIGN_OPEN }
 
+func _ready():
+	$YSort/MapMachine.connect("map_machine_opened", self, "_on_map_machine_opened")
+
 func save(save_game):
 	save_game.data[SAVE_KEY + "malus_door_locked"] = malus_door_locked
 	
@@ -25,3 +28,11 @@ func update_malus_door(state):
 		$MalusEntrance/DoorSign.frame = SIGN_OPEN
 		$MalusEntrance/StaticBody2D/CollisionShape2D.disabled = true
 		$MalusEntrance/Area2D/CollisionShape2D.disabled = true
+		# hey why isnt that working, screw it just blow it up
+		$MalusEntrance/StaticBody2D.queue_free()
+		$MalusEntrance/Area2D.queue_free()
+
+func _on_map_machine_opened():
+	# now that the player viewed the map machine, unlock the doors to malus
+	update_malus_door(false)
+

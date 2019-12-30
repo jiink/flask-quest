@@ -1,10 +1,13 @@
 extends Sprite
 
+signal map_machine_opened
+
+
 func interact():
 #	if ItemManager.inventory.find("map_login") >= 0:
 	if "map_login" in ItemManager.inventory:
-		print("open the map!") # open the map
-		# here we will open the map:
+		emit_signal("map_machine_opened")
+		
 		var map_scene = load("res://Rooms/Area2/Assets/MapDisplay.tscn")
 		map_scene = map_scene.instance()
 		get_owner().get_node("HUD").add_child(map_scene)
