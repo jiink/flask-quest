@@ -149,7 +149,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4.2, 4.6, 4.8, 5 ),
 "transitions": PoolRealArray( 1, 2.46229, 0.258816, 2.46229, 1 ),
 "update": 0,
-"values": [ Vector2( 1e-005, 0.412 ), Vector2( 1e-005, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
+"values": [ Vector2( 1e-05, 0.412 ), Vector2( 1e-05, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ScenePortal:monitoring")
@@ -505,7 +505,7 @@ shape = SubResource( 5 )
 
 [node name="DoorLight" type="Light2D" parent="ElevatorRoom" index="5"]
 position = Vector2( 1, 30.5883 )
-scale = Vector2( 1e-005, 0.412 )
+scale = Vector2( 1e-05, 0.412 )
 texture = ExtResource( 22 )
 offset = Vector2( 0, -31 )
 color = Color( 1, 0.976471, 0.423529, 1 )
@@ -545,7 +545,6 @@ position = Vector2( 451, -354 )
 position = Vector2( 224, 101 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
-editor/display_folded = true
 position = Vector2( 319, 104 )
 script = ExtResource( 26 )
 
@@ -554,9 +553,9 @@ position = Vector2( -1, -9 )
 frames = SubResource( 7 )
 flip_h = true
 
-[node name="Area2D" type="Area2D" parent="YSort/OrangeNPC" index="1"]
+[node name="Interaction" type="Area2D" parent="YSort/OrangeNPC" index="1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeNPC/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeNPC/Interaction" index="0"]
 shape = SubResource( 8 )
 
 [node name="DialogueTree" parent="YSort/OrangeNPC" index="2" instance=ExtResource( 29 )]
@@ -614,10 +613,10 @@ margin_right = -7.0
 margin_bottom = -4.0
 color = Color( 0.964706, 0.560784, 0.192157, 1 )
 
-[node name="Area2D" type="Area2D" parent="YSort/Props/tableL/OrangeDisabled" index="1"]
+[node name="Interaction" type="Area2D" parent="YSort/Props/tableL/OrangeDisabled" index="1"]
 position = Vector2( -13, -7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/tableL/OrangeDisabled/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/tableL/OrangeDisabled/Interaction" index="0"]
 shape = SubResource( 10 )
 
 [node name="DialogueTree" parent="YSort/Props/tableL/OrangeDisabled" index="2" instance=ExtResource( 29 )]
@@ -657,11 +656,11 @@ texture = ExtResource( 41 )
 visible = false
 texture = ExtResource( 42 )
 
-[node name="Area2D" type="Area2D" parent="YSort/Props/LabDoor" index="2"]
+[node name="Interaction" type="Area2D" parent="YSort/Props/LabDoor" index="2"]
 editor/display_folded = true
 position = Vector2( 0, -3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/Interaction" index="0"]
 shape = SubResource( 11 )
 
 [node name="DialogueTree" parent="YSort/Props/LabDoor" index="3" instance=ExtResource( 29 )]
@@ -730,7 +729,7 @@ position = Vector2( -1, 152 )
 [node name="DoorToElev" parent="YSort/Props" index="6" instance=ExtResource( 43 )]
 position = Vector2( 352, 103 )
 
-[node name="Area2D" type="CollisionShape2D" parent="YSort/Props/DoorToElev" index="0"]
+[node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorToElev" index="0"]
 shape = SubResource( 14 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorToElev" index="1"]
@@ -739,7 +738,7 @@ position = Vector2( 168, 1 )
 [node name="DoorFromElev" parent="YSort/Props" index="7" instance=ExtResource( 43 )]
 position = Vector2( 352, 103 )
 
-[node name="Area2D" type="CollisionShape2D" parent="YSort/Props/DoorFromElev" index="0"]
+[node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorFromElev" index="0"]
 position = Vector2( 146, 1 )
 shape = SubResource( 14 )
 
@@ -785,11 +784,11 @@ shape = SubResource( 15 )
 [node name="Position2D" type="Position2D" parent="YSort/Elevator/PositionPortal" index="1"]
 position = Vector2( 212, 265 )
 
-[node name="Area2D" type="Area2D" parent="YSort/Elevator" index="5"]
+[node name="Interaction" type="Area2D" parent="YSort/Elevator" index="5"]
 visible = false
 position = Vector2( 0, 8 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="YSort/Elevator/Area2D" index="0"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="YSort/Elevator/Interaction" index="0"]
 position = Vector2( 0, -6 )
 shape = SubResource( 15 )
 

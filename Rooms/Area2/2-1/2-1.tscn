@@ -397,7 +397,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="2-1" index="0" instance=ExtResource( 1 )]
+[node name="2-1" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Base" parent="Tilemaps" index="0" instance=ExtResource( 3 )]
