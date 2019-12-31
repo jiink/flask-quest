@@ -470,6 +470,8 @@ shape = SubResource( 2 )
 
 [node name="ScenePortal" parent="MalusEntrance" index="3" instance=ExtResource( 12 )]
 position = Vector2( 0, -6 )
+new_scene = "res://Rooms/Area4/4-1/4-1.tscn"
+player_new_position = Vector2( -673, 409 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MalusEntrance/ScenePortal" index="0"]
 shape = SubResource( 3 )
@@ -490,7 +492,7 @@ args = [  ]
 position = Vector2( 360, 57 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 986, -351 )
+position = Vector2( 1957, -1142 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 editor/display_folded = true
