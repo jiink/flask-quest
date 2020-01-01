@@ -93,7 +93,7 @@ shape = SubResource( 5 )
 [node name="DialogueTree" parent="." instance=ExtResource( 3 )]
 
 [node name="DiagPiece" parent="DialogueTree" instance=ExtResource( 4 )]
-message = "ONWGNISRJNGI"
-text_delay = 0.0
+message = "[Passcode required.]"
+text_delay = 0.03
 args = [  ]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
