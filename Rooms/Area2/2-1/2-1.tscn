@@ -94,7 +94,7 @@ extents = Vector2( 17, 3 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 20, 10 )
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=5]
 resource_name = "open"
 length = 5.0
 step = 0.02
@@ -134,21 +134,33 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
-[sub_resource type="Gradient" id=24]
+[sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 0.872794, 0.150375, 0.962402, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=25]
-gradient = SubResource( 24 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="Curve" id=26]
+[sub_resource type="Curve" id=8]
 max_value = 3.0
 _data = [ Vector2( 0, 0.3075 ), 0.0, -0.0915889, 0, 0, Vector2( 0.998497, 2.7705 ), 1.01583, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=27]
-curve = SubResource( 26 )
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=28]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 2
 emission_box_extents = Vector3( 4, 2.72, 1 )
 flag_disable_z = true
@@ -160,132 +172,13 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
-scale_curve = SubResource( 27 )
-color_ramp = SubResource( 25 )
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
 hue_variation = 0.01
 hue_variation_random = 1.0
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 7, 7 )
-
-[sub_resource type="Animation" id=5]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=7]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=8]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=9]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=10]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=11]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
 
 [sub_resource type="Animation" id=12]
 length = 20.0
@@ -339,7 +232,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-length = 2.0
+length = 20.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -349,14 +242,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 0 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=16]
-length = 2.0
+length = 20.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -366,10 +259,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 0 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -390,7 +283,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=18]
-length = 2.0
+length = 20.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -400,16 +293,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 0 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=19]
-length = 0.96
+length = 20.0
 loop = true
-step = 0.08
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -417,14 +310,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=20]
+length = 20.0
 loop = true
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -432,16 +327,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.0118032, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=21]
-length = 2.2
+length = 20.0
 loop = true
-step = 0.2
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -449,10 +344,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -469,10 +364,127 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
+"values": [ 4, 0 ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 0 ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 0 ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.96
+loop = true
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
+}
+
+[sub_resource type="Animation" id=27]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0118032, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 2.2
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
 "values": [ 0, 1 ]
 }
 
-[node name="2-1" index="0" groups=[
+[node name="2-1" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -573,15 +585,15 @@ position = Vector2( 1816, -1112 )
 position = Vector2( -8, 1 )
 texture = ExtResource( 13 )
 hframes = 20
-frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpecialManhole" index="1"]
-anims/open = SubResource( 23 )
+anims/open = SubResource( 5 )
 
 [node name="Particles2D" type="Particles2D" parent="SpecialManhole" index="2"]
 position = Vector2( 0, 6 )
+emitting = false
 lifetime = 2.0
-process_material = SubResource( 28 )
+process_material = SubResource( 10 )
 
 [node name="ExplodeSprite" type="Sprite" parent="SpecialManhole" index="3"]
 visible = false
@@ -595,10 +607,7 @@ new_scene = "res://Rooms/Area3/3-1/3-1.tscn"
 player_new_position = Vector2( -26, 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialManhole/PortalToSewer" index="0"]
-shape = SubResource( 29 )
-
-[node name="YSort" parent="." index="5"]
-editor/display_folded = true
+shape = SubResource( 11 )
 
 [node name="trashcan2" parent="YSort" index="0" instance=ExtResource( 15 )]
 position = Vector2( 360, 57 )
@@ -904,7 +913,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front/trafficlight_signal" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 5 )
+anims/trafficDefault = SubResource( 12 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front" index="2"]
 position = Vector2( 137, -73 )
@@ -927,7 +936,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 6 )
+anims/trafficDefault = SubResource( 13 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front2" index="2"]
 position = Vector2( -471, -73 )
@@ -937,7 +946,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 7 )
+anims/trafficDefault = SubResource( 14 )
 
 [node name="trafficlight_front3" parent="YSort/traffic_signals" index="2" instance=ExtResource( 36 )]
 editor/display_folded = true
@@ -951,7 +960,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 8 )
+anims/trafficDefault = SubResource( 15 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front3" index="2"]
 position = Vector2( -471, -73 )
@@ -961,7 +970,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 9 )
+anims/trafficDefault = SubResource( 16 )
 
 [node name="trafficlight_front4" parent="YSort/traffic_signals" index="3" instance=ExtResource( 36 )]
 editor/display_folded = true
@@ -975,7 +984,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 10 )
+anims/trafficDefault = SubResource( 17 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front4" index="2"]
 position = Vector2( -471, -73 )
@@ -985,7 +994,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 11 )
+anims/trafficDefault = SubResource( 18 )
 
 [node name="trafficlight_front5" parent="YSort/traffic_signals" index="4" instance=ExtResource( 36 )]
 editor/display_folded = true
@@ -999,7 +1008,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 12 )
+anims/trafficDefault = SubResource( 19 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front5" index="2"]
 position = Vector2( -471, -73 )
@@ -1009,7 +1018,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 13 )
+anims/trafficDefault = SubResource( 20 )
 
 [node name="trafficlight_front6" parent="YSort/traffic_signals" index="5" instance=ExtResource( 36 )]
 editor/display_folded = true
@@ -1023,7 +1032,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal3" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 14 )
+anims/trafficDefault = SubResource( 21 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front6" index="2"]
 position = Vector2( 137, -73 )
@@ -1033,7 +1042,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 15 )
+anims/default = SubResource( 22 )
 
 [node name="trafficlight_front7" parent="YSort/traffic_signals" index="6" instance=ExtResource( 36 )]
 editor/display_folded = true
@@ -1048,8 +1057,8 @@ frame = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal3" index="0"]
 autoplay = "default"
-anims/default = SubResource( 16 )
-anims/trafficDefault = SubResource( 17 )
+anims/default = SubResource( 23 )
+anims/trafficDefault = SubResource( 24 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front7" index="2"]
 position = Vector2( 137, -73 )
@@ -1059,7 +1068,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 18 )
+anims/default = SubResource( 25 )
 
 [node name="trafficlight_back" parent="YSort/traffic_signals" index="7" instance=ExtResource( 40 )]
 position = Vector2( 776, 344 )
@@ -1147,7 +1156,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_3/talkingreporter" index="0"]
 autoplay = "default"
-anims/default = SubResource( 19 )
+anims/default = SubResource( 26 )
 
 [node name="billboard_3_grid" type="Sprite" parent="YSort/signs/billboard_3" index="1"]
 position = Vector2( 0, 10 )
@@ -1177,7 +1186,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_4/impinge_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 20 )
+anims/default = SubResource( 27 )
 
 [node name="billboard_4_grid" type="Sprite" parent="YSort/signs/billboard_4" index="1"]
 position = Vector2( 0, -11 )
@@ -1209,7 +1218,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_1/snee_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 21 )
+anims/default = SubResource( 28 )
 
 [node name="billboard_1_grid" type="Sprite" parent="YSort/signs/billboard_1" index="1"]
 position = Vector2( 8, -1 )
@@ -1228,7 +1237,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_2/solis_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 22 )
+anims/default = SubResource( 29 )
 
 [node name="billboard_2_grid" type="Sprite" parent="YSort/signs/billboard_2" index="1"]
 position = Vector2( 9, 0 )
