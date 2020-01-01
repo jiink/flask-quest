@@ -186,7 +186,7 @@ func on_scene_change():
 		current_level_music = preload("res://Engine/zzzzzz.ogg")
 	set_main_streams(current_level_music)
 	
-	global.connect("scene_changed", self, "on_scene_change")
+#	global.connect("scene_changed", self, "on_scene_change")
 
 	play_focus()
 	aftermath_length = get_track_aftermath_length(current_level_music.get_path())
