@@ -22,4 +22,7 @@ data = {
 "test_SaveTester2": "blue",
 "test_SaveTester3": "blue",
 "2-1_malus_door_locked": false,
+"2-1_manhole_event_happened": false,
+"4-1_been_in_malus": false,
+
 }
