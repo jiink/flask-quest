@@ -1321,14 +1321,7 @@ args = [  ]
 [node name="MapMachine" parent="YSort" index="9" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
 
-<<<<<<< HEAD
 [node name="trafficlight_left_top" type="Sprite" parent="." index="8"]
-=======
-[node name="HUD" parent="." index="6"]
-editor/display_folded = true
-
-[node name="trafficlight_left_top" type="Sprite" parent="." index="7"]
->>>>>>> Made the sewers battle background the battle background in the sewers.
 position = Vector2( 774, 129 )
 texture = ExtResource( 81 )
 

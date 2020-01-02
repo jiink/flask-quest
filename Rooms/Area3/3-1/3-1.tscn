@@ -69,16 +69,10 @@ extents = Vector2( 42, 58 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 36, 22 )
 
-<<<<<<< HEAD
-[node name="3-1" instance=ExtResource( 1 )]
-level_music = ExtResource( 2 )
-battle_music = ExtResource( 3 )
-=======
 [node name="3-1" index="0" instance=ExtResource( 1 )]
 battle_bg = ExtResource( 2 )
 level_music = ExtResource( 3 )
 battle_music = ExtResource( 4 )
->>>>>>> Made the sewers battle background the battle background in the sewers.
 
 [node name="TileMap" type="TileMap" parent="Tilemaps" index="0"]
 tile_set = ExtResource( 5 )
