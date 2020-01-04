@@ -32,6 +32,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ Vector2( -8, -12 ), Vector2( -8, -10 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Icon:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
 
 [node name="BattleInputHint" type="Sprite"]
 texture = ExtResource( 1 )
@@ -58,3 +70,6 @@ color = Color( 0.541176, 0.905882, 0.905882, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flashing = SubResource( 1 )
+
+[node name="Icon" type="Sprite" parent="."]
+offset = Vector2( 0, 0.26082 )
