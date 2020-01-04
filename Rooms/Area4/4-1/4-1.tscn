@@ -21,8 +21,8 @@
 [ext_resource path="res://Rooms/Area4/4-1/LobbyElevators.gd" type="Script" id=19]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player/orange_sprites/orange_faces.png" type="Texture" id=21]
-[ext_resource path="res://Player/orange_sprites/orange_speech.wav" type="AudioStream" id=22]
-[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Player/orange_sprites/orange_speech.wav" type="AudioStream" id=23]
 [ext_resource path="res://Rooms/Area4/Assets/cubicle_chair.png" type="Texture" id=24]
 [ext_resource path="res://Rooms/Area4/Assets/stalls.png" type="Texture" id=25]
 [ext_resource path="res://Rooms/Area4/Assets/PropScenes/gold_urinal.tscn" type="PackedScene" id=26]
@@ -349,19 +349,19 @@ shape = SubResource( 9 )
 
 [node name="DialogueTree" parent="LobbyElevators" index="1" instance=ExtResource( 20 )]
 face_texture = ExtResource( 21 )
-voice_sound = ExtResource( 22 )
 
-[node name="DiagPiece" parent="LobbyElevators/DialogueTree" index="0" instance=ExtResource( 23 )]
+[node name="DiagPiece" parent="LobbyElevators/DialogueTree" index="0" instance=ExtResource( 22 )]
 message = "This elevator needs a keycard. It's for very important people only."
 text_delay = 0.0
 no_face = true
 args = [  ]
 
-[node name="DiagPiece2" parent="LobbyElevators/DialogueTree/DiagPiece" index="0" instance=ExtResource( 23 )]
+[node name="DiagPiece2" parent="LobbyElevators/DialogueTree/DiagPiece" index="0" instance=ExtResource( 22 )]
 message = "hey we should ask the receptionist for a card"
 text_delay = 0.0
 expression = "neutral"
 face_texture = ExtResource( 21 )
+voice_sound = ExtResource( 23 )
 function = "become_ready_for_keycard_asking"
 args = [  ]
 
@@ -458,12 +458,12 @@ shape = SubResource( 12 )
 [node name="DialogueTree" parent="YSort/Receptionist" index="2" instance=ExtResource( 20 )]
 voice_variation = 0.6
 
-[node name="Welcome" parent="YSort/Receptionist/DialogueTree" index="0" instance=ExtResource( 23 )]
+[node name="Welcome" parent="YSort/Receptionist/DialogueTree" index="0" instance=ExtResource( 22 )]
 message = "hi welcome to malus"
 text_delay = 0.0
 args = [  ]
 
-[node name="GoAway" parent="YSort/Receptionist/DialogueTree" index="1" instance=ExtResource( 23 )]
+[node name="GoAway" parent="YSort/Receptionist/DialogueTree" index="1" instance=ExtResource( 22 )]
 message = "i know what your'e thinking. no, exit the building now"
 text_delay = 0.0
 args = [  ]
@@ -498,7 +498,7 @@ anims/default = SubResource( 15 )
 
 [node name="DialogueTree" parent="YSort/StairGuard" index="4" instance=ExtResource( 20 )]
 
-[node name="DiagPiece" parent="YSort/StairGuard/DialogueTree" index="0" instance=ExtResource( 23 )]
+[node name="DiagPiece" parent="YSort/StairGuard/DialogueTree" index="0" instance=ExtResource( 22 )]
 message = "Sir, the escalator is OUT-``OF-``ORDER. You'll have to use the elevator."
 text_delay = 0.0
 args = [  ]
