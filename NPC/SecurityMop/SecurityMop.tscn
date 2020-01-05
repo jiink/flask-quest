@@ -24,6 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="SecurityMop" type="KinematicBody2D" groups=[
+"tick",
 "WorldFoes",
 ]]
 collision_mask = 32769

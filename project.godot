@@ -33,6 +33,7 @@ PlayerStats="*res://Engine/Singletons/PlayerStats.gd"
 MusicManager="*res://Engine/Singletons/MusicManager.tscn"
 DiagHelper="*res://Engine/dialogue/DiagHelper.gd"
 Debug="*res://Engine/Debug/Debug.gd"
+TickManager="*res://Engine/Singletons/TickManager.tscn"
 
 [debug]
 
