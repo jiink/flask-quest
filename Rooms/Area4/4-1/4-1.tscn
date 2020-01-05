@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area4/4-1/4-1.gd" type="Script" id=2]
@@ -20,38 +20,36 @@
 [ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area4/4-1/LobbyElevators.gd" type="Script" id=19]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Player/orange_sprites/orange_faces.png" type="Texture" id=21]
-[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Player/orange_sprites/orange_speech.wav" type="AudioStream" id=23]
-[ext_resource path="res://Rooms/Area4/Assets/cubicle_chair.png" type="Texture" id=24]
-[ext_resource path="res://Rooms/Area4/Assets/stalls.png" type="Texture" id=25]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/gold_urinal.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Rooms/Area4/Assets/receptionist.png" type="Texture" id=27]
-[ext_resource path="res://Rooms/Area4/Assets/Receptionist.gd" type="Script" id=28]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/lobbydesk.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Engine/BasicNPC.tscn" type="PackedScene" id=30]
-[ext_resource path="res://NPC/BigSecurityGuard/big_guard_dark.png" type="Texture" id=31]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/cubicles.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Rooms/Area4/Assets/cubicle_monitor_straight.png" type="Texture" id=33]
-[ext_resource path="res://Rooms/Area4/Assets/cubicle_monitor_curved.png" type="Texture" id=34]
-[ext_resource path="res://Rooms/Area4/Assets/papers2.png" type="Texture" id=35]
-[ext_resource path="res://Rooms/Area4/Assets/papers4.png" type="Texture" id=36]
-[ext_resource path="res://Rooms/Area4/Assets/papers1.png" type="Texture" id=37]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_meeting.tscn" type="PackedScene" id=38]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_circle.tscn" type="PackedScene" id=39]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_pill.tscn" type="PackedScene" id=40]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_horseshoe.tscn" type="PackedScene" id=41]
-[ext_resource path="res://Rooms/Area4/Assets/blueprints.png" type="Texture" id=42]
-[ext_resource path="res://Rooms/Area4/Assets/papers3.png" type="Texture" id=43]
-[ext_resource path="res://Rooms/Area4/Assets/planet_scale.png" type="Texture" id=44]
-[ext_resource path="res://Rooms/Area4/Assets/planet_hologram_stand.png" type="Texture" id=45]
-[ext_resource path="res://Rooms/Area4/Assets/planet_hologram.png" type="Texture" id=46]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=47]
-[ext_resource path="res://Rooms/Area4/Assets/PropScenes/cubicle_chair.tscn" type="PackedScene" id=48]
-[ext_resource path="res://Engine/light4.png" type="Texture" id=49]
-[ext_resource path="res://Engine/light2.png" type="Texture" id=50]
-[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=51]
-[ext_resource path="res://Rooms/Area4/Assets/stallman.png" type="Texture" id=52]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Rooms/Area4/Assets/cubicle_chair.png" type="Texture" id=22]
+[ext_resource path="res://Rooms/Area4/Assets/stalls.png" type="Texture" id=23]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/gold_urinal.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Rooms/Area4/Assets/receptionist.png" type="Texture" id=25]
+[ext_resource path="res://Rooms/Area4/Assets/Receptionist.gd" type="Script" id=26]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/lobbydesk.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Engine/BasicNPC.tscn" type="PackedScene" id=28]
+[ext_resource path="res://NPC/BigSecurityGuard/big_guard_dark.png" type="Texture" id=29]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/cubicles.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Rooms/Area4/Assets/cubicle_monitor_straight.png" type="Texture" id=31]
+[ext_resource path="res://Rooms/Area4/Assets/cubicle_monitor_curved.png" type="Texture" id=32]
+[ext_resource path="res://Rooms/Area4/Assets/papers2.png" type="Texture" id=33]
+[ext_resource path="res://Rooms/Area4/Assets/papers4.png" type="Texture" id=34]
+[ext_resource path="res://Rooms/Area4/Assets/papers1.png" type="Texture" id=35]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_meeting.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_circle.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_pill.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/table_horseshoe.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Rooms/Area4/Assets/blueprints.png" type="Texture" id=40]
+[ext_resource path="res://Rooms/Area4/Assets/papers3.png" type="Texture" id=41]
+[ext_resource path="res://Rooms/Area4/Assets/planet_scale.png" type="Texture" id=42]
+[ext_resource path="res://Rooms/Area4/Assets/planet_hologram_stand.png" type="Texture" id=43]
+[ext_resource path="res://Rooms/Area4/Assets/planet_hologram.png" type="Texture" id=44]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Rooms/Area4/Assets/PropScenes/cubicle_chair.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Engine/light4.png" type="Texture" id=47]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=48]
+[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Rooms/Area4/Assets/stallman.png" type="Texture" id=50]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -348,84 +346,80 @@ position = Vector2( 38, 0 )
 shape = SubResource( 9 )
 
 [node name="DialogueTree" parent="LobbyElevators" index="1" instance=ExtResource( 20 )]
-face_texture = ExtResource( 21 )
 
-[node name="DiagPiece" parent="LobbyElevators/DialogueTree" index="0" instance=ExtResource( 22 )]
+[node name="DiagPiece" parent="LobbyElevators/DialogueTree" index="0" instance=ExtResource( 21 )]
 message = "This elevator needs a keycard. It's for very important people only."
 text_delay = 0.0
-no_face = true
 args = [  ]
 
-[node name="DiagPiece2" parent="LobbyElevators/DialogueTree/DiagPiece" index="0" instance=ExtResource( 22 )]
+[node name="DiagPiece2" parent="LobbyElevators/DialogueTree/DiagPiece" index="0" instance=ExtResource( 21 )]
 message = "hey we should ask the receptionist for a card"
 text_delay = 0.0
-expression = "neutral"
-face_texture = ExtResource( 21 )
-voice_sound = ExtResource( 23 )
+character = "orange"
 function = "become_ready_for_keycard_asking"
 args = [  ]
 
 [node name="cubicle_chair" type="Sprite" parent="YSort" index="0"]
 position = Vector2( -441, -646 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair8" type="Sprite" parent="YSort" index="1"]
 position = Vector2( -429, -754 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair2" type="Sprite" parent="YSort" index="2"]
 position = Vector2( -392, -647 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair10" type="Sprite" parent="YSort" index="3"]
 position = Vector2( -381, -755 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair3" type="Sprite" parent="YSort" index="4"]
 position = Vector2( -345, -645 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair14" type="Sprite" parent="YSort" index="5"]
 position = Vector2( -332, -753 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair4" type="Sprite" parent="YSort" index="6"]
 position = Vector2( -297, -649 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair9" type="Sprite" parent="YSort" index="7"]
 position = Vector2( -284, -757 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair5" type="Sprite" parent="YSort" index="8"]
 position = Vector2( -251, -647 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair13" type="Sprite" parent="YSort" index="9"]
 position = Vector2( -237, -755 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair6" type="Sprite" parent="YSort" index="10"]
 position = Vector2( -201, -648 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair12" type="Sprite" parent="YSort" index="11"]
 position = Vector2( -188, -756 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair7" type="Sprite" parent="YSort" index="12"]
 position = Vector2( -154, -647 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="cubicle_chair11" type="Sprite" parent="YSort" index="13"]
 position = Vector2( -140, -754 )
-texture = ExtResource( 24 )
+texture = ExtResource( 22 )
 
 [node name="stalls" type="Sprite" parent="YSort" index="14"]
 position = Vector2( 120, 42 )
-texture = ExtResource( 25 )
+texture = ExtResource( 23 )
 
-[node name="gold_urinal" parent="YSort" index="15" instance=ExtResource( 26 )]
+[node name="gold_urinal" parent="YSort" index="15" instance=ExtResource( 24 )]
 editor/display_folded = true
 position = Vector2( 112, -232 )
 
@@ -440,11 +434,11 @@ position = Vector2( -615, 379 )
 
 [node name="Receptionist" type="Sprite" parent="YSort" index="17"]
 position = Vector2( -768, 261 )
-texture = ExtResource( 27 )
+texture = ExtResource( 25 )
 offset = Vector2( 0, -21 )
 hframes = 86
 frame = 1
-script = ExtResource( 28 )
+script = ExtResource( 26 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Receptionist" index="0"]
 autoplay = "Default"
@@ -456,25 +450,24 @@ anims/Default = SubResource( 11 )
 shape = SubResource( 12 )
 
 [node name="DialogueTree" parent="YSort/Receptionist" index="2" instance=ExtResource( 20 )]
-voice_variation = 0.6
 
-[node name="Welcome" parent="YSort/Receptionist/DialogueTree" index="0" instance=ExtResource( 22 )]
+[node name="Welcome" parent="YSort/Receptionist/DialogueTree" index="0" instance=ExtResource( 21 )]
 message = "hi welcome to malus"
 text_delay = 0.0
 args = [  ]
 
-[node name="GoAway" parent="YSort/Receptionist/DialogueTree" index="1" instance=ExtResource( 22 )]
+[node name="GoAway" parent="YSort/Receptionist/DialogueTree" index="1" instance=ExtResource( 21 )]
 message = "i know what your'e thinking. no, exit the building now"
 text_delay = 0.0
 args = [  ]
 
-[node name="lobbydesk" parent="YSort" index="18" instance=ExtResource( 29 )]
+[node name="lobbydesk" parent="YSort" index="18" instance=ExtResource( 27 )]
 position = Vector2( -768, 260 )
 
-[node name="StairGuard" parent="YSort" index="19" instance=ExtResource( 30 )]
+[node name="StairGuard" parent="YSort" index="19" instance=ExtResource( 28 )]
 editor/display_folded = true
 position = Vector2( -489, 199 )
-texture = ExtResource( 31 )
+texture = ExtResource( 29 )
 offset = Vector2( 0, -12 )
 
 [node name="Interaction" parent="YSort/StairGuard" index="0"]
@@ -498,15 +491,15 @@ anims/default = SubResource( 15 )
 
 [node name="DialogueTree" parent="YSort/StairGuard" index="4" instance=ExtResource( 20 )]
 
-[node name="DiagPiece" parent="YSort/StairGuard/DialogueTree" index="0" instance=ExtResource( 22 )]
+[node name="DiagPiece" parent="YSort/StairGuard/DialogueTree" index="0" instance=ExtResource( 21 )]
 message = "Sir, the escalator is OUT-``OF-``ORDER. You'll have to use the elevator."
 text_delay = 0.0
 args = [  ]
 
-[node name="cubicles" parent="YSort" index="20" instance=ExtResource( 32 )]
+[node name="cubicles" parent="YSort" index="20" instance=ExtResource( 30 )]
 position = Vector2( -298, -660 )
 
-[node name="cubicles2" parent="YSort" index="21" instance=ExtResource( 32 )]
+[node name="cubicles2" parent="YSort" index="21" instance=ExtResource( 30 )]
 position = Vector2( -285, -767 )
 
 [node name="cubicles3" type="Node2D" parent="YSort" index="22"]
@@ -515,104 +508,104 @@ position = Vector2( 121, 9 )
 
 [node name="cubicle_monitor_straight" type="Sprite" parent="YSort/cubicles3" index="0"]
 position = Vector2( -563, -680 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 
 [node name="cubicle_monitor_straight2" type="Sprite" parent="YSort/cubicles3" index="1"]
 position = Vector2( -511, -680 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 1
 
 [node name="cubicle_monitor_straight3" type="Sprite" parent="YSort/cubicles3" index="2"]
 position = Vector2( -469, -682 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 5
 
 [node name="cubicle_monitor_straight4" type="Sprite" parent="YSort/cubicles3" index="3"]
 position = Vector2( -373, -680 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 2
 
 [node name="cubicle_monitor_straight5" type="Sprite" parent="YSort/cubicles3" index="4"]
 position = Vector2( -325, -681 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 7
 
 [node name="cubicle_monitor_straight7" type="Sprite" parent="YSort/cubicles3" index="5"]
 position = Vector2( -553, -787 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 
 [node name="cubicle_monitor_straight8" type="Sprite" parent="YSort/cubicles3" index="6"]
 position = Vector2( -454, -787 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 4
 
 [node name="cubicle_monitor_straight9" type="Sprite" parent="YSort/cubicles3" index="7"]
 position = Vector2( -406, -787 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 6
 
 [node name="cubicle_monitor_curved" type="Sprite" parent="YSort/cubicles3" index="8"]
 position = Vector2( -262, -789 )
-texture = ExtResource( 34 )
+texture = ExtResource( 32 )
 hframes = 2
 
 [node name="cubicle_monitor_curved2" type="Sprite" parent="YSort/cubicles3" index="9"]
 position = Vector2( -502, -787 )
-texture = ExtResource( 34 )
+texture = ExtResource( 32 )
 hframes = 2
 frame = 1
 
 [node name="cubicle_monitor_straight10" type="Sprite" parent="YSort/cubicles3" index="10"]
 position = Vector2( -357, -788 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 
 [node name="cubicle_monitor_straight6" type="Sprite" parent="YSort/cubicles3" index="11"]
 position = Vector2( -275, -680 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 hframes = 8
 frame = 3
 
 [node name="papers2" type="Sprite" parent="YSort/cubicles3" index="12"]
 position = Vector2( -480, -673 )
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="papers4" type="Sprite" parent="YSort/cubicles3" index="13"]
 position = Vector2( -296, -782 )
-texture = ExtResource( 36 )
+texture = ExtResource( 34 )
 
 [node name="papers3" type="Sprite" parent="YSort/cubicles3" index="14"]
 position = Vector2( -420, -779 )
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="papers1" type="Sprite" parent="YSort/cubicles3" index="15"]
 position = Vector2( -412, -675 )
-texture = ExtResource( 37 )
+texture = ExtResource( 35 )
 
-[node name="table_meeting" parent="YSort" index="23" instance=ExtResource( 38 )]
+[node name="table_meeting" parent="YSort" index="23" instance=ExtResource( 36 )]
 position = Vector2( -425, -1520 )
 
-[node name="table_meeting2" parent="YSort" index="24" instance=ExtResource( 38 )]
+[node name="table_meeting2" parent="YSort" index="24" instance=ExtResource( 36 )]
 position = Vector2( -425, -1456 )
 
-[node name="table_circle" parent="YSort" index="25" instance=ExtResource( 39 )]
+[node name="table_circle" parent="YSort" index="25" instance=ExtResource( 37 )]
 position = Vector2( -657, -1460 )
 
-[node name="table_pill" parent="YSort" index="26" instance=ExtResource( 40 )]
+[node name="table_pill" parent="YSort" index="26" instance=ExtResource( 38 )]
 position = Vector2( -168, -1393 )
 
-[node name="table_pill2" parent="YSort" index="27" instance=ExtResource( 40 )]
+[node name="table_pill2" parent="YSort" index="27" instance=ExtResource( 38 )]
 position = Vector2( -703, -1385 )
 
-[node name="table_horseshoe" parent="YSort" index="28" instance=ExtResource( 41 )]
+[node name="table_horseshoe" parent="YSort" index="28" instance=ExtResource( 39 )]
 position = Vector2( -457, -1400 )
 
 [node name="table_contents" type="Node2D" parent="YSort" index="29"]
@@ -621,135 +614,135 @@ position = Vector2( -457, -1365 )
 
 [node name="blueprints" type="Sprite" parent="YSort/table_contents" index="0"]
 position = Vector2( 8, -108 )
-texture = ExtResource( 42 )
+texture = ExtResource( 40 )
 hframes = 5
 
 [node name="blueprints3" type="Sprite" parent="YSort/table_contents" index="1"]
 position = Vector2( 58, -106 )
-texture = ExtResource( 42 )
+texture = ExtResource( 40 )
 hframes = 5
 frame = 2
 
 [node name="blueprints4" type="Sprite" parent="YSort/table_contents" index="2"]
 position = Vector2( 34, -104 )
-texture = ExtResource( 42 )
+texture = ExtResource( 40 )
 hframes = 5
 frame = 1
 
 [node name="blueprints5" type="Sprite" parent="YSort/table_contents" index="3"]
 position = Vector2( -198, -107 )
-texture = ExtResource( 42 )
+texture = ExtResource( 40 )
 hframes = 5
 frame = 3
 
 [node name="blueprints6" type="Sprite" parent="YSort/table_contents" index="4"]
 position = Vector2( -239, -31 )
-texture = ExtResource( 42 )
+texture = ExtResource( 40 )
 hframes = 5
 frame = 4
 
 [node name="papers2" type="Sprite" parent="YSort/table_contents" index="5"]
 position = Vector2( 279, -40 )
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="papers1" type="Sprite" parent="YSort/table_contents" index="6"]
 position = Vector2( 293, -36 )
-texture = ExtResource( 37 )
+texture = ExtResource( 35 )
 
 [node name="papers3" type="Sprite" parent="YSort/table_contents" index="7"]
 position = Vector2( 15, -44 )
-texture = ExtResource( 43 )
+texture = ExtResource( 41 )
 
 [node name="papers4" type="Sprite" parent="YSort/table_contents" index="8"]
 position = Vector2( -15, -45 )
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 
 [node name="planet_scale" type="Sprite" parent="YSort/table_contents" index="9"]
 position = Vector2( 44, -175 )
-texture = ExtResource( 44 )
+texture = ExtResource( 42 )
 
 [node name="planet_hologram_stand" type="Sprite" parent="YSort/table_contents" index="10"]
 position = Vector2( -255, -36 )
-texture = ExtResource( 45 )
+texture = ExtResource( 43 )
 
 [node name="planet_hologram_stand2" type="Sprite" parent="YSort/table_contents" index="11"]
 position = Vector2( 7, -170 )
-texture = ExtResource( 45 )
+texture = ExtResource( 43 )
 
 [node name="planet_hologram_stand3" type="Sprite" parent="YSort/table_contents" index="12"]
 position = Vector2( 294, -45 )
-texture = ExtResource( 45 )
+texture = ExtResource( 43 )
 
 [node name="planet_hologram" type="Sprite" parent="YSort/table_contents" index="13"]
 light_mask = 0
 position = Vector2( -255, -38 )
 z_index = 1
-texture = ExtResource( 46 )
+texture = ExtResource( 44 )
 hframes = 2
 
 [node name="planet_hologram2" type="Sprite" parent="YSort/table_contents" index="14"]
 light_mask = 0
 position = Vector2( 7, -172 )
 z_index = 1
-texture = ExtResource( 46 )
+texture = ExtResource( 44 )
 hframes = 2
 frame = 1
 
-[node name="BAMBOOP" parent="YSort" index="30" instance=ExtResource( 47 )]
+[node name="BAMBOOP" parent="YSort" index="30" instance=ExtResource( 45 )]
 position = Vector2( -525, -1060 )
 
-[node name="BAMBOOP2" parent="YSort" index="31" instance=ExtResource( 47 )]
+[node name="BAMBOOP2" parent="YSort" index="31" instance=ExtResource( 45 )]
 position = Vector2( -1014, -466 )
 
-[node name="BAMBOOP6" parent="YSort" index="32" instance=ExtResource( 47 )]
+[node name="BAMBOOP6" parent="YSort" index="32" instance=ExtResource( 45 )]
 position = Vector2( 151, -978 )
 
-[node name="BAMBOOP7" parent="YSort" index="33" instance=ExtResource( 47 )]
+[node name="BAMBOOP7" parent="YSort" index="33" instance=ExtResource( 45 )]
 position = Vector2( -966, -1235 )
 
-[node name="BAMBOOP8" parent="YSort" index="34" instance=ExtResource( 47 )]
+[node name="BAMBOOP8" parent="YSort" index="34" instance=ExtResource( 45 )]
 position = Vector2( -970, -1214 )
 
-[node name="BAMBOOP9" parent="YSort" index="35" instance=ExtResource( 47 )]
+[node name="BAMBOOP9" parent="YSort" index="35" instance=ExtResource( 45 )]
 position = Vector2( -968, -1152 )
 
-[node name="BAMBOOP10" parent="YSort" index="36" instance=ExtResource( 47 )]
+[node name="BAMBOOP10" parent="YSort" index="36" instance=ExtResource( 45 )]
 position = Vector2( 149, -1727 )
 
-[node name="BAMBOOP11" parent="YSort" index="37" instance=ExtResource( 47 )]
+[node name="BAMBOOP11" parent="YSort" index="37" instance=ExtResource( 45 )]
 position = Vector2( 150, -1668 )
 
-[node name="BAMBOOP12" parent="YSort" index="38" instance=ExtResource( 47 )]
+[node name="BAMBOOP12" parent="YSort" index="38" instance=ExtResource( 45 )]
 position = Vector2( -446, -1793 )
 
-[node name="BAMBOOP3" parent="YSort" index="39" instance=ExtResource( 47 )]
+[node name="BAMBOOP3" parent="YSort" index="39" instance=ExtResource( 45 )]
 position = Vector2( -553, -660 )
 
-[node name="BAMBOOP4" parent="YSort" index="40" instance=ExtResource( 47 )]
+[node name="BAMBOOP4" parent="YSort" index="40" instance=ExtResource( 45 )]
 position = Vector2( 216, -288 )
 
-[node name="BAMBOOP5" parent="YSort" index="41" instance=ExtResource( 47 )]
+[node name="BAMBOOP5" parent="YSort" index="41" instance=ExtResource( 45 )]
 position = Vector2( -24, 44 )
 
-[node name="cubicle_chair15" parent="YSort" index="42" instance=ExtResource( 48 )]
+[node name="cubicle_chair15" parent="YSort" index="42" instance=ExtResource( 46 )]
 position = Vector2( -408, -1436 )
 
-[node name="cubicle_chair16" parent="YSort" index="43" instance=ExtResource( 48 )]
+[node name="cubicle_chair16" parent="YSort" index="43" instance=ExtResource( 46 )]
 position = Vector2( -441, -1436 )
 
-[node name="cubicle_chair17" parent="YSort" index="44" instance=ExtResource( 48 )]
+[node name="cubicle_chair17" parent="YSort" index="44" instance=ExtResource( 46 )]
 position = Vector2( -448, -1500 )
 
-[node name="cubicle_chair18" parent="YSort" index="45" instance=ExtResource( 48 )]
+[node name="cubicle_chair18" parent="YSort" index="45" instance=ExtResource( 46 )]
 position = Vector2( -423, -1498 )
 
-[node name="cubicle_chair19" parent="YSort" index="46" instance=ExtResource( 48 )]
+[node name="cubicle_chair19" parent="YSort" index="46" instance=ExtResource( 46 )]
 position = Vector2( -401, -1500 )
 
-[node name="cubicle_chair20" parent="YSort" index="47" instance=ExtResource( 48 )]
+[node name="cubicle_chair20" parent="YSort" index="47" instance=ExtResource( 46 )]
 position = Vector2( -456, -1391 )
 
-[node name="cubicle_chair21" parent="YSort" index="48" instance=ExtResource( 48 )]
+[node name="cubicle_chair21" parent="YSort" index="48" instance=ExtResource( 46 )]
 position = Vector2( -171, -1363 )
 
 [node name="Darkness" type="Node2D" parent="." index="10"]
@@ -803,151 +796,151 @@ editor/display_folded = true
 [node name="Light2D" type="Light2D" parent="Lights" index="0"]
 position = Vector2( 120, -240 )
 scale = Vector2( 0.625, 0.625 )
-texture = ExtResource( 49 )
+texture = ExtResource( 47 )
 color = Color( 1, 0.501961, 0.501961, 1 )
 energy = 1.3
 
 [node name="Light2D3" type="Light2D" parent="Lights" index="1"]
 position = Vector2( -425.5, -1457.5 )
 scale = Vector2( 0.925781, 0.925781 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.694118, 0.8, 1, 1 )
 energy = 1.3
 
 [node name="Light2D12" type="Light2D" parent="Lights" index="2"]
 position = Vector2( -677, -1431 )
 scale = Vector2( 0.603516, 0.603516 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.694118, 0.8, 1, 1 )
 energy = 1.3
 
 [node name="Light2D13" type="Light2D" parent="Lights" index="3"]
 position = Vector2( -167, -1425 )
 scale = Vector2( 0.603516, 0.603516 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.694118, 0.8, 1, 1 )
 energy = 1.3
 
 [node name="Light2D14" type="Light2D" parent="Lights" index="4"]
 position = Vector2( -282.625, -1442.63 )
 scale = Vector2( 0.520508, 0.520508 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 1, 0.407843, 0.313726, 1 )
 energy = 1.3
 
 [node name="Light2D15" type="Light2D" parent="Lights" index="5"]
 position = Vector2( -571, -1439 )
 scale = Vector2( 0.520508, 0.520508 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 1, 0.407843, 0.313726, 1 )
 energy = 1.3
 
 [node name="Light2D4" type="Light2D" parent="Lights" index="6"]
 position = Vector2( -584, -1495 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D5" type="Light2D" parent="Lights" index="7"]
 position = Vector2( -537, -1495 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D20" type="Light2D" parent="Lights" index="8"]
 position = Vector2( -713, -1405 )
 scale = Vector2( 0.163086, 0.163086 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 1, 0.960784, 0.541176, 1 )
 energy = 1.3
 
 [node name="Light2D21" type="Light2D" parent="Lights" index="9"]
 position = Vector2( -451, -1539 )
 scale = Vector2( 0.163086, 0.163086 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.541176, 0.603922, 1, 1 )
 energy = 1.3
 
 [node name="Light2D6" type="Light2D" parent="Lights" index="10"]
 position = Vector2( -313, -1495 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D7" type="Light2D" parent="Lights" index="11"]
 position = Vector2( -265, -1494 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D8" type="Light2D" parent="Lights" index="12"]
 position = Vector2( -649, -1511 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D9" type="Light2D" parent="Lights" index="13"]
 position = Vector2( -713, -1511 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D10" type="Light2D" parent="Lights" index="14"]
 position = Vector2( -201, -1511 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D11" type="Light2D" parent="Lights" index="15"]
 position = Vector2( -137, -1511 )
 scale = Vector2( 0.349609, 0.349609 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D16" type="Light2D" parent="Lights" index="16"]
 position = Vector2( -437, -1593 )
 scale = Vector2( 0.596679, 0.596679 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D17" type="Light2D" parent="Lights" index="17"]
 position = Vector2( -412, -1594 )
 scale = Vector2( 0.596679, 0.596679 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D18" type="Light2D" parent="Lights" index="18"]
 position = Vector2( -381, -1593 )
 scale = Vector2( 0.596679, 0.596679 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D19" type="Light2D" parent="Lights" index="19"]
 position = Vector2( -469, -1595 )
 scale = Vector2( 0.596679, 0.596679 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.760784, 0.882353, 1, 1 )
 energy = 1.3
 
 [node name="Light2D2" type="Light2D" parent="Lights" index="20"]
 position = Vector2( -18, -301 )
 scale = Vector2( 0.642578, 0.642578 )
-texture = ExtResource( 50 )
+texture = ExtResource( 48 )
 color = Color( 0.972549, 0.419608, 0.176471, 1 )
 energy = 1.2
 
-[node name="ToStreetPortal" parent="." index="12" instance=ExtResource( 51 )]
+[node name="ToStreetPortal" parent="." index="12" instance=ExtResource( 49 )]
 position = Vector2( -673, 436 )
 new_scene = "res://Rooms/Area2/2-1/2-1.tscn"
 player_new_position = Vector2( 1872, -1211 )
@@ -1026,7 +1019,7 @@ shape = SubResource( 24 )
 
 [node name="stallman" type="Sprite" parent="." index="16"]
 position = Vector2( 121, 9 )
-texture = ExtResource( 52 )
+texture = ExtResource( 50 )
 
 [editable path="YSort/StairGuard"]
 

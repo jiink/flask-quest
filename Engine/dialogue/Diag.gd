@@ -3,6 +3,7 @@ extends Node2D
 var new_text = ""
 var text_index = -1
 var text_time = 0.04
+var default_text_time = 0.04
 var voice_sound = null
 var voice_variation = 0.3
 var selected_choice = 0
@@ -25,7 +26,15 @@ var target_piece = null
 var first = true
 
 # use tres
-var text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
+var default_text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
+var text_font = default_text_font
+
+enum { CHAR_FACE, CHAR_VOICE, CHAR_VOICE_VARIATION }
+var characters = {
+	"(none)": [null, "res://NPC/default_voice.wav", 0.0],
+	"orange" : ["res://Player/orange_sprites/orange_faces.png", "res://Player/orange_sprites/orange_speech.wav", 0.3],
+	"stercus" : ["res://NPC/Stercus/stercusFaces.png", "res://NPC/Stercus/stercus_voice.wav", 0.0],
+	}
 
 onready var audio = $AudioStreamPlayer
 
@@ -67,7 +76,7 @@ func _process(delta):
 					
 
 func start_talk(obj, starting_branch):
-	print("start_talk exec'd")
+#	print("start_talk exec'd")
 	if starting_branch == null:
 		starting_branch = "DiagPiece"
 	# go to first diagpiece 
@@ -89,31 +98,34 @@ func update_boxes(new_target):
 	
 	for l in effectchars:
 		visible_new_text = new_text.replace(l, "")
-		
+	
+	# set the values from the character dict
+	var chosen_character = characters[target_piece.character]
+	if chosen_character[CHAR_FACE] != null: $Face.texture = load(chosen_character[CHAR_FACE])
+	voice_sound = load(chosen_character[CHAR_VOICE])
+	voice_variation = chosen_character[CHAR_VOICE_VARIATION]
+	
 	# set delays
-	if target_piece.text_delay != null and target_piece.text_delay != 0:
+	if (target_piece.text_delay != null) and (target_piece.text_delay != 0):
 		text_time = target_piece.text_delay
 	else:
-		text_time = target_tree.default_text_delay
+		text_time = default_text_time
 	
 	# set sound
-	if not target_piece.no_voice:
-		if target_piece.voice_sound != null:
-			voice_sound = target_piece.voice_sound
-		else:
-			voice_sound = target_tree.voice_sound
-		audio.set_stream(voice_sound)
-		
-		if target_piece.voice_variation != null:
-			voice_variation = target_piece.voice_variation
-		elif target_tree.voice_variation != null:
-			voice_variation = target_tree.voice_variation
+	if target_piece.voice_sound != null:
+		voice_sound = target_piece.voice_sound
+	
+	if target_piece.voice_variation >= 0.0:
+		voice_variation = target_piece.voice_variation
 		voice_variation = clamp(voice_variation, 0.0, 0.9)
 	
+	audio.set_stream(voice_sound)
+	
 	# set font
-	if target_tree.default_font != null:
-		text_font = target_tree.default_font
+	if target_piece.font != null:
+		text_font = target_piece.font
 		$TextBox.add_font_override("font", text_font)
+		
 	#get choices
 	for D in target_piece.get_children():
 		if D.key != "Null":
@@ -133,8 +145,8 @@ func update_boxes(new_target):
 	$TextBox/Timer.start(text_time)
 		
 	# face
-	has_face = !(target_tree.face_texture == null or target_piece.no_face)
-	
+	has_face = !(target_piece.character == "(none)" or target_piece.no_face)
+#	print("has_face = %s" % has_face)
 	var expressions = ["neutral", "openmouth", "sidemouth", "happy", "cute", "sad", "suspicious", "crying",
 				 "cryingloud", "grin", "bigsurprise", "biggersurprise", "angry", "misc", "surprise", "stare",
 				"smug"]
@@ -151,9 +163,9 @@ func update_boxes(new_target):
 	#			face_index = int(target_piece.expression)
 	#		else:
 	#			face_index = expressions.find(target_piece.expression)
-		if first:
-			if target_tree.face_texture != null:
-				$Face.texture = target_tree.face_texture
+#		if first:
+#			if target_tree.face_texture != null:
+#				$Face.texture = target_tree.face_texture
 				
 		if target_piece.face_texture != null:
 			$Face.texture = target_piece.face_texture
@@ -196,7 +208,7 @@ func next_letter_time():
 	play_sound()
 
 func run_func():
-	print("stored func: %s" % stored_function)
+#	print("stored func: %s" % stored_function)
 					
 	if stored_function != "":
 		if target_tree.get_parent().has_method(stored_function):
