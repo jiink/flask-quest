@@ -140,33 +140,16 @@ func update_boxes(new_target):
 		$Choices/Choice2.text = ""
 		$Choices.set_visible(false)
 	
-	#$TextBox/Timer.wait_time = 0.03
 		
 	$TextBox/Timer.start(text_time)
 		
 	# face
 	has_face = !(target_piece.character == "(none)" or target_piece.no_face)
-#	print("has_face = %s" % has_face)
 	var expressions = ["neutral", "openmouth", "sidemouth", "happy", "cute", "sad", "suspicious", "crying",
 				 "cryingloud", "grin", "bigsurprise", "biggersurprise", "angry", "misc", "surprise", "stare",
 				"smug"]
 	
 	if has_face:
-	#	if target_tree.face_texture != null:
-	#		$Face.texture = target_tree.face_texture
-	#	else:
-			
-		
-	#
-	#	if target_piece.expression != null or target_piece.expression != "":
-	#		if target_piece.expression.is_valid_integer():
-	#			face_index = int(target_piece.expression)
-	#		else:
-	#			face_index = expressions.find(target_piece.expression)
-#		if first:
-#			if target_tree.face_texture != null:
-#				$Face.texture = target_tree.face_texture
-				
 		if target_piece.face_texture != null:
 			$Face.texture = target_piece.face_texture
 	
@@ -208,7 +191,6 @@ func next_letter_time():
 	play_sound()
 
 func run_func():
-#	print("stored func: %s" % stored_function)
 					
 	if stored_function != "":
 		if target_tree.get_parent().has_method(stored_function):

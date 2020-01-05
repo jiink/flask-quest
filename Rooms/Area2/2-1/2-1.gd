@@ -53,10 +53,6 @@ func update_malus_door(state):
 		$MalusEntrance/DoorSign.frame = SIGN_OPEN
 		$MalusEntrance/StaticBody2D/CollisionShape2D.disabled = true
 		$MalusEntrance/Interaction/CollisionShape2D.disabled = true
-		# hey why isnt that working, screw it just blow it up
-#		if $MalusEntrance.has_node("Interaction"):
-#			$MalusEntrance/StaticBody2D.queue_free()
-#			$MalusEntrance/Interaction.queue_free()
 
 func _on_map_machine_opened():
 	# now that the player viewed the map machine, unlock the doors to malus

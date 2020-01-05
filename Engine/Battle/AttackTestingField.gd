@@ -30,17 +30,10 @@ func _ready():
 	var attack_scene_instance = attack_scene.instance()
 	$Attacks.add_child(attack_scene_instance)
 	attack_scene_instance.position = Vector2(-192, -108)
-#	if get_node("..").name == "BattleScene":
-#		battle = get_node("..")
-#	else:
-#		print("Warning: Parent not BattleScene")
-#		battle = null
 	
 	$ShieldTimer.connect("timeout", self, "shield_timer_timeout")
-#	$AnimationPlayer.play_backwards("appear")
 	
 func _process(delta):
-#	if battle.state == battle.DODGE_GAME:
 	move_players(delta)
 	
 	if $ShieldDelay.is_stopped():
@@ -83,9 +76,6 @@ func att_timeout():
 		i.queue_free()
 	print("time's up!")
 	stop()
-
-#func run():
-#	pass
 
 func shield_timer_timeout():
 	shielded = false
