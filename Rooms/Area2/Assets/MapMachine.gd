@@ -5,14 +5,15 @@ signal map_machine_opened
 
 func interact():
 #	if ItemManager.inventory.find("map_login") >= 0:
-	if "map_login" in ItemManager.inventory:
+	
+	var map_scene = load("res://Rooms/Area2/Assets/MapDisplay.tscn")
+	map_scene = map_scene.instance()
+	get_owner().get_node("HUD").add_child(map_scene)
+	
+	if ("map_login" in ItemManager.inventory):
 		emit_signal("map_machine_opened")
-		
-		var map_scene = load("res://Rooms/Area2/Assets/MapDisplay.tscn")
-		map_scene = map_scene.instance()
-		get_owner().get_node("HUD").add_child(map_scene)
-	else:
-		DiagHelper.start_talk(self)
+#	else:
+#		DiagHelper.start_talk(self)
 	
 
 func _ready():
@@ -32,4 +33,6 @@ func on_body_exited(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "turn_on":
 		$AnimationPlayer.play("running")
-	
+
+func freeze_player_again():
+	global.get_player().frozen = true
