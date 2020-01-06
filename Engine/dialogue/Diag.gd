@@ -61,7 +61,7 @@ func _process(delta):
 						update_boxes(D)
 						break
 		else:
-			if Input.is_action_just_pressed("confirm"):
+			if Input.is_action_just_pressed("confirm") or Input.is_action_just_pressed("cancel"):
 				if $TextBox.text == visible_new_text:
 					if target_piece.get_children():
 						run_func()
@@ -230,4 +230,5 @@ func open():
 	
 func close():
 	set_visible(false)
-	get_tree().get_nodes_in_group("Player")[0].frozen = false
+	if not target_piece.dont_unfreeze_player:
+		get_tree().get_nodes_in_group("Player")[0].frozen = false

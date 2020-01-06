@@ -13,3 +13,4 @@ export(float) var voice_variation = -1.0
 export(String) var function = ""
 export(Array) var args
 export(bool) var skippable = true
+export(bool) var dont_unfreeze_player = false
