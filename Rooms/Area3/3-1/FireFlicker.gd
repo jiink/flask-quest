@@ -1,4 +1,4 @@
 extends Light2D
 
-func _process(delta):
+func _tick():
 	energy = 1.5 + randf() * .5

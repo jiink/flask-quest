@@ -707,7 +707,9 @@ texture = ExtResource( 11 )
 color = Color( 1, 0, 0, 1 )
 energy = 1.42
 
-[node name="Light2D36" type="Light2D" parent="Lights" index="35"]
+[node name="Light2D36" type="Light2D" parent="Lights" index="35" groups=[
+"tick",
+]]
 position = Vector2( 58, 5 )
 scale = Vector2( 0.375001, 0.375001 )
 texture = ExtResource( 11 )
