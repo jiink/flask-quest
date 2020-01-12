@@ -485,7 +485,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="2-1" index="0" groups=[
+[node name="2-1" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
