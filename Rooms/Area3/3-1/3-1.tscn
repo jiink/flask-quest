@@ -726,7 +726,7 @@ position = Vector2( 1441, -833 )
 texture = ExtResource( 14 )
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( -26, 7 )
+position = Vector2( 205, 268 )
 
 [node name="barrel_empty3" parent="YSort" index="1" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )

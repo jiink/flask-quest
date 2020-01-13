@@ -31,4 +31,4 @@ func _process(delta):
 			t = 0
 			done = true
 			visible = false
-		t += anim_speed
+		t += anim_speed*delta

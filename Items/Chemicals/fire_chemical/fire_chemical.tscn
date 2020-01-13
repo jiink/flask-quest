@@ -13,3 +13,4 @@ script = ExtResource( 2 )
 
 [node name="Liquid" parent="." index="1"]
 modulate = Color( 0.917647, 0.0941176, 0.0941176, 1 )
+anim_speed = 8.0
