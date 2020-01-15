@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://NPC/Base/BaseFoe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/Base/BaseFoeFoe.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPC/Boque/BoqueFoe.gd" type="Script" id=2]
 [ext_resource path="res://Music/odd.ogg" type="AudioStream" id=3]
 [ext_resource path="res://NPC/Boque/boqueBattleIdle.png" type="Texture" id=4]
+
 
 
 [sub_resource type="ShaderMaterial" id=1]

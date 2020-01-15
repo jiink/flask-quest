@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://NPC/Base/BaseFoe.gd" type="Script" id=1]
+[ext_resource path="res://NPC/BaseFoe/BaseFoeFoe.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/missingFoe.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=3]
 
@@ -44,7 +44,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.266667, 0.266667, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="BaseFoe" type="Node2D" groups=[
+[node name="BaseFoeFoe" type="Node2D" groups=[
 "foes",
 ]]
 script = ExtResource( 1 )

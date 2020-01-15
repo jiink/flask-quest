@@ -1,4 +1,4 @@
-extends "res://Engine/FoeFollow.gd"
+extends "res://NPC/Base/FoeFollow.gd"
 
 func _process(delta):
 	if chasing:

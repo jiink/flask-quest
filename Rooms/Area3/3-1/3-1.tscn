@@ -18,8 +18,8 @@
 [ext_resource path="res://Rooms/Area3/Assets/PropScenes/barrel_filled.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Rooms/Area3/Assets/PropScenes/barrel_empty.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Area3/Assets/barrel_flame.png" type="Texture" id=18]
-[ext_resource path="res://Engine/WaterZone.tscn" type="PackedScene" id=19]
-[ext_resource path="res://NPC/Wormo/Wormo.tscn" type="PackedScene" id=20]
+[ext_resource path="res://NPC/BaseFoe/BaseFoe.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Engine/WaterZone.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -802,6 +802,9 @@ frame = 1
 autoplay = "default"
 anims/default = SubResource( 2 )
 
+[node name="BaseFoe" parent="YSort" index="23" instance=ExtResource( 19 )]
+position = Vector2( 240, 284 )
+
 [node name="HUD" parent="." index="6"]
 editor/display_folded = true
 
@@ -815,7 +818,7 @@ tile_data = PoolIntArray( -3145556, 0, 655367, -3145555, 0, 655367, -3145554, 0,
 
 [node name="Water" type="Node2D" parent="." index="8"]
 
-[node name="WaterZone" parent="Water" index="0" instance=ExtResource( 19 )]
+[node name="WaterZone" parent="Water" index="0" instance=ExtResource( 20 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/WaterZone" index="0"]
 position = Vector2( 552, -44 )
@@ -832,8 +835,5 @@ shape = SubResource( 5 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Water/WaterZone" index="3"]
 position = Vector2( 2776, -276 )
 shape = SubResource( 6 )
-
-[node name="Wormo" parent="." index="9" instance=ExtResource( 20 )]
-position = Vector2( 219, 275 )
 
 [editable path="HUD"]
