@@ -132,6 +132,7 @@ __meta__ = {
 }
 
 [node name="BattleBG" type="Sprite" parent="."]
+light_mask = 0
 position = Vector2( 192, 108 )
 
 [node name="Foes" type="YSort" parent="."]
