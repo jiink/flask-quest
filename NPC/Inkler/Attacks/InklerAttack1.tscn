@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://NPC/BaseFoe/Attacks/AttackBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/Inkler/Attacks/InklerAttack1.gd" type="Script" id=2]
+
+[node name="InklerAttack1" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="InkEmissionPoint" type="Position2D" parent="." index="2"]
+position = Vector2( 413, 119 )
+
+[node name="Timer" type="Timer" parent="InkEmissionPoint" index="0"]
+wait_time = 0.7
+autostart = true
+[connection signal="timeout" from="InkEmissionPoint/Timer" to="." method="_on_Timer_timeout"]

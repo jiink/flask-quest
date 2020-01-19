@@ -115,7 +115,7 @@ func move_players(delta):
 	else:
 		rot_v *= rot_friction * delta
 	
-	rot += rot_v
+	rot += rot_v * delta
 	$Dodgers.set_rotation_degrees(rot)
 
 func stop():

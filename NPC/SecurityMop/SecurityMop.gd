@@ -1,4 +1,4 @@
-extends "res://Engine/FoeFollow.gd"
+extends "res://NPC/BaseFoe/FoeFollow.gd"
 
 var travel_vec = Vector2(0.0, 0.0)
 

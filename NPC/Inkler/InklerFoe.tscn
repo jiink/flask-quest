@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://NPC/BaseFoe/BaseFoeFoe.tscn" type="PackedScene" id=1]
-[ext_resource path="res://NPC/SecurityMop/security_mop_battle.png" type="Texture" id=2]
+[ext_resource path="res://NPC/Inkler/inkler_foe.png" type="Texture" id=2]
 
-[node name="SecurityMopFoe" instance=ExtResource( 1 )]
-max_hp = 15
+[node name="InklerFoe" instance=ExtResource( 1 )]
+max_hp = 30
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -30 )
+position = Vector2( 2, -29 )
 texture = ExtResource( 2 )

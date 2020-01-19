@@ -18,7 +18,7 @@
 [ext_resource path="res://Rooms/Area3/Assets/PropScenes/barrel_filled.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Rooms/Area3/Assets/PropScenes/barrel_empty.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Area3/Assets/barrel_flame.png" type="Texture" id=18]
-[ext_resource path="res://NPC/BaseFoe/BaseFoe.tscn" type="PackedScene" id=19]
+[ext_resource path="res://NPC/Inkler/Inkler.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Engine/WaterZone.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
@@ -69,7 +69,7 @@ extents = Vector2( 42, 58 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 36, 22 )
 
-[node name="3-1" index="0" instance=ExtResource( 1 )]
+[node name="3-1" instance=ExtResource( 1 )]
 battle_bg = ExtResource( 2 )
 level_music = ExtResource( 3 )
 battle_music = ExtResource( 4 )
@@ -802,8 +802,14 @@ frame = 1
 autoplay = "default"
 anims/default = SubResource( 2 )
 
-[node name="BaseFoe" parent="YSort" index="23" instance=ExtResource( 19 )]
-position = Vector2( 240, 284 )
+[node name="Inkler" parent="YSort" index="23" instance=ExtResource( 19 )]
+position = Vector2( 267, 285 )
+
+[node name="Inkler2" parent="YSort" index="24" instance=ExtResource( 19 )]
+position = Vector2( 311, 278 )
+
+[node name="Inkler3" parent="YSort" index="25" instance=ExtResource( 19 )]
+position = Vector2( 155, 248 )
 
 [node name="HUD" parent="." index="6"]
 editor/display_folded = true

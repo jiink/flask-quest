@@ -38,18 +38,7 @@ func _ready():
 	if face_center and face_node != "":
 		print("Warning: Can't face two places at once; facing center")
 	
-	
-	
-	match type:
-		NORMAL:
-			pass
-		GREEN:
-			set_modulate(Color("72D031"))
-		ORANGE:
-			set_modulate(Color("F68F31"))
-		_:
-			print("Error: Invalid projectile type; setting to NORMAL")
-			type = NORMAL
+	set_type(type)
 	
 	death_timer = Timer.new()
 	death_timer.set_name("Death Timer")
@@ -84,6 +73,19 @@ func area_entered(area):
 #			dfield.get_parent().call("hurt", "orange", damage)
 		if destructable:
 			destroy()
+
+func set_type(type_in):
+	type = type_in
+	match type:
+		NORMAL:
+			set_modulate(Color("FFFFFF"))
+		GREEN:
+			set_modulate(Color("72D031"))
+		ORANGE:
+			set_modulate(Color("F68F31"))
+		_:
+			print("Error: Invalid projectile type; setting to NORMAL")
+			type = NORMAL
 
 func destroy():
 	queue_free()
