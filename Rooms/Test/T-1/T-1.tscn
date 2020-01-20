@@ -202,8 +202,7 @@ position = Vector2( 316, 53 )
 position = Vector2( 339, 52 )
 
 [node name="SecurityMop" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 71, 76 )
-follow_distance = 65
+position = Vector2( 98.9717, 72.8067 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
