@@ -4,8 +4,8 @@ var rot =   0.0
 var rot_v = 0.0
 
 var rot_speed = 0.55
-var max_rot_speed = 7.0
-var rot_friction = .9
+var max_rot_speed = 4.0
+var rot_friction = .85
 
 var attacks_spawned = false
 var battle

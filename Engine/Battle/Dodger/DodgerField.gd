@@ -3,9 +3,9 @@ extends Node2D
 var rot =   0.0
 var rot_v = 0.0
 
-var rot_speed = 30
-var max_rot_speed = 3.0
-var rot_friction = 42
+var rot_speed = 0.55
+var max_rot_speed = 4.0
+var rot_friction = .85
 
 var attacks_spawned = false
 var battle
@@ -109,13 +109,13 @@ func _process(delta):
 func move_players(delta):
 	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
 	if Input.is_action_pressed("left"):
-		rot_v -= rot_speed * delta
+		rot_v -= rot_speed 
 	elif Input.is_action_pressed("right"):
-		rot_v += rot_speed * delta
+		rot_v += rot_speed 
 	else:
-		rot_v *= rot_friction * delta
+		rot_v *= rot_friction 
 	
-	rot += rot_v * delta
+	rot += rot_v*delta*60
 	$Dodgers.set_rotation_degrees(rot)
 
 func stop():
