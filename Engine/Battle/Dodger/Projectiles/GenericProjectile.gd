@@ -10,7 +10,7 @@ export(bool) var destructable = true
 
 signal successful_hit(player_num, dmg)
 
-
+var player_inside = 0 # 0 for none, 1 for P1, 2 for P2
 
 export(float) var death_time = 10.0
 
@@ -25,6 +25,11 @@ func _ready():
 	connect("successful_hit", connect_to, "hazard_has_hit")
 	
 	connect("area_entered", self, "area_entered")
+
+	
+	if not destructable: # if the this hazard is not destructable, it'll deal damage per-tick
+		add_to_group("tick")
+		connect("area_exited", self, "area_exited") # also use area_exited to keep track of players inside the hazard zone
 	
 	if face_center:
 		if $"../../..".name == "DodgerField":
@@ -56,23 +61,26 @@ func area_entered(area):
 #	print("something was hit...")
 	
 	if area.get_parent().name == "GreenSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
-#		if dfield:
-#			var bscene = dfield.get_parent()
-#		print("... it was green")
-#		if dfield.get_parent():
-#			dfield.get_parent().call("hurt", "green", damage)
 		emit_signal("successful_hit", 1, damage_dealt)
-		
+		player_inside = 1
 		if destructable:
 			destroy()
 			
 	elif area.get_parent().name == "OrangeSprite" and type != GREEN and thingy.visible and not dfield.shielded:
-#		print("... it was orange")
 		emit_signal("successful_hit", 2, damage_dealt)
-#		if dfield.get_parent():
-#			dfield.get_parent().call("hurt", "orange", damage)
+		player_inside = 2
 		if destructable:
 			destroy()
+
+func area_exited(area):
+
+	if ((player_inside == 1) and (area.get_parent().name == "GreenSprite")) or ((player_inside == 2) and (area.get_parent().name == "OrangeSprite")):
+		player_inside = 0
+
+
+func _tick(): # if the this hazard is not destructable, it'll deal damage per-tick
+	if player_inside != 0:
+		emit_signal("successful_hit", player_inside, damage)
 
 func set_type(type_in):
 	type = type_in

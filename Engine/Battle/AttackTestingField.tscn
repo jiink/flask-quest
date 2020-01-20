@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Engine/Battle/AttackTestingField.gd" type="Script" id=2]
-[ext_resource path="res://NPC/Inkler/Attacks/InklerAttack1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NPC/BrainJar/Attacks/BrainJarAttack4.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Engine/Battle/CheckerBackground.gd" type="Script" id=4]
 
 [sub_resource type="Image" id=3]

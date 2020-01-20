@@ -8,7 +8,6 @@
 [ext_resource path="res://Engine/Battle/Dodger/OrangeDodgerPositionHint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Engine/Battle/Dodger/GreenDodgerPositionHint.tscn" type="PackedScene" id=7]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
 length = 12.0
@@ -144,14 +143,12 @@ scale = Vector2( 1.05, 1.05 )
 
 [node name="SemiCircleWallGreen" parent="Walls" index="0" instance=ExtResource( 5 )]
 type = 1
-destructable = false
 death_time = 30.0
 
 [node name="SemiCircleWallOrange" parent="Walls" index="1" instance=ExtResource( 5 )]
 position = Vector2( -19, 0 )
 scale = Vector2( -1, 1 )
 type = 2
-destructable = false
 death_time = 30.0
 
 [node name="CircleGuide" parent="." index="7"]

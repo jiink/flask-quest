@@ -8,6 +8,8 @@ extents = Vector2( 19, 37 )
 
 [node name="SemiCircleWall" instance=ExtResource( 1 )]
 position = Vector2( 19, 0 )
+damage = 1
+destructable = false
 
 [node name="bullet" parent="." index="0"]
 visible = false
