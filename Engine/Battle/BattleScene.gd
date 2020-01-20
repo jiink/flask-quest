@@ -65,7 +65,22 @@ func _ready():
 	
 	# put down the chemicals
 	update_chem_loadout()
-		
+	
+#	# set all the lightmasks to 0 so the overworld lighting doesnt affect this
+#	$LightingRemover.remove_lighting(self)
+	
+	# hide all them lights
+	toggle_lighting(get_tree().get_current_scene(), false)
+	
+func toggle_lighting(node, choice):
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			print("["+N.get_name()+"]")
+			toggle_lighting(N, choice)
+		else:
+			if N is Light2D:
+				N.visible = choice
+
 func update_chem_loadout():
 	for c in $BattleChoices/Chemicals.get_children():
 		c.queue_free()
@@ -300,4 +315,4 @@ func exit_battle():
 	global.end_battle()
 	$"/root/MusicManager".update_music("level")
 	get_tree().get_nodes_in_group("Player")[0].frozen = false
-	
+	toggle_lighting(get_tree().get_current_scene(), true)

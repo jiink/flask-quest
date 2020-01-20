@@ -119,6 +119,7 @@ tracks/1/keys = {
 
 [node name="BattleScene" type="Node2D"]
 pause_mode = 2
+light_mask = 0
 z_index = 256
 script = ExtResource( 1 )
 
@@ -160,7 +161,7 @@ polygon = PoolVector2Array( 0, 7, 8, 0, -8, 0 )
 [node name="Tween" type="Tween" parent="SelectedChemArrow"]
 
 [node name="BattleChoices" type="Sprite" parent="."]
-editor/display_folded = true
+light_mask = 0
 position = Vector2( 32, 105 )
 texture = ExtResource( 2 )
 hframes = 5

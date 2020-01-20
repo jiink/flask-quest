@@ -79,12 +79,14 @@ tracks/4/keys = {
 }
 
 [node name="DodgerField" type="Node2D"]
+light_mask = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
 [node name="DodgeCircle" type="Sprite" parent="."]
+light_mask = 0
 texture = ExtResource( 2 )
 hframes = 29
 frame = 26
@@ -136,6 +138,7 @@ __meta__ = {
 }
 
 [node name="GreenSprite" type="Sprite" parent="Dodgers"]
+light_mask = 0
 position = Vector2( 0, 31 )
 texture = ExtResource( 6 )
 
@@ -150,7 +153,8 @@ shape = SubResource( 1 )
 visible = false
 
 [node name="OrangeSprite" type="Sprite" parent="Dodgers"]
-position = Vector2( -7.85906e-005, -31 )
+light_mask = 0
+position = Vector2( -7.85906e-05, -31 )
 rotation = 3.14159
 texture = ExtResource( 8 )
 

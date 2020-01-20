@@ -27,6 +27,7 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 2 )
 
 [node name="TouchArea" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, 6 )
 rotation = 1.5708
 
