@@ -3,6 +3,9 @@ extends Node
 signal scene_changed
 signal battle_won
 
+const ORANGE_COLOR = Color("f68f31")
+const GREEN_COLOR = Color("72d031")
+
 # player vars
 var player_hp = 100
 
@@ -144,6 +147,9 @@ var next_player_position
 onready var game_saver = get_node("/root/GameSaver")
 
 func _ready():
+	# jumble em up
+	randomize()
+	
 	# change background color
 	VisualServer.set_default_clear_color(Color("0e111c"))
 #	connect_to_transition()
