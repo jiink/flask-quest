@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://NPC/BaseFoe/Attacks/AttackBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/Inkler/Attacks/InklerAttack2.gd" type="Script" id=2]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/GenericProjectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Engine/white.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Drip0:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 3.24901, 1 ),
+"update": 0,
+"values": [ Vector2( -1, 0 ), Vector2( -1, 246 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Drip1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.7 ),
+"transitions": PoolRealArray( 3.13834, 3.13834, 1 ),
+"update": 0,
+"values": [ Vector2( -2, -10 ), Vector2( -2, -10 ), Vector2( -2, 246 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Drip2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 1.1 ),
+"transitions": PoolRealArray( 3.24901, 3.24901, 1 ),
+"update": 0,
+"values": [ Vector2( -1, -22 ), Vector2( -1, -22 ), Vector2( -1, 246 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GenericProjectile:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.4, 3 ),
+"transitions": PoolRealArray( 3.03143, 3.4822, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -250 ), Vector2( 0, -250 ), Vector2( 0, 500 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 250 )
+
+[node name="InklerAttack2" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="PourLocation" type="Node2D" parent="." index="0"]
+position = Vector2( 192, -12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PourLocation" index="0"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 1 )
+
+[node name="Drip0" type="ColorRect" parent="PourLocation" index="1"]
+margin_left = -1.0
+margin_top = 246.0
+margin_right = 1.0
+margin_bottom = 251.0
+
+[node name="Drip1" type="ColorRect" parent="PourLocation" index="2"]
+margin_left = -2.0
+margin_top = 246.0
+margin_bottom = 251.0
+
+[node name="Drip2" type="ColorRect" parent="PourLocation" index="3"]
+margin_left = -1.0
+margin_top = 246.0
+margin_right = 1.0
+margin_bottom = 251.0
+
+[node name="GenericProjectile" parent="PourLocation" index="4" instance=ExtResource( 3 )]
+position = Vector2( 0, 500 )
+damage = 3
+destructable = false
+
+[node name="bullet" parent="PourLocation/GenericProjectile" index="0"]
+scale = Vector2( 0.34, 8 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="PourLocation/GenericProjectile" index="1"]
+shape = SubResource( 2 )
+
+[editable path="PourLocation/GenericProjectile"]
