@@ -37,7 +37,6 @@ level_music = ExtResource( 3 )
 battle_music = ExtResource( 4 )
 
 [node name="Background" type="Node2D" parent="."]
-editor/display_folded = true
 visible = false
 z_index = -4096
 __meta__ = {
@@ -203,6 +202,18 @@ position = Vector2( 339, 52 )
 
 [node name="SecurityMop" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 98.9717, 72.8067 )
+
+[node name="SecurityMop2" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 136.513, 59.1555 )
+
+[node name="SecurityMop3" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 104.66, 53.4674 )
+
+[node name="SecurityMop4" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 118.88, 69.3939 )
+
+[node name="SecurityMop5" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 112.054, 88.7332 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )

@@ -24,8 +24,8 @@ tracks/0/keys = {
 }
 
 [node name="Wormo" type="KinematicBody2D" groups=[
-"tick",
 "WorldFoes",
+"tick",
 ]]
 script = ExtResource( 1 )
 

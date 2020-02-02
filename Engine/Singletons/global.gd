@@ -54,9 +54,13 @@ func start_battle(foes):
 		var battle_start_transition = preload("res://Engine/Battle/BattleStartTransition.tscn").instance()
 		hud.add_child(battle_start_transition)
 	
+		# alert surround foes!
 		for f in get_tree().get_nodes_in_group("WorldFoes"):
 			f.speed *= 1.5
-			f.follow_distance *= 1.5
+			f.follow_distance *= 2.0
+			# make them not stack on top of eachother
+			# no longer exist on 1st collision layer
+			f.collision_layer = 0b100
 	else:
 		for n in foes:
 			initial_enemies.append(n)

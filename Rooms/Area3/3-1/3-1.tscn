@@ -801,12 +801,15 @@ anims/default = SubResource( 2 )
 
 [node name="Inkler" parent="YSort" index="23" instance=ExtResource( 19 )]
 position = Vector2( 267, 285 )
+collision_layer = 1
 
 [node name="Inkler2" parent="YSort" index="24" instance=ExtResource( 19 )]
 position = Vector2( 311, 278 )
+collision_layer = 1
 
 [node name="Inkler3" parent="YSort" index="25" instance=ExtResource( 19 )]
 position = Vector2( 155, 248 )
+collision_layer = 1
 
 [node name="BlackAbove" type="TileMap" parent="." index="7"]
 light_mask = 0
