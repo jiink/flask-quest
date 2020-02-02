@@ -38,7 +38,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/lamppost_01_cool.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Rooms/Area5/Assets/canopy_shadow.png" type="Texture" id=37]
 
-[node name="5-1" index="0" instance=ExtResource( 1 )]
+[node name="5-1" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
 battle_music = ExtResource( 3 )
 
@@ -50,11 +50,7 @@ battle_music = ExtResource( 3 )
 position = Vector2( 2666, 75 )
 texture = ExtResource( 5 )
 
-[node name="YSort" parent="." index="3"]
-editor/display_folded = true
-
 [node name="CorruptVegetation" type="YSort" parent="YSort" index="1"]
-editor/display_folded = true
 
 [node name="plant3_A_corrupt" parent="YSort/CorruptVegetation" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1391, 478 )
@@ -285,7 +281,6 @@ position = Vector2( 1578, -12 )
 position = Vector2( 1388, 136 )
 
 [node name="Vegetation" type="YSort" parent="YSort" index="2"]
-editor/display_folded = true
 
 [node name="tree1_B" parent="YSort/Vegetation" index="0" instance=ExtResource( 14 )]
 position = Vector2( 491, 273 )
@@ -924,7 +919,6 @@ position = Vector2( 904, 674 )
 position = Vector2( 880, 708 )
 
 [node name="Cabins" type="YSort" parent="YSort" index="3"]
-editor/display_folded = true
 
 [node name="cabin1_A" parent="YSort/Cabins" index="0" instance=ExtResource( 28 )]
 position = Vector2( 499, 1129 )
@@ -957,7 +951,6 @@ position = Vector2( 1149, 1493 )
 position = Vector2( 172, 1159 )
 
 [node name="Industrial" type="YSort" parent="YSort" index="4"]
-editor/display_folded = true
 
 [node name="transformer_01" parent="YSort/Industrial" index="0" instance=ExtResource( 31 )]
 position = Vector2( 887, 769 )

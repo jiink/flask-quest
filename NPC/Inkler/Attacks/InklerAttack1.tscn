@@ -12,4 +12,5 @@ position = Vector2( 413, 119 )
 [node name="Timer" type="Timer" parent="InkEmissionPoint" index="0"]
 wait_time = 0.7
 autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_MainTimer_timeout"]
 [connection signal="timeout" from="InkEmissionPoint/Timer" to="." method="_on_Timer_timeout"]

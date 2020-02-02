@@ -79,6 +79,10 @@ func _process(delta):
 					attack_scene.position = Vector2(-192, -108)
 					$Attacks.add_child(attack_scene)
 					
+					# don't spawn all of the attacks at once, have time between them?
+					attacks_spawned = true
+					yield(get_tree().create_timer(randf()*2+.5), "timeout")
+					
 					#timers.append(get_node("Attacks/Attack%s/Timer" % attack_num))
 					timers.append(attack_scene.get_node("Timer"))
 				

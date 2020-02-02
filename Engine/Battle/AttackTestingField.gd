@@ -20,18 +20,21 @@ onready var pstats = $"/root/PlayerStats"
 onready var green = $Dodgers/GreenSprite
 onready var orange = $Dodgers/OrangeSprite
 
-export(PackedScene) var attack_scene
+export(Array, PackedScene) var attack_scenes
 
 
 
 onready var level_music = preload("res://Engine/Battle/AttackTesting.ogg")
 
 func _ready():
-	var attack_scene_instance = attack_scene.instance()
-	$Attacks.add_child(attack_scene_instance)
-	attack_scene_instance.position = Vector2(-192, -108)
-	
 	$ShieldTimer.connect("timeout", self, "shield_timer_timeout")
+	
+	for attack in attack_scenes:
+		var AttackInstance = attack.instance()
+		$Attacks.add_child(AttackInstance)
+		AttackInstance.position = Vector2(-192, -108)
+		yield(get_tree().create_timer(randf()*2+.5), "timeout")
+		
 	
 func _process(delta):
 	move_players(delta)

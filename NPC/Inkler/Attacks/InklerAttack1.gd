@@ -1,9 +1,11 @@
 extends Node2D
 
 onready var ink_scene = load("res://Engine/Battle/Dodger/Projectiles/Inkdrop.tscn")
+var active = true
 
 func _on_Timer_timeout():
-	emit_ink()
+	if active:
+		emit_ink()
 
 func emit_ink():
 	var ink_instance = ink_scene.instance()
@@ -15,3 +17,7 @@ func emit_ink():
 #	ink_instance.scale.x = its_scale
 #	ink_instance.scale.y = ink_instance.scale.x
 #	ink_instance.get_node("Particles2D").scale = its_scale
+
+
+func _on_MainTimer_timeout():
+	active = false
