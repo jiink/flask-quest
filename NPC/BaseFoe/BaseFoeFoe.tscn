@@ -4,7 +4,6 @@
 [ext_resource path="res://Engine/Battle/missingFoe.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=3]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "hurt"
 tracks/0/type = "value"

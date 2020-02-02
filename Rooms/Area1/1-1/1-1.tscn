@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -29,28 +29,27 @@
 [ext_resource path="res://Player/orange_sprites/orangeright1.png" type="Texture" id=27]
 [ext_resource path="res://Player/orange_sprites/orangeright2.png" type="Texture" id=28]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Player/orange_sprites/orange_faces.png" type="Texture" id=30]
-[ext_resource path="res://Player/orange_sprites/orange_speech.wav" type="AudioStream" id=31]
-[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableL.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Rooms/Area1/1-1/OrangeDisabled.gd" type="Script" id=34]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/excited.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/beakers2.tscn" type="PackedScene" id=36]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableM.tscn" type="PackedScene" id=37]
-[ext_resource path="res://Rooms/Area1/Assets/beakers1.png" type="Texture" id=38]
-[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=39]
-[ext_resource path="res://Rooms/Area1/1-1/LabDoor.gd" type="Script" id=40]
-[ext_resource path="res://Rooms/Area1/Assets/labdoor1.png" type="Texture" id=41]
-[ext_resource path="res://Rooms/Area1/Assets/exploded_labdoor.png" type="Texture" id=42]
-[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=43]
-[ext_resource path="res://NPC/Miniman/Miniman.tscn" type="PackedScene" id=44]
-[ext_resource path="res://Rooms/Area1/1-1/Elevator.gd" type="Script" id=45]
-[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=46]
-[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevator_open_animation.tres" type="Animation" id=47]
-[ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=48]
-[ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=49]
-[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=50]
-[ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=51]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableL.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Rooms/Area1/1-1/OrangeDisabled.gd" type="Script" id=32]
+[ext_resource path="res://Player/orange_sprites/orangeInitialSleep.png" type="Texture" id=33]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/excited.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/beakers2.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableM.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Rooms/Area1/Assets/beakers1.png" type="Texture" id=37]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Rooms/Area1/1-1/LabDoor.gd" type="Script" id=39]
+[ext_resource path="res://Rooms/Area1/Assets/labdoor1.png" type="Texture" id=40]
+[ext_resource path="res://Rooms/Area1/Assets/exploded_labdoor.png" type="Texture" id=41]
+[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=42]
+[ext_resource path="res://NPC/Miniman/Miniman.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Rooms/Area1/1-1/Elevator.gd" type="Script" id=44]
+[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=45]
+[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevator_open_animation.tres" type="Animation" id=46]
+[ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=47]
+[ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=48]
+[ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=50]
 
 [sub_resource type="Animation" id=1]
 resource_name = "main"
@@ -559,31 +558,29 @@ flip_h = true
 shape = SubResource( 8 )
 
 [node name="DialogueTree" parent="YSort/OrangeNPC" index="2" instance=ExtResource( 29 )]
-face_texture = ExtResource( 30 )
-voice_sound = ExtResource( 31 )
 
-[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "Whooooaaaa..."
 text_delay = 0.0
 expression = "sidemouth"
 args = [  ]
 skippable = false
 
-[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Where are we? ...What are we? What is this place? ```I HAVE SO MANY QUESTIONS!"
 text_delay = 0.0
 expression = "happy"
 args = [  ]
 skippable = false
 
-[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Hey, you know what... you look a lot like me. Could we be... related?"
 text_delay = 0.0
 expression = "sidemouth"
 args = [  ]
 skippable = false
 
-[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Hu- ```You` hear that?"
 text_delay = 0.0
 expression = "bigsurprise"
@@ -600,18 +597,15 @@ shape = SubResource( 9 )
 
 [node name="Props" type="YSort" parent="YSort" index="3"]
 
-[node name="tableL" parent="YSort/Props" index="0" instance=ExtResource( 33 )]
+[node name="tableL" parent="YSort/Props" index="0" instance=ExtResource( 31 )]
 position = Vector2( 208, 80 )
 
 [node name="OrangeDisabled" type="Node2D" parent="YSort/Props/tableL" index="1"]
-script = ExtResource( 34 )
+script = ExtResource( 32 )
 
-[node name="ColorRect" type="ColorRect" parent="YSort/Props/tableL/OrangeDisabled" index="0"]
-margin_left = -20.0
-margin_top = -21.0
-margin_right = -7.0
-margin_bottom = -4.0
-color = Color( 0.964706, 0.560784, 0.192157, 1 )
+[node name="orangeInitialSleep" type="Sprite" parent="YSort/Props/tableL/OrangeDisabled" index="0"]
+position = Vector2( -13, -14 )
+texture = ExtResource( 33 )
 
 [node name="Interaction" type="Area2D" parent="YSort/Props/tableL/OrangeDisabled" index="1"]
 position = Vector2( -13, -7 )
@@ -621,40 +615,40 @@ shape = SubResource( 10 )
 
 [node name="DialogueTree" parent="YSort/Props/tableL/OrangeDisabled" index="2" instance=ExtResource( 29 )]
 
-[node name="DiagPiece" parent="YSort/Props/tableL/OrangeDisabled/DialogueTree" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/Props/tableL/OrangeDisabled/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "Little bubbles quickly rise to the surface."
 text_delay = 0.0
 no_face = true
 args = [  ]
 
-[node name="excited" parent="YSort/Props" index="1" instance=ExtResource( 35 )]
+[node name="excited" parent="YSort/Props" index="1" instance=ExtResource( 34 )]
 position = Vector2( 296, 16 )
 
-[node name="beakers2" parent="YSort/Props" index="2" instance=ExtResource( 36 )]
+[node name="beakers2" parent="YSort/Props" index="2" instance=ExtResource( 35 )]
 position = Vector2( 273, 21 )
 
-[node name="tableM" parent="YSort/Props" index="3" instance=ExtResource( 37 )]
+[node name="tableM" parent="YSort/Props" index="3" instance=ExtResource( 36 )]
 editor/display_folded = true
 position = Vector2( 296, 144 )
 
 [node name="beakers1" type="Sprite" parent="YSort/Props/tableM" index="1"]
 position = Vector2( 16, -12 )
-texture = ExtResource( 38 )
+texture = ExtResource( 37 )
 
-[node name="SaveStation" parent="YSort/Props" index="4" instance=ExtResource( 39 )]
+[node name="SaveStation" parent="YSort/Props" index="4" instance=ExtResource( 38 )]
 position = Vector2( 600, -237 )
 
 [node name="LabDoor" type="Node2D" parent="YSort/Props" index="5"]
 position = Vector2( 208, 48 )
-script = ExtResource( 40 )
+script = ExtResource( 39 )
 
 [node name="closed" type="Sprite" parent="YSort/Props/LabDoor" index="0"]
 position = Vector2( 0, -16 )
-texture = ExtResource( 41 )
+texture = ExtResource( 40 )
 
 [node name="open" type="Sprite" parent="YSort/Props/LabDoor" index="1"]
 visible = false
-texture = ExtResource( 42 )
+texture = ExtResource( 41 )
 
 [node name="Interaction" type="Area2D" parent="YSort/Props/LabDoor" index="2"]
 editor/display_folded = true
@@ -665,19 +659,19 @@ shape = SubResource( 11 )
 
 [node name="DialogueTree" parent="YSort/Props/LabDoor" index="3" instance=ExtResource( 29 )]
 
-[node name="IfNoMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="0" instance=ExtResource( 32 )]
+[node name="IfNoMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "PERHAPS something corrosive could let you through!"
 text_delay = 0.0
 no_face = true
 args = [  ]
 
-[node name="IfYesMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="1" instance=ExtResource( 32 )]
+[node name="IfYesMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="1" instance=ExtResource( 30 )]
 message = "Yeet Miniman at the door?"
 text_delay = 0.0
 no_face = true
 args = [  ]
 
-[node name="DiagPiece" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="0" instance=ExtResource( 30 )]
 key = "Yes"
 message = "Here goes!"
 text_delay = 0.0
@@ -685,7 +679,7 @@ no_face = true
 function = "toss_miniman"
 args = [  ]
 
-[node name="DiagPiece2" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="1" instance=ExtResource( 32 )]
+[node name="DiagPiece2" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="1" instance=ExtResource( 30 )]
 key = "No"
 message = "Okay"
 text_delay = 0.0
@@ -706,7 +700,7 @@ position = Vector2( 0, -10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/ClosedCollision" index="0"]
 shape = SubResource( 12 )
 
-[node name="PositionPortal" parent="YSort/Props/LabDoor" index="6" instance=ExtResource( 43 )]
+[node name="PositionPortal" parent="YSort/Props/LabDoor" index="6" instance=ExtResource( 42 )]
 editor/display_folded = true
 visible = false
 position = Vector2( 0, -8 )
@@ -717,7 +711,7 @@ shape = SubResource( 13 )
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal" index="1"]
 position = Vector2( -1, -161 )
 
-[node name="PositionPortal2" parent="YSort/Props/LabDoor" index="7" instance=ExtResource( 43 )]
+[node name="PositionPortal2" parent="YSort/Props/LabDoor" index="7" instance=ExtResource( 42 )]
 position = Vector2( 0, -141 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal2" index="0"]
@@ -726,7 +720,7 @@ shape = SubResource( 13 )
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal2" index="1"]
 position = Vector2( -1, 152 )
 
-[node name="DoorToElev" parent="YSort/Props" index="6" instance=ExtResource( 43 )]
+[node name="DoorToElev" parent="YSort/Props" index="6" instance=ExtResource( 42 )]
 position = Vector2( 352, 103 )
 
 [node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorToElev" index="0"]
@@ -735,7 +729,7 @@ shape = SubResource( 14 )
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorToElev" index="1"]
 position = Vector2( 168, 1 )
 
-[node name="DoorFromElev" parent="YSort/Props" index="7" instance=ExtResource( 43 )]
+[node name="DoorFromElev" parent="YSort/Props" index="7" instance=ExtResource( 42 )]
 position = Vector2( 352, 103 )
 
 [node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorFromElev" index="0"]
@@ -745,12 +739,12 @@ shape = SubResource( 14 )
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorFromElev" index="1"]
 position = Vector2( -25, 0 )
 
-[node name="Miniman" parent="YSort" index="4" instance=ExtResource( 44 )]
+[node name="Miniman" parent="YSort" index="4" instance=ExtResource( 43 )]
 position = Vector2( 141, 28 )
 
 [node name="Elevator" type="Node2D" parent="YSort" index="5"]
 position = Vector2( 592, 59 )
-script = ExtResource( 45 )
+script = ExtResource( 44 )
 
 [node name="Inside" type="Sprite" parent="YSort/Elevator" index="0"]
 position = Vector2( 0, -11 )
@@ -762,19 +756,19 @@ __meta__ = {
 
 [node name="Door" type="Sprite" parent="YSort/Elevator" index="1"]
 position = Vector2( 0, -11 )
-texture = ExtResource( 46 )
+texture = ExtResource( 45 )
 hframes = 25
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Elevator" index="2"]
-anims/open_doors = ExtResource( 47 )
+anims/open_doors = ExtResource( 46 )
 
 [node name="ClosedBody" type="StaticBody2D" parent="YSort/Elevator" index="3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Elevator/ClosedBody" index="0"]
 shape = SubResource( 15 )
 
-[node name="PositionPortal" parent="YSort/Elevator" index="4" instance=ExtResource( 43 )]
+[node name="PositionPortal" parent="YSort/Elevator" index="4" instance=ExtResource( 42 )]
 visible = false
 position = Vector2( 0, -6 )
 
@@ -794,11 +788,11 @@ shape = SubResource( 15 )
 
 [node name="BrainJarNPC" type="Node2D" parent="YSort" index="6"]
 position = Vector2( 208, 52 )
-script = ExtResource( 48 )
+script = ExtResource( 47 )
 
 [node name="Sprite" type="Sprite" parent="YSort/BrainJarNPC" index="0"]
 position = Vector2( 1.67178, -4.39208 )
-texture = ExtResource( 49 )
+texture = ExtResource( 48 )
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="1"]
@@ -810,35 +804,35 @@ anims/default = SubResource( 17 )
 
 [node name="DialogueTree" parent="YSort/BrainJarNPC" index="3" instance=ExtResource( 29 )]
 
-[node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "BLAMMO!!"
 text_delay = 0.0
 no_face = true
 args = [  ]
 
-[node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Get ready to experience pain!"
 text_delay = 0.0
 no_face = true
 function = "jump_to_them"
 args = [  ]
 
-[node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 32 )]
+[node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 30 )]
 message = "And by that, I mean the pain of learning!"
 text_delay = 0.0
 no_face = true
 function = "start_brainjar_battle"
 args = [  ]
 
-[node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 50 )]
+[node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 49 )]
 position = Vector2( 168, -243 )
 
-[node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 50 )]
+[node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 49 )]
 position = Vector2( 504, -259 )
 
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
 position = Vector2( 200, -162 )
-script = ExtResource( 51 )
+script = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
 shape = SubResource( 18 )

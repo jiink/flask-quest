@@ -1,0 +1,20 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/bg_glasstown_03.tsx-bd94eb673d5e98867f9853d611fa8051.res"
+
+[deps]
+
+source_file="res://Rooms/Area5/Assets/bg_glasstown_03.tsx"
+dest_files=[ "res://.import/bg_glasstown_03.tsx-bd94eb673d5e98867f9853d611fa8051.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=7
+embed_internal_images=false
+save_tiled_properties=false
+apply_offset=false
+post_import_script=""
