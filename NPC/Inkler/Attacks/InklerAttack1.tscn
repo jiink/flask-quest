@@ -6,6 +6,9 @@
 [node name="InklerAttack1" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="Timer" parent="." index="0"]
+wait_time = 4.4
+
 [node name="InkEmissionPoint" type="Position2D" parent="." index="2"]
 position = Vector2( 413, 119 )
 

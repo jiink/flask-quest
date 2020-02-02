@@ -75,7 +75,7 @@ func _ready():
 func toggle_lighting(node, choice):
 	for N in node.get_children():
 		if N.get_child_count() > 0:
-			print("["+N.get_name()+"]")
+#			print("["+N.get_name()+"]")
 			toggle_lighting(N, choice)
 		else:
 			if N is Light2D:
