@@ -17,6 +17,7 @@ autostart = true
 [node name="CircleGuide" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.133333 )
 position = Vector2( 192, 108 )
+z_index = -100
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
