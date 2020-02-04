@@ -54,7 +54,7 @@ func _process(delta):
 				# don't spawn all of the attacks at once, have time between them?
 				var wait_time = randf()*2+.5
 				yield(get_tree().create_timer(wait_time), "timeout")
-					
+				# timer starting in the spawn_attack func
 #					timers.append(attack_scene.get_node("Timer"))
 				
 #			var longest_timer_time = 0.1
@@ -125,6 +125,11 @@ func spawn_attack(foe_index):
 	$Attacks.add_child(attack_scene)
 	
 	attacks_spawned = true
+	
+	# start the timer when the last attack spawns
+	if foe_index == battle.get_foes().size()-1:
+		active_battle_timer = attack_scene.get_node("Timer")
+		active_battle_timer.connect("timeout", self, "att_timeout")
 
 
 func move_players(delta):
