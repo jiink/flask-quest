@@ -66,17 +66,22 @@ func _process(delta):
 	
 func get_inputs():
 	motion = Vector2(0, 0)
-	if Input.is_action_pressed("up"):
-		motion.y -= 1
-	if Input.is_action_pressed("down"):
-		motion.y += 1
-		
-	if Input.is_action_pressed("left"):
-		motion.x -= 1
-	if Input.is_action_pressed("right"):
-		motion.x += 1
-		
-	match motion:
+	
+#	if Input.is_action_pressed("up"):
+#		motion.y -= 1
+#	if Input.is_action_pressed("down"):
+#		motion.y += 1
+	motion.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+#	if Input.is_action_pressed("left"):
+#		motion.x -= 1
+#	if Input.is_action_pressed("right"):
+#		motion.x += 1
+	motion.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	motion = motion.normalized()
+	
+	var motion_simplified = Vector2(make_one(motion.x), make_one(motion.y))
+#	motion_simplified.x = motion.x
+	match motion_simplified:
 		Vector2(0, -1):
 			direction = "up"
 		Vector2(1, -1):
@@ -162,3 +167,10 @@ func _on_HistoryTimer_timeout():
 		in_water_history.push_front(in_water)
 		
 	$HistoryTimer.start(0.1)#1/Engine.get_frames_per_second())
+
+func make_one(num):
+	if num < 0:
+		num = -1
+	elif num > 0:
+		num = 1
+	return num

@@ -135,9 +135,9 @@ func spawn_attack(foe_index):
 func move_players(delta):
 	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
 	if Input.is_action_pressed("left"):
-		rot_v -= rot_speed 
+		rot_v -= rot_speed * Input.get_action_strength("left")
 	elif Input.is_action_pressed("right"):
-		rot_v += rot_speed 
+		rot_v += rot_speed * Input.get_action_strength("right")
 	else:
 		rot_v *= rot_friction 
 	
