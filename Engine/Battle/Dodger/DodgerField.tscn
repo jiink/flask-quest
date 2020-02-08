@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/Dodger/dodge_circle_2_animated.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Engine/Battle/Dodger/InstaShield.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Engine/Battle/Dodger/orange_dodger.png" type="Texture" id=8]
 [ext_resource path="res://Engine/Battle/Dodger/playerdamage.wav" type="AudioStream" id=9]
+[ext_resource path="res://Engine/Battle/Dodger/Pawn.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 3 )
@@ -66,7 +67,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Dodgers:visible")
+tracks/4/path = NodePath("GreenPawn:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -133,42 +134,48 @@ texture_progress = ExtResource( 4 )
 fill_mode = 3
 script = ExtResource( 5 )
 
-[node name="Dodgers" type="Node2D" parent="."]
+[node name="GreenPawn" type="Node2D" parent="."]
 z_index = 25
+script = ExtResource( 10 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="GreenSprite" type="Sprite" parent="Dodgers"]
+[node name="Sprite" type="Sprite" parent="GreenPawn"]
 light_mask = 0
 position = Vector2( 0, 31 )
 texture = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="Dodgers/GreenSprite"]
-position = Vector2( 0, 1 )
+[node name="Area2D" type="Area2D" parent="GreenPawn"]
+position = Vector2( 0, 32 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dodgers/GreenSprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenPawn/Area2D"]
 shape = SubResource( 1 )
 
-[node name="InstaShield" parent="Dodgers/GreenSprite" instance=ExtResource( 7 )]
+[node name="InstaShield" parent="GreenPawn" instance=ExtResource( 7 )]
 visible = false
+position = Vector2( 0, 31 )
 
-[node name="OrangeSprite" type="Sprite" parent="Dodgers"]
+[node name="OrangePawn" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="OrangePawn"]
 light_mask = 0
 position = Vector2( -7.85906e-05, -31 )
 rotation = 3.14159
 texture = ExtResource( 8 )
 
-[node name="Area2D2" type="Area2D" parent="Dodgers/OrangeSprite"]
-position = Vector2( 0, 1 )
-rotation = 3.14159
+[node name="Area2D" type="Area2D" parent="OrangePawn"]
+position = Vector2( -8.11258e-05, -32 )
+rotation = -5.07036e-06
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dodgers/OrangeSprite/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangePawn/Area2D"]
 shape = SubResource( 1 )
 
-[node name="InstaShield" parent="Dodgers/OrangeSprite" instance=ExtResource( 7 )]
+[node name="InstaShield" parent="OrangePawn" instance=ExtResource( 7 )]
 visible = false
+position = Vector2( -7.85906e-05, -31 )
+rotation = 3.14159
 
 [node name="Attacks" type="Node2D" parent="."]
 

@@ -17,8 +17,6 @@ var shield_delay = 0.2
 var active_battle_timer
 
 onready var pstats = $"/root/PlayerStats"
-onready var green = $Dodgers/GreenSprite
-onready var orange = $Dodgers/OrangeSprite
 
 signal spawn_attack
 
@@ -36,16 +34,23 @@ func _ready():
 	
 func _process(delta):
 	if battle.state == battle.DODGE_GAME:
-		move_players(delta)
+		
+		$GreenPawn.move(delta)
+		$OrangePawn.move(delta)
+#		move_players(delta)
 		
 		if $ShieldDelay.is_stopped():
 			if Input.is_action_just_pressed("confirm"):
 				shielded = true
-				green.get_node("InstaShield").visible = true
-				orange.get_node("InstaShield").visible = true
+				$GreenPawn/InstaShield.visible = true
+				$OrangePawn/InstaShield.visible = true
 				$ShieldTimer.start(shield_time)
 		
 		if not attacks_spawned and battle != null:
+			
+			# update which player the orange pawn is controlled by
+			# in 2 player mode he is controlled by player 2
+			$OrangePawn.set_player_mode(PlayerStats.player_count)
 			
 #			var timers = []
 			attacks_spawned = true
@@ -70,9 +75,12 @@ func _process(delta):
 #				attacks_spawned = true
 #			else:
 #				att_timeout()
+			
+			
 		
-		$Dodgers/GreenSprite.visible = not pstats.green_hp <= 0
-		$Dodgers/OrangeSprite.visible = not pstats.orange_hp <= 0
+			
+		$GreenPawn.visible = not pstats.green_hp <= 0
+		$OrangePawn.visible = not pstats.orange_hp <= 0
 		
 		if pstats.green_hp <= 0 or pstats.orange_hp <= 0:
 			stop()
@@ -132,17 +140,18 @@ func spawn_attack(foe_index):
 		active_battle_timer.connect("timeout", self, "att_timeout")
 
 
-func move_players(delta):
-	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
-	if Input.is_action_pressed("left"):
-		rot_v -= rot_speed * Input.get_action_strength("left")
-	elif Input.is_action_pressed("right"):
-		rot_v += rot_speed * Input.get_action_strength("right")
-	else:
-		rot_v *= rot_friction 
-	
-	rot += rot_v*delta*60
-	$Dodgers.set_rotation_degrees(rot)
+#func move_players(delta):
+#	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
+#	if Input.is_action_pressed("left"):
+#		rot_v -= rot_speed * Input.get_action_strength("left")
+#	elif Input.is_action_pressed("right"):
+#		rot_v += rot_speed * Input.get_action_strength("right")
+#	else:
+#		rot_v *= rot_friction 
+#
+#	rot += rot_v*delta*60
+#	$GreenPawn.set_rotation_degrees(rot)
+#	$OrangePawn.set_rotation_degrees(rot)
 
 func stop():
 	attacks_spawned = false
@@ -162,8 +171,8 @@ func run():
 
 func shield_timer_timeout():
 	shielded = false
-	green.get_node("InstaShield").visible = false
-	orange.get_node("InstaShield").visible = false
+	$GreenPawn/InstaShield.visible = false
+	$OrangePawn/InstaShield.visible = false
 	$ShieldDelay.start(shield_delay)
 
 func get_attacks_in_dir(path):
