@@ -10,9 +10,9 @@ var rot_friction = .85
 var attacks_spawned = false
 var battle
 
-var shielded = false
-var shield_time = 0.2
-var shield_delay = 0.2
+
+
+
 
 var active_battle_timer
 
@@ -28,23 +28,15 @@ func _ready():
 		print("Warning: Parent not BattleScene")
 		battle = null
 	
-	$ShieldTimer.connect("timeout", self, "shield_timer_timeout")
 	$AnimationPlayer.play_backwards("appear")
 	connect("spawn_attack", self, "spawn_attack")
+	
 	
 func _process(delta):
 	if battle.state == battle.DODGE_GAME:
 		
 		$GreenPawn.move(delta)
 		$OrangePawn.move(delta)
-#		move_players(delta)
-		
-		if $ShieldDelay.is_stopped():
-			if Input.is_action_just_pressed("confirm"):
-				shielded = true
-				$GreenPawn/InstaShield.visible = true
-				$OrangePawn/InstaShield.visible = true
-				$ShieldTimer.start(shield_time)
 		
 		if not attacks_spawned and battle != null:
 			
@@ -140,24 +132,12 @@ func spawn_attack(foe_index):
 		active_battle_timer.connect("timeout", self, "att_timeout")
 
 
-#func move_players(delta):
-#	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
-#	if Input.is_action_pressed("left"):
-#		rot_v -= rot_speed * Input.get_action_strength("left")
-#	elif Input.is_action_pressed("right"):
-#		rot_v += rot_speed * Input.get_action_strength("right")
-#	else:
-#		rot_v *= rot_friction 
-#
-#	rot += rot_v*delta*60
-#	$GreenPawn.set_rotation_degrees(rot)
-#	$OrangePawn.set_rotation_degrees(rot)
-
 func stop():
 	attacks_spawned = false
 	battle.end_dodge_game()
 	rot = 0.0
 	rot_v = 0.0
+
 
 func att_timeout():
 	for i in $Attacks.get_children():
@@ -166,14 +146,10 @@ func att_timeout():
 	active_battle_timer = null
 	stop()
 
+
 func run():
 	pass
 
-func shield_timer_timeout():
-	shielded = false
-	$GreenPawn/InstaShield.visible = false
-	$OrangePawn/InstaShield.visible = false
-	$ShieldDelay.start(shield_delay)
 
 func get_attacks_in_dir(path):
 	var files = []
@@ -192,7 +168,9 @@ func get_attacks_in_dir(path):
 
 	return files
 
+
 func hazard_has_hit(who, damage):
+	print("%s HAS BEEEEEN HIT!" % who)
 	damage = int(round(damage))
 	match who:
 		1:
@@ -207,3 +185,4 @@ func hazard_has_hit(who, damage):
 			$DamageSound.play()
 		_:
 			print("warning: hazard_has_hit %s" % who)
+

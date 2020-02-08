@@ -156,6 +156,16 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( 0, 31 )
 
+[node name="ShieldTimer" type="Timer" parent="GreenPawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="ShieldDelay" type="Timer" parent="GreenPawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
 [node name="OrangePawn" type="Node2D" parent="."]
 script = ExtResource( 10 )
 
@@ -177,19 +187,19 @@ visible = false
 position = Vector2( -7.85906e-05, -31 )
 rotation = 3.14159
 
+[node name="ShieldTimer" type="Timer" parent="OrangePawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="ShieldDelay" type="Timer" parent="OrangePawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
 [node name="Attacks" type="Node2D" parent="."]
 
 [node name="DebugCam" type="Camera2D" parent="."]
-
-[node name="ShieldTimer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="ShieldDelay" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.3

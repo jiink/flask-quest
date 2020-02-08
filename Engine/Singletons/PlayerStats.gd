@@ -1,6 +1,6 @@
 extends Node
 
-var player_count = 2 # for "1 player" or "2 player"
+var player_count = 1 # for "1 player" or "2 player"
 
 var orange = preload("res://Player/Orange.tscn")
 

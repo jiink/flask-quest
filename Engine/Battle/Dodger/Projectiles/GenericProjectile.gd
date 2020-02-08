@@ -21,8 +21,10 @@ func _ready():
 	if get_tree().get_current_scene().name == "AttackTestingField":
 		connect_to = get_tree().get_current_scene()
 	else:
-		connect_to = get_node("../../../..") # battlescene
+		connect_to = get_node("../../..") # dodgerfield
+	print("connect_to's name: %s" % connect_to.name)
 	connect("successful_hit", connect_to, "hazard_has_hit")
+#	connect("successful_hit", connect_to, "hurt")
 	
 	connect("area_entered", self, "area_entered")
 
@@ -55,18 +57,15 @@ func _ready():
 	
 func area_entered(area):
 	var damage_dealt = damage + (randf() * damage_randomness - damage_randomness * 0.5)
-	var thingy = area.get_parent()
-	var dfield = area.get_parent().get_node("../..")
-#	var pstats = get_node("/root/PlayerStats")
-#	print("something was hit...")
+	var object = area.get_parent()
 	
-	if area.get_parent().name == "GreenSprite" and type != ORANGE and thingy.visible and not dfield.shielded:
+	if area.get_parent().name == "GreenPawn" and type != ORANGE and object.visible and not object.shielded:
 		emit_signal("successful_hit", 1, damage_dealt)
 		player_inside = 1
 		if destructable:
 			destroy()
 			
-	elif area.get_parent().name == "OrangeSprite" and type != GREEN and thingy.visible and not dfield.shielded:
+	elif area.get_parent().name == "OrangePawn" and type != GREEN and object.visible and not object.shielded:
 		emit_signal("successful_hit", 2, damage_dealt)
 		player_inside = 2
 		if destructable:
@@ -74,7 +73,7 @@ func area_entered(area):
 
 func area_exited(area):
 
-	if ((player_inside == 1) and (area.get_parent().name == "GreenSprite")) or ((player_inside == 2) and (area.get_parent().name == "OrangeSprite")):
+	if ((player_inside == 1) and (area.get_parent().name == "GreenPawn")) or ((player_inside == 2) and (area.get_parent().name == "OrangePawn")):
 		player_inside = 0
 
 
