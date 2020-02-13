@@ -24,14 +24,14 @@ func _ready():
 	connect("foe_died", get_node("../.."), "foe_died")
 	update_hp_label()
 	
-func get_hurt(damage):
+func get_hurt(base_damage):
 	$BaseAnimationPlayer.play("hurt")
-	hp -= damage
+	hp -= base_damage
 	update_hp_label()
 	
 	var damage_number = load("res://Engine/Battle/DamageNumber.tscn").instance()
 #	damage_number.set_position(position)
-	damage_number.num = damage
+	damage_number.num = base_damage
 	add_child(damage_number)
 	
 	if hp <= 0:
