@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -50,6 +50,7 @@
 [ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=48]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=49]
 [ext_resource path="res://Rooms/Area1/1-1/TriggerZone.gd" type="Script" id=50]
+[ext_resource path="res://Engine/light5.png" type="Texture" id=51]
 
 [sub_resource type="Animation" id=1]
 resource_name = "main"
@@ -148,7 +149,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4.2, 4.6, 4.8, 5 ),
 "transitions": PoolRealArray( 1, 2.46229, 0.258816, 2.46229, 1 ),
 "update": 0,
-"values": [ Vector2( 1e-005, 0.412 ), Vector2( 1e-005, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
+"values": [ Vector2( 1e-05, 0.412 ), Vector2( 1e-05, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ScenePortal:monitoring")
@@ -235,7 +236,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 50, 10 )
 
-[node name="1-1" index="0" groups=[
+[node name="1-1" groups=[
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -268,6 +269,9 @@ margin_left = -90.0
 margin_top = -115.0
 margin_right = 479.0
 margin_bottom = 299.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TileMaps" parent="." index="2" instance=ExtResource( 8 )]
 
@@ -393,7 +397,7 @@ offset = Vector2( 192, 0 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground" index="1"]
 position = Vector2( 192, 0 )
-motion_scale = Vector2( 0.1, 0 )
+motion_scale = Vector2( 0.05, 0 )
 motion_mirroring = Vector2( 384, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer2" index="0"]
@@ -401,8 +405,8 @@ texture = ExtResource( 11 )
 offset = Vector2( 192, 0 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground" index="2"]
-position = Vector2( 192, -84.15 )
-motion_scale = Vector2( 0.2, 0.3 )
+position = Vector2( 192, -78 )
+motion_scale = Vector2( 0.1, 0.15 )
 motion_offset = Vector2( 50, 0 )
 motion_mirroring = Vector2( 384, 0 )
 
@@ -411,8 +415,8 @@ texture = ExtResource( 12 )
 offset = Vector2( 192, 0 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground" index="3"]
-position = Vector2( 192, -125.14 )
-motion_scale = Vector2( 0.3, 0.4 )
+position = Vector2( 192, -110 )
+motion_scale = Vector2( 0.2, 0.2 )
 motion_offset = Vector2( 50, 0 )
 motion_mirroring = Vector2( 384, 0 )
 
@@ -421,8 +425,8 @@ texture = ExtResource( 13 )
 offset = Vector2( 192, 0 )
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/ParallaxBackground" index="4"]
-position = Vector2( 192, -164.08 )
-motion_scale = Vector2( 0.5, 0.5 )
+position = Vector2( 192, -122 )
+motion_scale = Vector2( 0.25, 0.25 )
 motion_mirroring = Vector2( 384, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer5" index="0"]
@@ -430,8 +434,8 @@ texture = ExtResource( 14 )
 offset = Vector2( 192, 0 )
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="Background/ParallaxBackground" index="5"]
-position = Vector2( 192, -210.88 )
-motion_scale = Vector2( 0.6, 0.6 )
+position = Vector2( 192, -143 )
+motion_scale = Vector2( 0.3, 0.3 )
 motion_offset = Vector2( 50, 0 )
 motion_mirroring = Vector2( 384, 0 )
 
@@ -440,8 +444,8 @@ texture = ExtResource( 15 )
 offset = Vector2( 192, 0 )
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="Background/ParallaxBackground" index="6"]
-position = Vector2( 192, -89.54 )
-motion_scale = Vector2( 0.7, 0.7 )
+position = Vector2( 192, -22 )
+motion_scale = Vector2( 0.35, 0.35 )
 motion_offset = Vector2( 50, 0 )
 motion_mirroring = Vector2( 384, 0 )
 
@@ -450,7 +454,6 @@ texture = ExtResource( 16 )
 offset = Vector2( 192, 0 )
 
 [node name="ElevatorRoom" type="Node2D" parent="." index="4"]
-editor/display_folded = true
 position = Vector2( 816, 307 )
 script = ExtResource( 17 )
 
@@ -473,7 +476,6 @@ custom_colors/font_color_shadow = Color( 0.109804, 0.12549, 0.105882, 1 )
 text = "322"
 
 [node name="collisions" type="StaticBody2D" parent="ElevatorRoom" index="2"]
-editor/display_folded = true
 visible = false
 position = Vector2( 0, -9 )
 
@@ -504,7 +506,7 @@ shape = SubResource( 5 )
 
 [node name="DoorLight" type="Light2D" parent="ElevatorRoom" index="5"]
 position = Vector2( 1, 30.5883 )
-scale = Vector2( 1e-005, 0.412 )
+scale = Vector2( 1e-05, 0.412 )
 texture = ExtResource( 22 )
 offset = Vector2( 0, -31 )
 color = Color( 1, 0.976471, 0.423529, 1 )
@@ -518,24 +520,6 @@ player_new_position = Vector2( 256, 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorRoom/ScenePortal" index="0"]
 shape = SubResource( 6 )
-
-[node name="Light2D" type="Light2D" parent="." index="5"]
-position = Vector2( 298, 89 )
-texture = ExtResource( 24 )
-texture_scale = 0.59
-color = Color( 0.564706, 0.733333, 0.917647, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Light2D2" type="Light2D" parent="." index="6"]
-position = Vector2( 121, 88 )
-texture = ExtResource( 24 )
-texture_scale = 0.59
-color = Color( 0.564706, 0.733333, 0.917647, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ElevatorCardPickup" parent="YSort" index="0" instance=ExtResource( 25 )]
 position = Vector2( 451, -354 )
@@ -628,7 +612,6 @@ position = Vector2( 296, 16 )
 position = Vector2( 273, 21 )
 
 [node name="tableM" parent="YSort/Props" index="3" instance=ExtResource( 36 )]
-editor/display_folded = true
 position = Vector2( 296, 144 )
 
 [node name="beakers1" type="Sprite" parent="YSort/Props/tableM" index="1"]
@@ -651,7 +634,6 @@ visible = false
 texture = ExtResource( 41 )
 
 [node name="Interaction" type="Area2D" parent="YSort/Props/LabDoor" index="2"]
-editor/display_folded = true
 position = Vector2( 0, -3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/Interaction" index="0"]
@@ -701,7 +683,6 @@ position = Vector2( 0, -10 )
 shape = SubResource( 12 )
 
 [node name="PositionPortal" parent="YSort/Props/LabDoor" index="6" instance=ExtResource( 42 )]
-editor/display_folded = true
 visible = false
 position = Vector2( 0, -8 )
 
@@ -830,15 +811,104 @@ position = Vector2( 168, -243 )
 [node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 49 )]
 position = Vector2( 504, -259 )
 
+[node name="Dark" type="Node2D" parent="." index="6"]
+
+[node name="ColorRect" type="ColorRect" parent="Dark" index="0"]
+margin_left = 485.0
+margin_top = 6.0
+margin_right = 639.0
+margin_bottom = 143.0
+color = Color( 0.054902, 0.0666667, 0.109804, 0.458824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Dark" index="1"]
+margin_left = 154.0
+margin_top = -313.0
+margin_right = 176.0
+margin_bottom = -103.0
+color = Color( 0.054902, 0.0666667, 0.109804, 0.458824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Dark" index="2"]
+margin_left = 176.0
+margin_top = -240.0
+margin_right = 326.0
+margin_bottom = -90.0
+color = Color( 0.054902, 0.0666667, 0.109804, 0.458824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="Dark" index="3"]
+margin_left = 224.0
+margin_top = -390.0
+margin_right = 326.0
+margin_bottom = -240.0
+color = Color( 0.054902, 0.0666667, 0.109804, 0.458824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="Dark" index="4"]
+margin_left = 176.0
+margin_top = -422.0
+margin_right = 224.0
+margin_bottom = -272.0
+color = Color( 0.054902, 0.0666667, 0.109804, 0.458824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lights" type="Node2D" parent="." index="7"]
+position = Vector2( 298, 89 )
+
+[node name="Light2D" type="Light2D" parent="Lights" index="0"]
+texture = ExtResource( 24 )
+texture_scale = 0.59
+color = Color( 0.564706, 0.733333, 0.917647, 1 )
+
+[node name="Light2D3" type="Light2D" parent="Lights" index="1"]
+position = Vector2( -18, -332 )
+texture = ExtResource( 24 )
+texture_scale = 0.59
+color = Color( 0.564706, 0.733333, 0.917647, 1 )
+
+[node name="Light2D5" type="Light2D" parent="Lights" index="2"]
+position = Vector2( 270, -28 )
+texture = ExtResource( 24 )
+texture_scale = 0.59
+color = Color( 1, 0.4, 0, 1 )
+
+[node name="Light2D6" type="Light2D" parent="Lights" index="3"]
+position = Vector2( 318, -28 )
+texture = ExtResource( 24 )
+texture_scale = 0.59
+color = Color( 1, 0.4, 0, 1 )
+
+[node name="Light2D4" type="Light2D" parent="Lights" index="4"]
+position = Vector2( -98, -281 )
+scale = Vector2( 0.317797, 0.635593 )
+texture = ExtResource( 51 )
+texture_scale = 0.59
+color = Color( 1, 0.917647, 0.815686, 1 )
+energy = 1.1
+
+[node name="Light2D2" type="Light2D" parent="Lights" index="5"]
+position = Vector2( -177, -1 )
+texture = ExtResource( 24 )
+texture_scale = 0.59
+color = Color( 0.564706, 0.733333, 0.917647, 1 )
+
 [node name="TriggerZone" type="Area2D" parent="." index="8"]
 position = Vector2( 200, -162 )
 script = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
 shape = SubResource( 18 )
-
-[node name="HUD" parent="." index="10"]
-editor/display_folded = true
 [connection signal="animation_finished" from="MinimanDoorEvent/AnimationPlayer" to="MinimanDoorEvent" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="ElevatorRoom/TriggerField" to="ElevatorRoom" method="_on_TriggerField_body_entered"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
