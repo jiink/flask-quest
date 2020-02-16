@@ -17,7 +17,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=16]
 [ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=17]
-[ext_resource path="res://NPC/SecurityMop/SecurityMop.tscn" type="PackedScene" id=18]
+[ext_resource path="res://NPC/OminousRat/OminousRat.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Engine/light.png" type="Texture" id=19]
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=21]
@@ -200,20 +200,8 @@ position = Vector2( 316, 53 )
 [node name="SaveTester3" parent="YSort" instance=ExtResource( 17 )]
 position = Vector2( 339, 52 )
 
-[node name="SecurityMop" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 98.9717, 72.8067 )
-
-[node name="SecurityMop2" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 136.513, 59.1555 )
-
-[node name="SecurityMop3" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 104.66, 53.4674 )
-
-[node name="SecurityMop4" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 118.88, 69.3939 )
-
-[node name="SecurityMop5" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 112.054, 88.7332 )
+[node name="OminousRat" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 105, 72 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )

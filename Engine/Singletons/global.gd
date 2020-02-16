@@ -60,7 +60,7 @@ func start_battle(foes):
 			f.follow_distance *= 2.0
 			# make them not stack on top of eachother
 			# no longer exist on 1st collision layer
-			f.collision_layer = 0b100
+			f.collision_layer = 4#0b100
 	else:
 		for n in foes:
 			initial_enemies.append(n)
