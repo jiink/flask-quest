@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Effects/palette_swap_multi_color_test.png" type="Texture" id=1]
+[ext_resource path="res://Effects/test_visual_shader.tres" type="Material" id=2]
+
+[node name="ShaderTest" type="Node2D"]
+
+[node name="palette_swap_single_color_test" type="Sprite" parent="."]
+material = ExtResource( 2 )
+position = Vector2( 1, 0 )
+texture = ExtResource( 1 )
