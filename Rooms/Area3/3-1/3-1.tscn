@@ -109,10 +109,10 @@ __meta__ = {
 
 [node name="Darkness" type="ColorRect" parent="Tilemaps/Node2D" index="0"]
 light_mask = 0
-margin_left = -368.0
-margin_top = 15.0
-margin_right = 3318.0
-margin_bottom = 1573.0
+margin_left = -373.0
+margin_top = 6.0
+margin_right = 3313.0
+margin_bottom = 1564.0
 color = Color( 0.101961, 0.0509804, 0.0666667, 0.568627 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -816,8 +816,16 @@ position = Vector2( 217, 195 )
 collision_layer = 1
 
 [node name="FlyingGrubber" parent="YSort" index="26" instance=ExtResource( 21 )]
-position = Vector2( 1088, -5 )
-speed = 81
+position = Vector2( 1095, -7 )
+
+[node name="FlyingGrubber2" parent="YSort" index="27" instance=ExtResource( 21 )]
+position = Vector2( 1033, -65 )
+
+[node name="FlyingGrubber3" parent="YSort" index="28" instance=ExtResource( 21 )]
+position = Vector2( 1104, -50 )
+
+[node name="FlyingGrubber4" parent="YSort" index="29" instance=ExtResource( 21 )]
+position = Vector2( 949, -3 )
 
 [node name="BlackAbove" type="TileMap" parent="." index="7"]
 light_mask = 0

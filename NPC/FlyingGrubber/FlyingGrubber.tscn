@@ -9,7 +9,7 @@
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 4 )
-speed = 50
+speed = 100
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )

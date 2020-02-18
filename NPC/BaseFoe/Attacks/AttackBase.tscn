@@ -20,6 +20,9 @@ position = Vector2( 192, 108 )
 z_index = -100
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="orange_dodger" type="Sprite" parent="CircleGuide"]
 position = Vector2( 0, -31 )
