@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://NPC/BaseFoe/BaseFoe.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NPC/FlyingGrubber/flying_grubber.png" type="Texture" id=2]
 [ext_resource path="res://Engine/AnimateSpritesheet.gd" type="Script" id=3]
 [ext_resource path="res://NPC/FlyingGrubber/FlyingGrubber.gd" type="Script" id=4]
+[ext_resource path="res://Effects/ShadowRect.tscn" type="PackedScene" id=5]
 
 [node name="FlyingGrubber" instance=ExtResource( 1 )]
 collision_layer = 4
@@ -18,3 +19,7 @@ script = ExtResource( 3 )
 anim_speed = 12.0
 
 [node name="DirectionChangeTimer" type="Timer" parent="." index="3"]
+
+[node name="ShadowRect" parent="." index="4" instance=ExtResource( 5 )]
+margin_top = 7.0
+margin_bottom = 12.0
