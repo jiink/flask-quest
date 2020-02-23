@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/sewers_background.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://NPC/Inkler/Inkler.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Engine/WaterZone.tscn" type="PackedScene" id=20]
 [ext_resource path="res://NPC/FlyingGrubber/FlyingGrubber.tscn" type="PackedScene" id=21]
+[ext_resource path="res://NPC/OminousRat/OminousRat.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -727,7 +728,7 @@ position = Vector2( 1441, -833 )
 texture = ExtResource( 14 )
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 959, -43 )
+position = Vector2( -23, 17 )
 
 [node name="barrel_empty3" parent="YSort" index="1" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )
@@ -826,6 +827,21 @@ position = Vector2( 1104, -50 )
 
 [node name="FlyingGrubber4" parent="YSort" index="29" instance=ExtResource( 21 )]
 position = Vector2( 949, -3 )
+
+[node name="OminousRat" parent="YSort" index="30" instance=ExtResource( 22 )]
+position = Vector2( 544, -212 )
+
+[node name="OminousRat2" parent="YSort" index="31" instance=ExtResource( 22 )]
+position = Vector2( 579, -186 )
+
+[node name="OminousRat3" parent="YSort" index="32" instance=ExtResource( 22 )]
+position = Vector2( 553, -170 )
+
+[node name="OminousRat4" parent="YSort" index="33" instance=ExtResource( 22 )]
+position = Vector2( 2668, -333 )
+
+[node name="OminousRat5" parent="YSort" index="34" instance=ExtResource( 22 )]
+position = Vector2( 2646, -343 )
 
 [node name="BlackAbove" type="TileMap" parent="." index="7"]
 light_mask = 0
