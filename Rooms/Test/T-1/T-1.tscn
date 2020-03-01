@@ -203,6 +203,12 @@ position = Vector2( 339, 52 )
 [node name="OminousRat" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 105, 72 )
 
+[node name="OminousRat2" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 124, 72 )
+
+[node name="OminousRat3" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 115, 58 )
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
 texture = ExtResource( 19 )
