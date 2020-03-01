@@ -1,7 +1,5 @@
 extends Node2D
 
-export(int) var damage = 100
-export(int) var min_damage = 23
 export(float) var perfect_multiplier = 2.3
 export(int) var fill_tolerance = 25
 export(int) var fill_target = 50
@@ -44,10 +42,7 @@ func _ready():
 	elif effects.size() <= 0:
 		has_effects = false
 
-func do_thing(foes, selected_foe, output_damage):
-	battle.hurt(foes[selected_foe], output_damage)
-	if has_effects:
-		battle.inflict_effect(foes[selected_foe], get_effect())
+# extends need a fire() function
 
 func get_effect():
 	var selected_effect = {}

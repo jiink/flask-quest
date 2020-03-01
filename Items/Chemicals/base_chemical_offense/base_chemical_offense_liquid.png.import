@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base_chemical_anim.png-5f3f30f9d2b062c109487a3c2ad75b9e.stex"
+path="res://.import/base_chemical_offense_liquid.png-1623562f28e8da7ac5ed324cf41de511.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Chemicals/base_chemical/base_chemical_anim.png"
-dest_files=[ "res://.import/base_chemical_anim.png-5f3f30f9d2b062c109487a3c2ad75b9e.stex" ]
+source_file="res://Items/Chemicals/base_chemical_offense/base_chemical_offense_liquid.png"
+dest_files=[ "res://.import/base_chemical_offense_liquid.png-1623562f28e8da7ac5ed324cf41de511.stex" ]
 
 [params]
 

@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Items/Chemicals/base_chemical/base_chemical_splash.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Chemicals/base_chemical_offense/base_chemical_offense_splash.tscn" type="PackedScene" id=1]
+
+
 
 [node name="MinimanItemSplash" instance=ExtResource( 1 )]
 
