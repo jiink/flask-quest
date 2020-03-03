@@ -32,7 +32,8 @@ func get_hurt(base_damage):
 	var damage_number = load("res://Engine/Battle/DamageNumber.tscn").instance()
 #	damage_number.set_position(position)
 	damage_number.num = base_damage
-	add_child(damage_number)
+	get_parent().add_child(damage_number)
+	damage_number.position = self.position
 	
 	if hp <= 0:
 		die()
