@@ -1276,9 +1276,19 @@ position = Vector2( 275, 428 )
 position = Vector2( 308, 401 )
 
 [node name="MalusHinter" parent="YSort/NPC" index="5" instance=ExtResource( 77 )]
-position = Vector2( 948, -368 )
+position = Vector2( 948, -369 )
 texture = ExtResource( 78 )
+offset = Vector2( 2, -9 )
 script = ExtResource( 79 )
+
+[node name="Interaction" parent="YSort/NPC/MalusHinter" index="0"]
+position = Vector2( 0, 1 )
+
+[node name="StaticBody2D" parent="YSort/NPC/MalusHinter" index="1"]
+position = Vector2( 0, 1 )
+
+[node name="ShadowRect" parent="YSort/NPC/MalusHinter" index="2"]
+visible = false
 
 [node name="DialogueTree" parent="YSort/NPC/MalusHinter" index="3" instance=ExtResource( 8 )]
 

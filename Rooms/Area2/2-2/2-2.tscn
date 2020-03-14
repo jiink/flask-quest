@@ -21,16 +21,9 @@ extents = Vector2( 17, 10 )
 [node name="2-2" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
 
-[node name="Tilemaps" parent="." index="0"]
-editor/display_folded = true
-
 [node name="2-2" parent="Tilemaps" index="0" instance=ExtResource( 3 )]
 
-[node name="YSort" parent="." index="2"]
-editor/display_folded = true
-
 [node name="Furniture" type="YSort" parent="YSort" index="1"]
-editor/display_folded = true
 
 [node name="cafetable_2" parent="YSort/Furniture" index="0" instance=ExtResource( 4 )]
 position = Vector2( 201, 197 )
@@ -93,7 +86,6 @@ position = Vector2( 176, 204 )
 position = Vector2( -37, 134 )
 
 [node name="TableDetail" type="Node2D" parent="." index="3"]
-editor/display_folded = true
 
 [node name="cafemug_1" type="Sprite" parent="TableDetail" index="0"]
 position = Vector2( 73, 151 )
@@ -165,7 +157,6 @@ hframes = 4
 frame = 3
 
 [node name="Lighting" type="Node2D" parent="." index="4"]
-editor/display_folded = true
 
 [node name="ColorRect" type="ColorRect" parent="Lighting" index="0"]
 margin_left = -96.0
