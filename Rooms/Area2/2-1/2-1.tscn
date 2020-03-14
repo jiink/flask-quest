@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=129 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -71,16 +71,30 @@
 [ext_resource path="res://Rooms/Area2/Assets/malus_sign.png" type="Texture" id=69]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/lanetta_sign.tscn" type="PackedScene" id=70]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/bearly_lemonade_stand.tscn" type="PackedScene" id=71]
-[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/dog_1.tscn" type="PackedScene" id=72]
-[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/cat_1.tscn" type="PackedScene" id=73]
+[ext_resource path="res://Effects/ShadowRect.tscn" type="PackedScene" id=72]
+[ext_resource path="res://Rooms/Area2/Assets/cat_1.png" type="Texture" id=73]
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/bearly_bear.tscn" type="PackedScene" id=74]
-[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/man_1.tscn" type="PackedScene" id=75]
-[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/mouse_1.tscn" type="PackedScene" id=76]
+[ext_resource path="res://Rooms/Area2/Assets/mouse_1.png" type="Texture" id=75]
+[ext_resource path="res://Rooms/Area2/Assets/man_1.png" type="Texture" id=76]
 [ext_resource path="res://Engine/BasicNPC.tscn" type="PackedScene" id=77]
 [ext_resource path="res://Rooms/Area2/Assets/malus_hinter.png" type="Texture" id=78]
 [ext_resource path="res://Rooms/Area2/Assets/MalusHinter.gd" type="Script" id=79]
 [ext_resource path="res://Rooms/Area2/Assets/MapMachine.tscn" type="PackedScene" id=80]
 [ext_resource path="res://Rooms/Area2/Assets/trafficlight_left_top.png" type="Texture" id=81]
+[ext_resource path="res://Rooms/Area2/Assets/dog_1.png" type="Texture" id=82]
+[ext_resource path="res://Rooms/Area2/Assets/papers_B.png" type="Texture" id=83]
+[ext_resource path="res://Rooms/Area2/Assets/poster_F.png" type="Texture" id=84]
+[ext_resource path="res://Rooms/Area2/Assets/papers_G.png" type="Texture" id=85]
+[ext_resource path="res://Rooms/Area2/Assets/papers_A.png" type="Texture" id=86]
+[ext_resource path="res://Rooms/Area2/Assets/poster_A.png" type="Texture" id=87]
+[ext_resource path="res://Rooms/Area2/Assets/papers_F.png" type="Texture" id=88]
+[ext_resource path="res://Rooms/Area2/Assets/poster_E.png" type="Texture" id=89]
+[ext_resource path="res://Rooms/Area2/Assets/papers_D.png" type="Texture" id=90]
+[ext_resource path="res://Rooms/Area2/Assets/poster_B.png" type="Texture" id=91]
+[ext_resource path="res://Rooms/Area2/Assets/poster_D.png" type="Texture" id=92]
+[ext_resource path="res://Rooms/Area2/Assets/papers_E.png" type="Texture" id=93]
+[ext_resource path="res://Rooms/Area2/Assets/poster_C.png" type="Texture" id=94]
+[ext_resource path="res://Rooms/Area2/Assets/papers_C.png" type="Texture" id=95]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 40 )
@@ -485,6 +499,18 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 18, 17 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 18, 15 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 25, 5 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 25, 5 )
+
 [node name="2-1" groups=[
 "save",
 ] instance=ExtResource( 1 )]
@@ -612,7 +638,7 @@ shape = SubResource( 11 )
 position = Vector2( 360, 57 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 1662, -582 )
+position = Vector2( 436, -16 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -1228,54 +1254,225 @@ texture = ExtResource( 62 )
 position = Vector2( 952, -664 )
 texture = ExtResource( 63 )
 
-[node name="wallnews" type="Sprite" parent="YSort/signs" index="8"]
-position = Vector2( 154, -85 )
-texture = ExtResource( 64 )
-
-[node name="wallnews02" type="Sprite" parent="YSort/signs" index="9"]
-position = Vector2( 1033, -9 )
-texture = ExtResource( 65 )
-
-[node name="a1labs_sign_improved" type="Sprite" parent="YSort/signs" index="10"]
+[node name="a1labs_sign_improved" type="Sprite" parent="YSort/signs" index="8"]
 position = Vector2( 273, -32 )
 texture = ExtResource( 66 )
 
-[node name="scarlette_sign" type="Sprite" parent="YSort/signs" index="11"]
+[node name="scarlette_sign" type="Sprite" parent="YSort/signs" index="9"]
 position = Vector2( 945, 12 )
 texture = ExtResource( 67 )
 
-[node name="crazycafe" type="Sprite" parent="YSort/signs" index="12"]
+[node name="crazycafe" type="Sprite" parent="YSort/signs" index="10"]
 position = Vector2( -32, 32 )
 texture = ExtResource( 68 )
 
-[node name="malus_sign" type="Sprite" parent="YSort/signs" index="13"]
+[node name="malus_sign" type="Sprite" parent="YSort/signs" index="11"]
 position = Vector2( 1872, -1280 )
 texture = ExtResource( 69 )
 
-[node name="lanetta_sign" parent="YSort/signs" index="14" instance=ExtResource( 70 )]
+[node name="lanetta_sign" parent="YSort/signs" index="12" instance=ExtResource( 70 )]
 position = Vector2( 1601, 78 )
+
+[node name="Posters" type="Node2D" parent="YSort/signs" index="13"]
+
+[node name="wallnews" type="Sprite" parent="YSort/signs/Posters" index="0"]
+position = Vector2( 154, -86 )
+texture = ExtResource( 64 )
+
+[node name="wallnews02" type="Sprite" parent="YSort/signs/Posters" index="1"]
+position = Vector2( 1033, -9 )
+texture = ExtResource( 65 )
+
+[node name="poster_A" type="Sprite" parent="YSort/signs/Posters" index="2"]
+position = Vector2( 205, -2 )
+texture = ExtResource( 87 )
+
+[node name="poster_E" type="Sprite" parent="YSort/signs/Posters" index="3"]
+position = Vector2( 226, -25 )
+texture = ExtResource( 89 )
+
+[node name="poster_F" type="Sprite" parent="YSort/signs/Posters" index="4"]
+position = Vector2( 338, -6 )
+texture = ExtResource( 84 )
+
+[node name="papers_G" type="Sprite" parent="YSort/signs/Posters" index="5"]
+position = Vector2( 168, -94 )
+texture = ExtResource( 85 )
+
+[node name="papers_F" type="Sprite" parent="YSort/signs/Posters" index="6"]
+position = Vector2( 156, -114 )
+texture = ExtResource( 88 )
+
+[node name="papers_D" type="Sprite" parent="YSort/signs/Posters" index="7"]
+position = Vector2( 168, -110 )
+texture = ExtResource( 90 )
+
+[node name="papers_A" type="Sprite" parent="YSort/signs/Posters" index="8"]
+position = Vector2( 156, -134 )
+texture = ExtResource( 86 )
+
+[node name="papers_E" type="Sprite" parent="YSort/signs/Posters" index="9"]
+position = Vector2( 158, -105 )
+texture = ExtResource( 93 )
+
+[node name="papers_B" type="Sprite" parent="YSort/signs/Posters" index="10"]
+position = Vector2( 325, -32 )
+texture = ExtResource( 83 )
+
+[node name="papers_A2" type="Sprite" parent="YSort/signs/Posters" index="11"]
+position = Vector2( 472, -41 )
+texture = ExtResource( 86 )
+
+[node name="papers_D2" type="Sprite" parent="YSort/signs/Posters" index="12"]
+position = Vector2( 450, -49 )
+texture = ExtResource( 90 )
+
+[node name="poster_B" type="Sprite" parent="YSort/signs/Posters" index="13"]
+position = Vector2( 904, 45 )
+texture = ExtResource( 91 )
+
+[node name="poster_D" type="Sprite" parent="YSort/signs/Posters" index="14"]
+position = Vector2( 984, 45 )
+texture = ExtResource( 92 )
+
+[node name="papers_D3" type="Sprite" parent="YSort/signs/Posters" index="15"]
+position = Vector2( 871, 5 )
+texture = ExtResource( 90 )
+
+[node name="papers_E2" type="Sprite" parent="YSort/signs/Posters" index="16"]
+position = Vector2( 858, -15 )
+texture = ExtResource( 93 )
+
+[node name="papers_G2" type="Sprite" parent="YSort/signs/Posters" index="17"]
+position = Vector2( 912, -609 )
+texture = ExtResource( 85 )
+
+[node name="papers_D4" type="Sprite" parent="YSort/signs/Posters" index="18"]
+position = Vector2( 922, -602 )
+texture = ExtResource( 90 )
+
+[node name="papers_E3" type="Sprite" parent="YSort/signs/Posters" index="19"]
+position = Vector2( 922, -626 )
+texture = ExtResource( 93 )
+
+[node name="papers_A3" type="Sprite" parent="YSort/signs/Posters" index="20"]
+position = Vector2( 937, -633 )
+texture = ExtResource( 86 )
+
+[node name="papers_E4" type="Sprite" parent="YSort/signs/Posters" index="21"]
+position = Vector2( 952, -628 )
+texture = ExtResource( 93 )
+
+[node name="papers_C" type="Sprite" parent="YSort/signs/Posters" index="22"]
+position = Vector2( 956, -609 )
+texture = ExtResource( 95 )
+
+[node name="papers_F2" type="Sprite" parent="YSort/signs/Posters" index="23"]
+position = Vector2( 950, -618 )
+texture = ExtResource( 88 )
+
+[node name="papers_G3" type="Sprite" parent="YSort/signs/Posters" index="24"]
+position = Vector2( 966, -630 )
+texture = ExtResource( 85 )
+
+[node name="papers_E5" type="Sprite" parent="YSort/signs/Posters" index="25"]
+position = Vector2( 986, -604 )
+texture = ExtResource( 93 )
+
+[node name="papers_B2" type="Sprite" parent="YSort/signs/Posters" index="26"]
+position = Vector2( 984, -625 )
+texture = ExtResource( 83 )
+
+[node name="papers_B3" type="Sprite" parent="YSort/signs/Posters" index="27"]
+position = Vector2( 905, -621 )
+texture = ExtResource( 83 )
+
+[node name="poster_C" type="Sprite" parent="YSort/signs/Posters" index="28"]
+position = Vector2( 758, -1282 )
+texture = ExtResource( 94 )
+
+[node name="poster_B2" type="Sprite" parent="YSort/signs/Posters" index="29"]
+position = Vector2( 720, -1292 )
+texture = ExtResource( 91 )
+
+[node name="poster_F2" type="Sprite" parent="YSort/signs/Posters" index="30"]
+position = Vector2( 653, -1283 )
+texture = ExtResource( 84 )
+
+[node name="poster_A2" type="Sprite" parent="YSort/signs/Posters" index="31"]
+position = Vector2( 569, -1282 )
+texture = ExtResource( 87 )
+
+[node name="papers_G4" type="Sprite" parent="YSort/signs/Posters" index="32"]
+position = Vector2( 1388, -1608 )
+texture = ExtResource( 85 )
+
+[node name="papers_E6" type="Sprite" parent="YSort/signs/Posters" index="33"]
+position = Vector2( 1402, -1611 )
+texture = ExtResource( 93 )
+
+[node name="papers_C2" type="Sprite" parent="YSort/signs/Posters" index="34"]
+position = Vector2( 1429, -1620 )
+texture = ExtResource( 95 )
+
+[node name="papers_D5" type="Sprite" parent="YSort/signs/Posters" index="35"]
+position = Vector2( 946, -1181 )
+texture = ExtResource( 90 )
+
+[node name="papers_A4" type="Sprite" parent="YSort/signs/Posters" index="36"]
+position = Vector2( 681, -1295 )
+texture = ExtResource( 86 )
+
+[node name="papers_E7" type="Sprite" parent="YSort/signs/Posters" index="37"]
+position = Vector2( 551, -1299 )
+texture = ExtResource( 93 )
+
+[node name="papers_B4" type="Sprite" parent="YSort/signs/Posters" index="38"]
+position = Vector2( 832, -723 )
+texture = ExtResource( 83 )
+
+[node name="papers_E8" type="Sprite" parent="YSort/signs/Posters" index="39"]
+position = Vector2( 841, -704 )
+texture = ExtResource( 93 )
+
+[node name="papers_A5" type="Sprite" parent="YSort/signs/Posters" index="40"]
+position = Vector2( 866, -730 )
+texture = ExtResource( 86 )
+
+[node name="papers_D6" type="Sprite" parent="YSort/signs/Posters" index="41"]
+position = Vector2( 855, -720 )
+texture = ExtResource( 90 )
+
+[node name="papers_E9" type="Sprite" parent="YSort/signs/Posters" index="42"]
+position = Vector2( 1056, -714 )
+texture = ExtResource( 93 )
+
+[node name="papers_G5" type="Sprite" parent="YSort/signs/Posters" index="43"]
+position = Vector2( 1045, -733 )
+texture = ExtResource( 85 )
+
+[node name="papers_F3" type="Sprite" parent="YSort/signs/Posters" index="44"]
+position = Vector2( 1055, -731 )
+texture = ExtResource( 88 )
+
+[node name="papers_A6" type="Sprite" parent="YSort/signs/Posters" index="45"]
+position = Vector2( 1034, -717 )
+texture = ExtResource( 86 )
+
+[node name="papers_C3" type="Sprite" parent="YSort/signs/Posters" index="46"]
+position = Vector2( 1074, -725 )
+texture = ExtResource( 95 )
+
+[node name="papers_E10" type="Sprite" parent="YSort/signs/Posters" index="47"]
+position = Vector2( 160, -163 )
+texture = ExtResource( 93 )
 
 [node name="bearly_lemonade_stand" parent="YSort" index="7" instance=ExtResource( 71 )]
 position = Vector2( 398, -9 )
 
 [node name="NPC" type="YSort" parent="YSort" index="8"]
 
-[node name="dog_1" parent="YSort/NPC" index="0" instance=ExtResource( 72 )]
-position = Vector2( 879, 107 )
-
-[node name="cat_1" parent="YSort/NPC" index="1" instance=ExtResource( 73 )]
-position = Vector2( 186, 358 )
-
-[node name="bearly_bear" parent="YSort/NPC" index="2" instance=ExtResource( 74 )]
-position = Vector2( 403, -17 )
-
-[node name="man_1" parent="YSort/NPC" index="3" instance=ExtResource( 75 )]
-position = Vector2( 275, 428 )
-
-[node name="mouse_1" parent="YSort/NPC" index="4" instance=ExtResource( 76 )]
-position = Vector2( 308, 401 )
-
-[node name="MalusHinter" parent="YSort/NPC" index="5" instance=ExtResource( 77 )]
+[node name="MalusHinter" parent="YSort/NPC" index="0" instance=ExtResource( 77 )]
 position = Vector2( 948, -369 )
 texture = ExtResource( 78 )
 offset = Vector2( 2, -9 )
@@ -1308,6 +1505,103 @@ message = "Go on, the map machine is just southwest of here."
 text_delay = 0.0
 args = [  ]
 
+[node name="bearly_bear" parent="YSort/NPC" index="1" instance=ExtResource( 74 )]
+position = Vector2( 404, -19 )
+script = ExtResource( 7 )
+
+[node name="DialogueTree" parent="YSort/NPC/bearly_bear" index="0" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/bearly_bear/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "hi im bear. baerly the bear."
+text_delay = 0.0
+args = [  ]
+
+[node name="DiagPiece" parent="YSort/NPC/bearly_bear/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "and im bearly able to feed my family. please help."
+text_delay = 0.0
+args = [  ]
+
+[node name="Interaction" type="Area2D" parent="YSort/NPC/bearly_bear" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/Interaction" index="0"]
+shape = SubResource( 31 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/NPC/bearly_bear" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/StaticBody2D" index="0"]
+shape = SubResource( 30 )
+
+[node name="ShadowRect" parent="YSort/NPC/bearly_bear" index="3" instance=ExtResource( 72 )]
+visible = false
+show_behind_parent = true
+margin_left = -5.0
+margin_top = 8.0
+margin_right = 4.0
+margin_bottom = 11.0
+
+[node name="CatA" parent="YSort/NPC" index="2" instance=ExtResource( 77 )]
+position = Vector2( 174, 384 )
+texture = ExtResource( 73 )
+offset = Vector2( 0, -9 )
+
+[node name="Interaction" parent="YSort/NPC/CatA" index="0"]
+position = Vector2( 0, 0 )
+
+[node name="StaticBody2D" parent="YSort/NPC/CatA" index="1"]
+position = Vector2( 0, 0 )
+
+[node name="ShadowRect" parent="YSort/NPC/CatA" index="2"]
+visible = false
+
+[node name="ManA" parent="YSort/NPC" index="3" instance=ExtResource( 77 )]
+position = Vector2( 249, 385 )
+texture = ExtResource( 76 )
+offset = Vector2( 0, -15 )
+
+[node name="Interaction" parent="YSort/NPC/ManA" index="0"]
+position = Vector2( 0, 0 )
+
+[node name="StaticBody2D" parent="YSort/NPC/ManA" index="1"]
+position = Vector2( 0, 0 )
+
+[node name="ShadowRect" parent="YSort/NPC/ManA" index="2"]
+visible = false
+
+[node name="MouseA" parent="YSort/NPC" index="4" instance=ExtResource( 77 )]
+position = Vector2( 204, 424 )
+texture = ExtResource( 75 )
+offset = Vector2( 0, -7 )
+
+[node name="Interaction" parent="YSort/NPC/MouseA" index="0"]
+position = Vector2( 0, 0 )
+
+[node name="StaticBody2D" parent="YSort/NPC/MouseA" index="1"]
+position = Vector2( 0, 0 )
+
+[node name="ShadowRect" parent="YSort/NPC/MouseA" index="2"]
+visible = false
+
+[node name="DogA" parent="YSort/NPC" index="5" instance=ExtResource( 77 )]
+position = Vector2( 309, 456 )
+texture = ExtResource( 82 )
+offset = Vector2( 0, -13 )
+hframes = 6
+
+[node name="Interaction" parent="YSort/NPC/DogA" index="0"]
+position = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" parent="YSort/NPC/DogA/Interaction" index="0"]
+shape = SubResource( 32 )
+
+[node name="StaticBody2D" parent="YSort/NPC/DogA" index="1"]
+position = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" parent="YSort/NPC/DogA/StaticBody2D" index="0"]
+shape = SubResource( 33 )
+
+[node name="ShadowRect" parent="YSort/NPC/DogA" index="2"]
+visible = false
+
 [node name="MapMachine" parent="YSort" index="9" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
 
@@ -1332,5 +1626,15 @@ position = Vector2( 2070, -575 )
 texture = ExtResource( 81 )
 
 [editable path="YSort/NPC/MalusHinter"]
+
+[editable path="YSort/NPC/bearly_bear"]
+
+[editable path="YSort/NPC/CatA"]
+
+[editable path="YSort/NPC/ManA"]
+
+[editable path="YSort/NPC/MouseA"]
+
+[editable path="YSort/NPC/DogA"]
 
 [editable path="HUD"]
