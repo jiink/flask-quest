@@ -50,6 +50,7 @@ level_music = ExtResource( 2 )
 battle_music = ExtResource( 3 )
 
 [node name="5-1" parent="Tilemaps" index="0" instance=ExtResource( 4 )]
+position = Vector2( 0, 16 )
 
 [node name="CabinInteriors" type="Node2D" parent="." index="2"]
 
