@@ -348,15 +348,11 @@ shape = SubResource( 9 )
 
 [node name="DiagPiece" parent="LobbyElevators/DialogueTree" index="0" instance=ExtResource( 21 )]
 message = "This elevator needs a keycard. It's for very important people only."
-text_delay = 0.0
-args = [  ]
 
 [node name="DiagPiece2" parent="LobbyElevators/DialogueTree/DiagPiece" index="0" instance=ExtResource( 21 )]
 message = "hey we should ask the receptionist for a card"
-text_delay = 0.0
 character = "orange"
 function = "become_ready_for_keycard_asking"
-args = [  ]
 
 [node name="cubicle_chair" type="Sprite" parent="YSort" index="0"]
 position = Vector2( -441, -646 )
@@ -451,13 +447,9 @@ shape = SubResource( 12 )
 
 [node name="Welcome" parent="YSort/Receptionist/DialogueTree" index="0" instance=ExtResource( 21 )]
 message = "hi welcome to malus"
-text_delay = 0.0
-args = [  ]
 
 [node name="GoAway" parent="YSort/Receptionist/DialogueTree" index="1" instance=ExtResource( 21 )]
 message = "i know what your'e thinking. no, exit the building now"
-text_delay = 0.0
-args = [  ]
 
 [node name="lobbydesk" parent="YSort" index="18" instance=ExtResource( 27 )]
 position = Vector2( -768, 260 )
@@ -490,8 +482,6 @@ anims/default = SubResource( 15 )
 
 [node name="DiagPiece" parent="YSort/StairGuard/DialogueTree" index="0" instance=ExtResource( 21 )]
 message = "Sir, the escalator is OUT-``OF-``ORDER. You'll have to use the elevator."
-text_delay = 0.0
-args = [  ]
 
 [node name="cubicles" parent="YSort" index="20" instance=ExtResource( 30 )]
 position = Vector2( -298, -660 )
