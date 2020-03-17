@@ -545,31 +545,23 @@ shape = SubResource( 8 )
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "Whooooaaaa..."
-text_delay = 0.0
 expression = "sidemouth"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Where are we? ...What are we? What is this place? ```I HAVE SO MANY QUESTIONS!"
-text_delay = 0.0
 expression = "happy"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Hey, you know what... you look a lot like me. Could we be... related?"
-text_delay = 0.0
 expression = "sidemouth"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Hu- ```You` hear that?"
-text_delay = 0.0
 expression = "bigsurprise"
 function = "start_brainjar_event"
-args = [  ]
 skippable = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/OrangeNPC" index="3"]
@@ -601,9 +593,7 @@ shape = SubResource( 10 )
 
 [node name="DiagPiece" parent="YSort/Props/tableL/OrangeDisabled/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "Little bubbles quickly rise to the surface."
-text_delay = 0.0
 no_face = true
-args = [  ]
 
 [node name="excited" parent="YSort/Props" index="1" instance=ExtResource( 34 )]
 position = Vector2( 296, 16 )
@@ -643,30 +633,22 @@ shape = SubResource( 11 )
 
 [node name="IfNoMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "PERHAPS something corrosive could let you through!"
-text_delay = 0.0
 no_face = true
-args = [  ]
 
 [node name="IfYesMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="1" instance=ExtResource( 30 )]
 message = "Yeet Miniman at the door?"
-text_delay = 0.0
 no_face = true
-args = [  ]
 
 [node name="DiagPiece" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="0" instance=ExtResource( 30 )]
 key = "Yes"
 message = "Here goes!"
-text_delay = 0.0
 no_face = true
 function = "toss_miniman"
-args = [  ]
 
 [node name="DiagPiece2" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="1" instance=ExtResource( 30 )]
 key = "No"
 message = "Okay"
-text_delay = 0.0
 no_face = true
-args = [  ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/Props/LabDoor" index="4"]
 visible = false
@@ -787,23 +769,17 @@ anims/default = SubResource( 17 )
 
 [node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "BLAMMO!!"
-text_delay = 0.0
 no_face = true
-args = [  ]
 
 [node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Get ready to experience pain!"
-text_delay = 0.0
 no_face = true
 function = "jump_to_them"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 30 )]
 message = "And by that, I mean the pain of learning!"
-text_delay = 0.0
 no_face = true
 function = "start_brainjar_battle"
-args = [  ]
 
 [node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 49 )]
 position = Vector2( 168, -243 )

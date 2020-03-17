@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/citysky.png-892efbe798bd2c4a02fe2eb190ede09f.stex"
+path="res://.import/behind_buttons_anim.png-416d6762b4b1cf35ddf368a062362f8c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area1/Assets/CitySillouette/citysky.png"
-dest_files=[ "res://.import/citysky.png-892efbe798bd2c4a02fe2eb190ede09f.stex" ]
+source_file="res://MainMenu/behind_buttons_anim.png"
+dest_files=[ "res://.import/behind_buttons_anim.png-416d6762b4b1cf35ddf368a062362f8c.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
