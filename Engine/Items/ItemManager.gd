@@ -16,8 +16,8 @@ func give_item(the_item):
 			player.do_floaty_text("Obtained %s!" % items[the_item].name)
 		return true
 		
-func toss_item(to_go, container): # container: 0 for inventory, 1 for loadout, -1 for both
-	if not items[to_go].has('droppable'):
+func toss_item(to_go, container, force=false): # container: 0 for inventory, 1 for loadout, -1 for both
+	if not items[to_go].has('droppable') or force:
 		if container == 0 or container == -1:
 			inventory.remove(to_go)
 		if container == 1 or container == -1:

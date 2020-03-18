@@ -30,7 +30,6 @@ vframes = 8
 hframes = 8
 
 [node name="TextBox" type="Label" parent="."]
-editor/display_folded = true
 margin_left = 45.0
 margin_top = 3.0
 margin_right = 363.0
