@@ -27,6 +27,9 @@ margin_top = 19.0
 margin_right = 375.0
 margin_bottom = 81.0
 columns = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Loadout" type="Node2D" parent="."]
 position = Vector2( 192, 1 )
@@ -60,6 +63,9 @@ margin_top = 21.0
 margin_right = 39.0
 margin_bottom = 41.0
 columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Money" type="Label" parent="."]
 margin_left = 21.0

@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Engine/Battle/StatusEffects/fire.gd" type="Script" id=1]
+[ext_resource path="res://Engine/Battle/StatusEffects/Fire.gd" type="Script" id=1]
 
-[node name="fire" type="Node" groups=[
+[node name="Fire" type="Node" groups=[
 "status_effects",
 ]]
 script = ExtResource( 1 )
-

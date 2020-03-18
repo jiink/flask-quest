@@ -5,6 +5,8 @@ export(int) var fill_tolerance = 25
 export(int) var fill_target = 50
 export(float) var fill_speed = 0.8
 
+export(int) var effectiveness = 100 # damage for offensive ones
+export(int) var min_effectiveness = 23
 
 export(Array, String) var effects = []
 export(Array, float) var effect_chance_ratios = []
@@ -15,6 +17,11 @@ var effect_levels = []
 var has_effects = true
 
 onready var battle = get_node("../../..")
+
+enum {
+	OFFENSE,
+	DEFENSE
+}
 
 func _ready():
 	
@@ -46,10 +53,21 @@ func _ready():
 
 func get_effect():
 	var selected_effect = {}
-	var e
-	for i in range(effect_chances.size()):
-		if randf() <= effect_chances[i]:
-			e = i
+	
+	var total_sum = 0
+	for i in range(effect_chance_ratios.size()):
+		total_sum += effect_chance_ratios[i]
+	
+	var rand = randf() * total_sum
+	
+	var cum_sum = 0
+	var chosen_index = -1
+	for i in range(effect_chance_ratios.size()):
+		cum_sum += effect_chance_ratios[i]
+		if rand < cum_sum:
+			chosen_index = i
 			break
-	selected_effect = {effect_names[e] : effect_levels[e]}
+	
+	print("getting effect: chosen_index is %s" % chosen_index)
+	selected_effect = {effect_names[chosen_index] : effect_levels[chosen_index]}
 	return selected_effect

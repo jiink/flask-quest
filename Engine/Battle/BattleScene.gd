@@ -18,11 +18,18 @@ enum {
 	MENU,
 	INV,
 }
+
+enum {
+	OFFENSIVE,
+	DEFENSIVE
+}
+
 var focused_menu = MENU
 
 var state = PLAYER_TURN
 var selected_foe = 0
 var selected_chem = 0
+var selected_chem_category = OFFENSIVE
 
 var selected_battle_choice = "attack"
 var battle_choice_confirmed = false
@@ -32,7 +39,11 @@ onready var item_manager = get_node("/root/ItemManager")
 
 var foe = load("res://Engine/Battle/BaseFoe.tscn")
 
+var new_effect_icon = preload("res://Engine/Battle/StatusEffects/Icons/EffectIcon.tscn")
+
 var total_dollar_reward = 0
+
+onready var player_node = $PouringEvent/FillingFlask
 
 func _ready():
 	connect("open_chems", $BattleChoices, "open_chems")
@@ -72,6 +83,11 @@ func _ready():
 	# hide all them lights
 	toggle_lighting(get_tree().get_current_scene(), false)
 	
+	# get the foe arrow in the right spot
+	set_arrow_pos()
+	# but it should still be invisible at first
+	$SelectedFoeArrow.visible = false
+	
 func toggle_lighting(node, choice):
 	for N in node.get_children():
 		if N.get_child_count() > 0:
@@ -105,7 +121,7 @@ func _process(delta):
 	if state == PLAYER_TURN:
 		get_move_choice()
 	elif state == PLAYER_CHOOSE_ENEMY:
-		$SelectedFoeArrow.visible = true
+#		$SelectedFoeArrow.visible = true
 		get_chem_choice()
 		get_enemy_choice()
 	elif state == ENEMY_TURN:
@@ -145,11 +161,19 @@ func get_chem_choice():
 	# (a % b + b) % b
 	# % is NOT modulo, it's REMAINDER!!!
 	var b = item_manager.loadout.size()
+	
+	
+	
 	if Input.is_action_just_pressed("down"):
 		selected_chem = ((selected_chem+1) % b + b) % b
-		
+		set_arrow_pos() # to make the foe arrow invisible if need be
 	elif Input.is_action_just_pressed("up"):
 		selected_chem = ((selected_chem-1) % b + b) % b
+		set_arrow_pos() # to make the foe arrow invisible if need be
+		
+		
+#	if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
+		
 	
 	set_chem_arrow_pos()
 	
@@ -169,11 +193,24 @@ func get_enemy_choice():
 	
 	if Input.is_action_just_pressed("right"):
 			selected_foe = (selected_foe+1) % get_foes().size()
+			set_arrow_pos()
 			
 	elif Input.is_action_just_pressed("left"):
 			selected_foe = (selected_foe-1) % get_foes().size()
+			set_arrow_pos()
 	
-	set_arrow_pos()
+	# when going up or down we need to see if the arrow should be shown
+#	if (Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down")
+#			or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right")):
+#		selected_chem_category = $BattleChoices/Chemicals.get_child(selected_chem).category
+#		print("category: %s" % selected_chem_category)
+#		match selected_chem_category: # arrow's gonna disapear if you don't need it
+#			OFFENSIVE:
+#				print("shooouuuld be showimg the thing!")
+#				$SelectedFoeArrow.visible = true
+#			DEFENSIVE:
+#				print("shooouuuld be hiding the thing!")
+#				$SelectedFoeArrow.visible = false
 	
 	if Input.is_action_just_pressed("confirm"):
 		#attack()
@@ -189,6 +226,7 @@ func get_enemy_choice():
 
 func set_arrow_pos():
 	if selected_foe != null:
+		print("set_arrow_pos called")
 		$SelectedFoeArrow.visible = true
 		
 		$SelectedFoeArrow/Tween.interpolate_property($SelectedFoeArrow, "position:x",
@@ -197,6 +235,16 @@ func set_arrow_pos():
 		# DONT FORGET TO START THE TWEEN U MORON!
 		$SelectedFoeArrow/Tween.start()
 		$SelectedFoeArrow.position.y = 64 
+		
+		selected_chem_category = $BattleChoices/Chemicals.get_child(selected_chem).category
+		print("category: %s" % selected_chem_category)
+		match selected_chem_category: # arrow's gonna disapear if you don't need it
+			OFFENSIVE:
+				print("shooouuuld be showimg the thing!")
+				$SelectedFoeArrow.visible = true
+			DEFENSIVE:
+				print("shooouuuld be hiding the thing!")
+				$SelectedFoeArrow.visible = false
 	else:
 		$SelectedFoeArrow.visible = false
 
@@ -243,17 +291,40 @@ func inflict_effect(who, eff):
 #	print("who.has_node(eff.keys()[0]):%s"%who.has_node(eff.keys()[0]))
 	var fx_name = eff.keys()[0]
 	var fx_lvl = eff.values()[0]
+	if fx_lvl <= 0: return # disallow 0
 	
 	if who.has_node(fx_name):
-		who.get_node(fx_name).remove()
+#		who.get_node(fx_name).remove()
+		who.get_node(fx_name).name += "Removed"
+		who.get_node(fx_name + "Removed").queue_free()
+		remove_effect_icon(fx_name)
 		
 	var eff_scene = load("res://Engine/Battle/StatusEffects/%s.tscn" % eff.keys()[0]).instance()
 	eff_scene.level = eff.values()[0]
 	who.add_child(eff_scene)
 	print("%s inflicted on %s!" % [eff_scene.name, who.name])
 	
+	if who == player_node:
+		var new_icon_instance = new_effect_icon.instance()
+		new_icon_instance.setup(fx_name, fx_lvl)
+		$EffectsDisplay.add_child(new_icon_instance)
+	
+	
+
+func remove_effect_icon(eff):
+	var eff_icon_name = eff + "Icon"
+	if $EffectsDisplay.has_node(eff_icon_name):
+		# cause i was having trrouble with the next one being named differently
+		# because of the node being removed the frame after the new one
+		# is named
+		var eff_icon_name_new = eff_icon_name + "Removed"
+		$EffectsDisplay.get_node(eff_icon_name).name = eff_icon_name_new
+		
+		$EffectsDisplay.get_node(eff_icon_name_new).queue_free()
+
 func open_chems():
 	$SelectedChemArrow.visible = true
+	set_arrow_pos()
 	emit_signal("open_chems")
 
 func close_chems():
@@ -261,15 +332,43 @@ func close_chems():
 	emit_signal("close_chems")
 
 func start_chem_attack():
-	var chem_splash = load("res://Items/Chemicals/%s/%s_splash.tscn" % [item_manager.loadout[selected_chem], item_manager.loadout[selected_chem]])
-	chem_splash = chem_splash.instance()
-	chem_splash.position = get_foes()[selected_foe].position
-	add_child(chem_splash)
-
+	var chem_name = item_manager.loadout[selected_chem]
+	var chem_object = $BattleChoices/Chemicals.get_child(selected_chem)
+	if chem_object.category == chem_object.OFFENSE:
+		var chem_splash = load("res://Items/Chemicals/%s/%s_splash.tscn" % [chem_name, chem_name])
+		chem_splash = chem_splash.instance()
+		chem_splash.position = get_foes()[selected_foe].position
+		add_child(chem_splash)
+	elif chem_object.category == chem_object.DEFENSE:
+		var chem_visual = load("res://Items/Chemicals/%s/%s_visual.tscn" % [chem_name, chem_name])
+		chem_visual = chem_visual.instance()
+		chem_visual.position = $PouringEvent/FillingFlask.position
+		add_child(chem_visual)
+		
+		# apply the defensive effect
+		# todo, get the effect the proper way, like using the stuff from the \
+		#  pourevent
+		var gotten_effect = chem_object.get_effect()
+		var effect_to_inflict = {gotten_effect.keys()[0]: \
+				int(gotten_effect.values()[0] * $PouringEvent.output_effectiveness)}
+		# change the strength of the effect using the output_effectiveness
+		print("eeeeeeeeeeeeeeeeeeeeeeee")
+		print($PouringEvent.output_effectiveness)
+		print(effect_to_inflict.values()[0])
+		
+		
+#		effect_to_inflict.values()[0] = int(effect_to_inflict.values()[0] * $PouringEvent.output_effectiveness)
+		print("eeeeeeeeeeeeeeeeeeeeeeee")
+		inflict_effect(player_node, effect_to_inflict) # fix get_effect
+		# tmp down below
+#		inflict_effect(player_node, {"Mundane" : 2}) 
+		
+		
+		
 func chem_hit_foe():
 	print("wow you hit something")
 	var chemical_node = $BattleChoices/Chemicals.get_child(selected_chem)
-	chemical_node.fire(get_foes(), selected_foe, $PouringEvent.output_damage)
+	chemical_node.fire(get_foes(), selected_foe, $PouringEvent.output_effectiveness)
 
 func chem_anim_complete():
 	state = WAIT

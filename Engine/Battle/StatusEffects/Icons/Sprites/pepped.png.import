@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base_chemical.png-34234d2f5699806440e927298c27c821.stex"
+path="res://.import/pepped.png-ca8ccf74273c27061bd7e5eb58e0e51b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/base_chemical.png"
-dest_files=[ "res://.import/base_chemical.png-34234d2f5699806440e927298c27c821.stex" ]
+source_file="res://Engine/Battle/StatusEffects/Icons/Sprites/pepped.png"
+dest_files=[ "res://.import/pepped.png-ca8ccf74273c27061bd7e5eb58e0e51b.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

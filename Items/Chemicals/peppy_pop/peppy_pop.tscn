@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Items/Chemicals/peppy_pop/peppy_pop_container.png" type="Texture" id=1]
+[ext_resource path="res://Items/Chemicals/base_chemical_defense/base_chemical_defense.tscn" type="PackedScene" id=2]
+
+[node name="PeppyPop" instance=ExtResource( 2 )]
+effectiveness = 1
+effects = [ "Pepped" ]
+effect_chance_ratios = [ 55.0 ]
+
+[node name="Liquid" parent="." index="0"]
+modulate = Color( 1, 0.156863, 0, 1 )
+position = Vector2( 14, -1 )
+
+[node name="Tube" parent="." index="1"]
+texture = ExtResource( 1 )

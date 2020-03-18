@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Items/Chemicals/base_chemical/base_chemical.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Chemicals/base_chemical_defense/base_chemical_defense.gd" type="Script" id=2]
+
+[node name="BaseChemicalDefense" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+effectiveness = 3
+min_effectiveness = 1
+effects = [ "Mundane" ]
+effect_chance_ratios = [ 2.0 ]

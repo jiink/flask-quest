@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -37,9 +37,38 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "slide in"
+resource_name = "fillingflask slide out"
 tracks/0/type = "value"
-tracks/0/path = NodePath("GreenFlask:position")
+tracks/0/path = NodePath("FillingFlask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.189465, 0.120742 ),
+"update": 0,
+"values": [ Vector2( 202, 155 ), Vector2( 202, 278.624 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "pouringflask slide out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PouringFlask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.217638, 1 ),
+"update": 0,
+"values": [ Vector2( 275, 120 ), Vector2( 458, 176 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("FillingFlask:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -51,7 +80,7 @@ tracks/0/keys = {
 "values": [ Vector2( 202, 278.624 ), Vector2( 202, 155 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("orangepouring:position")
+tracks/1/path = NodePath("PouringFlask:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -63,10 +92,9 @@ tracks/1/keys = {
 "values": [ Vector2( 458, 176 ), Vector2( 275, 120 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "slide out"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
-tracks/0/path = NodePath("GreenFlask:position")
+tracks/0/path = NodePath("FillingFlask:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -78,7 +106,7 @@ tracks/0/keys = {
 "values": [ Vector2( 202, 155 ), Vector2( 202, 278.624 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("orangepouring:position")
+tracks/1/path = NodePath("PouringFlask:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -90,8 +118,7 @@ tracks/1/keys = {
 "values": [ Vector2( 275, 120 ), Vector2( 458, 176 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "roll_in"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("TopBar:position")
 tracks/0/interp = 1
@@ -139,7 +166,6 @@ position = Vector2( 192, 108 )
 [node name="Foes" type="YSort" parent="."]
 
 [node name="SelectedFoeArrow" type="Node2D" parent="."]
-editor/display_folded = true
 visible = false
 
 [node name="Polygon2D" type="Polygon2D" parent="SelectedFoeArrow"]
@@ -149,7 +175,6 @@ polygon = PoolVector2Array( 0, 7, 8, 0, -8, 0 )
 [node name="Tween" type="Tween" parent="SelectedFoeArrow"]
 
 [node name="SelectedChemArrow" type="Node2D" parent="."]
-editor/display_folded = true
 visible = false
 position = Vector2( 120, 0 )
 rotation = 1.5708
@@ -173,7 +198,7 @@ anims/Popout = SubResource( 1 )
 
 [node name="Chemicals" type="Node2D" parent="BattleChoices"]
 show_behind_parent = true
-position = Vector2( 25, 2 )
+position = Vector2( -7, 2 )
 
 [node name="ColorRect" type="ColorRect" parent="BattleChoices"]
 show_behind_parent = true
@@ -206,33 +231,33 @@ script = ExtResource( 4 )
 [node name="PouringEvent" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
-[node name="orangepouring" type="Node2D" parent="PouringEvent"]
+[node name="PouringFlask" type="Node2D" parent="PouringEvent"]
 position = Vector2( 458, 176 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="arm" type="Sprite" parent="PouringEvent/orangepouring"]
+[node name="arm" type="Sprite" parent="PouringEvent/PouringFlask"]
 position = Vector2( 10, -9 )
 texture = ExtResource( 6 )
 
-[node name="tube" type="Sprite" parent="PouringEvent/orangepouring/arm"]
+[node name="tube" type="Sprite" parent="PouringEvent/PouringFlask/arm"]
 texture = ExtResource( 7 )
 
-[node name="liquid" type="Sprite" parent="PouringEvent/orangepouring"]
+[node name="liquid" type="Sprite" parent="PouringEvent/PouringFlask"]
 modulate = Color( 1, 1, 1, 0.878431 )
 position = Vector2( 9.638, -9 )
 texture = ExtResource( 8 )
 
-[node name="glass" type="Sprite" parent="PouringEvent/orangepouring"]
+[node name="glass" type="Sprite" parent="PouringEvent/PouringFlask"]
 position = Vector2( 9.638, -9 )
 texture = ExtResource( 9 )
 
-[node name="face" type="Sprite" parent="PouringEvent/orangepouring"]
+[node name="face" type="Sprite" parent="PouringEvent/PouringFlask"]
 position = Vector2( 10, -10 )
 texture = ExtResource( 10 )
 
-[node name="LiquidPouring" type="ColorRect" parent="PouringEvent/orangepouring"]
+[node name="LiquidPouring" type="ColorRect" parent="PouringEvent/PouringFlask"]
 show_behind_parent = true
 anchor_top = 0.49
 anchor_right = 0.5
@@ -246,11 +271,13 @@ rect_scale = Vector2( 0.31, 1 )
 rect_pivot_offset = Vector2( 5, 0 )
 color = Color( 0.803922, 0.054902, 0.054902, 1 )
 
-[node name="GreenFlask" type="Sprite" parent="PouringEvent"]
-position = Vector2( 202, 278.624 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent/PouringFlask"]
+
+[node name="FillingFlask" type="Sprite" parent="PouringEvent"]
+position = Vector2( 202, 155 )
 texture = ExtResource( 11 )
 
-[node name="LiquidFilled" type="TextureProgress" parent="PouringEvent/GreenFlask"]
+[node name="LiquidFilled" type="TextureProgress" parent="PouringEvent/FillingFlask"]
 modulate = Color( 0.768627, 0.0941176, 0.0941176, 1 )
 show_behind_parent = true
 margin_left = -32.0
@@ -260,6 +287,9 @@ margin_bottom = 60.0
 value = 32.0
 texture_progress = ExtResource( 12 )
 fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FillTarget" type="Node2D" parent="PouringEvent"]
 position = Vector2( 178, 266.95 )
@@ -278,8 +308,10 @@ color = Color( 0.890196, 0.54902, 0.215686, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent"]
 playback_speed = 2.0
-"anims/slide in" = SubResource( 2 )
-"anims/slide out" = SubResource( 3 )
+"anims/fillingflask slide out" = SubResource( 2 )
+"anims/pouringflask slide out" = SubResource( 3 )
+"anims/slide in" = SubResource( 4 )
+"anims/slide out" = SubResource( 5 )
 
 [node name="InventoryMenu" parent="." instance=ExtResource( 13 )]
 visible = false
@@ -334,7 +366,7 @@ text = "+ $0"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Win"]
-anims/roll_in = SubResource( 4 )
+anims/roll_in = SubResource( 6 )
 
 [node name="TimeUntilFade" type="Timer" parent="Win"]
 wait_time = 3.0
@@ -356,6 +388,15 @@ offset = Vector2( 192, 108 )
 current = true
 __meta__ = {
 "_edit_lock_": true
+}
+
+[node name="EffectsDisplay" type="HBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 188.0
+margin_right = 49.0
+margin_bottom = 211.0
+__meta__ = {
+"_edit_use_anchors_": false
 }
 [connection signal="animation_finished" from="Win/AnimationPlayer" to="Win" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Win/TimeUntilFade" to="Win" method="_on_TimeUntilFade_timeout"]
