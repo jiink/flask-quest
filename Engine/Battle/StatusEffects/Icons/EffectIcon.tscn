@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Engine/Battle/StatusEffects/Icons/Sprites/mundane.png" type="Texture" id=1]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Engine/Battle/StatusEffects/Icons/EffectIcon.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="DynamicFont" id=2]
 size = 10
 outline_size = 1
 outline_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
@@ -13,6 +16,7 @@ extra_spacing_space = 1
 font_data = ExtResource( 2 )
 
 [node name="EffectIcon" type="TextureRect"]
+material = SubResource( 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -24,7 +28,7 @@ __meta__ = {
 margin_top = 4.0
 margin_right = 19.0
 margin_bottom = 15.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "IV"
 align = 2
 valign = 2
