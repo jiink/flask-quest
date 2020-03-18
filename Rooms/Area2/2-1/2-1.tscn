@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=138 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -102,6 +102,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/womanA.tscn" type="PackedScene" id=100]
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/womanB.tscn" type="PackedScene" id=101]
 [ext_resource path="res://Rooms/Area2/Assets/MalusHinter_faces.png" type="Texture" id=102]
+[ext_resource path="res://Rooms/Area2/Assets/city_background.png" type="Texture" id=103]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 40 )
@@ -525,6 +526,7 @@ extents = Vector2( 16, 10 )
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+battle_bg = ExtResource( 103 )
 level_music = ExtResource( 97 )
 battle_music = ExtResource( 96 )
 
