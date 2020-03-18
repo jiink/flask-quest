@@ -35,4 +35,14 @@ var items = {
 		'desc': 'Use this to log into the Map Machine.',
 		'droppable' : false,
 		},
+	'base_pickup': {
+		'name': 'Base Pickup',
+		'desc': 'You picked up something. Congradulations.',
+		'droppable' : false,
+		},
+	'plank': {
+		'name': 'Wood Plank',
+		'desc': 'Long strip of wood. Looks sturdy enough to stand on...',
+		'droppable' : false,
+		},
 	}

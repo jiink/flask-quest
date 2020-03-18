@@ -31,9 +31,7 @@ func on_directiontimer_timeout():
 	$WaitTimer.start(1.0 + randf() * 2.0)
 	waiting = true
 	$Sprite.frame = 0
-	print("SLEEP")
 	
 func on_waittimer_timeout():
 	waiting = false
 	$DirectionChangeTimer.start(1.0 + randf() * 2.0)
-	print("WAKE ME UP INSIDE")

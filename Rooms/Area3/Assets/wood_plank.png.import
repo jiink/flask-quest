@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sewerbg_3.png-713d3df93540f69a2abf222d591edbb3.stex"
+path="res://.import/wood_plank.png-7bbab7c40e6ab9c0b43dfb72a592da12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area3/Assets/SewerBackground/sewerbg_3.png"
-dest_files=[ "res://.import/sewerbg_3.png-713d3df93540f69a2abf222d591edbb3.stex" ]
+source_file="res://Rooms/Area3/Assets/wood_plank.png"
+dest_files=[ "res://.import/wood_plank.png-7bbab7c40e6ab9c0b43dfb72a592da12.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

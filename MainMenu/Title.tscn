@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://MainMenu/Title.gd" type="Script" id=1]
 [ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=2]
@@ -13,7 +13,8 @@
 [ext_resource path="res://MainMenu/quit_hover.png" type="Texture" id=11]
 [ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=13]
-[ext_resource path="res://MainMenu/CityBG.tscn" type="PackedScene" id=14]
+[ext_resource path="res://MainMenu/MainMenuBGs/CityBG.tscn" type="PackedScene" id=14]
+[ext_resource path="res://MainMenu/MainMenuBGs/SewerBG.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "open"
@@ -133,6 +134,9 @@ level_music = ExtResource( 2 )
 battle_music = ExtResource( 2 )
 
 [node name="CityBG" parent="." instance=ExtResource( 14 )]
+
+[node name="SewerBG" parent="." instance=ExtResource( 15 )]
+visible = false
 
 [node name="BlackScreen" type="Node2D" parent="."]
 

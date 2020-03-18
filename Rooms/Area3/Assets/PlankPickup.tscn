@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Items/Pickups/BasePickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area3/Assets/wood_plank.png" type="Texture" id=2]
+
+[node name="PlankPickup" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+item_name = "plank"

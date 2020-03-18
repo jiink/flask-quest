@@ -72,14 +72,12 @@ anims/turn_off = SubResource( 2 )
 anims/turn_on = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 4 )
 
 [node name="Interaction" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
@@ -97,6 +95,5 @@ message = "I don't think we have an account."
 text_delay = 0.03
 character = "orange"
 function = "freeze_player_again"
-args = [  ]
 dont_unfreeze_player = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
