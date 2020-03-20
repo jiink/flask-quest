@@ -8,9 +8,9 @@ func _ready():
 		print("Warning, %s has no CollisionShape2D" % self.name)
 
 func on_body_entered(body):
-	if body == global.get_player():
-		global.get_player().set_in_water(true)
+	if body in get_tree().get_nodes_in_group("Player"):
+		body.set_in_water(true)
 
 func on_body_exited(body):
-	if body == global.get_player():
-		global.get_player().set_in_water(false)
+	if body in get_tree().get_nodes_in_group("Player"):
+		body.set_in_water(false)
