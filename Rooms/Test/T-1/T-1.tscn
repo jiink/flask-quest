@@ -130,49 +130,36 @@ position = Vector2( 304, 112 )
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree" instance=ExtResource( 14 )]
 message = "hello. blah blah. blahblah? bababa, baba."
-text_delay = 0.0
 expression = "neutral"
 function = "test_react"
-args = [  ]
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
 key = "yeah"
 message = "cool"
-text_delay = 0.0
 expression = "grin"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
 key = "no"
 message = "man"
-text_delay = 0.0
 expression = "angry"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" instance=ExtResource( 14 )]
 message = "really?"
 text_delay = 0.07
 expression = "crying"
-args = [  ]
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 14 )]
 key = "yep"
 message = "heck you. "
-text_delay = 0.0
 expression = "cryingloud"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 14 )]
-text_delay = 0.0
 function = "enter_battle"
-args = [  ]
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 14 )]
 key = "nope"
 message = "wow dumy"
-text_delay = 0.0
 expression = "misc"
-args = [  ]
 
 [node name="Boque2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 226, 106 )
@@ -181,7 +168,6 @@ position = Vector2( 226, 106 )
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 14 )]
 message = "battle time"
-text_delay = 0.0
 function = "enter_battle"
 args = [ [ "Boque" ] ]
 

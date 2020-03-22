@@ -545,21 +545,25 @@ shape = SubResource( 8 )
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "Whooooaaaa..."
+character = "orange"
 expression = "sidemouth"
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Where are we? ...What are we? What is this place? ```I HAVE SO MANY QUESTIONS!"
+character = "orange"
 expression = "happy"
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Hey, you know what... you look a lot like me. Could we be... related?"
+character = "orange"
 expression = "sidemouth"
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "Hu- ```You` hear that?"
+character = "orange"
 expression = "bigsurprise"
 function = "start_brainjar_event"
 skippable = false

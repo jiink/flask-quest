@@ -1544,7 +1544,7 @@ margin_right = 4.0
 margin_bottom = 11.0
 
 [node name="CatA" parent="YSort/NPC" index="2" instance=ExtResource( 77 )]
-position = Vector2( 174, 384 )
+position = Vector2( 203, 365 )
 texture = ExtResource( 73 )
 offset = Vector2( 0, -9 )
 
@@ -1558,7 +1558,7 @@ position = Vector2( 0, 0 )
 visible = false
 
 [node name="ManA" parent="YSort/NPC" index="3" instance=ExtResource( 77 )]
-position = Vector2( 249, 385 )
+position = Vector2( 227, 364 )
 texture = ExtResource( 76 )
 offset = Vector2( 0, -15 )
 
@@ -1577,7 +1577,7 @@ position = Vector2( 0, 0 )
 visible = false
 
 [node name="MouseA" parent="YSort/NPC" index="4" instance=ExtResource( 77 )]
-position = Vector2( 204, 424 )
+position = Vector2( 300, 386 )
 texture = ExtResource( 75 )
 offset = Vector2( 0, -7 )
 
