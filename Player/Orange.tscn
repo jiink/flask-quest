@@ -8,7 +8,6 @@
 "tick",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-speed = 35
 sprintMultiplier = 2.0
 player_number = 2
 controlled_by = 1

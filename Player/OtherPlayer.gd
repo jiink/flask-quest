@@ -127,8 +127,9 @@ func _tick():
 		else:
 			$AnimatedSprite.playing = false
 			$AnimatedSprite.frame = 0
-	
-		in_water = leader.in_water_history[follow_distance]
-		set_in_water(in_water)
+		
+		if in_water != leader.in_water_history[follow_distance]:
+			in_water = leader.in_water_history[follow_distance]
+			set_in_water(in_water)
 		
 		previous_position = position
