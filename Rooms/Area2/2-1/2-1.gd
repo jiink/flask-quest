@@ -48,11 +48,12 @@ func update_malus_door(state):
 		$MalusEntrance/DoorSign.frame = SIGN_CLOSED
 		$MalusEntrance/StaticBody2D/CollisionShape2D.disabled = false
 		$MalusEntrance/Interaction/CollisionShape2D.disabled = false
-		
+		$MalusEntrance/Door/glassdoor_full.frame = 0
 	else:
 		$MalusEntrance/DoorSign.frame = SIGN_OPEN
 		$MalusEntrance/StaticBody2D/CollisionShape2D.disabled = true
 		$MalusEntrance/Interaction/CollisionShape2D.disabled = true
+		$MalusEntrance/Door/glassdoor_full.frame = 5
 
 func _on_map_machine_opened():
 	# now that the player viewed the map machine, unlock the doors to malus

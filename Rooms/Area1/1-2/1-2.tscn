@@ -43,7 +43,7 @@ extents = Vector2( 64, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[node name="1-2" index="0" instance=ExtResource( 1 )]
+[node name="1-2" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 battle_bg = ExtResource( 3 )
 level_music = ExtResource( 4 )
@@ -207,7 +207,6 @@ __meta__ = {
 }
 
 [node name="EnteranceElevator" type="Node2D" parent="." index="3"]
-editor/display_folded = true
 position = Vector2( 256, 31 )
 script = ExtResource( 16 )
 
@@ -241,7 +240,6 @@ texture = ExtResource( 22 )
 shape = SubResource( 1 )
 
 [node name="TVTriggerZone" type="Area2D" parent="." index="6"]
-editor/display_folded = true
 position = Vector2( 102, 142 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TVTriggerZone" index="0"]
@@ -277,7 +275,6 @@ position = Vector2( 444, 92 )
 position = Vector2( 482, 71 )
 
 [node name="MopCollision" type="StaticBody2D" parent="." index="8"]
-editor/display_folded = true
 position = Vector2( 406, 208 )
 collision_layer = 32768
 collision_mask = 0
@@ -286,7 +283,6 @@ collision_mask = 0
 shape = SubResource( 3 )
 
 [node name="MopCollision3" type="StaticBody2D" parent="." index="9"]
-editor/display_folded = true
 position = Vector2( 406, 208 )
 collision_layer = 32768
 collision_mask = 0
@@ -308,7 +304,6 @@ position = Vector2( 21, -24 )
 shape = SubResource( 3 )
 
 [node name="MopCollision2" type="StaticBody2D" parent="." index="10"]
-editor/display_folded = true
 position = Vector2( 464, 135 )
 collision_layer = 32768
 collision_mask = 0
@@ -335,58 +330,44 @@ script = ExtResource( 29 )
 
 [node name="DiagPiece" parent="TV/DialogueTree" index="0" instance=ExtResource( 31 )]
 message = "Okay, Stultus, did you get the papers like I told you to?"
-text_delay = 0.0
 character = "stercus"
 expression = "openmouth"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece3" parent="TV/DialogueTree/DiagPiece" index="0" instance=ExtResource( 31 )]
 message = "...   ```I'm sorry, who are YOU?"
-text_delay = 0.0
 character = "stercus"
 expression = "bigsurprise"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece2" parent="TV/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 31 )]
 message = "I mean, ``WHAT`` are you?"
-text_delay = 0.0
 character = "stercus"
 expression = "neutral"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece3" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2" index="0" instance=ExtResource( 31 )]
 message = "AND WHAT ARE YOU DOING ``IN ``MY ``LAB?!"
-text_delay = 0.0
 character = "stercus"
 expression = "angry"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece4" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 31 )]
 message = "I GOT A WEAPON TO MAKE! I'M ON A SCHEDULE! I DON'T HAVE TIME FOR YOUR-"
-text_delay = 0.0
 character = "stercus"
 expression = "misc"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece5" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 31 )]
 message = "Wait. Maybe you could help me...`` Have you seen any`` perniciosissimus interitus malorum`` laying around?"
-text_delay = 0.0
 character = "stercus"
 expression = "smug"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece6" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 31 )]
 message = "PIM? No? You haven't seen any?"
-text_delay = 0.0
 character = "stercus"
 expression = "neutral"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece7" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 31 )]
@@ -394,7 +375,6 @@ message = "T`h`e`n ``WHAT ARE YOU DOING HERE? ARE YOU TRYING TO GET IN TROUBLE, 
 text_delay = 0.02
 character = "stercus"
 expression = "angry"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece8" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" index="0" instance=ExtResource( 31 )]
@@ -402,7 +382,6 @@ message = "WHY ARE YOU WASTING MY TIME? DO YOU THINK THIS IS SOME KIND OF JOKE? 
 text_delay = 0.02
 character = "stercus"
 expression = "misc"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece9" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 31 )]
@@ -410,7 +389,6 @@ message = "The video call abruptly ends with the last thing seen being Stercus's
 text_delay = 0.03
 no_face = true
 expression = "misc"
-args = [  ]
 skippable = false
 
 [node name="DiagPiece10" parent="TV/DialogueTree/DiagPiece/DiagPiece3/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9" index="0" instance=ExtResource( 31 )]
@@ -419,14 +397,10 @@ text_delay = 0.05
 character = "orange"
 expression = "sidemouth"
 face_texture = ExtResource( 32 )
-args = [  ]
 skippable = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TV" index="3"]
 stream = ExtResource( 33 )
-
-[node name="HUD" parent="." index="13"]
-editor/display_folded = true
 
 [node name="Lights" type="Node" parent="." index="14"]
 

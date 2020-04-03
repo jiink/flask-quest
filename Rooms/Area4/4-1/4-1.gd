@@ -13,3 +13,7 @@ func load(save_game):
 	pass
 
 
+
+
+func _on_OnArea_body_entered(body):
+	pass # Replace with function body.
