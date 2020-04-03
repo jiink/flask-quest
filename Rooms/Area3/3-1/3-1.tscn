@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/sign_biohazard.png" type="Texture" id=2]
@@ -33,9 +33,12 @@
 [ext_resource path="res://Rooms/Area3/Assets/sewers.ogg" type="AudioStream" id=31]
 [ext_resource path="res://Rooms/Area3/Assets/sewers_background.png" type="Texture" id=32]
 [ext_resource path="res://Rooms/Area3/Assets/sewers_battle.ogg" type="AudioStream" id=33]
+[ext_resource path="res://Rooms/Area3/Assets/PropScenes/large_door_open.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Rooms/Area3/Assets/large_door_dead.png" type="Texture" id=35]
-[ext_resource path="res://Rooms/Area3/Assets/large_door_open.png" type="Texture" id=36]
+[ext_resource path="res://Rooms/Area3/Assets/floor_corrosive.png" type="Texture" id=36]
 [ext_resource path="res://Rooms/Area3/Assets/floor_warning.png" type="Texture" id=37]
+[ext_resource path="res://Rooms/Area3/Assets/sign_torn.png" type="Texture" id=38]
+[ext_resource path="res://Rooms/Area3/Assets/sign_floor.png" type="Texture" id=39]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -860,25 +863,43 @@ texture = ExtResource( 37 )
 position = Vector2( 2770, -681 )
 texture = ExtResource( 37 )
 
+[node name="floor_corrosive" type="Sprite" parent="Signs" index="24"]
+position = Vector2( 1891, -62 )
+texture = ExtResource( 36 )
+
+[node name="floor_corrosive2" type="Sprite" parent="Signs" index="25"]
+position = Vector2( 2065, -63 )
+texture = ExtResource( 36 )
+
+[node name="sign_floor" type="Sprite" parent="Signs" index="26"]
+position = Vector2( -168, -2 )
+texture = ExtResource( 39 )
+
+[node name="sign_torn" type="Sprite" parent="Signs" index="27"]
+position = Vector2( -38, 20 )
+texture = ExtResource( 38 )
+
+[node name="sign_radiohazard3" type="Sprite" parent="Signs" index="28"]
+position = Vector2( -38, -76 )
+texture = ExtResource( 29 )
+
+[node name="sign_sewageFlow_S5" type="Sprite" parent="Signs" index="29"]
+position = Vector2( 178, 38 )
+texture = ExtResource( 4 )
+
 [node name="large_door_dead" type="Sprite" parent="." index="4"]
 position = Vector2( 2296, -120 )
 texture = ExtResource( 35 )
 
-[node name="large_door_open" type="Sprite" parent="." index="5"]
-position = Vector2( 2856, -341 )
-texture = ExtResource( 36 )
-vframes = 3
-hframes = 6
-
-[node name="bed1" type="Sprite" parent="." index="6"]
+[node name="bed1" type="Sprite" parent="." index="5"]
 position = Vector2( 87, 17 )
 texture = ExtResource( 13 )
 
-[node name="pipe_door" type="Sprite" parent="." index="7"]
+[node name="pipe_door" type="Sprite" parent="." index="6"]
 position = Vector2( 1528, -816 )
 texture = ExtResource( 14 )
 
-[node name="PlankPickup2" parent="." index="8" instance=ExtResource( 21 )]
+[node name="PlankPickup2" parent="." index="7" instance=ExtResource( 21 )]
 position = Vector2( -776, -184 )
 script = ExtResource( 23 )
 
@@ -888,7 +909,7 @@ visible = true
 [node name="CollisionShape2D" parent="PlankPickup2/Interaction" index="0"]
 shape = SubResource( 2 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="8"]
 position = Vector2( 776, -184 )
 script = ExtResource( 3 )
 
@@ -901,7 +922,7 @@ shape = SubResource( 3 )
 [node name="BridgeInteractZone" type="CollisionShape2D" parent="StaticBody2D/Interaction" index="0"]
 shape = SubResource( 4 )
 
-[node name="PlankPickup" parent="." index="10" instance=ExtResource( 21 )]
+[node name="PlankPickup" parent="." index="9" instance=ExtResource( 21 )]
 position = Vector2( 570, -198 )
 
 [node name="Interaction" parent="PlankPickup" index="0"]
@@ -1005,7 +1026,23 @@ position = Vector2( 2668, -333 )
 [node name="OminousRat5" parent="YSort" index="27" instance=ExtResource( 22 )]
 position = Vector2( 2646, -343 )
 
-[node name="BlackAbove" type="TileMap" parent="." index="14"]
+[node name="large_door_open" parent="YSort" index="28" instance=ExtResource( 34 )]
+position = Vector2( 2856, -322 )
+frame = 0
+
+[node name="Light2D" parent="YSort/large_door_open" index="0"]
+enabled = false
+
+[node name="Light2D2" parent="YSort/large_door_open" index="1"]
+enabled = false
+
+[node name="StaticBody2D" parent="YSort/large_door_open" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="YSort/large_door_open/StaticBody2D" index="0"]
+disabled = false
+
+[node name="BlackAbove" type="TileMap" parent="." index="13"]
 light_mask = 0
 z_index = 1
 tile_set = ExtResource( 5 )
@@ -1013,7 +1050,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -3145556, 0, 655367, -3145555, 0, 655367, -3145554, 0, 655367, -3145553, 0, 655367, -3145552, 0, 655367, -3145551, 0, 655367, -3145550, 0, 655367, -3145549, 0, 655367, -3080022, 0, 655367, -3080021, 0, 655367, -3080020, 0, 655367, -3080019, 0, 655367, -3014493, 0, 655367, -3014492, 0, 655367, -3014491, 0, 655367, -3014490, 0, 655367, -3014489, 0, 655367, -3014488, 0, 655367, -3014487, 0, 655367, -3014486, 0, 655367, -3014485, 0, 655367, -3014484, 0, 655367, -3014483, 0, 655367, -2948965, 0, 655367, -2948964, 0, 655367, -2948963, 0, 655367, -2948962, 0, 655367, -2948961, 0, 655367, -2948960, 0, 655367, -2948959, 0, 655367, -2948958, 0, 655367, -2948957, 0, 655367, -2031442, 0, 655367, -2031441, 0, 655367, -2031440, 0, 655367, -2031436, 0, 655367, -2031435, 0, 655367, -2031434, 0, 655367, -1703759, 0, 655367, -1703758, 0, 655367, -1703757, 0, 655367, -1310566, 0, 655367, -1310565, 0, 655367, -1310564, 0, 655367, -1310563, 0, 655367, -1310562, 0, 655367, -1310561, 0, 655367, -1310560, 0, 655367, -1310559, 0, 655367, -1310558, 0, 655367, -1310557, 0, 655367, -1310556, 0, 655367, -1310555, 0, 655367, -1310554, 0, 655367, -1310553, 0, 655367, -1245026, 0, 655367, -1245025, 0, 655367, -1245024, 0, 655367, -1245023, 0, 655367, -1245022, 0, 655367, -1245021, 0, 655367, -1179490, 0, 655367, -1179489, 0, 655367, -1179488, 0, 655367, -1179487, 0, 655367, -1179486, 0, 655367, -1179485, 0, 655367, -1113954, 0, 655367, -1113953, 0, 655367, -720858, 0, 655367, -720857, 0, 655367, -655327, 0, 655367, -655326, 0, 655367, -655325, 0, 655367, -655324, 0, 655367, -655323, 0, 655367, -524246, 0, 655367, -524245, 0, 655367, -524244, 0, 655367, -524243, 0, 655367, -524242, 0, 655367, -524241, 0, 655367, -524240, 0, 655367, -524239, 0, 655367, -524238, 0, 655367, -524237, 0, 655367, -524236, 0, 655367, -524235, 0, 655367, -524234, 0, 655367, -524233, 0, 655367, -524232, 0, 655367 )
 
-[node name="Water" type="Node2D" parent="." index="15"]
+[node name="Water" type="Node2D" parent="." index="14"]
 
 [node name="WaterZone" parent="Water" index="0" instance=ExtResource( 20 )]
 
@@ -1036,5 +1073,7 @@ shape = SubResource( 10 )
 [editable path="PlankPickup2"]
 
 [editable path="PlankPickup"]
+
+[editable path="YSort/large_door_open"]
 
 [editable path="HUD"]

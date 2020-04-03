@@ -5,7 +5,7 @@ var t = 1
 
 func _process(delta):
 	t += anim_speed*delta
-	if t < hframes:
+	if t < hframes * vframes:
 		frame = t
 	else:
 		frame = 0

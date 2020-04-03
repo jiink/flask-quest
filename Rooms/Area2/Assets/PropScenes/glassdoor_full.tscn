@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Rooms/Area2/Assets/glassdoor_full.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area2/Assets/dooranim_open.tres" type="Animation" id=2]
+[ext_resource path="res://Rooms/Area2/Assets/PropScenes/glassdoor_full.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 19 )
+
+[sub_resource type="Animation" id=2]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 10 ]
+}
+
+[node name="glassdoor_full" type="Sprite"]
+texture = ExtResource( 1 )
+hframes = 11
+script = ExtResource( 3 )
+
+[node name="OnArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnArea"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.25
+anims/close = SubResource( 2 )
+anims/open = ExtResource( 2 )
