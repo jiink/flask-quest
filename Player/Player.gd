@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-export (int) var speed
-export (float) var sprintMultiplier
+export(int) var speed
+export(float) var sprintMultiplier
+
+export(int) var player_number = 1
 
 var sprint = false
 var motion = Vector2(0, 0)
@@ -10,13 +12,24 @@ var frozen = false
 var invincible = false
 var in_water = false
 
-var previous_position
+var extended = false
+
+var previous_position = Vector2(0.0, 0.0)
 var position_history = []
 var in_water_history = []
 
 var followed = true
 
 onready var interactionZone = $Interaction/InteractionZone
+
+var player_up = "up"
+var player_down = "down"
+var player_left = "left"
+var player_right = "right"
+
+var player_confirm = "confirm"
+var player_cancel = "cancel"
+var player_action = "action"
 
 func _ready():
 	$LightOccluder2D.visible = true
@@ -29,17 +42,31 @@ func _ready():
 	
 	
 func _process(delta):	
+	if not extended:
+		previous_position = position
+		
+		#if not get_owner().get_node("HUD/Diag").visible:
+		if not frozen:
+			get_inputs()
+		else:
+			# stop player when diag box is up.
+			motion = Vector2(0,0)
+	#	motion = motion.normalized()
 	
-	previous_position = position
 	
-	#if not get_owner().get_node("HUD/Diag").visible:
-	if not frozen:
-		get_inputs()
-	else:
-		# stop player when diag box is up.
-		motion = Vector2(0,0)
-#	motion = motion.normalized()
+		move_and_animate()
 	
+	
+	
+		
+	#	if position != previous_position: 
+	#		position_history.pop_back()
+	#		position_history.push_front(position)
+	#
+	#		in_water_history.pop_back()
+	#		in_water_history.push_front(in_water)
+	
+func move_and_animate():
 	var movement = motion * speed if not sprint else motion * speed * sprintMultiplier
 	move_and_slide(movement)
 	change_izone_pos()
@@ -55,15 +82,8 @@ func _process(delta):
 		$AnimatedSprite.playing = false
 		$AnimatedSprite.frame = 0
 	
-	
-#	if position != previous_position: 
-#		position_history.pop_back()
-#		position_history.push_front(position)
-#
-#		in_water_history.pop_back()
-#		in_water_history.push_front(in_water)
-	
-	
+
+
 func get_inputs():
 	motion = Vector2(0, 0)
 	
@@ -71,12 +91,12 @@ func get_inputs():
 #		motion.y -= 1
 #	if Input.is_action_pressed("down"):
 #		motion.y += 1
-	motion.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	motion.y = Input.get_action_strength(player_down) - Input.get_action_strength(player_up)
 #	if Input.is_action_pressed("left"):
 #		motion.x -= 1
 #	if Input.is_action_pressed("right"):
 #		motion.x += 1
-	motion.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	motion.x = Input.get_action_strength(player_right) - Input.get_action_strength(player_left)
 	motion = motion.normalized()
 	
 	var motion_simplified = Vector2(make_one(motion.x), make_one(motion.y))
@@ -98,9 +118,9 @@ func get_inputs():
 			direction = "left"
 		Vector2(-1, -1):
 			direction = "leftup"
-	sprint = Input.is_action_pressed("action")
+	sprint = Input.is_action_pressed(player_action)
 	
-	if Input.is_action_just_pressed("confirm"):
+	if Input.is_action_just_pressed(player_confirm):
 		#interactionZone.monitoring = true
 		#print(interactionZone.get_overlapping_areas())
 		for area in interactionZone.get_overlapping_areas():

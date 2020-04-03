@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
-[ext_resource path="res://Music/goodvibes.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Music/goodvibes-battle.ogg" type="AudioStream" id=4]
+[ext_resource path="res://NPC/SecurityMop/SecurityMop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=5]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=6]
 [ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=7]
@@ -17,7 +16,6 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=16]
 [ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=17]
-[ext_resource path="res://NPC/OminousRat/OminousRat.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Engine/light.png" type="Texture" id=19]
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=21]
@@ -33,8 +31,6 @@ radius = 58.0
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
 battle_bg = ExtResource( 2 )
-level_music = ExtResource( 3 )
-battle_music = ExtResource( 4 )
 
 [node name="Background" type="Node2D" parent="."]
 visible = false
@@ -130,49 +126,36 @@ position = Vector2( 304, 112 )
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree" instance=ExtResource( 14 )]
 message = "hello. blah blah. blahblah? bababa, baba."
-text_delay = 0.0
 expression = "neutral"
 function = "test_react"
-args = [  ]
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
 key = "yeah"
 message = "cool"
-text_delay = 0.0
 expression = "grin"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
 key = "no"
 message = "man"
-text_delay = 0.0
 expression = "angry"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" instance=ExtResource( 14 )]
 message = "really?"
 text_delay = 0.07
 expression = "crying"
-args = [  ]
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 14 )]
 key = "yep"
 message = "heck you. "
-text_delay = 0.0
 expression = "cryingloud"
-args = [  ]
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 14 )]
-text_delay = 0.0
 function = "enter_battle"
-args = [  ]
 
 [node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 14 )]
 key = "nope"
 message = "wow dumy"
-text_delay = 0.0
 expression = "misc"
-args = [  ]
 
 [node name="Boque2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 226, 106 )
@@ -181,15 +164,19 @@ position = Vector2( 226, 106 )
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 14 )]
 message = "battle time"
-text_delay = 0.0
 function = "enter_battle"
 args = [ [ "Boque" ] ]
 
 [node name="Player" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 274.93, 80.7559 )
 
+[node name="SecurityMop" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 135, 72 )
+
 [node name="Orange" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 291, 81 )
+position = Vector2( 302, 84 )
+speed = 50
+controlled_by = 0
 
 [node name="SaveTester" parent="YSort" instance=ExtResource( 17 )]
 position = Vector2( 293, 53 )
@@ -199,9 +186,6 @@ position = Vector2( 316, 53 )
 
 [node name="SaveTester3" parent="YSort" instance=ExtResource( 17 )]
 position = Vector2( 339, 52 )
-
-[node name="OminousRat" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 275, 57 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
