@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
-export(int) var speed
+export(int) var ground_speed = 60
+export(int) var water_speed = 33
 export(float) var sprintMultiplier
 
 export(int) var player_number = 1
 
+var speed = ground_speed
 var sprint = false
 var motion = Vector2(0, 0)
 var direction = "right"
@@ -157,11 +159,11 @@ func set_in_water(setting):
 		else:
 			add_child(load("res://Player/InWaterEffect.tscn").instance())
 		$AnimatedSprite.offset.y = 4
-		speed /= 1.8
+		speed = water_speed
 	else:
 		$InWaterEffect.visible = false
 		$AnimatedSprite.offset.y = 0
-		speed *= 1.8
+		speed = ground_speed
 
 func go_invincible(time):
 	invincible = true

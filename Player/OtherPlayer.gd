@@ -91,7 +91,6 @@ func _process(delta):
 			
 			
 func _tick():
-	print(speed)
 	if controlled_by == BOT:
 		$FollowTween.interpolate_property(self, "position", null, leader.position_history[follow_distance], 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 	
