@@ -25,6 +25,7 @@ tracks/0/keys = {
 [node name="glassdoor_full" type="Sprite"]
 texture = ExtResource( 1 )
 hframes = 11
+frame = 10
 script = ExtResource( 3 )
 
 [node name="OnArea" type="Area2D" parent="."]
