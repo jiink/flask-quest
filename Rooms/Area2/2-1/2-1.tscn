@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=182 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -120,6 +120,18 @@
 [ext_resource path="res://Rooms/Area2/Assets/birdsong_abridged.ogg" type="AudioStream" id=118]
 [ext_resource path="res://Rooms/Area2/Assets/tire_shredder.png" type="Texture" id=119]
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/robo_guard.tscn" type="PackedScene" id=120]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=121]
+[ext_resource path="res://Rooms/Area2/Assets/PropScenes/wifipost_stupid.tscn" type="PackedScene" id=122]
+[ext_resource path="res://Rooms/Area2/Assets/engineloop.ogg" type="AudioStream" id=123]
+[ext_resource path="res://Rooms/Area2/Assets/carpassloop.ogg" type="AudioStream" id=124]
+[ext_resource path="res://Rooms/Area2/Assets/carbreak.ogg" type="AudioStream" id=125]
+[ext_resource path="res://Rooms/Area2/Assets/engineloop_hpitch.ogg" type="AudioStream" id=126]
+[ext_resource path="res://Rooms/Area2/Assets/LeafParticleSystem.tscn" type="PackedScene" id=127]
+[ext_resource path="res://NPC/dogspeak.ogg" type="AudioStream" id=128]
+[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/jump_roper.tscn" type="PackedScene" id=129]
+[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/robo_guard_unarmed.tscn" type="PackedScene" id=130]
+[ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/runner_boy.tscn" type="PackedScene" id=131]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=132]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 40 )
@@ -242,11 +254,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 34.0009, 12 )
 
-[sub_resource type="RectangleShape2D" id=46]
-extents = Vector2( 11.9999, 14 )
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 27.0008, 24 )
 
-[sub_resource type="Animation" id=15]
-resource_name = "drive"
+[sub_resource type="Animation" id=16]
 length = 20.0
 loop = true
 tracks/0/type = "value"
@@ -310,16 +321,15 @@ tracks/4/keys = {
 "values": [ Vector2( 43.3286, -2.89941 ), Vector2( 43.3286, -2.89941 ), Vector2( 1.80261, -58.9109 ), Vector2( 1.80261, -58.9109 ), Vector2( 43.3286, -2.89941 ), Vector2( 43.3286, -2.89941 ), Vector2( 1.17841, 32.8298 ), Vector2( 1.17841, 32.8298 ) ]
 }
 
-[sub_resource type="Curve2D" id=16]
+[sub_resource type="Curve2D" id=17]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1986, 1071, 0, 0, 0, 0, 1986, 366, 0, 0, 0, 0, 1984, 338, 0, 0, 0, 0, 1979, 315, 0, 0, 0, 0, 1971, 293, 0, 0, 0, 0, 1960, 274, 0, 0, 0, 0, 1950, 261, 0, 0, 0, 0, 1932, 242, 0, 0, 0, 0, 1913, 229, 0, 0, 0, 0, 1893, 218, 0, 0, 0, 0, 1879, 213, 0, 0, 0, 0, 1864, 209, 0, 0, 0, 0, 1846, 206, 0, 0, 0, 0, 1828, 205, 0, 0, 0, 0, 1647, 205, 0, 0, 0, 0, 1622, 202, 0, 0, 0, 0, 1610, 196, 0, 0, 0, 0, 1592, 189, 0, 0, 0, 0, 1570, 180, 0, 0, 0, 0, 1543, 172, 0, 0, 0, 0, 1514, 169, 0, 0, 0, 0, 1489, 169, 0, 0, 0, 0, 1467, 167, 0, 0, 0, 0, 1438, 166, 0, 0, 0, 0, 1356, 169, 0, 0, 0, 0, 1334, 169, 0, 0, 0, 0, 1316, 166, 0, 0, 0, 0, 1302, 161, 0, 0, 0, 0, 1297, 153, 0, 0, 0, 0, 1295, 141, 0, 0, 0, 0, 1297, 126, 0, 0, 0, 0, 1300, 112, 0, 0, 0, 0, 1301, 98, 0, 0, 0, 0, 1303, 78, 0, 0, 0, 0, 1305, 60, 0, 0, 0, 0, 1308, 19, 0, 0, 0, 0, 1310, -17, 0, 0, 0, 0, 1310, -143, 0, 0, 0, 0, 1307, -153, 0, 0, 0, 0, 1301, -164, 0, 0, 0, 0, 1290, -179, 0, 0, 0, 0, 1277, -203, 0, 0, 0, 0, 1271, -240, 0, 0, 0, 0, 1268, -271, 0, 0, 0, 0, 1266, -307, 0, 0, 0, 0, 1266, -347, 0, 0, 0, 0, 1264, -372, 0, 0, 0, 0, 1260, -388, 0, 0, 0, 0, 1251, -411, 0, 0, 0, 0, 1233, -439, 0, 0, 0, 0, 1212, -462, 0, 0, 0, 0, 1188, -479, 0, 0, 0, 0, 1170, -486, 0, 0, 0, 0, 1149, -492, 0, 0, 0, 0, 1128, -495, 0, 0, 0, 0, 1099, -498, 0, 0, 0, 0, 786, -498, 0, 0, 0, 0, 760, -497, 0, 0, 0, 0, 713, -495, 0, 0, 0, 0, 670, -485, 0, 0, 0, 0, 644, -472, 0, 0, 0, 0, 612, -450, 0, 0, 0, 0, 598, -429, 0, 0, 0, 0, 587, -400, 0, 0, 0, 0, 582, -376, 0, 0, 0, 0, 577, -338, 0, 0, 0, 0, 580, -300, 0, 0, 0, 0, 589, -265, 0, 0, 0, 0, 593, -243, 0, 0, 0, 0, 596, -217, 0, 0, 0, 0, 596, -194, 0, 0, 0, 0, 596, 107, 0, 0, 0, 0, 595, 126, 0, 0, 0, 0, 591, 139, 0, 0, 0, 0, 578, 156, 0, 0, 0, 0, 559, 168, 0, 0, 0, 0, 531, 169, 0, 0, 0, 0, 485, 168, 0, 0, 0, 0, -777, 168 )
 }
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 27, 10 )
 
-[sub_resource type="Animation" id=18]
-resource_name = "drive"
+[sub_resource type="Animation" id=19]
 length = 32.0
 loop = true
 tracks/0/type = "value"
@@ -395,19 +405,18 @@ tracks/5/keys = {
 "values": [ Vector2( -0.606812, -43.5532 ), Vector2( -0.606812, -43.5532 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ), Vector2( -0.606812, -43.5532 ), Vector2( -0.606812, -43.5532 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ), Vector2( -0.458652, 35.8748 ), Vector2( -0.458652, 35.8748 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ) ]
 }
 
-[sub_resource type="Curve2D" id=19]
+[sub_resource type="Curve2D" id=20]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -772, 303, 0, 0, 0, 0, 1813, 303, 0, 0, 0, 0, 1833, 301, 0, 0, 0, 0, 1853, 298, 0, 0, 0, 0, 1872, 300, 0, 0, 0, 0, 1884, 307, 0, 0, 0, 0, 1893, 317, 0, 0, 0, 0, 1897, 336, 0, 0, 0, 0, 1895, 351, 0, 0, 0, 0, 1892, 364, 0, 0, 0, 0, 1892, 382, 0, 0, 0, 0, 1893, 399, 0, 0, 0, 0, 1896, 430, 0, 0, 0, 0, 1894, 470, 0, 0, 0, 0, 1892, 516, 0, 0, 0, 0, 1894, 701, 0, 0, 0, 0, 1892, 937, 0, 0, 0, 0, 1892, 1074 )
 }
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 26, 10 )
 
-[sub_resource type="RectangleShape2D" id=47]
-extents = Vector2( 12, 10.0016 )
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 25.0184, 22.9799 )
 
-[sub_resource type="Animation" id=21]
-resource_name = "drive"
+[sub_resource type="Animation" id=23]
 length = 15.0
 loop = true
 tracks/0/type = "value"
@@ -469,40 +478,6 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 0 ),
 "update": 0,
 "values": [ Vector2( 38.996, 5.0267 ), Vector2( 38.996, 5.0267 ), Vector2( 0.0846252, 36.6884 ), Vector2( 0.0846252, 36.6884 ) ]
-}
-
-[sub_resource type="Animation" id=22]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=23]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -642,40 +617,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=32]
-length = 2.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 0 ]
-}
-
-[sub_resource type="Animation" id=33]
-length = 2.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 0 ]
-}
-
-[sub_resource type="Animation" id=34]
 length = 20.0
 loop = true
 step = 1.0
@@ -690,6 +631,40 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=33]
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=34]
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 0 ]
 }
 
 [sub_resource type="Animation" id=35]
@@ -710,6 +685,40 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=36]
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=37]
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 0 ]
+}
+
+[sub_resource type="Animation" id=38]
 length = 0.96
 loop = true
 step = 0.08
@@ -726,7 +735,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=39]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -741,7 +750,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=40]
 length = 2.2
 loop = true
 step = 0.2
@@ -758,7 +767,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=41]
 length = 2.0
 loop = true
 step = 1.0
@@ -775,19 +784,19 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=40]
+[sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 18, 17 )
 
-[sub_resource type="RectangleShape2D" id=41]
+[sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 18, 15 )
 
-[sub_resource type="RectangleShape2D" id=42]
+[sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 25, 5 )
 
-[sub_resource type="RectangleShape2D" id=43]
+[sub_resource type="RectangleShape2D" id=45]
 extents = Vector2( 25, 5 )
 
-[sub_resource type="Animation" id=44]
+[sub_resource type="Animation" id=46]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -803,7 +812,41 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=45]
+[sub_resource type="Curve2D" id=47]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 30.9999, 1.00003, 0, 0, 0, 0, -403, 1.00003 )
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "run_path"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ 0.0, 431.14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PathFollow2D/RunnerBoy:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 16, 10 )
 
 [node name="2-1" groups=[
@@ -947,16 +990,23 @@ margin_right = 384.0
 margin_bottom = 216.0
 color = Color( 0.47451, 0.811765, 0.831373, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground" index="1"]
 motion_scale = Vector2( 0.6, 0.6 )
 motion_mirroring = Vector2( 0, 216 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="beach_background" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer" index="0"]
 position = Vector2( -174, 108 )
 texture = ExtResource( 110 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="exteriordecor_1" type="Sprite" parent="." index="2"]
 position = Vector2( 1608, -632 )
@@ -1077,20 +1127,33 @@ position = Vector2( 968, -608 )
 [node name="glassdoor_full" parent="." index="7" instance=ExtResource( 105 )]
 position = Vector2( 944, 48 )
 
-[node name="tire_shredder" type="Sprite" parent="." index="8"]
+[node name="Particles" type="Node2D" parent="." index="8"]
+position = Vector2( 1641, -54 )
+
+[node name="LeafParticles" parent="Particles" index="0" instance=ExtResource( 127 )]
+
+[node name="LeafParticles2" parent="Particles" index="1" instance=ExtResource( 127 )]
+position = Vector2( 126, 71 )
+
+[node name="LeafParticles3" parent="Particles" index="2" instance=ExtResource( 127 )]
+position = Vector2( -132, -239 )
+
+[node name="LeafParticles4" parent="Particles" index="3" instance=ExtResource( 127 )]
+position = Vector2( 11, -151 )
+
+[node name="tire_shredder" type="Sprite" parent="." index="9"]
 position = Vector2( -551, 232 )
 texture = ExtResource( 119 )
 
-[node name="VehiclePaths" type="Node2D" parent="." index="9"]
+[node name="VehiclePaths" type="Node2D" parent="." index="10"]
 
 [node name="RedCarPath" type="Path2D" parent="VehiclePaths" index="0"]
 position = Vector2( 1, 90 )
 curve = SubResource( 13 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/RedCarPath" index="0"]
-position = Vector2( 1170.04, 517.424 )
+position = Vector2( -697, 166 )
 rotation = -0.000804549
-offset = 3449.4
 rotate = false
 loop = false
 
@@ -1099,35 +1162,48 @@ position = Vector2( -0.326172, -0.065979 )
 texture = ExtResource( 111 )
 offset = Vector2( 0, -16 )
 hframes = 3
-frame = 2
 script = ExtResource( 116 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car/KinematicBody2D" index="0"]
-position = Vector2( 2.12701, -10.2144 )
-rotation = -1.5708
 shape = SubResource( 14 )
 
 [node name="StopArea" type="Area2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car/StopArea" index="0"]
-position = Vector2( 1.17841, 32.8298 )
-shape = SubResource( 46 )
+position = Vector2( 43.3286, -2.89941 )
+shape = SubResource( 15 )
 
 [node name="Tween" type="Tween" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="2"]
 
+[node name="Passaudio" type="AudioStreamPlayer2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="3"]
+stream = ExtResource( 124 )
+volume_db = 9.143
+autoplay = true
+max_distance = 256.0
+
+[node name="EngineAudio" type="AudioStreamPlayer2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="4"]
+stream = ExtResource( 123 )
+volume_db = 13.476
+autoplay = true
+max_distance = 256.0
+
+[node name="CarStop" type="AudioStreamPlayer2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="5"]
+stream = ExtResource( 125 )
+volume_db = 0.4
+max_distance = 256.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/RedCarPath" index="1"]
 autoplay = "drive"
-anims/drive = SubResource( 15 )
+anims/drive = SubResource( 16 )
 
 [node name="YellowCarPath" type="Path2D" parent="VehiclePaths" index="1"]
-curve = SubResource( 16 )
+curve = SubResource( 17 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/YellowCarPath" index="0"]
-position = Vector2( 1299.86, 157.608 )
+position = Vector2( 1986, 1071 )
 rotation = -1.5708
-offset = 1494.28
 rotate = false
 loop = false
 
@@ -1145,27 +1221,46 @@ script = ExtResource( 116 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car/KinematicBody2D" index="0"]
 position = Vector2( 0, -6 )
 rotation = -1.5708
-shape = SubResource( 17 )
+shape = SubResource( 18 )
 
 [node name="StopArea" type="Area2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="1"]
 rotation = -0.000804549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car/StopArea" index="0"]
 position = Vector2( -0.606812, -43.5532 )
-shape = SubResource( 46 )
+shape = SubResource( 15 )
 
 [node name="Tween" type="Tween" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="2"]
 
+[node name="Passaudio" type="AudioStreamPlayer2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="3"]
+rotation = -0.000804549
+stream = ExtResource( 124 )
+volume_db = 24.0
+autoplay = true
+max_distance = 256.0
+
+[node name="EngineAudio" type="AudioStreamPlayer2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="4"]
+rotation = -0.000804549
+stream = ExtResource( 123 )
+volume_db = 6.048
+autoplay = true
+max_distance = 256.0
+
+[node name="CarStop" type="AudioStreamPlayer2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="5"]
+rotation = -0.000804549
+stream = ExtResource( 125 )
+volume_db = 0.4
+max_distance = 256.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/YellowCarPath" index="1"]
 autoplay = "drive"
-anims/drive = SubResource( 18 )
+anims/drive = SubResource( 19 )
 
 [node name="BlueCarPath" type="Path2D" parent="VehiclePaths" index="2"]
-curve = SubResource( 19 )
+curve = SubResource( 20 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/BlueCarPath" index="0"]
-position = Vector2( 1838.74, 300.144 )
-offset = 2617.59
+position = Vector2( -772, 303 )
 rotate = false
 
 [node name="car_blue" type="Sprite" parent="VehiclePaths/BlueCarPath/PathFollow2D" index="0"]
@@ -1177,7 +1272,7 @@ script = ExtResource( 116 )
 [node name="KinematicBody2D" type="KinematicBody2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue/KinematicBody2D" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [node name="StopArea" type="Area2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="1"]
 position = Vector2( -3.05176e-05, -4.99529 )
@@ -1185,13 +1280,33 @@ rotation = -0.000804549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue/StopArea" index="0"]
 position = Vector2( 38.996, 5.0267 )
-shape = SubResource( 47 )
+shape = SubResource( 22 )
 
 [node name="Tween" type="Tween" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="2"]
 
+[node name="Passaudio" type="AudioStreamPlayer2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="3"]
+rotation = -0.000804549
+stream = ExtResource( 124 )
+volume_db = 24.0
+autoplay = true
+max_distance = 256.0
+
+[node name="EngineAudio" type="AudioStreamPlayer2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="4"]
+rotation = -0.000804549
+stream = ExtResource( 126 )
+volume_db = 7.285
+autoplay = true
+max_distance = 256.0
+
+[node name="CarStop" type="AudioStreamPlayer2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="5"]
+rotation = -0.000804549
+stream = ExtResource( 125 )
+volume_db = 0.4
+max_distance = 256.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/BlueCarPath" index="1"]
 autoplay = "drive"
-anims/drive = SubResource( 21 )
+anims/drive = SubResource( 23 )
 
 [node name="trashcan2" parent="YSort" index="0" instance=ExtResource( 15 )]
 position = Vector2( 360, 57 )
@@ -1199,7 +1314,9 @@ position = Vector2( 360, 57 )
 [node name="Player" parent="YSort" index="1"]
 position = Vector2( 272, 26 )
 
-[node name="Plants" type="YSort" parent="YSort" index="2"]
+[node name="Orange" parent="YSort" index="2" instance=ExtResource( 121 )]
+
+[node name="Plants" type="YSort" parent="YSort" index="3"]
 
 [node name="potted_plant_02" parent="YSort/Plants" index="0" instance=ExtResource( 16 )]
 position = Vector2( 408, 344 )
@@ -1270,7 +1387,7 @@ position = Vector2( 1224, -1176 )
 [node name="flowers_06" parent="YSort/Plants" index="22" instance=ExtResource( 22 )]
 position = Vector2( 1320, -1176 )
 
-[node name="Props" type="YSort" parent="YSort" index="3"]
+[node name="Props" type="YSort" parent="YSort" index="4"]
 
 [node name="statue" parent="YSort/Props" index="0" instance=ExtResource( 24 )]
 position = Vector2( 456, 32 )
@@ -1293,90 +1410,55 @@ position = Vector2( 1693, 109 )
 [node name="bench_improved8" parent="YSort/Props" index="6" instance=ExtResource( 25 )]
 position = Vector2( 1689, -351 )
 
-[node name="bench_improved5" parent="YSort/Props" index="7" instance=ExtResource( 25 )]
+[node name="bench_improved11" parent="YSort/Props" index="7" instance=ExtResource( 25 )]
+position = Vector2( 1636, -103 )
+
+[node name="bench_improved5" parent="YSort/Props" index="8" instance=ExtResource( 25 )]
 position = Vector2( 848, -618 )
 
-[node name="bench_improved6" parent="YSort/Props" index="8" instance=ExtResource( 25 )]
+[node name="bench_improved6" parent="YSort/Props" index="9" instance=ExtResource( 25 )]
 position = Vector2( 1055, -618 )
 
-[node name="bench_improved4" parent="YSort/Props" index="9" instance=ExtResource( 25 )]
+[node name="bench_improved4" parent="YSort/Props" index="10" instance=ExtResource( 25 )]
 position = Vector2( -344, 73 )
 
-[node name="bench_improved10" parent="YSort/Props" index="10" instance=ExtResource( 25 )]
+[node name="bench_improved10" parent="YSort/Props" index="11" instance=ExtResource( 25 )]
 position = Vector2( -615, 73 )
 
-[node name="bench_improved_side" parent="YSort/Props" index="11" instance=ExtResource( 26 )]
+[node name="bench_improved_side" parent="YSort/Props" index="12" instance=ExtResource( 26 )]
 position = Vector2( 504, 394 )
 
-[node name="bench_improved_side2" parent="YSort/Props" index="12" instance=ExtResource( 26 )]
+[node name="bench_improved_side2" parent="YSort/Props" index="13" instance=ExtResource( 26 )]
 position = Vector2( 1838, -121 )
 
-[node name="bench_improved_side3" parent="YSort/Props" index="13" instance=ExtResource( 26 )]
+[node name="bench_improved_side3" parent="YSort/Props" index="14" instance=ExtResource( 26 )]
 position = Vector2( 1835, 5 )
 
-[node name="bench_improved3" parent="YSort/Props" index="14" instance=ExtResource( 25 )]
+[node name="bench_improved3" parent="YSort/Props" index="15" instance=ExtResource( 25 )]
 position = Vector2( 1399, -1623 )
 
-[node name="wifipost_on" parent="YSort/Props" index="15" instance=ExtResource( 27 )]
-position = Vector2( 472, 472 )
-
-[node name="wifipost_on2" parent="YSort/Props" index="16" instance=ExtResource( 27 )]
-position = Vector2( 792, 472 )
-
-[node name="wifipost_on5" parent="YSort/Props" index="17" instance=ExtResource( 27 )]
-position = Vector2( 792, 40 )
-
-[node name="wifipost_on8" parent="YSort/Props" index="18" instance=ExtResource( 27 )]
-position = Vector2( 792, -153 )
-
-[node name="wifipost_on3" parent="YSort/Props" index="19" instance=ExtResource( 27 )]
-position = Vector2( 472, 103 )
-
-[node name="wifipost_on6" parent="YSort/Props" index="20" instance=ExtResource( 27 )]
-position = Vector2( 1560, -1609 )
-
-[node name="wifipost_on7" parent="YSort/Props" index="21" instance=ExtResource( 27 )]
-position = Vector2( 1320, -1273 )
-
-[node name="wifipost_on4" parent="YSort/Props" index="22" instance=ExtResource( 27 )]
-position = Vector2( 136, 104 )
-
-[node name="wifistation_improved" parent="YSort/Props" index="23" instance=ExtResource( 28 )]
-position = Vector2( 379, 422 )
-
-[node name="wifistation_improved2" parent="YSort/Props" index="24" instance=ExtResource( 28 )]
-position = Vector2( 1788, -600 )
-frame = 0
-
-[node name="wifistation_improved4" parent="YSort/Props" index="25" instance=ExtResource( 28 )]
-position = Vector2( 1483, -1620 )
-frame = 0
-
-[node name="cultsign_01" parent="YSort/Props" index="26" instance=ExtResource( 29 )]
+[node name="cultsign_01" parent="YSort/Props" index="16" instance=ExtResource( 29 )]
 position = Vector2( 842, -578 )
 
-[node name="cultsign_02" parent="YSort/Props" index="27" instance=ExtResource( 30 )]
+[node name="cultsign_02" parent="YSort/Props" index="17" instance=ExtResource( 30 )]
 position = Vector2( 782, -591 )
 
-[node name="cultsign_03" parent="YSort/Props" index="28" instance=ExtResource( 31 )]
+[node name="cultsign_03" parent="YSort/Props" index="18" instance=ExtResource( 31 )]
 position = Vector2( 1061, -594 )
 
-[node name="roadblock" parent="YSort/Props" index="29" instance=ExtResource( 32 )]
+[node name="roadblock" parent="YSort/Props" index="19" instance=ExtResource( 32 )]
 position = Vector2( 583, -1177 )
 
-[node name="roadblock2" parent="YSort/Props" index="30" instance=ExtResource( 32 )]
+[node name="roadblock2" parent="YSort/Props" index="20" instance=ExtResource( 32 )]
 position = Vector2( 635, -1182 )
 
-[node name="roadblock3" parent="YSort/Props" index="31" instance=ExtResource( 32 )]
+[node name="roadblock3" parent="YSort/Props" index="21" instance=ExtResource( 32 )]
 position = Vector2( 696, -1179 )
 
-[node name="wifipost_on9" parent="YSort/Props" index="32" instance=ExtResource( 114 )]
-position = Vector2( -280, 104 )
-
-[node name="bench_improved_side4" parent="YSort/Props" index="33" instance=ExtResource( 26 )]
+[node name="bench_improved_side4" parent="YSort/Props" index="22" instance=ExtResource( 26 )]
 position = Vector2( -420, -31 )
 
-[node name="streetlamps" type="YSort" parent="YSort" index="4"]
+[node name="streetlamps" type="YSort" parent="YSort" index="5"]
 
 [node name="streetlamp02" parent="YSort/streetlamps" index="0" instance=ExtResource( 33 )]
 position = Vector2( 2024, -1161 )
@@ -1396,103 +1478,228 @@ position = Vector2( -664, 119 )
 [node name="streetlamp21" parent="YSort/streetlamps" index="5" instance=ExtResource( 33 )]
 position = Vector2( -456, 119 )
 
-[node name="streetlamp18" parent="YSort/streetlamps" index="6" instance=ExtResource( 33 )]
+[node name="streetlamp43" parent="YSort/streetlamps" index="6" instance=ExtResource( 33 )]
+position = Vector2( 168, 344 )
+
+[node name="streetlamp44" parent="YSort/streetlamps" index="7" instance=ExtResource( 33 )]
+position = Vector2( 952, 344 )
+
+[node name="streetlamp42" parent="YSort/streetlamps" index="8" instance=ExtResource( 33 )]
+position = Vector2( -88, 344 )
+
+[node name="streetlamp41" parent="YSort/streetlamps" index="9" instance=ExtResource( 33 )]
+position = Vector2( -264, 344 )
+
+[node name="streetlamp40" parent="YSort/streetlamps" index="10" instance=ExtResource( 33 )]
+position = Vector2( -664, 344 )
+
+[node name="streetlamp39" parent="YSort/streetlamps" index="11" instance=ExtResource( 33 )]
+position = Vector2( -456, 344 )
+
+[node name="streetlamp18" parent="YSort/streetlamps" index="12" instance=ExtResource( 33 )]
 position = Vector2( 376, 119 )
 
-[node name="streetlamp29" parent="YSort/streetlamps" index="7" instance=ExtResource( 33 )]
+[node name="streetlamp29" parent="YSort/streetlamps" index="13" instance=ExtResource( 33 )]
 position = Vector2( 1128, 55 )
 
-[node name="streetlamp30" parent="YSort/streetlamps" index="8" instance=ExtResource( 33 )]
+[node name="streetlamp30" parent="YSort/streetlamps" index="14" instance=ExtResource( 33 )]
 position = Vector2( 1128, -105 )
 
-[node name="streetlamp35" parent="YSort/streetlamps" index="9" instance=ExtResource( 33 )]
+[node name="streetlamp35" parent="YSort/streetlamps" index="15" instance=ExtResource( 33 )]
 position = Vector2( 2104, -105 )
 
-[node name="streetlamp37" parent="YSort/streetlamps" index="10" instance=ExtResource( 33 )]
+[node name="streetlamp37" parent="YSort/streetlamps" index="16" instance=ExtResource( 33 )]
 position = Vector2( 2072, -681 )
 
-[node name="streetlamp33" parent="YSort/streetlamps" index="11" instance=ExtResource( 33 )]
+[node name="streetlamp33" parent="YSort/streetlamps" index="17" instance=ExtResource( 33 )]
 position = Vector2( 776, -105 )
 
-[node name="streetlamp31" parent="YSort/streetlamps" index="12" instance=ExtResource( 33 )]
+[node name="streetlamp31" parent="YSort/streetlamps" index="18" instance=ExtResource( 33 )]
 position = Vector2( 1128, -249 )
 
-[node name="streetlamp34" parent="YSort/streetlamps" index="13" instance=ExtResource( 33 )]
+[node name="streetlamp34" parent="YSort/streetlamps" index="19" instance=ExtResource( 33 )]
 position = Vector2( 2104, -249 )
 
-[node name="streetlamp36" parent="YSort/streetlamps" index="14" instance=ExtResource( 33 )]
+[node name="streetlamp36" parent="YSort/streetlamps" index="20" instance=ExtResource( 33 )]
 position = Vector2( 2072, -825 )
 
-[node name="streetlamp32" parent="YSort/streetlamps" index="15" instance=ExtResource( 33 )]
+[node name="streetlamp32" parent="YSort/streetlamps" index="21" instance=ExtResource( 33 )]
 position = Vector2( 776, -249 )
 
-[node name="streetlamp09" parent="YSort/streetlamps" index="16" instance=ExtResource( 33 )]
+[node name="streetlamp09" parent="YSort/streetlamps" index="22" instance=ExtResource( 33 )]
 position = Vector2( 1721, -1161 )
 
-[node name="streetlamp13" parent="YSort/streetlamps" index="17" instance=ExtResource( 33 )]
+[node name="streetlamp13" parent="YSort/streetlamps" index="23" instance=ExtResource( 33 )]
 position = Vector2( 1352, -841 )
 
-[node name="streetlamp15" parent="YSort/streetlamps" index="18" instance=ExtResource( 33 )]
+[node name="streetlamp15" parent="YSort/streetlamps" index="24" instance=ExtResource( 33 )]
 position = Vector2( 1128, -840 )
 
-[node name="streetlamp14" parent="YSort/streetlamps" index="19" instance=ExtResource( 33 )]
+[node name="streetlamp14" parent="YSort/streetlamps" index="25" instance=ExtResource( 33 )]
 position = Vector2( 1352, -698 )
 
-[node name="streetlamp16" parent="YSort/streetlamps" index="20" instance=ExtResource( 33 )]
+[node name="streetlamp16" parent="YSort/streetlamps" index="26" instance=ExtResource( 33 )]
 position = Vector2( 1128, -697 )
 
-[node name="streetlamp10" parent="YSort/streetlamps" index="21" instance=ExtResource( 33 )]
+[node name="streetlamp10" parent="YSort/streetlamps" index="27" instance=ExtResource( 33 )]
 position = Vector2( 1416, -1161 )
 
-[node name="streetlamp11" parent="YSort/streetlamps" index="22" instance=ExtResource( 33 )]
+[node name="streetlamp11" parent="YSort/streetlamps" index="28" instance=ExtResource( 33 )]
 position = Vector2( 1224, -1257 )
 
-[node name="streetlamp12" parent="YSort/streetlamps" index="23" instance=ExtResource( 33 )]
+[node name="streetlamp12" parent="YSort/streetlamps" index="29" instance=ExtResource( 33 )]
 position = Vector2( 1464, -1544 )
 
-[node name="streetlamp03" parent="YSort/streetlamps" index="24" instance=ExtResource( 34 )]
+[node name="streetlamp03" parent="YSort/streetlamps" index="30" instance=ExtResource( 34 )]
 position = Vector2( 1864, -233 )
 
-[node name="streetlamp04" parent="YSort/streetlamps" index="25" instance=ExtResource( 34 )]
+[node name="streetlamp04" parent="YSort/streetlamps" index="31" instance=ExtResource( 34 )]
 position = Vector2( 1336, -233 )
 
-[node name="streetlamp05" parent="YSort/streetlamps" index="26" instance=ExtResource( 34 )]
+[node name="streetlamp05" parent="YSort/streetlamps" index="32" instance=ExtResource( 34 )]
 position = Vector2( 1336, -89 )
 
-[node name="streetlamp07" parent="YSort/streetlamps" index="27" instance=ExtResource( 34 )]
+[node name="streetlamp07" parent="YSort/streetlamps" index="33" instance=ExtResource( 34 )]
 position = Vector2( 1864, -89 )
 
-[node name="streetlamp06" parent="YSort/streetlamps" index="28" instance=ExtResource( 34 )]
+[node name="streetlamp06" parent="YSort/streetlamps" index="34" instance=ExtResource( 34 )]
 position = Vector2( 1336, 55 )
 
-[node name="streetlamp22" parent="YSort/streetlamps" index="29" instance=ExtResource( 34 )]
+[node name="streetlamp22" parent="YSort/streetlamps" index="35" instance=ExtResource( 34 )]
 position = Vector2( 1368, 535 )
 
-[node name="streetlamp24" parent="YSort/streetlamps" index="30" instance=ExtResource( 34 )]
+[node name="streetlamp24" parent="YSort/streetlamps" index="36" instance=ExtResource( 34 )]
 position = Vector2( 1368, 711 )
 
-[node name="streetlamp26" parent="YSort/streetlamps" index="31" instance=ExtResource( 34 )]
+[node name="streetlamp26" parent="YSort/streetlamps" index="37" instance=ExtResource( 34 )]
 position = Vector2( 1368, 871 )
 
-[node name="streetlamp23" parent="YSort/streetlamps" index="32" instance=ExtResource( 34 )]
+[node name="streetlamp23" parent="YSort/streetlamps" index="38" instance=ExtResource( 34 )]
 position = Vector2( 1832, 535 )
 
-[node name="streetlamp25" parent="YSort/streetlamps" index="33" instance=ExtResource( 34 )]
+[node name="streetlamp45" parent="YSort/streetlamps" index="39" instance=ExtResource( 34 )]
+position = Vector2( 2072, 535 )
+
+[node name="streetlamp25" parent="YSort/streetlamps" index="40" instance=ExtResource( 34 )]
 position = Vector2( 1832, 711 )
 
-[node name="streetlamp27" parent="YSort/streetlamps" index="34" instance=ExtResource( 34 )]
+[node name="streetlamp46" parent="YSort/streetlamps" index="41" instance=ExtResource( 34 )]
+position = Vector2( 2072, 711 )
+
+[node name="streetlamp27" parent="YSort/streetlamps" index="42" instance=ExtResource( 34 )]
 position = Vector2( 1832, 871 )
 
-[node name="streetlamp08" parent="YSort/streetlamps" index="35" instance=ExtResource( 34 )]
+[node name="streetlamp47" parent="YSort/streetlamps" index="43" instance=ExtResource( 34 )]
+position = Vector2( 2072, 871 )
+
+[node name="streetlamp08" parent="YSort/streetlamps" index="44" instance=ExtResource( 34 )]
 position = Vector2( 1864, 55 )
 
-[node name="streetlamp01" parent="YSort/streetlamps" index="36" instance=ExtResource( 35 )]
+[node name="streetlamp01" parent="YSort/streetlamps" index="45" instance=ExtResource( 35 )]
 position = Vector2( 1528, 359 )
 
-[node name="streetlamp28" parent="YSort/streetlamps" index="37" instance=ExtResource( 35 )]
+[node name="streetlamp28" parent="YSort/streetlamps" index="46" instance=ExtResource( 35 )]
 position = Vector2( 1656, 359 )
 
-[node name="traffic_signals" type="YSort" parent="YSort" index="5"]
+[node name="WifiStuff" type="YSort" parent="YSort" index="6"]
+
+[node name="wifipost_on" parent="YSort/WifiStuff" index="0" instance=ExtResource( 27 )]
+position = Vector2( 472, 472 )
+
+[node name="wifipost_on2" parent="YSort/WifiStuff" index="1" instance=ExtResource( 27 )]
+position = Vector2( 792, 472 )
+
+[node name="wifipost_on5" parent="YSort/WifiStuff" index="2" instance=ExtResource( 27 )]
+position = Vector2( 792, 40 )
+
+[node name="wifipost_on8" parent="YSort/WifiStuff" index="3" instance=ExtResource( 27 )]
+position = Vector2( 792, -153 )
+
+[node name="wifipost_on3" parent="YSort/WifiStuff" index="4" instance=ExtResource( 27 )]
+position = Vector2( 472, 103 )
+
+[node name="wifipost_on6" parent="YSort/WifiStuff" index="5" instance=ExtResource( 27 )]
+position = Vector2( 1560, -1609 )
+
+[node name="wifipost_on7" parent="YSort/WifiStuff" index="6" instance=ExtResource( 27 )]
+position = Vector2( 1320, -1273 )
+
+[node name="wifipost_on4" parent="YSort/WifiStuff" index="7" instance=ExtResource( 27 )]
+position = Vector2( 136, 104 )
+
+[node name="wifistation_improved" parent="YSort/WifiStuff" index="8" instance=ExtResource( 28 )]
+position = Vector2( 379, 422 )
+
+[node name="wifistation_improved2" parent="YSort/WifiStuff" index="9" instance=ExtResource( 28 )]
+position = Vector2( 1788, -600 )
+frame = 0
+
+[node name="wifistation_improved4" parent="YSort/WifiStuff" index="10" instance=ExtResource( 28 )]
+position = Vector2( 1483, -1620 )
+frame = 0
+
+[node name="wifipost_on9" parent="YSort/WifiStuff" index="11" instance=ExtResource( 114 )]
+position = Vector2( -280, 104 )
+anim_speed = 15.0
+
+[node name="wifipost_on10" parent="YSort/WifiStuff" index="12" instance=ExtResource( 122 )]
+position = Vector2( 1256, -1608 )
+
+[node name="wifipost_on11" parent="YSort/WifiStuff" index="13" instance=ExtResource( 27 )]
+position = Vector2( 792, -344 )
+
+[node name="wifipost_on19" parent="YSort/WifiStuff" index="14" instance=ExtResource( 27 )]
+position = Vector2( 1096, -344 )
+
+[node name="wifipost_on20" parent="YSort/WifiStuff" index="15" instance=ExtResource( 27 )]
+position = Vector2( 1368, -296 )
+
+[node name="wifipost_on21" parent="YSort/WifiStuff" index="16" instance=ExtResource( 27 )]
+position = Vector2( 1368, 56 )
+
+[node name="wifipost_on22" parent="YSort/WifiStuff" index="17" instance=ExtResource( 27 )]
+position = Vector2( 1448, 359 )
+
+[node name="wifipost_on23" parent="YSort/WifiStuff" index="18" instance=ExtResource( 27 )]
+position = Vector2( 1736, 359 )
+
+[node name="wifipost_on24" parent="YSort/WifiStuff" index="19" instance=ExtResource( 27 )]
+position = Vector2( 2104, 359 )
+
+[node name="wifipost_on25" parent="YSort/WifiStuff" index="20" instance=ExtResource( 27 )]
+position = Vector2( 2104, 56 )
+
+[node name="wifipost_on26" parent="YSort/WifiStuff" index="21" instance=ExtResource( 27 )]
+position = Vector2( 1864, -184 )
+
+[node name="wifipost_on27" parent="YSort/WifiStuff" index="22" instance=ExtResource( 27 )]
+position = Vector2( 1768, -360 )
+
+[node name="wifipost_on28" parent="YSort/WifiStuff" index="23" instance=ExtResource( 27 )]
+position = Vector2( 2232, -936 )
+
+[node name="wifipost_on12" parent="YSort/WifiStuff" index="24" instance=ExtResource( 27 )]
+position = Vector2( 776, -648 )
+
+[node name="wifipost_on13" parent="YSort/WifiStuff" index="25" instance=ExtResource( 27 )]
+position = Vector2( 792, -839 )
+
+[node name="wifipost_on14" parent="YSort/WifiStuff" index="26" instance=ExtResource( 27 )]
+position = Vector2( 968, -936 )
+
+[node name="wifipost_on18" parent="YSort/WifiStuff" index="27" instance=ExtResource( 27 )]
+position = Vector2( 1400, -936 )
+
+[node name="wifipost_on15" parent="YSort/WifiStuff" index="28" instance=ExtResource( 27 )]
+position = Vector2( 1848, -728 )
+
+[node name="wifipost_on16" parent="YSort/WifiStuff" index="29" instance=ExtResource( 27 )]
+position = Vector2( 1848, -936 )
+
+[node name="wifipost_on17" parent="YSort/WifiStuff" index="30" instance=ExtResource( 27 )]
+position = Vector2( 1576, -1160 )
+
+[node name="traffic_signals" type="YSort" parent="YSort" index="7"]
 
 [node name="trafficlight_front" parent="YSort/traffic_signals" index="0" instance=ExtResource( 36 )]
 position = Vector2( 520, 120 )
@@ -1504,7 +1711,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front/trafficlight_signal" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 22 )
+anims/trafficDefault = SubResource( 24 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front" index="2"]
 position = Vector2( 137, -73 )
@@ -1526,7 +1733,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 23 )
+anims/trafficDefault = SubResource( 25 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front2" index="2"]
 position = Vector2( -471, -73 )
@@ -1536,7 +1743,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 24 )
+anims/trafficDefault = SubResource( 26 )
 
 [node name="trafficlight_front3" parent="YSort/traffic_signals" index="2" instance=ExtResource( 36 )]
 position = Vector2( 1848, 120 )
@@ -1549,7 +1756,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 25 )
+anims/trafficDefault = SubResource( 27 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front3" index="2"]
 position = Vector2( -471, -73 )
@@ -1559,7 +1766,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 26 )
+anims/trafficDefault = SubResource( 28 )
 
 [node name="trafficlight_front4" parent="YSort/traffic_signals" index="3" instance=ExtResource( 36 )]
 position = Vector2( 1848, -584 )
@@ -1572,7 +1779,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 27 )
+anims/trafficDefault = SubResource( 29 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front4" index="2"]
 position = Vector2( -471, -73 )
@@ -1582,7 +1789,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 28 )
+anims/trafficDefault = SubResource( 30 )
 
 [node name="trafficlight_front5" parent="YSort/traffic_signals" index="4" instance=ExtResource( 36 )]
 position = Vector2( 1128, -584 )
@@ -1595,7 +1802,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 29 )
+anims/trafficDefault = SubResource( 31 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front5" index="2"]
 position = Vector2( -471, -73 )
@@ -1605,7 +1812,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 30 )
+anims/trafficDefault = SubResource( 32 )
 
 [node name="trafficlight_front6" parent="YSort/traffic_signals" index="5" instance=ExtResource( 36 )]
 position = Vector2( 520, -584 )
@@ -1618,7 +1825,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal3" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 31 )
+anims/trafficDefault = SubResource( 33 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front6" index="2"]
 position = Vector2( 137, -73 )
@@ -1628,7 +1835,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 32 )
+anims/default = SubResource( 34 )
 
 [node name="trafficlight_front7" parent="YSort/traffic_signals" index="6" instance=ExtResource( 36 )]
 position = Vector2( 520, -1160 )
@@ -1642,8 +1849,8 @@ frame = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal3" index="0"]
 autoplay = "default"
-anims/default = SubResource( 33 )
-anims/trafficDefault = SubResource( 34 )
+anims/default = SubResource( 35 )
+anims/trafficDefault = SubResource( 36 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front7" index="2"]
 position = Vector2( 137, -73 )
@@ -1653,7 +1860,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 35 )
+anims/default = SubResource( 37 )
 
 [node name="trafficlight_back" parent="YSort/traffic_signals" index="7" instance=ExtResource( 40 )]
 position = Vector2( 776, 344 )
@@ -1712,7 +1919,7 @@ position = Vector2( 1352, -935 )
 [node name="stopsign4" parent="YSort/traffic_signals" index="25" instance=ExtResource( 43 )]
 position = Vector2( 2072, -936 )
 
-[node name="signs" type="YSort" parent="YSort" index="6"]
+[node name="signs" type="YSort" parent="YSort" index="8"]
 
 [node name="billboard_6" type="Sprite" parent="YSort/signs" index="0"]
 position = Vector2( 459, -194 )
@@ -1738,7 +1945,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_3/talkingreporter" index="0"]
 autoplay = "default"
-anims/default = SubResource( 36 )
+anims/default = SubResource( 38 )
 
 [node name="billboard_3_grid" type="Sprite" parent="YSort/signs/billboard_3" index="1"]
 position = Vector2( 0, 10 )
@@ -1767,7 +1974,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_4/impinge_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 37 )
+anims/default = SubResource( 39 )
 
 [node name="billboard_4_grid" type="Sprite" parent="YSort/signs/billboard_4" index="1"]
 position = Vector2( 0, -11 )
@@ -1797,7 +2004,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_1/snee_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 38 )
+anims/default = SubResource( 40 )
 
 [node name="billboard_1_grid" type="Sprite" parent="YSort/signs/billboard_1" index="1"]
 position = Vector2( 8, -1 )
@@ -1815,7 +2022,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_2/solis_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 39 )
+anims/default = SubResource( 41 )
 
 [node name="billboard_2_grid" type="Sprite" parent="YSort/signs/billboard_2" index="1"]
 position = Vector2( 9, 0 )
@@ -1844,7 +2051,7 @@ texture = ExtResource( 69 )
 [node name="lanetta_sign" parent="YSort/signs" index="12" instance=ExtResource( 70 )]
 position = Vector2( 1601, 78 )
 
-[node name="Posters" type="YSort" parent="YSort" index="7"]
+[node name="Posters" type="YSort" parent="YSort" index="9"]
 
 [node name="wallnews" type="Sprite" parent="YSort/Posters" index="0"]
 position = Vector2( 154, -86 )
@@ -2042,10 +2249,10 @@ texture = ExtResource( 93 )
 position = Vector2( 754, -1291 )
 texture = ExtResource( 109 )
 
-[node name="bearly_lemonade_stand" parent="YSort" index="8" instance=ExtResource( 71 )]
+[node name="bearly_lemonade_stand" parent="YSort" index="10" instance=ExtResource( 71 )]
 position = Vector2( 398, -9 )
 
-[node name="NPC" type="YSort" parent="YSort" index="9"]
+[node name="NPC" type="YSort" parent="YSort" index="11"]
 
 [node name="MalusHinter" parent="YSort/NPC" index="0" instance=ExtResource( 77 )]
 position = Vector2( 948, -369 )
@@ -2095,12 +2302,12 @@ message = "and im bearly able to feed my family. please help."
 [node name="Interaction" type="Area2D" parent="YSort/NPC/bearly_bear" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/Interaction" index="0"]
-shape = SubResource( 40 )
+shape = SubResource( 42 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/NPC/bearly_bear" index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/StaticBody2D" index="0"]
-shape = SubResource( 41 )
+shape = SubResource( 43 )
 
 [node name="ShadowRect" parent="YSort/NPC/bearly_bear" index="3" instance=ExtResource( 72 )]
 visible = false
@@ -2173,7 +2380,7 @@ position = Vector2( 0, 0 )
 visible = false
 
 [node name="DogA" parent="YSort/NPC" index="5" instance=ExtResource( 77 )]
-position = Vector2( 309, 456 )
+position = Vector2( 461, 465 )
 texture = ExtResource( 82 )
 offset = Vector2( 0, -13 )
 hframes = 6
@@ -2183,13 +2390,13 @@ frame = 5
 position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/DogA/Interaction" index="0"]
-shape = SubResource( 42 )
+shape = SubResource( 44 )
 
 [node name="StaticBody2D" parent="YSort/NPC/DogA" index="1"]
 position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/DogA/StaticBody2D" index="0"]
-shape = SubResource( 43 )
+shape = SubResource( 45 )
 
 [node name="ShadowRect" parent="YSort/NPC/DogA" index="2"]
 visible = false
@@ -2197,14 +2404,23 @@ visible = false
 [node name="DialogueTree" parent="YSort/NPC/DogA" index="3" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/DogA/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "All dogs walk their humans at night. It's just what you do in this town."
+message = "Is your pet there... uh... eating a corpse?"
+character = "orange"
+expression = "sad"
 
 [node name="DiagPiece2" parent="YSort/NPC/DogA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "I know it's 8 AM, I'm just getting an early start."
+message = "..."
+voice_sound = ExtResource( 128 )
+voice_variation = 0.1
+
+[node name="DiagPiece3" parent="YSort/NPC/DogA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "He's... cleaning up after... uh, his mess. "
+voice_sound = ExtResource( 128 )
+voice_variation = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/DogA" index="4"]
 autoplay = "idleBounce"
-anims/idleBounce = SubResource( 44 )
+anims/idleBounce = SubResource( 46 )
 
 [node name="ManB" parent="YSort/NPC" index="6" instance=ExtResource( 98 )]
 position = Vector2( 356, 351 )
@@ -2224,30 +2440,96 @@ position = Vector2( -551, 87 )
 [node name="RoboGuard2" parent="YSort/NPC" index="11" instance=ExtResource( 120 )]
 position = Vector2( -549, 121 )
 
+[node name="DialogueTree" parent="YSort/NPC/RoboGuard2" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "HELLO. PLEASE DO NOT PASS."
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "Alright..."
+character = "orange"
+expression = "neutral"
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "...Why are we not allowed?"
+character = "orange"
+expression = "openmouth"
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "THIS IS ACCESS TO OCEAN. WATER BAD FOR ROBOT."
+
 [node name="RoboGuard3" parent="YSort/NPC" index="12" instance=ExtResource( 120 )]
 position = Vector2( -542, 341 )
 
-[node name="MapMachine" parent="YSort" index="10" instance=ExtResource( 80 )]
+[node name="JumpRoper" parent="YSort/NPC" index="13" instance=ExtResource( 129 )]
+position = Vector2( 1504, -169 )
+
+[node name="RoboGuardUnarmed" parent="YSort/NPC" index="14" instance=ExtResource( 130 )]
+position = Vector2( 1459, -170 )
+
+[node name="RoboGuardUnarmed2" parent="YSort/NPC" index="15" instance=ExtResource( 130 )]
+position = Vector2( 1550, -170 )
+flip_h = true
+
+[node name="RunnerBoyPath2D" type="Path2D" parent="YSort/NPC" index="16"]
+position = Vector2( 1786, -378 )
+curve = SubResource( 47 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="YSort/NPC/RunnerBoyPath2D" index="0"]
+position = Vector2( 30.9999, 1.00003 )
+rotation = 3.14159
+rotate = false
+
+[node name="RunnerBoy" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D" index="0" instance=ExtResource( 131 )]
+rotation = 3.14159
+flip_h = true
+
+[node name="DialogueTree" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D/RunnerBoy" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D/RunnerBoy/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Sorry buddy but it appears that I can't talk to you, I'm too fast for you to handle. Sorry again bud."
+text_delay = 0.001
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/RunnerBoyPath2D" index="1"]
+autoplay = "run_path"
+anims/run_path = SubResource( 48 )
+
+[node name="MapMachine" parent="YSort" index="12" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
 
-[node name="ScenePortal" parent="." index="11" instance=ExtResource( 12 )]
+[node name="SaveStation" parent="YSort" index="13" instance=ExtResource( 132 )]
+position = Vector2( 488, -25 )
+
+[node name="ScenePortal" parent="." index="12" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"
 player_new_position = Vector2( -48, 230 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 position = Vector2( 944, 58 )
-shape = SubResource( 45 )
+shape = SubResource( 49 )
 
-[node name="WifiBeams" type="Node2D" parent="." index="12"]
+[node name="WifiBeams" type="Node2D" parent="." index="13"]
 
 [node name="WifiBeam2" parent="WifiBeams" index="0" instance=ExtResource( 115 )]
-points = PoolVector2Array( 472, 8, 792, -55, 791, -248 )
+points = PoolVector2Array( 472, 8, 792, -55, 791, -248, 792, -439, 776, -742, 792, -933, 968, -1031, 1401, -1031, 1575, -1255, 1561, -1705, 1507, -1661 )
 
 [node name="WifiBeam" parent="WifiBeams" index="1" instance=ExtResource( 115 )]
 position = Vector2( 153, 9 )
-points = PoolVector2Array( -17, 0, 319, -1, 319, 368, 250, 373 )
+points = PoolVector2Array( -436, -1, 319, -1, 319, 368, 250, 373 )
 
-[node name="Ambience" type="Node2D" parent="." index="13"]
+[node name="WifiBeam3" parent="WifiBeams" index="2" instance=ExtResource( 115 )]
+points = PoolVector2Array( 472, 377, 792, 377, 792, 528 )
+
+[node name="WifiBeam4" parent="WifiBeams" index="3" instance=ExtResource( 115 )]
+points = PoolVector2Array( 792, -439, 1096, -439, 1368, -391, 1369, -39, 1449, 265, 1737, 264, 2103, 263, 2103, -40, 1865, -278, 1768, -455, 1812, -640, 1849, -823, 1849, -1031, 1398, -1031 )
+
+[node name="WifiBeam5" parent="WifiBeams" index="4" instance=ExtResource( 115 )]
+points = PoolVector2Array( 2256, -1031, 1848, -1031 )
+
+[node name="WifiBeam6" parent="WifiBeams" index="5" instance=ExtResource( 115 )]
+points = PoolVector2Array( 1368, -391, 1768, -454 )
+
+[node name="Ambience" type="Node2D" parent="." index="14"]
 position = Vector2( -378, -4 )
 
 [node name="OceanAmbience" type="AudioStreamPlayer2D" parent="Ambience" index="0"]
@@ -2274,23 +2556,23 @@ autoplay = true
 max_distance = 512.0
 attenuation = 1.1892
 
-[node name="trafficlight_left_top" type="Sprite" parent="." index="14"]
+[node name="trafficlight_left_top" type="Sprite" parent="." index="15"]
 position = Vector2( 774, 129 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top2" type="Sprite" parent="." index="15"]
+[node name="trafficlight_left_top2" type="Sprite" parent="." index="16"]
 position = Vector2( 1350, 129 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top5" type="Sprite" parent="." index="16"]
+[node name="trafficlight_left_top5" type="Sprite" parent="." index="17"]
 position = Vector2( 1350, -575 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top3" type="Sprite" parent="." index="17"]
+[node name="trafficlight_left_top3" type="Sprite" parent="." index="18"]
 position = Vector2( 2070, 130 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top4" type="Sprite" parent="." index="18"]
+[node name="trafficlight_left_top4" type="Sprite" parent="." index="19"]
 position = Vector2( 2070, -575 )
 texture = ExtResource( 81 )
 

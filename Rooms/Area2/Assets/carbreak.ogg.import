@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/carbreak.ogg-e3ece637d59b1ee7152a90c1d213e7dd.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area2/Assets/carbreak.ogg"
+dest_files=[ "res://.import/carbreak.ogg-e3ece637d59b1ee7152a90c1d213e7dd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

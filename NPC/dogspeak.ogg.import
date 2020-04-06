@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dogspeak.ogg-bdf142725238eeefe537fa19b123d321.oggstr"
+
+[deps]
+
+source_file="res://NPC/dogspeak.ogg"
+dest_files=[ "res://.import/dogspeak.ogg-bdf142725238eeefe537fa19b123d321.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

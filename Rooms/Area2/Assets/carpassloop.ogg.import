@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/carpassloop.ogg-9726c55068330a5e52e0c8be983399b6.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area2/Assets/carpassloop.ogg"
+dest_files=[ "res://.import/carpassloop.ogg-9726c55068330a5e52e0c8be983399b6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

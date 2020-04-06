@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rooms/Area5/Assets/refinerytowerB.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17, 12 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[node name="refinerytowerB" type="Sprite"]
+position = Vector2( 0, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -83 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -9, -3 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 28, 1 )
+shape = SubResource( 2 )

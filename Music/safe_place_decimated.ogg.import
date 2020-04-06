@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/safe_place_decimated.ogg-dc412b06fbdab1321fb0a29dd9d5df90.oggstr"
+
+[deps]
+
+source_file="res://Music/safe_place_decimated.ogg"
+dest_files=[ "res://.import/safe_place_decimated.ogg-dc412b06fbdab1321fb0a29dd9d5df90.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

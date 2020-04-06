@@ -26,7 +26,6 @@ extents = Vector2( 8, 7 )
 [node name="ElevatorCardPickup" type="Sprite"]
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

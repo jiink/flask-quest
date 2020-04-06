@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/engineloop_hpitch.ogg-256ab24632e4fddb39b9beac180d88f2.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area2/Assets/engineloop_hpitch.ogg"
+dest_files=[ "res://.import/engineloop_hpitch.ogg-256ab24632e4fddb39b9beac180d88f2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
