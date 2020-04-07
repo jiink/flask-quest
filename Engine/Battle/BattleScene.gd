@@ -24,8 +24,15 @@ enum {
 	DEFENSIVE
 }
 
-var focused_menu = MENU
+var defined_foe_positions = [
+	[Vector2(192, 161)],
+	[Vector2(160, 161), Vector2(224, 161)],
+	[Vector2(139, 181), Vector2(192, 155), Vector2(245, 181)],
+	[Vector2(112, 182), Vector2(165, 156), Vector2(221, 187), Vector2(274, 161)],
+	[Vector2(104, 158), Vector2(147, 191), Vector2(194, 160), Vector2(246, 189), Vector2(299, 163)]
+]
 
+var focused_menu = MENU
 var state = PLAYER_TURN
 var selected_foe = 0
 var selected_chem = 0
@@ -33,6 +40,8 @@ var selected_chem_category = OFFENSIVE
 
 var selected_battle_choice = "attack"
 var battle_choice_confirmed = false
+
+
 
 onready var global = get_node("/root/global")
 onready var item_manager = get_node("/root/ItemManager")
@@ -55,8 +64,13 @@ func _ready():
 		var foe = load("res://NPC/" + global.initial_enemies[i] + "/" + global.initial_enemies[i] + "Foe.tscn")
 		var foe_instance = foe.instance()
 		foe_instance.set_name(global.initial_enemies[i])
-		foe_instance.position.x = int(randf()*(345-84)+84) #84 to 345
-		foe_instance.position.y = int(randf()*(190-128)+128) #128 to 190
+		# if there are 5 or less enemies, use predetermined positions
+		# otherwise use random ones
+		if global.initial_enemies.size() <= 5:
+			foe_instance.position = defined_foe_positions[global.initial_enemies.size() - 1][i]
+		else:
+			foe_instance.position.x = int(randf()*(345-84)+84) #84 to 345
+			foe_instance.position.y = int(randf()*(190-128)+128) #128 to 190
 		$Foes.add_child(foe_instance)
 		
 	global.current_enemies = global.initial_enemies
