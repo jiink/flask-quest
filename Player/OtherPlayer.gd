@@ -34,6 +34,8 @@ func _ready():
 
 func _process(delta):
 	
+	# if other cases unused, use set_process to make this not happen if this
+	#  is controlled by a bot
 
 	match controlled_by:
 		HUMAN:
@@ -50,45 +52,6 @@ func _process(delta):
 			
 		BOT:
 			pass
-#			$FollowTween.interpolate_property(self, "position", null, leader.position_history[follow_distance], 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
-#
-#			$FollowTween.start()
-#
-#			motion = Vector2(make_one(position.x - previous_position.x), make_one(position.y - previous_position.y))
-#
-#			match motion:
-#				Vector2(0, -1):
-#					direction = "up"
-#				Vector2(1, -1):
-#					direction = "rightup"
-#				Vector2(1, 0):
-#					direction = "right"
-#				Vector2(1, 1):
-#					direction = "rightdown"
-#				Vector2(0, 1):
-#					direction = "down"
-#				Vector2(-1, 1):
-#					direction = "leftdown"
-#				Vector2(-1, 0):
-#					direction = "left"
-#				Vector2(-1, -1):
-#					direction = "leftup"
-#		#	if t%20 > t%15 : print($AnimatedSprite.playing)
-#			$AnimatedSprite.animation = direction
-#
-#			$AnimatedSprite.speed_scale = 1.3
-#		#	if t%20 == 0:
-#			if motion.length() > 0:
-#				$AnimatedSprite.playing = true
-#			else:
-#				$AnimatedSprite.playing = false
-#				$AnimatedSprite.frame = 0
-#
-#			in_water = leader.in_water_history[follow_distance]
-#			set_in_water(in_water)
-#
-##			previous_position = position
-			
 			
 func _tick():
 	if controlled_by == BOT:

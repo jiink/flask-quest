@@ -28,7 +28,7 @@ func update_lab_door():
 		lab_door.get_node("ClosedCollision/CollisionShape2D").disabled = false
 		
 func set_orange_state(i):
-	print("setting orange state from %s to %s" %[orange_state, i])
+	print("setting orange state from %s to %s" % [orange_state, i])
 	orange_state = i
 	var disabled_orange = $YSort/Props/tableL/OrangeDisabled
 	var npc_orange = $YSort/OrangeNPC
@@ -39,13 +39,13 @@ func set_orange_state(i):
 	match i:
 		2:
 			disabled_orange.visible = true
-			PlayerStats.party_members = []
+#			PlayerStats.party_members = []
 		1:
 			npc_orange.visible = true
 			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", false)
 			npc_orange.get_node("Interaction/CollisionShape2D").set_deferred("disabled", false)
 			if disabled_orange: disabled_orange.queue_free()
-			PlayerStats.party_members = []
+#			PlayerStats.party_members = []
 		0:
 			npc_orange.visible = false
 			npc_orange.get_node("StaticBody2D/CollisionShape2D2").set_deferred("disabled", true)
@@ -53,8 +53,9 @@ func set_orange_state(i):
 			if disabled_orange: disabled_orange.queue_free()
 			var orange_follower = preload("res://Player/Orange.tscn").instance()
 			$YSort.add_child(orange_follower)
-			PlayerStats.party_members = ["orange"]
-			
+#			PlayerStats.party_members = ["orange"]
+			$YSort.add_child(load("res://Player/Orange.tscn").instance())
+
 
 func start_brainjar_event():
 	var brainjar_npc = $YSort/BrainJarNPC
