@@ -7,7 +7,7 @@ func _ready():
 	$TouchArea.connect("body_entered", self, "body_entered")
 	
 	base_name = name.replace("@", "")
-	for i in range(9):
+	for i in range(10):
 		base_name = base_name.replace(str(i), "")
 
 func body_entered(body):
