@@ -81,6 +81,9 @@ func start_talk(obj, starting_branch):
 		starting_branch = "DiagPiece"
 	# go to first diagpiece 
 	target_tree = obj.get_node("DialogueTree/")
+	if target_tree == null:
+		print("dialogue failed to start, tree nonexistant!")
+		return
 	obj = target_tree.get_node("%s/" % starting_branch)
 	open()
 	update_boxes(obj)
