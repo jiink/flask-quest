@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Battle/StatusEffects/Offensiveness.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Engine/Battle/StatusEffects/Corrosion.gd" type="Script" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 24, 24, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.556863, 0.556863, 0.556863, 1 )
+
+[node name="Corrosion" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
+process_material = SubResource( 1 )

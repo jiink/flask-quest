@@ -5,6 +5,7 @@
 
 [node name="SecurityMopFoe" instance=ExtResource( 1 )]
 max_hp = 15
+types = [ "metal" ]
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -30 )

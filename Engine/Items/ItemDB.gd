@@ -36,6 +36,11 @@ var items = {
 		'desc': 'It really gets you going... for a little.',
 		'equippable': true,
 		},
+	'exotic_excreta': {
+		'name': 'Exotic Excreta',
+		'desc': 'It\'s sewage.',
+		'equippable': true,
+		},
 #-------------------------------------------
 	'elevator_card': {
 		'name': 'Elevator Card',
