@@ -40,7 +40,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [ 8.0, -8.0 ]
 }
-speed = 60
 sprintMultiplier = 2.1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

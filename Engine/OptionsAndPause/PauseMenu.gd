@@ -1,6 +1,6 @@
 extends Node2D
 
-enum {RESUME, OPTION, QUIT}
+enum {RESUME, PLAYERS, OPTION, QUIT}
 var selected_option = RESUME
 onready var hud = $".."
 onready var player = get_tree().get_nodes_in_group("Player")[0]
@@ -9,7 +9,8 @@ onready var open_sound = preload("res://SoundEffects/pause_menu_open.wav")
 onready var close_sound = preload("res://SoundEffects/pause_menu_close.wav")
 
 func _ready():
-	pass
+	$Tween.interpolate_property(self, "position:y", 0, -256, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	$Tween.start()
 
 func _process(delta):
 	if visible:
@@ -24,16 +25,23 @@ func _process(delta):
 			
 			
 		if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
-			selected_option = clamp(selected_option, 0, 2)
+			selected_option = clamp(selected_option, 0, 3)
 			$Selection/Tween.interpolate_property($Selection, "position:y", $Selection.position.y, 
-				82 + selected_option * 18, .05, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+				72 + selected_option * 18, .05, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 			$Selection/Tween.start()
 		
 		if Input.is_action_just_pressed("confirm"):
 			match selected_option:
 				RESUME:
 					close()
-				
+				PLAYERS:
+					if PlayerStats.player_count == 1:
+						PlayerStats.set_player_num(2)
+						$Label.text = $Label.text.replace("1", "2")
+					elif PlayerStats.player_count == 2:
+						PlayerStats.set_player_num(1)
+						$Label.text = $Label.text.replace("2", "1")
+					print(PlayerStats.player_count)
 				OPTION:
 					print("Let's pretend to open the options menu")
 					close()
@@ -55,8 +63,8 @@ func open():
 	
 	$BackgroundShader.visible = true
 	
-	$AudioStreamPlayer2D.stream = open_sound
-	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer.stream = open_sound
+	$AudioStreamPlayer.play()
 	
 	$Tween.interpolate_property(self, "position:y", 256, 0, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
@@ -65,8 +73,8 @@ func close():
 	
 	player.frozen = false
 	
-	$AudioStreamPlayer2D.stream = close_sound
-	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer.stream = close_sound
+	$AudioStreamPlayer.play()
 	
 	
 	$Tween.interpolate_property(self, "position:y", 0, -256, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)

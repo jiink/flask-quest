@@ -9,11 +9,12 @@ const GREEN_COLOR = Color("72d031")
 # player vars
 var player_hp = 100
 
-func get_player():
-	if get_tree().get_nodes_in_group("Player"):
-		return get_tree().get_nodes_in_group("Player")[0]
+func get_player(num = 1):
+	if get_tree().get_nodes_in_group("Player").size() >= num:
+		return get_tree().get_nodes_in_group("Player")[num - 1]
 	else:
 		return null
+
 	
 ################## battle ##################
 

@@ -1010,21 +1010,25 @@ anims/default = SubResource( 6 )
 
 [node name="Inkler" parent="YSort" index="23" instance=ExtResource( 19 )]
 position = Vector2( 344, 278 )
-collision_layer = 1
+collision_mask = 1
 
 [node name="Inkler2" parent="YSort" index="24" instance=ExtResource( 19 )]
 position = Vector2( 311, 278 )
-collision_layer = 1
+collision_mask = 1
 
 [node name="Inkler3" parent="YSort" index="25" instance=ExtResource( 19 )]
 position = Vector2( 217, 195 )
-collision_layer = 1
+collision_mask = 1
 
 [node name="OminousRat4" parent="YSort" index="26" instance=ExtResource( 22 )]
 position = Vector2( 2668, -333 )
+collision_layer = 5
+collision_mask = 1
 
 [node name="OminousRat5" parent="YSort" index="27" instance=ExtResource( 22 )]
 position = Vector2( 2646, -343 )
+collision_layer = 5
+collision_mask = 1
 
 [node name="large_door_open" parent="YSort" index="28" instance=ExtResource( 34 )]
 position = Vector2( 2856, -322 )

@@ -41,44 +41,58 @@ margin_right = 387.0
 margin_bottom = 218.0
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 192, 108 )
 texture = ExtResource( 3 )
 
 [node name="Selection" type="Node2D" parent="."]
-position = Vector2( 164, 82 )
+position = Vector2( 164, 72 )
 
 [node name="ColorRect3" type="ColorRect" parent="Selection"]
-margin_left = -3.0
-margin_right = 59.0
+margin_left = -13.0
+margin_right = 69.0
 margin_bottom = 15.0
 color = Color( 0.447059, 0.815686, 0.192157, 0.32549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="Selection"]
-margin_left = -3.0
+margin_left = -13.0
+margin_right = -10.0
 margin_bottom = 15.0
 color = Color( 0.447059, 0.815686, 0.192157, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="Selection"]
-margin_left = 56.0
-margin_right = 59.0
+margin_left = 66.0
+margin_right = 69.0
 margin_bottom = 15.0
 color = Color( 0.447059, 0.815686, 0.192157, 1 )
 
 [node name="Tween" type="Tween" parent="Selection"]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 166.0
-margin_top = 83.0
-margin_right = 220.0
-margin_bottom = 134.0
+margin_left = 152.0
+margin_top = 69.0
+margin_right = 233.0
+margin_bottom = 147.0
 custom_fonts/font = SubResource( 3 )
 text = "RESUME
+PLAYERS: 1
 OPTION
 QUIT"
 align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
