@@ -46,7 +46,7 @@ var battle_choice_confirmed = false
 onready var global = get_node("/root/global")
 onready var item_manager = get_node("/root/ItemManager")
 
-var foe = load("res://Engine/Battle/BaseFoe.tscn")
+var foe = load("res://NPC/BaseFoe/BaseFoe.tscn")
 
 var new_effect_icon = preload("res://Engine/Battle/StatusEffects/Icons/EffectIcon.tscn")
 
@@ -55,6 +55,7 @@ var total_dollar_reward = 0
 onready var player_node = $PouringEvent/FillingFlask
 
 func _ready():
+	print("battlescene starting!!")
 	connect("open_chems", $BattleChoices, "open_chems")
 	connect("close_chems", $BattleChoices, "close_chems")
 	

@@ -56,8 +56,10 @@ func _process(delta):
 
 		play_focus()
 	
-#	if Input.is_action_pressed("special"):
-#		focus.seek(focus.get_playback_position()+1.0)
+	if Input.is_action_just_pressed("special"):
+		update_music("battle")
+	elif Input.is_action_just_pressed("action"):
+		update_music("level")
 
 
 func play_focus(from_where = 0.0):
@@ -80,7 +82,8 @@ func play_focus(from_where = 0.0):
 		print("trouble in play_focus, music_type = %s" % music_type)
 		
 	print("Now playing %s from %s seconds" % [music_type, from_where])
-	focus.play(from_where)
+	
+	focus.play(from_where) # problem does not happen when this line is hit
 	
 	
 	
@@ -104,12 +107,12 @@ func update_music(type):
 	match type:
 		"level":
 			
-			set_main_streams(current_level_music)
+#			set_main_streams(current_level_music) whYY
 			fade_music("level", true)
 			fade_music("battle", false)
 
 		"battle":
-			set_battle_streams(current_battle_music)
+#			set_battle_streams(current_battle_music) WAAAAAAA MAKES BIG POP SOUND
 			fade_music("level", false)
 			fade_music("battle", true)
 			
@@ -143,7 +146,7 @@ func update_music(type):
 	pass
 	
 func fade_music(type, mode):
-	var target_vol = 0.0 if mode else -36.0
+	var target_vol = 0.0 if mode else -65.0 # see audio project settings, 
 	var target_players = [get_node("BattlePlayer"), get_node("BattlePlayerAssistant")] if type == "battle" else [get_node("MainPlayer"), get_node("MainPlayerAssistant")]
 	
 	print("going to fade %s music to %s" % [type, target_vol])
@@ -184,6 +187,8 @@ func on_scene_change():
 	current_level_music = get_tree().get_current_scene().get("level_music")
 	if current_level_music == null:
 		current_level_music = preload("res://Engine/zzzzzz.ogg")
+	if current_battle_music == null:
+		current_battle_music = preload("res://Engine/zzzzzz.ogg")
 	set_main_streams(current_level_music)
 	
 #	global.connect("scene_changed", self, "on_scene_change")
