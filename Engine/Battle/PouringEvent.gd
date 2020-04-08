@@ -12,6 +12,7 @@ var done_sliding = false
 
 var firt = false
 var overflowed = false
+var success = false
 
 var chemical
 
@@ -61,9 +62,11 @@ func _process(delta):
 						for child in $FillingFlask.get_children():
 							if child.has_method("modify_pour_effectiveness"):
 								output_effectiveness = child.modify_pour_effectiveness(output_effectiveness)
-						
+						success = true
 						print("REREREREREREReffectiveness info: fill_perc: %s\ndist_to_target: %s | output_effectiveness: %s" % [fill_perc, dist_to_target, output_effectiveness])
-					
+					else:
+						success = false
+						print("fill percentage is intolerable!")
 					done_sliding = false
 					
 					stop()
@@ -79,8 +82,14 @@ func on_animation_finish(anim):
 	if anim == "slide out":
 		visible = false
 		
-		print("hey the pouring guys should be inbvidible now")
-		battle.start_chem_attack()
+		if success:
+			print("hey the pouring guys should be inbvidible now")
+			# just offensive here i think
+			battle.start_chem_attack()
+		else:
+			# welp enemy's turn now since you're BAD
+#			battle.state = battle.ENEMY_TURN
+			battle.chem_anim_complete()
 	
 #	elif anim == "pouringflask slide out":
 #
@@ -100,7 +109,14 @@ func stop():
 		$AnimationPlayer.play("pouringflask slide out")
 		# wait for the slide away to finis
 		yield($AnimationPlayer, "animation_finished")
+		if not success:
+			yield(spawn_fail_visual().get_node("AnimationPlayer"), "animation_finished")
+			$AnimationPlayer.play("fillingflask slide out")
+			yield($AnimationPlayer, "animation_finished")
+			battle.chem_anim_complete()
+			return
 		# begin the attack, adding the visual
+		
 		battle.start_chem_attack()
 		
 		# wait for the visual that the chemical spawned after pouring
@@ -112,4 +128,14 @@ func stop():
 		
 	
 	elif chemical.category == chemical.OFFENSE:
+		if not success:
+			spawn_fail_visual()
+			yield(spawn_fail_visual().get_node("AnimationPlayer"), "animation_finished")
+			
 		$AnimationPlayer.play("slide out")
+
+func spawn_fail_visual():
+	var fail_visual = load("res://Engine/Battle/FailedAttack.tscn").instance()
+	fail_visual.position.y = -100
+	$FillingFlask.add_child(fail_visual)
+	return fail_visual

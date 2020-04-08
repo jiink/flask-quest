@@ -177,30 +177,6 @@ position = Vector2( 274.93, 80.7559 )
 [node name="SecurityMop" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 135, 72 )
 
-[node name="SecurityMop6" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 123, 66 )
-
-[node name="SecurityMop7" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 137, 64 )
-
-[node name="SecurityMop8" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 110, 58 )
-
-[node name="SecurityMop9" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 96, 74 )
-
-[node name="SecurityMop3" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 135, 56 )
-
-[node name="SecurityMop4" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 104, 87 )
-
-[node name="SecurityMop5" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 121, 84 )
-
-[node name="SecurityMop2" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 110, 69 )
-
 [node name="Orange" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 302, 84 )
 

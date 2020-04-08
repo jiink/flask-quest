@@ -7,9 +7,9 @@
 script = ExtResource( 2 )
 
 [node name="Timer" parent="." index="0"]
-wait_time = 10.0
+wait_time = 4.0
 
 [node name="BubbleSpawnTimer" type="Timer" parent="." index="1"]
-wait_time = 0.3
+wait_time = 0.15
 autostart = true
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_BubbleSpawnTimer_timeout"]
