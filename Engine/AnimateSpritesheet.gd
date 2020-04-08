@@ -1,7 +1,7 @@
 extends Sprite
 
 export(float) var anim_speed
-var t = 1
+var t = 0
 
 func _process(delta):
 	t += anim_speed*delta
