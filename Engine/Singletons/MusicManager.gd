@@ -55,11 +55,6 @@ func _process(delta):
 		assistant_mode = not assistant_mode
 
 		play_focus()
-	
-	if Input.is_action_just_pressed("special"):
-		update_music("battle")
-	elif Input.is_action_just_pressed("action"):
-		update_music("level")
 
 
 func play_focus(from_where = 0.0):
