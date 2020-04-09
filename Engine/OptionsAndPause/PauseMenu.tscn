@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Engine/OptionsAndPause/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://Engine/white.png" type="Texture" id=2]
 [ext_resource path="res://Engine/OptionsAndPause/pause_menu.png" type="Texture" id=3]
 [ext_resource path="res://Engine/Fonts/FontQuest.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -96,3 +97,26 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="DebugButtons" type="VBoxContainer" parent="."]
+margin_left = 277.0
+margin_top = 45.0
+margin_right = 364.0
+margin_bottom = 181.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoclipButton" type="Button" parent="DebugButtons"]
+margin_right = 87.0
+margin_bottom = 11.0
+toggle_mode = true
+text = "Noclip"
+
+[node name="InvincibilityButton" type="Button" parent="DebugButtons"]
+margin_top = 15.0
+margin_right = 87.0
+margin_bottom = 26.0
+toggle_mode = true
+text = "Invincibility"
