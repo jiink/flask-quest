@@ -932,7 +932,7 @@ visible = true
 shape = SubResource( 5 )
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 2845, -285 )
+position = Vector2( 2706, -299 )
 
 [node name="barrel_empty3" parent="YSort" index="1" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )

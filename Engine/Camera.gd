@@ -11,9 +11,6 @@ func _process(delta):
 	if follow_player:
 		position = get_node("../YSort/Player").position
 	
-	if Input.is_action_just_pressed("confirm"):
-		add_trauma(20)
-	
 	if _trauma > 0:
 		_decay_trauma(delta)
 		_apply_shake()
@@ -22,16 +19,16 @@ func _process(delta):
 # https://twitter.com/_Azza292
 # MIT License
  
-export var decay_rate = 0.4
-export var max_roll = 10.0
-export var max_offset = 10
+export var decay_rate = 2
+export var max_roll = 0.05
+export var max_offset = 6
  
 var _start_position
 var _start_rotation
 var _trauma
  
  
-func add_trauma(amount):
+func shake(amount = 10): # formerly "add_trauma"
 	_trauma = min(_trauma + amount, 1)
 
 func _decay_trauma(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Engine/Battle/Fade.gd" type="Script" id=19]
+[ext_resource path="res://Engine/Camera.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -230,12 +231,15 @@ margin_bottom = -28.0
 rect_pivot_offset = Vector2( 9, 31 )
 color = Color( 0.85098, 0.52549, 0.141176, 1 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PouringEvent" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
 [node name="PouringFlask" type="Node2D" parent="PouringEvent"]
-position = Vector2( 458, 176 )
+position = Vector2( 260, 120 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -273,11 +277,14 @@ grow_horizontal = 2
 rect_scale = Vector2( 0.31, 1 )
 rect_pivot_offset = Vector2( 5, 0 )
 color = Color( 0.803922, 0.054902, 0.054902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent/PouringFlask"]
 
 [node name="FillingFlask" type="Sprite" parent="PouringEvent"]
-position = Vector2( 192, 278.624 )
+position = Vector2( 192, 155 )
 texture = ExtResource( 11 )
 
 [node name="LiquidFilled" type="TextureProgress" parent="PouringEvent/FillingFlask"]
@@ -287,7 +294,7 @@ margin_left = -32.0
 margin_top = -61.0
 margin_right = 31.0
 margin_bottom = 60.0
-value = 32.0
+value = 50.0
 texture_progress = ExtResource( 12 )
 fill_mode = 3
 __meta__ = {
@@ -389,9 +396,11 @@ script = ExtResource( 19 )
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 192, 108 )
 current = true
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
+follow_player = false
 
 [node name="EffectsDisplay" type="HBoxContainer" parent="."]
 margin_left = 9.0

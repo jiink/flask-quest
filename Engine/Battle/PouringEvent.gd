@@ -40,8 +40,8 @@ func _process(delta):
 				update_liq(fill_perc)
 				
 				
-				if Input.is_action_just_pressed("confirm") or fill_perc > 100:
-					if fill_perc > 100:
+				if Input.is_action_just_pressed("confirm") or fill_perc >= 100:
+					if fill_perc >= 100:
 						overflowed = true
 						
 					stopped = true
@@ -67,6 +67,28 @@ func _process(delta):
 					else:
 						success = false
 						print("fill percentage is intolerable!")
+						if overflowed:
+							print("...but it overflowed!")
+							# 1/8 chance of being very powerful, 7/8 chance of self-harm
+							var random_num = randf()
+							if random_num < 0.125:
+								# powerful
+								success = true # sike
+								output_effectiveness = 30 # uh could be different
+								for child in $FillingFlask.get_children():
+									if child.has_method("modify_pour_effectiveness"):
+										output_effectiveness = child.modify_pour_effectiveness(output_effectiveness) # 10 indents lol
+							else:
+								# ouch
+								var green_ouch = int(randf()*40)
+								
+								var big_asplosion = load("res://Engine/Battle/BigChemicalExplosion.tscn").instance()
+								big_asplosion.position = Vector2(193, 165)
+								battle.add_child(big_asplosion)
+								yield(get_tree().create_timer(0.285), "timeout")
+								hurt_self(green_ouch, int(green_ouch/1.6))
+								
+						
 					done_sliding = false
 					
 					stop()
@@ -139,3 +161,9 @@ func spawn_fail_visual():
 	fail_visual.position.y = -100
 	$FillingFlask.add_child(fail_visual)
 	return fail_visual
+
+func hurt_self(num1, num2):
+	battle.hurt("green", num1)
+	battle.hurt("orange", num2)
+	
+	

@@ -206,6 +206,8 @@ position = Vector2( 166, 111 )
 z_index = -2
 
 [node name="Camera" parent="." instance=ExtResource( 21 )]
+rotating = true
+decay_rate = 2
 
 [node name="HUD" parent="." instance=ExtResource( 22 )]
 

@@ -274,14 +274,16 @@ func hurt(who, damage):
 			pstats.green_hp -= damage
 			pstats.green_hp = clamp(pstats.green_hp, 0, 9999)
 			$BattleChoices/GreenHPBar.update_bar()
-			$DodgerField/dodge_circle/GreenHPBar.update_bar()
-			$DodgerField/DamageSound.play()
+			if has_node("DodgerField/dodge_circle/GreenHPBar"):
+				$DodgerField/dodge_circle/GreenHPBar.update_bar()
+				$DodgerField/DamageSound.play()
 		"orange":
 			pstats.orange_hp -= damage
 			pstats.orange_hp = clamp(pstats.orange_hp, 0, 9999)
 			$BattleChoices/OrangeHPBar.update_bar()
-			$DodgerField/dodge_circle/OrangeHPBar.update_bar()
-			$DodgerField/DamageSound.play()
+			if has_node("DodgerField/dodge_circle/OrangeHPBar"):
+				$DodgerField/dodge_circle/OrangeHPBar.update_bar()
+				$DodgerField/DamageSound.play()
 		_:
 			who.call("get_hurt", damage)
 	if pstats.green_hp < 0 and pstats.orange_hp < 0:

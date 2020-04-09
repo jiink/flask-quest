@@ -81,3 +81,11 @@ func close():
 	$Tween.start()
 	yield(get_tree().create_timer(.15), "timeout")
 	visible = false
+
+
+func _on_NoclipButton_toggled(button_pressed):
+	for i in range(PlayerStats.player_count + 1):
+			global.get_player(i).collision_layer = 0 if button_pressed else 1
+
+func _on_InvincibilityButton_toggled(button_pressed):
+	global.get_player().invincible = button_pressed

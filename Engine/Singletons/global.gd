@@ -14,7 +14,6 @@ func get_player(num = 1):
 		return get_tree().get_nodes_in_group("Player")[num - 1]
 	else:
 		return null
-
 	
 ################## battle ##################
 
@@ -218,3 +217,8 @@ func swap_scenes():
 #		connect("transition_close", get_tree().get_current_scene().get_node("HUD/SceneTransition"), "fade_out")
 #	else:
 #		print("Couldn't do scene transition")
+
+################# misc #####################
+
+func get_camera():
+	return get_tree().get_current_scene().get_node("Camera")
