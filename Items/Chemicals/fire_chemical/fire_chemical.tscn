@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Items/Chemicals/base_chemical_offense/base_chemical_offense.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/Chemicals/fire_chemical/Script.gd" type="Script" id=2]
+[ext_resource path="res://Items/Chemicals/fire_chemical/fire_chemical_material.tres" type="Material" id=3]
 
 [node name="FireChem" instance=ExtResource( 1 )]
 
@@ -9,5 +10,7 @@
 script = ExtResource( 2 )
 
 [node name="Liquid" parent="." index="1"]
-modulate = Color( 0.917647, 0.0941176, 0.0941176, 1 )
-anim_speed = 8.0
+material = ExtResource( 3 )
+hframes = 1
+region_rect = Rect2( -9, 10, 32, 33 )
+script = null

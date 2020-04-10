@@ -91,13 +91,13 @@ func _process(delta):
 	if visible:
 		if not $InfoBar.visible:
 			
-			if Input.is_action_just_pressed("right"):
+			if Input.is_action_just_pressed("ui_right"):
 				selection_index += 1
 				
-			elif Input.is_action_just_pressed("left"):
+			elif Input.is_action_just_pressed("ui_left"):
 				selection_index -= 1
 								
-			elif Input.is_action_just_pressed("up"):
+			elif Input.is_action_just_pressed("ui_up"):
 				if state == INVENTORY:
 					if selection_index < 11:
 						selection_index = 0
@@ -106,7 +106,7 @@ func _process(delta):
 					else:
 						selection_index -= 11
 					
-			elif Input.is_action_just_pressed("down"):
+			elif Input.is_action_just_pressed("ui_down"):
 				if state == LOADOUT:
 					selection_index = 0
 					state = INVENTORY
@@ -114,7 +114,7 @@ func _process(delta):
 				else:
 					selection_index += 11
 				
-			elif Input.is_action_just_pressed("confirm") and get_item_list().size() > 0:
+			elif Input.is_action_just_pressed("ui_accept") and get_item_list().size() > 0:
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
@@ -125,19 +125,19 @@ func _process(delta):
 #					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
 			
 			
-			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("down"):
+			if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("down"):
 				update_item_selection(selection_index)
 			
 		else:
-			if Input.is_action_just_pressed("left"):
+			if Input.is_action_just_pressed("ui_left"):
 				selected_option -= 1
-			elif Input.is_action_just_pressed("right"):
+			elif Input.is_action_just_pressed("ui_right"):
 				selected_option += 1
 			selected_option = clamp(selected_option, 0, item_options.get_children().size() - 1)
 #			item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
 			update_item_action_icons()
 			
-			if Input.is_action_just_pressed("confirm"):
+			if Input.is_action_just_pressed("ui_accept"):
 				match item_options.get_child(selected_option).name:
 					"Toss":
 						toss_item(selection_index)
@@ -173,15 +173,15 @@ func _process(delta):
 							$InfoBar.set_visible(false)
 						else:
 							print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
-		if Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left"):
+		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 				audio.stream = horiz_sound
 				audio.play()
-		elif Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+		elif Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down"):
 				audio.stream = vert_sound
 				audio.play()
 	if not in_battle:
 		
-		if Input.is_action_just_pressed("cancel") and get_node("../Diag").visible == false:
+		if Input.is_action_just_pressed("ui_cancel") and get_node("../Diag").visible == false:
 			if not $InfoBar.visible:
 				if not visible:
 					if not get_tree().get_nodes_in_group("Player")[0].frozen:
@@ -197,11 +197,11 @@ func _process(delta):
 #		if bchoicenode.ready_for_inv:
 		if battle.selected_battle_choice == "item" and battle.state == battle.PLAYER_TURN:
 			
-			if Input.is_action_just_pressed("confirm"):
+			if Input.is_action_just_pressed("ui_accept"):
 				if not visible:
 					set_visible(true)
 					update_list()
-			elif Input.is_action_just_pressed("cancel"):
+			elif Input.is_action_just_pressed("ui_cancel"):
 				if visible:
 					if not $InfoBar.visible:
 						set_visible(false)

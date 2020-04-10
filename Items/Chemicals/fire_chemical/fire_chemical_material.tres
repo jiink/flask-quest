@@ -1,0 +1,74 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Effects/unknown.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform sampler2D pic;
+
+uniform int speed = 4; // fps
+uniform int pal_size = 6; // number of colors you fill in in the array
+uniform int source_pal_size = 4; // shades of green on the sprite
+
+uniform int p1 = 0x000000;
+uniform int p2 = 0x000000;
+uniform int p3 = 0x000000;
+uniform int p4 = 0x000000;
+uniform int p5 = 0x000000;
+uniform int p6 = 0x000000;
+uniform int p7 = 0x000000;
+uniform int p8 = 0x000000;
+uniform int p9 = 0x000000;
+uniform int p10= 0x000000;
+uniform int p11= 0x000000;
+uniform int p12= 0x000000;
+uniform int p13= 0x000000;
+uniform int p14= 0x000000;
+uniform int p15= 0x000000;
+uniform int p16= 0x000000;
+
+void fragment(){
+//	COLOR = vec4(COLOR.r - UV.x, COLOR.g, COLOR.b, texture(TEXTURE, UV).a);
+	COLOR.a = texture(TEXTURE, UV).a;
+	if(COLOR.a != 0.0){
+		COLOR = texture(pic, vec2(UV.x*2.0 + TIME*.1 ,UV.y*3.0 + TIME*.2));
+	}
+	
+	int pal[] = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16}; // crime
+	
+	vec4 col = COLOR;
+//	if(col.r == 0.0 && col.b == 0.0){
+		float pal_sample = col.g;
+		int offset = int(TIME*float(speed));
+		
+		int picked_col = pal[(int(col.g * float(source_pal_size - 1) + 0.5) + offset) % pal_size ];
+		col.r = float( (picked_col >> 16) & 0xFF ) / 255.0;
+		col.g = float( (picked_col >> 8) & 0xFF ) / 255.0;
+		col.b = float( picked_col & 0xFF ) / 255.0;
+//	}
+	COLOR = col;
+}"
+
+[resource]
+shader = SubResource( 3 )
+shader_param/speed = 8
+shader_param/pal_size = 6
+shader_param/source_pal_size = 5
+shader_param/p1 = 12784896
+shader_param/p2 = 15156224
+shader_param/p3 = 16735744
+shader_param/p4 = 16747008
+shader_param/p5 = 16761600
+shader_param/p6 = 16746752
+shader_param/p7 = 0
+shader_param/p8 = 0
+shader_param/p9 = 0
+shader_param/p10 = 0
+shader_param/p11 = 0
+shader_param/p12 = 0
+shader_param/p13 = 0
+shader_param/p14 = 0
+shader_param/p15 = 0
+shader_param/p16 = 0
+shader_param/pic = ExtResource( 1 )
