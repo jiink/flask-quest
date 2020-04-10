@@ -42,6 +42,17 @@ var selected_battle_choice = "attack"
 var battle_choice_confirmed = false
 
 
+var whos_turn = 1 # is it P1's turn, or P2's turn?
+
+var player_up = "up"
+var player_down = "down"
+var player_left = "left"
+var player_right = "right"
+
+var player_confirm = "confirm"
+var player_cancel = "cancel"
+var player_action = "action"
+
 
 onready var global = get_node("/root/global")
 onready var item_manager = get_node("/root/ItemManager")
@@ -149,7 +160,7 @@ func _process(delta):
 func get_move_choice():
 	if focused_menu == MENU:
 		if not battle_choice_confirmed:
-			if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
+			if Input.is_action_just_pressed(player_up) or Input.is_action_just_pressed(player_down):
 				if selected_battle_choice == "attack":
 					selected_battle_choice = "item"
 				else:
@@ -159,14 +170,14 @@ func get_move_choice():
 				state = PLAYER_CHOOSE_ENEMY
 				open_chems()
 				
-		if Input.is_action_just_pressed("confirm"):
+		if Input.is_action_just_pressed(player_confirm):
 			focused_menu = INV if selected_battle_choice == "item" else focused_menu
 			battle_choice_confirmed = true
 			
 			for foe in get_foes():
 				foe.say_line()
 			
-		elif Input.is_action_just_pressed("cancel"):
+		elif Input.is_action_just_pressed(player_cancel):
 			battle_choice_confirmed = false
 			$SelectedChemArrow.visible = false
 	elif focused_menu == INV:
@@ -179,10 +190,10 @@ func get_chem_choice():
 	
 	
 	
-	if Input.is_action_just_pressed("down"):
+	if Input.is_action_just_pressed(player_down):
 		selected_chem = ((selected_chem+1) % b + b) % b
 		set_arrow_pos() # to make the foe arrow invisible if need be
-	elif Input.is_action_just_pressed("up"):
+	elif Input.is_action_just_pressed(player_up):
 		selected_chem = ((selected_chem-1) % b + b) % b
 		set_arrow_pos() # to make the foe arrow invisible if need be
 		
@@ -206,11 +217,11 @@ func set_chem_arrow_pos():
 
 func get_enemy_choice():
 	
-	if Input.is_action_just_pressed("right"):
+	if Input.is_action_just_pressed(player_right):
 			selected_foe = (selected_foe+1) % get_foes().size()
 			set_arrow_pos()
 			
-	elif Input.is_action_just_pressed("left"):
+	elif Input.is_action_just_pressed(player_left):
 			selected_foe = (selected_foe-1) % get_foes().size()
 			set_arrow_pos()
 	
@@ -227,13 +238,13 @@ func get_enemy_choice():
 #				print("shooouuuld be hiding the thing!")
 #				$SelectedFoeArrow.visible = false
 	
-	if Input.is_action_just_pressed("confirm"):
+	if Input.is_action_just_pressed(player_confirm):
 		#attack()
 		# ^ whoah WHOIOAH whOAH there bucko, we gotta fill green up first
 		yield(get_tree().create_timer(0.01), "timeout")
 		state = POURING
 		start_pouring_event()
-	elif Input.is_action_just_pressed("cancel"):
+	elif Input.is_action_just_pressed(player_cancel):
 		state = PLAYER_TURN
 		$SelectedFoeArrow.visible = false
 		battle_choice_confirmed = false
@@ -423,6 +434,9 @@ func end_dodge_game():
 	$DodgerField/AnimationPlayer.play_backwards("appear")
 	# uh maybe this should move somewhere else at some point
 	get_tree().call_group("status_effects", "do_effect")
+	
+	# new turn
+	next_player_turn()
 
 func do_inventory():
 	pass
@@ -432,3 +446,32 @@ func exit_battle():
 	$"/root/MusicManager".update_music("level")
 	get_tree().get_nodes_in_group("Player")[0].frozen = false
 	toggle_lighting(get_tree().get_current_scene(), true)
+
+func next_player_turn():
+	
+	if PlayerStats.player_count == 1:
+		return
+	
+	if whos_turn == 1:
+		whos_turn = 2
+		# shut up
+		player_up = "up2"
+		player_down = "down2"
+		player_left = "left2"
+		player_right = "right2"
+		player_confirm = "confirm2"
+		player_cancel = "cancel2" 
+		player_action = "action2"
+	
+	elif whos_turn == 2:
+		whos_turn = 1
+		
+		player_up = "up"
+		player_down = "down"
+		player_left = "left"
+		player_right = "right"
+		player_confirm = "confirm"
+		player_cancel = "cancel"
+		player_action = "action"
+	
+	print("it's %s's turn now" % whos_turn)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
+[ext_resource path="res://NPC/SecurityMop/SecurityMop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=5]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=6]
 [ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=7]
@@ -30,6 +32,8 @@ radius = 58.0
 [node name="TestRoom" type="Node"]
 script = ExtResource( 1 )
 battle_bg = ExtResource( 2 )
+level_music = ExtResource( 4 )
+battle_music = ExtResource( 4 )
 
 [node name="Background" type="Node2D" parent="."]
 visible = false
@@ -181,6 +185,9 @@ position = Vector2( 316, 53 )
 [node name="SaveTester3" parent="YSort" instance=ExtResource( 17 )]
 position = Vector2( 339, 52 )
 
+[node name="SecurityMop" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 193, 94 )
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
 texture = ExtResource( 19 )
@@ -207,7 +214,6 @@ z_index = -2
 
 [node name="Camera" parent="." instance=ExtResource( 21 )]
 rotating = true
-decay_rate = 2
 
 [node name="HUD" parent="." instance=ExtResource( 22 )]
 

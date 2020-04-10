@@ -395,6 +395,7 @@ script = ExtResource( 19 )
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2( 192, 108 )
+rotating = true
 current = true
 script = ExtResource( 20 )
 __meta__ = {
