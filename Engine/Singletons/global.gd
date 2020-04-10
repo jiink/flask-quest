@@ -159,6 +159,8 @@ func _ready():
 #	connect_to_transition()
 	#(#get_tree().get_nodes_in_group("Camera")[0].get_node("../HUD/SceneTransition"), "fade_out")
 	
+	
+	
 	# apply input config. from inputconfigmenu.gd lol
 	
 	var INPUT_ACTIONS = [ "up", "down", "left", "right", "confirm", "cancel", "action", "special" ]
@@ -169,8 +171,9 @@ func _ready():
 	if err:
 		for action_name in INPUT_ACTIONS:
 			var action_list = InputMap.get_action_list(action_name)
-			var scancode = OS.get_scancode_string(action_list[0].scancode)
-			config.set_value("input", action_name, scancode)
+			if action_list[0].get("scancode") != null: # gamepads dont have scancodes
+				var scancode = OS.get_scancode_string(action_list[0].scancode)
+				config.set_value("input", action_name, scancode)
 		config.save(CONFIG_FILE)
 	else:
 		for action_name in config.get_section_keys("input"):
@@ -182,7 +185,31 @@ func _ready():
 				if old_event is InputEventKey:
 					InputMap.action_erase_event(action_name, old_event)
 			InputMap.action_add_event(action_name, event)
+	#### set ui controls
+	# p1
+	copy_actions("up", "ui_up")
+	copy_actions("down", "ui_down")
+	copy_actions("left", "ui_left")
+	copy_actions("right", "ui_right")
 	
+	copy_actions("confirm", "ui_accept")
+	copy_actions("confirm", "ui_select")
+	copy_actions("cancel", "ui_cancel")
+	
+	# p2
+	copy_actions("up2", "ui_up")
+	copy_actions("down2", "ui_down")
+	copy_actions("left2", "ui_left")
+	copy_actions("right2", "ui_right")
+	
+	copy_actions("confirm2", "ui_accept")
+	copy_actions("confirm2", "ui_select")
+	copy_actions("cancel2", "ui_cancel")
+
+func copy_actions(from, to):
+	for event in InputMap.get_action_list(from):
+		InputMap.action_add_event(to, event)
+
 func start_scene_switch(new_scene, new_player_position):
 	# save!!!
 	game_saver.save(1) # todo: slot changing
