@@ -444,7 +444,7 @@ func do_inventory():
 func exit_battle():
 	global.end_battle()
 	$"/root/MusicManager".update_music("level")
-	get_tree().get_nodes_in_group("Player")[0].frozen = false
+	global.get_player().set_frozen(false, true)
 	toggle_lighting(get_tree().get_current_scene(), true)
 
 func next_player_turn():

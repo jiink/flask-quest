@@ -17,10 +17,14 @@ func _ready():
 		MusicManager.update_music("battle")
 	print("AAAAAAAAAAAAAAAAAAAAAAAAAA" + foe_instance.name)
 	foe_instance.queue_free()
+	
+	# close inventory
+	global.get_hud().get_node("InventoryMenu").set_visible(false)
+	
 func _process(delta):
 	$Shader.get_material().set_shader_param("frequency", shader_frequency)
 	$Shader.get_material().set_shader_param("depth", shader_depth)
-	global.get_player().frozen = true
+	global.get_player().set_frozen(true, true)
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name):

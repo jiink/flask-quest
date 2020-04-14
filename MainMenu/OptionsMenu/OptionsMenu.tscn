@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=1]
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 287.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 98.0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+margin_right = 20.0
+margin_bottom = 16.0
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 36.0
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 20.0
+margin_bottom = 56.0
+
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 20.0
+margin_bottom = 76.0
+
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 20.0
+margin_bottom = 96.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 98.0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 20.0
+margin_bottom = 16.0
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 36.0
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 40.0
+margin_right = 20.0
+margin_bottom = 56.0
+
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 60.0
+margin_right = 20.0
+margin_bottom = 76.0
+
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 80.0
+margin_right = 20.0
+margin_bottom = 96.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 98.0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer3"]
+margin_right = 20.0
+margin_bottom = 16.0
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer3"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 36.0
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/VBoxContainer3"]
+margin_top = 40.0
+margin_right = 20.0
+margin_bottom = 56.0
+
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/VBoxContainer3"]
+margin_top = 60.0
+margin_right = 20.0
+margin_bottom = 76.0
+
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/VBoxContainer3"]
+margin_top = 80.0
+margin_right = 20.0
+margin_bottom = 96.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 72.0
+margin_right = 92.0
+margin_bottom = 98.0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer4"]
+margin_right = 20.0
+margin_bottom = 16.0
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer4"]
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 36.0
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/VBoxContainer4"]
+margin_top = 40.0
+margin_right = 20.0
+margin_bottom = 56.0
+
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/VBoxContainer4"]
+margin_top = 60.0
+margin_right = 20.0
+margin_bottom = 76.0
+
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/VBoxContainer4"]
+margin_top = 80.0
+margin_right = 20.0
+margin_bottom = 96.0

@@ -196,3 +196,9 @@ func make_one(num):
 	elif num > 0:
 		num = 1
 	return num
+
+func set_frozen(choice = true, all = true):
+	frozen = choice
+	if all:
+		global.get_player(2).frozen = choice
+	

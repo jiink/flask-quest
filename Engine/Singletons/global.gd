@@ -249,3 +249,7 @@ func swap_scenes():
 
 func get_camera():
 	return get_tree().get_current_scene().get_node("Camera")
+
+func get_hud():
+	if get_tree().get_current_scene().has_node("HUD"):
+		return get_tree().get_current_scene().get_node("HUD")

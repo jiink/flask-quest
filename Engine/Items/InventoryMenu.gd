@@ -188,7 +188,7 @@ func _process(delta):
 						set_visible(true)
 				else:
 					set_visible(false)
-				get_tree().get_nodes_in_group("Player")[0].frozen = visible
+				global.get_player().set_frozen(visible, true)
 				update_list()
 			else:
 				$InfoBar.set_visible(false)
