@@ -229,9 +229,9 @@ func play_sound():
 func open():
 	set_visible(true)
 	$Choices.set_visible(false)
-	get_tree().get_nodes_in_group("Player")[0].frozen = true
+	global.get_player(1).set_frozen(true, true)
 	
 func close():
 	set_visible(false)
 	if not target_piece.dont_unfreeze_player:
-		get_tree().get_nodes_in_group("Player")[0].frozen = false
+		global.get_player(1).set_frozen(false, true)
