@@ -116,6 +116,11 @@ func _process(delta):
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 												  manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
+				# grey-out the trash can icon if it's in the loadout
+				if state == LOADOUT:
+					$InfoBar/ItemOptions/Choices/Toss.modulate = Color(0x72377b)
+				else:
+					$InfoBar/ItemOptions/Choices/Toss.modulate = Color(1, 1, 1, 1)
 				
 #				if state == INVENTORY:
 #					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
@@ -223,6 +228,11 @@ func get_column():
 	
 	
 func toss_item(ind):
+	if state == LOADOUT:
+		print("Failed to throw away item")
+		get_tree().get_nodes_in_group("Player")[0].do_floaty_text("I should unequip it first...")
+		return
+		
 	if not manager.items[get_item_list()[selection_index]].has('droppable'):
 		manager.inventory.remove(ind)
 		if $InfoBar.visible:
