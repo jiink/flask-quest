@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=2]
+[gd_scene load_steps=184 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -132,6 +132,8 @@
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/robo_guard_unarmed.tscn" type="PackedScene" id=130]
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/runner_boy.tscn" type="PackedScene" id=131]
 [ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=132]
+[ext_resource path="res://Rooms/Area2/Assets/PropScenes/car_red.tscn" type="PackedScene" id=133]
+[ext_resource path="res://Rooms/Area2/Assets/PropScenes/car_blue.tscn" type="PackedScene" id=134]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 40 )
@@ -1458,6 +1460,13 @@ position = Vector2( 696, -1179 )
 [node name="bench_improved_side4" parent="YSort/Props" index="22" instance=ExtResource( 26 )]
 position = Vector2( -420, -31 )
 
+[node name="car_red" parent="YSort/Props" index="23" instance=ExtResource( 133 )]
+position = Vector2( 1552, 528 )
+
+[node name="car_blue" parent="YSort/Props" index="24" instance=ExtResource( 134 )]
+position = Vector2( 1645, 802 )
+flip_h = true
+
 [node name="streetlamps" type="YSort" parent="YSort" index="5"]
 
 [node name="streetlamp02" parent="YSort/streetlamps" index="0" instance=ExtResource( 33 )]
@@ -2410,11 +2419,6 @@ expression = "sad"
 
 [node name="DiagPiece2" parent="YSort/NPC/DogA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "..."
-voice_sound = ExtResource( 128 )
-voice_variation = 0.1
-
-[node name="DiagPiece3" parent="YSort/NPC/DogA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
-message = "He's... cleaning up after... uh, his mess. "
 voice_sound = ExtResource( 128 )
 voice_variation = 0.1
 
