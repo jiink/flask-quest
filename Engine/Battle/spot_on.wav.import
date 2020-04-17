@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spot_on.wav-7475c07876013a75ba2a4aa7fa55cc08.sample"
+
+[deps]
+
+source_file="res://Engine/Battle/spot_on.wav"
+dest_files=[ "res://.import/spot_on.wav-7475c07876013a75ba2a4aa7fa55cc08.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

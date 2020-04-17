@@ -53,9 +53,14 @@ func _process(delta):
 						output_effectiveness = chemical.min_effectiveness + (chemical.effectiveness - chemical.min_effectiveness) * (1 - dist_to_target)
 						
 						# perfect
-						if int(fill_perc) == chemical.fill_target:
+						if int(fill_perc) == int(chemical.fill_target):
 							output_effectiveness = chemical.effectiveness * chemical.perfect_multiplier
-						
+							# spawn "spot on!" thingy
+							var spot_on_thingy = load("res://Engine/Battle/SpotOn.tscn").instance()
+							spot_on_thingy.position = Vector2(194, 84)
+							add_child(spot_on_thingy)
+							
+							
 						# pass it around to effects for the effectiveness to be
 						# modified by them
 						# this could be replaced with a group, i guess.
@@ -74,7 +79,7 @@ func _process(delta):
 							if random_num < 0.125:
 								# powerful
 								success = true # sike
-								output_effectiveness = 30 # uh could be different
+								output_effectiveness = 20 # uh could be different
 								for child in $FillingFlask.get_children():
 									if child.has_method("modify_pour_effectiveness"):
 										output_effectiveness = child.modify_pour_effectiveness(output_effectiveness) # 10 indents lol

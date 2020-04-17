@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Engine/Battle/spot_on.png" type="Texture" id=1]
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=2]
+[ext_resource path="res://Engine/Battle/SpotOn.gd" type="Script" id=3]
+[ext_resource path="res://Engine/Battle/spot_on.wav" type="AudioStream" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/speed = 24
+shader_param/pal_size = 5
+shader_param/source_pal_size = 4
+shader_param/p1 = Color( 0, 0.576471, 1, 1 )
+shader_param/p2 = Color( 0, 0.764706, 1, 1 )
+shader_param/p3 = Color( 0, 0.564706, 1, 1 )
+shader_param/p4 = Color( 0, 0.356863, 1, 1 )
+shader_param/p5 = Color( 0.545098, 0, 1, 1 )
+shader_param/p6 = 0
+shader_param/p7 = 0
+shader_param/p8 = 0
+shader_param/p9 = 0
+shader_param/p10 = 0
+shader_param/p11 = 0
+shader_param/p12 = 0
+shader_param/p13 = 0
+shader_param/p14 = 0
+shader_param/p15 = 0
+shader_param/p16 = 0
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.821429, 0 ), -0.0498024, -0.0498024, 0, 0, Vector2( 1, 0 ), -20.809, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 231.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 31.34
+damping = 47.02
+scale = 8.46
+scale_curve = SubResource( 3 )
+
+[node name="SpotOn" type="Sprite"]
+material = SubResource( 1 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 0.79
+process_material = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
