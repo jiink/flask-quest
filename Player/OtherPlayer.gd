@@ -28,9 +28,15 @@ func _ready():
 	
 	set_process(false)
 	TickManager.set_tick(self, false)
+	# place orange at the player
+	position = global.get_player(1).position
+	# for when the scene switches
+	$AnimationPlayer.play("appear")
 	yield(get_tree().create_timer(0.2), "timeout")
 	set_process(true)
 	TickManager.set_tick(self, true)
+	
+	
 
 func _process(delta):
 	

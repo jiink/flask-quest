@@ -170,11 +170,11 @@ message = "battle time"
 function = "enter_battle"
 args = [ [ "Boque" ] ]
 
+[node name="Orange" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 291, 80 )
+
 [node name="Player" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 274.93, 80.7559 )
-
-[node name="Orange" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 302, 84 )
 
 [node name="SaveTester" parent="YSort" instance=ExtResource( 17 )]
 position = Vector2( 293, 53 )
@@ -186,7 +186,7 @@ position = Vector2( 316, 53 )
 position = Vector2( 339, 52 )
 
 [node name="SecurityMop" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 193, 94 )
+position = Vector2( 63, 28 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )
