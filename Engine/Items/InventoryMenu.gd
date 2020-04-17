@@ -93,10 +93,8 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed("ui_right"):
 				selection_index += 1
-				
 			elif Input.is_action_just_pressed("ui_left"):
 				selection_index -= 1
-								
 			elif Input.is_action_just_pressed("ui_up"):
 				if state == INVENTORY:
 					if selection_index < 11:
@@ -125,7 +123,7 @@ func _process(delta):
 #					$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
 			
 			
-			if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("down"):
+			if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_down"):
 				update_item_selection(selection_index)
 			
 		else:
