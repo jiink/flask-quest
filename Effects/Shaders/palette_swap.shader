@@ -28,8 +28,8 @@ void fragment(){
 	if(col.r == 0.0 && col.b == 0.0){
 		float pal_sample = col.g;
 		int offset = int(TIME*float(speed));
-	
-		col = pal[(int(col.g * float(source_pal_size - 1) + 0.5) + offset) % pal_size ];
+		vec4 picked_col = pal[(int(col.g * float(source_pal_size - 1) + 0.5) + offset) % pal_size ];
+		col = vec4(picked_col.r, picked_col.g, picked_col.b, col.a * picked_col.a);
 	}
 	COLOR = col;
 }
