@@ -1,10 +1,10 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Music/goodvibes-battle.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.tmx" type="PackedScene" id=4]
-[ext_resource path="res://Rooms/Area5/Assets/cabin1_A_interior.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Area5/Assets/CabinInterior/cabin1_A_interior.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/plant3_A_corrupt.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/plant3_B_corrupt.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/plant5_A_corrupt.tscn" type="PackedScene" id=8]
@@ -57,6 +57,15 @@
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Rooms/Area5/Assets/dome_wall.png" type="Texture" id=56]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=57]
+[ext_resource path="res://Rooms/Area5/Assets/CabinInterior/cabin1_B_interior.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_painting_C.png" type="Texture" id=59]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_painting_B.png" type="Texture" id=60]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_painting_D.png" type="Texture" id=61]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_carpet_B.png" type="Texture" id=62]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_carpet_C.png" type="Texture" id=63]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_carpet_D.png" type="Texture" id=64]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_painting_A.png" type="Texture" id=65]
+[ext_resource path="res://Rooms/Area5/Assets/cabin_carpet_A.png" type="Texture" id=66]
 
 [node name="5-1" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
@@ -79,12 +88,94 @@ texture = ExtResource( 56 )
 
 [node name="CabinInteriors" type="Node2D" parent="." index="3"]
 
-[node name="cabin1_A_interior" type="Sprite" parent="CabinInteriors" index="0"]
-position = Vector2( 2666, 75 )
-texture = ExtResource( 5 )
+[node name="cabin1_A_interior" parent="CabinInteriors" index="0" instance=ExtResource( 5 )]
+position = Vector2( 3207, 78 )
+
+[node name="cabin_carpet_B" type="Sprite" parent="CabinInteriors/cabin1_A_interior" index="4"]
+position = Vector2( 21, 37 )
+texture = ExtResource( 62 )
+
+[node name="cabin_painting_C" type="Sprite" parent="CabinInteriors/cabin1_A_interior" index="5"]
+position = Vector2( 20, -26 )
+texture = ExtResource( 59 )
+
+[node name="cabin_painting_B" type="Sprite" parent="CabinInteriors/cabin1_A_interior" index="6"]
+position = Vector2( -12, -44 )
+texture = ExtResource( 60 )
+
+[node name="cabin1_A_interior2" parent="CabinInteriors" index="1" instance=ExtResource( 5 )]
+position = Vector2( 3207, 470 )
+
+[node name="cabin_painting_D" type="Sprite" parent="CabinInteriors/cabin1_A_interior2" index="4"]
+position = Vector2( -9, -49 )
+texture = ExtResource( 61 )
+
+[node name="cabin_painting_B" type="Sprite" parent="CabinInteriors/cabin1_A_interior2" index="5"]
+position = Vector2( 33, -25 )
+texture = ExtResource( 60 )
+
+[node name="cabin_carpet_D" type="Sprite" parent="CabinInteriors/cabin1_A_interior2" index="6"]
+position = Vector2( 44, 62 )
+texture = ExtResource( 64 )
+
+[node name="cabin_carpet_C" type="Sprite" parent="CabinInteriors/cabin1_A_interior2" index="7"]
+position = Vector2( 34, 36 )
+texture = ExtResource( 63 )
+
+[node name="cabin1_A_interior3" parent="CabinInteriors" index="2" instance=ExtResource( 5 )]
+position = Vector2( 2666, 906 )
+
+[node name="cabin1_A_interior4" parent="CabinInteriors" index="3" instance=ExtResource( 5 )]
+position = Vector2( 3208, 906 )
+
+[node name="cabin_carpet_A" type="Sprite" parent="CabinInteriors/cabin1_A_interior4" index="4"]
+position = Vector2( -51, 38 )
+texture = ExtResource( 66 )
+
+[node name="cabin_carpet_C" type="Sprite" parent="CabinInteriors/cabin1_A_interior4" index="5"]
+position = Vector2( 44, 47 )
+texture = ExtResource( 63 )
+
+[node name="cabin_painting_A" type="Sprite" parent="CabinInteriors/cabin1_A_interior4" index="6"]
+position = Vector2( 36, -25 )
+texture = ExtResource( 65 )
+
+[node name="cabin1_A_interior5" parent="CabinInteriors" index="4" instance=ExtResource( 5 )]
+position = Vector2( 3208, 1403 )
+
+[node name="cabin_painting_D" type="Sprite" parent="CabinInteriors/cabin1_A_interior5" index="4"]
+position = Vector2( 51, -21 )
+texture = ExtResource( 61 )
+
+[node name="cabin_painting_C" type="Sprite" parent="CabinInteriors/cabin1_A_interior5" index="5"]
+position = Vector2( 25, -27 )
+texture = ExtResource( 59 )
+
+[node name="cabin_painting_B" type="Sprite" parent="CabinInteriors/cabin1_A_interior5" index="6"]
+position = Vector2( -9, -43 )
+texture = ExtResource( 60 )
+
+[node name="cabin_carpet_B" type="Sprite" parent="CabinInteriors/cabin1_A_interior5" index="7"]
+position = Vector2( 19, 37 )
+texture = ExtResource( 62 )
+
+[node name="cabin1_B_interior" parent="CabinInteriors" index="5" instance=ExtResource( 58 )]
+position = Vector2( 3210, 2053 )
+
+[node name="cabin1_B_interior2" parent="CabinInteriors" index="6" instance=ExtResource( 58 )]
+position = Vector2( 2635, 2053 )
+
+[node name="cabin1_B_interior3" parent="CabinInteriors" index="7" instance=ExtResource( 58 )]
+position = Vector2( 3913, 79 )
+
+[node name="cabin1_B_interior4" parent="CabinInteriors" index="8" instance=ExtResource( 58 )]
+position = Vector2( 3909, 910 )
+
+[node name="cabin1_A_interior6" parent="CabinInteriors" index="9" instance=ExtResource( 5 )]
+position = Vector2( 3910, 2063 )
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 806, 827 )
+position = Vector2( 712, 1009 )
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
 
@@ -1260,28 +1351,99 @@ position = Vector2( 144, 1715 )
 position = Vector2( 350, 492 )
 
 [node name="furniture" type="YSort" parent="YSort" index="7"]
-position = Vector2( 2666, 75 )
+position = Vector2( 3207, 75 )
 
 [node name="cabin_bed" parent="YSort/furniture" index="0" instance=ExtResource( 39 )]
-position = Vector2( 50, 24 )
+position = Vector2( 59, 24 )
 
-[node name="cabin_dining_table" parent="YSort/furniture" index="1" instance=ExtResource( 40 )]
+[node name="cabin_bed2" parent="YSort/furniture" index="1" instance=ExtResource( 39 )]
+position = Vector2( 61, 418 )
+frame = 1
+
+[node name="cabin_dresser2" parent="YSort/furniture" index="2" instance=ExtResource( 44 )]
+position = Vector2( 33, 408 )
+
+[node name="cabin_oven_dishwasher2" parent="YSort/furniture" index="3" instance=ExtResource( 43 )]
+position = Vector2( -41, 407 )
+
+[node name="cabin_sink_side2" parent="YSort/furniture" index="4" instance=ExtResource( 42 )]
+position = Vector2( -66, 439 )
+
+[node name="cabin_bed3" parent="YSort/furniture" index="5" instance=ExtResource( 39 )]
+position = Vector2( 4, 418 )
+
+[node name="cabin_dining_table" parent="YSort/furniture" index="6" instance=ExtResource( 40 )]
 position = Vector2( -10, 37 )
 
-[node name="cabin_chair" parent="YSort/furniture" index="2" instance=ExtResource( 38 )]
+[node name="cabin_chair" parent="YSort/furniture" index="7" instance=ExtResource( 38 )]
 position = Vector2( -26, 38 )
 
-[node name="cabin_lamp_B" parent="YSort/furniture" index="3" instance=ExtResource( 41 )]
+[node name="cabin_lamp_B" parent="YSort/furniture" index="8" instance=ExtResource( 41 )]
 position = Vector2( -1, 12 )
 
-[node name="cabin_dresser" parent="YSort/furniture" index="4" instance=ExtResource( 44 )]
-position = Vector2( 22, 13 )
+[node name="cabin_dresser" parent="YSort/furniture" index="9" instance=ExtResource( 44 )]
+position = Vector2( 30, 13 )
 
-[node name="cabin_sink_side" parent="YSort/furniture" index="5" instance=ExtResource( 42 )]
+[node name="cabin_sink_side" parent="YSort/furniture" index="10" instance=ExtResource( 42 )]
 position = Vector2( -66, 40 )
 
-[node name="cabin_oven_dishwasher" parent="YSort/furniture" index="6" instance=ExtResource( 43 )]
+[node name="cabin_oven_dishwasher" parent="YSort/furniture" index="11" instance=ExtResource( 43 )]
 position = Vector2( -43, 13 )
+
+[node name="cabin_dining_table2" parent="YSort/furniture" index="12" instance=ExtResource( 40 )]
+position = Vector2( -30, 439 )
+
+[node name="cabin_chair2" parent="YSort/furniture" index="13" instance=ExtResource( 38 )]
+position = Vector2( -45, 439 )
+
+[node name="cabin_chair3" parent="YSort/furniture" index="14" instance=ExtResource( 38 )]
+position = Vector2( -15, 438 )
+flip_h = true
+
+[node name="cabin_lamp_B2" parent="YSort/furniture" index="15" instance=ExtResource( 41 )]
+position = Vector2( 23, 420 )
+
+[node name="cabin_lamp_B3" parent="YSort/furniture" index="16" instance=ExtResource( 41 )]
+position = Vector2( -531, 859 )
+
+[node name="cabin_bed4" parent="YSort/furniture" index="17" instance=ExtResource( 39 )]
+position = Vector2( 52, 850 )
+
+[node name="cabin_dining_table3" parent="YSort/furniture" index="18" instance=ExtResource( 40 )]
+position = Vector2( 4, 880 )
+
+[node name="cabin_dresser3" parent="YSort/furniture" index="19" instance=ExtResource( 44 )]
+position = Vector2( 20, 843 )
+
+[node name="cabin_lamp_B4" parent="YSort/furniture" index="20" instance=ExtResource( 41 )]
+position = Vector2( 0, 840 )
+
+[node name="cabin_oven_dishwasher3" parent="YSort/furniture" index="21" instance=ExtResource( 43 )]
+position = Vector2( -38, 843 )
+
+[node name="cabin_chair4" parent="YSort/furniture" index="22" instance=ExtResource( 38 )]
+position = Vector2( -8, 880 )
+
+[node name="cabin_sink_side3" parent="YSort/furniture" index="23" instance=ExtResource( 42 )]
+position = Vector2( -65, 1370 )
+
+[node name="cabin_oven_dishwasher4" parent="YSort/furniture" index="24" instance=ExtResource( 43 )]
+position = Vector2( -23, 1340 )
+
+[node name="cabin_oven_dishwasher5" parent="YSort/furniture" index="25" instance=ExtResource( 43 )]
+position = Vector2( 36, 1340 )
+
+[node name="cabin_dining_table4" parent="YSort/furniture" index="26" instance=ExtResource( 40 )]
+position = Vector2( 2, 1370 )
+
+[node name="cabin_chair5" parent="YSort/furniture" index="27" instance=ExtResource( 38 )]
+position = Vector2( -11, 1369 )
+
+[node name="cabin_bed5" parent="YSort/furniture" index="28" instance=ExtResource( 39 )]
+position = Vector2( -35, 1367 )
+
+[node name="cabin_bed6" parent="YSort/furniture" index="29" instance=ExtResource( 39 )]
+position = Vector2( 60, 1368 )
 
 [node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="5"]
 layer = 1

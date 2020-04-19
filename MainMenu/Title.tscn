@@ -184,7 +184,7 @@ texture = ExtResource( 4 )
 
 [node name="StartupAnim" type="AnimationPlayer" parent="behind_buttons"]
 autoplay = "open"
-playback_speed = 2.0
+playback_speed = 1.5
 anims/open = SubResource( 1 )
 
 [node name="title" type="Sprite" parent="."]

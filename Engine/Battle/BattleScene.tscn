@@ -1,15 +1,11 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Battle/BattleChoices.gd" type="Script" id=3]
 [ext_resource path="res://Engine/Battle/HPBar.gd" type="Script" id=4]
 [ext_resource path="res://Engine/Battle/PouringEvent.gd" type="Script" id=5]
-[ext_resource path="res://Engine/Battle/OrangeLayers/arm.png" type="Texture" id=6]
-[ext_resource path="res://Engine/Battle/OrangeLayers/tube.png" type="Texture" id=7]
-[ext_resource path="res://Engine/Battle/OrangeLayers/liquid.png" type="Texture" id=8]
-[ext_resource path="res://Engine/Battle/OrangeLayers/glass.png" type="Texture" id=9]
-[ext_resource path="res://Engine/Battle/OrangeLayers/face.png" type="Texture" id=10]
+[ext_resource path="res://Engine/Battle/OrangeLayers/orangepouring.png" type="Texture" id=6]
 [ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=11]
 [ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
@@ -76,7 +72,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.120742, 1 ),
+"transitions": PoolRealArray( 0.233259, 1 ),
 "update": 0,
 "values": [ Vector2( 192, 278.624 ), Vector2( 192, 155 ) ]
 }
@@ -88,7 +84,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.138696, 1 ),
+"transitions": PoolRealArray( 0.233259, 1 ),
 "update": 0,
 "values": [ Vector2( 458, 176 ), Vector2( 260, 120 ) ]
 }
@@ -244,25 +240,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="arm" type="Sprite" parent="PouringEvent/PouringFlask"]
+[node name="orangepouring" type="Sprite" parent="PouringEvent/PouringFlask"]
 position = Vector2( 10, -9 )
 texture = ExtResource( 6 )
-
-[node name="tube" type="Sprite" parent="PouringEvent/PouringFlask/arm"]
-texture = ExtResource( 7 )
-
-[node name="liquid" type="Sprite" parent="PouringEvent/PouringFlask"]
-modulate = Color( 1, 1, 1, 0.878431 )
-position = Vector2( 9.638, -9 )
-texture = ExtResource( 8 )
-
-[node name="glass" type="Sprite" parent="PouringEvent/PouringFlask"]
-position = Vector2( 9.638, -9 )
-texture = ExtResource( 9 )
-
-[node name="face" type="Sprite" parent="PouringEvent/PouringFlask"]
-position = Vector2( 10, -10 )
-texture = ExtResource( 10 )
 
 [node name="LiquidPouring" type="ColorRect" parent="PouringEvent/PouringFlask"]
 show_behind_parent = true

@@ -47,7 +47,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/sol_ad.png" type="Texture" id=45]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_6_grid.png" type="Texture" id=46]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_3.png" type="Texture" id=47]
-[ext_resource path="res://Rooms/Area2/Assets/talkingreporter.png" type="Texture" id=48]
+[ext_resource path="res://Rooms/Area2/Assets/talkingreporter_improv.png" type="Texture" id=48]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_3_grid.png" type="Texture" id=49]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_5.png" type="Texture" id=50]
 [ext_resource path="res://Rooms/Area2/Assets/moondial_ad.png" type="Texture" id=51]
@@ -1310,15 +1310,12 @@ max_distance = 256.0
 autoplay = "drive"
 anims/drive = SubResource( 23 )
 
-[node name="trashcan2" parent="YSort" index="0" instance=ExtResource( 15 )]
-position = Vector2( 360, 57 )
+[node name="Orange" parent="YSort" index="0" instance=ExtResource( 121 )]
 
 [node name="Player" parent="YSort" index="1"]
 position = Vector2( 272, 26 )
 
-[node name="Orange" parent="YSort" index="2" instance=ExtResource( 121 )]
-
-[node name="Plants" type="YSort" parent="YSort" index="3"]
+[node name="Plants" type="YSort" parent="YSort" index="2"]
 
 [node name="potted_plant_02" parent="YSort/Plants" index="0" instance=ExtResource( 16 )]
 position = Vector2( 408, 344 )
@@ -1389,7 +1386,7 @@ position = Vector2( 1224, -1176 )
 [node name="flowers_06" parent="YSort/Plants" index="22" instance=ExtResource( 22 )]
 position = Vector2( 1320, -1176 )
 
-[node name="Props" type="YSort" parent="YSort" index="4"]
+[node name="Props" type="YSort" parent="YSort" index="3"]
 
 [node name="statue" parent="YSort/Props" index="0" instance=ExtResource( 24 )]
 position = Vector2( 456, 32 )
@@ -1467,7 +1464,10 @@ position = Vector2( 1552, 528 )
 position = Vector2( 1645, 802 )
 flip_h = true
 
-[node name="streetlamps" type="YSort" parent="YSort" index="5"]
+[node name="trashcan2" parent="YSort/Props" index="25" instance=ExtResource( 15 )]
+position = Vector2( 360, 57 )
+
+[node name="streetlamps" type="YSort" parent="YSort" index="4"]
 
 [node name="streetlamp02" parent="YSort/streetlamps" index="0" instance=ExtResource( 33 )]
 position = Vector2( 2024, -1161 )
@@ -1610,7 +1610,7 @@ position = Vector2( 1528, 359 )
 [node name="streetlamp28" parent="YSort/streetlamps" index="46" instance=ExtResource( 35 )]
 position = Vector2( 1656, 359 )
 
-[node name="WifiStuff" type="YSort" parent="YSort" index="6"]
+[node name="WifiStuff" type="YSort" parent="YSort" index="5"]
 
 [node name="wifipost_on" parent="YSort/WifiStuff" index="0" instance=ExtResource( 27 )]
 position = Vector2( 472, 472 )
@@ -1708,7 +1708,7 @@ position = Vector2( 1848, -936 )
 [node name="wifipost_on17" parent="YSort/WifiStuff" index="30" instance=ExtResource( 27 )]
 position = Vector2( 1576, -1160 )
 
-[node name="traffic_signals" type="YSort" parent="YSort" index="7"]
+[node name="traffic_signals" type="YSort" parent="YSort" index="6"]
 
 [node name="trafficlight_front" parent="YSort/traffic_signals" index="0" instance=ExtResource( 36 )]
 position = Vector2( 520, 120 )
@@ -1928,7 +1928,7 @@ position = Vector2( 1352, -935 )
 [node name="stopsign4" parent="YSort/traffic_signals" index="25" instance=ExtResource( 43 )]
 position = Vector2( 2072, -936 )
 
-[node name="signs" type="YSort" parent="YSort" index="8"]
+[node name="signs" type="YSort" parent="YSort" index="7"]
 
 [node name="billboard_6" type="Sprite" parent="YSort/signs" index="0"]
 position = Vector2( 459, -194 )
@@ -2060,7 +2060,7 @@ texture = ExtResource( 69 )
 [node name="lanetta_sign" parent="YSort/signs" index="12" instance=ExtResource( 70 )]
 position = Vector2( 1601, 78 )
 
-[node name="Posters" type="YSort" parent="YSort" index="9"]
+[node name="Posters" type="YSort" parent="YSort" index="8"]
 
 [node name="wallnews" type="Sprite" parent="YSort/Posters" index="0"]
 position = Vector2( 154, -86 )
@@ -2258,10 +2258,10 @@ texture = ExtResource( 93 )
 position = Vector2( 754, -1291 )
 texture = ExtResource( 109 )
 
-[node name="bearly_lemonade_stand" parent="YSort" index="10" instance=ExtResource( 71 )]
+[node name="bearly_lemonade_stand" parent="YSort" index="9" instance=ExtResource( 71 )]
 position = Vector2( 398, -9 )
 
-[node name="NPC" type="YSort" parent="YSort" index="11"]
+[node name="NPC" type="YSort" parent="YSort" index="10"]
 
 [node name="MalusHinter" parent="YSort/NPC" index="0" instance=ExtResource( 77 )]
 position = Vector2( 948, -369 )
@@ -2498,10 +2498,10 @@ text_delay = 0.001
 autoplay = "run_path"
 anims/run_path = SubResource( 48 )
 
-[node name="MapMachine" parent="YSort" index="12" instance=ExtResource( 80 )]
+[node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
 
-[node name="SaveStation" parent="YSort" index="13" instance=ExtResource( 132 )]
+[node name="SaveStation" parent="YSort" index="12" instance=ExtResource( 132 )]
 position = Vector2( 488, -25 )
 
 [node name="ScenePortal" parent="." index="12" instance=ExtResource( 12 )]
