@@ -40,7 +40,7 @@ func _process(delta):
 				update_liq(fill_perc)
 				
 				
-				if Input.is_action_just_pressed(battle.player_confirm) or fill_perc >= 100:
+				if Input.is_action_just_pressed(battle.player_confirm) or fill_perc >= 100: # or int(fill_perc) == int(chemical.fill_target):
 					if fill_perc >= 100:
 						overflowed = true
 						
@@ -56,9 +56,9 @@ func _process(delta):
 						if int(fill_perc) == int(chemical.fill_target):
 							output_effectiveness = chemical.effectiveness * chemical.perfect_multiplier
 							# spawn "spot on!" thingy
-							var spot_on_thingy = load("res://Engine/Battle/SpotOn.tscn").instance()
+							var spot_on_thingy = load("res://Engine/SpotOn/SpotOn.tscn").instance()
 							spot_on_thingy.position = Vector2(194, 84)
-							add_child(spot_on_thingy)
+							get_parent().add_child(spot_on_thingy) # spawn on parent since self gets invisible
 							
 							
 						# pass it around to effects for the effectiveness to be

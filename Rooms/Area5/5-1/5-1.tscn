@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=2]
@@ -66,6 +66,41 @@
 [ext_resource path="res://Rooms/Area5/Assets/cabin_carpet_D.png" type="Texture" id=64]
 [ext_resource path="res://Rooms/Area5/Assets/cabin_painting_A.png" type="Texture" id=65]
 [ext_resource path="res://Rooms/Area5/Assets/cabin_carpet_A.png" type="Texture" id=66]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=67]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/lantern_cool.tscn" type="PackedScene" id=68]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/lantern_warm.tscn" type="PackedScene" id=69]
+
+[sub_resource type="Animation" id=1]
+resource_name = "cycle"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2, 3, 3.5, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.760784, 0.564706, 0.356863, 1 ), Color( 0.52549, 0.278431, 0.278431, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.505882, 0.415686, 0.309804, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "noon"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="5-1" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
@@ -175,7 +210,7 @@ position = Vector2( 3909, 910 )
 position = Vector2( 3910, 2063 )
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 712, 1009 )
+position = Vector2( 3228, 123 )
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
 
@@ -1445,7 +1480,123 @@ position = Vector2( -35, 1367 )
 [node name="cabin_bed6" parent="YSort/furniture" index="29" instance=ExtResource( 39 )]
 position = Vector2( 60, 1368 )
 
-[node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="5"]
+[node name="Lights" type="Node2D" parent="." index="5"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D" type="Light2D" parent="Lights" index="0"]
+position = Vector2( 938, -139 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D2" type="Light2D" parent="Lights" index="1"]
+position = Vector2( 1061, -140 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D3" type="Light2D" parent="Lights" index="2"]
+position = Vector2( 731, -219 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D4" type="Light2D" parent="Lights" index="3"]
+position = Vector2( 816, -220 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D5" type="Light2D" parent="Lights" index="4"]
+position = Vector2( 588, -160 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D6" type="Light2D" parent="Lights" index="5"]
+position = Vector2( 447, -163 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D7" type="Light2D" parent="Lights" index="6"]
+position = Vector2( 324, -162 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D8" type="Light2D" parent="Lights" index="7"]
+position = Vector2( 1246, -26 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D9" type="Light2D" parent="Lights" index="8"]
+position = Vector2( 1412, -139 )
+texture = ExtResource( 67 )
+color = Color( 1, 0.160784, 0.870588, 1 )
+energy = 0.79
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lantern_cool" parent="Lights" index="9" instance=ExtResource( 68 )]
+position = Vector2( 1232, 799 )
+
+[node name="lantern_warm" parent="Lights" index="10" instance=ExtResource( 69 )]
+position = Vector2( 702, 971 )
+
+[node name="lantern_cool2" parent="Lights" index="11" instance=ExtResource( 68 )]
+position = Vector2( 825, 788 )
+
+[node name="lantern_warm2" parent="Lights" index="12" instance=ExtResource( 69 )]
+position = Vector2( 942, 1091 )
+
+[node name="lantern_warm3" parent="Lights" index="13" instance=ExtResource( 69 )]
+position = Vector2( 1019, 1092 )
+
+[node name="lantern_warm4" parent="Lights" index="14" instance=ExtResource( 69 )]
+position = Vector2( 700, 1265 )
+
+[node name="lantern_cool3" parent="Lights" index="15" instance=ExtResource( 68 )]
+position = Vector2( 1160, 1496 )
+
+[node name="lantern_warm5" parent="Lights" index="16" instance=ExtResource( 69 )]
+position = Vector2( 437, 1475 )
+
+[node name="lantern_cool4" parent="Lights" index="17" instance=ExtResource( 68 )]
+position = Vector2( 687, 1460 )
+
+[node name="lantern_warm6" parent="Lights" index="18" instance=ExtResource( 69 )]
+position = Vector2( 511, 1130 )
+
+[node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="6"]
 layer = 1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanopyShadowPBG" index="0"]
@@ -1455,5 +1606,13 @@ motion_mirroring = Vector2( 512, 512 )
 [node name="canopy_shadow" type="Sprite" parent="CanopyShadowPBG/ParallaxLayer" index="0"]
 texture = ExtResource( 37 )
 offset = Vector2( 256, 0 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="7"]
+color = Color( 0.0235294, 0.0235294, 0.235294, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
+autoplay = "noon"
+anims/cycle = SubResource( 1 )
+anims/noon = SubResource( 2 )
 
 [editable path="HUD"]

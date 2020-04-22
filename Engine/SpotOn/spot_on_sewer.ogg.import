@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/spot_on_sewer.ogg-348050dc0afd50b9c62fbc207088051b.oggstr"
+
+[deps]
+
+source_file="res://Engine/SpotOn/spot_on_sewer.ogg"
+dest_files=[ "res://.import/spot_on_sewer.ogg-348050dc0afd50b9c62fbc207088051b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

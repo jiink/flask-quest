@@ -8,3 +8,7 @@
 [node name="palette_swap_single_color_test" type="Sprite" parent="."]
 material = ExtResource( 2 )
 texture = ExtResource( 1 )
+
+[node name="palette_swap_multi_color_test" type="Sprite" parent="palette_swap_single_color_test"]
+position = Vector2( -20, 0 )
+texture = ExtResource( 1 )

@@ -11,6 +11,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, -31 )
 
 [node name="Light2D" type="Light2D" parent="."]
+z_index = 10
 texture = ExtResource( 2 )
 color = Color( 1, 0.894118, 0.533333, 1 )
 
