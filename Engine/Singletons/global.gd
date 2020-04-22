@@ -10,10 +10,11 @@ const GREEN_COLOR = Color("72d031")
 var player_hp = 100
 
 func get_player(num = 1):
-	if get_tree().get_nodes_in_group("Player").size() >= num:
-		return get_tree().get_nodes_in_group("Player")[num - 1]
-	else:
-		return null
+	match num:
+		1:
+			return get_tree().get_current_scene().get_node("YSort/Player")
+		2:
+			return get_tree().get_current_scene().get_node("YSort/Orange")
 	
 ################## battle ##################
 
