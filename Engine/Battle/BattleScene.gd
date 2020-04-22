@@ -454,6 +454,10 @@ func next_player_turn():
 	
 	if whos_turn == 1:
 		whos_turn = 2
+		# change battle menu's material to be orange
+		$BattleChoices.set_material($BattleChoices.ORANGE_MAT)
+		
+		# change inputs to be 2P's
 		# shut up
 		player_up = "up2"
 		player_down = "down2"
@@ -465,6 +469,8 @@ func next_player_turn():
 	
 	elif whos_turn == 2:
 		whos_turn = 1
+		# change battle menu's material to be green
+		$BattleChoices.set_material($BattleChoices.GREEN_MAT)
 		
 		player_up = "up"
 		player_down = "down"

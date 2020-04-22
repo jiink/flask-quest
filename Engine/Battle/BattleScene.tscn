@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Engine/Battle/PouringEvent.gd" type="Script" id=5]
 [ext_resource path="res://Engine/Battle/OrangeLayers/orangepouring.png" type="Texture" id=6]
 [ext_resource path="res://Engine/Battle/pour1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Engine/Battle/BattleMenuGreenMat.tres" type="Material" id=8]
 [ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=11]
 [ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
@@ -188,6 +189,7 @@ polygon = PoolVector2Array( 0, 7, 8, 0, -8, 0 )
 
 [node name="BattleChoices" type="Sprite" parent="."]
 light_mask = 0
+material = ExtResource( 8 )
 position = Vector2( 32, 105 )
 texture = ExtResource( 2 )
 hframes = 5
@@ -208,6 +210,9 @@ margin_top = -61.0
 margin_right = 24.0
 margin_bottom = -17.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GreenHPBar" type="ColorRect" parent="BattleChoices"]
 show_behind_parent = true

@@ -5,6 +5,10 @@ onready var chem_anim = get_node("AnimationPlayer")
 
 var ready_for_inv = false
 
+# when it's green's turn, the palette swap shader parameters will be different
+const GREEN_MAT = preload("res://Engine/Battle/BattleMenuGreenMat.tres")
+const ORANGE_MAT = preload("res://Engine/Battle/BattleMenuOrangeMat.tres")
+
 func _ready():
 	chem_anim.connect("animation_finished", self, "chem_anim_finish")
 	chem_anim.play_backwards("Popout")
