@@ -36,6 +36,12 @@ func _process(delta):
 			# output = output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start)
 			$FillTarget.position.y = 216.0 + ((96.0 - 216.0) / (100.0 - 0.0)) * (chemical.fill_target - 0.0)
 			if not stopped:
+				if not $PouringPlayer.playing:
+					$PouringPlayer.play()
+				else:
+					# 0.5 to 1.5
+					$PouringPlayer.pitch_scale = fill_perc * 0.01 + 0.5
+					
 				fill_perc += chemical.fill_speed * 60 * delta
 				update_liq(fill_perc)
 				
@@ -129,6 +135,10 @@ func reset():
 	stopped = false
 
 func stop():
+	# reset pouring sound
+	$PouringPlayer.playing = false
+	$PouringPlayer.pitch_scale = 0.5
+	
 	if chemical.category == chemical.DEFENSE:
 		# make the pourer slide away, spawn the effect on the filled, and then \
 		#  make the filled guy slide away and then we're done
@@ -160,6 +170,8 @@ func stop():
 			yield(spawn_fail_visual().get_node("AnimationPlayer"), "animation_finished")
 			
 		$AnimationPlayer.play("slide out")
+	
+	
 
 func spawn_fail_visual():
 	var fail_visual = load("res://Engine/Battle/FailedAttack.tscn").instance()
