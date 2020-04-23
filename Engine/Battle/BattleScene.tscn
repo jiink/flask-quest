@@ -5,11 +5,11 @@
 [ext_resource path="res://Engine/Battle/BattleChoices.gd" type="Script" id=3]
 [ext_resource path="res://Engine/Battle/HPBar.gd" type="Script" id=4]
 [ext_resource path="res://Engine/Battle/PouringEvent.gd" type="Script" id=5]
-[ext_resource path="res://Engine/Battle/OrangeLayers/orangepouring.png" type="Texture" id=6]
+[ext_resource path="res://Engine/Battle/CharacterSprites/Orange/orange_pouring.png" type="Texture" id=6]
 [ext_resource path="res://Engine/Battle/pour1.wav" type="AudioStream" id=7]
 [ext_resource path="res://Engine/Battle/BattleMenuGreenMat.tres" type="Material" id=8]
-[ext_resource path="res://Engine/Battle/GreenFlask.png" type="Texture" id=11]
-[ext_resource path="res://Engine/Battle/GreenFlaskMask.png" type="Texture" id=12]
+[ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask.png" type="Texture" id=11]
+[ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=14]
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=15]
@@ -246,7 +246,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="orangepouring" type="Sprite" parent="PouringEvent/PouringFlask"]
+[node name="Sprite" type="Sprite" parent="PouringEvent/PouringFlask"]
 position = Vector2( 10, -9 )
 texture = ExtResource( 6 )
 
@@ -276,11 +276,11 @@ texture = ExtResource( 11 )
 [node name="LiquidFilled" type="TextureProgress" parent="PouringEvent/FillingFlask"]
 modulate = Color( 0.768627, 0.0941176, 0.0941176, 1 )
 show_behind_parent = true
-margin_left = -32.0
-margin_top = -61.0
-margin_right = 31.0
-margin_bottom = 60.0
-value = 50.0
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+value = 45.0
 texture_progress = ExtResource( 12 )
 fill_mode = 3
 __meta__ = {

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/face.png-37e6fed1f6cba6d68dae4530ece4af1a.stex"
+path="res://.import/green_flask_mask.png-5006c50e5539b906e40fa7eea5090c6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/OrangeLayers/face.png"
-dest_files=[ "res://.import/face.png-37e6fed1f6cba6d68dae4530ece4af1a.stex" ]
+source_file="res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png"
+dest_files=[ "res://.import/green_flask_mask.png-5006c50e5539b906e40fa7eea5090c6c.stex" ]
 
 [params]
 

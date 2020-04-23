@@ -44,6 +44,7 @@ var battle_choice_confirmed = false
 
 var whos_turn = 1 # is it P1's turn, or P2's turn?
 
+# for the player who's turn it is
 var player_up = "up"
 var player_down = "down"
 var player_left = "left"
@@ -52,6 +53,16 @@ var player_right = "right"
 var player_confirm = "confirm"
 var player_cancel = "cancel"
 var player_action = "action"
+
+# for the player who's turn it isn't
+var other_player_up = "up2"
+var other_player_down = "down2"
+var other_player_left = "left2"
+var other_player_right = "right2"
+
+var other_player_confirm = "confirm2"
+var other_player_cancel = "cancel2"
+var other_player_action = "action2"
 
 
 onready var global = get_node("/root/global")
@@ -454,11 +465,14 @@ func next_player_turn():
 	
 	if whos_turn == 1:
 		whos_turn = 2
+		
 		# change battle menu's material to be orange
 		$BattleChoices.set_material($BattleChoices.ORANGE_MAT)
 		
+		$PouringEvent.swap_character_sprites(2)
+		
 		# change inputs to be 2P's
-		# shut up
+		# shut up!!!!
 		player_up = "up2"
 		player_down = "down2"
 		player_left = "left2"
@@ -466,11 +480,22 @@ func next_player_turn():
 		player_confirm = "confirm2"
 		player_cancel = "cancel2" 
 		player_action = "action2"
+		other_player_up = "up2"
+		
+		other_player_down = "down"
+		other_player_left = "left"
+		other_player_right = "right"
+		other_player_confirm = "confirm"
+		other_player_cancel = "cancel"
+		other_player_action = "action"
 	
 	elif whos_turn == 2:
 		whos_turn = 1
+		
 		# change battle menu's material to be green
 		$BattleChoices.set_material($BattleChoices.GREEN_MAT)
+		
+		$PouringEvent.swap_character_sprites(1)
 		
 		player_up = "up"
 		player_down = "down"
@@ -479,5 +504,12 @@ func next_player_turn():
 		player_confirm = "confirm"
 		player_cancel = "cancel"
 		player_action = "action"
+		
+		other_player_down = "down2"
+		other_player_left = "left2"
+		other_player_right = "right2"
+		other_player_confirm = "confirm2"
+		other_player_cancel = "cancel2"
+		other_player_action = "action2"
 	
 	print("it's %s's turn now" % whos_turn)

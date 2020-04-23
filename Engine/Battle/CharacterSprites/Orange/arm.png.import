@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GreenFlask.png-dc054241caa8cfa2fc7bfd1393bdc480.stex"
+path="res://.import/arm.png-2bc1bb4e3500fd5c08f82301fda25ff3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/GreenFlask.png"
-dest_files=[ "res://.import/GreenFlask.png-dc054241caa8cfa2fc7bfd1393bdc480.stex" ]
+source_file="res://Engine/Battle/CharacterSprites/Orange/arm.png"
+dest_files=[ "res://.import/arm.png-2bc1bb4e3500fd5c08f82301fda25ff3.stex" ]
 
 [params]
 

@@ -1,5 +1,12 @@
 extends Node2D
 
+const GREEN_POURING = preload("res://Engine/Battle/CharacterSprites/Green/green_pouring.png")
+const GREEN_FILLING = preload("res://Engine/Battle/CharacterSprites/Green/green_flask.png")
+const GREEN_MASK = preload("res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png")
+const ORANGE_POURING = preload("res://Engine/Battle/CharacterSprites/Orange/orange_pouring.png")
+const ORANGE_FILLING = preload("res://Engine/Battle/CharacterSprites/Orange/orange_flask.png")
+const ORANGE_MASK = preload("res://Engine/Battle/CharacterSprites/Orange/orange_flask_mask.png")
+
 onready var battle = get_node("..")
 onready var liq_pour = get_node("PouringFlask/LiquidPouring")
 onready var liq = get_node("FillingFlask/LiquidFilled")
@@ -46,7 +53,9 @@ func _process(delta):
 				update_liq(fill_perc)
 				
 				
-				if Input.is_action_just_pressed(battle.player_confirm) or fill_perc >= 100: # or int(fill_perc) == int(chemical.fill_target):
+				if ( (PlayerStats.player_count == 1) and Input.is_action_just_pressed(battle.player_confirm) ) \
+				or ( (PlayerStats.player_count >= 2) and Input.is_action_just_pressed(battle.other_player_confirm) ) \
+				or fill_perc >= 100: # or int(fill_perc) == int(chemical.fill_target):
 					if fill_perc >= 100:
 						overflowed = true
 						
@@ -184,3 +193,13 @@ func hurt_self(num1, num2):
 	battle.hurt("orange", num2)
 	
 	
+func swap_character_sprites(new = 1): # 1 for green's turn, 2 for orange's
+	match new:
+		1:
+			$FillingFlask.set_texture(GREEN_FILLING)
+			$FillingFlask/LiquidFilled.set_progress_texture(GREEN_MASK)
+			$PouringFlask/Sprite.set_texture(ORANGE_POURING)
+		2:
+			$FillingFlask.set_texture(ORANGE_FILLING)
+			$FillingFlask/LiquidFilled.set_progress_texture(ORANGE_MASK)
+			$PouringFlask/Sprite.set_texture(GREEN_POURING)
