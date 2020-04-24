@@ -18,10 +18,14 @@ export(AudioStream) var custom_music
 
 export(String) var attack_order
 var attack_order_index = 0
+var attacks_completed = 0
+
+onready var battle = get_node("../..")
 
 func _ready():
 	hp = max_hp
-	connect("foe_died", get_node("../.."), "foe_died")
+	connect("foe_died", battle, "foe_died")
+	battle.connect("foe_attack_completed", self, "attack_completed")
 	update_hp_label()
 	
 func get_hurt(base_damage):
@@ -55,3 +59,6 @@ func say_line():
 
 func update_hp_label():
 	$HPLabel.text = str(str(hp), " / ", str(max_hp))
+
+func attack_completed():
+	print("i, %s, completed my %sth attack" % [name, attacks_completed])

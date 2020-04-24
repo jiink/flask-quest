@@ -11,9 +11,6 @@ var attacks_spawned = false
 var battle
 
 
-
-
-
 var active_battle_timer
 
 onready var pstats = $"/root/PlayerStats"

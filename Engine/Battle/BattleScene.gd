@@ -1,6 +1,7 @@
 extends Node
 
 signal hit_foe
+signal foe_attack_completed
 
 signal open_chems
 signal close_chems
@@ -445,6 +446,11 @@ func end_dodge_game():
 	$DodgerField/AnimationPlayer.play_backwards("appear")
 	# uh maybe this should move somewhere else at some point
 	get_tree().call_group("status_effects", "do_effect")
+	
+	# every enemy alive has completed an attack
+	for f in get_foes():
+		f.attacks_completed += 1
+	emit_signal("foe_attack_completed")
 	
 	# new turn
 	next_player_turn()
