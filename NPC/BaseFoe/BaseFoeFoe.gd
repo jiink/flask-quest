@@ -61,4 +61,5 @@ func update_hp_label():
 	$HPLabel.text = str(str(hp), " / ", str(max_hp))
 
 func attack_completed():
-	print("i, %s, completed my %sth attack" % [name, attacks_completed])
+#	print("i, %s, completed my %sth attack" % [name, attacks_completed])
+	pass

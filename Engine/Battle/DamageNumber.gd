@@ -6,11 +6,12 @@ var vec = Vector2(0,0)
 
 func _ready():
 	vec = Vector2(randf()*2-1, -randf()*3-1.5)
-	$Label.text = str(int(num))
+	if typeof(num) == TYPE_REAL: num = int(num)
+	$Label.text = str(num)
 
 func _process(delta):
 	position += vec
-	vec.y += 0.1
+	vec.y += 6 * delta
 
 func _on_Timer_timeout():
 	queue_free()
