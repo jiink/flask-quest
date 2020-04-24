@@ -76,7 +76,7 @@ func play_focus(from_where = 0.0):
 	else:
 		print("trouble in play_focus, music_type = %s" % music_type)
 		
-	print("Now playing %s from %s seconds" % [music_type, from_where])
+#	print("Now playing %s from %s seconds" % [music_type, from_where])
 	
 	focus.play(from_where) # problem does not happen when this line is hit
 	
@@ -144,7 +144,7 @@ func fade_music(type, mode):
 	var target_vol = 0.0 if mode else -65.0 # see audio project settings, 
 	var target_players = [get_node("BattlePlayer"), get_node("BattlePlayerAssistant")] if type == "battle" else [get_node("MainPlayer"), get_node("MainPlayerAssistant")]
 	
-	print("going to fade %s music to %s" % [type, target_vol])
+#	print("going to fade %s music to %s" % [type, target_vol])
 	
 	if mode == true:
 		if target_players[1 if assistant_mode else 0].playing == false:
@@ -160,7 +160,7 @@ func fade_music(type, mode):
 	$Tween.start()
 	if mode == false:
 		yield($Tween, "tween_completed")
-		print("tween completed")
+#		print("tween completed")
 		for i in range(2): target_players[i].playing = false
 
 func set_main_streams(stream_in):

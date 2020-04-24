@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready():
-	$BrainWaveEmitter.set_process(false)
+#	$BrainWaveEmitter.set_process(false) # what why was this here ? huh what
+	pass
 
 func _on_BrainBullet_successful_hit(player_num, dmg):
 	$Timer.wait_time = 3.0

@@ -25,5 +25,6 @@ func on_body_entered(body):
 		for i in range(body.position_history.size()):
 			body.position_history[i] = body.position
 		# make orange teleport there too
-		global.get_player(2).position = body.position
-		global.get_player(2).get_node("AnimationPlayer").play("appear")
+		if global.get_player(2):
+			global.get_player(2).position = body.position
+			global.get_player(2).get_node("AnimationPlayer").play("appear")

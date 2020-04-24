@@ -7,7 +7,6 @@
 [ext_resource path="res://Engine/Battle/BattleInputHint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Engine/Battle/Dodger/Projectiles/BrainWaveEmitter.tscn" type="PackedScene" id=6]
 
-
 [node name="BrainJarAttack3" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 

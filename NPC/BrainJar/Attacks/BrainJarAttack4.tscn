@@ -151,9 +151,6 @@ scale = Vector2( -1, 1 )
 type = 2
 death_time = 30.0
 
-[node name="CircleGuide" parent="." index="7"]
-editor/display_folded = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 1 )

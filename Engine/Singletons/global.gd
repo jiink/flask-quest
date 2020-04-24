@@ -12,9 +12,13 @@ var player_hp = 100
 func get_player(num = 1):
 	match num:
 		1:
-			return get_tree().get_current_scene().get_node("YSort/Player")
+			if get_tree().get_current_scene().has_node("YSort/Player"):
+				return get_tree().get_current_scene().get_node("YSort/Player")
 		2:
-			return get_tree().get_current_scene().get_node("YSort/Orange")
+			if get_tree().get_current_scene().has_node("YSort/Orange"):
+				return get_tree().get_current_scene().get_node("YSort/Orange")
+	print("get_player error!")
+	return null
 	
 ################## battle ##################
 
@@ -80,10 +84,11 @@ func get_dodger(which_player): # 1 for green, 2 for oragne
 	if get_tree().get_current_scene().name == "AttackTestingField":
 		return get_tree().get_current_scene().get_node("Dodgers/%sSprite" % player_name)
 		
-	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/Dodgers/%sSprite" % player_name):
-		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/Dodgers/%sSprite" % player_name)
+	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/%sPawn/Sprite" % player_name):
+		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/%sPawn/Sprite" % player_name)
 	else:
 		return null
+		print("Couldn't get the %s dodger!" % player_name)
 		
 
 func get_battle_scene():

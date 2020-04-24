@@ -199,6 +199,6 @@ func make_one(num):
 
 func set_frozen(choice = true, all = true):
 	frozen = choice
-	if all:
+	if all and global.get_player(2):
 		global.get_player(2).frozen = choice
 	

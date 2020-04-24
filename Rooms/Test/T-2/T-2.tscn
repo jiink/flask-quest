@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
-[ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Test/T-2/T-2.gd" type="Script" id=1]
+[ext_resource path="res://Rooms/Area1/1-1/lab_battle_background.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=4]
 [ext_resource path="res://Rooms/Test/Assets/WarpPortal.tscn" type="PackedScene" id=5]
@@ -9,10 +9,14 @@
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=10]
 
-[node name="TestRoom" type="Node"]
+[node name="TestRoom2" type="Node"]
 script = ExtResource( 1 )
 battle_bg = ExtResource( 2 )
+level_music = ExtResource( 10 )
+battle_music = ExtResource( 10 )
+foes_to_battle = [ "BrainJar" ]
 
 [node name="TileMaps" type="Node" parent="."]
 

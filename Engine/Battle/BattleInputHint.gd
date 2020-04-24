@@ -10,8 +10,12 @@ func _ready():
 	else:
 		$Highlight.visible = false
 	
-	# gets first element of action, gets scancode, and turn that scancode into a readable string
-	var key_string = OS.get_scancode_string(InputMap.get_action_list(action_hint)[0].scancode)
+	# gets element of action, gets scancode, and turn that scancode into a readable string
+	var key_string = "ERR"
+	for i in range(InputMap.get_action_list(action_hint).size()):
+		if InputMap.get_action_list(action_hint)[i].get("scancode"):
+			key_string = OS.get_scancode_string(InputMap.get_action_list(action_hint)[i].scancode) 
+	
 	var key_icon_path = "res://Engine/InputIcons/"
 	var keys_to_icons = {
 		"Up" : "kb_arrow_up",
