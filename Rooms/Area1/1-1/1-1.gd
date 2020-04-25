@@ -54,7 +54,7 @@ func set_orange_state(i):
 			var orange_follower = preload("res://Player/Orange.tscn").instance()
 			$YSort.add_child(orange_follower)
 #			PlayerStats.party_members = ["orange"]
-			$YSort.add_child(load("res://Player/Orange.tscn").instance())
+#			$YSort.add_child(load("res://Player/Orange.tscn").instance())
 
 
 func start_brainjar_event():

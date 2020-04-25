@@ -23,6 +23,7 @@ tracks/0/keys = {
 [node name="Orange" groups=[
 "tick",
 ] instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 3 )
 sprintMultiplier = 2.0
 player_number = 2
