@@ -101,13 +101,10 @@ func update_music(type):
 	
 	match type:
 		"level":
-			
-#			set_main_streams(current_level_music) whYY
 			fade_music("level", true)
 			fade_music("battle", false)
-
+			
 		"battle":
-#			set_battle_streams(current_battle_music) WAAAAAAA MAKES BIG POP SOUND
 			fade_music("level", false)
 			fade_music("battle", true)
 			
@@ -115,10 +112,10 @@ func update_music(type):
 			set_battle_streams(null)
 			set_main_streams(null)
 			fade_music("level", false)
-			fade_music("battle", false)
+			fade_music("battle", false
+			)
 		_:
 			current_custom_battle_music = type
-			set_battle_streams(current_custom_battle_music) # for custom music
 #			print("did you call update_music() wrong?")
 			fade_music("level", false)
 			fade_music("battle", true)
