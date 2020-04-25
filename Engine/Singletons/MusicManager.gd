@@ -78,9 +78,7 @@ func play_focus(from_where = 0.0):
 		
 #	print("Now playing %s from %s seconds" % [music_type, from_where])
 	
-	focus.play(from_where) # problem does not happen when this line is hit
-	
-	
+	focus.play(from_where) 
 	
 func update_music(type):
 	if (typeof(type) == TYPE_STRING):
@@ -112,8 +110,8 @@ func update_music(type):
 			set_battle_streams(null)
 			set_main_streams(null)
 			fade_music("level", false)
-			fade_music("battle", false
-			)
+			fade_music("battle", false)
+			
 		_:
 			current_custom_battle_music = type
 #			print("did you call update_music() wrong?")
@@ -176,6 +174,10 @@ func get_track_aftermath_length(path_name):
 	return 0.0
 
 func on_scene_change():
+	# do nothing if new level music is same as old
+	if current_level_music == get_tree().get_current_scene().get("level_music"):
+		return
+	
 	current_level_music = get_tree().get_current_scene().get("level_music")
 	if current_level_music == null:
 		current_level_music = preload("res://Engine/zzzzzz.ogg")

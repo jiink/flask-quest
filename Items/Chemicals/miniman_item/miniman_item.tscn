@@ -5,10 +5,9 @@
 [ext_resource path="res://Items/Chemicals/miniman_item/SayScript.gd" type="Script" id=3]
 [ext_resource path="res://Engine/Battle/SpeechBubble.tscn" type="PackedScene" id=4]
 
-
-
 [node name="MinimanItem" instance=ExtResource( 1 )]
-damage = 16
+effectiveness = 50
+min_effectiveness = 15
 
 [node name="Liquid" parent="." index="0"]
 modulate = Color( 0, 0.956863, 0.976471, 1 )
