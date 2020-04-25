@@ -3,7 +3,6 @@ extends Node2D
 enum {RESUME, PLAYERS, OPTION, QUIT}
 var selected_option = RESUME
 onready var hud = $".."
-onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 onready var open_sound = preload("res://SoundEffects/pause_menu_open.wav")
 onready var close_sound = preload("res://SoundEffects/pause_menu_close.wav")
@@ -59,7 +58,7 @@ func _process(delta):
 
 func open():
 	visible = true
-	player.frozen = true
+	global.get_player().set_frozen(true, true)
 	
 	$BackgroundShader.visible = true
 	
@@ -68,10 +67,12 @@ func open():
 	
 	$Tween.interpolate_property(self, "position:y", 256, 0, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
+	
+	get_tree().paused = true
 
 func close():
 	
-	player.frozen = false
+	global.get_player().set_frozen(false, true)
 	
 	$AudioStreamPlayer.stream = close_sound
 	$AudioStreamPlayer.play()
@@ -81,11 +82,13 @@ func close():
 	$Tween.start()
 	yield(get_tree().create_timer(.15), "timeout")
 	visible = false
+	
+	get_tree().paused = false
 
 
 func _on_NoclipButton_toggled(button_pressed):
-	for i in range(PlayerStats.player_count + 1):
-			global.get_player(i).collision_layer = 0 if button_pressed else 1
+	for i in range(PlayerStats.player_count):
+			global.get_player(i + 1).collision_layer = 0 if button_pressed else 1
 
 func _on_InvincibilityButton_toggled(button_pressed):
 	global.get_player().invincible = button_pressed

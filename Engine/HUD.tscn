@@ -8,6 +8,7 @@
 [ext_resource path="res://Engine/PositionTransition.tscn" type="PackedScene" id=6]
 
 [node name="HUD" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="Diag" parent="." instance=ExtResource( 2 )]
@@ -23,4 +24,3 @@ visible = false
 visible = false
 
 [node name="PositionTransition" parent="." instance=ExtResource( 6 )]
-visible = false
