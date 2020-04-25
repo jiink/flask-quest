@@ -21,7 +21,7 @@ func _ready():
 	if get_tree().get_current_scene().name == "AttackTestingField":
 		connect_to = get_tree().get_current_scene()
 	else:
-		connect_to = get_node("../../..") # dodgerfield
+		connect_to = get_tree().get_current_scene().get_node("BattleScene/DodgerField")
 	print("connect_to's name: %s" % connect_to.name)
 	connect("successful_hit", connect_to, "hazard_has_hit")
 #	connect("successful_hit", connect_to, "hurt")

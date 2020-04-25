@@ -3,7 +3,7 @@ extends "res://NPC/BaseFoe/BaseFoeFoe.gd"
 var explosion = preload("res://Engine/Battle/BigChemicalExplosion.tscn")
 
 func attack_completed():
-	if attacks_completed == 1:
+	if attacks_completed == 4:
 		var damage_number = load("res://Engine/Battle/DamageNumber.tscn").instance()
 		damage_number.num = "uuhh... i have a headcaeache"
 		add_child(damage_number)
