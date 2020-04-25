@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Engine/Battle/CharacterSprites/Orange/orange_pouring.png" type="Texture" id=6]
 [ext_resource path="res://Engine/Battle/pour1.wav" type="AudioStream" id=7]
 [ext_resource path="res://Engine/Battle/BattleMenuGreenMat.tres" type="Material" id=8]
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=9]
 [ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask.png" type="Texture" id=11]
 [ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
@@ -400,6 +401,20 @@ margin_bottom = 211.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WinButton" type="Button" parent="."]
+visible = false
+margin_left = 355.0
+margin_top = 7.0
+margin_right = 374.0
+margin_bottom = 27.0
+theme = ExtResource( 9 )
+shortcut_in_tooltip = false
+text = "win"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animation_finished" from="Win/AnimationPlayer" to="Win" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Win/TimeUntilFade" to="Win" method="_on_TimeUntilFade_timeout"]
 [connection signal="tween_completed" from="Fade/Tween" to="Fade" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="WinButton" to="." method="_on_WinButton_pressed"]

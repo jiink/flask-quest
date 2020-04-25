@@ -126,6 +126,12 @@ func _ready():
 	# but it should still be invisible at first
 	$SelectedFoeArrow.visible = false
 	
+	# debug mode has win button
+	if Debug.debug_mode:
+		$WinButton.visible = true
+	else:
+		$WinButton.queue_free()
+	
 func toggle_lighting(node, choice):
 	for N in node.get_children():
 		if N.get_child_count() > 0:
@@ -463,6 +469,12 @@ func exit_battle():
 	$"/root/MusicManager".update_music("level")
 	global.get_player().set_frozen(false, true)
 	toggle_lighting(get_tree().get_current_scene(), true)
+	
+	# undo worldfoe changes
+	for f in get_tree().get_nodes_in_group("WorldFoes"):
+		f.speed /= 1.5
+		f.follow_distance /= 2.0
+		f.collision_mask = 32768 # (bit 15)
 
 func next_player_turn():
 	
@@ -519,3 +531,6 @@ func next_player_turn():
 		other_player_action = "action2"
 	
 	print("it's %s's turn now" % whos_turn)
+
+func _on_WinButton_pressed():
+	$Win.start()

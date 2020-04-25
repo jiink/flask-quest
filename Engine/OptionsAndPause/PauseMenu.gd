@@ -55,6 +55,9 @@ func _process(delta):
 			print("hud visidiblity: %s" % hud.get_visibility())
 			if not hud.get_visibility():
 				open()
+			elif Debug.debug_mode:
+				open()
+				print("opening pause menu anyway because debug mode")
 
 func open():
 	visible = true
@@ -92,3 +95,6 @@ func _on_NoclipButton_toggled(button_pressed):
 
 func _on_InvincibilityButton_toggled(button_pressed):
 	global.get_player().invincible = button_pressed
+
+
+
