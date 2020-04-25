@@ -7,7 +7,7 @@
 
 [node name="BrainJarFoe" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
-max_hp = 200
+max_hp = 700
 custom_music = ExtResource( 2 )
 attack_order = "1234"
 
