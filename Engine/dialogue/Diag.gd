@@ -31,9 +31,11 @@ var text_font = default_text_font
 
 enum { CHAR_FACE, CHAR_VOICE, CHAR_VOICE_VARIATION }
 var characters = {
-	"(none)": [null, "res://NPC/default_voice.wav", 0.0],
-	"orange" : ["res://Player/orange_sprites/orange_faces.png", "res://Player/orange_sprites/orange_speech.wav", 0.3],
+	"(none)": [null, "res://NPC/default_voice2.wav", 0.0],
+	"orange" : ["res://Player/orange_sprites/orangeFaces.png", "res://Player/orange_sprites/orange_speech.wav", 0.3],
 	"stercus" : ["res://NPC/Stercus/stercusFaces.png", "res://NPC/Stercus/stercus_voice.wav", 0.0],
+	"green": ["res://Player/sprites/greenSheet.png", "res://NPC/default_voice2.wav", 0,0],
+	"ribbit": ["res://Player/ribbit_sprites/ribbitFaces.png", "res://Player/ribbit_sprites/ribbit_speech.wav", 0.3],
 	}
 
 onready var audio = $AudioStreamPlayer
@@ -148,9 +150,10 @@ func update_boxes(new_target):
 		
 	# face
 	has_face = !(target_piece.character == "(none)" or target_piece.no_face)
-	var expressions = ["neutral", "openmouth", "sidemouth", "happy", "cute", "sad", "suspicious", "crying",
-				 "cryingloud", "grin", "bigsurprise", "biggersurprise", "angry", "misc", "surprise", "stare",
-				"smug"]
+	var expressions = ["neutral", "open_mouth", "side_mouth", "smile", "kawaii", "sad",
+		"smug", "cry_tear", "cry_mourn", "grin", "big_eyed", "big_eyed2", "angry",
+		"unique", "dot_eyes", "closeup", "smug2", "cry_recover", "cry_sob", "frown",
+		"drunk", "yell", "nervous", "yell_outburst", "confused", "blush"]
 	
 	if has_face:
 		if target_piece.face_texture != null:

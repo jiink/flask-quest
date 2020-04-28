@@ -1237,7 +1237,7 @@ shape = SubResource( 15 )
 [node name="Passaudio" type="AudioStreamPlayer2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="3"]
 rotation = -0.000804549
 stream = ExtResource( 124 )
-volume_db = 24.0
+volume_db = -80.0
 autoplay = true
 max_distance = 256.0
 
@@ -1289,7 +1289,7 @@ shape = SubResource( 22 )
 [node name="Passaudio" type="AudioStreamPlayer2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="3"]
 rotation = -0.000804549
 stream = ExtResource( 124 )
-volume_db = 24.0
+volume_db = -80.0
 autoplay = true
 max_distance = 256.0
 
@@ -2348,7 +2348,9 @@ offset = Vector2( 0, -15 )
 [node name="DialogueTree" parent="YSort/NPC/ManA" index="0" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/ManA/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "hi im travis?"
+message = "WAKE UP OLD MAN."
+character = "green"
+expression = "yell_outburst"
 
 [node name="Interaction" parent="YSort/NPC/ManA" index="1"]
 position = Vector2( 0, 0 )
@@ -2372,7 +2374,7 @@ message = "Oh my Gosh. You're sooo cute!"
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "Aww, thanks."
 character = "orange"
-expression = "happy"
+expression = "neutral"
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "You too."
@@ -2455,12 +2457,38 @@ character = "orange"
 expression = "neutral"
 
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "...Why are we not allowed?"
+message = "...Why"
 character = "orange"
 expression = "openmouth"
 
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "THIS IS ACCESS TO OCEAN. WATER BAD FOR ROBOT."
+
+[node name="DiagPiece2" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "ARE YOU GOING TO PASS THIS AREA ANYWAY?"
+
+[node name="DiagPiece3" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+key = "Yes"
+message = "Yeah."
+character = "green"
+expression = "side_mouth"
+
+[node name="DiagPiece5" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 9 )]
+message = "Green!"
+character = "orange"
+expression = "sad"
+
+[node name="DiagPiece6" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece5" index="0" instance=ExtResource( 9 )]
+message = "UNBELIEVABLE. ANYWAYS, YOU CAN'T. YOU LITERALLY CANNOT PASS."
+
+[node name="DiagPiece4" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2" index="1" instance=ExtResource( 9 )]
+key = "No"
+message = "No."
+character = "green"
+expression = "confused"
+
+[node name="DiagPiece5" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece4" index="0" instance=ExtResource( 9 )]
+message = "ATTA BOY. STAY SAFE OUT THERE."
 
 [node name="RoboGuard3" parent="YSort/NPC" index="12" instance=ExtResource( 120 )]
 position = Vector2( -542, 341 )
@@ -2491,7 +2519,7 @@ flip_h = true
 [node name="DialogueTree" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D/RunnerBoy" index="4" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D/RunnerBoy/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "Sorry buddy but it appears that I can't talk to you, I'm too fast for you to handle. Sorry again bud."
+message = "Running is very healthy you should try it sometime."
 text_delay = 0.001
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/RunnerBoyPath2D" index="1"]
