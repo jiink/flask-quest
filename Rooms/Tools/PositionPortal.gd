@@ -17,11 +17,11 @@ func on_body_entered(body):
 			print("%s -> %s" % [body.position, $Position2D.get_global_transform()[2]])
 			for b in get_tree().get_nodes_in_group("Player"):
 				b.position = $Position2D.get_global_transform()[2]
-			get_owner().get_node("HUD/PositionTransition").go()
+			get_tree().get_current_scene().get_node("HUD/PositionTransition").go()
 		elif player_new_position != null:
 			for b in get_tree().get_nodes_in_group("Player"):
 				b.position = player_new_position
-			get_owner().get_node("HUD/PositionTransition").go()
+			get_tree().get_current_scene().get_node("HUD/PositionTransition").go()
 		else:
 			print("error: teleportal doesn't have destination")
 			return

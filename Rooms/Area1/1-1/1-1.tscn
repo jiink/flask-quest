@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -16,13 +16,8 @@
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city3.png" type="Texture" id=14]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city4.png" type="Texture" id=15]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city5.png" type="Texture" id=16]
-[ext_resource path="res://Rooms/Area1/1-1/ElevatorRoom.gd" type="Script" id=17]
-[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevator_room.png" type="Texture" id=18]
-[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevator_floor_indicator.png" type="Texture" id=19]
-[ext_resource path="res://Rooms/Area1/1-1/elevator_floor_indicator.gd" type="Script" id=20]
-[ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=21]
-[ext_resource path="res://Engine/white.png" type="Texture" id=22]
-[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Rooms/Tools/Elevator/ElevatorRoom.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Rooms/Tools/Elevator/ElevatorEntrance.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Engine/light2.png" type="Texture" id=24]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/ElevatorCardPickup.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Rooms/Area1/1-1/OrangeNPC.gd" type="Script" id=26]
@@ -43,9 +38,6 @@
 [ext_resource path="res://Rooms/Area1/Assets/exploded_labdoor.png" type="Texture" id=41]
 [ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=42]
 [ext_resource path="res://NPC/Miniman/Miniman.tscn" type="PackedScene" id=43]
-[ext_resource path="res://Rooms/Area1/1-1/Elevator.gd" type="Script" id=44]
-[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=45]
-[ext_resource path="res://Rooms/Area1/Assets/Elevator/elevator_open_animation.tres" type="Animation" id=46]
 [ext_resource path="res://Rooms/Area1/1-1/BrainJarNPC.gd" type="Script" id=47]
 [ext_resource path="res://NPC/BrainJar/BrainJarNPC.png" type="Texture" id=48]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=49]
@@ -118,59 +110,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28, 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 3, 23 )
-
-[sub_resource type="Animation" id=4]
-resource_name = "godown"
-length = 5.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("elevator_floor_indicator:floornum")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 3.5 ),
-"transitions": PoolRealArray( 3.03143, 3.03143, 1 ),
-"update": 0,
-"values": [ 322, 322, 140 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("DoorLight:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 4.2, 4.6, 4.8, 5 ),
-"transitions": PoolRealArray( 1, 2.46229, 0.258816, 2.46229, 1 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 0.412 ), Vector2( 1e-05, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ScenePortal:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 5.1, 5.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, false, true ]
-}
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 31, 22 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 8, 2 )
-
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": true,
@@ -178,31 +118,28 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 4.56, 6.83 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 12, 11 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 4 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 17, 10 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 21, 10 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 18, 4 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 18 )
 
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 17, 5 )
-
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=11]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -218,7 +155,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=12]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -233,7 +170,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -5 ), Vector2( 45, 0 ), Vector2( 99, 31 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 50, 10 )
 
 [node name="1-1" groups=[
@@ -453,73 +390,10 @@ motion_mirroring = Vector2( 384, 0 )
 texture = ExtResource( 16 )
 offset = Vector2( 192, 0 )
 
-[node name="ElevatorRoom" type="Node2D" parent="." index="4"]
-position = Vector2( 816, 307 )
-script = ExtResource( 17 )
-
-[node name="Back" type="Sprite" parent="ElevatorRoom" index="0"]
-texture = ExtResource( 18 )
-
-[node name="elevator_floor_indicator" type="Sprite" parent="ElevatorRoom" index="1"]
-position = Vector2( -11, -16 )
-texture = ExtResource( 19 )
-script = ExtResource( 20 )
-floornum = 322
-
-[node name="Label" type="Label" parent="ElevatorRoom/elevator_floor_indicator" index="0"]
-margin_left = -9.0
-margin_top = -14.0
-margin_right = 9.0
-custom_fonts/font = ExtResource( 21 )
-custom_colors/font_color = Color( 0.486275, 0.666667, 0.545098, 1 )
-custom_colors/font_color_shadow = Color( 0.109804, 0.12549, 0.105882, 1 )
-text = "322"
-
-[node name="collisions" type="StaticBody2D" parent="ElevatorRoom" index="2"]
-visible = false
-position = Vector2( 0, -9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorRoom/collisions" index="0"]
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevatorRoom/collisions" index="1"]
-position = Vector2( 0, 50 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="ElevatorRoom/collisions" index="2"]
-position = Vector2( 27, 30 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="ElevatorRoom/collisions" index="3"]
-position = Vector2( -26, 29 )
-shape = SubResource( 3 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ElevatorRoom" index="3"]
-anims/godown = SubResource( 4 )
-
-[node name="TriggerField" type="Area2D" parent="ElevatorRoom" index="4"]
-visible = false
-position = Vector2( 1, 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorRoom/TriggerField" index="0"]
-shape = SubResource( 5 )
-
-[node name="DoorLight" type="Light2D" parent="ElevatorRoom" index="5"]
-position = Vector2( 1, 30.5883 )
-scale = Vector2( 1e-05, 0.412 )
-texture = ExtResource( 22 )
-offset = Vector2( 0, -31 )
-color = Color( 1, 0.976471, 0.423529, 1 )
-shadow_enabled = true
-
-[node name="ScenePortal" parent="ElevatorRoom" index="6" instance=ExtResource( 23 )]
-position = Vector2( 0, 31 )
-monitoring = false
+[node name="ElevatorRoom" parent="." index="4" instance=ExtResource( 17 )]
+position = Vector2( 804, 305 )
 new_scene = "res://Rooms/Area1/1-2/1-2.tscn"
 player_new_position = Vector2( 256, 41 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorRoom/ScenePortal" index="0"]
-shape = SubResource( 6 )
 
 [node name="ElevatorCardPickup" parent="YSort" index="0" instance=ExtResource( 25 )]
 position = Vector2( 451, -354 )
@@ -533,13 +407,13 @@ script = ExtResource( 26 )
 
 [node name="Sprite" type="AnimatedSprite" parent="YSort/OrangeNPC" index="0"]
 position = Vector2( -1, -9 )
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 flip_h = true
 
 [node name="Interaction" type="Area2D" parent="YSort/OrangeNPC" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeNPC/Interaction" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="DialogueTree" parent="YSort/OrangeNPC" index="2" instance=ExtResource( 29 )]
 
@@ -573,7 +447,7 @@ position = Vector2( 6.28, 0 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="YSort/OrangeNPC/StaticBody2D" index="0"]
 position = Vector2( 1.72, 7 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="Props" type="YSort" parent="YSort" index="3"]
 
@@ -591,7 +465,7 @@ texture = ExtResource( 33 )
 position = Vector2( -13, -7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/tableL/OrangeDisabled/Interaction" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 
 [node name="DialogueTree" parent="YSort/Props/tableL/OrangeDisabled" index="2" instance=ExtResource( 29 )]
 
@@ -631,7 +505,7 @@ texture = ExtResource( 41 )
 position = Vector2( 0, -3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/Interaction" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 6 )
 
 [node name="DialogueTree" parent="YSort/Props/LabDoor" index="3" instance=ExtResource( 29 )]
 
@@ -659,21 +533,21 @@ visible = false
 position = Vector2( 0, -17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/StaticBody2D" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 7 )
 
 [node name="ClosedCollision" type="StaticBody2D" parent="YSort/Props/LabDoor" index="5"]
 visible = false
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/ClosedCollision" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 7 )
 
 [node name="PositionPortal" parent="YSort/Props/LabDoor" index="6" instance=ExtResource( 42 )]
 visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal" index="0"]
-shape = SubResource( 13 )
+shape = SubResource( 8 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal" index="1"]
 position = Vector2( -1, -161 )
@@ -682,7 +556,7 @@ position = Vector2( -1, -161 )
 position = Vector2( 0, -141 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal2" index="0"]
-shape = SubResource( 13 )
+shape = SubResource( 8 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal2" index="1"]
 position = Vector2( -1, 152 )
@@ -691,7 +565,7 @@ position = Vector2( -1, 152 )
 position = Vector2( 352, 103 )
 
 [node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorToElev" index="0"]
-shape = SubResource( 14 )
+shape = SubResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorToElev" index="1"]
 position = Vector2( 168, 1 )
@@ -701,7 +575,7 @@ position = Vector2( 352, 103 )
 
 [node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorFromElev" index="0"]
 position = Vector2( 146, 1 )
-shape = SubResource( 14 )
+shape = SubResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorFromElev" index="1"]
 position = Vector2( -25, 0 )
@@ -709,49 +583,8 @@ position = Vector2( -25, 0 )
 [node name="Miniman" parent="YSort" index="4" instance=ExtResource( 43 )]
 position = Vector2( 141, 28 )
 
-[node name="Elevator" type="Node2D" parent="YSort" index="5"]
+[node name="ElevatorEntrance" parent="YSort" index="5" instance=ExtResource( 18 )]
 position = Vector2( 592, 59 )
-script = ExtResource( 44 )
-
-[node name="Inside" type="Sprite" parent="YSort/Elevator" index="0"]
-position = Vector2( 0, -11 )
-z_index = -1
-texture = ExtResource( 18 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Door" type="Sprite" parent="YSort/Elevator" index="1"]
-position = Vector2( 0, -11 )
-texture = ExtResource( 45 )
-hframes = 25
-frame = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Elevator" index="2"]
-anims/open_doors = ExtResource( 46 )
-
-[node name="ClosedBody" type="StaticBody2D" parent="YSort/Elevator" index="3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Elevator/ClosedBody" index="0"]
-shape = SubResource( 15 )
-
-[node name="PositionPortal" parent="YSort/Elevator" index="4" instance=ExtResource( 42 )]
-visible = false
-position = Vector2( 0, -6 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="YSort/Elevator/PositionPortal" index="0"]
-shape = SubResource( 15 )
-
-[node name="Position2D" type="Position2D" parent="YSort/Elevator/PositionPortal" index="1"]
-position = Vector2( 212, 265 )
-
-[node name="Interaction" type="Area2D" parent="YSort/Elevator" index="5"]
-visible = false
-position = Vector2( 0, 8 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="YSort/Elevator/Interaction" index="0"]
-position = Vector2( 0, -6 )
-shape = SubResource( 15 )
 
 [node name="BrainJarNPC" type="Node2D" parent="YSort" index="6"]
 position = Vector2( 208, 52 )
@@ -764,10 +597,10 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="1"]
 autoplay = "default"
-anims/default = SubResource( 16 )
+anims/default = SubResource( 11 )
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="2"]
-anims/default = SubResource( 17 )
+anims/default = SubResource( 12 )
 
 [node name="DialogueTree" parent="YSort/BrainJarNPC" index="3" instance=ExtResource( 29 )]
 
@@ -888,9 +721,8 @@ position = Vector2( 200, -162 )
 script = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
-shape = SubResource( 18 )
+shape = SubResource( 13 )
 [connection signal="animation_finished" from="MinimanDoorEvent/AnimationPlayer" to="MinimanDoorEvent" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="ElevatorRoom/TriggerField" to="ElevatorRoom" method="_on_TriggerField_body_entered"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 
 [editable path="TileMaps"]
