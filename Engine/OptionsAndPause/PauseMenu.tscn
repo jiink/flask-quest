@@ -127,5 +127,16 @@ margin_right = 87.0
 margin_bottom = 41.0
 toggle_mode = true
 text = "Invincibility"
+
+[node name="MusicButton" type="Button" parent="DebugButtons"]
+margin_top = 45.0
+margin_right = 87.0
+margin_bottom = 56.0
+toggle_mode = true
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="toggled" from="DebugButtons/NoclipButton" to="." method="_on_NoclipButton_toggled"]
 [connection signal="toggled" from="DebugButtons/InvincibilityButton" to="." method="_on_InvincibilityButton_toggled"]
+[connection signal="toggled" from="DebugButtons/MusicButton" to="." method="_on_MusicButton_toggled"]

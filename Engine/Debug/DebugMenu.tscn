@@ -51,4 +51,3 @@ custom_fonts/font = ExtResource( 2 )
 text = "Load"
 
 [node name="GameSaver" parent="." instance=ExtResource( 3 )]
-

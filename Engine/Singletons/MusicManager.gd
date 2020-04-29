@@ -31,8 +31,13 @@ var aftermath_lengths = {
 	"zzzzzz": 0.0
 }
 
+var volume = 0 # in dB, -80 is off
+
 func _ready():
-	
+	if Debug.debug_mode:
+		print("debug mode ON, setting volume to -80")
+		set_volume(-80)
+
 	set_process(false)
 	yield(get_tree().create_timer(0.1), "timeout")
 #	update_music("level")
@@ -189,3 +194,11 @@ func on_scene_change():
 
 	play_focus()
 	aftermath_length = get_track_aftermath_length(current_level_music.get_path())
+
+func set_volume(amount):
+	print("Setting music volume to %s" % amount)
+	volume = amount
+	$MainPlayer.volume_db = volume
+	$MainPlayerAssistant.volume_db = volume
+	$BattlePlayer.volume_db = volume
+	$BattlePlayerAssistant.volume_db = volume

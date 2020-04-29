@@ -11,6 +11,9 @@ func _ready():
 	$Tween.interpolate_property(self, "position:y", 0, -256, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
 
+	if not Debug.debug_mode:
+		$DebugButtons.queue_free()
+
 func _process(delta):
 	if visible:
 		if Input.is_action_just_pressed("pause"):
@@ -96,5 +99,8 @@ func _on_NoclipButton_toggled(button_pressed):
 func _on_InvincibilityButton_toggled(button_pressed):
 	global.get_player().invincible = button_pressed
 
-
-
+func _on_MusicButton_toggled(button_pressed):
+	if button_pressed:
+		MusicManager.set_volume(0)
+	else:
+		MusicManager.set_volume(-80)
