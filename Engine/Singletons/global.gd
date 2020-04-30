@@ -5,6 +5,7 @@ signal battle_won
 
 const ORANGE_COLOR = Color("f68f31")
 const GREEN_COLOR = Color("72d031")
+const SAVE_KEY = "global_"
 
 # player vars
 var player_hp = 100
@@ -90,8 +91,8 @@ func get_dodger(which_player): # 1 for green, 2 for oragne
 	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/%sPawn/Sprite" % player_name):
 		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/%sPawn/Sprite" % player_name)
 	else:
-		return null
 		print("Couldn't get the %s dodger!" % player_name)
+		return null
 		
 
 func get_battle_scene():
@@ -255,6 +256,8 @@ func swap_scenes():
 #		print("Couldn't do scene transition")
 
 ################# misc #####################
+
+var event_seed = 0
 
 func get_camera():
 	return get_tree().get_current_scene().get_node("Camera")

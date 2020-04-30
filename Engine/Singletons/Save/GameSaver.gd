@@ -79,6 +79,10 @@ func save_from_save_station(id):
 	print("loadout being saved: %s" % [$"/root/ItemManager".loadout])
 	save_game.data["loadout"] = $"/root/ItemManager".loadout
 	
+	print("event_seed being saved : %s" % global.event_seed)
+	save_game.data["event_seed"] = global.event_seed
+	
+	
 		
 	var directory = Directory.new()
 	if not directory.dir_exists (SAVE_FOLDER):
@@ -121,6 +125,7 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	$"/root/PlayerStats".dollars = save_game.data["dollars"]
 	$"/root/ItemManager".inventory = save_game.data["inventory"]
 	$"/root/ItemManager".loadout = save_game.data["loadout"]
+	global.event_seed = save_game.data["event_seed"]
 	
 	$"/root/MusicManager".update_music("level")
 
