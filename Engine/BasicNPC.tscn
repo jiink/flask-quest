@@ -8,25 +8,23 @@
 extents = Vector2( 5, 2 )
 
 [node name="BasicNPC" type="Sprite"]
-position = Vector2( 0, -9 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -9 )
 script = ExtResource( 2 )
 
 [node name="Interaction" type="Area2D" parent="."]
-position = Vector2( 0, 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 0, 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
 
 [node name="ShadowRect" parent="." instance=ExtResource( 3 )]
 show_behind_parent = true
-margin_left = -5.0
-margin_top = 8.0
-margin_right = 4.0
-margin_bottom = 11.0
+margin_left = -4.0
+margin_top = -1.0
+margin_right = 5.0
+margin_bottom = 2.0
