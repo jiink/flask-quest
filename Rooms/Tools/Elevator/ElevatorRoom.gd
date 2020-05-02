@@ -11,7 +11,9 @@ func _ready():
 func _on_TriggerField_body_entered(body):
 	if body == get_tree().get_nodes_in_group("Player")[0]:
 		$AnimationPlayer.play("go_%s" % direction)
-		$FloorIndicator.set_process(true)
+		$FloorArrowIndicator.set_animation(direction)
 
 func _on_AnimationPlayer_animation_finished(anim):
-	$FloorIndicator.set_process(false)
+	if anim.begins_with("go_"):
+		$AnimationPlayer.play("open")
+		$FloorArrowIndicator.set_animation("off")

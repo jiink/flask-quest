@@ -61,6 +61,9 @@ func _process(delta):
 	
 		elif Input.is_action_just_pressed("up"):
 			save_selection -= 1
+
+		elif Input.is_action_just_pressed("right"):
+			GameSaver.new_save()
 			
 			
 		if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):

@@ -8,6 +8,8 @@ var SAVE_NAME_TEMPLATE = "save_%03d.tres"
 
 var save_game = load(SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % 1))
 
+func prepare_save_file(num):
+	save_game = load(SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % num))
 #func _ready(): # HAHA don't do this, kids
 #	yield(get_tree().create_timer(0.1), "timeout") 
 #	load_from_save_station(1)
@@ -88,6 +90,7 @@ func save_from_save_station(id):
 	if not directory.dir_exists (SAVE_FOLDER):
 		directory.make_dir_recursive(SAVE_FOLDER)
 		
+		
 	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
 	print("SAVING to %s" % save_path)
 	var error = ResourceSaver.save(save_path, save_game)
@@ -130,3 +133,17 @@ func load_from_save_station(id): # yeah im a role model and copied the other fun
 	$"/root/MusicManager".update_music("level")
 
 	global.emit_signal("scene_changed") # yep
+	
+func new_save():
+	print("making a new save file...")
+	var directory = Directory.new()
+	if not directory.dir_exists (SAVE_FOLDER):
+		directory.make_dir_recursive(SAVE_FOLDER)
+	
+	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % 1)
+	print("SAVING to %s" % save_path)
+	save_game = SaveGame.new()
+	var error = ResourceSaver.save(save_path, save_game)
+	
+	if error != OK:
+		print("Couldn't write save %s to %s" % [1, save_path])

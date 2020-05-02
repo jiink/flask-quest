@@ -1,0 +1,41 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "go_down"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("FloorIndicator:floornum")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 3.5 ),
+"transitions": PoolRealArray( 3.03143, 3.03143, 1 ),
+"update": 0,
+"values": [ 140, 140, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DoorLight:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.2, 4.6, 4.8, 5 ),
+"transitions": PoolRealArray( 1, 2.46229, 0.258816, 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 0.412 ), Vector2( 1e-05, 0.412 ), Vector2( 0.4, 0.412 ), Vector2( 0.32, 0.412 ), Vector2( 0.4, 0.412 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ScenePortal:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5.1, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}

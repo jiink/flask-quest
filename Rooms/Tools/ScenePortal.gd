@@ -7,7 +7,7 @@ func _ready():
 	connect("body_entered", self, "on_body_entered")
 	
 func on_body_entered(body):
-	if body == get_tree().get_nodes_in_group("Player")[0]:
+	if body in get_tree().get_nodes_in_group("Player"):
 		print(str(body.name) + " entered sceneportal")
 		
 		if new_scene != "":
