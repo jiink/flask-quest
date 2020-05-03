@@ -197,8 +197,13 @@ func next_letter_time():
 		$TextBox/Timer.stop()
 		$Choices.set_visible(not choices.empty())
 		#close()
-		
-	play_sound()
+	
+	var ascii_code = new_text[text_index].ord_at(0)
+	# 0-9, A-Z, and a-z are spoken letters
+	if (ascii_code >= 48 and ascii_code <= 57) or \
+			(ascii_code >= 65 and ascii_code <= 90) or \
+			(ascii_code >= 97 and ascii_code <= 122):
+		play_sound()
 
 func run_func():
 					
