@@ -63,7 +63,7 @@ func _process(delta):
 						update_boxes(D)
 						break
 		else:
-			if Input.is_action_just_pressed("confirm") or Input.is_action_just_pressed("cancel"):
+			if Input.is_action_just_pressed("confirm") or Input.is_action_just_pressed("cancel") or target_piece.interrupt:
 				if $TextBox.text == visible_new_text:
 					if target_piece.get_children():
 						run_func()
@@ -73,8 +73,9 @@ func _process(delta):
 						close()
 					
 				elif $TextBox.text.length() > 2 and (target_piece.skippable or Debug.debug_mode):
-					$TextBox.text = visible_new_text
-					text_index = new_text.length() - 1
+					if not target_piece.interrupt:
+						$TextBox.text = visible_new_text
+						text_index = new_text.length() - 1
 					
 
 func start_talk(obj, starting_branch):

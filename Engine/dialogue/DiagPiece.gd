@@ -17,3 +17,4 @@ export(String) var function = ""
 export(Array) var args
 export(bool) var skippable = true
 export(bool) var dont_unfreeze_player = false
+export(bool) var interrupt = false

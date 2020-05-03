@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -17,11 +17,14 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=16]
 [ext_resource path="res://NPC/Debug/SaveTester/SaveTester.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Engine/Fonts/FontQuestSilly.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Engine/light.png" type="Texture" id=19]
 [ext_resource path="res://Items/TestItem.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Rooms/Area4/Assets/SecurityCamArea.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Player/orange_sprites/orangeFaces.png" type="Texture" id=24]
+[ext_resource path="res://Engine/Battle/Dodger/playerdeath.wav" type="AudioStream" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -135,30 +138,44 @@ function = "test_react"
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
 key = "yeah"
 message = "cool"
-expression = "grin"
+font = ExtResource( 18 )
+character = "orange"
+expression = "neutral"
+face_texture = ExtResource( 24 )
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
 key = "no"
-message = "man"
+message = "SHUT UP."
+character = "green"
 expression = "angry"
+interrupt = true
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3" instance=ExtResource( 14 )]
-message = "really?"
+message = "No, YOU shut up"
 text_delay = 0.07
-expression = "crying"
+character = "stercus"
+expression = "angry"
+interrupt = true
 
 [node name="DiagPiece2" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 14 )]
-key = "yep"
-message = "heck you. "
-expression = "cryingloud"
+message = "That's why yo SHOES raggedy."
+character = "green"
+expression = "grin"
 
 [node name="DiagPiece3" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2" instance=ExtResource( 14 )]
-function = "enter_battle"
+message = "That's why yo MAMA dead."
+character = "stercus"
+expression = "smug"
+function = "hurtsound"
+interrupt = true
 
-[node name="DiagPiece" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3" instance=ExtResource( 14 )]
-key = "nope"
-message = "wow dumy"
-expression = "misc"
+[node name="DiagPiece4" parent="YSort/Boque/DialogueTree/DiagPiece/DiagPiece3/DiagPiece3/DiagPiece2/DiagPiece3" instance=ExtResource( 14 )]
+message = "..."
+character = "green"
+expression = "big_eyed2"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/Boque"]
+stream = ExtResource( 25 )
 
 [node name="Boque2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 226, 106 )

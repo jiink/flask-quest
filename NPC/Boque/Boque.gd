@@ -18,3 +18,6 @@ func enter_battle(foes):
 	#get_node("/root/global").initial_enemies = ["Boque", "Boque", "Boque"]
 	#get_tree().change_scene("res://Engine/Battle/BattleScene.tscn")
 	print("battle time")
+
+func hurtsound():
+	$AudioStreamPlayer.play()
