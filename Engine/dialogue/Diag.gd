@@ -90,6 +90,10 @@ func start_talk(obj, starting_branch):
 	open()
 	update_boxes(obj)
 	
+	# set the font back to normal on a new tree
+	text_font = default_text_font
+	$TextBox.add_font_override("font", text_font)
+	
 	
 func update_boxes(new_target):
 	target_piece = new_target
