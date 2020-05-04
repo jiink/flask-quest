@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/debris_pipe.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 9 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 22, 10 )
+
+[node name="debris_pipe" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -29, -6 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 30, 10 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1, 1 )
+shape = SubResource( 2 )

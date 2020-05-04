@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AGT_alarms.ogg-2e6c51bac60880b555ba6d19f1d005ef.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area5/Assets/PostApoc/AGT_alarms.ogg"
+dest_files=[ "res://.import/AGT_alarms.ogg-2e6c51bac60880b555ba6d19f1d005ef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

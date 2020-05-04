@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/melancholy_battle.ogg-6a3c71bad3598ec72fa9d7ccdfdcab85.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area5/Assets/PostApoc/melancholy_battle.ogg"
+dest_files=[ "res://.import/melancholy_battle.ogg-6a3c71bad3598ec72fa9d7ccdfdcab85.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
