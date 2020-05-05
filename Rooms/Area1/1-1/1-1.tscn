@@ -514,7 +514,7 @@ message = "PERHAPS something corrosive could let you through!"
 no_face = true
 
 [node name="IfYesMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="1" instance=ExtResource( 30 )]
-message = "Yeet Miniman at the door?"
+message = "Throw Miniman at the door?"
 no_face = true
 
 [node name="DiagPiece" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="0" instance=ExtResource( 30 )]
