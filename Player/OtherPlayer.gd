@@ -12,7 +12,12 @@ export(int, "HUMAN", "BOT", "EXTERNAL") var controlled_by = HUMAN
 
 onready var leader = get_node("../Player")
 
+export(bool) var spawn_with_p1 = true
+
 func _ready():
+	if spawn_with_p1:
+		position = Vector2(global.get_player(1).position.x, global.get_player(1).position.y - 1)
+
 	extended = true
 	
 	# >1st player's input actions have their number after the name
@@ -42,7 +47,6 @@ func _process(delta):
 	
 	# if other cases unused, use set_process to make this not happen if this
 	#  is controlled by a bot
-
 	match controlled_by:
 		HUMAN:
 			previous_position = position
@@ -60,7 +64,10 @@ func _process(delta):
 			pass
 			
 func _tick():
+	
 	if controlled_by == BOT:
+		if frozen:
+			return
 		$FollowTween.interpolate_property(self, "position", null, leader.position_history[follow_distance], 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 	
 		$FollowTween.start()

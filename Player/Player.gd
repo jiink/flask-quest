@@ -197,8 +197,11 @@ func make_one(num):
 		num = 1
 	return num
 
-func set_frozen(choice = true, all = true):
+func set_frozen(choice = true, all = true): # freeze all players or just this one?
 	frozen = choice
 	if all and global.get_player(2):
 		global.get_player(2).frozen = choice
+		global.get_player(2).motion = Vector2(0, 0)
+		global.get_player(2).get_node("AnimatedSprite").playing = false
+		global.get_player(2).get_node("AnimatedSprite").frame = 0
 	
