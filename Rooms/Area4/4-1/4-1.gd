@@ -12,8 +12,8 @@ func save(save_game):
 func load(save_game):
 	pass
 
-
-
-
 func _on_OnArea_body_entered(body):
 	pass # Replace with function body.
+
+func forced_out_entrance():
+	$ForcedOutEvent.play("default")
