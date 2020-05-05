@@ -227,13 +227,13 @@ func get_column():
 	return fmod(selection_index, col_count)
 	
 	
-func toss_item(ind):
+func toss_item(ind, forced = false):
 	if state == LOADOUT:
 		print("Failed to throw away item")
 		get_tree().get_nodes_in_group("Player")[0].do_floaty_text("I should unequip it first...")
 		return
 		
-	if not manager.items[get_item_list()[selection_index]].has('droppable'):
+	if not manager.items[get_item_list()[selection_index]].has('droppable') or forced:
 		manager.inventory.remove(ind)
 		if $InfoBar.visible:
 			update_item_selection(selection_index)
@@ -245,7 +245,7 @@ func equip_item(ind):
 	if manager.items[get_item_list()[selection_index]].has('equippable'):
 		if state == INVENTORY:
 			manager.loadout.append(manager.inventory[ind])
-			toss_item(ind)
+			toss_item(ind, true)
 		else:
 			manager.inventory.append(manager.loadout[ind])
 			manager.loadout.remove(ind)
