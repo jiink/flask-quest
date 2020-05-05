@@ -240,7 +240,8 @@ func swap_scenes():
 	yield(get_tree().create_timer(0.01), "timeout")
 #	connect_to_transition()
 	if next_player_position != null:
-		get_tree().get_nodes_in_group("Player")[0].position = next_player_position
+		for p in get_tree().get_nodes_in_group("Player"):
+			p.position = next_player_position
 	else:
 		print("warning: new player pos is null")
 	
