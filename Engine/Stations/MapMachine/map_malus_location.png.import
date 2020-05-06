@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wifipost_on.png-7424bff7ce8437e9fbc019feb03198e2.stex"
+path="res://.import/map_malus_location.png-4eb9cbe7af021b445253729af26bbfe2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/wifipost_on.png"
-dest_files=[ "res://.import/wifipost_on.png-7424bff7ce8437e9fbc019feb03198e2.stex" ]
+source_file="res://Engine/Stations/MapMachine/map_malus_location.png"
+dest_files=[ "res://.import/map_malus_location.png-4eb9cbe7af021b445253729af26bbfe2.stex" ]
 
 [params]
 

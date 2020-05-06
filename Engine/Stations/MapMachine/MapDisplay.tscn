@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Rooms/Area2/Assets/MapDisplay.gd" type="Script" id=1]
-[ext_resource path="res://Rooms/Area2/Assets/lanetta_map_display.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Stations/MapMachine/MapDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Engine/Stations/MapMachine/lanetta_map_display.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Fonts/DOS.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Rooms/Area2/Assets/map_machine_display_overlay.png" type="Texture" id=4]
+[ext_resource path="res://Engine/Stations/MapMachine/map_machine_display_overlay.png" type="Texture" id=4]
 [ext_resource path="res://Engine/AnimateSpritesheet.gd" type="Script" id=5]
-[ext_resource path="res://Rooms/Area2/Assets/map_you_location.png" type="Texture" id=6]
-[ext_resource path="res://Rooms/Area2/Assets/map_malus_location.png" type="Texture" id=7]
+[ext_resource path="res://Engine/Stations/MapMachine/map_you_location.png" type="Texture" id=6]
+[ext_resource path="res://Engine/Stations/MapMachine/map_malus_location.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "log_in"

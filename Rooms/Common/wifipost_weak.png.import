@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lanetta_map_display.png-9e750bdfcfc2932373582c1939cefaca.stex"
+path="res://.import/wifipost_weak.png-a6441609048f1063976ddc37301735b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/lanetta_map_display.png"
-dest_files=[ "res://.import/lanetta_map_display.png-9e750bdfcfc2932373582c1939cefaca.stex" ]
+source_file="res://Rooms/Common/wifipost_weak.png"
+dest_files=[ "res://.import/wifipost_weak.png-a6441609048f1063976ddc37301735b2.stex" ]
 
 [params]
 

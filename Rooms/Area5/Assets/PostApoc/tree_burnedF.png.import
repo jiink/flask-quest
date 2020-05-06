@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wifistation_improved.png-d8fb1646e635add462a1c7373a229204.stex"
+path="res://.import/tree_burnedF.png-a53808a41aeeaee52f923bf4b25adc32.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/wifistation_improved.png"
-dest_files=[ "res://.import/wifistation_improved.png-d8fb1646e635add462a1c7373a229204.stex" ]
+source_file="res://Rooms/Area5/Assets/PostApoc/tree_burnedF.png"
+dest_files=[ "res://.import/tree_burnedF.png-a53808a41aeeaee52f923bf4b25adc32.stex" ]
 
 [params]
 

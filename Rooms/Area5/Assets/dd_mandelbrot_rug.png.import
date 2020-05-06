@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wifibeam.png-f76e19eac4874c0749e67d43c364c67d.stex"
+path="res://.import/dd_mandelbrot_rug.png-357badc043fcbb7232c6bd2d9dc15167.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/wifibeam.png"
-dest_files=[ "res://.import/wifibeam.png-f76e19eac4874c0749e67d43c364c67d.stex" ]
+source_file="res://Rooms/Area5/Assets/dd_mandelbrot_rug.png"
+dest_files=[ "res://.import/dd_mandelbrot_rug.png-357badc043fcbb7232c6bd2d9dc15167.stex" ]
 
 [params]
 

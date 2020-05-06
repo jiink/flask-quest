@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wifipost_stupid.png-6acb1088d57092978bd1e41e7380d585.stex"
+path="res://.import/cabin_burnedA_front.png-a5fc9d7b6145d4842bb2106d7393c4ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/wifipost_stupid.png"
-dest_files=[ "res://.import/wifipost_stupid.png-6acb1088d57092978bd1e41e7380d585.stex" ]
+source_file="res://Rooms/Area5/Assets/PostApoc/cabin_burnedA_front.png"
+dest_files=[ "res://.import/cabin_burnedA_front.png-a5fc9d7b6145d4842bb2106d7393c4ca.stex" ]
 
 [params]
 

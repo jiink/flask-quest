@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=2]
@@ -69,6 +69,23 @@
 [ext_resource path="res://Engine/light2.png" type="Texture" id=67]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/lantern_cool.tscn" type="PackedScene" id=68]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/lantern_warm.tscn" type="PackedScene" id=69]
+[ext_resource path="res://Engine/Stations/MapMachine/MapMachine.tscn" type="PackedScene" id=70]
+[ext_resource path="res://Rooms/Common/PropScenes/wifistation_improved.tscn" type="PackedScene" id=71]
+[ext_resource path="res://Rooms/Common/PropScenes/wifipost_on.tscn" type="PackedScene" id=72]
+[ext_resource path="res://Rooms/Common/PropScenes/wifipost_stupid.tscn" type="PackedScene" id=73]
+[ext_resource path="res://Rooms/Common/PropScenes/wifipost_weak.tscn" type="PackedScene" id=74]
+[ext_resource path="res://Rooms/Common/WifiBeam.tscn" type="PackedScene" id=75]
+[ext_resource path="res://Rooms/Common/PropScenes/WifipostFixedUp.tscn" type="PackedScene" id=76]
+[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=77]
+[ext_resource path="res://Rooms/Area5/Assets/dd_mandelbrot_rug.png" type="Texture" id=78]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/DDDesk.tscn" type="PackedScene" id=79]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/DDUmbrellaRack.tscn" type="PackedScene" id=80]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13, 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 13, 3 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "cycle"
@@ -209,10 +226,14 @@ position = Vector2( 3909, 910 )
 [node name="cabin1_A_interior6" parent="CabinInteriors" index="9" instance=ExtResource( 5 )]
 position = Vector2( 3910, 2063 )
 
-[node name="Player" parent="YSort" index="0"]
-position = Vector2( 3228, 123 )
+[node name="dd_mandelbrot_rug" type="Sprite" parent="CabinInteriors/cabin1_A_interior6" index="4"]
+position = Vector2( 18, 44 )
+texture = ExtResource( 78 )
 
-[node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
+[node name="Orange" parent="YSort" index="0" instance=ExtResource( 55 )]
+
+[node name="Player" parent="YSort" index="1"]
+position = Vector2( 3243, 500 )
 
 [node name="CorruptVegetation" type="YSort" parent="YSort" index="2"]
 
@@ -1480,6 +1501,63 @@ position = Vector2( -35, 1367 )
 [node name="cabin_bed6" parent="YSort/furniture" index="29" instance=ExtResource( 39 )]
 position = Vector2( 60, 1368 )
 
+[node name="cabin_bed7" parent="YSort/furniture" index="30" instance=ExtResource( 39 )]
+position = Vector2( 763, 2009 )
+frame = 1
+
+[node name="cabin_lamp_B5" parent="YSort/furniture" index="31" instance=ExtResource( 41 )]
+position = Vector2( 637, 2008 )
+
+[node name="DDDesk" parent="YSort/furniture" index="32" instance=ExtResource( 79 )]
+position = Vector2( 673, 2019 )
+
+[node name="DDUmbrellaRack" parent="YSort/furniture" index="33" instance=ExtResource( 80 )]
+position = Vector2( 702, 1997 )
+
+[node name="cabin_dresser4" parent="YSort/furniture" index="34" instance=ExtResource( 44 )]
+position = Vector2( 735, 1997 )
+
+[node name="Internet" type="YSort" parent="YSort" index="8"]
+
+[node name="MapMachine" parent="YSort/Internet" index="0" instance=ExtResource( 70 )]
+position = Vector2( 288, 780 )
+
+[node name="MapMachine2" parent="YSort/Internet" index="1" instance=ExtResource( 70 )]
+position = Vector2( 1392, 743 )
+
+[node name="MapMachine3" parent="YSort/Internet" index="2" instance=ExtResource( 70 )]
+position = Vector2( 324, 1282 )
+
+[node name="WifipostFixedUp" parent="YSort/Internet" index="3" instance=ExtResource( 76 )]
+position = Vector2( 853, 1202 )
+
+[node name="wifipost_on" parent="YSort/Internet" index="4" instance=ExtResource( 72 )]
+position = Vector2( 503, 741 )
+
+[node name="wifipost_on2" parent="YSort/Internet" index="5" instance=ExtResource( 72 )]
+position = Vector2( 1075, 629 )
+
+[node name="wifipost_on3" parent="YSort/Internet" index="6" instance=ExtResource( 74 )]
+position = Vector2( 847, 962 )
+
+[node name="wifistation_improved" parent="YSort/Internet" index="7" instance=ExtResource( 71 )]
+position = Vector2( 891, 649 )
+
+[node name="wifipost_on4" parent="YSort/Internet" index="8" instance=ExtResource( 73 )]
+position = Vector2( 1255, 1460 )
+
+[node name="wifipost_on5" parent="YSort/Internet" index="9" instance=ExtResource( 72 )]
+position = Vector2( 363, 1035 )
+
+[node name="wifipost_on6" parent="YSort/Internet" index="10" instance=ExtResource( 72 )]
+position = Vector2( 176, 1385 )
+
+[node name="wifistation_improved2" parent="YSort/Internet" index="11" instance=ExtResource( 71 )]
+position = Vector2( 396, 1308 )
+
+[node name="MapMachine4" parent="YSort/Internet" index="12" instance=ExtResource( 70 )]
+position = Vector2( 973, 1377 )
+
 [node name="Lights" type="Node2D" parent="." index="5"]
 __meta__ = {
 "_edit_lock_": true
@@ -1596,7 +1674,151 @@ position = Vector2( 687, 1460 )
 [node name="lantern_warm6" parent="Lights" index="18" instance=ExtResource( 69 )]
 position = Vector2( 511, 1130 )
 
-[node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="6"]
+[node name="InternetBeams" type="Node2D" parent="." index="6"]
+
+[node name="WifiBeam" parent="InternetBeams" index="0" instance=ExtResource( 75 )]
+points = PoolVector2Array( 363, 940, 176, 1290, 859, 1113, 848, 869, 1074, 533, 916, 610, 504, 646, 363, 940 )
+
+[node name="WifiBeam2" parent="InternetBeams" index="1" instance=ExtResource( 75 )]
+position = Vector2( 382, 940 )
+points = PoolVector2Array( 479, 173, -19, 0, 464, -73 )
+
+[node name="WifiBeam3" parent="InternetBeams" index="2" instance=ExtResource( 75 )]
+position = Vector2( 408, 1268 )
+points = PoolVector2Array( -232, 22, 16, 0 )
+
+[node name="PositionPortals" type="Node2D" parent="." index="7"]
+
+[node name="PositionPortal" parent="PositionPortals" index="0" instance=ExtResource( 77 )]
+position = Vector2( 802, 815 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal" index="0"]
+shape = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal" index="1"]
+position = Vector2( 2449, -664 )
+
+[node name="PositionPortal3" parent="PositionPortals" index="1" instance=ExtResource( 77 )]
+position = Vector2( 723, 997 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal3" index="0"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal3" index="1"]
+position = Vector2( 2528, -462 )
+
+[node name="PositionPortal4" parent="PositionPortals" index="2" instance=ExtResource( 77 )]
+position = Vector2( 531, 1159 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal4" index="0"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal4" index="1"]
+position = Vector2( 2722, -183 )
+
+[node name="PositionPortal5" parent="PositionPortals" index="3" instance=ExtResource( 77 )]
+position = Vector2( 204, 1189 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal5" index="0"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal5" index="1"]
+position = Vector2( 2506, -214 )
+
+[node name="PositionPortal6" parent="PositionPortals" index="4" instance=ExtResource( 77 )]
+position = Vector2( 721, 1293 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal6" index="0"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal6" index="1"]
+position = Vector2( 2530, 178 )
+
+[node name="PositionPortal7" parent="PositionPortals" index="5" instance=ExtResource( 77 )]
+position = Vector2( 1181, 1523 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal7" index="0"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal7" index="1"]
+position = Vector2( 2773, 607 )
+
+[node name="PositionPortal2" parent="PositionPortals" index="6" instance=ExtResource( 77 )]
+position = Vector2( 3250, 148 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal2" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal2" index="1"]
+position = Vector2( -2448, 681 )
+
+[node name="PositionPortal8" parent="PositionPortals" index="7" instance=ExtResource( 77 )]
+position = Vector2( 3249, 539 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal8" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal8" index="1"]
+position = Vector2( -2526, 469 )
+
+[node name="PositionPortal9" parent="PositionPortals" index="8" instance=ExtResource( 77 )]
+position = Vector2( 3249, 977 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal9" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal9" index="1"]
+position = Vector2( -2720, 203 )
+
+[node name="PositionPortal10" parent="PositionPortals" index="9" instance=ExtResource( 77 )]
+position = Vector2( 2708, 977 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal10" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal10" index="1"]
+position = Vector2( -2503, 233 )
+
+[node name="PositionPortal11" parent="PositionPortals" index="10" instance=ExtResource( 77 )]
+position = Vector2( 3249, 1473 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal11" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal11" index="1"]
+position = Vector2( -2529, -165 )
+
+[node name="PositionPortal12" parent="PositionPortals" index="11" instance=ExtResource( 77 )]
+position = Vector2( 3953, 2133 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal12" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal12" index="1"]
+position = Vector2( -2771, -596 )
+
+[node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="8"]
 layer = 1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanopyShadowPBG" index="0"]
@@ -1607,8 +1829,7 @@ motion_mirroring = Vector2( 512, 512 )
 texture = ExtResource( 37 )
 offset = Vector2( 256, 0 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="7"]
-color = Color( 0.0235294, 0.0235294, 0.235294, 1 )
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="9"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 autoplay = "noon"

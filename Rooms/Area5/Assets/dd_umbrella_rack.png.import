@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map_you_location.png-cf492d3157f50e5361d95a24b951b3a1.stex"
+path="res://.import/dd_umbrella_rack.png-6714bd5633fdf163a14333deeb949281.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/map_you_location.png"
-dest_files=[ "res://.import/map_you_location.png-cf492d3157f50e5361d95a24b951b3a1.stex" ]
+source_file="res://Rooms/Area5/Assets/dd_umbrella_rack.png"
+dest_files=[ "res://.import/dd_umbrella_rack.png-6714bd5633fdf163a14333deeb949281.stex" ]
 
 [params]
 

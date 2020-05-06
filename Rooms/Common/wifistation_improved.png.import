@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map_machine_display_overlay.png-38914952e2eff25769949fb25fa9439e.stex"
+path="res://.import/wifistation_improved.png-11059ea08faae670dadbf9fa56e2c273.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/map_machine_display_overlay.png"
-dest_files=[ "res://.import/map_machine_display_overlay.png-38914952e2eff25769949fb25fa9439e.stex" ]
+source_file="res://Rooms/Common/wifistation_improved.png"
+dest_files=[ "res://.import/wifistation_improved.png-11059ea08faae670dadbf9fa56e2c273.stex" ]
 
 [params]
 

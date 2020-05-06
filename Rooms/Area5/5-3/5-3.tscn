@@ -1,10 +1,9 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/AGT_weather_phaser.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/melancholy_battle.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Rooms/Area5/5-3/5-3.tmx" type="PackedScene" id=4]
-[ext_resource path="res://Rooms/Area5/Assets/cabin1_A_interior.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/tree_burnedB.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/tree_stumpA.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/tree_branchesA.tscn" type="PackedScene" id=8]
@@ -21,9 +20,13 @@
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/cloud_shadows.png" type="Texture" id=19]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/AGT_alarms.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/melancholy.ogg" type="AudioStream" id=21]
-[ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_A.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/cabin_burnedA_back.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/cabin_burnedB.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/cabin_burnedC.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/cabin_burnedA_front.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/debris_trussA.png" type="Texture" id=26]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/debris_trussB.png" type="Texture" id=27]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_C.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_B.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/transformer_01.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/tank_1.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/tank_2.tscn" type="PackedScene" id=33]
@@ -31,7 +34,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/lamppost_02.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/lamppost_01_cool.tscn" type="PackedScene" id=36]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "default"
 length = 30.0
 loop = true
@@ -48,7 +51,7 @@ tracks/0/keys = {
 "values": [ Color( 0.686275, 0.678431, 0.760784, 1 ), Color( 0.627451, 0.505882, 0.678431, 1 ), Color( 0.686275, 0.678431, 0.760784, 1 ), Color( 0.517647, 0.505882, 0.639216, 1 ), Color( 0.768627, 0.643137, 0.780392, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 3
 
 [node name="5-3" instance=ExtResource( 1 )]
@@ -57,11 +60,25 @@ battle_music = ExtResource( 3 )
 
 [node name="5-3" parent="Tilemaps" index="0" instance=ExtResource( 4 )]
 
-[node name="CabinInteriors" type="Node2D" parent="." index="2"]
+[node name="debris_trussA" type="Sprite" parent="." index="2"]
+position = Vector2( 1272, 406 )
+texture = ExtResource( 26 )
 
-[node name="cabin1_A_interior" type="Sprite" parent="CabinInteriors" index="0"]
-position = Vector2( 2666, 75 )
-texture = ExtResource( 5 )
+[node name="debris_trussA2" type="Sprite" parent="." index="3"]
+position = Vector2( 1217, 233 )
+texture = ExtResource( 26 )
+
+[node name="debris_trussA3" type="Sprite" parent="." index="4"]
+position = Vector2( 329, 67 )
+texture = ExtResource( 26 )
+
+[node name="debris_trussB2" type="Sprite" parent="." index="5"]
+position = Vector2( 1351, 184 )
+texture = ExtResource( 27 )
+
+[node name="debris_trussB" type="Sprite" parent="." index="6"]
+position = Vector2( 1131, 184 )
+texture = ExtResource( 27 )
 
 [node name="CorruptVegetation" type="YSort" parent="YSort" index="1"]
 
@@ -306,35 +323,55 @@ position = Vector2( 766, 384 )
 
 [node name="Cabins" type="YSort" parent="YSort" index="3"]
 
-[node name="cabin1_A" parent="YSort/Cabins" index="0" instance=ExtResource( 28 )]
-position = Vector2( 499, 1129 )
-
-[node name="cabin1_C" parent="YSort/Cabins" index="1" instance=ExtResource( 29 )]
+[node name="cabin1_C" parent="YSort/Cabins" index="0" instance=ExtResource( 29 )]
 position = Vector2( 636, 1459 )
 
-[node name="cabin1_B" parent="YSort/Cabins" index="2" instance=ExtResource( 30 )]
-position = Vector2( 385, 1475 )
-
-[node name="cabin1_B2" parent="YSort/Cabins" index="3" instance=ExtResource( 30 )]
-position = Vector2( 968, 1092 )
-
-[node name="cabin1_A2" parent="YSort/Cabins" index="4" instance=ExtResource( 28 )]
-position = Vector2( 689, 1263 )
-
-[node name="cabin1_A3" parent="YSort/Cabins" index="5" instance=ExtResource( 28 )]
-position = Vector2( 691, 967 )
-
-[node name="cabin1_C2" parent="YSort/Cabins" index="6" instance=ExtResource( 29 )]
+[node name="cabin1_C2" parent="YSort/Cabins" index="1" instance=ExtResource( 29 )]
 position = Vector2( 1137, 798 )
 
-[node name="cabin1_A4" parent="YSort/Cabins" index="7" instance=ExtResource( 28 )]
-position = Vector2( 770, 785 )
+[node name="cabin_burnedC2" parent="YSort/Cabins" index="2" instance=ExtResource( 24 )]
+position = Vector2( 686, 1241 )
 
-[node name="cabin1_A5" parent="YSort/Cabins" index="8" instance=ExtResource( 28 )]
-position = Vector2( 1149, 1493 )
+[node name="cabin_burnedA_back" parent="YSort/Cabins" index="3" instance=ExtResource( 22 )]
+position = Vector2( 152, 1121 )
 
-[node name="cabin1_A6" parent="YSort/Cabins" index="9" instance=ExtResource( 28 )]
-position = Vector2( 172, 1159 )
+[node name="cabin_burnedA_front" parent="YSort/Cabins" index="4" instance=ExtResource( 25 )]
+position = Vector2( 147, 1180 )
+
+[node name="cabin_burnedC3" parent="YSort/Cabins" index="5" instance=ExtResource( 24 )]
+position = Vector2( 1149, 1489 )
+
+[node name="cabin_burnedA_back2" parent="YSort/Cabins" index="6" instance=ExtResource( 22 )]
+position = Vector2( 708, 906 )
+
+[node name="cabin_burnedA_front2" parent="YSort/Cabins" index="7" instance=ExtResource( 25 )]
+position = Vector2( 703, 965 )
+
+[node name="cabin_burnedB" parent="YSort/Cabins" index="8" instance=ExtResource( 23 )]
+position = Vector2( 776, 710 )
+
+[node name="cabin_burnedA_back3" parent="YSort/Cabins" index="9" instance=ExtResource( 22 )]
+position = Vector2( 524, 1084 )
+
+[node name="cabin_burnedA_back4" parent="YSort/Cabins" index="10" instance=ExtResource( 22 )]
+position = Vector2( 922, 1061 )
+
+[node name="cabin_burnedA_back5" parent="YSort/Cabins" index="11" instance=ExtResource( 22 )]
+position = Vector2( 996, 1061 )
+flip_h = true
+
+[node name="cabin_burnedA_front3" parent="YSort/Cabins" index="12" instance=ExtResource( 25 )]
+position = Vector2( 919, 1119 )
+
+[node name="cabin_burnedA_back7" parent="YSort/Cabins" index="13" instance=ExtResource( 22 )]
+position = Vector2( 350, 1434.5 )
+
+[node name="cabin_burnedA_back6" parent="YSort/Cabins" index="14" instance=ExtResource( 22 )]
+position = Vector2( 424, 1434.5 )
+flip_h = true
+
+[node name="cabin_burnedA_front4" parent="YSort/Cabins" index="15" instance=ExtResource( 25 )]
+position = Vector2( 347, 1492.5 )
 
 [node name="Industrial" type="YSort" parent="YSort" index="4"]
 
@@ -409,6 +446,21 @@ position = Vector2( 748, 441 )
 
 [node name="debris_pipe2" parent="YSort/Industrial" index="23" instance=ExtResource( 10 )]
 position = Vector2( 1445, 654 )
+
+[node name="debris_trussC2" parent="YSort/Industrial" index="24" instance=ExtResource( 9 )]
+position = Vector2( 989, 150 )
+
+[node name="debris_pipe3" parent="YSort/Industrial" index="25" instance=ExtResource( 10 )]
+position = Vector2( 1395, 138 )
+
+[node name="debris_trussC3" parent="YSort/Industrial" index="26" instance=ExtResource( 9 )]
+position = Vector2( 1577, 45 )
+
+[node name="debris_trussC4" parent="YSort/Industrial" index="27" instance=ExtResource( 9 )]
+position = Vector2( 351, -34 )
+
+[node name="debris_pipe4" parent="YSort/Industrial" index="28" instance=ExtResource( 10 )]
+position = Vector2( 241, 7 )
 
 [node name="Lampposts" type="YSort" parent="YSort" index="5"]
 
@@ -490,14 +542,14 @@ position = Vector2( 144, 1715 )
 [node name="lamppost_26" parent="YSort/Lampposts" index="25" instance=ExtResource( 36 )]
 position = Vector2( 350, 492 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
-color = Color( 0.554923, 0.544025, 0.666089, 1 )
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="8"]
+color = Color( 0.686275, 0.678431, 0.760784, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 autoplay = "default"
-anims/default = SubResource( 2 )
+anims/default = SubResource( 1 )
 
-[node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="5"]
+[node name="CanopyShadowPBG" type="ParallaxBackground" parent="." index="9"]
 layer = 1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanopyShadowPBG" index="0"]
@@ -506,15 +558,15 @@ position = Vector2( 515, 396 )
 motion_mirroring = Vector2( 512, 512 )
 
 [node name="canopy_shadow" type="Sprite" parent="CanopyShadowPBG/ParallaxLayer" index="0"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 texture = ExtResource( 19 )
 offset = Vector2( 256, 0 )
 
-[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="8"]
+[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="12"]
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="AlarmsAudio" type="AudioStreamPlayer" parent="." index="9"]
+[node name="AlarmsAudio" type="AudioStreamPlayer" parent="." index="13"]
 stream = ExtResource( 20 )
 autoplay = true
 

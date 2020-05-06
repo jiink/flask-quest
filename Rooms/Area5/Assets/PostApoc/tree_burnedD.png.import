@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map_machine.png-9447d20af501aa2df96576b6f83b2c0f.stex"
+path="res://.import/tree_burnedD.png-b035855542d1e77bac5e232fcd432473.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/map_machine.png"
-dest_files=[ "res://.import/map_machine.png-9447d20af501aa2df96576b6f83b2c0f.stex" ]
+source_file="res://Rooms/Area5/Assets/PostApoc/tree_burnedD.png"
+dest_files=[ "res://.import/tree_burnedD.png-b035855542d1e77bac5e232fcd432473.stex" ]
 
 [params]
 
