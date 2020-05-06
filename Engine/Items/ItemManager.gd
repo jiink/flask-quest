@@ -5,7 +5,7 @@ var loadout = ['fire_chemical', 'exotic_excreta', ]
 var inventory_capacity = 20
 
 func give_item(the_item):
-	var player = get_tree().get_nodes_in_group("Player")[0]
+	var player = global.get_player(1)
 	if is_inventory_full():
 		if player:
 			player.do_floaty_text("Inventory full!")

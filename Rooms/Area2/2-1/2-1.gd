@@ -34,11 +34,16 @@ func load(save_game):
 func update_manhole(state): # true open false close
 	if state:
 		$SpecialManhole/Sprite.frame = 19 # looks open
+		$SpecialManhole/Particles2D.emitting = true
 		$SpecialManhole/PortalToSewer/CollisionShape2D.disabled = false
 	else:
 		$SpecialManhole/Sprite.frame = 0 # looks closed
 		$SpecialManhole/Particles2D.emitting = false
 		$SpecialManhole/PortalToSewer/CollisionShape2D.disabled = true
+
+		# in this case, you haven't been banned from malus yet so no guard for you
+		$YSort/NPC/MalusGuard.queue_free()
+
 	
 
 func update_malus_door(state):

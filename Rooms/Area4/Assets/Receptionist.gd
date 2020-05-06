@@ -1,6 +1,9 @@
 extends "res://Engine/BasicNPC.gd"
 
 func interact():
+	if global.get_player(1).position.y < position.y: # if behind...
+		DiagHelper.start_talk(self, "Behind")
+		return
 	if get_owner().ready_to_ask_for_keycard:
 		DiagHelper.start_talk(self, "GoAway")
 	else:

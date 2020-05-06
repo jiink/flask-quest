@@ -1,4 +1,4 @@
-[gd_scene load_steps=191 format=2]
+[gd_scene load_steps=192 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -139,6 +139,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/toolbox.tscn" type="PackedScene" id=137]
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/internetworkerA.tscn" type="PackedScene" id=138]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/cone.tscn" type="PackedScene" id=139]
+[ext_resource path="res://NPC/MalusLobbyGuard/MalusLobbyGuard.tscn" type="PackedScene" id=140]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 40 )
@@ -1323,7 +1324,7 @@ anims/drive = SubResource( 23 )
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 121 )]
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 272, 26 )
+position = Vector2( 269, 26 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -2586,6 +2587,14 @@ anims/run_path = SubResource( 50 )
 
 [node name="internetworkerA" parent="YSort/NPC" index="17" instance=ExtResource( 138 )]
 position = Vector2( 1789, 119 )
+
+[node name="MalusGuard" parent="YSort/NPC" index="18" instance=ExtResource( 140 )]
+position = Vector2( 1873, -1224 )
+
+[node name="DialogueTree" parent="YSort/NPC/MalusGuard" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/MalusGuard/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Go... bother some other company instead. Okay?"
 
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
