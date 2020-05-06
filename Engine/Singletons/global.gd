@@ -245,6 +245,9 @@ func swap_scenes():
 	else:
 		print("warning: new player pos is null")
 	
+	# janky problems need janky solutions
+	get_player(1).clear_history()
+
 	emit_signal("scene_changed")
 	# load!!
 	

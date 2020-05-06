@@ -37,9 +37,7 @@ func _ready():
 	$LightOccluder2D.visible = true
 	
 	yield(get_tree().create_timer(0.1), "timeout")
-	for i in range(24):
-		position_history.append(position)
-		in_water_history.append(in_water)
+	clear_history()
 #	print("UH: %s" % Engine.get_frames_per_second())
 	
 	
@@ -205,3 +203,9 @@ func set_frozen(choice = true, all = true): # freeze all players or just this on
 		global.get_player(2).get_node("AnimatedSprite").playing = false
 		global.get_player(2).get_node("AnimatedSprite").frame = 0
 	
+func clear_history():
+	position_history = []
+	in_water_history = []
+	for i in range(24):
+		position_history.append(position)
+		in_water_history.append(in_water)
