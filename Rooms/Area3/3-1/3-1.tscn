@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/sign_biohazard.png" type="Texture" id=2]
@@ -41,6 +41,10 @@
 [ext_resource path="res://Rooms/Area3/Assets/sign_floor.png" type="Texture" id=39]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Rooms/Area3/Assets/PropScenes/battery.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Engine/light4.png" type="Texture" id=43]
+[ext_resource path="res://Rooms/Area3/Assets/pipe_leak_puzzle.png" type="Texture" id=44]
+[ext_resource path="res://Rooms/Area3/Assets/puzzle_valve.png" type="Texture" id=45]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -60,34 +64,6 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "default"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:texture_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.6, 2.7 ),
-"transitions": PoolRealArray( 3.36358, 3.36358, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.01 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1.6, 2.7 ),
-"transitions": PoolRealArray( 4, 4, 1 ),
-"update": 0,
-"values": [ 1.42, 1.42, 0.0 ]
-}
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 39, 10 )
 
@@ -99,6 +75,23 @@ extents = Vector2( 39, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 37, 10 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "leak"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 0.45
@@ -117,19 +110,50 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 35, 16 )
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+light_mode = 1
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 4, 17 )
+[sub_resource type="Animation" id=8]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 256, 256 ), Rect2( 0, 0, 256, 256 ), Rect2( 0, 0, 0, 256 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23, 8 ), Vector2( -23, 8 ), Vector2( -87, 8 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 42, 58 )
+extents = Vector2( 35, 16 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 36, 22 )
+extents = Vector2( 4, 17 )
 
 [sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 42, 58 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 36, 22 )
+
+[sub_resource type="RectangleShape2D" id=13]
 
 [node name="3-1" instance=ExtResource( 1 )]
 battle_bg = ExtResource( 32 )
@@ -524,281 +548,7 @@ hframes = 2
 autoplay = "Default"
 anims/Default = SubResource( 1 )
 
-[node name="Lights" type="Node" parent="." index="2"]
-
-[node name="ManholeLight" type="Light2D" parent="Lights" index="0"]
-position = Vector2( -23, 8 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-texture_scale = 0.01
-energy = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/ManholeLight" index="0"]
-anims/default = SubResource( 12 )
-
-[node name="Light2D2" type="Light2D" parent="Lights" index="1"]
-position = Vector2( 88, -56 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D6" type="Light2D" parent="Lights" index="2"]
-position = Vector2( 584, -120 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D14" type="Light2D" parent="Lights" index="3"]
-position = Vector2( 1016, -120 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D15" type="Light2D" parent="Lights" index="4"]
-position = Vector2( 1960, -184 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D16" type="Light2D" parent="Lights" index="5"]
-position = Vector2( 2616, -391 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D17" type="Light2D" parent="Lights" index="6"]
-position = Vector2( 2680, -392 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D18" type="Light2D" parent="Lights" index="7"]
-position = Vector2( 2936, -359 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D25" type="Light2D" parent="Lights" index="8"]
-position = Vector2( 2862, -506 )
-scale = Vector2( 0.931249, 0.931249 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.71
-
-[node name="Light2D26" type="Light2D" parent="Lights" index="9"]
-position = Vector2( 2545, -764 )
-scale = Vector2( 1.18906, 1.18906 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D27" type="Light2D" parent="Lights" index="10"]
-position = Vector2( 2116, -758 )
-scale = Vector2( 1.18906, 1.18906 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D28" type="Light2D" parent="Lights" index="11"]
-position = Vector2( 1548, -769 )
-scale = Vector2( 1.18906, 1.18906 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D23" type="Light2D" parent="Lights" index="12"]
-position = Vector2( 2584, -231 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D37" type="Light2D" parent="Lights" index="13"]
-position = Vector2( 2392, -262 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D24" type="Light2D" parent="Lights" index="14"]
-position = Vector2( 3096, -359 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D38" type="Light2D" parent="Lights" index="15"]
-position = Vector2( 2808, -711 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D7" type="Light2D" parent="Lights" index="16"]
-position = Vector2( 680, -296 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D10" type="Light2D" parent="Lights" index="17"]
-position = Vector2( 568, -265 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D8" type="Light2D" parent="Lights" index="18"]
-position = Vector2( 792, -296 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D9" type="Light2D" parent="Lights" index="19"]
-position = Vector2( 904, -296 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D35" type="Light2D" parent="Lights" index="20"]
-position = Vector2( 793, -163 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D5" type="Light2D" parent="Lights" index="21"]
-position = Vector2( 277, 338 )
-scale = Vector2( 0.941406, 0.941406 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D3" type="Light2D" parent="Lights" index="22"]
-position = Vector2( 216, 24 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D4" type="Light2D" parent="Lights" index="23"]
-position = Vector2( 328, 24 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D11" type="Light2D" parent="Lights" index="24"]
-position = Vector2( 728, -88 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D12" type="Light2D" parent="Lights" index="25"]
-position = Vector2( 760, -88 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D13" type="Light2D" parent="Lights" index="26"]
-position = Vector2( 872, -88 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D19" type="Light2D" parent="Lights" index="27"]
-position = Vector2( 2088, -168 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D20" type="Light2D" parent="Lights" index="28"]
-position = Vector2( 2040, -168 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.94902, 0.831373, 0.662745, 1 )
-energy = 1.42
-
-[node name="Light2D21" type="Light2D" parent="Lights" index="29"]
-position = Vector2( 2232, -136 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D22" type="Light2D" parent="Lights" index="30"]
-position = Vector2( 2504, -248 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-color = Color( 0.662745, 0.666667, 0.94902, 1 )
-energy = 1.42
-
-[node name="Light2D29" type="Light2D" parent="Lights" index="31"]
-position = Vector2( 2338, -773 )
-scale = Vector2( 0.742188, 0.742188 )
-texture = ExtResource( 11 )
-color = Color( 1, 0, 0, 1 )
-energy = 1.42
-
-[node name="Light2D30" type="Light2D" parent="Lights" index="32"]
-position = Vector2( 1926, -773 )
-scale = Vector2( 0.742188, 0.742188 )
-texture = ExtResource( 11 )
-color = Color( 1, 0, 0, 1 )
-energy = 1.42
-
-[node name="Light2D31" type="Light2D" parent="Lights" index="33"]
-position = Vector2( 1784, -769 )
-scale = Vector2( 0.742188, 0.742188 )
-texture = ExtResource( 11 )
-color = Color( 1, 0, 0, 1 )
-energy = 1.42
-
-[node name="Light2D32" type="Light2D" parent="Lights" index="34"]
-position = Vector2( 1285, -47.0001 )
-scale = Vector2( 0.742188, 0.742188 )
-texture = ExtResource( 11 )
-color = Color( 1, 0, 0, 1 )
-energy = 1.42
-
-[node name="Light2D34" type="Light2D" parent="Lights" index="35"]
-position = Vector2( 1528, -79 )
-scale = Vector2( 1.03516, 1.03516 )
-texture = ExtResource( 11 )
-color = Color( 0.964706, 0.65098, 0.2, 1 )
-energy = 2.0
-
-[node name="Light2D33" type="Light2D" parent="Lights" index="36"]
-position = Vector2( 1828, -61 )
-scale = Vector2( 0.742188, 0.742188 )
-texture = ExtResource( 11 )
-color = Color( 1, 0, 0, 1 )
-energy = 1.42
-
-[node name="Light2D36" type="Light2D" parent="Lights" index="37" groups=[
-"tick",
-]]
-position = Vector2( 58, 5 )
-scale = Vector2( 0.375001, 0.375001 )
-texture = ExtResource( 11 )
-color = Color( 1, 0.376471, 0, 1 )
-energy = 1.5
-script = ExtResource( 12 )
-
-[node name="Signs" type="Node2D" parent="." index="3"]
+[node name="Signs" type="Node2D" parent="." index="2"]
 position = Vector2( 87, 17 )
 
 [node name="sign_noloitering" type="Sprite" parent="Signs" index="0"]
@@ -923,19 +673,19 @@ texture = ExtResource( 29 )
 position = Vector2( 178, 38 )
 texture = ExtResource( 4 )
 
-[node name="large_door_dead" type="Sprite" parent="." index="4"]
+[node name="large_door_dead" type="Sprite" parent="." index="3"]
 position = Vector2( 2296, -120 )
 texture = ExtResource( 35 )
 
-[node name="bed1" type="Sprite" parent="." index="5"]
+[node name="bed1" type="Sprite" parent="." index="4"]
 position = Vector2( 87, 17 )
 texture = ExtResource( 13 )
 
-[node name="pipe_door" type="Sprite" parent="." index="6"]
+[node name="pipe_door" type="Sprite" parent="." index="5"]
 position = Vector2( 1528, -816 )
 texture = ExtResource( 14 )
 
-[node name="PlankPickup2" parent="." index="7" instance=ExtResource( 21 )]
+[node name="PlankPickup2" parent="." index="6" instance=ExtResource( 21 )]
 position = Vector2( -776, -184 )
 script = ExtResource( 23 )
 
@@ -945,7 +695,7 @@ visible = true
 [node name="CollisionShape2D" parent="PlankPickup2/Interaction" index="0"]
 shape = SubResource( 2 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="8"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="7"]
 position = Vector2( 776, -184 )
 script = ExtResource( 3 )
 
@@ -958,7 +708,7 @@ shape = SubResource( 3 )
 [node name="BridgeInteractZone" type="CollisionShape2D" parent="StaticBody2D/Interaction" index="0"]
 shape = SubResource( 4 )
 
-[node name="PlankPickup" parent="." index="9" instance=ExtResource( 21 )]
+[node name="PlankPickup" parent="." index="8" instance=ExtResource( 21 )]
 position = Vector2( 570, -198 )
 
 [node name="Interaction" parent="PlankPickup" index="0"]
@@ -967,8 +717,23 @@ visible = true
 [node name="CollisionShape2D" parent="PlankPickup/Interaction" index="0"]
 shape = SubResource( 5 )
 
+[node name="pipe_leak_puzzle" type="Sprite" parent="." index="9"]
+position = Vector2( 2448, -232 )
+texture = ExtResource( 44 )
+vframes = 2
+hframes = 4
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="pipe_leak_puzzle" index="0"]
+autoplay = "leak"
+anims/leak = SubResource( 14 )
+
+[node name="puzzle_valve" type="Sprite" parent="." index="10"]
+position = Vector2( 2378, -232 )
+texture = ExtResource( 45 )
+
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( 2706, -299 )
+position = Vector2( -30, 15 )
 
 [node name="barrel_empty3" parent="YSort" index="1" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )
@@ -1085,6 +850,398 @@ disabled = false
 [node name="Orange" parent="YSort" index="29" instance=ExtResource( 40 )]
 position = Vector2( 2718, -297 )
 
+[node name="battery" parent="YSort" index="30" instance=ExtResource( 42 )]
+position = Vector2( 17, 60 )
+
+[node name="Lights" type="Node" parent="." index="12"]
+
+[node name="ManholeLight" type="Sprite" parent="Lights" index="0"]
+light_mask = 0
+material = SubResource( 7 )
+position = Vector2( -23, 8 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+texture = ExtResource( 43 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 256 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/ManholeLight" index="0"]
+autoplay = "default"
+anims/default = SubResource( 8 )
+
+[node name="Light2D2" type="Light2D" parent="Lights" index="1"]
+position = Vector2( 88, -56 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D6" type="Light2D" parent="Lights" index="2"]
+position = Vector2( 584, -120 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D14" type="Light2D" parent="Lights" index="3"]
+position = Vector2( 1016, -120 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D15" type="Light2D" parent="Lights" index="4"]
+position = Vector2( 1960, -184 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D16" type="Light2D" parent="Lights" index="5"]
+position = Vector2( 2616, -391 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D17" type="Light2D" parent="Lights" index="6"]
+position = Vector2( 2680, -392 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D18" type="Light2D" parent="Lights" index="7"]
+position = Vector2( 2936, -359 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D25" type="Light2D" parent="Lights" index="8"]
+position = Vector2( 2862, -506 )
+scale = Vector2( 0.931249, 0.931249 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.71
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D26" type="Light2D" parent="Lights" index="9"]
+position = Vector2( 2545, -764 )
+scale = Vector2( 1.18906, 1.18906 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D27" type="Light2D" parent="Lights" index="10"]
+position = Vector2( 2116, -758 )
+scale = Vector2( 1.18906, 1.18906 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D28" type="Light2D" parent="Lights" index="11"]
+position = Vector2( 1548, -769 )
+scale = Vector2( 1.18906, 1.18906 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D23" type="Light2D" parent="Lights" index="12"]
+position = Vector2( 2584, -231 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D37" type="Light2D" parent="Lights" index="13"]
+position = Vector2( 2392, -262 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D24" type="Light2D" parent="Lights" index="14"]
+position = Vector2( 3096, -359 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D38" type="Light2D" parent="Lights" index="15"]
+position = Vector2( 2808, -711 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D7" type="Light2D" parent="Lights" index="16"]
+position = Vector2( 680, -296 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D10" type="Light2D" parent="Lights" index="17"]
+position = Vector2( 568, -265 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D8" type="Light2D" parent="Lights" index="18"]
+position = Vector2( 792, -296 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D9" type="Light2D" parent="Lights" index="19"]
+position = Vector2( 904, -296 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D35" type="Light2D" parent="Lights" index="20"]
+position = Vector2( 793, -163 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D5" type="Light2D" parent="Lights" index="21"]
+position = Vector2( 277, 338 )
+scale = Vector2( 0.941406, 0.941406 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D3" type="Light2D" parent="Lights" index="22"]
+position = Vector2( 216, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D4" type="Light2D" parent="Lights" index="23"]
+position = Vector2( 328, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D11" type="Light2D" parent="Lights" index="24"]
+position = Vector2( 728, -88 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D12" type="Light2D" parent="Lights" index="25"]
+position = Vector2( 760, -88 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D13" type="Light2D" parent="Lights" index="26"]
+position = Vector2( 872, -88 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D19" type="Light2D" parent="Lights" index="27"]
+position = Vector2( 2088, -168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D20" type="Light2D" parent="Lights" index="28"]
+position = Vector2( 2040, -168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.94902, 0.831373, 0.662745, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D21" type="Light2D" parent="Lights" index="29"]
+position = Vector2( 2232, -136 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D22" type="Light2D" parent="Lights" index="30"]
+position = Vector2( 2504, -248 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+color = Color( 0.662745, 0.666667, 0.94902, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D29" type="Light2D" parent="Lights" index="31"]
+position = Vector2( 2338, -773 )
+scale = Vector2( 0.742188, 0.742188 )
+texture = ExtResource( 11 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D30" type="Light2D" parent="Lights" index="32"]
+position = Vector2( 1926, -773 )
+scale = Vector2( 0.742188, 0.742188 )
+texture = ExtResource( 11 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D31" type="Light2D" parent="Lights" index="33"]
+position = Vector2( 1784, -769 )
+scale = Vector2( 0.742188, 0.742188 )
+texture = ExtResource( 11 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D32" type="Light2D" parent="Lights" index="34"]
+position = Vector2( 1285, -47.0001 )
+scale = Vector2( 0.742188, 0.742188 )
+texture = ExtResource( 11 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D34" type="Light2D" parent="Lights" index="35"]
+position = Vector2( 1528, -79 )
+scale = Vector2( 1.03516, 1.03516 )
+texture = ExtResource( 11 )
+color = Color( 0.964706, 0.65098, 0.2, 1 )
+energy = 2.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D33" type="Light2D" parent="Lights" index="36"]
+position = Vector2( 1828, -61 )
+scale = Vector2( 0.742188, 0.742188 )
+texture = ExtResource( 11 )
+color = Color( 1, 0, 0, 1 )
+energy = 1.42
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D36" type="Light2D" parent="Lights" index="37" groups=[
+"tick",
+]]
+position = Vector2( 58, 5 )
+scale = Vector2( 0.375001, 0.375001 )
+texture = ExtResource( 11 )
+color = Color( 1, 0.376471, 0, 1 )
+energy = 1.5
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="BlackAbove" type="TileMap" parent="." index="13"]
 light_mask = 0
 z_index = 1
@@ -1099,19 +1256,19 @@ tile_data = PoolIntArray( -3145556, 0, 655367, -3145555, 0, 655367, -3145554, 0,
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/WaterZone" index="0"]
 position = Vector2( 552, -44 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/WaterZone" index="1"]
 position = Vector2( 1528, -44 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Water/WaterZone" index="2"]
 position = Vector2( 2064, -84 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Water/WaterZone" index="3"]
 position = Vector2( 2776, -276 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
 [node name="ScenePortal" parent="." index="15" instance=ExtResource( 41 )]
 position = Vector2( 1528, -809 )
@@ -1119,7 +1276,7 @@ new_scene = "res://Rooms/Area4/4-1/4-1.tscn"
 player_new_position = Vector2( 120, -216 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 __meta__ = {
 "_edit_lock_": true
 }
