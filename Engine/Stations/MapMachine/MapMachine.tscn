@@ -94,6 +94,5 @@ shape = SubResource( 5 )
 message = "I don't think we have an account."
 text_delay = 0.03
 character = "orange"
-function = "freeze_player_again"
-dont_unfreeze_player = true
+function = "cancelled"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

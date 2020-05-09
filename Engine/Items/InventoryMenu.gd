@@ -184,10 +184,10 @@ func _process(delta):
 				audio.play()
 	if not in_battle:
 		
-		if Input.is_action_just_pressed("ui_cancel") and get_node("../Diag").visible == false:
+		if Input.is_action_just_pressed("ui_cancel"):
 			if not $InfoBar.visible:
 				if not visible:
-					if not get_tree().get_nodes_in_group("Player")[0].frozen:
+					if (not get_tree().get_nodes_in_group("Player")[0].frozen) and get_parent().get_visibility() == false:
 						set_visible(true)
 				else:
 					set_visible(false)

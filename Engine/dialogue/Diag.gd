@@ -63,7 +63,7 @@ func _process(delta):
 						update_boxes(D)
 						break
 		else:
-			if Input.is_action_just_pressed("confirm") or Input.is_action_just_pressed("cancel") or target_piece.interrupt:
+			if Input.is_action_just_pressed("confirm") or target_piece.interrupt:
 				if $TextBox.text == visible_new_text:
 					if target_piece.get_children():
 						run_func()
