@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Rooms/Area4/Assets/SecurityCamArea.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Player/orange_sprites/orangeFaces.png" type="Texture" id=24]
 [ext_resource path="res://Engine/Battle/Dodger/playerdeath.wav" type="AudioStream" id=25]
+[ext_resource path="res://Rooms/Area3/Assets/PropScenes/Battery.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -189,6 +190,7 @@ args = [ [ "Boque" ] ]
 
 [node name="Orange" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 291, 80 )
+collision_layer = 1
 
 [node name="Player" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 274.93, 80.7559 )
@@ -206,6 +208,9 @@ position = Vector2( 339, 52 )
 position = Vector2( 63, 28 )
 collision_layer = 1
 collision_mask = 0
+
+[node name="Battery" parent="YSort" instance=ExtResource( 26 )]
+position = Vector2( 266, 116 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 169, 84 )

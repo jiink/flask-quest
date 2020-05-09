@@ -59,7 +59,9 @@ func _process(delta):
 		#	motion = motion.normalized()
 			move_and_animate()
 			
-			
+			# pushable props have bitmask 18, and we do want people to push them
+			# here is 0th and 18th bit
+			collision_layer = 0b1000000000000000001
 		BOT:
 			pass
 			
@@ -108,3 +110,6 @@ func _tick():
 			set_in_water(in_water)
 		
 		previous_position = position
+
+		# pushable props have bitmask 18, and we dont want bots to push them
+		collision_layer = 0b1

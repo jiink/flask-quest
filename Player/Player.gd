@@ -6,6 +6,8 @@ export(float) var sprintMultiplier
 
 export(int) var player_number = 1
 
+export (int, 0, 200) var push = 100
+
 var speed = ground_speed
 var sprint = false
 var motion = Vector2(0, 0)
@@ -68,7 +70,13 @@ func _process(delta):
 	
 func move_and_animate():
 	var movement = motion * speed if not sprint else motion * speed * sprintMultiplier
-	move_and_slide(movement)
+	move_and_slide(movement, Vector2(0, 0), false, 4, 0.785398, false) # needs no infinite intertia for pushing rigidbodies
+	# after calling move_and_slide()
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("PushableProp"):
+			collision.collider.apply_central_impulse(-collision.normal * push)
+
 	change_izone_pos()
 		
 	$AnimatedSprite.animation = direction
@@ -209,3 +217,11 @@ func clear_history():
 	for i in range(24):
 		position_history.append(position)
 		in_water_history.append(in_water)
+
+# func _physics_process(delta):
+
+# 	# after calling move_and_slide()
+# 	for index in get_slide_count():
+# 		var collision = get_slide_collision(index)
+# 		if collision.collider.is_in_group("PushableProp"):
+# 			collision.collider.apply_central_impulse(-collision.normal * push)
