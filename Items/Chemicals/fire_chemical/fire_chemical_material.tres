@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Effects/unknown.png" type="Texture" id=1]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform sampler2D pic;
@@ -51,7 +51,7 @@ void fragment(){
 }"
 
 [resource]
-shader = SubResource( 3 )
+shader = SubResource( 1 )
 shader_param/speed = 8
 shader_param/pal_size = 6
 shader_param/source_pal_size = 5

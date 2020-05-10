@@ -1,7 +1,7 @@
 extends "res://Engine/Items/ItemDB.gd"
 
 var inventory = ['stone', 'elevator_card', 'map_login']
-var loadout = ['fire_chemical', 'exotic_excreta', ]
+var loadout = ['fire_chemical', 'exotic_excreta', 'miniman_item']
 var inventory_capacity = 20
 
 func give_item(the_item):

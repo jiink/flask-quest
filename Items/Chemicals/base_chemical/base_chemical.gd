@@ -16,6 +16,8 @@ var effect_names = []
 var effect_levels = []
 var has_effects = true
 
+export(Color, RGB) var color = Color.white
+
 onready var battle = get_node("../../..")
 
 enum {

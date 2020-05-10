@@ -12,7 +12,6 @@ effect_chance_ratios = [ 0.0, 0.0 ]
 [node name="Liquid" type="Sprite" parent="."]
 position = Vector2( 16, -8 )
 texture = ExtResource( 4 )
-hframes = 3
 script = ExtResource( 2 )
 anim_speed = 6.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Engine/Battle/pour1.wav" type="AudioStream" id=7]
 [ext_resource path="res://Engine/Battle/BattleMenuGreenMat.tres" type="Material" id=8]
 [ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=9]
+[ext_resource path="res://Engine/white.png" type="Texture" id=10]
 [ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask.png" type="Texture" id=11]
 [ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
@@ -34,6 +35,63 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 0.241484, 1.03526 ),
 "update": 0,
 "values": [ Vector2( -7, 2 ), Vector2( 25, 2 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "start_pouring"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("LiquidPouring:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -65, -53 ), Vector2( -65, -53 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LiquidPouring:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2.21914, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 1 ), Vector2( 3, 152 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "stop_pouring"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("LiquidPouring:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1.93187, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 152 ), Vector2( 3, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LiquidPouring:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1.93187, 1 ),
+"update": 0,
+"values": [ Vector2( -65, -53 ), Vector2( -65, 97 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -251,31 +309,33 @@ __meta__ = {
 position = Vector2( 10, -9 )
 texture = ExtResource( 6 )
 
-[node name="LiquidPouring" type="ColorRect" parent="PouringEvent/PouringFlask"]
+[node name="LiquidPouring" type="TextureRect" parent="PouringEvent/PouringFlask"]
 show_behind_parent = true
 anchor_top = 0.49
 anchor_right = 0.5
 anchor_bottom = 0.67
-margin_left = -68.0
-margin_top = -52.0
-margin_right = -59.0
-margin_bottom = 94.0
+margin_left = -65.0
+margin_top = -53.0
+margin_right = -62.0
+margin_bottom = 99.0
 grow_horizontal = 2
-rect_scale = Vector2( 0.31, 1 )
 rect_pivot_offset = Vector2( 5, 0 )
-color = Color( 0.803922, 0.054902, 0.054902, 1 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent/PouringFlask"]
+anims/start_pouring = SubResource( 7 )
+anims/stop_pouring = SubResource( 8 )
 
 [node name="FillingFlask" type="Sprite" parent="PouringEvent"]
 position = Vector2( 192, 155 )
 texture = ExtResource( 11 )
 
 [node name="LiquidFilled" type="TextureProgress" parent="PouringEvent/FillingFlask"]
-modulate = Color( 0.768627, 0.0941176, 0.0941176, 1 )
 show_behind_parent = true
 margin_left = -64.0
 margin_top = -64.0

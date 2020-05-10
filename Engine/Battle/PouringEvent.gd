@@ -23,19 +23,47 @@ var success = false
 
 var chemical
 
+enum chem_appearance_type { MATERIAL, COLOR }
+
 func _ready():
 	visible = false
 	$AnimationPlayer.connect("animation_finished", self, "on_animation_finish")
 	liq.value = 0
+	$PouringFlask/AnimationPlayer.play("stop_pouring")
 	
 
 func _process(delta):
 	if battle.state == battle.POURING:
 		if not firt:
 			firt = true
-			$AnimationPlayer.play("slide in")
 			visible = true
+			
 			chemical = battle.get_node("BattleChoices/Chemicals").get_child(battle.selected_chem)
+			update_liq(0)
+			# set appearance of the liquid (liquipouring and liquidfilled). material (shader+params) if it has one, color if it doesn't
+			liq_pour.set_material(null)
+			liq.set_material(null)
+			liq_pour.set_material(null)
+			liq.set_material(null)
+			# var material_or_color
+			var chem_appearance
+			if chemical.get_node("Liquid").get_material() != null:
+				chem_appearance = chemical.get_node("Liquid").get_material()
+				print("got the chemical material")
+				liq_pour.set_material(chem_appearance)
+				liq.set_material(chem_appearance)
+			else:
+				print("didn't get the chemical material, getting color")
+				chem_appearance = chemical.color
+				liq_pour.set_modulate(chem_appearance)
+				liq.set_modulate(chem_appearance)
+			
+			set_process(false) # i feel..
+			$AnimationPlayer.play("slide in")
+			yield($AnimationPlayer, "animation_finished")
+			$PouringFlask/AnimationPlayer.play("start_pouring")
+			yield($PouringFlask/AnimationPlayer, "animation_finished")
+			set_process(true) # ..horrible
 		
 		if done_sliding:
 			
@@ -107,8 +135,7 @@ func _process(delta):
 								battle.add_child(big_asplosion)
 								yield(get_tree().create_timer(0.285), "timeout")
 								hurt_self(green_ouch, int(green_ouch/1.6))
-								
-						
+							
 					done_sliding = false
 					
 					stop()
@@ -147,7 +174,11 @@ func stop():
 	# reset pouring sound
 	$PouringPlayer.playing = false
 	$PouringPlayer.pitch_scale = 0.5
-	
+
+	# make the liquid "stop coming out"
+	$PouringFlask/AnimationPlayer.play("stop_pouring")
+	yield($PouringFlask/AnimationPlayer, "animation_finished")
+
 	if chemical.category == chemical.DEFENSE:
 		# make the pourer slide away, spawn the effect on the filled, and then \
 		#  make the filled guy slide away and then we're done

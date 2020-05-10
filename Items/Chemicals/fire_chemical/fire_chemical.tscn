@@ -11,6 +11,5 @@ script = ExtResource( 2 )
 
 [node name="Liquid" parent="." index="1"]
 material = ExtResource( 3 )
-hframes = 1
 region_rect = Rect2( -9, 10, 32, 33 )
 script = null

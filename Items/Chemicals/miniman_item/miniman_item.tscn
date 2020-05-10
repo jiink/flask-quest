@@ -8,9 +8,10 @@
 [node name="MinimanItem" instance=ExtResource( 1 )]
 effectiveness = 50
 min_effectiveness = 15
+color = Color( 0.0901961, 0.843137, 0.886275, 1 )
 
 [node name="Liquid" parent="." index="0"]
-modulate = Color( 0, 0.956863, 0.976471, 1 )
+modulate = Color( 0.0901961, 0.843137, 0.886275, 1 )
 
 [node name="Tube" parent="." index="1"]
 texture = ExtResource( 2 )
