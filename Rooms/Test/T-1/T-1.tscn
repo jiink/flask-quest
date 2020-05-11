@@ -190,7 +190,6 @@ args = [ [ "Boque" ] ]
 
 [node name="Orange" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 291, 80 )
-collision_layer = 1
 
 [node name="Player" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 274.93, 80.7559 )
