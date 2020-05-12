@@ -25,6 +25,8 @@ var target_tree = null
 var target_piece = null
 var first = true
 
+var active = false
+
 # use tres
 var default_text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
 var text_font = default_text_font
@@ -45,7 +47,7 @@ func _ready():
 	#$TextBox.add_font_override("font", text_font)
 
 func _process(delta):
-	if visible:
+	if active:
 		if $Choices.visible and not choices.empty():
 			if Input.is_action_just_pressed("down"):
 				selected_choice = clamp(selected_choice + 1, 0, choices.size() - 1)
@@ -76,10 +78,10 @@ func _process(delta):
 					if not target_piece.interrupt:
 						$TextBox.text = visible_new_text
 						text_index = new_text.length() - 1
-					
+				
 
 func start_talk(obj, starting_branch):
-#	print("start_talk exec'd")
+	# print("start_talk exec'd")
 	if starting_branch == null:
 		starting_branch = "DiagPiece"
 	# go to first diagpiece 
@@ -184,6 +186,7 @@ func update_boxes(new_target):
 		stored_function_args = target_piece.args
 	
 func next_letter_time():
+	if not active: return # i don't want to talk about it
 	if text_index < new_text.length() - 1:
 		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
 			$TextBox/Timer.start(text_time + 0.15)
@@ -241,10 +244,12 @@ func play_sound():
 
 func open():
 	set_visible(true)
+	active = true
 	$Choices.set_visible(false)
 	global.get_player(1).set_frozen(true, true)
 	
 func close():
 	set_visible(false)
+	active = false
 	if not target_piece.dont_unfreeze_player:
 		global.get_player(1).set_frozen(false, true)

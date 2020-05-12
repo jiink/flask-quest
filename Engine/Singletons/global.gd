@@ -139,7 +139,7 @@ func end_battle():
 	custompause(get_tree().get_current_scene(), false)
 	
 	for child in get_tree().get_current_scene().get_children():
-		if not child.get("visible") == null:
+		if child.get("visible") != null:
 			child.visible = true
 	
 	get_player().go_invincible(3.0)
