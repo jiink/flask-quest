@@ -167,19 +167,5 @@ func get_attacks_in_dir(path):
 
 
 func hazard_has_hit(who, damage):
-	print("%s HAS BEEEEEN HIT!" % who)
-	damage = int(round(damage))
-	match who:
-		1:
-			PlayerStats.green_hp -= damage
-			PlayerStats.green_hp = clamp(PlayerStats.green_hp, 0, 9999)
-			$DodgeCircle/GreenHPBar.update_bar()
-			$DamageSound.play()
-		2:
-			PlayerStats.orange_hp -= damage
-			PlayerStats.orange_hp = clamp(PlayerStats.orange_hp, 0, 9999)
-			$DodgeCircle/OrangeHPBar.update_bar()
-			$DamageSound.play()
-		_:
-			print("warning: hazard_has_hit %s" % who)
-
+	var victim = "green" if who == 1 else "orange"
+	battle.hurt(victim, damage)

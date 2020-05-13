@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector2( -7, 2 ), Vector2( 25, 2 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "start_pouring"
 length = 0.3
 tracks/0/type = "value"
@@ -65,7 +65,7 @@ tracks/1/keys = {
 "values": [ Vector2( 3, 1 ), Vector2( 3, 152 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "stop_pouring"
 length = 0.15
 step = 0.05
@@ -94,8 +94,7 @@ tracks/1/keys = {
 "values": [ Vector2( -65, -53 ), Vector2( -65, 97 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fillingflask slide out"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("FillingFlask:position")
 tracks/0/interp = 1
@@ -109,8 +108,7 @@ tracks/0/keys = {
 "values": [ Vector2( 192, 155 ), Vector2( 192, 278.624 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "pouringflask slide out"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PouringFlask:position")
 tracks/0/interp = 1
@@ -124,7 +122,7 @@ tracks/0/keys = {
 "values": [ Vector2( 260, 120 ), Vector2( 458, 176 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("FillingFlask:position")
 tracks/0/interp = 1
@@ -150,7 +148,7 @@ tracks/1/keys = {
 "values": [ Vector2( 458, 176 ), Vector2( 260, 120 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("FillingFlask:position")
 tracks/0/interp = 1
@@ -176,7 +174,7 @@ tracks/1/keys = {
 "values": [ Vector2( 260, 120 ), Vector2( 458, 176 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("TopBar:position")
 tracks/0/interp = 1
@@ -328,8 +326,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent/PouringFlask"]
-anims/start_pouring = SubResource( 7 )
-anims/stop_pouring = SubResource( 8 )
+anims/start_pouring = SubResource( 2 )
+anims/stop_pouring = SubResource( 3 )
 
 [node name="FillingFlask" type="Sprite" parent="PouringEvent"]
 position = Vector2( 192, 155 )
@@ -365,10 +363,10 @@ color = Color( 0.890196, 0.54902, 0.215686, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PouringEvent"]
 playback_speed = 2.0
-"anims/fillingflask slide out" = SubResource( 2 )
-"anims/pouringflask slide out" = SubResource( 3 )
-"anims/slide in" = SubResource( 4 )
-"anims/slide out" = SubResource( 5 )
+"anims/fillingflask slide out" = SubResource( 4 )
+"anims/pouringflask slide out" = SubResource( 5 )
+"anims/slide in" = SubResource( 6 )
+"anims/slide out" = SubResource( 7 )
 
 [node name="PouringPlayer" type="AudioStreamPlayer" parent="PouringEvent"]
 stream = ExtResource( 7 )
@@ -426,7 +424,7 @@ text = "+ $0"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Win"]
-anims/roll_in = SubResource( 6 )
+anims/roll_in = SubResource( 8 )
 
 [node name="TimeUntilFade" type="Timer" parent="Win"]
 wait_time = 3.0
