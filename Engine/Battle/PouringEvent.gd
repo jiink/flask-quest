@@ -169,6 +169,7 @@ func reset():
 	$FillTarget.visible = true
 	fill_perc = 0.0
 	stopped = false
+	overflowed = false
 
 func stop():
 	# reset pouring sound
