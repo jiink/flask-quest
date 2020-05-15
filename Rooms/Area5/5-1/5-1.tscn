@@ -1831,6 +1831,7 @@ offset = Vector2( 256, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 autoplay = "noon"
+playback_speed = 0.1
 anims/cycle = SubResource( 3 )
 anims/noon = SubResource( 4 )
 

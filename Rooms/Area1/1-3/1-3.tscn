@@ -169,7 +169,6 @@ visible = false
 position = Vector2( 2, 9 )
 
 [node name="ShadowRect" parent="YSort/HazmatGuy" index="2"]
-margin_left = -4.0
 margin_right = 7.0
 
 [node name="DialogueTree" parent="YSort/HazmatGuy" index="3" instance=ExtResource( 20 )]

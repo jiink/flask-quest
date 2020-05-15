@@ -865,13 +865,13 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=52]
+[sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 11, 24 )
 
-[sub_resource type="RectangleShape2D" id=53]
+[sub_resource type="RectangleShape2D" id=52]
 extents = Vector2( 12, 30 )
 
-[sub_resource type="RectangleShape2D" id=51]
+[sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 16, 10 )
 
 [node name="2-1" groups=[
@@ -2663,7 +2663,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 52 )
+shape = SubResource( 51 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="16" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )
@@ -2671,7 +2671,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown2/StaticBody2D" index="0"]
 position = Vector2( 0, -3.99999 )
-shape = SubResource( 52 )
+shape = SubResource( 51 )
 
 [node name="car_red3" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 133 )]
 position = Vector2( 2060, -169 )
@@ -2680,7 +2680,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red3/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 53 )
+shape = SubResource( 52 )
 
 [node name="ScenePortal" parent="." index="12" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"
@@ -2688,7 +2688,7 @@ player_new_position = Vector2( -48, 230 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 position = Vector2( -32, 74 )
-shape = SubResource( 51 )
+shape = SubResource( 53 )
 
 [node name="WifiBeams" type="Node2D" parent="." index="13"]
 

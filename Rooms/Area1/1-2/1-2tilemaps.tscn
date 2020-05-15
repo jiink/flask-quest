@@ -35,6 +35,9 @@ margin_top = 112.0
 margin_right = 288.0
 margin_bottom = 128.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CityBehind" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -44,28 +47,10 @@ tile_data = PoolIntArray( -524267, 1, 65543, -524266, 1, 65543, -524265, 1, 6554
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 336.0
-margin_top = 32.0
+margin_top = -128.0
 margin_right = 576.0
 margin_bottom = 384.0
-color = Color( 0, 0, 0, 0.635294 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 336.0
-margin_top = -129.0
-margin_right = 576.0
-color = Color( 0, 0, 0, 0.635294 )
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = 336.0
-margin_right = 448.0
-margin_bottom = 32.0
-color = Color( 0, 0, 0, 0.635294 )
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = 480.0
-margin_right = 576.0
-margin_bottom = 32.0
-color = Color( 0, 0, 0, 0.635294 )
+color = Color( 0, 0, 0, 0.427451 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
