@@ -189,6 +189,8 @@ func _process(delta):
 				if not visible:
 					if (not get_tree().get_nodes_in_group("Player")[0].frozen) and get_parent().get_visibility() == false:
 						set_visible(true)
+						update_item_selection(0)
+						
 				else:
 					set_visible(false)
 				global.get_player().set_frozen(visible, true)

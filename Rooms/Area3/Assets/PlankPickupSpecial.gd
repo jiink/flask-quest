@@ -1,8 +1,6 @@
 extends "res://BasePickup.gd"
 
 
-
-
 func interact():
 	if global.get_player().position.x > position.x + 32 or \
 			global.get_player().position.x < position.x - 32:

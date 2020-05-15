@@ -6,10 +6,10 @@ func interact():
 	if bridged == 0 and ItemManager.inventory.has("plank"):
 		$GapCollision.disabled = true
 		$"../PlankPickup2".position.x = 776
+		ItemManager.toss_item('plank', ItemManager.ANY, true)
 		bridged = 1
 		print("bridged == 1")
-		if $"../PlankPickup2".position.x == 776:
-			print ("pickup plank 2 is now at origin of parent.")
+		print("pickup plank 2 is now at origin of parent.")
 #	else:
 #		print(global.get_player().position.x)
 #		if global.get_player().position.x > position.x + 32 or \
