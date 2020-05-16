@@ -104,3 +104,6 @@ func _on_MusicButton_toggled(button_pressed):
 		MusicManager.set_volume(0)
 	else:
 		MusicManager.set_volume(-80)
+
+func _on_GiveButton_pressed():
+	ItemManager.give_item($DebugButtons/GiveText.text)
