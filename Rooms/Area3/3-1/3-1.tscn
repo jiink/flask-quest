@@ -98,12 +98,12 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16, 5 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.45
 loop = true
 step = 0.05
@@ -120,11 +120,11 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=10]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:region_rect")
@@ -151,19 +151,19 @@ tracks/1/keys = {
 "values": [ Vector2( -23, 8 ), Vector2( -23, 8 ), Vector2( -87, 8 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 35, 16 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 4, 17 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 42, 58 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 36, 22 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=16]
 
 [node name="3-1" instance=ExtResource( 1 )]
 battle_bg = ExtResource( 32 )
@@ -774,7 +774,7 @@ anims/leak = SubResource( 6 )
 position = Vector2( 0, 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzlePipeLeak/LiquidSprite/StaticBody2D" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 7 )
 
 [node name="PuzzleValve" type="Node2D" parent="." index="12"]
 position = Vector2( 2378, -232 )
@@ -786,13 +786,13 @@ texture = ExtResource( 45 )
 [node name="Interaction" type="Area2D" parent="PuzzleValve" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleValve/Interaction" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 40 )]
 position = Vector2( 2718, -297 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 2507, -156 )
+position = Vector2( -26, 34 )
 
 [node name="barrel_empty3" parent="YSort" index="2" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )
@@ -866,7 +866,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/barrel_flame" index="0"]
 autoplay = "default"
-anims/default = SubResource( 8 )
+anims/default = SubResource( 9 )
 
 [node name="Inkler" parent="YSort" index="24" instance=ExtResource( 19 )]
 position = Vector2( 344, 278 )
@@ -918,7 +918,7 @@ position = Vector2( 2994, -305 )
 
 [node name="ManholeLight" type="Sprite" parent="Lights" index="0"]
 light_mask = 0
-material = SubResource( 9 )
+material = SubResource( 10 )
 position = Vector2( -23, 8 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
@@ -928,7 +928,7 @@ region_rect = Rect2( 0, 0, 256, 256 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/ManholeLight" index="0"]
 autoplay = "default"
-anims/default = SubResource( 10 )
+anims/default = SubResource( 11 )
 
 [node name="Light2D2" type="Light2D" parent="Lights" index="1"]
 position = Vector2( 88, -56 )
@@ -1317,19 +1317,19 @@ tile_data = PoolIntArray( -3145556, 0, 655367, -3145555, 0, 655367, -3145554, 0,
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/WaterZone" index="0"]
 position = Vector2( 552, -44 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/WaterZone" index="1"]
 position = Vector2( 1528, -44 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Water/WaterZone" index="2"]
 position = Vector2( 2064, -84 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Water/WaterZone" index="3"]
 position = Vector2( 2776, -276 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="ScenePortal" parent="." index="17" instance=ExtResource( 41 )]
 position = Vector2( 1528, -809 )
@@ -1337,7 +1337,7 @@ new_scene = "res://Rooms/Area4/4-1/4-1.tscn"
 player_new_position = Vector2( 120, -216 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 __meta__ = {
 "_edit_lock_": true
 }
