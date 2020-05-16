@@ -5,7 +5,7 @@ var bridged = 0
 func interact():
 	if bridged == 0 and ItemManager.inventory.has("plank"):
 		$GapCollision.disabled = true
-		$"../PlankPickup2".position.x = 776
+		get_node("../%s" % name.trim_suffix("StaticBody2D")).position = position
 		ItemManager.toss_item('plank', ItemManager.ANY, true)
 		bridged = 1
 		print("bridged == 1")
