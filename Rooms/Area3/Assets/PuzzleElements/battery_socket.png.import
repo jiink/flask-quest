@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/battery.png-11ad9d0aac8a786c5d4b820485732052.stex"
+path="res://.import/battery_socket.png-0cd6f3dc28dff3a202826a42c62125f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area3/Assets/battery.png"
-dest_files=[ "res://.import/battery.png-11ad9d0aac8a786c5d4b820485732052.stex" ]
+source_file="res://Rooms/Area3/Assets/PuzzleElements/battery_socket.png"
+dest_files=[ "res://.import/battery_socket.png-0cd6f3dc28dff3a202826a42c62125f3.stex" ]
 
 [params]
 
