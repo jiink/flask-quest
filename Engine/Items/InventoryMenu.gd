@@ -69,8 +69,11 @@ func update_list():
 	
 	
 func update_item_selection(index):
+	print(ItemManager.inventory)
 	selection_index = clamp(selection_index, 0, get_item_list().size()-1)
-	if get_item_list().size() > 0:
+	print(get_item_list().size())
+	print(selection_index)
+	if(get_item_list().size() > 0) and (container.get_children().size() > selection_index): # whatever...
 		item_selection.set_position(container.get_children()[selection_index].get_global_position() + Vector2(12,12)) 
 
 func _ready():
@@ -79,6 +82,7 @@ func _ready():
 	item_selection.set_name("ItemSelection")
 	item_selection.set_texture(load("res://Items/Sprites/itemSelection.png"))
 	add_child(item_selection)
+	item_selection.position.x = -64 # off the screen in case there's no items
 	update_item_selection(selection_index)
 	$InfoBar.set_visible(false)
 	in_battle = not has_node("../Diag")
@@ -189,7 +193,7 @@ func _process(delta):
 				if not visible:
 					if (not get_tree().get_nodes_in_group("Player")[0].frozen) and get_parent().get_visibility() == false:
 						set_visible(true)
-						update_item_selection(0)
+						update_item_selection(3)
 						
 				else:
 					set_visible(false)

@@ -15,10 +15,18 @@ func get_player(num = 1):
 		1:
 			if get_tree().get_current_scene().has_node("YSort/Player"):
 				return get_tree().get_current_scene().get_node("YSort/Player")
+			# if that doesn't work try the other way :(
+			for n in get_tree().get_nodes_in_group("Player"):
+				if n.name == "Player":
+					return n
 		2:
 			if get_tree().get_current_scene().has_node("YSort/Orange"):
 				return get_tree().get_current_scene().get_node("YSort/Orange")
-	print("get_player error!")
+			# if that doesn't work try the other way :(
+			for n in get_tree().get_nodes_in_group("Player"):
+				if n.name == "Orange":
+					return n
+	print("get_player error! couldn't get player #%s" % num)
 	return null
 	
 ################## battle ##################
