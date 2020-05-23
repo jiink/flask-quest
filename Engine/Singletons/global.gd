@@ -45,16 +45,14 @@ func custompause(node, x):
 	for N in node.get_children():
 		if N.get_child_count() > 0:
 			N.set_process(x)
-			N.set_process_internal(x)
+			# N.set_process_internal(x)
 			N.set_process_input(x)
-			N.set_process_internal(x)
 			N.set_physics_process(x)
 			custompause(N, !x)
 		else:
 			N.set_process(x)
-			N.set_process_internal(x)
+			# N.set_process_internal(x)
 			N.set_process_input(x)
-			N.set_process_internal(x)
 			N.set_physics_process(x)
 #			print("- "+N.get_name())
 
@@ -144,7 +142,9 @@ func get_battle_scene():
 func end_battle():
 	get_tree().get_current_scene().get_node("BattleScene").queue_free()
 	
-	custompause(get_tree().get_current_scene(), false)
+	get_tree().get_current_scene().get_node("Camera").current = true
+	
+	custompause(get_tree().get_current_scene(), false) # this makes the game break!
 	
 	for child in get_tree().get_current_scene().get_children():
 		if child.get("visible") != null:
@@ -154,7 +154,6 @@ func end_battle():
 	
 	in_battle = false
 	
-	get_tree().get_current_scene().get_node("Camera").current = true
 	
 	emit_signal("battle_won")
 	
