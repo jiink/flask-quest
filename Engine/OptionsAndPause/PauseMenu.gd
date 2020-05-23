@@ -107,3 +107,7 @@ func _on_MusicButton_toggled(button_pressed):
 
 func _on_GiveButton_pressed():
 	ItemManager.give_item($DebugButtons/GiveText.text)
+
+func _on_SpawnOrangeButton_pressed():
+	global.get_player(1).get_parent().add_child(load("res://Player/Orange.tscn").instance())
+	print("Orange spawned from debug menu")
