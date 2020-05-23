@@ -172,7 +172,8 @@ func _process(delta):
 		start_dodge_game()
 		
 	elif state == DODGE_GAME:
-		do_dodge_game()
+		# do_dodge_game()
+		pass
 	
 		
 func get_move_choice():
@@ -190,10 +191,16 @@ func get_move_choice():
 				
 		if Input.is_action_just_pressed(player_confirm):
 			focused_menu = INV if selected_battle_choice == "item" else focused_menu
-			battle_choice_confirmed = true
-			
-			for foe in get_foes():
-				foe.say_line()
+			if selected_battle_choice == "attack":
+				if $BattleChoices/Chemicals.get_child_count() > 0:
+					battle_choice_confirmed = true
+					
+					for foe in get_foes():
+						foe.say_line()
+				else:
+					battle_choice_confirmed = false
+					print("You don't have anything equipped!")
+					$AudioStreamPlayer.play()
 			
 		elif Input.is_action_just_pressed(player_cancel):
 			battle_choice_confirmed = false
@@ -223,6 +230,10 @@ func get_chem_choice():
 	
 
 func set_chem_arrow_pos():
+	if $BattleChoices/Chemicals.get_children().size() <= 0:
+		print("set_chem_arrow_pos() says: \"No chemicals!\"")
+		return
+	
 	if selected_chem != null:
 		$SelectedChemArrow.visible = true
 		$SelectedChemArrow.position.x = 100
@@ -279,8 +290,9 @@ func set_arrow_pos():
 		# DONT FORGET TO START THE TWEEN U MORON!
 		$SelectedFoeArrow/Tween.start()
 		$SelectedFoeArrow.position.y = 64 
-		
-		selected_chem_category = $BattleChoices/Chemicals.get_child(selected_chem).category
+		selected_chem_category = DEFENSIVE
+		if $BattleChoices/Chemicals.get_child_count() > 0:
+			selected_chem_category = $BattleChoices/Chemicals.get_child(selected_chem).category
 		print("category: %s" % selected_chem_category)
 		match selected_chem_category: # arrow's gonna disapear if you don't need it
 			OFFENSIVE:
@@ -373,9 +385,12 @@ func remove_effect_icon(eff):
 		$EffectsDisplay.get_node(eff_icon_name_new).queue_free()
 
 func open_chems():
-	$SelectedChemArrow.visible = true
-	set_arrow_pos()
-	emit_signal("open_chems")
+	if $BattleChoices/Chemicals.get_children().size() > 0:
+		$SelectedChemArrow.visible = true
+		set_arrow_pos()
+		emit_signal("open_chems")
+	else:
+		print("No chemicals!")
 
 func close_chems():
 	$SelectedChemArrow.visible = false
@@ -439,12 +454,17 @@ func do_dodge_game():
 		$DodgerField.run()
 
 func start_dodge_game():
+	if $BattleChoices/Chemicals.get_child_count() <= 0: # :(
+		state = PLAYER_TURN
+		return
+	
 	if get_foes().size() > 0:
 		$DodgerField.visible = true
 		$Tint.visible = true
 		$DodgerField/AnimationPlayer.play("appear")
 		
 		# give some time for the show-up animation to finish
+		state = WAIT
 		yield(get_tree().create_timer(0.8), "timeout")
 		
 		state = DODGE_GAME

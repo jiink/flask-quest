@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Engine/Battle/Fade.gd" type="Script" id=19]
 [ext_resource path="res://Engine/Camera.gd" type="Script" id=20]
+[ext_resource path="res://SoundEffects/ui_deny.wav" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popout"
@@ -472,6 +473,9 @@ text = "win"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
 [connection signal="animation_finished" from="Win/AnimationPlayer" to="Win" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Win/TimeUntilFade" to="Win" method="_on_TimeUntilFade_timeout"]
 [connection signal="tween_completed" from="Fade/Tween" to="Fade" method="_on_Tween_tween_completed"]
