@@ -30,8 +30,8 @@ func update_lab_door():
 func set_orange_state(i):
 	print("setting orange state from %s to %s" % [orange_state, i])
 	orange_state = i
-	var disabled_orange = $YSort/Props/tableL/OrangeDisabled
-	var npc_orange = $YSort/OrangeNPC
+	var disabled_orange = get_node_or_null("YSort/Props/tableL/OrangeDisabled")
+	var npc_orange = get_node_or_null("YSort/OrangeNPC")
 	if disabled_orange:
 		disabled_orange.visible = false
 	npc_orange.visible = false
@@ -73,7 +73,7 @@ func start_brainjar_event():
 	
 	ItemManager.inventory.remove("miniman_item")
 	ItemManager.loadout.remove("miniman_item")
-	ItemManager.loadout[0] = "miniman_item"
+	ItemManager.loadout.append("miniman_item")
 
 func on_brainjar_defeat():
 	set_orange_state(0)

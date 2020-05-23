@@ -3,7 +3,8 @@ extends "res://NPC/BaseFoe/BaseFoeFoe.gd"
 var explosion = preload("res://Engine/Battle/BigChemicalExplosion.tscn")
 
 func attack_completed():
-	if attacks_completed == 4:
+	if attacks_completed == 4: # "headache" self destruct event
+		battle.state = battle.WAIT # so you cant mess everything up
 		var damage_number = load("res://Engine/Battle/DamageNumber.tscn").instance()
 		damage_number.num = "uuhh... i have a headcaeache"
 		add_child(damage_number)

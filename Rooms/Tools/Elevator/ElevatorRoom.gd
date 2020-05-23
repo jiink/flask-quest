@@ -7,6 +7,7 @@ export (Vector2) var player_new_position = null
 func _ready():
 	$ScenePortal.new_scene = new_scene
 	$ScenePortal.player_new_position = player_new_position
+	$AnimationPlayer.play_backwards("open") # uh make sure it's closed
 
 func _on_TriggerField_body_entered(body):
 	if body == get_tree().get_nodes_in_group("Player")[0]:

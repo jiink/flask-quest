@@ -6,56 +6,55 @@
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorRoom.gd" type="Script" id=6]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=8]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 7 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 2 ) ],
 "loop": true,
 "name": "up",
 "speed": 2.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": true,
 "name": "off",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 10 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 5 ) ],
 "loop": true,
 "name": "down",
 "speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 28, 10 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 3, 23 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 resource_name = "go_down"
 length = 4.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "open"
+[sub_resource type="Animation" id=10]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("DoorLight:scale")
@@ -82,10 +81,10 @@ tracks/1/keys = {
 "values": [ false, false, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 31, 22 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 8, 2 )
 
 [node name="ElevatorRoom" type="Node2D"]
@@ -96,7 +95,7 @@ texture = ExtResource( 3 )
 
 [node name="FloorArrowIndicator" type="AnimatedSprite" parent="."]
 position = Vector2( -14, -18 )
-frames = SubResource( 11 )
+frames = SubResource( 6 )
 animation = "off"
 playing = true
 
@@ -105,34 +104,34 @@ visible = false
 position = Vector2( 0, -9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 0, 50 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 27, 30 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( -26, 29 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/go_down = SubResource( 12 )
-anims/open = SubResource( 3 )
+anims/go_down = SubResource( 9 )
+anims/open = SubResource( 10 )
 
 [node name="TriggerField" type="Area2D" parent="."]
 visible = false
 position = Vector2( 1, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerField"]
-shape = SubResource( 4 )
+shape = SubResource( 11 )
 
 [node name="DoorLight" type="Light2D" parent="."]
 position = Vector2( 1, 30.5883 )
-scale = Vector2( 0.4, 0.412 )
+scale = Vector2( 1e-05, 0.412 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -31 )
 color = Color( 1, 0.976471, 0.423529, 1 )
@@ -140,10 +139,11 @@ shadow_enabled = true
 
 [node name="ScenePortal" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, 31 )
+monitoring = false
 new_scene = "res://Rooms/Area1/1-2/1-2.tscn"
 player_new_position = Vector2( 256, 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal"]
-shape = SubResource( 5 )
+shape = SubResource( 12 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="TriggerField" to="." method="_on_TriggerField_body_entered"]

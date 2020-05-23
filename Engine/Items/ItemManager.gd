@@ -1,7 +1,7 @@
 extends "res://Engine/Items/ItemDB.gd"
 
-var inventory = ['stone', 'elevator_card', 'map_login']
-var loadout = ['fire_chemical', 'exotic_excreta', 'miniman_item']
+var inventory = []
+var loadout = []
 var inventory_capacity = 20
 
 enum { ANY, INVENTORY, LOADOUT }
@@ -13,6 +13,9 @@ func give_item(the_item):
 			player.do_floaty_text("Inventory full!")
 		return false
 	else:
+		if not items.has(the_item):
+			print("Couldn't give item, %s is not an item" % the_item)
+			return false
 		inventory.append(the_item)
 		if player:
 			player.do_floaty_text("Obtained %s!" % items[the_item].name)
