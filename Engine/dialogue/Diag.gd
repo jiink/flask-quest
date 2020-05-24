@@ -45,27 +45,28 @@ onready var audio = $AudioStreamPlayer
 func _ready():
 	$TextBox/Timer.connect("timeout", self, "next_letter_time")
 	#$TextBox.add_font_override("font", text_font)
+				
 
-func _process(delta):
+func _input(event):
 	if active:
 		if $Choices.visible and not choices.empty():
-			if Input.is_action_just_pressed("down"):
+			if event.is_action_pressed("down"):
 				selected_choice = clamp(selected_choice + 1, 0, choices.size() - 1)
-			elif Input.is_action_just_pressed("up"):
+			elif event.is_action_pressed("up"):
 				selected_choice = clamp(selected_choice - 1, 0, choices.size() - 1)
 			
 			
 			select_graphic_offset = selected_choice * 30
 			$Choices/Selection.position.y = select_graphic_offset
 			
-			if Input.is_action_just_pressed("confirm") and $TextBox.text == visible_new_text:
+			if event.is_action_pressed("confirm") and $TextBox.text == visible_new_text:
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
 						run_func()
 						update_boxes(D)
 						break
 		else:
-			if Input.is_action_just_pressed("confirm") or target_piece.interrupt:
+			if event.is_action_pressed("confirm") or target_piece.interrupt:
 				if $TextBox.text == visible_new_text:
 					if target_piece.get_children():
 						run_func()
@@ -78,7 +79,9 @@ func _process(delta):
 					if not target_piece.interrupt:
 						$TextBox.text = visible_new_text
 						text_index = new_text.length() - 1
-				
+		get_tree().set_input_as_handled()
+
+
 
 func start_talk(obj, starting_branch):
 	# print("start_talk exec'd")

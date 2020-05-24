@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-2/1-2.gd" type="Script" id=2]
@@ -38,6 +38,8 @@
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Rooms/Area1/Assets/flourescent_lights.png" type="Texture" id=37]
 [ext_resource path="res://Engine/light5.png" type="Texture" id=38]
+[ext_resource path="res://Rooms/Area1/Assets/lab_security_camera.png" type="Texture" id=39]
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=40]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 22 )
@@ -123,6 +125,28 @@ extents = Vector2( 8, 2 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 64, 10 )
 
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 40 )
+shader_param/speed = 11
+shader_param/pal_size = 8
+shader_param/source_pal_size = 1
+shader_param/p1 = Color( 0.94902, 0.00784314, 0.980392, 1 )
+shader_param/p2 = Color( 1, 0.298039, 0.988235, 1 )
+shader_param/p3 = Color( 0.537255, 0.239216, 0.239216, 1 )
+shader_param/p4 = Color( 0.294118, 0.192157, 0.192157, 1 )
+shader_param/p5 = Color( 0.180392, 0.133333, 0.164706, 1 )
+shader_param/p6 = null
+shader_param/p7 = null
+shader_param/p8 = null
+shader_param/p9 = null
+shader_param/p10 = null
+shader_param/p11 = null
+shader_param/p12 = null
+shader_param/p13 = null
+shader_param/p14 = null
+shader_param/p15 = null
+shader_param/p16 = null
+
 [sub_resource type="RectangleShape2D" id=14]
 
 [node name="1-2" instance=ExtResource( 1 )]
@@ -172,7 +196,7 @@ visible = false
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65566, 0, 0, 65567, 0, 0, 65568, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131090, 0, 0, 131097, 0, 0, 131104, 0, 0, 196610, 0, 0, 196626, 0, 0, 196633, 0, 0, 196640, 0, 0, 262146, 0, 0, 262162, 0, 0, 262169, 0, 0, 262176, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327698, 0, 0, 327705, 0, 0, 327712, 0, 0, 393216, 0, 0, 393234, 0, 0, 393241, 0, 0, 393248, 0, 0, 458752, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458777, 0, 0, 458784, 0, 0, 524288, 0, 0, 524298, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 589824, 0, 0, 589834, 0, 0, 589849, 0, 0, 589856, 0, 0, 655360, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655385, 0, 0, 655392, 0, 0, 720896, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720928, 0, 0, 786432, 0, 0, 786464, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 852000, 0, 0, 917507, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917536, 0, 0, 983043, 0, 0, 983060, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0 )
+tile_data = PoolIntArray( 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65566, 0, 0, 65567, 0, 0, 65568, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131090, 0, 0, 131097, 0, 0, 131104, 0, 0, 196610, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196626, 0, 0, 196633, 0, 0, 196640, 0, 0, 262146, 0, 0, 262162, 0, 0, 262169, 0, 0, 262176, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327698, 0, 0, 327705, 0, 0, 327712, 0, 0, 393216, 0, 0, 393234, 0, 0, 393241, 0, 0, 393248, 0, 0, 458752, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458777, 0, 0, 458784, 0, 0, 524288, 0, 0, 524298, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 589824, 0, 0, 589834, 0, 0, 589849, 0, 0, 589856, 0, 0, 655360, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655385, 0, 0, 655392, 0, 0, 720896, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720928, 0, 0, 786432, 0, 0, 786464, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 852000, 0, 0, 917507, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917536, 0, 0, 983043, 0, 0, 983060, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0 )
 
 [node name="Background" parent="." index="2"]
 visible = false
@@ -444,7 +468,12 @@ position = Vector2( 444, 92 )
 [node name="SecurityMop5" parent="YSort" index="7" instance=ExtResource( 25 )]
 position = Vector2( 482, 71 )
 
-[node name="ShadeRect1" type="ColorRect" parent="." index="14"]
+[node name="LabSecurityCamera" type="Sprite" parent="." index="14"]
+material = SubResource( 15 )
+position = Vector2( 38, 61 )
+texture = ExtResource( 39 )
+
+[node name="ShadeRect1" type="ColorRect" parent="." index="15"]
 margin_left = 64.0
 margin_top = -32.0
 margin_right = 320.0
@@ -455,7 +484,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShadeRect2" type="ColorRect" parent="." index="15"]
+[node name="ShadeRect2" type="ColorRect" parent="." index="16"]
 margin_left = 16.0
 margin_top = -85.0
 margin_right = 64.0
@@ -465,7 +494,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ShadeRect3" type="ColorRect" parent="." index="16"]
+[node name="ShadeRect3" type="ColorRect" parent="." index="17"]
 margin_left = 336.0
 margin_top = -128.0
 margin_right = 576.0
@@ -476,7 +505,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MopCollision" type="StaticBody2D" parent="." index="17"]
+[node name="MopCollision" type="StaticBody2D" parent="." index="18"]
 position = Vector2( 406, 208 )
 collision_layer = 32768
 collision_mask = 32768
@@ -484,7 +513,7 @@ collision_mask = 32768
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MopCollision" index="0"]
 shape = SubResource( 14 )
 
-[node name="MopCollision3" type="StaticBody2D" parent="." index="18"]
+[node name="MopCollision3" type="StaticBody2D" parent="." index="19"]
 position = Vector2( 406, 208 )
 collision_layer = 32768
 collision_mask = 32768
@@ -505,7 +534,7 @@ shape = SubResource( 14 )
 position = Vector2( 21, -24 )
 shape = SubResource( 14 )
 
-[node name="MopCollision2" type="StaticBody2D" parent="." index="19"]
+[node name="MopCollision2" type="StaticBody2D" parent="." index="20"]
 position = Vector2( 464, 135 )
 collision_layer = 32768
 collision_mask = 32768
@@ -513,7 +542,7 @@ collision_mask = 32768
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MopCollision2" index="0"]
 shape = SubResource( 14 )
 
-[node name="Lights" type="Node" parent="." index="20"]
+[node name="Lights" type="Node" parent="." index="21"]
 
 [node name="Light2D" type="Light2D" parent="Lights" index="0"]
 position = Vector2( 136, 104 )
@@ -612,7 +641,7 @@ scale = Vector2( 0.117188, 0.136719 )
 texture = ExtResource( 38 )
 color = Color( 1, 0.945098, 0.72549, 1 )
 
-[node name="TV" type="Node2D" parent="." index="21"]
+[node name="TV" type="Node2D" parent="." index="22"]
 position = Vector2( 29, 137 )
 script = ExtResource( 26 )
 
@@ -620,7 +649,9 @@ script = ExtResource( 26 )
 position = Vector2( -1, -1 )
 texture = ExtResource( 27 )
 
-[node name="tv_side_light" type="Light2D" parent="TV" index="1"]
+[node name="tv_side_light" type="Light2D" parent="TV" index="1" groups=[
+"tick",
+]]
 position = Vector2( 23, -1 )
 texture = ExtResource( 28 )
 color = Color( 0.686275, 0.937255, 0.913725, 1 )

@@ -45,7 +45,7 @@ func custompause(node, x):
 	for N in node.get_children():
 		if N.get_child_count() > 0:
 			N.set_process(x)
-			# N.set_process_internal(x)
+			# N.set_process_internal(x) # this makes the game break!
 			N.set_process_input(x)
 			N.set_physics_process(x)
 			custompause(N, !x)
@@ -144,7 +144,7 @@ func end_battle():
 	
 	get_tree().get_current_scene().get_node("Camera").current = true
 	
-	custompause(get_tree().get_current_scene(), false) # this makes the game break!
+	custompause(get_tree().get_current_scene(), false)
 	
 	for child in get_tree().get_current_scene().get_children():
 		if child.get("visible") != null:
@@ -253,7 +253,8 @@ func swap_scenes():
 		print("warning: new player pos is null")
 	
 	# janky problems need janky solutions
-	get_player(1).clear_history()
+	if get_player(1):
+		get_player(1).clear_history()
 
 	emit_signal("scene_changed")
 	# load!!

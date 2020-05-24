@@ -40,7 +40,6 @@ func _ready():
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	clear_history()
-#	print("UH: %s" % Engine.get_frames_per_second())
 	
 	
 func _process(delta):	
@@ -128,15 +127,16 @@ func get_inputs():
 			direction = "leftup"
 	sprint = Input.is_action_pressed(player_action)
 	
-	if Input.is_action_just_pressed(player_confirm):
+func _input(event):
+	if(event.is_action_pressed(player_confirm)) and (not frozen):
 		#interactionZone.monitoring = true
 		#print(interactionZone.get_overlapping_areas())
 		for area in interactionZone.get_overlapping_areas():
-			
 			if (area.name.to_lower() == "interaction") and area.get_parent().has_method("interact"):
 				area.get_parent().interact()
 				break
-				
+		get_tree().set_input_as_handled()
+			
 		
 func change_izone_pos():
 	match direction:
