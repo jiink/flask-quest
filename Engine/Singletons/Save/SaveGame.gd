@@ -9,7 +9,7 @@ export(Dictionary) var data = {
 	"1-2_tv_event_seen": false,
 	"2-1_malus_door_locked": true,
 	"2-1_manhole_event_happened": false,
-	"4-1_been_in_malus": false,
+	"4-1_kicked_out_lobby": false,
 	"dollars": 0,
 	"event_seed": int(rand_range(1, 2048)),
 	"green_hp": 100,

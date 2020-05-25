@@ -12,7 +12,7 @@ func _ready():
 	
 	
 	# do manhole event when they come out of malus
-	var should_do_manhole_event = GameSaver.save_game.data["4-1_been_in_malus"] and (not manhole_event_happened)
+	var should_do_manhole_event = GameSaver.save_game.data["4-1_kicked_out_lobby"] and (not manhole_event_happened)
 	print("should_do_manhole_event: %s" % should_do_manhole_event)
 #	print("it already happened: %s" % manhole_event_happened)
 	if should_do_manhole_event:
