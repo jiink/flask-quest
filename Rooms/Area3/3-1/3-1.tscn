@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/sign_biohazard.png" type="Texture" id=2]
@@ -41,7 +41,7 @@
 [ext_resource path="res://Rooms/Area3/Assets/sign_floor.png" type="Texture" id=39]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=41]
-[ext_resource path="res://Rooms/Area3/Assets/PropScenes/battery.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Rooms/Area3/Assets/PuzzleElements/Battery.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Engine/light4.png" type="Texture" id=43]
 [ext_resource path="res://Rooms/Area3/Assets/pipe_leak_puzzle_pipe.png" type="Texture" id=44]
 [ext_resource path="res://Rooms/Area3/Assets/puzzle_valve.png" type="Texture" id=45]
@@ -50,6 +50,8 @@
 [ext_resource path="res://Rooms/Area3/3-1/PuzzleValve.gd" type="Script" id=48]
 [ext_resource path="res://Rooms/Area3/3-1/PuzzlePipeLeak.gd" type="Script" id=49]
 [ext_resource path="res://Rooms/Area3/Assets/pipe_leak_puzzle_fluid.png" type="Texture" id=50]
+[ext_resource path="res://Rooms/Area3/Assets/inkler_spill_anim.png" type="Texture" id=51]
+[ext_resource path="res://Rooms/Area3/3-1/InklerSpillAnimation.gd" type="Script" id=52]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -102,6 +104,24 @@ tracks/0/keys = {
 extents = Vector2( 16, 5 )
 
 [sub_resource type="RectangleShape2D" id=8]
+
+[sub_resource type="Animation" id=17]
+resource_name = "inkler_go_spill"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ]
+}
+
+[sub_resource type="RectangleShape2D" id=18]
 
 [sub_resource type="Animation" id=9]
 length = 0.45
@@ -788,6 +808,22 @@ texture = ExtResource( 45 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleValve/Interaction" index="0"]
 shape = SubResource( 8 )
 
+[node name="InklerSpillAnimation" type="Sprite" parent="." index="13"]
+position = Vector2( 288, 80 )
+texture = ExtResource( 51 )
+vframes = 6
+hframes = 4
+script = ExtResource( 52 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InklerSpillAnimation" index="0"]
+anims/inkler_go_spill = SubResource( 17 )
+
+[node name="TriggerArea" type="Area2D" parent="InklerSpillAnimation" index="1"]
+position = Vector2( -82, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InklerSpillAnimation/TriggerArea" index="0"]
+shape = SubResource( 18 )
+
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 40 )]
 position = Vector2( 2718, -297 )
 
@@ -914,7 +950,7 @@ position = Vector2( 2905, -519 )
 [node name="CrateL" parent="YSort" index="32" instance=ExtResource( 47 )]
 position = Vector2( 2994, -305 )
 
-[node name="Lights" type="Node" parent="." index="14"]
+[node name="Lights" type="Node" parent="." index="15"]
 
 [node name="ManholeLight" type="Sprite" parent="Lights" index="0"]
 light_mask = 0
@@ -1303,7 +1339,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BlackAbove" type="TileMap" parent="." index="15"]
+[node name="BlackAbove" type="TileMap" parent="." index="16"]
 light_mask = 0
 z_index = 3
 tile_set = ExtResource( 5 )
@@ -1311,7 +1347,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -3145556, 0, 655367, -3145555, 0, 655367, -3145554, 0, 655367, -3145553, 0, 655367, -3145552, 0, 655367, -3145551, 0, 655367, -3145550, 0, 655367, -3145549, 0, 655367, -3080022, 0, 655367, -3080021, 0, 655367, -3080020, 0, 655367, -3080019, 0, 655367, -3014493, 0, 655367, -3014492, 0, 655367, -3014491, 0, 655367, -3014490, 0, 655367, -3014489, 0, 655367, -3014488, 0, 655367, -3014487, 0, 655367, -3014486, 0, 655367, -3014485, 0, 655367, -3014484, 0, 655367, -3014483, 0, 655367, -2948965, 0, 655367, -2948964, 0, 655367, -2948963, 0, 655367, -2948962, 0, 655367, -2948961, 0, 655367, -2948960, 0, 655367, -2948959, 0, 655367, -2948958, 0, 655367, -2948957, 0, 655367, -2031442, 0, 655367, -2031441, 0, 655367, -2031440, 0, 655367, -1900364, 0, 655367, -1900363, 0, 655367, -1900362, 0, 655367, -1703759, 0, 655367, -1703758, 0, 655367, -1703757, 0, 655367, -1310566, 0, 655367, -1310565, 0, 655367, -1310564, 0, 655367, -1310563, 0, 655367, -1310562, 0, 655367, -1310561, 0, 655367, -1310560, 0, 655367, -1310559, 0, 655367, -1310558, 0, 655367, -1310557, 0, 655367, -1310556, 0, 655367, -1310555, 0, 655367, -1310554, 0, 655367, -1310553, 0, 655367, -1245026, 0, 655367, -1245025, 0, 655367, -1245024, 0, 655367, -1245023, 0, 655367, -1245022, 0, 655367, -1245021, 0, 655367, -1179490, 0, 655367, -1179489, 0, 655367, -1179488, 0, 655367, -1179487, 0, 655367, -1179486, 0, 655367, -1179485, 0, 655367, -1113954, 0, 655367, -1113953, 0, 655367, -720858, 0, 655367, -720857, 0, 655367, -655327, 0, 655367, -655326, 0, 655367, -655325, 0, 655367, -655324, 0, 655367, -655323, 0, 655367, -524246, 0, 655367, -524245, 0, 655367, -524244, 0, 655367, -524243, 0, 655367, -524242, 0, 655367, -524241, 0, 655367, -524240, 0, 655367, -524239, 0, 655367, -524238, 0, 655367, -524237, 0, 655367, -524236, 0, 655367, -524235, 0, 655367, -524234, 0, 655367, -524233, 0, 655367, -524232, 0, 655367 )
 
-[node name="Water" type="Node2D" parent="." index="16"]
+[node name="Water" type="Node2D" parent="." index="17"]
 
 [node name="WaterZone" parent="Water" index="0" instance=ExtResource( 20 )]
 
@@ -1331,7 +1367,7 @@ shape = SubResource( 14 )
 position = Vector2( 2776, -276 )
 shape = SubResource( 15 )
 
-[node name="ScenePortal" parent="." index="17" instance=ExtResource( 41 )]
+[node name="ScenePortal" parent="." index="18" instance=ExtResource( 41 )]
 position = Vector2( 1528, -809 )
 new_scene = "res://Rooms/Area4/4-1/4-1.tscn"
 player_new_position = Vector2( 120, -216 )
