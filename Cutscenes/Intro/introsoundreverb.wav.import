@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/introsoundreverb.wav-51e0d7e19f5efda8dc0abe8dac038d51.sample"
+
+[deps]
+
+source_file="res://Cutscenes/Intro/introsoundreverb.wav"
+dest_files=[ "res://.import/introsoundreverb.wav-51e0d7e19f5efda8dc0abe8dac038d51.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

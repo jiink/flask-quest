@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.5" name="bg_poppyhart_01" tilewidth="16" tileheight="16" tilecount="1024" columns="32">
+<tileset version="1.2" tiledversion="1.3.1" name="bg_poppyhart_01" tilewidth="16" tileheight="16" tilecount="1024" columns="32">
  <image source="bg_poppyhart_01.png" width="512" height="512"/>
  <terraintypes>
   <terrain name="dark_grass" tile="-1"/>
@@ -9,6 +9,14 @@
  <tile id="0" terrain=",,,0"/>
  <tile id="1" terrain=",,0,0"/>
  <tile id="2" terrain=",,0,"/>
+ <tile id="3">
+  <animation>
+   <frame tileid="3" duration="100"/>
+   <frame tileid="4" duration="100"/>
+   <frame tileid="5" duration="100"/>
+   <frame tileid="6" duration="100"/>
+  </animation>
+ </tile>
  <tile id="9" terrain="0,0,0,"/>
  <tile id="10" terrain="0,0,,0"/>
  <tile id="32" terrain=",0,,0"/>
