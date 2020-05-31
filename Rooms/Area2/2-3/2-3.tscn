@@ -4,8 +4,8 @@
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=3]
 [ext_resource path="res://Engine/white.png" type="Texture" id=4]
-[ext_resource path="res://Engine/light4.png" type="Texture" id=5]
-[ext_resource path="res://Rooms/Area2/Assets/bluegreenstrobe.tres" type="Material" id=6]
+[ext_resource path="res://Engine/light4a.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Area2/2-3/DougSpotlight.gd" type="Script" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -50,11 +50,11 @@ void fragment(){
 	COLOR = col;
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
-shader_param/speed = 0
+shader_param/speed = 9
 shader_param/pal_size = 16
-shader_param/source_pal_size = 1
+shader_param/source_pal_size = 5
 shader_param/p1 = Color( 0.054902, 0.0666667, 0.109804, 1 )
 shader_param/p2 = Color( 0.0196078, 0.0431373, 0.227451, 1 )
 shader_param/p3 = Color( 0.0431373, 0.121569, 0.345098, 1 )
@@ -74,15 +74,15 @@ shader_param/p16 = Color( 0.054902, 0.0666667, 0.109804, 1 )
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 2 )
-shader_param/speed = 2
-shader_param/pal_size = 6
-shader_param/source_pal_size = 4
-shader_param/p1 = Color( 0.878431, 0.937255, 0.937255, 1 )
-shader_param/p2 = Color( 0.858824, 0.835294, 0.894118, 1 )
-shader_param/p3 = Color( 0.807843, 0.831373, 0.901961, 1 )
-shader_param/p4 = Color( 0.929412, 0.870588, 0.870588, 1 )
-shader_param/p5 = Color( 0.878431, 0.788235, 0.788235, 1 )
-shader_param/p6 = Color( 0.890196, 0.905882, 0.819608, 1 )
+shader_param/speed = 0
+shader_param/pal_size = 5
+shader_param/source_pal_size = 5
+shader_param/p1 = Color( 0.192157, 0.815686, 0.392157, 1 )
+shader_param/p2 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p3 = Color( 0.0784314, 0.180392, 0.486275, 1 )
+shader_param/p4 = Color( 0.152941, 0.760784, 0.858824, 1 )
+shader_param/p5 = Color( 0.360784, 0.258824, 0.588235, 1 )
+shader_param/p6 = Color( 0, 0, 0, 1 )
 shader_param/p7 = null
 shader_param/p8 = null
 shader_param/p9 = null
@@ -100,45 +100,38 @@ shader_param/p16 = null
 material = SubResource( 1 )
 
 [node name="TextureRect2" type="TextureRect" parent="Tilemaps" index="1"]
-material = SubResource( 5 )
-margin_left = -316.0
-margin_top = -154.0
-margin_right = 61.0
-margin_bottom = 309.0
+material = SubResource( 3 )
+margin_left = -360.0
+margin_top = -273.0
+margin_right = 107.0
+margin_bottom = 1513.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="Tilemaps" index="2"]
-material = ExtResource( 6 )
-margin_left = -216.0
-margin_top = -23.0
-margin_right = -13.0
-margin_bottom = 179.0
-rect_scale = Vector2( 0.916, 0.904 )
+[node name="DougSpotlight" type="TextureRect" parent="." index="2"]
+show_behind_parent = true
+material = SubResource( 4 )
+margin_left = -61.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1.5, 1 )
+rect_pivot_offset = Vector2( 61, 64 )
 texture = ExtResource( 5 )
 expand = true
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Tilemaps" index="3"]
-material = SubResource( 4 )
-margin_left = -184.0
-margin_top = 4.0
-margin_right = -59.0
-margin_bottom = 133.0
-texture = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Tween" type="Tween" parent="DougSpotlight" index="0"]
 
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( -122, 75 )
-
-[editable path="YSort/Player"]
+position = Vector2( -108, 43 )
 
 [editable path="HUD"]

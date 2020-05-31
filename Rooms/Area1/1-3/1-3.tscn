@@ -16,7 +16,7 @@
 [ext_resource path="res://Rooms/Area1/Assets/labs-2-battle.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Rooms/Area1/Assets/labs-2.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Engine/BasicNPC.tscn" type="PackedScene" id=17]
+[ext_resource path="res://NPC/BasicNPC/BasicNPC.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Area1/Assets/hazmat_guy_dance.png" type="Texture" id=18]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=20]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Rooms/Area1/Assets/fleeing_flasks.png" type="Texture" id=26]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/elevatordoors.png" type="Texture" id=27]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/ClosingStartElevator.tscn" type="PackedScene" id=28]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 25 )

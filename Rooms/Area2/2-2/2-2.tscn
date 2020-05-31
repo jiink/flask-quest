@@ -21,9 +21,10 @@
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=20]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=21]
-[ext_resource path="res://Engine/BasicNPC.tscn" type="PackedScene" id=22]
+[ext_resource path="res://NPC/BasicNPC/BasicNPC.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Rooms/Area2/Assets/woman_4.png" type="Texture" id=23]
 [ext_resource path="res://Engine/light5.png" type="Texture" id=24]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.99999, 6 )

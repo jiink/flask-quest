@@ -15,7 +15,7 @@
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=13]
 [ext_resource path="res://MainMenu/MainMenuBGs/CityBG.tscn" type="PackedScene" id=14]
 [ext_resource path="res://MainMenu/MainMenuBGs/SewerBG.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Music/main menu idea 13.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Music/main menu melody idea 12.ogg" type="AudioStream" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "open"
