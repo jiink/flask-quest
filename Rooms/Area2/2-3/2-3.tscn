@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Rooms/Area2/2-3/2-3.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Engine/white.png" type="Texture" id=4]
 [ext_resource path="res://Engine/light4a.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/Area2/2-3/DougSpotlight.gd" type="Script" id=6]
+[ext_resource path="res://Rooms/Area2/2-3/DouglistCrowd.gd" type="Script" id=7]
+[ext_resource path="res://Engine/light5.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Rooms/Area2/Assets/bluegreenstrobe.tres" type="Material" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -52,28 +56,6 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
-shader_param/speed = 9
-shader_param/pal_size = 16
-shader_param/source_pal_size = 5
-shader_param/p1 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p2 = Color( 0.0196078, 0.0431373, 0.227451, 1 )
-shader_param/p3 = Color( 0.0431373, 0.121569, 0.345098, 1 )
-shader_param/p4 = Color( 0.0392157, 0.14902, 0.313726, 1 )
-shader_param/p5 = Color( 0.0705882, 0.329412, 0.47451, 1 )
-shader_param/p6 = Color( 0.0392157, 0.262745, 0.278431, 1 )
-shader_param/p7 = Color( 0.0352941, 0.172549, 0.137255, 1 )
-shader_param/p8 = Color( 0.0509804, 0.101961, 0.0627451, 1 )
-shader_param/p9 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p10 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p11 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p12 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p13 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p14 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p15 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-shader_param/p16 = Color( 0.054902, 0.0666667, 0.109804, 1 )
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 2 )
 shader_param/speed = 0
 shader_param/pal_size = 5
 shader_param/source_pal_size = 5
@@ -94,26 +76,33 @@ shader_param/p14 = null
 shader_param/p15 = null
 shader_param/p16 = null
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 33, 10 )
+
 [node name="2-3" instance=ExtResource( 2 )]
 
 [node name="2-3" parent="Tilemaps" index="0" instance=ExtResource( 1 )]
 material = SubResource( 1 )
 
-[node name="TextureRect2" type="TextureRect" parent="Tilemaps" index="1"]
-material = SubResource( 3 )
+[node name="DouglistCrowd" type="Node2D" parent="." index="2"]
+script = ExtResource( 7 )
+
+[node name="PaletteSwap" type="TextureRect" parent="." index="3"]
+material = ExtResource( 10 )
 margin_left = -360.0
 margin_top = -273.0
 margin_right = 107.0
-margin_bottom = 1513.0
+margin_bottom = 1497.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="DougSpotlight" type="TextureRect" parent="." index="2"]
+[node name="DougSpotlight" type="TextureRect" parent="." index="4"]
 show_behind_parent = true
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_left = -61.0
 margin_top = -64.0
 margin_right = 64.0
@@ -131,7 +120,23 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="DougSpotlight" index="0"]
 
+[node name="Light2D" type="Light2D" parent="." index="5"]
+position = Vector2( -112, 1434 )
+rotation = 3.14159
+scale = Vector2( 0.850009, 1 )
+texture = ExtResource( 8 )
+texture_scale = 0.3
+energy = 1.82
+
 [node name="Player" parent="YSort" index="0"]
-position = Vector2( -108, 43 )
+position = Vector2( -96, 1443 )
+
+[node name="ScenePortal" parent="." index="9" instance=ExtResource( 9 )]
+position = Vector2( -111, 1481 )
+new_scene = "res://Rooms/Area2/2-4/2-4.tscn"
+player_new_position = Vector2( 173, 116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
+shape = SubResource( 4 )
 
 [editable path="HUD"]
