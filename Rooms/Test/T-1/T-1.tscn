@@ -25,7 +25,7 @@
 [ext_resource path="res://Rooms/Area4/Assets/SecurityCamArea.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Player/orange_sprites/orangeFaces.png" type="Texture" id=24]
 [ext_resource path="res://Engine/Battle/Dodger/playerdeath.wav" type="AudioStream" id=25]
-[ext_resource path="res://Rooms/Area3/Assets/PropScenes/Battery.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Rooms/Area3/Assets/PuzzleElements/Battery.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Engine/dialogue/Diag.gd" type="Script" id=1]
 [ext_resource path="res://Engine/dialogue/dialogue_box.png" type="Texture" id=2]
@@ -6,6 +6,19 @@
 [ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Engine/dialogue/dialogue_choice.png" type="Texture" id=5]
 [ext_resource path="res://Engine/dialogue/dialogue_choice_selected.png" type="Texture" id=6]
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0470588, 0.0627451, 0.180392, 0.607843 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
 
 [node name="Diag" type="Node2D"]
 script = ExtResource( 1 )
@@ -90,3 +103,17 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="NameLabel" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 46.0
+margin_right = 67.0
+margin_bottom = 61.0
+theme = ExtResource( 7 )
+custom_styles/normal = SubResource( 1 )
+text = "Lotsa stuff"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="NameLabel"]
