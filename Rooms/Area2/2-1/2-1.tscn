@@ -1,4 +1,4 @@
-[gd_scene load_steps=212 format=2]
+[gd_scene load_steps=214 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -152,6 +152,8 @@
 [ext_resource path="res://Rooms/Area2/Assets/flowers_01.png" type="Texture" id=150]
 [ext_resource path="res://Rooms/Area2/Assets/bodybuilder_A.png" type="Texture" id=151]
 [ext_resource path="res://Rooms/Area2/Assets/manhole_cover_pop.wav" type="AudioStream" id=152]
+[ext_resource path="res://Rooms/Area2/Assets/city.tres" type="TileSet" id=153]
+[ext_resource path="res://Rooms/Area2/Assets/bearlybearsheet.png" type="Texture" id=154]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -278,21 +280,21 @@ hue_variation_random = 1.0
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 7, 7 )
 
-[sub_resource type="RectangleShape2D" id=58]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 48, 8 )
 
-[sub_resource type="Curve2D" id=13]
+[sub_resource type="Curve2D" id=14]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -697, 166, 0, 0, 0, 0, 546, 165, 0, 0, 0, 0, 591, 164, 0, 0, 0, 0, 622, 159, 0, 0, 0, 0, 654, 147, 0, 0, 0, 0, 666, 136, 0, 0, 0, 0, 677, 120, 0, 0, 0, 0, 687, 93, 0, 0, 0, 0, 692, 66, 0, 0, 0, 0, 692, 44, 0, 0, 0, 0, 692, 23, 0, 0, 0, 0, 692, -82, 0, 0, 0, 0, 693, -93, 0, 0, 0, 0, 700, -108, 0, 0, 0, 0, 719, -142, 0, 0, 0, 0, 726, -163, 0, 0, 0, 0, 730, -200, 0, 0, 0, 0, 730, -263, 0, 0, 0, 0, 731, -443, 0, 0, 0, 0, 732, -466, 0, 0, 0, 0, 739, -485, 0, 0, 0, 0, 750, -497, 0, 0, 0, 0, 762, -501, 0, 0, 0, 0, 776, -502, 0, 0, 0, 0, 796, -502, 0, 0, 0, 0, 821, -498, 0, 0, 0, 0, 843, -494, 0, 0, 0, 0, 887, -494, 0, 0, 0, 0, 969, -496, 0, 0, 0, 0, 1048, -494, 0, 0, 0, 0, 1131, -496, 0, 0, 0, 0, 1145, -494, 0, 0, 0, 0, 1155, -487, 0, 0, 0, 0, 1167, -477, 0, 0, 0, 0, 1172, -459, 0, 0, 0, 0, 1172, -432, 0, 0, 0, 0, 1172, -337, 0, 0, 0, 0, 1172, 16, 0, 0, 0, 0, 1168, 1038 )
 }
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 34.0009, 12 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 27.0008, 24 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 20.0
 loop = true
 tracks/0/type = "value"
@@ -356,15 +358,15 @@ tracks/4/keys = {
 "values": [ Vector2( 43.3286, -2.89941 ), Vector2( 43.3286, -2.89941 ), Vector2( 1.80261, -58.9109 ), Vector2( 1.80261, -58.9109 ), Vector2( 43.3286, -2.89941 ), Vector2( 43.3286, -2.89941 ), Vector2( 1.17841, 32.8298 ), Vector2( 1.17841, 32.8298 ) ]
 }
 
-[sub_resource type="Curve2D" id=17]
+[sub_resource type="Curve2D" id=18]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1986, 1071, 0, 0, 0, 0, 1986, 366, 0, 0, 0, 0, 1984, 338, 0, 0, 0, 0, 1979, 315, 0, 0, 0, 0, 1971, 293, 0, 0, 0, 0, 1960, 274, 0, 0, 0, 0, 1950, 261, 0, 0, 0, 0, 1932, 242, 0, 0, 0, 0, 1913, 229, 0, 0, 0, 0, 1893, 218, 0, 0, 0, 0, 1879, 213, 0, 0, 0, 0, 1864, 209, 0, 0, 0, 0, 1846, 206, 0, 0, 0, 0, 1828, 205, 0, 0, 0, 0, 1647, 205, 0, 0, 0, 0, 1622, 202, 0, 0, 0, 0, 1610, 196, 0, 0, 0, 0, 1592, 189, 0, 0, 0, 0, 1570, 180, 0, 0, 0, 0, 1543, 172, 0, 0, 0, 0, 1514, 169, 0, 0, 0, 0, 1489, 169, 0, 0, 0, 0, 1467, 167, 0, 0, 0, 0, 1438, 166, 0, 0, 0, 0, 1356, 169, 0, 0, 0, 0, 1334, 169, 0, 0, 0, 0, 1316, 166, 0, 0, 0, 0, 1302, 161, 0, 0, 0, 0, 1297, 153, 0, 0, 0, 0, 1295, 141, 0, 0, 0, 0, 1297, 126, 0, 0, 0, 0, 1300, 112, 0, 0, 0, 0, 1301, 98, 0, 0, 0, 0, 1303, 78, 0, 0, 0, 0, 1305, 60, 0, 0, 0, 0, 1308, 19, 0, 0, 0, 0, 1310, -17, 0, 0, 0, 0, 1310, -143, 0, 0, 0, 0, 1307, -153, 0, 0, 0, 0, 1301, -164, 0, 0, 0, 0, 1290, -179, 0, 0, 0, 0, 1277, -203, 0, 0, 0, 0, 1271, -240, 0, 0, 0, 0, 1268, -271, 0, 0, 0, 0, 1266, -307, 0, 0, 0, 0, 1266, -347, 0, 0, 0, 0, 1264, -372, 0, 0, 0, 0, 1260, -388, 0, 0, 0, 0, 1251, -411, 0, 0, 0, 0, 1233, -439, 0, 0, 0, 0, 1212, -462, 0, 0, 0, 0, 1188, -479, 0, 0, 0, 0, 1170, -486, 0, 0, 0, 0, 1149, -492, 0, 0, 0, 0, 1128, -495, 0, 0, 0, 0, 1099, -498, 0, 0, 0, 0, 786, -498, 0, 0, 0, 0, 760, -497, 0, 0, 0, 0, 713, -495, 0, 0, 0, 0, 670, -485, 0, 0, 0, 0, 644, -472, 0, 0, 0, 0, 612, -450, 0, 0, 0, 0, 598, -429, 0, 0, 0, 0, 587, -400, 0, 0, 0, 0, 582, -376, 0, 0, 0, 0, 577, -338, 0, 0, 0, 0, 580, -300, 0, 0, 0, 0, 589, -265, 0, 0, 0, 0, 593, -243, 0, 0, 0, 0, 596, -217, 0, 0, 0, 0, 596, -194, 0, 0, 0, 0, 596, 107, 0, 0, 0, 0, 595, 126, 0, 0, 0, 0, 591, 139, 0, 0, 0, 0, 578, 156, 0, 0, 0, 0, 559, 168, 0, 0, 0, 0, 531, 169, 0, 0, 0, 0, 485, 168, 0, 0, 0, 0, -777, 168 )
 }
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 27, 10 )
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 length = 32.0
 loop = true
 tracks/0/type = "value"
@@ -440,18 +442,18 @@ tracks/5/keys = {
 "values": [ Vector2( -0.606812, -43.5532 ), Vector2( -0.606812, -43.5532 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ), Vector2( -0.606812, -43.5532 ), Vector2( -0.606812, -43.5532 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ), Vector2( -0.458652, 35.8748 ), Vector2( -0.458652, 35.8748 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ) ]
 }
 
-[sub_resource type="Curve2D" id=20]
+[sub_resource type="Curve2D" id=21]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -772, 303, 0, 0, 0, 0, 1813, 303, 0, 0, 0, 0, 1833, 301, 0, 0, 0, 0, 1853, 298, 0, 0, 0, 0, 1872, 300, 0, 0, 0, 0, 1884, 307, 0, 0, 0, 0, 1893, 317, 0, 0, 0, 0, 1897, 336, 0, 0, 0, 0, 1895, 351, 0, 0, 0, 0, 1892, 364, 0, 0, 0, 0, 1892, 382, 0, 0, 0, 0, 1893, 399, 0, 0, 0, 0, 1896, 430, 0, 0, 0, 0, 1894, 470, 0, 0, 0, 0, 1892, 516, 0, 0, 0, 0, 1894, 701, 0, 0, 0, 0, 1892, 937, 0, 0, 0, 0, 1892, 1074 )
 }
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 26, 10 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 25.0184, 22.9799 )
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 length = 15.0
 loop = true
 tracks/0/type = "value"
@@ -513,6 +515,23 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 0 ),
 "update": 0,
 "values": [ Vector2( 38.996, 5.0267 ), Vector2( 38.996, 5.0267 ), Vector2( 0.0846252, 36.6884 ), Vector2( 0.0846252, 36.6884 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=26]
@@ -669,7 +688,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=35]
-length = 20.0
+length = 2.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -679,10 +698,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 2, 1 ]
+"values": [ 4, 0 ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -703,23 +722,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=37]
-length = 2.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 0 ]
-}
-
-[sub_resource type="Animation" id=38]
 length = 20.0
 loop = true
 step = 1.0
@@ -736,7 +738,7 @@ tracks/0/keys = {
 "values": [ 0, 2, 1 ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=38]
 length = 2.0
 loop = true
 step = 1.0
@@ -753,7 +755,7 @@ tracks/0/keys = {
 "values": [ 4, 0 ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=39]
 length = 0.96
 loop = true
 step = 0.08
@@ -770,7 +772,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=40]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -785,7 +787,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
 }
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=41]
 length = 2.2
 loop = true
 step = 0.2
@@ -802,7 +804,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=42]
 length = 2.0
 loop = true
 step = 1.0
@@ -819,7 +821,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=44]
+[sub_resource type="Animation" id=43]
 resource_name = "wag_tail"
 length = 1.6
 loop = true
@@ -836,19 +838,19 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="RectangleShape2D" id=45]
+[sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 18, 17 )
 
-[sub_resource type="RectangleShape2D" id=46]
+[sub_resource type="RectangleShape2D" id=45]
 extents = Vector2( 18, 15 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 25, 5 )
 
 [sub_resource type="RectangleShape2D" id=47]
 extents = Vector2( 25, 5 )
 
-[sub_resource type="RectangleShape2D" id=48]
-extents = Vector2( 25, 5 )
-
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=48]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -864,13 +866,13 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=50]
+[sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="RectangleShape2D" id=51]
+[sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 12, 2 )
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=51]
 resource_name = "default"
 length = 0.8
 loop = true
@@ -887,12 +889,12 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Curve2D" id=53]
+[sub_resource type="Curve2D" id=52]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 30.9999, 1.00003, 0, 0, 0, 0, -403, 1.00003 )
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=53]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -920,13 +922,13 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=59]
+[sub_resource type="RectangleShape2D" id=54]
 extents = Vector2( 11, 2 )
 
-[sub_resource type="RectangleShape2D" id=60]
+[sub_resource type="RectangleShape2D" id=55]
 extents = Vector2( 11, 2 )
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=56]
 resource_name = "pumping"
 length = 0.4
 loop = true
@@ -943,13 +945,13 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=55]
+[sub_resource type="RectangleShape2D" id=57]
 extents = Vector2( 11, 24 )
 
-[sub_resource type="RectangleShape2D" id=56]
+[sub_resource type="RectangleShape2D" id=58]
 extents = Vector2( 12, 30 )
 
-[sub_resource type="RectangleShape2D" id=57]
+[sub_resource type="RectangleShape2D" id=59]
 extents = Vector2( 16, 10 )
 
 [node name="2-1" groups=[
@@ -996,7 +998,14 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -262172, 0, 589827, -262167, 0, 589826, -196636, 0, 589825, -196631, 0, 589824, -131100, 0, 589825, -131095, 0, 589824, -65564, 0, 589825, -65559, 0, 589824, -28, 0, 589828, -27, 0, 524292, -26, 0, 589826, -25, 0, 589827, -24, 0, 524292, -23, 0, 655364, 65510, 0, 589824, 65511, 0, 589825, 131046, 0, 589824, 131047, 0, 589825, 196582, 0, 589824, 196583, 0, 589825, 262118, 0, 655364, 262119, 0, 589828, 1507284, 0, 524292, 1507285, 0, 524292, 1507286, 0, 524292, 1507287, 0, 524292, 1507288, 0, 524292, 1507289, 0, 524292, 1507290, 0, 524292, 1507291, 0, 524292, 1507292, 0, 524292, 1507293, 0, 524292, 1507294, 0, 524292, 1507295, 0, 524292, 1507296, 0, 524292, 1507297, 0, 524292, 1507298, 0, 524292, 1507299, 0, 524292, 1507300, 0, 524292, 1507301, 0, 524292, 1507302, 0, 524292, 1507303, 0, 524292, 1507304, 0, 524292, 1507305, 0, 524292, 1507306, 0, 524292, 1507307, 0, 524292, 1507308, 0, 524292, 1507309, 0, 589826 )
 
-[node name="Collisions" type="TileMap" parent="Tilemaps" index="5"]
+[node name="Aboveplayer" type="TileMap" parent="Tilemaps" index="5"]
+z_index = 1
+tile_set = ExtResource( 153 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -5767027, 1, 720896, -5701491, 1, 720896, -5635955, 1, 720896, -5570419, 1, 720896, -5504883, 1, 720896, -5439347, 1, 720896, -5373811, 1, 720896, -5308275, 1, 720896, -5242739, 1, 720896, -5177203, 1, 720896, -5111667, 1, 720896, -5046131, 1, 720896, -4980595, 1, 720896, -4915059, 1, 720896, -4849523, 1, 720896, -4783987, 1, 720896, -4718451, 1, 720896, -4652915, 1, 720896, -4587379, 1, 720896, -4521843, 1, 720896, -4456307, 1, 720896, -4390771, 1, 720896, -4325235, 1, 720896, -4259699, 1, 720896, -4194163, 1, 720896, -4128627, 1, 720896, -4063091, 1, 720896, -3997555, 1, 720896, -3932019, 1, 720896, -3866574, 1, 655371, -3866573, 1, 655371, -3866572, 1, 655371, -3866571, 1, 655371, -3866570, 1, 655371, -3866569, 1, 655371, -3866568, 1, 655371, -3866567, 1, 655371, -3866566, 1, 655371, -3866565, 1, 655371, -3866564, 1, 655371, -3866563, 1, 655371, -3866562, 1, 655371, -3866561, 1, 655371, -3866560, 1, 655371, -3866559, 1, 655371, -3866558, 1, 655371, -3866557, 1, 655371, -3866556, 1, 655371, -3866537, 1, 655371, -3866536, 1, 655371, -3866535, 1, 655371, -3866534, 1, 655371, -3866533, 1, 655371, -3866532, 1, 655371, -3866531, 1, 655371, -3866530, 1, 655371, -3866529, 1, 655371, -3866528, 1, 655371, -3866527, 1, 655371, -3866526, 1, 655371, -3866525, 1, 655371, -3866524, 1, 655371, -3866523, 1, 655371, -3866522, 1, 655371, -3866521, 1, 655371, -3866520, 1, 655371, -3866519, 1, 655371, -3866518, 1, 655371, -3866517, 1, 655371, -3866516, 1, 655371, -3866515, 1, 655371, -3866514, 1, 655371, -3866513, 1, 655371, -3866512, 1, 655371, -3866511, 1, 655371, -3866483, 1, 720896, -3801038, 1, 720896, -3801020, 1, 720898, -3801001, 1, 720896, -3800975, 1, 720898, -3800947, 1, 720896, -3735411, 1, 720896, -3669875, 1, 720896, -3604345, 1, 655360, -3604344, 1, 655361, -3604343, 1, 655361, -3604342, 1, 655361, -3604341, 1, 655361, -3604340, 1, 655361, -3604339, 1, 786432, -3538809, 1, 720896, -3473273, 1, 720896, -3407737, 1, 720896, -3342201, 1, 720896, -3276665, 1, 720896, -3211129, 1, 720896, -3145593, 1, 720896, -3080057, 1, 720896, -3014521, 1, 720896, -2948985, 1, 720896, -2883451, 1, 655360, -2883450, 1, 655361, -2883449, 1, 786432, -2817915, 1, 720896, -2752379, 1, 720896, -2686843, 1, 720896, -2621307, 1, 720896, -2555771, 1, 720896, -2490235, 1, 851968, -2490234, 1, 851969, -2490233, 1, 851973, -2424697, 1, 720896, -2359161, 1, 720896, -2293625, 1, 720896, -2228089, 1, 720896, -2162553, 1, 720896, -2097017, 1, 720896, -2031481, 1, 720896, -1965945, 1, 720896, -1900409, 1, 720896, -1834873, 1, 720896, -1769337, 1, 720896, -1703801, 1, 720896, -1638265, 1, 720896, -1572729, 1, 851968, -1507193, 1, 851974, -1441657, 1, 655366, -1376205, 1, 655371, -1376204, 1, 655371, -1376203, 1, 655371, -1376202, 1, 655371, -1376201, 1, 655371, -1376200, 1, 655371, -1376199, 1, 655371, -1376198, 1, 655371, -1376197, 1, 655371, -1376196, 1, 655371, -1376195, 1, 655371, -1376194, 1, 655371, -1376193, 1, 655371, -1376192, 1, 655371, -1376191, 1, 655371, -1376190, 1, 655371, -1376121, 1, 720902, -1310669, 1, 720896, -1310654, 1, 720898, -1310585, 1, 786438, -1245133, 1, 655367, -1245132, 1, 851969, -1245131, 1, 851969, -1245130, 1, 851969, -1245129, 1, 851973, -1245128, 1, 786435, -1245127, 1, 786435, -1245126, 1, 786435, -1245125, 1, 786435, -1245124, 1, 786435, -1245123, 1, 786435, -1245122, 1, 786437, -1245121, 1, 851969, -1245120, 1, 851969, -1245119, 1, 851969, -1245118, 1, 655370, -1245049, 1, 851974, -1179593, 1, 720896, -1179592, 1, 786435, -1179591, 1, 786435, -1179590, 1, 786435, -1179589, 1, 786435, -1179588, 1, 786435, -1179587, 1, 786435, -1179586, 1, 720898, -1179513, 1, 655366, -1114057, 1, 720896, -1114056, 1, 786435, -1114055, 1, 786435, -1114054, 1, 786435, -1114053, 1, 786435, -1114052, 1, 786435, -1114051, 1, 786435, -1114050, 1, 720898, -1113977, 1, 720902, -1048521, 1, 851968, -1048520, 1, 851969, -1048519, 1, 851969, -1048518, 1, 851969, -1048517, 1, 851969, -1048516, 1, 851969, -1048515, 1, 851969, -1048514, 1, 851970, -1048441, 1, 786438, -982905, 1, 851974, -917369, 1, 655366, -851833, 1, 720902, -786297, 1, 786438, -720761, 1, 851974, -655225, 1, 655366, -589689, 1, 720902, -524153, 1, 786438, -458617, 1, 851974, -393081, 1, 655366, -327545, 1, 720902, -262009, 1, 786438, -196473, 1, 851974, -130937, 1, 655366, -65401, 1, 720902, 135, 1, 786438, 65671, 1, 851974, 131207, 1, 655366, 196743, 1, 720902, 262279, 1, 786438, 327815, 1, 851974, 393351, 1, 655366, 458887, 1, 720902, 524423, 1, 786438, 589959, 1, 851974, 655495, 1, 655360, 655496, 1, 786432, 721031, 1, 720896, 786567, 1, 720896, 852103, 1, 720896, 917639, 1, 720896, 983175, 1, 720896, 1048711, 1, 720896, 1114247, 1, 720896, 1179783, 1, 720896, 1245319, 1, 720896, 1310855, 1, 720896, 1376391, 1, 720896, 1441927, 1, 720896, 1572845, 1, 655360, 1572846, 1, 655361, 1572847, 1, 655361, 1572848, 1, 655361, 1572849, 1, 655361, 1572850, 1, 655361, 1572851, 1, 655361, 1572852, 1, 655361, 1572853, 1, 655361, 1572854, 1, 655361, 1572855, 1, 655361, 1572856, 1, 655361, 1572857, 1, 655361, 1572858, 1, 655361, 1572859, 1, 655361, 1572860, 1, 655361, 1572861, 1, 655361, 1572862, 1, 655361, 1572863, 1, 655361, 1507328, 1, 655361, 1507329, 1, 655361, 1507330, 1, 655361, 1507331, 1, 655361, 1507332, 1, 655361, 1507333, 1, 655361, 1507334, 1, 655361, 1507335, 1, 655362, 1507378, 1, 655360, 1507379, 1, 655361, 1507380, 1, 655361, 1507381, 1, 655361, 1507382, 1, 655361, 1507383, 1, 655361, 1507384, 1, 655361, 1507385, 1, 655361, 1507386, 1, 655361, 1507387, 1, 655361, 1507388, 1, 655361, 1507389, 1, 655361, 1507390, 1, 655361, 1507391, 1, 655361, 1507392, 1, 655361, 1507393, 1, 655361, 1507394, 1, 655361, 1507395, 1, 655361, 1507396, 1, 655362, 1507463, 1, 720896, 1638381, 1, 720896, 1572871, 1, 720898, 1572914, 1, 851974, 1572932, 1, 851972, 1572999, 1, 720896, 1703917, 1, 720896, 1638407, 1, 655364, 1638450, 1, 655366, 1638468, 1, 655364, 1638535, 1, 720896, 1769453, 1, 720896, 1703943, 1, 720900, 1703986, 1, 720902, 1704004, 1, 720900, 1704071, 1, 720896, 1834989, 1, 720896, 1769479, 1, 786436, 1769522, 1, 786438, 1769540, 1, 786436, 1769607, 1, 720896, 1900525, 1, 720896, 1835015, 1, 851972, 1835058, 1, 851974, 1835076, 1, 851972, 1835143, 1, 720896, 1900551, 1, 655364, 1900594, 1, 655366, 1900612, 1, 655364, 1900679, 1, 720896, 1966087, 1, 720900, 1966130, 1, 720902, 1966148, 1, 720900, 1966215, 1, 720896, 2031623, 1, 786434, 2031624, 1, 655361, 2031625, 1, 655361, 2031626, 1, 655361, 2031627, 1, 655361, 2031628, 1, 655361, 2031629, 1, 655361, 2031630, 1, 655361, 2031631, 1, 655361, 2031632, 1, 655361, 2031633, 1, 655361, 2031634, 1, 655361, 2031635, 1, 655361, 2031636, 1, 655361, 2031637, 1, 655361, 2031638, 1, 655361, 2031639, 1, 655361, 2031640, 1, 655361, 2031641, 1, 655361, 2031642, 1, 655361, 2031643, 1, 655361, 2031644, 1, 655361, 2031645, 1, 655361, 2031646, 1, 655362, 2031666, 1, 786438, 2031684, 1, 786436, 2031751, 1, 720896, 2097182, 1, 720898, 2097202, 1, 851974, 2097220, 1, 851972, 2097287, 1, 720896, 2162718, 1, 786434, 2162719, 1, 655361, 2162720, 1, 655361, 2162721, 1, 655361, 2162722, 1, 655361, 2162723, 1, 655361, 2162724, 1, 655361, 2162725, 1, 655361, 2162726, 1, 655361, 2162727, 1, 655361, 2162728, 1, 655361, 2162729, 1, 655361, 2162730, 1, 655361, 2162731, 1, 655361, 2162732, 1, 655361, 2162733, 1, 655361, 2162734, 1, 655361, 2162735, 1, 655361, 2162736, 1, 655361, 2162737, 1, 655361, 2162738, 1, 786432, 2162756, 1, 655364, 2162823, 1, 720896, 2228292, 1, 720900, 2228359, 1, 720896, 2293828, 1, 786436, 2293895, 1, 720896, 2359364, 1, 851972, 2359431, 1, 851968, 2424900, 1, 655364, 2424967, 1, 851974, 2490436, 1, 720900, 2490503, 1, 655366, 2555972, 1, 786436, 2556039, 1, 720902, 2621508, 1, 851972, 2621575, 1, 786438, 2687044, 1, 655364, 2687111, 1, 851974, 2752580, 1, 720900, 2752647, 1, 655366, 2818116, 1, 786436, 2818183, 1, 720902, 2883652, 1, 851972, 2883719, 1, 786438, 2949188, 1, 655364, 2949255, 1, 851974, 3014724, 1, 720900, 3014791, 1, 655366, 3080260, 1, 786436, 3080327, 1, 720902, 3145796, 1, 851972, 3145863, 1, 786438, 3211332, 1, 655364, 3211399, 1, 851974, 3276868, 1, 720900, 3276935, 1, 655366, 3342404, 1, 786436, 3342471, 1, 720902, 3407940, 1, 851972, 3408007, 1, 786438, 3473476, 1, 655364, 3473543, 1, 851974, 3539012, 1, 720900, 3539079, 1, 655366, 3604548, 1, 786436, 3604615, 1, 720902, 3670084, 1, 851972, 3670151, 1, 786438, 3735620, 1, 655364, 3735687, 1, 851974, 3801156, 1, 720900, 3801174, 1, 655360, 3801175, 1, 655361, 3801176, 1, 655361, 3801177, 1, 655361, 3801178, 1, 655361, 3801179, 1, 655361, 3801180, 1, 655361, 3801181, 1, 655361, 3801182, 1, 655361, 3801183, 1, 655361, 3801184, 1, 655361, 3801185, 1, 655361, 3801186, 1, 655361, 3801187, 1, 655361, 3801188, 1, 655361, 3801189, 1, 655361, 3801190, 1, 655361, 3801191, 1, 655361, 3801192, 1, 655361, 3801193, 1, 655361, 3801194, 1, 655361, 3801195, 1, 655361, 3801196, 1, 655361, 3801197, 1, 655361, 3801198, 1, 655361, 3801199, 1, 655361, 3801200, 1, 655361, 3801201, 1, 655362, 3801223, 1, 655366, 3866692, 1, 786436, 3866710, 1, 720896, 3866737, 1, 720898, 3866759, 1, 720902, 3932228, 1, 851972, 3932246, 1, 720896, 3932273, 1, 720898, 3932295, 1, 786438, 3997764, 1, 655364, 3997782, 1, 720896, 3997809, 1, 720898, 3997831, 1, 851974, 4063300, 1, 720900, 4063318, 1, 720896, 4063345, 1, 720898, 4063367, 1, 655366, 4128836, 1, 786436, 4128846, 1, 655360, 4128847, 1, 655361, 4128848, 1, 655361, 4128849, 1, 655361, 4128850, 1, 655361, 4128851, 1, 655361, 4128852, 1, 655362, 4128854, 1, 720896, 4128881, 1, 720898, 4128884, 1, 655360, 4128885, 1, 655361, 4128886, 1, 655361, 4128887, 1, 655361, 4128888, 1, 655361, 4128889, 1, 655361, 4128890, 1, 655361, 4128891, 1, 655362, 4128903, 1, 720902, 4194373, 1, 655361, 4194374, 1, 655361, 4194375, 1, 655361, 4194376, 1, 655361, 4194377, 1, 655361, 4194378, 1, 655361, 4194379, 1, 655361, 4194380, 1, 655361, 4194381, 1, 655361, 4194382, 1, 786432, 4194388, 1, 786434, 4194389, 1, 655361, 4194390, 1, 786432, 4194417, 1, 786434, 4194418, 1, 655361, 4194419, 1, 655361, 4194420, 1, 786432, 4194427, 1, 786434, 4194428, 1, 655361, 4194429, 1, 655361, 4194430, 1, 655361, 4194431, 1, 655361, 4194432, 1, 655361, 4194433, 1, 655361, 4194434, 1, 655361, 4194435, 1, 655361, 4194436, 1, 655361, 4194437, 1, 655361, 4194438, 1, 655361, 4194439, 1, 786432 )
+
+[node name="Collisions" type="TileMap" parent="Tilemaps" index="6"]
 visible = false
 z_index = 1
 tile_set = ExtResource( 5 )
@@ -1187,7 +1196,7 @@ texture = ExtResource( 150 )
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BehindPlayerDetail/flowers_03/StaticBody2D" index="0"]
-shape = SubResource( 58 )
+shape = SubResource( 13 )
 
 [node name="flowers_04" type="Sprite" parent="BehindPlayerDetail" index="6"]
 position = Vector2( -72, 88 )
@@ -1201,7 +1210,7 @@ texture = ExtResource( 119 )
 
 [node name="RedCarPath" type="Path2D" parent="VehiclePaths" index="0"]
 position = Vector2( 1, 90 )
-curve = SubResource( 13 )
+curve = SubResource( 14 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/RedCarPath" index="0"]
 position = Vector2( -697, 166 )
@@ -1219,13 +1228,13 @@ script = ExtResource( 116 )
 [node name="KinematicBody2D" type="KinematicBody2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car/KinematicBody2D" index="0"]
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="StopArea" type="Area2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car/StopArea" index="0"]
 position = Vector2( 43.3286, -2.89941 )
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="Tween" type="Tween" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="2"]
 
@@ -1248,10 +1257,10 @@ max_distance = 256.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/RedCarPath" index="1"]
 autoplay = "drive"
-anims/drive = SubResource( 16 )
+anims/drive = SubResource( 17 )
 
 [node name="YellowCarPath" type="Path2D" parent="VehiclePaths" index="1"]
-curve = SubResource( 17 )
+curve = SubResource( 18 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/YellowCarPath" index="0"]
 position = Vector2( 1986, 1071 )
@@ -1273,14 +1282,14 @@ script = ExtResource( 116 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car/KinematicBody2D" index="0"]
 position = Vector2( 0, -6 )
 rotation = -1.5708
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="StopArea" type="Area2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="1"]
 rotation = -0.000804549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car/StopArea" index="0"]
 position = Vector2( -0.606812, -43.5532 )
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="Tween" type="Tween" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="2"]
 
@@ -1306,10 +1315,10 @@ max_distance = 256.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/YellowCarPath" index="1"]
 autoplay = "drive"
-anims/drive = SubResource( 19 )
+anims/drive = SubResource( 20 )
 
 [node name="BlueCarPath" type="Path2D" parent="VehiclePaths" index="2"]
-curve = SubResource( 20 )
+curve = SubResource( 21 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/BlueCarPath" index="0"]
 position = Vector2( -772, 303 )
@@ -1324,7 +1333,7 @@ script = ExtResource( 116 )
 [node name="KinematicBody2D" type="KinematicBody2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue/KinematicBody2D" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="StopArea" type="Area2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="1"]
 position = Vector2( -3.05176e-05, -4.99529 )
@@ -1332,7 +1341,7 @@ rotation = -0.000804549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue/StopArea" index="0"]
 position = Vector2( 38.996, 5.0267 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Tween" type="Tween" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="2"]
 
@@ -1358,13 +1367,13 @@ max_distance = 256.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/BlueCarPath" index="1"]
 autoplay = "drive"
-anims/drive = SubResource( 23 )
+anims/drive = SubResource( 24 )
 
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 121 )]
 position = Vector2( 264, 28 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 280, 27 )
+position = Vector2( 181, 387 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -1561,51 +1570,72 @@ position = Vector2( 696, -1179 )
 position = Vector2( -420, -31 )
 
 [node name="trashcan2" parent="YSort/Props" index="23" instance=ExtResource( 15 )]
-position = Vector2( 360, 57 )
+position = Vector2( 88, 88 )
 
-[node name="toolbox" parent="YSort/Props" index="24" instance=ExtResource( 137 )]
+[node name="trashcan3" parent="YSort/Props" index="24" instance=ExtResource( 15 )]
+position = Vector2( 1399, 105 )
+
+[node name="trashcan4" parent="YSort/Props" index="25" instance=ExtResource( 15 )]
+position = Vector2( 1816, -343 )
+
+[node name="trashcan5" parent="YSort/Props" index="26" instance=ExtResource( 15 )]
+position = Vector2( 1112, -637 )
+
+[node name="trashcan6" parent="YSort/Props" index="27" instance=ExtResource( 15 )]
+position = Vector2( 1465, -617 )
+
+[node name="trashcan7" parent="YSort/Props" index="28" instance=ExtResource( 15 )]
+position = Vector2( 1352, -1215 )
+
+[node name="trashcan8" parent="YSort/Props" index="29" instance=ExtResource( 15 )]
+position = Vector2( 1352, -1202 )
+
+[node name="trashcan9" parent="YSort/Props" index="30" instance=ExtResource( 15 )]
+position = Vector2( 1975, -1161 )
+
+[node name="toolbox" parent="YSort/Props" index="31" instance=ExtResource( 137 )]
 position = Vector2( 1804, 109 )
 
-[node name="cone" parent="YSort/Props" index="25" instance=ExtResource( 139 )]
+[node name="cone" parent="YSort/Props" index="32" instance=ExtResource( 139 )]
 position = Vector2( 1439, 432 )
 
-[node name="cone2" parent="YSort/Props" index="26" instance=ExtResource( 139 )]
+[node name="cone2" parent="YSort/Props" index="33" instance=ExtResource( 139 )]
 position = Vector2( 1458, 432 )
 
-[node name="cone3" parent="YSort/Props" index="27" instance=ExtResource( 139 )]
+[node name="cone3" parent="YSort/Props" index="34" instance=ExtResource( 139 )]
 position = Vector2( -557, 137 )
 
-[node name="cone4" parent="YSort/Props" index="28" instance=ExtResource( 139 )]
+[node name="cone4" parent="YSort/Props" index="35" instance=ExtResource( 139 )]
 position = Vector2( -562, 108 )
 
-[node name="cone5" parent="YSort/Props" index="29" instance=ExtResource( 139 )]
+[node name="cone5" parent="YSort/Props" index="36" instance=ExtResource( 139 )]
 position = Vector2( -572, 97 )
 
-[node name="cone6" parent="YSort/Props" index="30" instance=ExtResource( 139 )]
+[node name="cone6" parent="YSort/Props" index="37" instance=ExtResource( 139 )]
 position = Vector2( -530, 70 )
 
-[node name="cone7" parent="YSort/Props" index="31" instance=ExtResource( 139 )]
+[node name="cone7" parent="YSort/Props" index="38" instance=ExtResource( 139 )]
 position = Vector2( -552, 354 )
 
-[node name="cone8" parent="YSort/Props" index="32" instance=ExtResource( 139 )]
+[node name="cone8" parent="YSort/Props" index="39" instance=ExtResource( 139 )]
 position = Vector2( -555, 327 )
 
-[node name="cone9" parent="YSort/Props" index="33" instance=ExtResource( 139 )]
+[node name="cone9" parent="YSort/Props" index="40" instance=ExtResource( 139 )]
 position = Vector2( 1231, -1608 )
 
-[node name="cone10" parent="YSort/Props" index="34" instance=ExtResource( 139 )]
+[node name="cone10" parent="YSort/Props" index="41" instance=ExtResource( 139 )]
 position = Vector2( 1246, -1592 )
 
-[node name="cone11" parent="YSort/Props" index="35" instance=ExtResource( 139 )]
+[node name="cone11" parent="YSort/Props" index="42" instance=ExtResource( 139 )]
 position = Vector2( 1272, -1617 )
 
-[node name="cone12" parent="YSort/Props" index="36" instance=ExtResource( 139 )]
+[node name="cone12" parent="YSort/Props" index="43" instance=ExtResource( 139 )]
 position = Vector2( 1460, -792 )
 
-[node name="cone13" parent="YSort/Props" index="37" instance=ExtResource( 139 )]
+[node name="cone13" parent="YSort/Props" index="44" instance=ExtResource( 139 )]
 position = Vector2( 1751, 110 )
 
-[node name="cone14" parent="YSort/Props" index="38" instance=ExtResource( 139 )]
+[node name="cone14" parent="YSort/Props" index="45" instance=ExtResource( 139 )]
 position = Vector2( 1783, 125 )
 
 [node name="streetlamps" type="YSort" parent="YSort" index="4"]
@@ -1867,7 +1897,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front/trafficlight_signal" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 26 )
+anims/trafficDefault = SubResource( 25 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front" index="2"]
 position = Vector2( 137, -73 )
@@ -1889,7 +1919,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 27 )
+anims/trafficDefault = SubResource( 26 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front2" index="2"]
 position = Vector2( -471, -73 )
@@ -1899,7 +1929,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 28 )
+anims/trafficDefault = SubResource( 27 )
 
 [node name="trafficlight_front3" parent="YSort/traffic_signals" index="2" instance=ExtResource( 36 )]
 position = Vector2( 1848, 120 )
@@ -1912,7 +1942,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 29 )
+anims/trafficDefault = SubResource( 28 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front3" index="2"]
 position = Vector2( -471, -73 )
@@ -1922,7 +1952,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 30 )
+anims/trafficDefault = SubResource( 29 )
 
 [node name="trafficlight_front4" parent="YSort/traffic_signals" index="3" instance=ExtResource( 36 )]
 position = Vector2( 1848, -584 )
@@ -1935,7 +1965,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 31 )
+anims/trafficDefault = SubResource( 30 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front4" index="2"]
 position = Vector2( -471, -73 )
@@ -1945,7 +1975,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 32 )
+anims/trafficDefault = SubResource( 31 )
 
 [node name="trafficlight_front5" parent="YSort/traffic_signals" index="4" instance=ExtResource( 36 )]
 position = Vector2( 1128, -584 )
@@ -1958,7 +1988,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 33 )
+anims/trafficDefault = SubResource( 32 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front5" index="2"]
 position = Vector2( -471, -73 )
@@ -1968,7 +1998,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 34 )
+anims/trafficDefault = SubResource( 33 )
 
 [node name="trafficlight_front6" parent="YSort/traffic_signals" index="5" instance=ExtResource( 36 )]
 position = Vector2( 520, -584 )
@@ -1981,7 +2011,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal3" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 35 )
+anims/trafficDefault = SubResource( 34 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front6" index="2"]
 position = Vector2( 137, -73 )
@@ -1991,7 +2021,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 36 )
+anims/default = SubResource( 35 )
 
 [node name="trafficlight_front7" parent="YSort/traffic_signals" index="6" instance=ExtResource( 36 )]
 position = Vector2( 520, -1160 )
@@ -2005,8 +2035,8 @@ frame = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal3" index="0"]
 autoplay = "default"
-anims/default = SubResource( 37 )
-anims/trafficDefault = SubResource( 38 )
+anims/default = SubResource( 36 )
+anims/trafficDefault = SubResource( 37 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front7" index="2"]
 position = Vector2( 137, -73 )
@@ -2016,7 +2046,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 39 )
+anims/default = SubResource( 38 )
 
 [node name="trafficlight_back" parent="YSort/traffic_signals" index="7" instance=ExtResource( 40 )]
 position = Vector2( 776, 344 )
@@ -2101,7 +2131,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_3/talkingreporter" index="0"]
 autoplay = "default"
-anims/default = SubResource( 40 )
+anims/default = SubResource( 39 )
 
 [node name="billboard_3_grid" type="Sprite" parent="YSort/signs/billboard_3" index="1"]
 position = Vector2( 0, 10 )
@@ -2130,7 +2160,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_4/impinge_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 41 )
+anims/default = SubResource( 40 )
 
 [node name="billboard_4_grid" type="Sprite" parent="YSort/signs/billboard_4" index="1"]
 position = Vector2( 0, -11 )
@@ -2160,7 +2190,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_1/snee_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 42 )
+anims/default = SubResource( 41 )
 
 [node name="billboard_1_grid" type="Sprite" parent="YSort/signs/billboard_1" index="1"]
 position = Vector2( 8, -1 )
@@ -2178,7 +2208,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_2/solis_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 43 )
+anims/default = SubResource( 42 )
 
 [node name="billboard_2_grid" type="Sprite" parent="YSort/signs/billboard_2" index="1"]
 position = Vector2( 9, 0 )
@@ -2447,7 +2477,7 @@ face_texture = ExtResource( 102 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/MalusHinter" index="4"]
 autoplay = "wag_tail"
-anims/wag_tail = SubResource( 44 )
+anims/wag_tail = SubResource( 43 )
 
 [node name="bearly_bear" parent="YSort/NPC" index="1" instance=ExtResource( 74 )]
 position = Vector2( 443, 97 )
@@ -2457,19 +2487,23 @@ script = ExtResource( 7 )
 
 [node name="DiagPiece" parent="YSort/NPC/bearly_bear/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "hi im bear. baerly the bear."
+name_label = "Bearly the Bear"
+face_texture = ExtResource( 154 )
 
 [node name="DiagPiece" parent="YSort/NPC/bearly_bear/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "and im bearly able to feed my family. please help."
+name_label = "Bearly the Bear"
+face_texture = ExtResource( 154 )
 
 [node name="Interaction" type="Area2D" parent="YSort/NPC/bearly_bear" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/Interaction" index="0"]
-shape = SubResource( 45 )
+shape = SubResource( 44 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/NPC/bearly_bear" index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/StaticBody2D" index="0"]
-shape = SubResource( 46 )
+shape = SubResource( 45 )
 
 [node name="ShadowRect" parent="YSort/NPC/bearly_bear" index="3" instance=ExtResource( 72 )]
 visible = false
@@ -2510,6 +2544,7 @@ offset = Vector2( 0, -7 )
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "Oh my Gosh. You're sooo cute!"
+name_label = "Mouse"
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "Aww, thanks."
@@ -2532,10 +2567,10 @@ hframes = 6
 frame = 5
 
 [node name="CollisionShape2D" parent="YSort/NPC/DogA/Interaction" index="0"]
-shape = SubResource( 47 )
+shape = SubResource( 46 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/DogA/StaticBody2D" index="0"]
-shape = SubResource( 48 )
+shape = SubResource( 47 )
 
 [node name="ShadowRect" parent="YSort/NPC/DogA" index="2"]
 visible = false
@@ -2548,13 +2583,14 @@ character = "orange"
 expression = "sad"
 
 [node name="DiagPiece2" parent="YSort/NPC/DogA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "...```` We're practicing, okay?"
+message = "..."
+name_label = "Dog"
 voice_sound = ExtResource( 128 )
 voice_variation = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/DogA" index="4"]
 autoplay = "idleBounce"
-anims/idleBounce = SubResource( 49 )
+anims/idleBounce = SubResource( 48 )
 
 [node name="ManB" parent="YSort/NPC" index="6" instance=ExtResource( 98 )]
 position = Vector2( 356, 351 )
@@ -2572,18 +2608,18 @@ position = Vector2( 1651, -341 )
 position = Vector2( -551, 87 )
 
 [node name="ManYelling" parent="YSort/NPC" index="11" instance=ExtResource( 77 )]
-position = Vector2( 310, 424 )
+position = Vector2( 313, 428 )
 texture = ExtResource( 147 )
 offset = Vector2( 4, -12 )
 hframes = 8
 
 [node name="CollisionShape2D" parent="YSort/NPC/ManYelling/Interaction" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 50 )
+shape = SubResource( 49 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/ManYelling/StaticBody2D" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 50 )
 
 [node name="ShadowRect" parent="YSort/NPC/ManYelling" index="2"]
 margin_left = -10.0
@@ -2593,7 +2629,7 @@ margin_right = 16.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/ManYelling" index="3"]
 autoplay = "default"
 playback_speed = 2.0
-anims/default = SubResource( 52 )
+anims/default = SubResource( 51 )
 
 [node name="RoboGuard2" parent="YSort/NPC" index="12" instance=ExtResource( 120 )]
 position = Vector2( -549, 122 )
@@ -2657,7 +2693,7 @@ flip_h = true
 
 [node name="RunnerBoyPath2D" type="Path2D" parent="YSort/NPC" index="17"]
 position = Vector2( 1786, -378 )
-curve = SubResource( 53 )
+curve = SubResource( 52 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="YSort/NPC/RunnerBoyPath2D" index="0"]
 position = Vector2( 30.9999, 1.00003 )
@@ -2676,7 +2712,7 @@ text_delay = 0.001
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/RunnerBoyPath2D" index="1"]
 autoplay = "run_path"
-anims/run_path = SubResource( 54 )
+anims/run_path = SubResource( 53 )
 
 [node name="internetworkerA" parent="YSort/NPC" index="18" instance=ExtResource( 138 )]
 position = Vector2( 1789, 119 )
@@ -2713,17 +2749,17 @@ frame = 3
 visible = false
 
 [node name="CollisionShape2D" parent="YSort/NPC/BodyBuilderA/Interaction" index="0"]
-shape = SubResource( 59 )
+shape = SubResource( 54 )
 
 [node name="StaticBody2D" parent="YSort/NPC/BodyBuilderA" index="1"]
 visible = false
 
 [node name="CollisionShape2D" parent="YSort/NPC/BodyBuilderA/StaticBody2D" index="0"]
-shape = SubResource( 60 )
+shape = SubResource( 55 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/BodyBuilderA" index="3"]
 autoplay = "pumping"
-anims/pumping = SubResource( 61 )
+anims/pumping = SubResource( 56 )
 
 [node name="DialogueTree" parent="YSort/NPC/BodyBuilderA" index="4" instance=ExtResource( 8 )]
 
@@ -2798,7 +2834,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 55 )
+shape = SubResource( 57 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="16" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )
@@ -2806,7 +2842,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown2/StaticBody2D" index="0"]
 position = Vector2( 0, -3.99999 )
-shape = SubResource( 55 )
+shape = SubResource( 57 )
 
 [node name="car_red3" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 133 )]
 position = Vector2( 2060, -169 )
@@ -2815,7 +2851,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red3/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 56 )
+shape = SubResource( 58 )
 
 [node name="ScenePortal" parent="." index="9" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"
@@ -2823,7 +2859,7 @@ player_new_position = Vector2( -48, 230 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 position = Vector2( -32, 74 )
-shape = SubResource( 57 )
+shape = SubResource( 59 )
 
 [node name="WifiBeams" type="Node2D" parent="." index="10"]
 

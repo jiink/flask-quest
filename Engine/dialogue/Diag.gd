@@ -12,6 +12,7 @@ var choices = []
 var submit = null
 var face_index = 0
 var has_face = false
+var name_label = ""
 
 var stored_function = ""
 var stored_function_args = []
@@ -31,13 +32,13 @@ var active = false
 var default_text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
 var text_font = default_text_font
 
-enum { CHAR_FACE, CHAR_VOICE, CHAR_VOICE_VARIATION }
+enum { CHAR_FACE, CHAR_VOICE, CHAR_VOICE_VARIATION, CHAR_NAME }
 var characters = {
-	"(none)": [null, "res://NPC/default_voice2.wav", 0.0],
-	"orange" : ["res://Player/orange_sprites/orangeFaces.png", "res://Player/orange_sprites/orange_speech.wav", 0.3],
-	"stercus" : ["res://NPC/Stercus/stercusFaces.png", "res://NPC/Stercus/stercus_voice.wav", 0.0],
-	"green": ["res://Player/sprites/greenSheet.png", "res://NPC/default_voice2.wav", 0,0],
-	"ribbit": ["res://Player/ribbit_sprites/ribbitFaces.png", "res://Player/ribbit_sprites/ribbit_speech.wav", 0.3],
+	"(none)": [null, "res://NPC/default_voice2.wav", 0.0, ""],
+	"orange" : ["res://Player/orange_sprites/orangeFaces.png", "res://Player/orange_sprites/orange_speech.wav", 0.3, "Orange"],
+	"stercus" : ["res://NPC/Stercus/stercusFaces.png", "res://NPC/Stercus/stercus_voice.wav", 0.0, "Stercus"],
+	"green": ["res://Player/sprites/greenSheet.png", "res://NPC/default_voice2.wav", 0.0, "Green"],
+	"ribbit": ["res://Player/ribbit_sprites/ribbitFaces.png", "res://Player/ribbit_sprites/ribbit_speech.wav", 0.3, "Ribbit"],
 	}
 
 onready var audio = $AudioStreamPlayer
@@ -119,6 +120,8 @@ func update_boxes(new_target):
 	if chosen_character[CHAR_FACE] != null: $Face.texture = load(chosen_character[CHAR_FACE])
 	voice_sound = load(chosen_character[CHAR_VOICE])
 	voice_variation = chosen_character[CHAR_VOICE_VARIATION]
+	name_label = chosen_character[CHAR_NAME]
+	print("NAME LAAAABEL: %s" % name_label)
 	
 	# set delays
 	if (target_piece.text_delay != null) and (target_piece.text_delay != 0):
@@ -141,7 +144,7 @@ func update_boxes(new_target):
 		text_font = target_piece.font
 		$TextBox.add_font_override("font", text_font)
 		
-	#get choices
+	# get choices
 	for D in target_piece.get_children():
 		if D.key != "Null":
 			choices.append(D.key)
@@ -155,6 +158,21 @@ func update_boxes(new_target):
 		$Choices/Choice2.text = ""
 		$Choices.set_visible(false)
 	
+	# set label 
+	print("IFWOIKFWIKFOIWKOIFKO %s" % target_piece.name_label)
+	if target_piece.name_label == "" and target_piece.character == "(none)":
+		$NameLabel.visible = false
+	else:
+		if target_piece.name_label != "":
+			name_label = target_piece.name_label
+		$NameLabel.visible = true
+		$NameLabel.text = name_label
+		var tween = get_node("NameLabel/Tween")
+		$NameLabel/Tween.interpolate_property($NameLabel, "rect_size",
+			Vector2(0, 0), Vector2(0,0), 
+			1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$NameLabel/Tween.start()
+		
 		
 	$TextBox/Timer.start(text_time)
 		
