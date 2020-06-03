@@ -121,7 +121,6 @@ func update_boxes(new_target):
 	voice_sound = load(chosen_character[CHAR_VOICE])
 	voice_variation = chosen_character[CHAR_VOICE_VARIATION]
 	name_label = chosen_character[CHAR_NAME]
-	print("NAME LAAAABEL: %s" % name_label)
 	
 	# set delays
 	if (target_piece.text_delay != null) and (target_piece.text_delay != 0):
@@ -159,7 +158,6 @@ func update_boxes(new_target):
 		$Choices.set_visible(false)
 	
 	# set label 
-	print("IFWOIKFWIKFOIWKOIFKO %s" % target_piece.name_label)
 	if target_piece.name_label == "" and target_piece.character == "(none)":
 		$NameLabel.visible = false
 	else:
@@ -177,7 +175,15 @@ func update_boxes(new_target):
 	$TextBox/Timer.start(text_time)
 		
 	# face
-	has_face = !(target_piece.character == "(none)" or target_piece.no_face)
+	
+	has_face = true
+	if (target_piece.character == "(none)"):
+		has_face = false
+	if (target_piece.face_texture != null):
+		has_face = true
+	if (target_piece.no_face):
+		has_face = false
+
 	var expressions = ["neutral", "open_mouth", "side_mouth", "smile", "kawaii", "sad",
 		"smug", "cry_tear", "cry_mourn", "grin", "big_eyed", "big_eyed2", "angry",
 		"unique", "dot_eyes", "closeup", "smug2", "cry_recover", "cry_sob", "frown",
