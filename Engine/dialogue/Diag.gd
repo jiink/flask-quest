@@ -235,6 +235,15 @@ func next_letter_time():
 			(ascii_code >= 65 and ascii_code <= 90) or \
 			(ascii_code >= 97 and ascii_code <= 122):
 		play_sound()
+	
+	# for interrupt...
+	if target_piece.interrupt and $TextBox.text == visible_new_text:
+		if target_piece.get_children():
+			run_func()
+			update_boxes(target_piece.get_child(0))
+		else:
+			run_func()
+			close()
 
 func run_func():
 					
