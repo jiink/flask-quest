@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/small_explode_up.png-9cb2b364ad1f512ad46bba62144cf51e.stex"
+path="res://.import/douglas_throne.png-3211ff1879996cac448bc3c6aaa00737.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Effects/small_explode_up.png"
-dest_files=[ "res://.import/small_explode_up.png-9cb2b364ad1f512ad46bba62144cf51e.stex" ]
+source_file="res://Rooms/Area2/Assets/douglas_throne.png"
+dest_files=[ "res://.import/douglas_throne.png-3211ff1879996cac448bc3c6aaa00737.stex" ]
 
 [params]
 

@@ -733,3 +733,5 @@ shape = SubResource( 12 )
 [editable path="TileMaps"]
 
 [editable path="HUD"]
+
+[editable path="HUD/PauseMenu"]

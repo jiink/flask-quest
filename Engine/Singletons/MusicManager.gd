@@ -196,7 +196,7 @@ func on_scene_change():
 	aftermath_length = get_track_aftermath_length(current_level_music.get_path())
 
 func set_volume(amount):
-	print("Setting music volume to %s" % amount)
+	# print("Setting music volume to %s" % amount)
 	volume = amount
 	$MainPlayer.volume_db = volume
 	$MainPlayerAssistant.volume_db = volume

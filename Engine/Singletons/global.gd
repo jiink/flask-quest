@@ -28,7 +28,10 @@ func get_player(num = 1):
 					return n
 	print("get_player error! couldn't get player #%s" % num)
 	return null
-	
+
+func get_players():
+	return [get_player(1), get_player(2)]
+
 ################## battle ##################
 
 # battle vars

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://NPC/DouglistReceptionist/douglist_receptionist_sheet.png" type="Texture" id=1]
+[ext_resource path="res://NPC/DouglistReceptionist/DouglistReceptionist.gd" type="Script" id=2]
+
+[node name="DouglistReceptionist" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -13 )
+hframes = 5
+frame = 2
