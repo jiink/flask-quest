@@ -190,13 +190,27 @@ func update_boxes(new_target):
 		"drunk", "yell", "nervous", "yell_outburst", "confused", "blush"]
 	
 	if has_face:
+
 		if target_piece.face_texture != null:
 			$Face.texture = target_piece.face_texture
-	
+		
+		var one_expression = false # for 32x32, one face textures (usually for minor npcs)
+		print($Face.texture.get_size())
+		if $Face.texture.get_size() == Vector2(32, 32):
+			one_expression = true
+
 		if target_piece.expression != "(none)":
 			face_index = expressions.find(target_piece.expression)
 		
-		$Face.frame = face_index
+		if not one_expression:
+			$Face.vframes = 8
+			$Face.hframes = 8
+			$Face.frame = face_index
+		else:
+			$Face.vframes = 1
+			$Face.hframes = 1
+			$Face.frame = 0
+
 		$Face.visible = true
 		$TextBox.margin_left = 55
 		$FaceBorder.visible = true
