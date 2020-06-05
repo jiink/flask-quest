@@ -1,0 +1,213 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area2/Assets/onto_glasstown.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Area2/2-5/2-5.gd" type="Script" id=3]
+[ext_resource path="res://Player/orange_sprites/orangeleftup1.png" type="Texture" id=4]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Rooms/Area2/Assets/car_pass.wav" type="AudioStream" id=10]
+[ext_resource path="res://Rooms/Area2/Assets/car_pass_music.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Rooms/Area2/Assets/behind-bars.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Rooms/Area2/Assets/traffic_jam.wav" type="AudioStream" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "AnimTest"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 2.5, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, -2, -2, -2, -2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 2.5, 3.9, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 15, -4 ), Vector2( 15, -4 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Bump"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Default"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9, 3.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 740, 106 ), Vector2( 192.8, 106 ), Vector2( 192.8, 106 ), Vector2( -1025, 106 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[node name="2-5" type="Node"]
+script = ExtResource( 3 )
+level_music = ExtResource( 12 )
+
+[node name="Tilemaps" type="Node" parent="."]
+
+[node name="onto_glasstown" type="Sprite" parent="Tilemaps"]
+position = Vector2( 192, 109 )
+texture = ExtResource( 2 )
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tilemaps/onto_glasstown"]
+autoplay = "default"
+playback_speed = 3.6
+anims/default = SubResource( 1 )
+
+[node name="CamAnim" type="AnimationPlayer" parent="."]
+autoplay = "Bump"
+anims/AnimTest = SubResource( 2 )
+anims/Bump = SubResource( 3 )
+
+[node name="JamAudioLeaveAnim" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+anims/Default = SubResource( 5 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="orangeleftup1" type="Sprite" parent="YSort"]
+position = Vector2( 202, 132 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -10 )
+
+[node name="greenleftdown1" type="Sprite" parent="YSort"]
+position = Vector2( 206, 114 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -10 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 206, 114 )
+ground_speed = 0
+water_speed = 0
+sprintMultiplier = 0.0
+
+[node name="Camera" parent="." instance=ExtResource( 7 )]
+follow_player = false
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="DialogueTree" parent="." instance=ExtResource( 5 )]
+
+[node name="DiagPiece" parent="DialogueTree" instance=ExtResource( 8 )]
+message = "Sucks what happened. What're you guys in 'ere 'or?"
+
+[node name="DiagPiece2" parent="DialogueTree/DiagPiece" instance=ExtResource( 8 )]
+message = "We tried to kill"
+character = "green"
+expression = "sad"
+skippable = false
+interrupt = true
+
+[node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece2" instance=ExtResource( 8 )]
+message = "BAHAHA Green you should definitely be a comedian when you grow up, you make excellent jokes."
+text_delay = 0.015
+character = "orange"
+expression = "nervous"
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 4.202
+one_shot = true
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 206, 127 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 222, 115 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 206, 101 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 190, 117 )
+shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 740, 106 )
+stream = ExtResource( 13 )
+volume_db = 6.635
+max_distance = 1024.0
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+
+[editable path="HUD"]

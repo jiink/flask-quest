@@ -64,7 +64,8 @@ func _process(delta):
 
 func open():
 	visible = true
-	global.get_player().set_frozen(true, true)
+	if global.get_player() != null:
+		global.get_player().set_frozen(true, true)
 	
 	$BackgroundShader.visible = true
 	
@@ -78,7 +79,8 @@ func open():
 
 func close():
 	
-	global.get_player().set_frozen(false, true)
+	if global.get_player() != null:
+		global.get_player().set_frozen(false, true)
 	
 	$AudioStreamPlayer.stream = close_sound
 	$AudioStreamPlayer.play()
