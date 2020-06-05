@@ -14,7 +14,7 @@ func set_actively_staring(option):
 func _tick():
 	look_at(player.position)
 	var r = rotation + PI/2
-	print("%s PI" % [r/3.14])
+	# print("%s PI" % [r/3.14])
 	if (r > PI*.5) and (r <= 2*PI/3):
 		$Sprite.frame = RIGHT
 	elif (r > 2*PI/3) and (r <= 5*PI/6):

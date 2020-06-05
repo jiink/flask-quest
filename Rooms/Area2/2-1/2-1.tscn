@@ -13,7 +13,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/malus_door_sign.png" type="Texture" id=11]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Rooms/Area4/Assets/manhole_opening.png" type="Texture" id=13]
-[ext_resource path="res://Effects/small_explode_up.png" type="Texture" id=14]
+[ext_resource path="res://Effects/Explosions/small_explode_up.png" type="Texture" id=14]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/trashcan.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/potted_plant_01.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/potted_plant_02.tscn" type="PackedScene" id=17]
@@ -949,22 +949,22 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=61]
-extents = Vector2( 18, 5 )
-
-[sub_resource type="RectangleShape2D" id=62]
-extents = Vector2( 18, 5 )
-
 [sub_resource type="RectangleShape2D" id=57]
-extents = Vector2( 11, 24 )
+extents = Vector2( 18, 5 )
 
 [sub_resource type="RectangleShape2D" id=58]
-extents = Vector2( 12, 30 )
+extents = Vector2( 18, 5 )
 
 [sub_resource type="RectangleShape2D" id=59]
-extents = Vector2( 16, 6 )
+extents = Vector2( 11, 24 )
 
 [sub_resource type="RectangleShape2D" id=60]
+extents = Vector2( 12, 30 )
+
+[sub_resource type="RectangleShape2D" id=61]
+extents = Vector2( 16, 6 )
+
+[sub_resource type="RectangleShape2D" id=62]
 extents = Vector2( 8, 6 )
 
 [node name="2-1" groups=[
@@ -2875,10 +2875,10 @@ texture = ExtResource( 158 )
 offset = Vector2( 0, -17 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/Interaction" index="0"]
-shape = SubResource( 61 )
+shape = SubResource( 57 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/StaticBody2D" index="0"]
-shape = SubResource( 62 )
+shape = SubResource( 58 )
 
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
@@ -2942,7 +2942,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 57 )
+shape = SubResource( 59 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="16" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )
@@ -2950,7 +2950,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown2/StaticBody2D" index="0"]
 position = Vector2( 0, -3.99999 )
-shape = SubResource( 57 )
+shape = SubResource( 59 )
 
 [node name="car_red3" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 133 )]
 position = Vector2( 2060, -169 )
@@ -2959,7 +2959,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red3/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 58 )
+shape = SubResource( 60 )
 
 [node name="EighteenWheeler" parent="YSort/StaticVehicles" index="18" instance=ExtResource( 155 )]
 position = Vector2( 2173, -1020 )
@@ -2976,18 +2976,18 @@ player_new_position = Vector2( -48, 230 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CafePortal" index="0"]
 position = Vector2( -32, 71 )
-shape = SubResource( 59 )
+shape = SubResource( 61 )
 
 [node name="DougPortal" parent="." index="10" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DougPortal" index="0"]
 position = Vector2( 936, -601 )
-shape = SubResource( 60 )
+shape = SubResource( 62 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DougPortal" index="1"]
 position = Vector2( 968, -601 )
-shape = SubResource( 60 )
+shape = SubResource( 62 )
 
 [node name="WifiBeams" type="Node2D" parent="." index="11"]
 
