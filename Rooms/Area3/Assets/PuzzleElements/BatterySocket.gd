@@ -1,5 +1,7 @@
 extends Node2D
 
+signal battery_socket_filled
+
 export(bool) var filled = false
 
 func _ready():
@@ -24,6 +26,7 @@ func _on_body_entered(body):
 		if body.charged:
 			filled = true
 			body.get_node("Sprite").frame = 2
+			emit_signal("battery_socket_filled")
 		else:
 			var spit_pos = position.y + 30
 			$Tween.interpolate_property(body, "position:y", null, spit_pos,
