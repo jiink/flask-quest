@@ -12,7 +12,9 @@ func _on_body_entered(body):
 	# print("%s entered batterysocket" % body)
 	if (not filled) and (body.name.find("Battery") != -1):
 		# print("it was a battery")
-		# if body.charged:
+		var stored_collision_layer = body.collision_layer # to set it back if the battery is spit back out
+		body.collision_layer = 0 # so it can go inside a wall if need be
+
 		body.set_locked(true)
 		# bring it to center
 		$Tween.interpolate_property(body, "position", null, position,
@@ -34,3 +36,4 @@ func _on_body_entered(body):
 			$Tween.start()
 			body.move_to(Vector2(body.position.x, spit_pos))
 			body.set_locked(false)
+			body.collision_layer = stored_collision_layer # restore c. layer to how it was before
