@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Rooms/Area2/2-3/2-3.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://NPC/Douglas/douglas.png" type="Texture" id=17]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area2/2-3/DecoyDouglas.gd" type="Script" id=19]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Rooms/Area2/2-3/DouglasEvent.gd" type="Script" id=21]
+[ext_resource path="res://Rooms/Area2/Assets/city_background.png" type="Texture" id=22]
+[ext_resource path="res://Music/odd.ogg" type="AudioStream" id=23]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -28,9 +32,9 @@ shader_param/speed_scale = 0.05
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17, 10 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "douglas_intro"
-length = 83.0
+[sub_resource type="Animation" id=3]
+resource_name = "douglas_walk_in"
+length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Douglas:visible")
 tracks/0/interp = 1
@@ -56,7 +60,7 @@ tracks/1/keys = {
 "values": [ Vector2( 133, -3 ), Vector2( -81, -12 ) ]
 }
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 uniform int speed = 4; // fps
@@ -94,8 +98,8 @@ void fragment(){
 	COLOR = col;
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
 shader_param/speed = 0
 shader_param/pal_size = 5
 shader_param/source_pal_size = 5
@@ -116,8 +120,8 @@ shader_param/p14 = null
 shader_param/p15 = null
 shader_param/p16 = null
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 4 )
 shader_param/speed = 0
 shader_param/pal_size = 5
 shader_param/source_pal_size = 5
@@ -138,15 +142,17 @@ shader_param/p14 = null
 shader_param/p15 = null
 shader_param/p16 = null
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 27, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 33, 10 )
 
 [node name="2-3" instance=ExtResource( 2 )]
 script = ExtResource( 12 )
+battle_bg = ExtResource( 22 )
 level_music = ExtResource( 11 )
+battle_music = ExtResource( 23 )
 
 [node name="2-3" parent="Tilemaps" index="0" instance=ExtResource( 1 )]
 material = SubResource( 1 )
@@ -181,11 +187,26 @@ position = Vector2( 136, -41 )
 texture = ExtResource( 16 )
 
 [node name="DouglasEvent" type="Node" parent="." index="5"]
+script = ExtResource( 21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DouglasEvent" index="0"]
-anims/douglas_intro = SubResource( 8 )
+anims/douglas_walk_in = SubResource( 3 )
 
 [node name="DialogueTree" parent="DouglasEvent" index="1" instance=ExtResource( 18 )]
+
+[node name="DiagPiece" parent="DouglasEvent/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "speech speech this is my ``` speeeech"
+skippable = false
+
+[node name="DiagPiece2" parent="DouglasEvent/DialogueTree/DiagPiece" index="0" instance=ExtResource( 20 )]
+message = "the orange and green lads you have all been waiting for are finally here"
+skippable = false
+
+[node name="DiagPiece3" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 20 )]
+message = "blah blah blah fight time
+"
+function = "start_douglas_fight"
+skippable = false
 
 [node name="PaletteSwap" type="TextureRect" parent="." index="6"]
 material = ExtResource( 10 )
@@ -202,7 +223,7 @@ __meta__ = {
 
 [node name="DougSpotlight" type="TextureRect" parent="." index="7"]
 show_behind_parent = true
-material = SubResource( 4 )
+material = SubResource( 5 )
 margin_left = -61.0
 margin_top = -63.0
 margin_right = 64.0
@@ -223,7 +244,7 @@ __meta__ = {
 
 [node name="DougSpotlightOnDougHimself" type="TextureRect" parent="." index="8"]
 show_behind_parent = true
-material = SubResource( 5 )
+material = SubResource( 6 )
 margin_left = -147.5
 margin_top = -124.0
 margin_right = -57.5
@@ -250,13 +271,13 @@ energy = 1.82
 position = Vector2( -112, -12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EventTrigger" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Player" parent="YSort" index="0"]
 position = Vector2( -114, 29 )
 
 [node name="Douglas" type="Node2D" parent="YSort" index="1"]
-position = Vector2( -12.3754, -9.11392 )
+position = Vector2( 133, -3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -271,6 +292,6 @@ new_scene = "res://Rooms/Area2/2-4/2-4.tscn"
 player_new_position = Vector2( 173, 116 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [editable path="HUD"]

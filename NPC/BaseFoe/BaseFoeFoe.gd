@@ -20,6 +20,8 @@ export(String) var attack_order
 var attack_order_index = 0
 var attacks_completed = 0
 
+export(bool) var is_boss = false
+
 onready var battle = get_node("../..")
 
 func _ready():

@@ -65,6 +65,7 @@ var other_player_confirm = "confirm2"
 var other_player_cancel = "cancel2"
 var other_player_action = "action2"
 
+var boss_mode = false
 
 onready var global = get_node("/root/global")
 onready var item_manager = get_node("/root/ItemManager")
@@ -96,6 +97,9 @@ func _ready():
 			foe_instance.position.x = int(randf()*(345-84)+84) #84 to 345
 			foe_instance.position.y = int(randf()*(190-128)+128) #128 to 190
 		$Foes.add_child(foe_instance)
+		# check if we should turn on boss mode
+		if foe_instance.is_boss:
+			set_boss_mode(true)
 		
 	global.current_enemies = global.initial_enemies
 	
@@ -131,6 +135,18 @@ func _ready():
 		$WinButton.visible = true
 	else:
 		$WinButton.queue_free()
+	
+	# spawn the correct dodger field
+	var arena_scene
+	if boss_mode:
+		arena_scene = preload("res://Engine/Battle/Dodger/BigDodgerField.tscn")
+	else:
+		arena_scene = preload("res://Engine/Battle/Dodger/DodgerField.tscn")
+	# shows right above the tint/background
+	var arena_instance = arena_scene.instance()
+	add_child_below_node($Tint, arena_instance)
+	arena_instance.set_visible(false)
+	arena_instance.set_position(Vector2(384/2, 216/2))
 	
 func toggle_lighting(node, choice):
 	for N in node.get_children():
@@ -555,6 +571,14 @@ func next_player_turn():
 		other_player_action = "action2"
 	
 	print("it's %s's turn now" % whos_turn)
+
+
+func set_boss_mode(option):
+	# right now it's only used to be set to true
+	if option:
+		
+		boss_mode = true
+
 
 func _on_WinButton_pressed():
 	$Win.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=14]
-[ext_resource path="res://Engine/Battle/Dodger/DodgerField.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Engine/Battle/Win.gd" type="Script" id=16]
 [ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=18]
@@ -383,12 +382,11 @@ margin_left = -18.0
 margin_top = -14.0
 margin_right = 410.0
 margin_bottom = 240.0
-color = Color( 0, 0, 0, 0.345098 )
+color = Color( 0.14902, 0.152941, 0.180392, 0.831373 )
 script = ExtResource( 14 )
-
-[node name="DodgerField" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 192, 108 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Win" type="Node2D" parent="."]
 script = ExtResource( 16 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dodge_circle.png-ae1fda7fa192b954031ae39b4203677f.stex"
+path="res://.import/big_arena_backing.png-2b3362423662e180a2c3a9a3c70aa4c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/Dodger/dodge_circle.png"
-dest_files=[ "res://.import/dodge_circle.png-ae1fda7fa192b954031ae39b4203677f.stex" ]
+source_file="res://Engine/Battle/Dodger/big_arena_backing.png"
+dest_files=[ "res://.import/big_arena_backing.png-2b3362423662e180a2c3a9a3c70aa4c5.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

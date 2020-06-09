@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Engine/Battle/Dodger/dodge_circle_2.png" type="Texture" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/arena.png" type="Texture" id=1]
 [ext_resource path="res://Engine/Battle/Dodger/CircleGuide.gd" type="Script" id=2]
 [ext_resource path="res://Engine/Battle/Dodger/orange_dodger.png" type="Texture" id=3]
 [ext_resource path="res://Engine/Battle/Dodger/green_dodger.png" type="Texture" id=4]
+
 
 [node name="Attack" type="Node2D"]
 

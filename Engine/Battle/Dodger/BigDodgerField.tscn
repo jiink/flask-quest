@@ -1,0 +1,167 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Engine/Battle/Dodger/DodgerField.gd" type="Script" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/big_arena.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Battle/Dodger/timer_fill.png" type="Texture" id=3]
+[ext_resource path="res://Engine/Battle/Dodger/big_arena_green_hp.png" type="Texture" id=4]
+[ext_resource path="res://Engine/Battle/Dodger/OtherHPBar.gd" type="Script" id=5]
+[ext_resource path="res://Engine/Battle/Dodger/green_dodger.png" type="Texture" id=6]
+[ext_resource path="res://Engine/Battle/Dodger/InstaShield.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/Battle/Dodger/orange_dodger.png" type="Texture" id=8]
+[ext_resource path="res://Engine/Battle/Dodger/playerdamage.wav" type="AudioStream" id=9]
+[ext_resource path="res://Engine/Battle/Dodger/Pawn.gd" type="Script" id=10]
+[ext_resource path="res://Engine/Battle/Dodger/big_arena_backing.png" type="Texture" id=11]
+[ext_resource path="res://Engine/Battle/Dodger/big_arena_orange_hp.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3, 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "appear"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("GreenPawn:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="DodgerField" type="Node2D"]
+light_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Backing" type="Sprite" parent="."]
+position = Vector2( 1, -1 )
+texture = ExtResource( 11 )
+
+[node name="DodgeCircle" type="Sprite" parent="."]
+light_mask = 0
+texture = ExtResource( 2 )
+
+[node name="TimeBar" type="TextureProgress" parent="DodgeCircle"]
+visible = false
+modulate = Color( 0.878431, 0.937255, 0.937255, 1 )
+margin_left = 38.0
+margin_top = -29.0
+margin_right = 78.0
+margin_bottom = 11.0
+step = 0.0
+value = 100.0
+texture_progress = ExtResource( 3 )
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenHPBar" type="TextureProgress" parent="DodgeCircle"]
+modulate = Color( 0.447059, 0.815686, 0.192157, 1 )
+margin_left = -59.0
+margin_top = -14.0
+margin_right = -19.0
+margin_bottom = 26.0
+rect_scale = Vector2( -1, 1 )
+step = 0.0
+value = 100.0
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrangeHPBar" type="TextureProgress" parent="DodgeCircle"]
+modulate = Color( 0.964706, 0.560784, 0.192157, 1 )
+margin_left = 59.0
+margin_top = -14.0
+margin_right = 99.0
+margin_bottom = 26.0
+step = 0.0
+value = 100.0
+texture_progress = ExtResource( 12 )
+fill_mode = 3
+script = ExtResource( 5 )
+
+[node name="GreenPawn" type="Node2D" parent="."]
+z_index = 25
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="GreenPawn"]
+light_mask = 0
+position = Vector2( 0, 49 )
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="GreenPawn"]
+position = Vector2( 0, 50 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenPawn/Area2D"]
+shape = SubResource( 1 )
+
+[node name="InstaShield" parent="GreenPawn" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, 50 )
+
+[node name="ShieldTimer" type="Timer" parent="GreenPawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="ShieldDelay" type="Timer" parent="GreenPawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="OrangePawn" type="Node2D" parent="."]
+z_index = 25
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="OrangePawn"]
+light_mask = 0
+position = Vector2( 1.26362e-05, -50 )
+rotation = 3.14159
+texture = ExtResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="OrangePawn"]
+position = Vector2( 1.0252e-05, -51 )
+rotation = -5.07036e-06
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangePawn/Area2D"]
+shape = SubResource( 1 )
+
+[node name="InstaShield" parent="OrangePawn" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, -51 )
+rotation = 3.14159
+
+[node name="ShieldTimer" type="Timer" parent="OrangePawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="ShieldDelay" type="Timer" parent="OrangePawn"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="Attacks" type="Node2D" parent="."]
+
+[node name="DebugCam" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.3
+anims/appear = SubResource( 2 )
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
