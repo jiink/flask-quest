@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pawn_moving1.wav-8ee8c9a0287859acf3829fc60a203697.sample"
+
+[deps]
+
+source_file="res://Engine/Battle/Dodger/pawn_moving1.wav"
+dest_files=[ "res://.import/pawn_moving1.wav-8ee8c9a0287859acf3829fc60a203697.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

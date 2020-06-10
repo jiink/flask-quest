@@ -33,10 +33,26 @@ func move(delta):
 	set_rotation_degrees(rot)
 	
 	if $ShieldDelay.is_stopped():
-		if Input.is_action_just_pressed("confirm"):
+		if Input.is_action_just_pressed("confirm") and not shielded:
 			shielded = true
 			$InstaShield.visible = true
 			$ShieldTimer.start(shield_time)
+			$ShieldSound.play()
+	
+	if not get_node_or_null("AudioStreamPlayer2D"):
+		return
+	# sound
+	# rot_v from about -4.5 to 4.5
+	var v = abs(rot_v)
+	if v > 0.1:
+		$AudioStreamPlayer2D.volume_db = -1/v
+		# eh 1 to 2 or something
+		$AudioStreamPlayer2D.pitch_scale = 1.5 + v * 0.1
+		if not $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.playing = true
+	else:
+		if $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.playing = false
 
 func set_player_mode(p):
 	match p:

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/instashield.wav-5eb9037419b6e68a3e8820a37b5d0d75.sample"
+
+[deps]
+
+source_file="res://Engine/Battle/Dodger/instashield.wav"
+dest_files=[ "res://.import/instashield.wav-5eb9037419b6e68a3e8820a37b5d0d75.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
