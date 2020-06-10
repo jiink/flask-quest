@@ -423,29 +423,36 @@ shape = SubResource( 3 )
 [node name="DialogueTree" parent="YSort/OrangeNPC" index="2" instance=ExtResource( 29 )]
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
-message = "Whooooaaaa..."
+message = "Hey there, green guy!"
 character = "orange"
-expression = "sidemouth"
+expression = "neutral"
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
-message = "Where are we? ...What are we? What is this place? ```I HAVE SO MANY QUESTIONS!"
+message = "Looks like I'm not the only member of the Recently Born in a Lab Club."
 character = "orange"
-expression = "happy"
+expression = "smile"
 skippable = false
 
 [node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
-message = "Hey, you know what... you look a lot like me. Could we be... related?"
+message = "So that means we're brothers!"
 character = "orange"
-expression = "sidemouth"
+expression = "grin"
 skippable = false
 
-[node name="DiagPiece" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
-message = "Hu- ```You` hear that?"
+[node name="DiagPiece2" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 30 )]
+message = "Which means I'm definitely gonna follow you around."
 character = "orange"
-expression = "bigsurprise"
+expression = "neutral"
+skippable = false
+
+[node name="DiagPiece3" parent="YSort/OrangeNPC/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 30 )]
+message = "Forever.`"
+character = "orange"
+expression = "closeup"
 function = "start_brainjar_event"
 skippable = false
+interrupt = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/OrangeNPC" index="3"]
 position = Vector2( 6.28, 0 )
@@ -475,7 +482,7 @@ shape = SubResource( 5 )
 [node name="DialogueTree" parent="YSort/Props/tableL/OrangeDisabled" index="2" instance=ExtResource( 29 )]
 
 [node name="DiagPiece" parent="YSort/Props/tableL/OrangeDisabled/DialogueTree" index="0" instance=ExtResource( 30 )]
-message = "Little bubbles quickly rise to the surface."
+message = "Looks like orange juice."
 no_face = true
 
 [node name="excited" parent="YSort/Props" index="1" instance=ExtResource( 34 )]
@@ -515,22 +522,22 @@ shape = SubResource( 6 )
 [node name="DialogueTree" parent="YSort/Props/LabDoor" index="3" instance=ExtResource( 29 )]
 
 [node name="IfNoMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="0" instance=ExtResource( 30 )]
-message = "PERHAPS something corrosive could let you through!"
+message = "It's locked. Game over."
 no_face = true
 
 [node name="IfYesMiniman" parent="YSort/Props/LabDoor/DialogueTree" index="1" instance=ExtResource( 30 )]
-message = "Throw Miniman at the door?"
+message = "Chuck the little guy at the door?"
 no_face = true
 
 [node name="DiagPiece" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="0" instance=ExtResource( 30 )]
 key = "Yes"
-message = "Here goes!"
+message = "Okay."
 no_face = true
 function = "toss_miniman"
 
 [node name="DiagPiece2" parent="YSort/Props/LabDoor/DialogueTree/IfYesMiniman" index="1" instance=ExtResource( 30 )]
 key = "No"
-message = "Okay"
+message = "Loser."
 no_face = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/Props/LabDoor" index="4"]
@@ -610,16 +617,16 @@ anims/default = SubResource( 11 )
 [node name="DialogueTree" parent="YSort/BrainJarNPC" index="3" instance=ExtResource( 29 )]
 
 [node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
-message = "BLAMMO!!"
+message = "HEY IDIOTS"
 no_face = true
 
 [node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
-message = "Get ready to experience pain!"
+message = "I'M GONNA BEAT YOU UP"
 no_face = true
 function = "jump_to_them"
 
 [node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 30 )]
-message = "And by that, I mean the pain of learning!"
+message = "VERY HARD"
 no_face = true
 function = "start_brainjar_battle"
 
