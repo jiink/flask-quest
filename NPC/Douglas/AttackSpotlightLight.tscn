@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://NPC/Douglas/spotlight_light.png" type="Texture" id=1]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/GenericProjectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NPC/Douglas/AttackSpotlightLight.gd" type="Script" id=3]
+[ext_resource path="res://Engine/AnimateSpritesheet.gd" type="Script" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 7, 255, 27, 255, -28, 0, -7 )
+
+[node name="AttackSpotlightLight" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+damage = 7
+destructable = false
+death_time = 2.0
+
+[node name="bullet" parent="." index="0"]
+position = Vector2( 127, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+script = ExtResource( 4 )
+anim_speed = 12.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="." index="2"]
