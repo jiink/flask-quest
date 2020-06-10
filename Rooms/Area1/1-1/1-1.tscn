@@ -404,7 +404,7 @@ texture = ExtResource( 19 )
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 224, 101 )
+position = Vector2( 209, 68 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 319, 104 )
@@ -603,7 +603,7 @@ position = Vector2( 208, 52 )
 script = ExtResource( 47 )
 
 [node name="Sprite" type="Sprite" parent="YSort/BrainJarNPC" index="0"]
-position = Vector2( 1.67178, -4.39208 )
+position = Vector2( 0, -9 )
 texture = ExtResource( 48 )
 hframes = 2
 
@@ -619,11 +619,12 @@ anims/default = SubResource( 11 )
 [node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "HEY IDIOTS"
 no_face = true
+function = "jump_to_them"
 
 [node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "I'M GONNA BEAT YOU UP"
 no_face = true
-function = "jump_to_them"
+function = "zoom_in"
 
 [node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 30 )]
 message = "VERY HARD"
