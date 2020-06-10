@@ -13,8 +13,8 @@ var left_action
 var right_action
 
 var shielded = false
-var shield_time = 0.2
-var shield_delay = 0.2
+var shield_time = 0.4
+var shield_delay = 0.4
 
 func _ready():
 	set_player_mode(1)

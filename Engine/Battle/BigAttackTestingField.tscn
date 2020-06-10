@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Engine/Battle/Dodger/BigDodgerField.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Effects/CheckerBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Engine/Battle/AttackTestingField.gd" type="Script" id=3]
+[ext_resource path="res://NPC/Douglas/Attacks/DouglasAttack1.tscn" type="PackedScene" id=4]
+
+[node name="BigAttackTestingField" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+attack_scenes = [ ExtResource( 4 ) ]
+
+[node name="CheckerBackground" parent="." index="0" instance=ExtResource( 2 )]
+modulate = Color( 0.00784314, 0.0862745, 0.133333, 1 )
+
+[node name="DebugCam" parent="." index="6"]
+current = true

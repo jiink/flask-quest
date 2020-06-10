@@ -18,12 +18,13 @@ var death_timer
 
 func _ready():
 	var connect_to
-	if get_tree().get_current_scene().name == "AttackTestingField":
+	if (get_tree().get_current_scene().name == "AttackTestingField") or (get_tree().get_current_scene().name == "BigAttackTestingField"):
 		connect_to = get_tree().get_current_scene()
 	else:
-		connect_to = get_tree().get_current_scene().get_node("BattleScene/DodgerField")
-	print("connect_to's name: %s" % connect_to.name)
-	connect("successful_hit", connect_to, "hazard_has_hit")
+		connect_to = get_tree().get_current_scene().get_node_or_null("BattleScene/DodgerField")
+	if connect_to:
+		print("connect_to's name: %s" % connect_to.name)
+		connect("successful_hit", connect_to, "hazard_has_hit")
 #	connect("successful_hit", connect_to, "hurt")
 	
 	connect("area_entered", self, "area_entered")
@@ -34,7 +35,7 @@ func _ready():
 		connect("area_exited", self, "area_exited") # also use area_exited to keep track of players inside the hazard zone
 	
 	if face_center:
-		if $"../../..".name == "DodgerField":
+		if $"../../..".name == "DodgerField": # cringe moment
 			look_at($"../../..".position)
 		else:
 			print("Warning: Projectile couldn't face field; trying other way")
@@ -85,11 +86,11 @@ func set_type(type_in):
 	type = type_in
 	match type:
 		NORMAL:
-			set_modulate(Color("FFFFFF"))
+			set_modulate(Color("e0efef"))
 		GREEN:
-			set_modulate(Color("72D031"))
+			set_modulate(global.GREEN_COLOR)
 		ORANGE:
-			set_modulate(Color("F68F31"))
+			set_modulate(global.ORANGE_COLOR)
 		_:
 			print("Error: Invalid projectile type; setting to NORMAL")
 			type = NORMAL
