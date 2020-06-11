@@ -8,14 +8,26 @@
 
 [node name="Attack" instance=ExtResource( 1 )]
 
+[node name="Timer" parent="." index="0"]
+wait_time = 1.5
+
 [node name="Bullet" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 334, 86 )
+position = Vector2( 318, 36 )
 face_center = true
 
 [node name="Sprite" parent="Bullet" index="0"]
 texture = ExtResource( 4 )
+flip_h = true
 
-[node name="GenericProjectile" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Bullet2" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 145, 189 )
+face_center = true
+
+[node name="Sprite" parent="Bullet2" index="0"]
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="GenericProjectile" parent="." index="4" instance=ExtResource( 3 )]
 position = Vector2( 193, 106 )
 destructable = false
 
@@ -23,5 +35,7 @@ destructable = false
 texture = ExtResource( 5 )
 
 [editable path="Bullet"]
+
+[editable path="Bullet2"]
 
 [editable path="GenericProjectile"]
