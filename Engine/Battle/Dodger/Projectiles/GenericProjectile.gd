@@ -35,15 +35,13 @@ func _ready():
 		connect("area_exited", self, "area_exited") # also use area_exited to keep track of players inside the hazard zone
 	
 	if face_center:
-		if $"../../..".name == "DodgerField": # cringe moment
-			look_at($"../../..".position)
-		else:
-			print("Warning: Projectile couldn't face field; trying other way")
-			look_at(Vector2(192, 108))
+		look_at(Vector2(192, 108))
+		if (get_tree().get_current_scene().name == "AttackTestingField") or (get_tree().get_current_scene().name == "BigAttackTestingField"):
+			look_at(Vector2(192*2, 108*2))
+
 	elif face_node != null:
 		look_at(get_node(face_node).position)
-		
-	if face_center and face_node != "":
+	if face_center and (face_node != null):
 		print("Warning: Can't face two places at once; facing center")
 	
 	set_type(type)
