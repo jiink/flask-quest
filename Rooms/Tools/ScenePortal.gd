@@ -2,6 +2,7 @@ extends Node2D
 
 export (String, FILE, "*.tscn") var new_scene = ""
 export (Vector2) var player_new_position = null
+export(String, "none", "up", "rightup", "right", "rightdown", "down", "leftdown", "left", "leftup") var starting_direction = "none"
 
 func _ready():
 	connect("body_entered", self, "on_body_entered")
@@ -12,6 +13,6 @@ func on_body_entered(body):
 		
 		if new_scene != "":
 			#get_tree().change_scene(new_scene)
-			global.start_scene_switch(new_scene, player_new_position)
+			global.start_scene_switch(new_scene, player_new_position, starting_direction)
 		else:
 			print("error: new_scene empty")

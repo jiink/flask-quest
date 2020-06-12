@@ -2980,6 +2980,8 @@ shape = SubResource( 61 )
 
 [node name="DougPortal" parent="." index="10" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
+player_new_position = Vector2( -112, 1446 )
+starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DougPortal" index="0"]
 position = Vector2( 936, -601 )

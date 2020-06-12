@@ -165,6 +165,7 @@ func end_battle():
 var player_new_position
 var next_scene
 var next_player_position
+var next_player_direction
 
 #signal transition_close
 
@@ -230,14 +231,15 @@ func copy_actions(from, to):
 	for event in InputMap.get_action_list(from):
 		InputMap.action_add_event(to, event)
 
-func start_scene_switch(new_scene, new_player_position):
+func start_scene_switch(new_scene, new_player_position, new_player_direction):
 	# save!!!
 	game_saver.save(1) # todo: slot changing
 	
 	print("changing scenes to %s..." % new_scene)
 	next_scene = new_scene
 	next_player_position = new_player_position
-	
+	next_player_direction = new_player_direction
+
 #	emit_signal("transition_close")
 	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
 		get_tree().get_current_scene().get_node("HUD/SceneTransition").fade_out()
@@ -252,6 +254,8 @@ func swap_scenes():
 	if next_player_position != null:
 		for p in get_tree().get_nodes_in_group("Player"):
 			p.position = next_player_position
+			if next_player_direction != null and next_player_direction != "none":
+				p.direction = next_player_direction
 	else:
 		print("warning: new player pos is null")
 	
