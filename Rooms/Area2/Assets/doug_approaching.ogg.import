@@ -11,5 +11,5 @@ dest_files=[ "res://.import/doug_approaching.ogg-efcf559e9b52b892122a198ab92c18c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

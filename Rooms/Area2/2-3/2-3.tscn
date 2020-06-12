@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Rooms/Area2/2-3/2-3.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
@@ -23,6 +23,10 @@
 [ext_resource path="res://Rooms/Area2/2-3/DouglasEvent.gd" type="Script" id=21]
 [ext_resource path="res://Rooms/Area2/Assets/city_background.png" type="Texture" id=22]
 [ext_resource path="res://Music/odd.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Rooms/Area2/2-3/CustomMusic.gd" type="Script" id=26]
+[ext_resource path="res://Rooms/Area2/Assets/doug_entry.ogg" type="AudioStream" id=27]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -151,8 +155,19 @@ extents = Vector2( 33, 10 )
 [node name="2-3" instance=ExtResource( 2 )]
 script = ExtResource( 12 )
 battle_bg = ExtResource( 22 )
-level_music = ExtResource( 11 )
+level_music = ExtResource( 25 )
 battle_music = ExtResource( 23 )
+
+[node name="CustomMusic" type="Node" parent="." index="0"]
+script = ExtResource( 26 )
+
+[node name="DougApproaching" type="AudioStreamPlayer" parent="CustomMusic" index="0"]
+stream = ExtResource( 11 )
+
+[node name="DougEntry" type="AudioStreamPlayer" parent="CustomMusic" index="1"]
+stream = ExtResource( 27 )
+
+[node name="Tween" type="Tween" parent="CustomMusic" index="2"]
 
 [node name="2-3" parent="Tilemaps" index="0" instance=ExtResource( 1 )]
 material = SubResource( 1 )
@@ -164,10 +179,10 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -393227, 0, 0, -393220, 0, 0, -327691, 0, 0, -327684, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -196622, 0, 0, -196609, 0, 0, -131086, 0, 0, -131073, 0, 0, -65555, 0, 0, -65554, 0, 0, -65553, 0, 0, -65552, 0, 0, -65551, 0, 0, -65550, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -20, 0, 0, -65525, 0, 0, 65516, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 11, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131063, 0, 0, 131066, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 196599, 0, 0, 196602, 0, 0, 262135, 0, 0, 262138, 0, 0, 327671, 0, 0, 327674, 0, 0, 393207, 0, 0, 393210, 0, 0, 458743, 0, 0, 458746, 0, 0, 524279, 0, 0, 524282, 0, 0, 589815, 0, 0, 589818, 0, 0, 655351, 0, 0, 655354, 0, 0, 720887, 0, 0, 720890, 0, 0, 786423, 0, 0, 786426, 0, 0, 851959, 0, 0, 851962, 0, 0, 917495, 0, 0, 917498, 0, 0, 983031, 0, 0, 983034, 0, 0, 1048567, 0, 0, 1048570, 0, 0, 1114103, 0, 0, 1114106, 0, 0, 1179639, 0, 0, 1179642, 0, 0, 1245175, 0, 0, 1245178, 0, 0, 1310711, 0, 0, 1310714, 0, 0, 1376247, 0, 0, 1376250, 0, 0, 1441783, 0, 0, 1441786, 0, 0, 1507319, 0, 0, 1507322, 0, 0, 1572855, 0, 0, 1572858, 0, 0, 1638391, 0, 0, 1638394, 0, 0, 1703927, 0, 0, 1703930, 0, 0, 1769463, 0, 0, 1769466, 0, 0, 1834999, 0, 0, 1835002, 0, 0, 1900535, 0, 0, 1900538, 0, 0, 1966071, 0, 0, 1966074, 0, 0, 2031607, 0, 0, 2031610, 0, 0, 2097143, 0, 0, 2097146, 0, 0, 2162679, 0, 0, 2162682, 0, 0, 2228215, 0, 0, 2228218, 0, 0, 2293751, 0, 0, 2293754, 0, 0, 2359287, 0, 0, 2359290, 0, 0, 2424823, 0, 0, 2424826, 0, 0, 2490359, 0, 0, 2490362, 0, 0, 2555895, 0, 0, 2555898, 0, 0, 2621431, 0, 0, 2621434, 0, 0, 2686967, 0, 0, 2686970, 0, 0, 2752503, 0, 0, 2752506, 0, 0, 2818039, 0, 0, 2818042, 0, 0, 2883575, 0, 0, 2883578, 0, 0, 2949111, 0, 0, 2949114, 0, 0, 3014647, 0, 0, 3014650, 0, 0, 3080183, 0, 0, 3080186, 0, 0, 3145719, 0, 0, 3145722, 0, 0, 3211255, 0, 0, 3211258, 0, 0, 3276791, 0, 0, 3276794, 0, 0, 3342327, 0, 0, 3342330, 0, 0, 3407863, 0, 0, 3407866, 0, 0, 3473399, 0, 0, 3473402, 0, 0, 3538935, 0, 0, 3538938, 0, 0, 3604471, 0, 0, 3604474, 0, 0, 3670007, 0, 0, 3670010, 0, 0, 3735543, 0, 0, 3735546, 0, 0, 3801079, 0, 0, 3801082, 0, 0, 3866615, 0, 0, 3866618, 0, 0, 3932151, 0, 0, 3932154, 0, 0, 3997687, 0, 0, 3997690, 0, 0, 4063223, 0, 0, 4063226, 0, 0, 4128759, 0, 0, 4128762, 0, 0, 4194295, 0, 0, 4194298, 0, 0, 4259831, 0, 0, 4259834, 0, 0, 4325367, 0, 0, 4325370, 0, 0, 4390903, 0, 0, 4390906, 0, 0, 4456439, 0, 0, 4456442, 0, 0, 4521975, 0, 0, 4521978, 0, 0, 4587511, 0, 0, 4587514, 0, 0, 4653047, 0, 0, 4653050, 0, 0, 4718583, 0, 0, 4718586, 0, 0, 4784119, 0, 0, 4784122, 0, 0, 4849655, 0, 0, 4849658, 0, 0, 4915191, 0, 0, 4915194, 0, 0, 4980727, 0, 0, 4980730, 0, 0, 5046263, 0, 0, 5046266, 0, 0, 5111799, 0, 0, 5111802, 0, 0, 5177335, 0, 0, 5177338, 0, 0, 5242864, 0, 0, 5242865, 0, 0, 5242866, 0, 0, 5242867, 0, 0, 5242868, 0, 0, 5242869, 0, 0, 5242870, 0, 0, 5242871, 0, 0, 5242874, 0, 0, 5242875, 0, 0, 5242876, 0, 0, 5242877, 0, 0, 5242878, 0, 0, 5242879, 0, 0, 5177344, 0, 0, 5177345, 0, 0, 5177346, 0, 0, 5242882, 0, 0, 5242883, 0, 0, 5242884, 0, 0, 5242885, 0, 0, 5373935, 0, 0, 5308422, 0, 0, 5439467, 0, 0, 5439468, 0, 0, 5439469, 0, 0, 5439470, 0, 0, 5439471, 0, 0, 5373958, 0, 0, 5505002, 0, 0, 5439494, 0, 0, 5570538, 0, 0, 5505030, 0, 0, 5636074, 0, 0, 5570566, 0, 0, 5701610, 0, 0, 5636102, 0, 0, 5767146, 0, 0, 5701638, 0, 0, 5832682, 0, 0, 5767174, 0, 0, 5898218, 0, 0, 5832710, 0, 0, 5963754, 0, 0, 5898246, 0, 0, 6029290, 0, 0, 5963782, 0, 0, 6094827, 0, 0, 6094828, 0, 0, 6094829, 0, 0, 6094830, 0, 0, 6094831, 0, 0, 6094832, 0, 0, 6094833, 0, 0, 6094834, 0, 0, 6094835, 0, 0, 6094836, 0, 0, 6094837, 0, 0, 6094838, 0, 0, 6094843, 0, 0, 6094844, 0, 0, 6094845, 0, 0, 6094846, 0, 0, 6094847, 0, 0, 6029312, 0, 0, 6029313, 0, 0, 6029314, 0, 0, 6029315, 0, 0, 6029316, 0, 0, 6029317, 0, 0, 6160375, 0, 0, 6160376, 0, 0, 6160377, 0, 0, 6160378, 0, 0 )
 
-[node name="DouglistCrowd" type="Node2D" parent="." index="2"]
+[node name="DouglistCrowd" type="Node2D" parent="." index="3"]
 script = ExtResource( 7 )
 
-[node name="Throne" type="Sprite" parent="." index="3"]
+[node name="Throne" type="Sprite" parent="." index="4"]
 position = Vector2( -112.5, -95 )
 texture = ExtResource( 14 )
 
@@ -182,11 +197,11 @@ position = Vector2( 1.5, 22 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Throne/StaticBody2D" index="0"]
 shape = SubResource( 2 )
 
-[node name="DougDoor" type="Sprite" parent="." index="4"]
+[node name="DougDoor" type="Sprite" parent="." index="5"]
 position = Vector2( 136, -41 )
 texture = ExtResource( 16 )
 
-[node name="DouglasEvent" type="Node" parent="." index="5"]
+[node name="DouglasEvent" type="Node" parent="." index="6"]
 script = ExtResource( 21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DouglasEvent" index="0"]
@@ -208,7 +223,7 @@ message = "blah blah blah fight time
 function = "start_douglas_fight"
 skippable = false
 
-[node name="PaletteSwap" type="TextureRect" parent="." index="6"]
+[node name="PaletteSwap" type="TextureRect" parent="." index="7"]
 material = ExtResource( 10 )
 margin_left = -360.0
 margin_top = -274.0
@@ -221,7 +236,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DougSpotlight" type="TextureRect" parent="." index="7"]
+[node name="DougSpotlight" type="TextureRect" parent="." index="8"]
 show_behind_parent = true
 material = SubResource( 5 )
 margin_left = -61.0
@@ -242,7 +257,7 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="DougSpotlight" index="0"]
 
-[node name="DougSpotlightOnDougHimself" type="TextureRect" parent="." index="8"]
+[node name="DougSpotlightOnDougHimself" type="TextureRect" parent="." index="9"]
 show_behind_parent = true
 material = SubResource( 6 )
 margin_left = -147.5
@@ -259,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Light2D" type="Light2D" parent="." index="9"]
+[node name="Light2D" type="Light2D" parent="." index="10"]
 position = Vector2( -112, 1434 )
 rotation = 3.14159
 scale = Vector2( 0.850009, 1 )
@@ -267,16 +282,19 @@ texture = ExtResource( 8 )
 texture_scale = 0.3
 energy = 1.82
 
-[node name="EventTrigger" type="Area2D" parent="." index="10"]
+[node name="EventTrigger" type="Area2D" parent="." index="11"]
 position = Vector2( -112, -12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EventTrigger" index="0"]
 shape = SubResource( 7 )
 
-[node name="Player" parent="YSort" index="0"]
-position = Vector2( -114, 29 )
+[node name="Orange" parent="YSort" index="0" instance=ExtResource( 24 )]
+position = Vector2( -95, 1444 )
 
-[node name="Douglas" type="Node2D" parent="YSort" index="1"]
+[node name="Player" parent="YSort" index="1"]
+position = Vector2( -101, -13 )
+
+[node name="Douglas" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 133, -3 )
 __meta__ = {
 "_edit_group_": true
@@ -286,7 +304,7 @@ __meta__ = {
 texture = ExtResource( 17 )
 offset = Vector2( 0, -19 )
 
-[node name="ScenePortal" parent="." index="14" instance=ExtResource( 9 )]
+[node name="ScenePortal" parent="." index="15" instance=ExtResource( 9 )]
 position = Vector2( -111, 1481 )
 new_scene = "res://Rooms/Area2/2-4/2-4.tscn"
 player_new_position = Vector2( 173, 116 )

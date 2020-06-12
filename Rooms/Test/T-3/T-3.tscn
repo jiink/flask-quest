@@ -1,0 +1,171 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Rooms/Area1/Assets/labs-2.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Rooms/Area1/Assets/labs-2-battle.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Rooms/Test/Assets/TestRoomTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=4]
+[ext_resource path="res://Rooms/Test/T-3/TrackTest.gd" type="Script" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Rooms/Test/T-3/MusicSwitcherTester.gd" type="Script" id=11]
+[ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=12]
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 5 )
+
+[node name="TestRoom2" type="Node"]
+script = ExtResource( 12 )
+level_music = ExtResource( 10 )
+battle_music = ExtResource( 10 )
+
+[node name="TileMaps" type="Node" parent="."]
+
+[node name="Floor" type="TileMap" parent="TileMaps"]
+position = Vector2( 48, 16 )
+z_index = -10
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 65537, 1, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 1, 0, 131073, 1, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 1, 0, 196609, 1, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 1, 0, 262145, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 1, 0, 327681, 1, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 1, 0, 393217, 1, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 1, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 1, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Above" type="TileMap" parent="TileMaps"]
+z_index = 10
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 589829, 2, 0, 589830, 2, 0, 589835, 2, 0, 589836, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionMap" type="TileMap" parent="TileMaps"]
+visible = false
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 131076, 0, 0, 131085, 0, 0, 196612, 0, 0, 196621, 0, 0, 262148, 0, 0, 262157, 0, 0, 327684, 0, 0, 327693, 0, 0, 393220, 0, 0, 393229, 0, 0, 458756, 0, 0, 458765, 0, 0, 524292, 0, 0, 524301, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="YSort" type="YSort" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicSwitcherTester" type="Node2D" parent="YSort"]
+position = Vector2( 172, 50 )
+script = ExtResource( 11 )
+
+[node name="Interaction" type="Area2D" parent="YSort/MusicSwitcherTester"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/MusicSwitcherTester/Interaction"]
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="YSort/MusicSwitcherTester"]
+margin_left = -6.0
+margin_top = -12.0
+margin_right = 7.0
+margin_bottom = 2.0
+color = Color( 0.992157, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Track1" type="AudioStreamPlayer" parent="YSort/MusicSwitcherTester"]
+stream = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="ValueLabels" type="Label" parent="YSort/MusicSwitcherTester/Track1"]
+margin_left = 157.0
+margin_top = 57.0
+margin_right = 203.0
+margin_bottom = 96.0
+theme = ExtResource( 13 )
+text = "T1
+Linear = 
+db = "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinearLabel" type="Label" parent="YSort/MusicSwitcherTester/Track1"]
+margin_left = 203.0
+margin_top = 70.0
+margin_right = 276.0
+margin_bottom = 86.0
+theme = ExtResource( 13 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DbLabel" type="Label" parent="YSort/MusicSwitcherTester/Track1"]
+margin_left = 183.0
+margin_top = 85.0
+margin_right = 256.0
+margin_bottom = 100.0
+theme = ExtResource( 13 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Track2" type="AudioStreamPlayer" parent="YSort/MusicSwitcherTester"]
+stream = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="ValueLabels" type="Label" parent="YSort/MusicSwitcherTester/Track2"]
+margin_left = 156.0
+margin_top = 101.0
+margin_right = 202.0
+margin_bottom = 140.0
+theme = ExtResource( 13 )
+text = "T2
+Linear = 
+db = "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinearLabel" type="Label" parent="YSort/MusicSwitcherTester/Track2"]
+margin_left = 203.0
+margin_top = 115.0
+margin_right = 276.0
+margin_bottom = 131.0
+theme = ExtResource( 13 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DbLabel" type="Label" parent="YSort/MusicSwitcherTester/Track2"]
+margin_left = 180.0
+margin_top = 129.0
+margin_right = 253.0
+margin_bottom = 144.0
+theme = ExtResource( 13 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="YSort/MusicSwitcherTester"]
+
+[node name="Orange" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 126, 52 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 111, 58 )
+
+[node name="Camera" parent="." instance=ExtResource( 7 )]
+follow_player = false
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
