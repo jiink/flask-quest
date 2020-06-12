@@ -181,6 +181,8 @@ func update_boxes(new_target):
 		has_face = false
 	if (target_piece.face_texture != null):
 		has_face = true
+	if $Face.texture != null:
+		has_face = true
 	if (target_piece.no_face):
 		has_face = false
 

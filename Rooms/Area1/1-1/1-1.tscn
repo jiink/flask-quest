@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorRoom.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorEntrance.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area1/Assets/elevator_button.png" type="Texture" id=19]
+[ext_resource path="res://NPC/BrainJar/brainjar_face.png" type="Texture" id=20]
 [ext_resource path="res://Engine/light2.png" type="Texture" id=24]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/ElevatorCardPickup.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Rooms/Area1/1-1/OrangeNPC.gd" type="Script" id=26]
@@ -618,17 +619,15 @@ anims/default = SubResource( 11 )
 
 [node name="DiagPiece" parent="YSort/BrainJarNPC/DialogueTree" index="0" instance=ExtResource( 30 )]
 message = "HEY IDIOTS"
-no_face = true
+face_texture = ExtResource( 20 )
 function = "jump_to_them"
 
 [node name="DiagPiece2" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece" index="0" instance=ExtResource( 30 )]
 message = "I'M GONNA BEAT YOU UP"
-no_face = true
 function = "zoom_in"
 
 [node name="DiagPiece3" parent="YSort/BrainJarNPC/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 30 )]
 message = "VERY HARD"
-no_face = true
 function = "start_brainjar_battle"
 
 [node name="BAMBOOP" parent="YSort" index="7" instance=ExtResource( 49 )]
