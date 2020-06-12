@@ -11,3 +11,5 @@ func _on_SecurityCamArea_body_entered(body):
 		
 		var security_chasers = security_chasers_scene.instance()
 		body.add_child(security_chasers)
+		$AnimationPlayer.play("disabled")
+		$CollisionShape2D.set_deferred("disabled", true)
