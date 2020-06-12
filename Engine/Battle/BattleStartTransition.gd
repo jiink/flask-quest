@@ -9,6 +9,7 @@ func _ready():
 #		print("AAAAAAAAAAAAAAAAAAA" + str(i))
 
 	var foe = load("res://NPC/" + global.initial_enemies[0] + "/" + global.initial_enemies[0] + "Foe.tscn")
+	print("res://NPC/" + global.initial_enemies[0] + "/" + global.initial_enemies[0] + "Foe.tscn")
 	var foe_instance = foe.instance()
 	if foe_instance.custom_music != null:
 		MusicManager.update_music(foe_instance.custom_music)

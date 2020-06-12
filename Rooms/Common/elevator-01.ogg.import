@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/elevator-01.ogg-380de3d71823c06f6c5a78a4076a1e60.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Common/elevator-01.ogg"
+dest_files=[ "res://.import/elevator-01.ogg-380de3d71823c06f6c5a78a4076a1e60.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
