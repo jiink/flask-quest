@@ -20,7 +20,7 @@ export(Dictionary) var data = {
 	"orange_max_hp": 100,
 	"party_members": [],
 	"player_spawn_pos": Vector2( 274.93, 80.7559 ),
-	"player_spawn_scene": "res://Rooms/Area1/1-1/1-1.tscn",
+	"player_spawn_scene": "res://Cutscenes/Intro/IntroCutscene.tscn",
 	"test_SaveTester": "blue",
 	"test_SaveTester2": "blue",
 	"test_SaveTester3": "blue"

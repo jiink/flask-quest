@@ -9,14 +9,6 @@
  <tile id="0" terrain=",,,0"/>
  <tile id="1" terrain=",,0,0"/>
  <tile id="2" terrain=",,0,"/>
- <tile id="3">
-  <animation>
-   <frame tileid="3" duration="100"/>
-   <frame tileid="4" duration="100"/>
-   <frame tileid="5" duration="100"/>
-   <frame tileid="6" duration="100"/>
-  </animation>
- </tile>
  <tile id="9" terrain="0,0,0,"/>
  <tile id="10" terrain="0,0,,0"/>
  <tile id="32" terrain=",0,,0"/>
