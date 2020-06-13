@@ -2,7 +2,6 @@ extends Node
 # key, text
 export(String) var key = ""
 export(String, MULTILINE) var message = ""
-export(String) var name_label = ""
 export(float) var text_delay = null
 export(Font) var font = null
 export(bool) var no_face = false

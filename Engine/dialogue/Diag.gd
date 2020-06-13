@@ -12,7 +12,6 @@ var choices = []
 var submit = null
 var face_index = 0
 var has_face = false
-var name_label = ""
 
 var stored_function = ""
 var stored_function_args = []
@@ -31,6 +30,8 @@ var active = false
 # use tres
 var default_text_font = load("res://Engine/Fonts/FontQuestSmall.tres")
 var text_font = default_text_font
+
+onready var default_face = $Face.texture
 
 enum { CHAR_FACE, CHAR_VOICE, CHAR_VOICE_VARIATION, CHAR_NAME }
 var characters = {
@@ -85,6 +86,13 @@ func _input(event):
 
 
 func start_talk(obj, starting_branch):
+	# set the font back to normal on a new tree
+	text_font = default_text_font
+	$TextBox.add_font_override("font", text_font)
+	# put face back at the default
+	$Face.texture = default_face
+	face_index = 0 # neutral
+
 	# print("start_talk exec'd")
 	if starting_branch == null:
 		starting_branch = "DiagPiece"
@@ -97,9 +105,8 @@ func start_talk(obj, starting_branch):
 	open()
 	update_boxes(obj)
 	
-	# set the font back to normal on a new tree
-	text_font = default_text_font
-	$TextBox.add_font_override("font", text_font)
+	
+
 	
 	
 func update_boxes(new_target):
@@ -120,7 +127,6 @@ func update_boxes(new_target):
 	if chosen_character[CHAR_FACE] != null: $Face.texture = load(chosen_character[CHAR_FACE])
 	voice_sound = load(chosen_character[CHAR_VOICE])
 	voice_variation = chosen_character[CHAR_VOICE_VARIATION]
-	name_label = chosen_character[CHAR_NAME]
 	
 	# set delays
 	if (target_piece.text_delay != null) and (target_piece.text_delay != 0):
@@ -156,21 +162,6 @@ func update_boxes(new_target):
 		$Choices/Choice1.text = ""
 		$Choices/Choice2.text = ""
 		$Choices.set_visible(false)
-	
-	# set label 
-	if target_piece.name_label == "" and target_piece.character == "(none)":
-		$NameLabel.visible = false
-	else:
-		if target_piece.name_label != "":
-			name_label = target_piece.name_label
-		$NameLabel.visible = true
-		$NameLabel.text = name_label
-		var tween = get_node("NameLabel/Tween")
-		$NameLabel/Tween.interpolate_property($NameLabel, "rect_size",
-			Vector2(0, 0), Vector2(0,0), 
-			1, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		$NameLabel/Tween.start()
-		
 		
 	$TextBox/Timer.start(text_time)
 		
