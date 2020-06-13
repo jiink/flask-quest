@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Engine/mask.png" type="Texture" id=1]
 [ext_resource path="res://Engine/character_water_waves.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -21,14 +20,6 @@ tracks/0/keys = {
 
 [node name="InWaterEffect" type="Node2D"]
 position = Vector2( 0, 3 )
-
-[node name="Light2D" type="Light2D" parent="."]
-light_mask = 0
-position = Vector2( 2.84217e-014, 0 )
-scale = Vector2( 0.875, 0.5 )
-texture = ExtResource( 1 )
-mode = 3
-range_item_cull_mask = 1024
 
 [node name="character_water_waves" type="Sprite" parent="."]
 position = Vector2( 0, -4 )

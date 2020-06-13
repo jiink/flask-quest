@@ -35,6 +35,8 @@ var player_confirm = "confirm"
 var player_cancel = "cancel"
 var player_action = "action"
 
+onready var in_water_cutoff_material = preload("res://Player/in_water_cutoff.tres")
+
 func _ready():
 	$LightOccluder2D.visible = true
 	
@@ -164,10 +166,12 @@ func set_in_water(setting):
 			$InWaterEffect.visible = true
 		else:
 			add_child(load("res://Player/InWaterEffect.tscn").instance())
+		$AnimatedSprite.set_material(in_water_cutoff_material)
 		$AnimatedSprite.offset.y = 4
 		speed = water_speed
 	else:
 		$InWaterEffect.visible = false
+		$AnimatedSprite.set_material(null)
 		$AnimatedSprite.offset.y = 0
 		speed = ground_speed
 
