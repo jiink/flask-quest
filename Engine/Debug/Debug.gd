@@ -4,6 +4,8 @@ extends Node
 var debug_mode = true
 ###############################################
 
+var launch_without_music = false
+
 onready var debug_mode_watermark = preload("res://Engine/Debug/DebugModeWatermark.tscn")
 
 func _ready():

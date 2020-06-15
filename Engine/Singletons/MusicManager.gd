@@ -34,7 +34,7 @@ var aftermath_lengths = {
 var volume = 0 # in dB, -80 is off
 
 func _ready():
-	if Debug.debug_mode:
+	if Debug.debug_mode and Debug.launch_without_music:
 		print("debug mode ON, setting volume to -80")
 		set_volume(-80)
 
