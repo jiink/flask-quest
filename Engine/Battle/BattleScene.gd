@@ -356,7 +356,7 @@ func hurt(who, damage):
 func foe_died():
 	print("something died, " + str(get_foes().size()) + " foes left")
 	
-	total_dollar_reward += int(get_foes()[selected_foe].dollar_reward * 0.85 + (randf() * 0.3))
+	total_dollar_reward += int(get_foes()[selected_foe].dollar_reward * 0.85 + (randf() * 0.3 * get_foes()[selected_foe].dollar_reward))
 	
 	if get_foes().size()-1 != 0:
 		selected_foe = (selected_foe - 1) % get_foes().size()
