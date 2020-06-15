@@ -141,7 +141,8 @@ func update_music(type):
 	pass
 	
 func fade_music(type, mode):
-	var target_vol = 0.0 if mode else -65.0 # see audio project settings, 
+	# var target_vol = 0.0 if mode else -65.0 # see audio project settings, 
+	var target_vol = 1.0 if mode else 0.0
 	var target_players = [get_node("BattlePlayer"), get_node("BattlePlayerAssistant")] if type == "battle" else [get_node("MainPlayer"), get_node("MainPlayerAssistant")]
 	
 #	print("going to fade %s music to %s" % [type, target_vol])
@@ -152,10 +153,12 @@ func fade_music(type, mode):
 		
 	for i in range(2):
 	
-		$Tween.interpolate_property(target_players[i], "volume_db",
-				null, target_vol,
-				transition_length, Tween.TRANS_QUAD, Tween.TRANS_LINEAR)
-
+		# $Tween.interpolate_property(target_players[i], "volume_db",
+		# 		null, target_vol,
+		# 		transition_length, Tween.TRANS_QUAD, Tween.TRANS_LINEAR)
+		$Tween.interpolate_method(target_players[i], "set_volume_linear",
+				target_players[i].get_volume_linear(), target_vol,
+				transition_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	
 	$Tween.start()
 	if mode == false:
