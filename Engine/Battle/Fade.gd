@@ -9,13 +9,13 @@ func _ready():
 func fade_out():
 	$Tween.interpolate_property(self, "color",
 			Color('000e111c'), Color('ff0e111c'),
-			1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			0.6, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 
 func fade_in():
 	$Tween.interpolate_property(self, "color",
 			Color('ff0e111c'), Color('000e111c'),
-			1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			0.6, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 
 

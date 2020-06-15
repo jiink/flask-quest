@@ -426,7 +426,6 @@ align = 1
 anims/roll_in = SubResource( 8 )
 
 [node name="TimeUntilFade" type="Timer" parent="Win"]
-wait_time = 3.0
 one_shot = true
 
 [node name="Tween" type="Tween" parent="Win"]

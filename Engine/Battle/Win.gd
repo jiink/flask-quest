@@ -15,7 +15,9 @@ func start():
 	
 	PlayerStats.dollars += int($"..".total_dollar_reward)
 	
-	$TimeUntilFade.start(3.0)
+	$TimeUntilFade.start(1.65)
+
+	
 	
 	
 func _on_TimeUntilFade_timeout():
@@ -27,10 +29,10 @@ func _on_done_fading_out():
 	battle.exit_battle()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	
-	
-	set_process(true)
 	$Tween.interpolate_property(self, "dollar_label_value",
 			0, $"..".total_dollar_reward,
-			1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			0.25, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
+	
+	set_process(true)
+	
