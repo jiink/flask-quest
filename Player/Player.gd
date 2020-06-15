@@ -42,6 +42,7 @@ func _ready():
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	clear_history()
+	set_in_water(false)
 	
 	
 func _process(delta):	

@@ -82,6 +82,7 @@ animation = "down"
 speed_scale = 1.3
 
 [node name="InWaterEffect" parent="." instance=ExtResource( 34 )]
+visible = false
 
 [node name="character_water_waves" parent="InWaterEffect" index="0"]
 frame = 4
