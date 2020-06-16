@@ -96,7 +96,7 @@ func close():
 
 func _on_NoclipButton_toggled(button_pressed):
 	for i in range(PlayerStats.player_count):
-			global.get_player(i + 1).collision_layer = 0 if button_pressed else 1
+			global.get_player(i + 1).collision_layer = 0 if button_pressed else 0b1000000000000000001
 
 func _on_InvincibilityButton_toggled(button_pressed):
 	global.get_player().invincible = button_pressed
