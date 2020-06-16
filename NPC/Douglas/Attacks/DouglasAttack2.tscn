@@ -1,0 +1,331 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://NPC/BaseFoe/Attacks/BossAttackBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/Douglas/attack_dancer_sheet.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Battle/Dodger/Projectiles/GenericProjectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effects/nothing.png" type="Texture" id=4]
+[ext_resource path="res://NPC/Douglas/Attacks/DouglasAttack2.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "att_a"
+length = 6.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dude/Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1, 1.4, 1.6, 1.75, 2.15, 2.35, 2.7, 2.75, 2.8, 2.85, 2.9, 2.95, 3, 3.05, 3.15, 3.25, 3.4, 3.6, 3.8, 4.15, 4.4, 4.5, 4.65, 5.1, 5.3, 5.35, 5.5, 5.55, 5.65, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 3 ), Vector2( 0, 13 ), Vector2( 0, 1 ), Vector2( 0, 3 ), Vector2( 0, 12 ), Vector2( 0, 2 ), Vector2( 0, 3 ), Vector2( 0, 4 ), Vector2( 0, 5 ), Vector2( 0, 6 ), Vector2( 0, 7 ), Vector2( 0, 8 ), Vector2( 0, 9 ), Vector2( 0, 10 ), Vector2( 0, 3 ), Vector2( 0, 4 ), Vector2( 0, 5 ), Vector2( 0, 6 ), Vector2( 0, 7 ), Vector2( 0, 12 ), Vector2( 0, 2 ), Vector2( 0, 3 ), Vector2( 0, 12 ), Vector2( 0, 13 ), Vector2( 0, 1 ), Vector2( 0, 3 ), Vector2( 0, 2 ), Vector2( 0, 3 ), Vector2( 0, 3 ), Vector2( 0, 0 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dude/Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Dude/Sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4.35, 4.4, 4.45, 4.5, 4.55, 4.6, 4.65, 4.7, 4.75, 4.8, 4.85, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( -1, 0 ), Vector2( 1, 0 ), Vector2( -2, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( -4, 0 ), Vector2( 3, 0 ), Vector2( -1, 0 ), Vector2( 4, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Dude/Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1.23114, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Dude/GreenArmZone:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.4, 1.6, 2.15, 2.35, 4.15, 4.4, 5.1, 5.3, 5.35, 5.5, 5.65, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 32, -13 ), Vector2( 49, -12 ), Vector2( 18, -14 ), Vector2( -36, -30 ), Vector2( 15, -20 ), Vector2( 42, -21 ), Vector2( 25, -19 ), Vector2( -42, -20 ), Vector2( -14, -19 ), Vector2( 36, -30 ), Vector2( -19, -19 ), Vector2( -42, -20 ), Vector2( -16, -20 ), Vector2( -49, -12 ), Vector2( -13, -18 ), Vector2( -49, -12 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Dude/OrangeArmZone:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.4, 1.6, 2.15, 2.35, 4.15, 4.4, 5.1, 5.3, 5.35, 5.5, 5.65, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -18, -13 ), Vector2( -48, -12 ), Vector2( -18, -18 ), Vector2( -42, -20 ), Vector2( -17, -21 ), Vector2( 36, -30 ), Vector2( -19, -20 ), Vector2( -35, -30 ), Vector2( 19, -19 ), Vector2( 42, -20 ), Vector2( 18, -20 ), Vector2( -36, -30 ), Vector2( 16, -20 ), Vector2( 48, -12 ), Vector2( 17, -20 ), Vector2( 48, -12 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Dude/GreenLegZone:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4, 1.6, 2.7, 3.55, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 5.99998, 38 ), Vector2( 5.99998, 50 ), Vector2( 3.99998, 50 ), Vector2( 5.99998, 50 ), Vector2( 1.99998, 50 ), Vector2( -3.00002, 50 ), Vector2( -7.00002, 50 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Dude/OrangeLegZone:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.7, 1.6, 2.75, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -6.00002, 38 ), Vector2( -6.00002, 50 ), Vector2( -9.00002, 50 ), Vector2( -1.00002, 50 ), Vector2( 8.99998, 50 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Dude/GreenButtZone:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.4, 1.6, 5.1, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 7.99998, 19 ), Vector2( 47, 16 ), Vector2( 6.99998, 19 ), Vector2( -46, 15 ), Vector2( -6.00002, 20 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Dude/OrangeButtZone:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 2.15, 2.35, 4.15, 4.4, 5.35, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -46, 15 ), Vector2( -8.00002, 19 ), Vector2( 47, 16 ), Vector2( 13, 17 ), Vector2( 47, 15 ), Vector2( 16, 19 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "att_b"
+length = 5.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dude/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dude/Sprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.3, 1.35, 1.4, 1.75, 2.1, 3.9, 4.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1, 2 ), Vector2( 1, 2 ), Vector2( 1, 3 ), Vector2( 1, 4 ), Vector2( 1, 5 ), Vector2( 1, 4 ), Vector2( 1, 6 ), Vector2( 1, 4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Dude:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.1, 4.05, 4.3, 5.3 ),
+"transitions": PoolRealArray( 1, 0.482968, 1, 0.554785, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -294.5, -294.5, -149.6 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Dude/GreenArmZone:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.65, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.35, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 32, -13 ), Vector2( 49, -12 ), Vector2( 48, -19 ), Vector2( 49, -12 ), Vector2( 48, -19 ), Vector2( 49, -12 ), Vector2( 48, -19 ), Vector2( 35, -36 ), Vector2( 26, -43 ), Vector2( 21, -46 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Dude/GreenLegZone:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.65, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.35, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 5.99998, 38 ), Vector2( 5.99998, 49 ), Vector2( 14, 49 ), Vector2( 5.99998, 49 ), Vector2( 14, 49 ), Vector2( 5.99998, 49 ), Vector2( 14, 49 ), Vector2( 37, 29 ), Vector2( 47, 19 ), Vector2( 49, 13 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Dude/OrangeArmZone:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.65, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.35, 1.4, 1.75, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -18, -13 ), Vector2( -48, -12 ), Vector2( -48, -19 ), Vector2( -48, -12 ), Vector2( -48, -19 ), Vector2( -48, -12 ), Vector2( -48, -19 ), Vector2( -35, -36 ), Vector2( -26, -43 ), Vector2( -20, -46 ), Vector2( -15, -47 ), Vector2( -20, -46 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Dude/OrangeLegZone:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.65, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.35, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -6.00002, 38 ), Vector2( -6.00002, 49 ), Vector2( -14, 49 ), Vector2( -6.00002, 49 ), Vector2( -14, 49 ), Vector2( -6.00002, 49 ), Vector2( -14, 49 ), Vector2( -37, 29 ), Vector2( -47, 20 ), Vector2( -48, 13 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 4 )
+
+[node name="DouglasAttack2" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/att_a = SubResource( 1 )
+anims/att_b = SubResource( 2 )
+
+[node name="Dude" type="Node2D" parent="." index="3"]
+position = Vector2( 192, 108 )
+
+[node name="Sprite" type="Sprite" parent="Dude" index="0"]
+position = Vector2( -1.52588e-05, -7.62939e-06 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+vframes = 14
+hframes = 2
+
+[node name="GreenArmZone" parent="Dude" index="1" instance=ExtResource( 3 )]
+position = Vector2( 32, -13 )
+type = 1
+damage = 3
+destructable = false
+
+[node name="bullet" parent="Dude/GreenArmZone" index="0"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Dude/GreenArmZone" index="1"]
+shape = SubResource( 3 )
+
+[node name="GreenLegZone" parent="Dude" index="2" instance=ExtResource( 3 )]
+position = Vector2( 5.99998, 38 )
+type = 1
+damage = 3
+destructable = false
+
+[node name="bullet" parent="Dude/GreenLegZone" index="0"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Dude/GreenLegZone" index="1"]
+shape = SubResource( 3 )
+
+[node name="OrangeArmZone" parent="Dude" index="3" instance=ExtResource( 3 )]
+position = Vector2( -18, -13 )
+type = 2
+damage = 3
+destructable = false
+
+[node name="bullet" parent="Dude/OrangeArmZone" index="0"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Dude/OrangeArmZone" index="1"]
+shape = SubResource( 3 )
+
+[node name="OrangeLegZone" parent="Dude" index="4" instance=ExtResource( 3 )]
+position = Vector2( -6.00002, 38 )
+type = 2
+damage = 3
+destructable = false
+
+[node name="bullet" parent="Dude/OrangeLegZone" index="0"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Dude/OrangeLegZone" index="1"]
+shape = SubResource( 3 )
+
+[node name="GreenButtZone" parent="Dude" index="5" instance=ExtResource( 3 )]
+position = Vector2( 7.99998, 19 )
+type = 1
+damage = 5
+destructable = false
+
+[node name="bullet" parent="Dude/GreenButtZone" index="0"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Dude/GreenButtZone" index="1"]
+shape = SubResource( 3 )
+
+[node name="OrangeButtZone" parent="Dude" index="6" instance=ExtResource( 3 )]
+position = Vector2( 16, 19 )
+type = 2
+damage = 5
+destructable = false
+
+[node name="bullet" parent="Dude/OrangeButtZone" index="0"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Dude/OrangeButtZone" index="1"]
+shape = SubResource( 3 )
+
+[editable path="Dude/GreenArmZone"]
+
+[editable path="Dude/GreenLegZone"]
+
+[editable path="Dude/OrangeArmZone"]
+
+[editable path="Dude/OrangeLegZone"]
+
+[editable path="Dude/GreenButtZone"]
+
+[editable path="Dude/OrangeButtZone"]
