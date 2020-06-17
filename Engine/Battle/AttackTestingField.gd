@@ -39,7 +39,7 @@ func _process(delta):
 	
 	if pstats.green_hp <= 0 or pstats.orange_hp <= 0:
 		stop()
-		get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
+		# get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
 	
 	if active_battle_timer != null:
 		$DodgeCircle/TimeBar.value = int(100 * (active_battle_timer.time_left / active_battle_timer.wait_time))
@@ -48,7 +48,8 @@ func _process(delta):
 
 func stop():
 	attacks_spawned = false
-	battle.end_dodge_game()
+	# queue_free()
+	# get_tree().reload_current_scene()
 	rot = 0.0
 	rot_v = 0.0
 
