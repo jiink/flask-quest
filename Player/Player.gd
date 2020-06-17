@@ -168,7 +168,7 @@ func set_in_water(setting):
 		else:
 			add_child(load("res://Player/InWaterEffect.tscn").instance())
 		$AnimatedSprite.set_material(in_water_cutoff_material)
-		$AnimatedSprite.offset.y = 4
+		$AnimatedSprite.offset.y = 7
 		speed = water_speed
 	else:
 		$InWaterEffect.visible = false
