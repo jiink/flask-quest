@@ -95,7 +95,7 @@ func get_dodger(which_player): # 1 for green, 2 for oragne
 			print("warning: called get_dodger with a %s" % player_name)
 			
 	if get_tree().get_current_scene().name == "AttackTestingField":
-		return get_tree().get_current_scene().get_node("Dodgers/%sSprite" % player_name)
+		return get_tree().get_current_scene().get_node("%sPawn/Sprite" % player_name)
 		
 	if get_tree().get_current_scene().has_node("BattleScene/DodgerField/%sPawn/Sprite" % player_name):
 		return get_tree().get_current_scene().get_node("BattleScene/DodgerField/%sPawn/Sprite" % player_name)

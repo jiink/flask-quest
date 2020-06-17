@@ -39,7 +39,7 @@ func _ready():
 		if (get_tree().get_current_scene().name == "AttackTestingField") or (get_tree().get_current_scene().name == "BigAttackTestingField"):
 			look_at(Vector2(192*2, 108*2))
 
-	elif face_node != null:
+	elif face_node != null and face_node != "":
 		look_at(get_node(face_node).position)
 	if face_center and (face_node != null):
 		print("Warning: Can't face two places at once; facing center")
