@@ -103,9 +103,11 @@ func _on_InvincibilityButton_toggled(button_pressed):
 
 func _on_MusicButton_toggled(button_pressed):
 	if button_pressed:
-		MusicManager.set_volume(0)
+		#MusicManager.set_volume(0)
+		AudioServer.set_bus_mute(1, true)
 	else:
-		MusicManager.set_volume(-80)
+		#MusicManager.set_volume(-80)
+		AudioServer.set_bus_mute(1, false)
 
 func _on_GiveButton_pressed():
 	ItemManager.give_item($DebugButtons/GiveText.text)

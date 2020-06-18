@@ -1,4 +1,4 @@
-[gd_scene load_steps=221 format=2]
+[gd_scene load_steps=225 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -158,6 +158,8 @@
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/BushA.tscn" type="PackedScene" id=156]
 [ext_resource path="res://Rooms/Area2/Assets/traffic_jam.wav" type="AudioStream" id=157]
 [ext_resource path="res://Rooms/Area2/Assets/not_dog_stand.png" type="Texture" id=158]
+[ext_resource path="res://Rooms/Area2/Assets/sun_dog.png" type="Texture" id=159]
+[ext_resource path="res://Rooms/Area2/Assets/moon_dog.png" type="Texture" id=160]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -956,15 +958,21 @@ extents = Vector2( 18, 5 )
 extents = Vector2( 18, 5 )
 
 [sub_resource type="RectangleShape2D" id=59]
-extents = Vector2( 11, 24 )
+extents = Vector2( 12, 4 )
 
 [sub_resource type="RectangleShape2D" id=60]
-extents = Vector2( 12, 30 )
+extents = Vector2( 11, 4 )
 
 [sub_resource type="RectangleShape2D" id=61]
-extents = Vector2( 16, 6 )
+extents = Vector2( 11, 24 )
 
 [sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 12, 30 )
+
+[sub_resource type="RectangleShape2D" id=63]
+extents = Vector2( 16, 6 )
+
+[sub_resource type="RectangleShape2D" id=64]
 extents = Vector2( 8, 6 )
 
 [node name="2-1" groups=[
@@ -2566,12 +2574,10 @@ script = ExtResource( 7 )
 
 [node name="DiagPiece" parent="YSort/NPC/bearly_bear/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "hi im bear. baerly the bear."
-name_label = "Bearly the Bear"
 face_texture = ExtResource( 154 )
 
 [node name="DiagPiece" parent="YSort/NPC/bearly_bear/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "and im bearly able to feed my family. please help."
-name_label = "Bearly the Bear"
 face_texture = ExtResource( 154 )
 
 [node name="Interaction" type="Area2D" parent="YSort/NPC/bearly_bear" index="1"]
@@ -2623,7 +2629,6 @@ offset = Vector2( 0, -7 )
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "Oh my Gosh. You're sooo cute!"
-name_label = "Mouse"
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "Aww, thanks."
@@ -2663,7 +2668,6 @@ expression = "sad"
 
 [node name="DiagPiece2" parent="YSort/NPC/DogA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "..."
-name_label = "Dog"
 voice_sound = ExtResource( 128 )
 voice_variation = 0.1
 
@@ -2880,6 +2884,27 @@ shape = SubResource( 57 )
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/StaticBody2D" index="0"]
 shape = SubResource( 58 )
 
+[node name="SunDog" parent="YSort/NPC" index="24" instance=ExtResource( 77 )]
+position = Vector2( 325, 468 )
+texture = ExtResource( 159 )
+
+[node name="CollisionShape2D" parent="YSort/NPC/SunDog/Interaction" index="0"]
+shape = SubResource( 59 )
+
+[node name="CollisionShape2D" parent="YSort/NPC/SunDog/StaticBody2D" index="0"]
+shape = SubResource( 59 )
+
+[node name="MoonDog" parent="YSort/NPC" index="25" instance=ExtResource( 77 )]
+position = Vector2( 284, 479 )
+texture = ExtResource( 160 )
+offset = Vector2( 0, -4 )
+
+[node name="CollisionShape2D" parent="YSort/NPC/MoonDog/Interaction" index="0"]
+shape = SubResource( 60 )
+
+[node name="CollisionShape2D" parent="YSort/NPC/MoonDog/StaticBody2D" index="0"]
+shape = SubResource( 60 )
+
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
 
@@ -2942,7 +2967,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 59 )
+shape = SubResource( 61 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="16" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )
@@ -2950,7 +2975,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown2/StaticBody2D" index="0"]
 position = Vector2( 0, -3.99999 )
-shape = SubResource( 59 )
+shape = SubResource( 61 )
 
 [node name="car_red3" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 133 )]
 position = Vector2( 2060, -169 )
@@ -2959,7 +2984,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red3/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 60 )
+shape = SubResource( 62 )
 
 [node name="EighteenWheeler" parent="YSort/StaticVehicles" index="18" instance=ExtResource( 155 )]
 position = Vector2( 2173, -1020 )
@@ -2976,7 +3001,7 @@ player_new_position = Vector2( -48, 230 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CafePortal" index="0"]
 position = Vector2( -32, 71 )
-shape = SubResource( 61 )
+shape = SubResource( 63 )
 
 [node name="DougPortal" parent="." index="10" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
@@ -2985,11 +3010,11 @@ starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DougPortal" index="0"]
 position = Vector2( 936, -601 )
-shape = SubResource( 62 )
+shape = SubResource( 64 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DougPortal" index="1"]
 position = Vector2( 968, -601 )
-shape = SubResource( 62 )
+shape = SubResource( 64 )
 
 [node name="WifiBeams" type="Node2D" parent="." index="11"]
 
@@ -3165,6 +3190,10 @@ texture = ExtResource( 81 )
 [editable path="YSort/NPC/BodyBuilderA"]
 
 [editable path="YSort/NPC/NotDogStand"]
+
+[editable path="YSort/NPC/SunDog"]
+
+[editable path="YSort/NPC/MoonDog"]
 
 [editable path="YSort/StaticVehicles/car_red"]
 
