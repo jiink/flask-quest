@@ -231,7 +231,7 @@ func copy_actions(from, to):
 	for event in InputMap.get_action_list(from):
 		InputMap.action_add_event(to, event)
 
-func start_scene_switch(new_scene, new_player_position, new_player_direction):
+func start_scene_switch(new_scene, new_player_position, new_player_direction = "none"):
 	# save!!!
 	game_saver.save(1) # todo: slot changing
 	
