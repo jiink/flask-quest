@@ -226,6 +226,9 @@ extents = Vector2( 4, 4 )
 [node name="DouglasAttack2" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 
+[node name="Timer" parent="." index="0"]
+wait_time = 6.1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/att_a = SubResource( 1 )
 anims/att_b = SubResource( 2 )

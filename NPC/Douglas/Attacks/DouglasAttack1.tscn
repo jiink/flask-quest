@@ -6,6 +6,9 @@
 
 [node name="DouglasAttack1" instance=ExtResource( 1 )]
 
+[node name="Timer" parent="." index="0"]
+wait_time = 5.0
+
 [node name="TrussLeft" type="Sprite" parent="." index="2"]
 position = Vector2( 50, 112 )
 texture = ExtResource( 2 )
