@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=2]
@@ -84,6 +84,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/canopy_mask.png" type="Texture" id=82]
 [ext_resource path="res://Rooms/Area5/Assets/outside_forest.png" type="Texture" id=83]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=84]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/large_metal_door.tscn" type="PackedScene" id=85]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -1502,6 +1503,21 @@ position = Vector2( 577, -99 )
 [node name="eboxA6" parent="YSort/Industrial" index="62" instance=ExtResource( 50 )]
 position = Vector2( 1311, 67 )
 
+[node name="eboxA7" parent="YSort/Industrial" index="63" instance=ExtResource( 50 )]
+position = Vector2( 1770, 571 )
+
+[node name="eboxD5" parent="YSort/Industrial" index="64" instance=ExtResource( 47 )]
+position = Vector2( 1856, 567 )
+
+[node name="eboxC5" parent="YSort/Industrial" index="65" instance=ExtResource( 54 )]
+position = Vector2( 1936, 503 )
+
+[node name="eboxB7" parent="YSort/Industrial" index="66" instance=ExtResource( 49 )]
+position = Vector2( 1877, 567 )
+
+[node name="eboxB8" parent="YSort/Industrial" index="67" instance=ExtResource( 49 )]
+position = Vector2( 1900, 567 )
+
 [node name="Lampposts" type="YSort" parent="YSort" index="6"]
 
 [node name="lamppost_01" parent="YSort/Lampposts" index="0" instance=ExtResource( 34 )]
@@ -1733,6 +1749,20 @@ position = Vector2( 396, 1308 )
 
 [node name="MapMachine4" parent="YSort/Internet" index="12" instance=ExtResource( 70 )]
 position = Vector2( 973, 1377 )
+
+[node name="LargeMetalDoor" parent="YSort" index="9" instance=ExtResource( 85 )]
+position = Vector2( 1816, 557 )
+
+[node name="ColorRect" type="ColorRect" parent="YSort/LargeMetalDoor" index="2"]
+show_behind_parent = true
+margin_left = -24.0
+margin_top = -45.0
+margin_right = 24.0
+margin_bottom = 3.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Lights" type="Node2D" parent="." index="7"]
 __meta__ = {
@@ -2036,6 +2066,9 @@ shape = SubResource( 7 )
 
 [node name="ScenePortal2" parent="." index="16" instance=ExtResource( 81 )]
 position = Vector2( 1816, 556 )
+new_scene = "res://Rooms/Area5/5-4/5-4.tscn"
+player_new_position = Vector2( 168, -373 )
+starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal2" index="0"]
 shape = SubResource( 8 )

@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_lights.png" type="Texture" id=1]
-[ext_resource path="res://Cutscenes/Intro/beg_cutscene_exteriorlab.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city5.png" type="Texture" id=2]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_pouring.png" type="Texture" id=3]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_transform_flasks.png" type="Texture" id=4]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_transform_molecules.png" type="Texture" id=5]
@@ -18,10 +18,20 @@
 [ext_resource path="res://Cutscenes/Intro/burst_of_life.wav" type="AudioStream" id=16]
 [ext_resource path="res://Cutscenes/Intro/burst_of_life_space.wav" type="AudioStream" id=17]
 [ext_resource path="res://Cutscenes/Intro/burst_of_life_reverb.wav" type="AudioStream" id=18]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city1.png" type="Texture" id=19]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city3.png" type="Texture" id=20]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city2.png" type="Texture" id=21]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/citysky.png" type="Texture" id=22]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city4.png" type="Texture" id=23]
+[ext_resource path="res://Cutscenes/Intro/beg_cutscene_exteriorlab-sheet.png" type="Texture" id=24]
+[ext_resource path="res://Cutscenes/Intro/beg_cutscene_wifipole.png" type="Texture" id=25]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=26]
+[ext_resource path="res://Cutscenes/Intro/beg_cutscene_observers.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]
 resource_name = "play"
-length = 41.5
+length = 90.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Bright:visible")
 tracks/0/interp = 1
@@ -29,10 +39,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 2.1, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, true, false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Bright:color")
@@ -41,7 +51,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 3 ),
+"times": PoolRealArray( 2.1, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -53,7 +63,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 4 ),
+"times": PoolRealArray( 0, 2.1, 22.07 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -65,10 +75,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1, 33 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2.1, 19, 22.07, 51.01 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ true, false, true, false, true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("beg_cutscene_pouring:visible")
@@ -77,7 +87,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 4, 10 ),
+"times": PoolRealArray( 0, 22.01, 28.01 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -89,7 +99,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 4, 4.05, 4.125, 4.2, 4.275, 4.35, 4.425, 4.5, 4.575, 4.65, 4.725, 4.8, 4.875, 4.95, 5.025, 5.1, 5.175, 5.25, 5.325, 5.4, 5.475, 5.55, 5.625, 5.7, 5.775, 5.85, 5.925, 6, 6.075, 6.15, 6.225, 6.3, 6.375, 6.45, 6.525, 6.6, 6.675, 6.75, 6.825, 6.9, 6.975, 7.05, 7.125, 7.2, 7.275, 7.35, 7.425, 7.5, 7.575, 7.65, 7.725, 7.8, 7.875, 7.95, 8.025, 8.1, 8.175, 8.25, 8.325, 8.4, 8.475, 8.55, 8.625, 8.7, 8.775, 8.85, 8.925, 9, 9.075, 9.15 ),
+"times": PoolRealArray( 22.01, 22.06, 22.14, 22.21, 22.29, 22.36, 22.44, 22.51, 22.59, 22.66, 22.74, 22.81, 22.89, 22.96, 23.04, 23.11, 23.19, 23.26, 23.34, 23.41, 23.49, 23.56, 23.64, 23.71, 23.79, 23.86, 23.94, 24.01, 24.09, 24.16, 24.24, 24.31, 24.39, 24.46, 24.54, 24.61, 24.69, 24.76, 24.84, 24.91, 24.99, 25.06, 25.14, 25.21, 25.29, 25.36, 25.44, 25.51, 25.59, 25.66, 25.74, 25.81, 25.89, 25.96, 26.04, 26.11, 26.19, 26.26, 26.34, 26.41, 26.49, 26.56, 26.64, 26.71, 26.79, 26.86, 26.94, 27.01, 27.09, 27.16 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69 ]
@@ -101,7 +111,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 10, 13.5 ),
+"times": PoolRealArray( 0, 28.01, 31.51 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -113,7 +123,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 10, 12 ),
+"times": PoolRealArray( 28.01, 30.01 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
@@ -125,7 +135,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 13.5, 18.6 ),
+"times": PoolRealArray( 0, 31.51, 36.61 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -137,7 +147,7 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 13.5, 14, 14.1, 14.2, 14.3, 14.4, 14.5 ),
+"times": PoolRealArray( 31.51, 32.01, 32.11, 32.21, 32.31, 32.41, 32.51 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
@@ -149,7 +159,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 16.5, 20.85 ),
+"times": PoolRealArray( 0, 34.51, 38.86 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -161,7 +171,7 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 18, 18.05, 18.2, 18.4, 18.65 ),
+"times": PoolRealArray( 0, 36.01, 36.06, 36.21, 36.41, 36.66 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 13, 0 ), Vector2( -5, 0 ), Vector2( 2, 0 ), Vector2( 0, 0 ) ]
@@ -173,7 +183,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 18.6, 20.025, 20.1, 20.175, 20.25, 20.325, 20.4, 20.475, 20.55, 20.625 ),
+"times": PoolRealArray( 36.61, 38.04, 38.11, 38.19, 38.26, 38.34, 38.41, 38.49, 38.56, 38.64 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 0, 1, 2, 3, 4, 5, 6, 7, 0 ]
@@ -185,7 +195,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 20.85, 22 ),
+"times": PoolRealArray( 0, 38.86, 40.01 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -197,7 +207,7 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 20.85, 21, 21.075, 21.15, 21.225, 21.3, 21.375, 21.45, 21.525, 21.6 ),
+"times": PoolRealArray( 38.86, 39.01, 39.09, 39.16, 39.24, 39.31, 39.39, 39.46, 39.54, 39.61 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
@@ -209,7 +219,7 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 22, 23.5 ),
+"times": PoolRealArray( 0, 40.01, 41.51 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -221,7 +231,7 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 22, 22.1, 22.2, 22.3, 22.4, 22.5, 22.6, 22.7, 22.8, 22.9, 23, 23.1, 23.2, 23.3, 23.4 ),
+"times": PoolRealArray( 40.01, 40.11, 40.21, 40.31, 40.41, 40.51, 40.61, 40.71, 40.81, 40.91, 41.01, 41.11, 41.21, 41.31, 41.41 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15 ]
@@ -233,7 +243,7 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0, 23.5, 27 ),
+"times": PoolRealArray( 0, 41.51, 45.01 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -245,7 +255,7 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 23.5, 24, 24.1, 24.2, 24.3, 24.4, 24.5, 24.6, 24.7, 24.8, 24.9, 25, 25.1, 25.2, 25.3, 25.4, 25.5 ),
+"times": PoolRealArray( 41.51, 42.01, 42.11, 42.21, 42.31, 42.41, 42.51, 42.61, 42.71, 42.81, 42.91, 43.01, 43.11, 43.21, 43.31, 43.41, 43.51 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
@@ -257,7 +267,7 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 27, 33 ),
+"times": PoolRealArray( 0, 45.01, 51.01 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -269,7 +279,7 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 27, 29 ),
+"times": PoolRealArray( 45.01, 47.01 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
@@ -281,7 +291,7 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 33, 41.5 ),
+"times": PoolRealArray( 0, 51.01, 59.51 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -293,7 +303,7 @@ tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = {
-"times": PoolRealArray( 0, 35.2, 41.5 ),
+"times": PoolRealArray( 0, 53.21, 59.51 ),
 "transitions": PoolRealArray( 1, 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 192, 108 ), Vector2( 192, 260 ), Vector2( 192, 108 ) ]
@@ -305,7 +315,7 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"times": PoolRealArray( 0, 35.4, 41.5 ),
+"times": PoolRealArray( 0, 53.41, 59.51 ),
 "transitions": PoolRealArray( 1, 0.5, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -317,7 +327,7 @@ tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0, 1, 4.7, 33, 41.5 ),
+"times": PoolRealArray( 0, 2.1, 5.8, 51.01, 59.51 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false, true, false ]
@@ -329,7 +339,7 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = {
-"times": PoolRealArray( 0, 38.2, 41.5 ),
+"times": PoolRealArray( 0, 56.21, 59.51 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -341,7 +351,7 @@ tracks/26/loop_wrap = true
 tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/keys = {
-"times": PoolRealArray( 0, 1, 36.8 ),
+"times": PoolRealArray( 0, 19.01, 54.81 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -353,7 +363,7 @@ tracks/27/loop_wrap = true
 tracks/27/imported = false
 tracks/27/enabled = true
 tracks/27/keys = {
-"times": PoolRealArray( 0, 18 ),
+"times": PoolRealArray( 0, 36.01 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -365,7 +375,7 @@ tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = {
-"times": PoolRealArray( 0, 19.9 ),
+"times": PoolRealArray( 0, 37.91 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -377,7 +387,7 @@ tracks/29/loop_wrap = true
 tracks/29/imported = false
 tracks/29/enabled = true
 tracks/29/keys = {
-"times": PoolRealArray( 0, 20.8 ),
+"times": PoolRealArray( 0, 38.81 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -389,7 +399,7 @@ tracks/30/loop_wrap = true
 tracks/30/imported = false
 tracks/30/enabled = true
 tracks/30/keys = {
-"times": PoolRealArray( 0, 22.1 ),
+"times": PoolRealArray( 0, 40.11 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -401,19 +411,254 @@ tracks/31/loop_wrap = true
 tracks/31/imported = false
 tracks/31/enabled = true
 tracks/31/keys = {
-"times": PoolRealArray( 0, 23.7 ),
+"times": PoolRealArray( 0, 41.71 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("beg_cutscene_exteriorlab/beg_cutscene_exteriorlab-sheet:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0, 5.2, 6.2, 7.4 ),
+"transitions": PoolRealArray( -2, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 148 ), Vector2( 0, 148 ), Vector2( 0, -110 ), Vector2( -384, -110 ) ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("beg_cutscene_exteriorlab/beg_cutscene_exteriorlab-sheet:frame")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0, 5.4, 5.8, 6.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("beg_cutscene_exteriorlab/city1:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 5.2, 6.2, 7.4 ),
+"transitions": PoolRealArray( 1, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( -8, -10 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("beg_cutscene_exteriorlab/city2:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 5.2, 6.2, 7.4 ),
+"transitions": PoolRealArray( 1, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -18 ), Vector2( -34, -18 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("beg_cutscene_exteriorlab/city3:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0, 5.2, 6.2, 7.4 ),
+"transitions": PoolRealArray( 1, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -35 ), Vector2( -67, -35 ) ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("beg_cutscene_exteriorlab/city4:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0, 5.2, 6.2, 7.4 ),
+"transitions": PoolRealArray( 1, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -41 ), Vector2( -83, -41 ) ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("beg_cutscene_exteriorlab/city5:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0, 5.2, 6.2, 7.4 ),
+"transitions": PoolRealArray( 1, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 175 ), Vector2( 0, 175 ), Vector2( 0, 71 ), Vector2( -187, 71 ) ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("beg_cutscene_wifipole:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0, 7.4, 9, 16, 16.6, 16.7, 16.8, 16.9, 17.5, 17.6, 17.7, 17.8, 17.9, 18, 18.05, 18.1, 18.15, 18.2, 18.25, 18.3, 18.35, 18.4, 18.5, 18.55, 18.6, 18.7, 18.75, 18.8, 18.85, 18.9 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 576, 108 ), Vector2( 576, 108 ), Vector2( 192, 108 ), Vector2( 192, 108 ), Vector2( 192, 108 ), Vector2( 194, 108 ), Vector2( 191, 108 ), Vector2( 192, 108 ), Vector2( 192, 108 ), Vector2( 184, 108 ), Vector2( 193, 108 ), Vector2( 192, 108 ), Vector2( 184, 108 ), Vector2( 198, 108 ), Vector2( 179, 108 ), Vector2( 200, 108 ), Vector2( 198, 108 ), Vector2( 179, 108 ), Vector2( 200, 108 ), Vector2( 198, 108 ), Vector2( 179, 108 ), Vector2( 200, 108 ), Vector2( 198, 108 ), Vector2( 179, 108 ), Vector2( 200, 108 ), Vector2( 198, 108 ), Vector2( 179, 108 ), Vector2( 198, 108 ), Vector2( 179, 108 ), Vector2( 200, 108 ) ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("beg_cutscene_wifipole/Light2D:energy")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0, 10, 12, 16, 16.1, 16.2, 16.3, 16.4, 16.5, 16.6, 16.7, 16.8, 16.9, 17.1, 17.2, 17.3, 17.4, 17.5, 17.6, 17.8, 17.9, 18.1, 18.2, 18.3, 18.4, 18.5, 18.6, 18.8, 19 ),
+"transitions": PoolRealArray( 0, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.13, 2.0, 2.0, 2.0, 2.55, 2.0, 2.18, 2.0, 2.55, 2.0, 2.18, 2.0, 2.53, 2.0, 3.73, 2.0, 3.65, 2.0, 3.28, 2.0, 4.545, 4.17, 5.18, 3.28, 4.91, 3.28, 4.17, 8.34 ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("beg_cutscene_wifipole:frame")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("beg_cutscene_observers:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0, 13, 16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/43/type = "value"
+tracks/43/path = NodePath("beg_cutscene_wifipole:visible")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/keys = {
+"times": PoolRealArray( 0, 13, 16, 19 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/44/type = "value"
+tracks/44/path = NodePath("beg_cutscene_observers:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/keys = {
+"times": PoolRealArray( 0, 13, 16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 90 ), Vector2( 192, 90 ), Vector2( 192, 100 ) ]
+}
+tracks/45/type = "value"
+tracks/45/path = NodePath("beg_cutscene_wifipole:scale")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/keys = {
+"times": PoolRealArray( 0, 16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/46/type = "value"
+tracks/46/path = NodePath("beg_cutscene_wifipole/Light2D:texture_scale")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/keys = {
+"times": PoolRealArray( 0, 16, 19 ),
+"transitions": PoolRealArray( 2, 2, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 4.62 ]
 }
 
 [node name="IntroCutscene" type="Node2D"]
 script = ExtResource( 13 )
 
-[node name="beg_cutscene_exteriorlab" type="Sprite" parent="."]
+[node name="beg_cutscene_exteriorlab" type="Node2D" parent="."]
 visible = false
 position = Vector2( 192, 108 )
+
+[node name="citysky" type="Sprite" parent="beg_cutscene_exteriorlab"]
+texture = ExtResource( 22 )
+
+[node name="city1" type="Sprite" parent="beg_cutscene_exteriorlab"]
+texture = ExtResource( 19 )
+
+[node name="city2" type="Sprite" parent="beg_cutscene_exteriorlab"]
+texture = ExtResource( 21 )
+
+[node name="city3" type="Sprite" parent="beg_cutscene_exteriorlab"]
+texture = ExtResource( 20 )
+
+[node name="city4" type="Sprite" parent="beg_cutscene_exteriorlab"]
+texture = ExtResource( 23 )
+
+[node name="city5" type="Sprite" parent="beg_cutscene_exteriorlab"]
+position = Vector2( 0, 175 )
 texture = ExtResource( 2 )
+
+[node name="beg_cutscene_exteriorlab-sheet" type="Sprite" parent="beg_cutscene_exteriorlab"]
+position = Vector2( 0, 148 )
+texture = ExtResource( 24 )
+hframes = 3
+
+[node name="ColorRect" type="ColorRect" parent="beg_cutscene_exteriorlab/beg_cutscene_exteriorlab-sheet"]
+margin_left = 192.0
+margin_top = -243.0
+margin_right = 607.0
+margin_bottom = 268.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="beg_cutscene_wifipole" type="Sprite" parent="."]
+position = Vector2( 576, 108 )
+texture = ExtResource( 25 )
+hframes = 2
+
+[node name="Light2D" type="Light2D" parent="beg_cutscene_wifipole"]
+position = Vector2( -3, -11 )
+texture = ExtResource( 26 )
+color = Color( 0.443137, 0.94902, 1, 1 )
+energy = 0.0
+
+[node name="beg_cutscene_observers" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 90 )
+texture = ExtResource( 27 )
+
+[node name="Light2D" type="Light2D" parent="beg_cutscene_observers"]
+position = Vector2( 0, 54 )
+texture = ExtResource( 26 )
+color = Color( 0.443137, 0.94902, 1, 1 )
+energy = 2.0
 
 [node name="beg_cutscene_pouring" type="Sprite" parent="."]
 visible = false
@@ -421,14 +666,13 @@ position = Vector2( 192, 108 )
 texture = ExtResource( 3 )
 vframes = 10
 hframes = 7
-frame = 69
+frame = 5
 
 [node name="beg_cutscene_lights" type="Sprite" parent="."]
 visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
 
 [node name="DoorCloseRect" type="ColorRect" parent="."]
 visible = false
@@ -443,7 +687,6 @@ __meta__ = {
 position = Vector2( 268, 81 )
 texture = ExtResource( 8 )
 hframes = 7
-frame = 6
 
 [node name="beg_cutscene_transform_flasks" type="Sprite" parent="."]
 visible = false
@@ -458,7 +701,6 @@ position = Vector2( 192, 108 )
 texture = ExtResource( 5 )
 vframes = 2
 hframes = 5
-frame = 9
 
 [node name="beg_cutscene_transform_city" type="Sprite" parent="."]
 visible = false
@@ -466,7 +708,7 @@ position = Vector2( 192, 108 )
 texture = ExtResource( 6 )
 vframes = 4
 hframes = 5
-frame = 15
+frame = 1
 
 [node name="beg_cutscene_transform_space" type="Sprite" parent="."]
 visible = false
@@ -474,14 +716,12 @@ position = Vector2( 192, 108 )
 texture = ExtResource( 7 )
 vframes = 4
 hframes = 5
-frame = 16
 
 [node name="beg_cutscene_wakeup" type="Sprite" parent="."]
 visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 9 )
 hframes = 3
-frame = 1
 
 [node name="Dark" type="ColorRect" parent="."]
 margin_right = 384.0
@@ -492,6 +732,7 @@ __meta__ = {
 }
 
 [node name="Bright" type="ColorRect" parent="."]
+visible = false
 margin_right = 384.0
 margin_bottom = 216.0
 color = Color( 1, 1, 1, 0 )
@@ -501,6 +742,7 @@ __meta__ = {
 
 [node name="title" type="Sprite" parent="."]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 192, 108 )
 texture = ExtResource( 10 )
 hframes = 2

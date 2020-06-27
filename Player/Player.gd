@@ -35,6 +35,8 @@ var player_confirm = "confirm"
 var player_cancel = "cancel"
 var player_action = "action"
 
+var new_step = false
+
 onready var in_water_cutoff_material = preload("res://Player/in_water_cutoff.tres")
 
 func _ready():
@@ -92,6 +94,15 @@ func move_and_animate():
 		$AnimatedSprite.playing = false
 		$AnimatedSprite.frame = 0
 	
+	if $AnimatedSprite.frame == 1 or $AnimatedSprite.frame == 3 and not in_water:
+		new_step = true
+	
+	if ($AnimatedSprite.frame == 0 or $AnimatedSprite.frame == 2) and new_step == true and not in_water:
+		$StepSound.pitch_scale = (randf() + 0.8) * 0.8
+		$StepSound.play()
+		new_step = false
+		
+		
 
 
 func get_inputs():

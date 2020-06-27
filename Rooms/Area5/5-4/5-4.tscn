@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Rooms/Area5/5-4/5-4_tiled.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=8]
 [ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Rooms/Area5/Assets/supertunnel_ambience.wav" type="AudioStream" id=11]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform float frequency=4;
@@ -30,12 +31,12 @@ void fragment() {
 	COLOR.rgb= COLOR.rgb*c;
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/frequency = 80.0
 shader_param/depth = 0.2
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 3
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -74,7 +75,7 @@ __meta__ = {
 }
 
 [node name="WarpEffect" type="TextureRect" parent="Tilemaps/ShadeRect" index="0"]
-material = SubResource( 3 )
+material = SubResource( 2 )
 margin_left = -2697.0
 margin_top = -227.0
 margin_right = -603.0
@@ -88,7 +89,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Tilemaps/ShadeRect" index="1"]
-material = SubResource( 1 )
+material = SubResource( 3 )
 margin_left = -2928.0
 margin_top = -241.0
 margin_right = 654.0
@@ -100,7 +101,7 @@ __meta__ = {
 }
 
 [node name="ColorRect2" type="ColorRect" parent="Tilemaps/ShadeRect" index="2"]
-material = SubResource( 1 )
+material = SubResource( 3 )
 margin_left = -128.0
 margin_top = -742.0
 margin_right = 443.0
@@ -130,7 +131,7 @@ texture = ExtResource( 4 )
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 7 )]
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 22, -12 )
+position = Vector2( 36, -17 )
 
 [node name="PosLabel" type="Label" parent="YSort/Player" index="8"]
 visible = false
@@ -190,6 +191,13 @@ starting_direction = "down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 shape = SubResource( 5 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="10"]
+position = Vector2( -1753, -25 )
+stream = ExtResource( 11 )
+autoplay = true
+max_distance = 1500.0
+bus = "Music"
 
 [editable path="Tilemaps/5-4_tiled"]
 
