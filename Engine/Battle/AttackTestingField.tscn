@@ -9,6 +9,3 @@ position = Vector2( 192, 108 )
 script = ExtResource( 2 )
 
 [node name="CheckerBackground" parent="." index="0" instance=ExtResource( 4 )]
-
-[node name="AudioStreamPlayer2D" parent="GreenPawn" index="5"]
-attenuation = 0.482968

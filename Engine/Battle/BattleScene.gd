@@ -481,9 +481,11 @@ func start_dodge_game():
 		
 		# give some time for the show-up animation to finish
 		state = WAIT
+		# make this yield to the animation instead of a timer, when the animation is done
 		yield(get_tree().create_timer(0.8), "timeout")
 		
 		state = DODGE_GAME
+		$DodgerField.emit_signal("started")
 
 func end_dodge_game():
 	$DodgerField.visible = false

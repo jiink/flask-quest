@@ -1,20 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Engine/Battle/Dodger/DodgerField.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/Dodger/dodge_circle_2_animated.png" type="Texture" id=2]
 [ext_resource path="res://Engine/Battle/Dodger/timer_fill.png" type="Texture" id=3]
 [ext_resource path="res://Engine/Battle/Dodger/timer_fill_half.png" type="Texture" id=4]
 [ext_resource path="res://Engine/Battle/Dodger/OtherHPBar.gd" type="Script" id=5]
-[ext_resource path="res://Engine/Battle/Dodger/green_dodger.png" type="Texture" id=6]
-[ext_resource path="res://Engine/Battle/Dodger/InstaShield.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Engine/Battle/Dodger/orange_dodger.png" type="Texture" id=8]
+[ext_resource path="res://Engine/Battle/Dodger/GreenPawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Engine/Battle/Dodger/OrangePawn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Engine/Battle/Dodger/playerdamage.wav" type="AudioStream" id=9]
-[ext_resource path="res://Engine/Battle/Dodger/Pawn.gd" type="Script" id=10]
-[ext_resource path="res://Engine/Battle/Dodger/pawn_moving1.wav" type="AudioStream" id=11]
-[ext_resource path="res://Engine/Battle/Dodger/instashield.wav" type="AudioStream" id=12]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 3 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "appear"
@@ -136,80 +129,9 @@ texture_progress = ExtResource( 4 )
 fill_mode = 3
 script = ExtResource( 5 )
 
-[node name="GreenPawn" type="Node2D" parent="."]
-z_index = 25
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="GreenPawn" parent="." instance=ExtResource( 6 )]
 
-[node name="Sprite" type="Sprite" parent="GreenPawn"]
-light_mask = 0
-position = Vector2( 0, 31 )
-texture = ExtResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="GreenPawn"]
-position = Vector2( 0, 32 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenPawn/Area2D"]
-shape = SubResource( 1 )
-
-[node name="InstaShield" parent="GreenPawn" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 0, 31 )
-
-[node name="ShieldTimer" type="Timer" parent="GreenPawn"]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="ShieldDelay" type="Timer" parent="GreenPawn"]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GreenPawn"]
-stream = ExtResource( 11 )
-
-[node name="ShieldSound" type="AudioStreamPlayer2D" parent="GreenPawn"]
-stream = ExtResource( 12 )
-volume_db = 6.0
-
-[node name="OrangePawn" type="Node2D" parent="."]
-z_index = 25
-script = ExtResource( 10 )
-
-[node name="Sprite" type="Sprite" parent="OrangePawn"]
-light_mask = 0
-position = Vector2( -7.85906e-05, -31 )
-rotation = 3.14159
-texture = ExtResource( 8 )
-
-[node name="Area2D" type="Area2D" parent="OrangePawn"]
-position = Vector2( -8.11258e-05, -32 )
-rotation = -5.07036e-06
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangePawn/Area2D"]
-shape = SubResource( 1 )
-
-[node name="InstaShield" parent="OrangePawn" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( -7.85906e-05, -31 )
-rotation = 3.14159
-
-[node name="ShieldTimer" type="Timer" parent="OrangePawn"]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="ShieldDelay" type="Timer" parent="OrangePawn"]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="ShieldSound" type="AudioStreamPlayer2D" parent="OrangePawn"]
-stream = ExtResource( 12 )
-volume_db = 6.0
+[node name="OrangePawn" parent="." instance=ExtResource( 7 )]
 
 [node name="Attacks" type="Node2D" parent="."]
 

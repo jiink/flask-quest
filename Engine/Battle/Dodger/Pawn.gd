@@ -1,6 +1,7 @@
 extends Node2D
 
-var player_mode = 1 # which player controls this pawn?
+enum {GREEN, ORANGE}
+export(int, "GREEN", "ORANGE") var player_mode
 
 var rot =   0.0
 var rot_v = 0.0
@@ -17,8 +18,27 @@ var shield_time = 0.4
 var shield_delay = 0.4
 
 func _ready():
-	set_player_mode(1)
+	# update which player the orange pawn is controlled by
+	# in 2 player mode he is controlled by player 2
+	if PlayerStats.player_count == 1:
+		set_player_mode(1)
+	elif PlayerStats.player_count > 1:
+		if player_mode == ORANGE:
+			set_player_mode(2)
+
+	# set color (for colorblind support)
+	print(player_mode)
+	match player_mode:
+		GREEN:
+			$Sprite.modulate = global.GREEN_COLOR
+		ORANGE:
+			$Sprite.modulate = global.ORANGE_COLOR
+
 	$ShieldTimer.connect("timeout", self, "shield_timer_timeout")
+	get_parent().connect("stopped", self, "dodging_stopped")
+	get_parent().connect("started", self, "dodging_started")
+
+	dodging_started()
 	
 func move(delta):
 	rot_v =  clamp(rot_v, -max_rot_speed, max_rot_speed)
@@ -69,3 +89,18 @@ func shield_timer_timeout():
 	shielded = false
 	$InstaShield.visible = false
 	$ShieldDelay.start(shield_delay)
+
+func dodging_stopped():
+	if has_node("AudioStreamPlayer2D"):
+		$AudioStreamPlayer2D.playing = false
+	rot = 0
+	rot_v = 0
+	set_rotation_degrees(0)
+
+func dodging_started():
+	shielded = true
+	$AnimationPlayer.play("invincible")
+	$InvincibilityTimer.start()
+	yield($InvincibilityTimer, "timeout")
+	$AnimationPlayer.stop()
+	shielded = false

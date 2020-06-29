@@ -16,6 +16,8 @@ var active_battle_timer
 onready var pstats = $"/root/PlayerStats"
 
 signal spawn_attack
+signal started
+signal stopped
 
 func _ready():
 
@@ -36,10 +38,6 @@ func _process(delta):
 		$OrangePawn.move(delta)
 		
 		if not attacks_spawned and battle != null:
-			
-			# update which player the orange pawn is controlled by
-			# in 2 player mode he is controlled by player 2
-			$OrangePawn.set_player_mode(PlayerStats.player_count)
 			
 #			var timers = []
 			attacks_spawned = true
@@ -131,6 +129,7 @@ func spawn_attack(foe_index):
 
 func stop():
 	attacks_spawned = false
+	emit_signal("stopped")
 	battle.end_dodge_game()
 	rot = 0.0
 	rot_v = 0.0
