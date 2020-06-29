@@ -3,6 +3,9 @@
 [ext_resource path="res://NPC/BaseFoe/BaseFoeFoe.tscn" type="PackedScene" id=1]
 
 [node name="DouglasFoe" instance=ExtResource( 1 )]
+max_hp = 280
+dollar_reward = 420
+attack_order = "1234"
 is_boss = true
 
 [node name="ColorRect" parent="." index="0"]
