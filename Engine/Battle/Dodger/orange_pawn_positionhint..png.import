@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/green_dodger_positionhint.png-e1d261ff5dae81caa3b85d917ed73cf0.stex"
+path="res://.import/orange_pawn_positionhint..png-3255c7c3d67bdf23e010a6bb311f4464.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Engine/Battle/Dodger/green_dodger_positionhint.png"
-dest_files=[ "res://.import/green_dodger_positionhint.png-e1d261ff5dae81caa3b85d917ed73cf0.stex" ]
+source_file="res://Engine/Battle/Dodger/orange_pawn_positionhint..png"
+dest_files=[ "res://.import/orange_pawn_positionhint..png-3255c7c3d67bdf23e010a6bb311f4464.stex" ]
 
 [params]
 
