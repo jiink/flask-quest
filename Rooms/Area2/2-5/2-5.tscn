@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Area2/Assets/onto_glasstown.png" type="Texture" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://Rooms/Area2/Assets/behind-bars.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Rooms/Area2/Assets/traffic_jam.wav" type="AudioStream" id=13]
 [ext_resource path="res://Rooms/Area2/Assets/engineloop.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/prisoner_a.png" type="Texture" id=15]
+[ext_resource path="res://NPC/MinorNPCs/prisoner_a_face.png" type="Texture" id=16]
+[ext_resource path="res://NPC/MinorNPCs/jumproper_face.png" type="Texture" id=17]
+[ext_resource path="res://NPC/MinorNPCs/prisoner_e_face.png" type="Texture" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -163,6 +167,21 @@ ground_speed = 0
 water_speed = 0
 sprintMultiplier = 0.0
 
+[node name="PrisonerA" type="Sprite" parent="YSort"]
+position = Vector2( 182, 110 )
+texture = ExtResource( 15 )
+
+[node name="ColorRect" type="ColorRect" parent="YSort/PrisonerA"]
+show_behind_parent = true
+margin_left = -5.0
+margin_top = 8.0
+margin_right = 6.0
+margin_bottom = 11.0
+color = Color( 0.0352941, 0, 0.109804, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Camera" parent="." instance=ExtResource( 7 )]
 follow_player = false
 
@@ -171,25 +190,67 @@ follow_player = false
 [node name="DialogueTree" parent="." instance=ExtResource( 5 )]
 
 [node name="DiagPiece" parent="DialogueTree" instance=ExtResource( 8 )]
-message = "Sucks what happened. What're you guys in 'ere 'or?"
+message = "HEY IDIOTS LOOKS LIKE IDIOTS ARE ON THE MENU TODAY AND YOU'RE THE RIPEST BATCH"
+face_texture = ExtResource( 16 )
 
 [node name="DiagPiece2" parent="DialogueTree/DiagPiece" instance=ExtResource( 8 )]
-message = "We tried to kill"
+message = "I know right"
 character = "green"
 expression = "sad"
 skippable = false
 interrupt = true
 
 [node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece2" instance=ExtResource( 8 )]
-message = "BAHAHA Green you should definitely be a comedian when you grow up, you make excellent jokes."
+message = "IM GOING TO CRY. THIS IS LITERALLY SAD."
 text_delay = 0.03
 character = "orange"
-expression = "nervous"
+expression = "cry_sob"
 
 [node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" instance=ExtResource( 8 )]
-message = "We, uh, were caught`` by Stercus`` right` in front of him."
+message = "WHEN WE GET TO GLASSTOWN I'M CALLING MY MOM` AND TELLING ON YOU"
 character = "orange"
-expression = "sad"
+expression = "yell_outburst"
+
+[node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
+message = "We don't have a mom, Orange."
+character = "green"
+expression = "confused"
+skippable = false
+
+[node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3" instance=ExtResource( 8 )]
+message = "I'M GOING TO GET ONE. I'M GOING TO GO MAKE prisoner_e MY MOM."
+character = "orange"
+expression = "cry_mourn"
+skippable = false
+
+[node name="DiagPiece5" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
+message = "You mean `dad."
+face_texture = ExtResource( 18 )
+skippable = false
+
+[node name="DiagPiece6" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5" instance=ExtResource( 8 )]
+message = "Yea. And I'm going to be his mom."
+face_texture = ExtResource( 17 )
+skippable = false
+
+[node name="DiagPiece7" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" instance=ExtResource( 8 )]
+message = "WHAT`` NO. No. YOU'RE TOO UGLY."
+character = "orange"
+expression = "big_eyed2"
+skippable = false
+
+[node name="DiagPiece8" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" instance=ExtResource( 8 )]
+message = "...Who are you talking to?"
+face_texture = ExtResource( 16 )
+skippable = false
+interrupt = true
+
+[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" instance=ExtResource( 8 )]
+message = "IM TALKING TO MOM. ON MY FLASK PHONE. MY 50G RONAVIRUS FLASK PHONE DESIGNED BY THE GOVERNMENT TO MAKE PEOPLE SICK."
+text_delay = 0.001
+character = "orange"
+expression = "yell_outburst"
+skippable = false
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 4.202
