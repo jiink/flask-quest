@@ -6,6 +6,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "hurt"
+length = 0.4
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:offset")
 tracks/0/interp = 1
@@ -13,7 +15,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32 ),
 "transitions": PoolRealArray( 1, 0.5, 1, 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 5.39, 0 ), Vector2( -8.83, 0 ), Vector2( 5.39, 0 ), Vector2( 0, 0 ) ]
@@ -25,7 +27,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false, true ]
@@ -37,7 +39,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.7 ),
+"times": PoolRealArray( 0, 0.1, 0.39 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.266667, 0.266667, 1 ), Color( 1, 1, 1, 1 ) ]
@@ -71,5 +73,4 @@ text = "0/0"
 align = 1
 
 [node name="BaseAnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 3.0
 anims/hurt = SubResource( 1 )
