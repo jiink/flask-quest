@@ -4,12 +4,11 @@
 [ext_resource path="res://NPC/BaseFoe/base_foe.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 2.0
+radius = 0.999982
 height = 10.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 7.0
-height = 8.0
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.99997, 7.00001 )
 
 [node name="BaseFoe" type="KinematicBody2D" groups=[
 "WorldFoes",
@@ -29,7 +28,6 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 2 )
 
 [node name="TouchArea" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, 6 )
 rotation = 1.5708
 
