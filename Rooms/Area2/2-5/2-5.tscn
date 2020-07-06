@@ -251,6 +251,35 @@ text_delay = 0.001
 character = "orange"
 expression = "yell_outburst"
 skippable = false
+interrupt = true
+
+[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9" instance=ExtResource( 8 )]
+message = "What? lol idiot What? Not funny dude. Nobody laughed at that, you sick piece of trash, you horrible disgrace, prepare to be posted on r/NotFunnyLol"
+face_texture = ExtResource( 16 )
+skippable = false
+
+[node name="DiagPiece10" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9" instance=ExtResource( 8 )]
+message = "R/SubsIThoughtIFellFor"
+character = "green"
+skippable = false
+
+[node name="DiagPiece11" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9/DiagPiece10" instance=ExtResource( 8 )]
+message = "r/FoundTheMobileUser"
+character = "ribbit"
+expression = "smug2"
+skippable = false
+
+[node name="DiagPiece12" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9/DiagPiece10/DiagPiece11" instance=ExtResource( 8 )]
+message = "r/FourthSub"
+character = "orange"
+skippable = false
+
+[node name="DiagPiece13" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9/DiagPiece10/DiagPiece11/DiagPiece12" instance=ExtResource( 8 )]
+message = "Dude, posting r/FourthSub means you're a dissapointment. Nobody likes you and you've accomplished notihng in life. You are the scum of the universe and literally nobody loves you. I'm going to brag on my reddit about how cool I am and how sad you are, and how I so EPICLY turned your brain into a grey matter salad. Did you catch that? That's right, teens and adults! I spelled GREY the cool way, not the Idiot America way! Lol, Reddit, aren't I so epicly? Edit: I would like to thank my mom for awarding me with a silver. I would like everyone on reddit to know that I love her and she is really the best. Yesterday she baked me a homemade pie and it was delicious. I posted it on r/MomCooking so my men can see my epic dish! ```E`D`I`T` 2`:` I was DM'd by Orange and he told me \"MY MOM IS GONG TO GET YOU\" and isn't that just hilaroius REDDIT! BTW, Thanks for the billions of upvotes. EDIT 3::::: I can't believe my most upvoted comment is about roasting a kid! I am pleased with "
+text_delay = 0.001
+face_texture = ExtResource( 16 )
+skippable = false
+interrupt = true
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 4.202
