@@ -63,20 +63,26 @@ tracks/3/keys = {
 "values": [ true, false, true, false, true ]
 }
 
-[node name="SpeechBubble" type="Label"]
+[node name="FloatyText" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
 margin_left = -166.0
-margin_top = -30.4431
+margin_top = -30.0
 margin_right = 167.0
-margin_bottom = -13.4431
+margin_bottom = -13.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.878431, 0.937255, 0.937255, 1 )
 text = "Critical shit!"
 align = 1
 valign = 1
 autowrap = true
-script = ExtResource( 2 )
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 autoplay = "default"
 anims/default = SubResource( 2 )
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Label/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

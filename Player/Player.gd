@@ -199,7 +199,7 @@ func _on_InvincibilityTimer_timeout():
 func do_floaty_text(s):
 	var floaty_text = preload("res://Engine/FloatyText.tscn").instance()
 	add_child(floaty_text)
-	floaty_text.text = s
+	floaty_text.get_node("Label").text = s
 
 
 func _on_HistoryTimer_timeout():
