@@ -58,13 +58,13 @@ func area_entered(area):
 	var damage_dealt = damage + (randf() * damage_randomness - damage_randomness * 0.5)
 	var object = area.get_parent()
 	
-	if area.get_parent().name == "GreenPawn" and type != ORANGE and object.visible and not object.shielded:
+	if area.get_parent().name == "GreenPawn" and type != GREEN and object.visible and not object.shielded:
 		emit_signal("successful_hit", 1, damage_dealt)
 		player_inside = 1
 		if destructable:
 			destroy()
 			
-	elif area.get_parent().name == "OrangePawn" and type != GREEN and object.visible and not object.shielded:
+	elif area.get_parent().name == "OrangePawn" and type != ORANGE and object.visible and not object.shielded:
 		emit_signal("successful_hit", 2, damage_dealt)
 		player_inside = 2
 		if destructable:
