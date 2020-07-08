@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
-length = 1.1
+length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -13,8 +13,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.7, 2.5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
 "values": [ Color( 0.133333, 0.12549, 0.203922, 0 ), Color( 0.133333, 0.12549, 0.203922, 0 ), Color( 0.133333, 0.12549, 0.203922, 1 ) ]
 }
@@ -25,7 +25,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.1 ),
+"times": PoolRealArray( 0, 2.5 ),
 "transitions": PoolRealArray( 0.615572, 1 ),
 "update": 0,
 "values": [ 0, 0.01 ]
@@ -37,7 +37,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.1 ),
+"times": PoolRealArray( 0, 2.5 ),
 "transitions": PoolRealArray( 1.7411, 1 ),
 "update": 0,
 "values": [ 0, 80 ]
@@ -72,6 +72,8 @@ shader_param/depth = 0.0
 
 [node name="BattleStartTransition" type="Node2D"]
 script = ExtResource( 1 )
+shader_frequency = 36
+shader_depth = 0.008098
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
@@ -83,6 +85,9 @@ margin_right = 384.0
 margin_bottom = 215.0
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 384.0
