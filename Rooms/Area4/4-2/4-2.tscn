@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area4/Assets/maloffice-02.ogg" type="AudioStream" id=2]
@@ -20,6 +20,98 @@
 [ext_resource path="res://Engine/light5.png" type="Texture" id=18]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Rooms/Area4/4-2/EventArea.gd" type="Script" id=21]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Rooms/Area4/Assets/guard_b.png" type="Texture" id=24]
+[ext_resource path="res://Rooms/Area4/Assets/guard_a.png" type="Texture" id=25]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 9 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "CloseIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/GuardB:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.93187, 1 ),
+"update": 0,
+"values": [ Vector2( -330, -226 ), Vector2( -330, -138 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/GuardA:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1.68179, 1 ),
+"update": 0,
+"values": [ Vector2( -369, -225 ), Vector2( -369, -225 ), Vector2( -369, -137 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/GuardB:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -330, -226 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/GuardA:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -369, -225 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Startled"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/GuardA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -369, -225 ), Vector2( -369, -232 ), Vector2( -369, -225 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/GuardB:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -330, -226 ), Vector2( -330, -226 ), Vector2( -330, -233 ), Vector2( -330, -226 ) ]
+}
 
 [node name="4-2" instance=ExtResource( 1 )]
 level_music = ExtResource( 2 )
@@ -43,6 +135,9 @@ margin_top = -449.0
 margin_right = 202.0
 margin_bottom = -240.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect3" type="ColorRect" parent="Tilemaps/BGBlack" index="2"]
 margin_left = -1169.0
@@ -177,6 +272,16 @@ position = Vector2( -415, -128 )
 
 [node name="BAMBOOP3" parent="YSort" index="5" instance=ExtResource( 20 )]
 position = Vector2( -287, -125 )
+
+[node name="GuardB" type="Sprite" parent="YSort" index="6"]
+position = Vector2( -330, -138 )
+texture = ExtResource( 24 )
+offset = Vector2( 0, -19 )
+
+[node name="GuardA" type="Sprite" parent="YSort" index="7"]
+position = Vector2( -369, -137 )
+texture = ExtResource( 25 )
+offset = Vector2( 0, -20 )
 
 [node name="Darkness" type="Node2D" parent="." index="4"]
 
@@ -365,5 +470,30 @@ energy = 1.6
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="EventArea" type="Area2D" parent="." index="8"]
+position = Vector2( -352, -140 )
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EventArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="EventArea" index="1"]
+
+[node name="DialogueTree" parent="EventArea" index="2" instance=ExtResource( 23 )]
+
+[node name="DiagPiece" parent="EventArea/DialogueTree" index="0" instance=ExtResource( 22 )]
+message = "WHAT THE!!!! How did you even GET HERE?"
+
+[node name="DiagPiece2" parent="EventArea/DialogueTree/DiagPiece" index="0" instance=ExtResource( 22 )]
+message = "GET HIM, B O Y S ! ! !"
+function = "close_in"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EventArea" index="3"]
+autoplay = "Idle"
+anims/CloseIn = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Startled = SubResource( 4 )
+[connection signal="body_entered" from="EventArea" to="EventArea" method="_on_EventArea_body_entered"]
 
 [editable path="HUD"]
