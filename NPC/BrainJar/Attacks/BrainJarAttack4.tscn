@@ -5,8 +5,10 @@
 [ext_resource path="res://NPC/BrainJar/brainjarsketchy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Engine/Battle/BattleInputHint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Engine/Battle/Dodger/Projectiles/SemiCircleWall.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Engine/Battle/Dodger/OrangeDodgerPositionHint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Engine/Battle/Dodger/GreenDodgerPositionHint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/Battle/Dodger/OrangePawnPositionHint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Engine/Battle/Dodger/GreenPawnPositionHint.tscn" type="PackedScene" id=7]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"

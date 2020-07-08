@@ -252,6 +252,7 @@ position = Vector2( 192, 108 )
 position = Vector2( -1.52588e-05, -7.62939e-06 )
 scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 2 )
+offset = Vector2( 3.99996, 0 )
 vframes = 14
 hframes = 2
 
