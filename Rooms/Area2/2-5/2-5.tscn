@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Area2/Assets/onto_glasstown.png" type="Texture" id=2]
@@ -16,8 +16,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/engineloop.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/prisoner_a.png" type="Texture" id=15]
 [ext_resource path="res://NPC/MinorNPCs/prisoner_a_face.png" type="Texture" id=16]
-[ext_resource path="res://NPC/MinorNPCs/jumproper_face.png" type="Texture" id=17]
-[ext_resource path="res://NPC/MinorNPCs/prisoner_e_face.png" type="Texture" id=18]
+[ext_resource path="res://Engine/white.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -123,6 +122,237 @@ tracks/2/keys = {
 
 [sub_resource type="RectangleShape2D" id=5]
 
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform float frequency=0;
+uniform float depth = 0.0;
+
+void fragment() {
+	
+	vec2 uv = SCREEN_UV;
+	uv.x += sin((uv.y + 0.1 * uv.x)*frequency+TIME)*depth;
+	uv.x = clamp(uv.x,0,1);
+	uv.y += sin(uv.x*(frequency*0.8)+TIME*0.8)*depth*2.0;
+	uv.y = clamp(uv.y,0,1);
+	
+	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;
+	
+	COLOR.rgb= COLOR.rgb*c;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/frequency = 0.0
+shader_param/depth = 0.0
+
+[sub_resource type="Animation" id=8]
+resource_name = "sleep_stage_0"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:material:shader_param/frequency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:material:shader_param/depth")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "sleep_stage_1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:material:shader_param/frequency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:material:shader_param/depth")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ 0.0, 0.005 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0.407843, 0.811765, 0.392157, 0.282353 ), Color( 0.054902, 0.0666667, 0.109804, 0.101961 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "sleep_stage_2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -3.13834, 1 ),
+"update": 0,
+"values": [ Color( 0.054902, 0.0666667, 0.109804, 0.101961 ), Color( 0.054902, 0.0666667, 0.109804, 0.584314 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:material:shader_param/frequency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect:material:shader_param/depth")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ 0.005, 0.029 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "sleep_stage_3"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 0.054902, 0.0666667, 0.109804, 0.584314 ), Color( 0.054902, 0.0666667, 0.109804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:material:shader_param/frequency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect:material:shader_param/depth")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ 0.029, 0.27 ]
+}
+
 [node name="2-5" type="Node"]
 script = ExtResource( 3 )
 level_music = ExtResource( 12 )
@@ -190,96 +420,59 @@ follow_player = false
 [node name="DialogueTree" parent="." instance=ExtResource( 5 )]
 
 [node name="DiagPiece" parent="DialogueTree" instance=ExtResource( 8 )]
-message = "HEY IDIOTS LOOKS LIKE IDIOTS ARE ON THE MENU TODAY AND YOU'RE THE RIPEST BATCH"
-face_texture = ExtResource( 16 )
+message = "After that, I told Stercus \"I'm TELLING ON YOU\" and he ordered the guards to punch me."
+character = "orange"
+expression = "neutral"
 
 [node name="DiagPiece2" parent="DialogueTree/DiagPiece" instance=ExtResource( 8 )]
-message = "I know right"
-character = "green"
-expression = "sad"
+message = "Hey, Orange, that green dude is awake."
+face_texture = ExtResource( 16 )
 skippable = false
 interrupt = true
 
 [node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece2" instance=ExtResource( 8 )]
-message = "IM GOING TO CRY. THIS IS LITERALLY SAD."
+message = "..."
 text_delay = 0.03
 character = "orange"
-expression = "cry_sob"
+expression = "kawaii"
 
 [node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" instance=ExtResource( 8 )]
-message = "WHEN WE GET TO GLASSTOWN I'M CALLING MY MOM` AND TELLING ON YOU"
-character = "orange"
-expression = "yell_outburst"
+message = "Nice. And, uh, I have a name, you know."
+text_delay = 0.03
+character = "green"
+expression = "smile"
 
-[node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
-message = "We don't have a mom, Orange."
+[node name="DiagPiece5" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
+message = "I'm going to guess it's... El Barabanadido."
+text_delay = 0.03
+face_texture = ExtResource( 16 )
+function = "start_stage_1"
+
+[node name="DiagPiece6" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" instance=ExtResource( 8 )]
+message = "Sorry, what did ju say? I'm getting a little tired."
+text_delay = 0.03
 character = "green"
 expression = "confused"
-skippable = false
 
-[node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3" instance=ExtResource( 8 )]
-message = "I'M GOING TO GET ONE. I'M GOING TO GO MAKE prisoner_e MY MOM."
+[node name="DiagPiece7" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" instance=ExtResource( 8 )]
+message = "Shikashi, anata wa me o samashita."
+text_delay = 0.03
 character = "orange"
-expression = "cry_mourn"
-skippable = false
+expression = "smile"
+function = "start_stage_2"
 
-[node name="DiagPiece5" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
-message = "You mean `dad."
-face_texture = ExtResource( 18 )
-skippable = false
-
-[node name="DiagPiece6" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5" instance=ExtResource( 8 )]
-message = "Yea. And I'm going to be his mom."
-face_texture = ExtResource( 17 )
-skippable = false
-
-[node name="DiagPiece7" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" instance=ExtResource( 8 )]
-message = "WHAT`` NO. No. YOU'RE TOO UGLY."
+[node name="DiagPiece8" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" instance=ExtResource( 8 )]
+message = "Ha, kare wa mata nete imasu."
+text_delay = 0.03
 character = "orange"
-expression = "big_eyed2"
-skippable = false
+expression = "blush"
 
-[node name="DiagPiece8" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" instance=ExtResource( 8 )]
-message = "...Who are you talking to?"
-face_texture = ExtResource( 16 )
-skippable = false
-interrupt = true
-
-[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" instance=ExtResource( 8 )]
-message = "IM TALKING TO MOM. ON MY FLASK PHONE. MY 50G RONAVIRUS FLASK PHONE DESIGNED BY THE GOVERNMENT TO MAKE PEOPLE SICK."
-text_delay = 0.001
-character = "orange"
-expression = "yell_outburst"
-skippable = false
-interrupt = true
-
-[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9" instance=ExtResource( 8 )]
-message = "What? lol idiot What? Not funny dude. Nobody laughed at that, you sick piece of trash, you horrible disgrace, prepare to be posted on r/NotFunnyLol"
-face_texture = ExtResource( 16 )
-skippable = false
-
-[node name="DiagPiece10" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9" instance=ExtResource( 8 )]
-message = "R/SubsIThoughtIFellFor"
+[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" instance=ExtResource( 8 )]
+message = "...Wjua? W... Eh... That's cool."
+text_delay = 0.03
 character = "green"
-skippable = false
-
-[node name="DiagPiece11" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9/DiagPiece10" instance=ExtResource( 8 )]
-message = "r/FoundTheMobileUser"
-character = "ribbit"
-expression = "smug2"
-skippable = false
-
-[node name="DiagPiece12" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9/DiagPiece10/DiagPiece11" instance=ExtResource( 8 )]
-message = "r/FourthSub"
-character = "orange"
-skippable = false
-
-[node name="DiagPiece13" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9/DiagPiece9/DiagPiece10/DiagPiece11/DiagPiece12" instance=ExtResource( 8 )]
-message = "Dude, posting r/FourthSub means you're a dissapointment. Nobody likes you and you've accomplished notihng in life. You are the scum of the universe and literally nobody loves you. I'm going to brag on my reddit about how cool I am and how sad you are, and how I so EPICLY turned your brain into a grey matter salad. Did you catch that? That's right, teens and adults! I spelled GREY the cool way, not the Idiot America way! Lol, Reddit, aren't I so epicly? Edit: I would like to thank my mom for awarding me with a silver. I would like everyone on reddit to know that I love her and she is really the best. Yesterday she baked me a homemade pie and it was delicious. I posted it on r/MomCooking so my men can see my epic dish! ```E`D`I`T` 2`:` I was DM'd by Orange and he told me \"MY MOM IS GONG TO GET YOU\" and isn't that just hilaroius REDDIT! BTW, Thanks for the billions of upvotes. EDIT 3::::: I can't believe my most upvoted comment is about roasting a kid! I am pleased with "
-text_delay = 0.001
-face_texture = ExtResource( 16 )
-skippable = false
-interrupt = true
+expression = "drunk"
+function = "start_stage_3"
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 4.202
@@ -322,6 +515,38 @@ position = Vector2( -840.645, 106 )
 stream = ExtResource( 13 )
 volume_db = 6.635
 max_distance = 1024.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource( 7 )
+margin_left = -39.0
+margin_top = -36.0
+margin_right = 432.0
+margin_bottom = 255.0
+texture = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -41.0
+margin_top = -38.0
+margin_right = 433.0
+margin_bottom = 258.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SleepStages" type="AnimationPlayer" parent="."]
+autoplay = "sleep_stage_0"
+anims/sleep_stage_0 = SubResource( 8 )
+anims/sleep_stage_1 = SubResource( 9 )
+anims/sleep_stage_2 = SubResource( 10 )
+anims/sleep_stage_3 = SubResource( 11 )
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 
 [editable path="HUD"]
