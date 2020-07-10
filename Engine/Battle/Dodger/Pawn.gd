@@ -12,6 +12,7 @@ var rot_friction = .85
 
 var left_action
 var right_action
+var sheild_action
 
 var shielded = false
 var shield_time = 0.4
@@ -25,6 +26,9 @@ func _ready():
 	elif PlayerStats.player_count > 1:
 		if player_mode == ORANGE:
 			set_player_mode(2)
+		else:
+			set_player_mode(1)
+
 
 	# set color (for colorblind support)
 	print(player_mode)
@@ -53,7 +57,7 @@ func move(delta):
 	set_rotation_degrees(rot)
 	
 	if $ShieldDelay.is_stopped():
-		if Input.is_action_just_pressed("confirm") and not shielded:
+		if Input.is_action_just_pressed(sheild_action) and not shielded:
 			shielded = true
 			$InstaShield.visible = true
 			$ShieldTimer.start(shield_time)
@@ -79,9 +83,11 @@ func set_player_mode(p):
 		1:
 			left_action = "left"
 			right_action = "right"
+			shield_action = "confirm"
 		2:
 			left_action = "left2"
 			right_action = "right2"
+			shield_action = "confirm2"
 		_:
 			print("warning: pawn got its player mode set wrong, at %s" % p)
 
