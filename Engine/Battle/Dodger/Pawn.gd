@@ -12,7 +12,7 @@ var rot_friction = .85
 
 var left_action
 var right_action
-var sheild_action
+var shield_action
 
 var shielded = false
 var shield_time = 0.4
@@ -57,7 +57,7 @@ func move(delta):
 	set_rotation_degrees(rot)
 	
 	if $ShieldDelay.is_stopped():
-		if Input.is_action_just_pressed(sheild_action) and not shielded:
+		if Input.is_action_just_pressed(shield_action) and not shielded:
 			shielded = true
 			$InstaShield.visible = true
 			$ShieldTimer.start(shield_time)
