@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guarded.ogg-8d8fda47d5207d22ecc1fde434d85ba9.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area4/Assets/guarded.ogg"
+dest_files=[ "res://.import/guarded.ogg-8d8fda47d5207d22ecc1fde434d85ba9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

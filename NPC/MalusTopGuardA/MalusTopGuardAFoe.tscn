@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://NPC/BaseFoe/BaseFoeFoe.tscn" type="PackedScene" id=1]
+
+[node name="MalusTopGuardA" instance=ExtResource( 1 )]
+max_hp = 600
+is_boss = true
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0.85098, 0, 1, 1 )

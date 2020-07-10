@@ -21,4 +21,5 @@ func _on_EventArea_body_entered(body):
 func close_in():
 	$AnimationPlayer.play("CloseIn")
 	yield(get_tree().create_timer(0.8), "timeout")
-	print("!!!!BATTLE TIME!!!!!")
+	global.start_battle(["MalusTopGuardA"])
+	yield(get_tree().create_timer(4), "timeout")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cutscenes/CapturedByGuards/captured_by_guards.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Cutscenes/CapturedByGuards/CapturedByGuards.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Unconscious"
+length = 22.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8, 11, 12.15, 12.25, 14, 14.1, 15.35, 16.4, 16.5, 18.5, 22.9 ),
+"transitions": PoolRealArray( -2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.054902, 0.0666667, 0.109804, 1 ), Color( 0.172549, 0.0784314, 0.0823529, 1 ), Color( 0.0509804, 0.12549, 0.0117647, 1 ), Color( 0.0117647, 0.0196078, 0.12549, 1 ), Color( 0.258824, 0.0509804, 0.0509804, 1 ), Color( 0.0117647, 0.0196078, 0.12549, 1 ), Color( 0.396078, 0.172549, 0.0509804, 1 ), Color( 0.258824, 0.0509804, 0.0509804, 1 ), Color( 0.337255, 0.109804, 0.0588235, 1 ), Color( 0.482353, 0.364706, 0.0627451, 1 ), Color( 0.396078, 0.172549, 0.0509804, 1 ), Color( 0.054902, 0.0666667, 0.109804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="CapturedByGuards" type="Node"]
+script = ExtResource( 3 )
+level_music = ExtResource( 2 )
+battle_music = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Unconscious"
+anims/Unconscious = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 384.0
+margin_bottom = 216.0
+color = Color( 0.314846, 0.0929972, 0.0565826, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Environment"
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
