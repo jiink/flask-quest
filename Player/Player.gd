@@ -10,6 +10,7 @@ export (int, 0, 200) var push = 100
 
 var speed = ground_speed
 var sprint = false
+export(bool) var footstep_noise = true
 var motion = Vector2(0, 0)
 var direction = "right"
 var frozen = false
@@ -97,7 +98,7 @@ func move_and_animate():
 	if $AnimatedSprite.frame == 1 or $AnimatedSprite.frame == 3 and not in_water:
 		new_step = true
 	
-	if ($AnimatedSprite.frame == 0 or $AnimatedSprite.frame == 2) and new_step == true and not in_water:
+	if ($AnimatedSprite.frame == 0 or $AnimatedSprite.frame == 2) and new_step == true and not in_water and footstep_noise == true:
 		$StepSound.pitch_scale = (randf() + 0.8) * 0.8
 		$StepSound.play()
 		new_step = false

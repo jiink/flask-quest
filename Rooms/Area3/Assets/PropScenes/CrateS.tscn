@@ -4,6 +4,8 @@
 [ext_resource path="res://Rooms/Tools/PushableProp/PushableProp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/Area3/Assets/PuzzleElements/OctogonCollisionShape.tres" type="Shape2D" id=3]
 
+
+
 [node name="CrateS" instance=ExtResource( 2 )]
 mass = 43.14
 

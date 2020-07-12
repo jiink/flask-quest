@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sewer_rock.ogg-d039c08c3803d57cab9d5c09f78ce3c9.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area3/Assets/PipeTravel/sewer_rock.ogg"
+dest_files=[ "res://.import/sewer_rock.ogg-d039c08c3803d57cab9d5c09f78ce3c9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1030,7 +1030,7 @@ shape = SubResource( 12 )
 position = Vector2( 2718, -297 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 2871, -236 )
+position = Vector2( 1535, -761 )
 
 [node name="barrel_empty3" parent="YSort" index="2" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )
@@ -1126,42 +1126,15 @@ position = Vector2( 2709, -340 )
 [node name="barrel_empty7" parent="YSort" index="25" instance=ExtResource( 17 )]
 position = Vector2( 354, 252 )
 
-[node name="Inkler" parent="YSort" index="26" instance=ExtResource( 19 )]
-position = Vector2( 344, 278 )
-collision_mask = 1
-
-[node name="Inkler2" parent="YSort" index="27" instance=ExtResource( 19 )]
-position = Vector2( 311, 278 )
-collision_mask = 1
-
-[node name="Inkler3" parent="YSort" index="28" instance=ExtResource( 19 )]
-position = Vector2( 217, 195 )
-collision_mask = 1
-
-[node name="OminousRat4" parent="YSort" index="29" instance=ExtResource( 22 )]
-position = Vector2( 2668, -333 )
-collision_layer = 5
-collision_mask = 1
-
-[node name="OminousRat5" parent="YSort" index="30" instance=ExtResource( 22 )]
-position = Vector2( 2646, -343 )
-collision_layer = 5
-collision_mask = 1
-
-[node name="OminousRat6" parent="YSort" index="31" instance=ExtResource( 22 )]
-position = Vector2( 2102, -755 )
-collision_layer = 5
-collision_mask = 1
-
-[node name="LargeDoorOpen" parent="YSort" index="32" instance=ExtResource( 34 )]
+[node name="LargeDoorOpen" parent="YSort" index="26" instance=ExtResource( 34 )]
 position = Vector2( 2856, -322 )
 required_sockets = [ NodePath("../../BatterySocket0") ]
 
-[node name="large_door_open2" parent="YSort" index="33" instance=ExtResource( 34 )]
+[node name="large_door_open2" parent="YSort" index="27" instance=ExtResource( 34 )]
 position = Vector2( 2856, -674 )
 required_sockets = [ NodePath("../../BatterySocket1"), NodePath("../../BatterySocket2") ]
 
-[node name="Pushables" type="YSort" parent="YSort" index="34"]
+[node name="Pushables" type="YSort" parent="YSort" index="28"]
 
 [node name="CrateS" parent="YSort/Pushables" index="0" instance=ExtResource( 46 )]
 position = Vector2( 2901, -662 )
@@ -1176,7 +1149,7 @@ position = Vector2( 3077, -276 )
 position = Vector2( 3095, -308 )
 
 [node name="Battery3" parent="YSort/Pushables" index="4" instance=ExtResource( 42 )]
-position = Vector2( 3009, -279 )
+position = Vector2( 3009, -281 )
 charged = true
 
 [node name="Battery4" parent="YSort/Pushables" index="5" instance=ExtResource( 42 )]
@@ -1185,9 +1158,72 @@ position = Vector2( 2808, -655 )
 [node name="Battery2" parent="YSort/Pushables" index="6" instance=ExtResource( 42 )]
 position = Vector2( 2904, -517 )
 
-[node name="crate_s" type="Sprite" parent="YSort" index="35"]
+[node name="crate_s" type="Sprite" parent="YSort" index="29"]
 position = Vector2( 3104, -291 )
 texture = ExtResource( 57 )
+
+[node name="Enemies" type="YSort" parent="YSort" index="30"]
+
+[node name="Inkler" parent="YSort/Enemies" index="0" instance=ExtResource( 19 )]
+position = Vector2( 344, 278 )
+collision_mask = 1
+
+[node name="Inkler2" parent="YSort/Enemies" index="1" instance=ExtResource( 19 )]
+position = Vector2( 311, 278 )
+collision_mask = 1
+
+[node name="Inkler3" parent="YSort/Enemies" index="2" instance=ExtResource( 19 )]
+position = Vector2( 217, 195 )
+collision_mask = 1
+
+[node name="Inkler4" parent="YSort/Enemies" index="3" instance=ExtResource( 19 )]
+position = Vector2( 860, -191 )
+collision_mask = 1
+
+[node name="Inkler5" parent="YSort/Enemies" index="4" instance=ExtResource( 19 )]
+position = Vector2( 896, -165 )
+collision_mask = 1
+
+[node name="Inkler6" parent="YSort/Enemies" index="5" instance=ExtResource( 19 )]
+position = Vector2( 881, -206 )
+collision_mask = 1
+
+[node name="Inkler7" parent="YSort/Enemies" index="6" instance=ExtResource( 19 )]
+position = Vector2( 1468, -53 )
+collision_mask = 1
+
+[node name="Inkler8" parent="YSort/Enemies" index="7" instance=ExtResource( 19 )]
+position = Vector2( 1808, -50 )
+collision_mask = 1
+
+[node name="Inkler9" parent="YSort/Enemies" index="8" instance=ExtResource( 19 )]
+position = Vector2( 1827, -40 )
+collision_mask = 1
+
+[node name="OminousRat4" parent="YSort/Enemies" index="9" instance=ExtResource( 22 )]
+position = Vector2( 3026, -307 )
+collision_layer = 5
+collision_mask = 1
+
+[node name="OminousRat7" parent="YSort/Enemies" index="10" instance=ExtResource( 22 )]
+position = Vector2( 1156, -51 )
+collision_layer = 5
+collision_mask = 1
+
+[node name="OminousRat8" parent="YSort/Enemies" index="11" instance=ExtResource( 22 )]
+position = Vector2( 1440, -45 )
+collision_layer = 5
+collision_mask = 1
+
+[node name="OminousRat9" parent="YSort/Enemies" index="12" instance=ExtResource( 22 )]
+position = Vector2( 1861, -55 )
+collision_layer = 5
+collision_mask = 1
+
+[node name="OminousRat10" parent="YSort/Enemies" index="13" instance=ExtResource( 22 )]
+position = Vector2( 2379, -154 )
+collision_layer = 5
+collision_mask = 1
 
 [node name="Lights" type="Node" parent="." index="30"]
 
@@ -1341,6 +1377,9 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 11 )
 color = Color( 1, 0.752941, 0.403922, 1 )
 energy = 1.83
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D39" type="Light2D" parent="Lights" index="15"]
 position = Vector2( 1832, 117 )
@@ -1616,7 +1655,7 @@ shape = SubResource( 20 )
 
 [node name="ScenePortal" parent="." index="32" instance=ExtResource( 41 )]
 position = Vector2( 1528, -809 )
-new_scene = "res://Rooms/Area4/4-1/4-1.tscn"
+new_scene = "res://Rooms/Area3/3-2/3-2.tscn"
 player_new_position = Vector2( 120, -216 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
