@@ -13,36 +13,37 @@ func _ready():
 
 	if not Debug.debug_mode:
 		$DebugButtons.queue_free()
+	
+	update_players_label()
 
-func _process(delta):
+func _input(event):
 	if visible:
-		if Input.is_action_just_pressed("pause"):
+		if event.is_action_pressed("pause") or event.is_action_pressed("cancel"):
 			close()
 		
-		if Input.is_action_just_pressed("down"):
+		if event.is_action_pressed("down"):
 			selected_option += 1
 
-		elif Input.is_action_just_pressed("up"):
+		elif event.is_action_pressed("up"):
 			selected_option -= 1
 			
 			
-		if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
+		if event.is_action_pressed("down") or event.is_action_pressed("up"):
 			selected_option = clamp(selected_option, 0, 3)
 			$Selection/Tween.interpolate_property($Selection, "position:y", $Selection.position.y, 
 				72 + selected_option * 18, .05, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 			$Selection/Tween.start()
 		
-		if Input.is_action_just_pressed("confirm"):
+		if event.is_action_pressed("confirm"):
 			match selected_option:
 				RESUME:
 					close()
 				PLAYERS:
 					if PlayerStats.player_count == 1:
 						PlayerStats.set_player_num(2)
-						$Label.text = $Label.text.replace("1", "2")
 					elif PlayerStats.player_count == 2:
 						PlayerStats.set_player_num(1)
-						$Label.text = $Label.text.replace("2", "1")
+					update_players_label()
 					print(PlayerStats.player_count)
 				OPTION:
 					print("Let's pretend to open the options menu")
@@ -51,10 +52,9 @@ func _process(delta):
 				QUIT:
 					print("Wow, you have a life? Y/N")
 					get_tree().quit()
-		
 			
 	else:
-		if Input.is_action_just_pressed("pause"):
+		if event.is_action_pressed("pause"):
 			print("hud visidiblity: %s" % hud.get_visibility())
 			if not hud.get_visibility():
 				open()
@@ -92,6 +92,12 @@ func close():
 	visible = false
 	
 	get_tree().paused = false
+
+func update_players_label():
+	if PlayerStats.player_count == 1:
+		$Label.text = $Label.text.replace("2", "1")
+	elif PlayerStats.player_count == 2:
+		$Label.text = $Label.text.replace("1", "2")
 
 
 func _on_NoclipButton_toggled(button_pressed):

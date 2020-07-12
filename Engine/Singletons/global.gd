@@ -262,6 +262,8 @@ func swap_scenes():
 	# janky problems need janky solutions
 	if get_player(1):
 		get_player(1).clear_history()
+	
+	PlayerStats.set_player_num(PlayerStats.player_count)
 
 	emit_signal("scene_changed")
 	# load!!
