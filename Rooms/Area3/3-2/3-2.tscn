@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Rooms/Area3/3-2/3-2.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/physics_player.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/pipe_bg.png" type="Texture" id=5]
 [ext_resource path="res://Engine/light2.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/pipetravel_tileset.png" type="Texture" id=7]
+[ext_resource path="res://Rooms/Area3/Assets/PipeTravel/sewer_rock.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Rooms/Area3/3-2/WallCollisions.gd" type="Script" id=9]
 [ext_resource path="res://Rooms/Area3/3-2/GunkDrip.tres" type="Material" id=10]
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/shadow.png" type="Texture" id=11]
@@ -175,6 +176,7 @@ extents = Vector2( 107, 9 )
 
 [node name="3-2" type="Node"]
 script = ExtResource( 1 )
+level_music = ExtResource( 8 )
 
 [node name="pipe_bg" type="TextureRect" parent="."]
 margin_left = -112.0

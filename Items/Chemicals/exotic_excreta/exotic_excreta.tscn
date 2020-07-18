@@ -3,8 +3,8 @@
 [ext_resource path="res://Items/Chemicals/base_chemical_offense/base_chemical_offense.tscn" type="PackedScene" id=1]
 
 [node name="ExoticExcreta" instance=ExtResource( 1 )]
-fill_target = 20
-fill_speed = 0.5
+fill_target = 40
+fill_speed = 0.8
 min_effectiveness = 2
 effects = [ "Corrosion" ]
 effect_chance_ratios = [ 1.0 ]
