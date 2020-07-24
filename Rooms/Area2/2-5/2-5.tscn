@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Area2/Assets/onto_glasstown.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/prisoner_a.png" type="Texture" id=15]
 [ext_resource path="res://NPC/MinorNPCs/prisoner_a_face.png" type="Texture" id=16]
 [ext_resource path="res://Engine/white.png" type="Texture" id=17]
+[ext_resource path="res://Rooms/Area2/Assets/car_pass_honk.wav" type="AudioStream" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -141,6 +142,7 @@ void fragment() {
 	COLOR.rgb= COLOR.rgb*c;
 }
 "
+custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
@@ -353,6 +355,47 @@ tracks/3/keys = {
 "values": [ 0.029, 0.27 ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "loop_traffic"
+length = 60.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CarPass:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10.6, 23.7, 37.7, 48.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CarPassHonk:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CarPassMusic:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 43.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [node name="2-5" type="Node"]
 script = ExtResource( 3 )
 level_music = ExtResource( 12 )
@@ -507,11 +550,14 @@ autoplay = true
 stream = ExtResource( 10 )
 autoplay = true
 
+[node name="CarPassHonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
 [node name="CarPassMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 
 [node name="TrafficJam" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( -840.645, 106 )
+position = Vector2( -1025, 106 )
 stream = ExtResource( 13 )
 volume_db = 6.635
 max_distance = 1024.0
@@ -547,6 +593,10 @@ anims/sleep_stage_0 = SubResource( 8 )
 anims/sleep_stage_1 = SubResource( 9 )
 anims/sleep_stage_2 = SubResource( 10 )
 anims/sleep_stage_3 = SubResource( 11 )
+
+[node name="TrafficLoop" type="AnimationPlayer" parent="."]
+autoplay = "loop_traffic"
+anims/loop_traffic = SubResource( 12 )
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 
 [editable path="HUD"]

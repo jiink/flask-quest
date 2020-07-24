@@ -1,4 +1,4 @@
-[gd_scene load_steps=228 format=2]
+[gd_scene load_steps=235 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -44,7 +44,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/trafficlight_left.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/stopsign.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_6.png" type="Texture" id=44]
-[ext_resource path="res://Rooms/Area2/Assets/sol_ad.png" type="Texture" id=45]
+[ext_resource path="res://Rooms/Area2/Assets/launchstation_ad.png" type="Texture" id=45]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_6_grid.png" type="Texture" id=46]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_3.png" type="Texture" id=47]
 [ext_resource path="res://Rooms/Area2/Assets/talkingreporter_improv.png" type="Texture" id=48]
@@ -55,7 +55,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/billboard_4.png" type="Texture" id=53]
 [ext_resource path="res://Rooms/Area2/Assets/impinge_ad.png" type="Texture" id=54]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_4_grid.png" type="Texture" id=55]
-[ext_resource path="res://Rooms/Area2/Assets/mal_ad.png" type="Texture" id=56]
+[ext_resource path="res://Rooms/Area2/Assets/clock_ad.png" type="Texture" id=56]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_1.png" type="Texture" id=57]
 [ext_resource path="res://Rooms/Area2/Assets/snee_ad.png" type="Texture" id=58]
 [ext_resource path="res://Rooms/Area2/Assets/billboard_1_grid.png" type="Texture" id=59]
@@ -163,6 +163,13 @@
 [ext_resource path="res://Rooms/Area2/Assets/poster_H.png" type="Texture" id=161]
 [ext_resource path="res://Rooms/Area2/Assets/neoclassical_homes_sign.png" type="Texture" id=162]
 [ext_resource path="res://Rooms/Area2/Assets/RWA_sign.png" type="Texture" id=163]
+[ext_resource path="res://NPC/MinorNPCs/mouse_1_face.png" type="Texture" id=164]
+[ext_resource path="res://NPC/MinorNPCs/bodybuilder_a_face.png" type="Texture" id=165]
+[ext_resource path="res://NPC/MinorNPCs/runnerboy_face.png" type="Texture" id=166]
+[ext_resource path="res://NPC/MinorNPCs/man_1_face.png" type="Texture" id=167]
+[ext_resource path="res://NPC/MinorNPCs/man_3_face.png" type="Texture" id=168]
+[ext_resource path="res://NPC/MinorNPCs/dog_1_face.png" type="Texture" id=169]
+[ext_resource path="res://NPC/MinorNPCs/bird_1_face.png" type="Texture" id=170]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -2166,9 +2173,9 @@ position = Vector2( 2072, -936 )
 position = Vector2( 459, -194 )
 texture = ExtResource( 44 )
 
-[node name="sol_ad" type="Sprite" parent="YSort/signs/billboard_6" index="0"]
+[node name="ClockAd" type="Sprite" parent="YSort/signs/billboard_6" index="0"]
 position = Vector2( -8, 0 )
-texture = ExtResource( 45 )
+texture = ExtResource( 56 )
 
 [node name="billboard_6_grid" type="Sprite" parent="YSort/signs/billboard_6" index="1"]
 position = Vector2( -8, 0 )
@@ -2225,9 +2232,9 @@ texture = ExtResource( 55 )
 position = Vector2( 450, -287 )
 texture = ExtResource( 44 )
 
-[node name="mal_ad" type="Sprite" parent="YSort/signs/billboard_7" index="0"]
+[node name="LaunchStationAd" type="Sprite" parent="YSort/signs/billboard_7" index="0"]
 position = Vector2( -8, 0 )
-texture = ExtResource( 56 )
+texture = ExtResource( 45 )
 
 [node name="billboard_6_grid" type="Sprite" parent="YSort/signs/billboard_7" index="1"]
 position = Vector2( -8, 0 )
@@ -2632,6 +2639,14 @@ message = "WAKE UP OLD MAN."
 character = "green"
 expression = "yell_outburst"
 
+[node name="DiagPiece2" parent="YSort/NPC/ManA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "Wakeup in 3... 2... 1..."
+face_texture = ExtResource( 167 )
+
+[node name="DiagPiece3" parent="YSort/NPC/ManA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "Woke"
+face_texture = ExtResource( 168 )
+
 [node name="ShadowRect" parent="YSort/NPC/ManA" index="3"]
 visible = false
 
@@ -2644,6 +2659,7 @@ offset = Vector2( 0, -7 )
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "Oh my Gosh. You're sooo cute!"
+face_texture = ExtResource( 164 )
 
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "Aww, thanks."
@@ -2682,7 +2698,8 @@ character = "orange"
 expression = "sad"
 
 [node name="DiagPiece2" parent="YSort/NPC/DogA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "..."
+message = "...A..`Um...`N...` E... `SHUT. PLEASE don't tell ANYONE, I `BEG` you."
+face_texture = ExtResource( 169 )
 voice_sound = ExtResource( 128 )
 voice_variation = 0.1
 
@@ -2805,8 +2822,9 @@ flip_h = true
 [node name="DialogueTree" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D/RunnerBoy" index="4" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/RunnerBoyPath2D/PathFollow2D/RunnerBoy/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "Running is very healthy you should try it sometime."
+message = "Running is one of many forms of terresterial locomotion that is able to be performed by almost any land animal with limbs. I LOVE RUNNING!"
 text_delay = 0.001
+face_texture = ExtResource( 166 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/RunnerBoyPath2D" index="1"]
 autoplay = "run_path"
@@ -2835,6 +2853,7 @@ margin_right = 9.0
 
 [node name="DiagPiece" parent="YSort/NPC/BirdA/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "This traffic jam is TERRIBLE! We're going to be stuck here for hours!"
+face_texture = ExtResource( 170 )
 
 [node name="DiagPiece" parent="YSort/NPC/BirdA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "Where does this road go?"
@@ -2842,12 +2861,8 @@ character = "orange"
 expression = "confused"
 
 [node name="DiagPiece" parent="YSort/NPC/BirdA/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "Outside the city! To... the outside world! Shouldn't you guys know?"
-
-[node name="DiagPiece" parent="YSort/NPC/BirdA/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "We haven't really been to... the outisde world."
-character = "orange"
-expression = "sad"
+message = "This road goes outside this city! To other cities, y'know... and, uh, the freeway."
+face_texture = ExtResource( 170 )
 
 [node name="BirdB" parent="YSort/NPC" index="21" instance=ExtResource( 77 )]
 position = Vector2( 1401, -1621 )
@@ -2882,11 +2897,12 @@ anims/pumping = SubResource( 56 )
 [node name="DiagPiece" parent="YSort/NPC/BodyBuilderA/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "Huff` puff` huff` puff.` Hey` thin`limbs, wanna` join` me?"
 text_delay = 0.03
+face_texture = ExtResource( 165 )
 
 [node name="DiagPiece2" parent="YSort/NPC/BodyBuilderA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "Sorry, we're busy."
+message = "No thanks, thicklimbs."
 character = "orange"
-expression = "side_mouth"
+expression = "open_mouth"
 
 [node name="NotDogStand" parent="YSort/NPC" index="23" instance=ExtResource( 77 )]
 position = Vector2( 866, 119 )

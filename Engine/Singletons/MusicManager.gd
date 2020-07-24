@@ -35,8 +35,10 @@ var volume = 0 # in dB, -80 is off
 
 func _ready():
 	if Debug.debug_mode and Debug.launch_without_music:
-		print("debug mode ON, setting volume to -80")
-		set_volume(-80)
+#		print("debug mode ON, setting volume to -80")
+#		set_volume(-80)
+		print("debug mode ON, muting music audio bus")
+		AudioServer.set_bus_mute(1, true)
 
 	set_process(false)
 	yield(get_tree().create_timer(0.1), "timeout")

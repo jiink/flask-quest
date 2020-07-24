@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-2/1-2.gd" type="Script" id=2]
@@ -40,6 +40,7 @@
 [ext_resource path="res://Engine/light5.png" type="Texture" id=38]
 [ext_resource path="res://Rooms/Area1/Assets/lab_security_camera.png" type="Texture" id=39]
 [ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=40]
+[ext_resource path="res://Rooms/Area1/Assets/CitySillouette/CityParallaxBG.tscn" type="PackedScene" id=41]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 22 )
@@ -218,6 +219,7 @@ visible = false
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground" index="0"]
+visible = false
 position = Vector2( -117.99, 0 )
 motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 384, 0 )
@@ -233,6 +235,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground" index="1"]
+visible = false
 motion_scale = Vector2( 0.05, 0 )
 motion_mirroring = Vector2( 384, 0 )
 __meta__ = {
@@ -247,6 +250,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground" index="2"]
+visible = false
 motion_scale = Vector2( 0.2, 0.3 )
 motion_mirroring = Vector2( 384, 0 )
 __meta__ = {
@@ -261,6 +265,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground" index="3"]
+visible = false
 motion_scale = Vector2( 0.3, 0.4 )
 motion_mirroring = Vector2( 384, 0 )
 __meta__ = {
@@ -275,6 +280,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/ParallaxBackground" index="4"]
+visible = false
 motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 384, 0 )
 __meta__ = {
@@ -289,6 +295,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="Background/ParallaxBackground" index="5"]
+visible = false
 motion_scale = Vector2( 0.6, 0.6 )
 motion_mirroring = Vector2( 384, 0 )
 __meta__ = {
@@ -303,6 +310,7 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="Background/ParallaxBackground" index="6"]
+visible = false
 motion_scale = Vector2( 0.75, 0.75 )
 motion_mirroring = Vector2( 384, 0 )
 __meta__ = {
@@ -315,6 +323,9 @@ texture = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CityParallaxBG" parent="Background" index="1" instance=ExtResource( 41 )]
+scroll_base_offset = Vector2( 0, 128 )
 
 [node name="ColorRect" type="ColorRect" parent="." index="3"]
 margin_left = 288.0
