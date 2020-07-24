@@ -229,11 +229,17 @@ func next_letter_time():
 		text_index += 1
 		if new_text[text_index] != "`":
 			$TextBox.text += new_text[text_index]
+		
+		if not $DialogueBoxSprite/AnimationPlayer.is_playing():
+			$DialogueBoxSprite/AnimationPlayer.play("busy")
 	else:
 		text_index = -1
 		
 		$TextBox/Timer.stop()
 		$Choices.set_visible(not choices.empty())
+		$DialogueBoxSprite/AnimationPlayer.stop()
+		$DialogueBoxSprite/Tween.interpolate_property($DialogueBoxSprite, "modulate", null, Color.white, 0.2)
+		$DialogueBoxSprite/Tween.start()
 		#close()
 	
 	var ascii_code = new_text[text_index].ord_at(0)
