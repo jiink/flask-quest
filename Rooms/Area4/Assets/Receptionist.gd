@@ -1,4 +1,4 @@
-extends "res://Engine/BasicNPC.gd"
+extends "res://NPC/NPCBasic/NPCBasic.gd"
 
 func interact():
 	if global.get_player(1).position.y < position.y: # if behind...

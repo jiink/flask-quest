@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basic_npc.png-debedf864da6d225b2ec960859525988.stex"
+path="res://.import/npc_basic.png-0bb8316cc09f012d2c6c39c6835c3e71.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/BasicNPC/basic_npc.png"
-dest_files=[ "res://.import/basic_npc.png-debedf864da6d225b2ec960859525988.stex" ]
+source_file="res://NPC/NPCBasic/npc_basic.png"
+dest_files=[ "res://.import/npc_basic.png-0bb8316cc09f012d2c6c39c6835c3e71.stex" ]
 
 [params]
 

@@ -6,7 +6,7 @@
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=4]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=5]
 [ext_resource path="res://Rooms/Area2/Assets/exteriordecor_1.png" type="Texture" id=6]
-[ext_resource path="res://Engine/BasicNPC.gd" type="Script" id=7]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.gd" type="Script" id=7]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Rooms/Area2/2-1/MalusEntrance.gd" type="Script" id=10]
@@ -76,7 +76,7 @@
 [ext_resource path="res://Rooms/Area2/Assets/CharacterScenes/bearly_bear.tscn" type="PackedScene" id=74]
 [ext_resource path="res://Rooms/Area2/Assets/mouse_1.png" type="Texture" id=75]
 [ext_resource path="res://Rooms/Area2/Assets/man_1.png" type="Texture" id=76]
-[ext_resource path="res://NPC/BasicNPC/BasicNPC.tscn" type="PackedScene" id=77]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=77]
 [ext_resource path="res://Rooms/Area2/Assets/cat_2-sheet.png" type="Texture" id=78]
 [ext_resource path="res://Rooms/Area2/Assets/MalusHinter.gd" type="Script" id=79]
 [ext_resource path="res://Engine/Stations/MapMachine/MapMachine.tscn" type="PackedScene" id=80]
@@ -170,6 +170,8 @@
 [ext_resource path="res://NPC/MinorNPCs/man_3_face.png" type="Texture" id=168]
 [ext_resource path="res://NPC/MinorNPCs/dog_1_face.png" type="Texture" id=169]
 [ext_resource path="res://NPC/MinorNPCs/bird_1_face.png" type="Texture" id=170]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )

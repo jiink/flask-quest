@@ -1,4 +1,4 @@
-extends "res://Engine/BasicNPC.gd"
+extends "res://NPC/NPCBasic/NPCBasic.gd"
 
 func interact():
 	if not ("map_login" in ItemManager.inventory):

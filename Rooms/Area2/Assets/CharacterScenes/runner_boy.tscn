@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://NPC/BasicNPC/BasicNPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/Assets/runnerboy.png" type="Texture" id=2]
+
+
 
 
 [sub_resource type="Animation" id=1]
