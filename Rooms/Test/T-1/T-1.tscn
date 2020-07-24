@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Test/Assets/TestRoomBattleBG.png" type="Texture" id=2]
 [ext_resource path="res://NPC/SecurityMop/SecurityMop.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Music/goodvibes.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=5]
 [ext_resource path="res://Engine/collisiontile.tres" type="TileSet" id=6]
 [ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=7]
@@ -26,6 +26,11 @@
 [ext_resource path="res://Player/orange_sprites/orangeFaces.png" type="Texture" id=24]
 [ext_resource path="res://Engine/Battle/Dodger/playerdeath.wav" type="AudioStream" id=25]
 [ext_resource path="res://Rooms/Area3/Assets/PuzzleElements/Battery.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Rooms/Area2/Assets/bearlybearsheet.png" type="Texture" id=27]
+[ext_resource path="res://Rooms/Area2/Assets/greenoveralls_cat_face.png" type="Texture" id=28]
+[ext_resource path="res://Rooms/Area3/Assets/PuzzleElements/BatterySocket.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Engine/BasicMultiInteractionNPC.gd" type="Script" id=30]
+[ext_resource path="res://Music/goodvibes-battle.ogg" type="AudioStream" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -37,7 +42,7 @@ radius = 58.0
 script = ExtResource( 1 )
 battle_bg = ExtResource( 2 )
 level_music = ExtResource( 4 )
-battle_music = ExtResource( 4 )
+battle_music = ExtResource( 31 )
 
 [node name="Background" type="Node2D" parent="."]
 visible = false
@@ -121,6 +126,9 @@ position = Vector2( 480, 32 )
 position = Vector2( 64, 63 )
 shape = SubResource( 2 )
 
+[node name="BatterySocket" parent="." instance=ExtResource( 29 )]
+position = Vector2( 332, 120 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="SaveStation" parent="YSort" instance=ExtResource( 11 )]
@@ -178,15 +186,70 @@ expression = "big_eyed2"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/Boque"]
 stream = ExtResource( 25 )
 
+[node name="NpcThatHasManyBranches" parent="YSort" instance=ExtResource( 12 )]
+modulate = Color( 0.392157, 0.0627451, 0.694118, 1 )
+position = Vector2( 238, 140 )
+script = ExtResource( 30 )
+branch_order = [ "One", "Two", "Three", "Four", "" ]
+
+[node name="DialogueTree" parent="YSort/NpcThatHasManyBranches" instance=ExtResource( 13 )]
+
+[node name="One" parent="YSort/NpcThatHasManyBranches/DialogueTree" instance=ExtResource( 14 )]
+message = "this is the first time you're talking to me"
+expression = "neutral"
+function = "test_react"
+
+[node name="Two" parent="YSort/NpcThatHasManyBranches/DialogueTree" instance=ExtResource( 14 )]
+message = "this is the SECOND  time you're talking to me"
+expression = "neutral"
+function = "test_react"
+
+[node name="Three" parent="YSort/NpcThatHasManyBranches/DialogueTree" instance=ExtResource( 14 )]
+message = "this is the Third  time you're talking to me"
+expression = "neutral"
+function = "test_react"
+
+[node name="DiagPiece2" parent="YSort/NpcThatHasManyBranches/DialogueTree/Three" instance=ExtResource( 14 )]
+message = "are you ``ok?"
+expression = "neutral"
+function = "test_react"
+
+[node name="DiagPiece3" parent="YSort/NpcThatHasManyBranches/DialogueTree/Three/DiagPiece2" instance=ExtResource( 14 )]
+key = "don't know"
+message = "welp
+"
+expression = "neutral"
+function = "test_react"
+
+[node name="DiagPiece4" parent="YSort/NpcThatHasManyBranches/DialogueTree/Three/DiagPiece2" instance=ExtResource( 14 )]
+key = "no"
+message = "good for you"
+expression = "neutral"
+function = "test_react"
+
+[node name="Four" parent="YSort/NpcThatHasManyBranches/DialogueTree" instance=ExtResource( 14 )]
+message = "this is the last time you are going to talk to me
+"
+expression = "neutral"
+function = "test_react"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/NpcThatHasManyBranches"]
+stream = ExtResource( 25 )
+
 [node name="Boque2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 226, 106 )
 
 [node name="DialogueTree" parent="YSort/Boque2" instance=ExtResource( 13 )]
 
 [node name="DiagPiece" parent="YSort/Boque2/DialogueTree" instance=ExtResource( 14 )]
-message = "battle time"
-function = "enter_battle"
-args = [ [ "Boque" ] ]
+message = "i am minor npc
+"
+face_texture = ExtResource( 27 )
+
+[node name="DiagPiece2" parent="YSort/Boque2/DialogueTree/DiagPiece" instance=ExtResource( 14 )]
+message = "my face texture is 32x32 and i have one expression"
+expression = "grin"
+face_texture = ExtResource( 28 )
 
 [node name="Orange" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 291, 80 )
@@ -209,6 +272,9 @@ collision_layer = 1
 collision_mask = 0
 
 [node name="Battery" parent="YSort" instance=ExtResource( 26 )]
+position = Vector2( 266, 116 )
+
+[node name="Battery2" parent="YSort" instance=ExtResource( 26 )]
 position = Vector2( 266, 116 )
 
 [node name="Light2D" type="Light2D" parent="."]
