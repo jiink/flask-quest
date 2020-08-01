@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rooms/Common/Critters/bird_a.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Common/Critters/CritterBasic.tscn" type="PackedScene" id=2]
+
+[node name="BirdA" instance=ExtResource( 2 )]
+speed = 20
+direction_time_multiplier = 0.5
+wait_time_multiplier = 1.0
+wait_time_adder = 1.0
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -2 )
+hframes = 2

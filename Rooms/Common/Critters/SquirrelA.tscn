@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rooms/Common/Critters/CritterBasic.gd" type="Script" id=1]
+[ext_resource path="res://Rooms/Common/Critters/squirrel_a.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 1 )
+
+[node name="SquirrelA" type="KinematicBody2D"]
+collision_layer = 32769
+collision_mask = 32768
+script = ExtResource( 1 )
+first_frame_is_idle = true
+
+[node name="ShadowRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -4.0
+margin_right = 4.0
+margin_bottom = 2.0
+color = Color( 0.133333, 0.12549, 0.203922, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -4 )
+hframes = 4
+
+[node name="DirectionChangeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

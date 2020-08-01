@@ -526,6 +526,7 @@ margin_right = 538.0
 margin_bottom = 323.0
 color = Color( 0.054902, 0.0666667, 0.109804, 0.423529 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -639,24 +640,36 @@ position = Vector2( 440, 164.7 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.533333, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D13" type="Light2D" parent="Lights" index="12"]
 position = Vector2( 488, 163.7 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.533333, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D16" type="Light2D" parent="Lights" index="13"]
 position = Vector2( 440, 217.7 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.533333, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D15" type="Light2D" parent="Lights" index="14"]
 position = Vector2( 488, 216.7 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.533333, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D10" type="Light2D" parent="Lights" index="15"]
 position = Vector2( 464, 14.5 )
