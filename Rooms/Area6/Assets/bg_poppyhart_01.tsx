@@ -5,6 +5,7 @@
   <terrain name="dark_grass" tile="-1"/>
   <terrain name="med_grass" tile="0"/>
   <terrain name="dark_grass_detail" tile="0"/>
+  <terrain name="natural_water" tile="0"/>
  </terraintypes>
  <tile id="0" terrain=",,,0"/>
  <tile id="1" terrain=",,0,0"/>
@@ -32,4 +33,17 @@
  <tile id="266" terrain="1,1,,1"/>
  <tile id="297" terrain="1,,1,1"/>
  <tile id="298" terrain=",1,1,1"/>
+ <tile id="434" terrain=",,,3"/>
+ <tile id="435" terrain=",,3,3"/>
+ <tile id="436" terrain=",,3,"/>
+ <tile id="437" terrain="3,3,3,"/>
+ <tile id="438" terrain="3,3,,3"/>
+ <tile id="466" terrain=",3,,3"/>
+ <tile id="467" terrain="3,3,3,3"/>
+ <tile id="468" terrain="3,,3,"/>
+ <tile id="469" terrain="3,,3,3"/>
+ <tile id="470" terrain=",3,3,3"/>
+ <tile id="498" terrain=",3,,"/>
+ <tile id="499" terrain="3,3,,"/>
+ <tile id="500" terrain="3,,,"/>
 </tileset>
