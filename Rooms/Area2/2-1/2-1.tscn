@@ -1,4 +1,4 @@
-[gd_scene load_steps=241 format=2]
+[gd_scene load_steps=244 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -176,8 +176,9 @@
 [ext_resource path="res://Rooms/Common/Critters/BirdA.tscn" type="PackedScene" id=174]
 [ext_resource path="res://Rooms/Common/Critters/BirdD.tscn" type="PackedScene" id=175]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=176]
-
-
+[ext_resource path="res://NPC/SodaBoy/SodaBoy.tscn" type="PackedScene" id=177]
+[ext_resource path="res://NPC/SodaBoy/SodaBoy.gd" type="Script" id=178]
+[ext_resource path="res://Rooms/Area2/Assets/SodaCollection.tscn" type="PackedScene" id=179]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -1417,11 +1418,14 @@ max_distance = 256.0
 autoplay = "drive"
 anims/drive = SubResource( 24 )
 
+[node name="SodaCollection" parent="." index="8" instance=ExtResource( 179 )]
+position = Vector2( 159, -58 )
+
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 121 )]
 position = Vector2( 264, 28 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 1509, -126 )
+position = Vector2( 278, 34 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -2953,6 +2957,25 @@ shape = SubResource( 60 )
 [node name="CollisionShape2D" parent="YSort/NPC/MoonDog/StaticBody2D" index="0"]
 shape = SubResource( 60 )
 
+[node name="SodaBoy" parent="YSort/NPC" index="26" instance=ExtResource( 177 )]
+position = Vector2( 192, 20 )
+script = ExtResource( 178 )
+
+[node name="DialogueTree" parent="YSort/NPC/SodaBoy" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/SodaBoy/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Wanna get .. PEPPED..?"
+expression = "big_eyed"
+
+[node name="DiagPiece2" parent="YSort/NPC/SodaBoy/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "Check out my cool collection up there!
+"
+expression = "grin"
+
+[node name="DiagPiece3" parent="YSort/NPC/SodaBoy/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "You can have one! One soda, not one collection.. I like my collection.."
+expression = "neutral"
+
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
 
@@ -3081,7 +3104,7 @@ position = Vector2( 1420, -25 )
 [node name="SquirrelA3" parent="YSort/Critters" index="11" instance=ExtResource( 171 )]
 position = Vector2( 1799, -270 )
 
-[node name="CafePortal" parent="." index="9" instance=ExtResource( 12 )]
+[node name="CafePortal" parent="." index="10" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"
 player_new_position = Vector2( -48, 230 )
 
@@ -3089,7 +3112,7 @@ player_new_position = Vector2( -48, 230 )
 position = Vector2( -32, 71 )
 shape = SubResource( 63 )
 
-[node name="DougPortal" parent="." index="10" instance=ExtResource( 12 )]
+[node name="DougPortal" parent="." index="11" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
 player_new_position = Vector2( -112, 1446 )
 starting_direction = "up"
@@ -3102,7 +3125,7 @@ shape = SubResource( 64 )
 position = Vector2( 968, -601 )
 shape = SubResource( 64 )
 
-[node name="WifiBeams" type="Node2D" parent="." index="11"]
+[node name="WifiBeams" type="Node2D" parent="." index="12"]
 
 [node name="WifiBeam2" parent="WifiBeams" index="0" instance=ExtResource( 115 )]
 points = PoolVector2Array( 472, 8, 792, -55, 791, -248, 792, -439, 776, -742, 792, -933, 968, -1031, 1401, -1031, 1575, -1255, 1561, -1705, 1507, -1661 )
@@ -3123,7 +3146,7 @@ points = PoolVector2Array( 2256, -1031, 1848, -1031 )
 [node name="WifiBeam6" parent="WifiBeams" index="5" instance=ExtResource( 115 )]
 points = PoolVector2Array( 1368, -391, 1768, -454 )
 
-[node name="Ambience" type="Node2D" parent="." index="12"]
+[node name="Ambience" type="Node2D" parent="." index="13"]
 position = Vector2( -378, -4 )
 
 [node name="OceanAmbience" type="AudioStreamPlayer2D" parent="Ambience" index="0"]
@@ -3157,7 +3180,7 @@ volume_db = 9.285
 autoplay = true
 max_distance = 512.0
 
-[node name="BlackRect" type="ColorRect" parent="." index="13"]
+[node name="BlackRect" type="ColorRect" parent="." index="14"]
 margin_left = 72.0
 margin_top = 496.0
 margin_right = 496.0
@@ -3167,7 +3190,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect2" type="ColorRect" parent="." index="14"]
+[node name="BlackRect2" type="ColorRect" parent="." index="15"]
 margin_left = 430.0
 margin_top = 528.0
 margin_right = 854.0
@@ -3177,7 +3200,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect3" type="ColorRect" parent="." index="15"]
+[node name="BlackRect3" type="ColorRect" parent="." index="16"]
 margin_left = 800.0
 margin_top = 368.0
 margin_right = 1104.0
@@ -3187,7 +3210,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect4" type="ColorRect" parent="." index="16"]
+[node name="BlackRect4" type="ColorRect" parent="." index="17"]
 margin_left = 2160.0
 margin_top = -880.0
 margin_right = 3003.0
@@ -3197,7 +3220,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect8" type="ColorRect" parent="." index="17"]
+[node name="BlackRect8" type="ColorRect" parent="." index="18"]
 margin_left = 2128.0
 margin_top = -704.0
 margin_right = 2160.0
@@ -3207,7 +3230,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect5" type="ColorRect" parent="." index="18"]
+[node name="BlackRect5" type="ColorRect" parent="." index="19"]
 margin_left = 2256.0
 margin_top = -1613.0
 margin_right = 3178.0
@@ -3217,7 +3240,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect6" type="ColorRect" parent="." index="19"]
+[node name="BlackRect6" type="ColorRect" parent="." index="20"]
 margin_left = 1104.0
 margin_top = 1024.0
 margin_right = 2244.0
@@ -3227,7 +3250,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackRect7" type="ColorRect" parent="." index="20"]
+[node name="BlackRect7" type="ColorRect" parent="." index="21"]
 margin_left = 1376.0
 margin_top = 928.0
 margin_right = 1824.0
@@ -3237,23 +3260,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="trafficlight_left_top" type="Sprite" parent="." index="21"]
+[node name="trafficlight_left_top" type="Sprite" parent="." index="22"]
 position = Vector2( 774, 129 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top2" type="Sprite" parent="." index="22"]
+[node name="trafficlight_left_top2" type="Sprite" parent="." index="23"]
 position = Vector2( 1350, 129 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top5" type="Sprite" parent="." index="23"]
+[node name="trafficlight_left_top5" type="Sprite" parent="." index="24"]
 position = Vector2( 1350, -575 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top3" type="Sprite" parent="." index="24"]
+[node name="trafficlight_left_top3" type="Sprite" parent="." index="25"]
 position = Vector2( 2070, 130 )
 texture = ExtResource( 81 )
 
-[node name="trafficlight_left_top4" type="Sprite" parent="." index="25"]
+[node name="trafficlight_left_top4" type="Sprite" parent="." index="26"]
 position = Vector2( 2070, -575 )
 texture = ExtResource( 81 )
 
