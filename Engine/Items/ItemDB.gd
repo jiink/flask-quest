@@ -63,4 +63,9 @@ var items = {
 		'desc': 'Long strip of wood. Looks sturdy enough to stand on...',
 		'droppable' : false,
 		},
+	'cruddy_cola': {
+		'name': 'Cruddy Cola',
+		'desc': 'What is this nonsense?',
+		'droppable' : true,
+		},
 	}

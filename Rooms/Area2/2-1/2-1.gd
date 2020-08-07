@@ -1,11 +1,14 @@
-extends "res://Rooms/TemplateRoom.gd"
+ 	extends "res://Rooms/TemplateRoom.gd"
 
 var malus_door_locked = true
 var manhole_event_happened = false
+var soda_boy_seen = false
 
 var SAVE_KEY = "2-1_"
 
 enum { SIGN_CLOSED, SIGN_OPEN }
+
+onready var soda_boy = $YSort/NPC/SodaBoy
 
 func _ready():
 	$YSort/MapMachine.connect("map_machine_opened", self, "_on_map_machine_opened")
@@ -21,15 +24,28 @@ func _ready():
 #		if manhole_event_happened:
 		update_manhole(manhole_event_happened)
 	
+	if soda_boy_seen:
+		soda_boy.queue_free()
+	
 	
 func save(save_game):
 	save_game.data[SAVE_KEY + "malus_door_locked"] = malus_door_locked
 	save_game.data[SAVE_KEY + "manhole_event_happened"] = manhole_event_happened
+	if not soda_boy_seen:
+		soda_boy_seen = true
+	save_game.data[SAVE_KEY + "soda_boy_seen"] = soda_boy_seen
 	
 func load(save_game):
 	malus_door_locked = save_game.data[SAVE_KEY + "malus_door_locked"]
 	manhole_event_happened = save_game.data[SAVE_KEY + "manhole_event_happened"]
 	update_malus_door(malus_door_locked)
+	soda_boy_seen = save_game.data[SAVE_KEY + "soda_boy_seen"]
+	if soda_boy_seen: # you see him once.
+		if soda_boy != null:
+			soda_boy.queue_free()
+	#else:
+		#soda_boy_seen = true
+
 
 func update_manhole(state): # true open false close
 	if state:
