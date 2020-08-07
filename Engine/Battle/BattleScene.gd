@@ -86,8 +86,8 @@ func _ready():
 	
 	print(global.initial_enemies)
 	for i in range(global.initial_enemies.size()):
-		var foe = load("res://NPC/" + global.initial_enemies[i] + "/" + global.initial_enemies[i] + "Foe.tscn")
-		var foe_instance = foe.instance()
+		var foe_scene = load("res://NPC/" + global.initial_enemies[i] + "/" + global.initial_enemies[i] + "Foe.tscn")
+		var foe_instance = foe_scene.instance()
 		foe_instance.set_name(global.initial_enemies[i])
 		# if there are 5 or less enemies, use predetermined positions
 		# otherwise use random ones
@@ -211,8 +211,8 @@ func get_move_choice():
 				if $BattleChoices/Chemicals.get_child_count() > 0:
 					battle_choice_confirmed = true
 					
-					for foe in get_foes():
-						foe.say_line()
+					for f in get_foes():
+						f.say_line()
 				else:
 					battle_choice_confirmed = false
 					print("You don't have anything equipped!")
