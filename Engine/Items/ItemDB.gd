@@ -35,6 +35,7 @@ var items = {
 		'name': 'Peppy Pop',
 		'desc': 'It really gets you going... for a little.',
 		'equippable': true,
+		'droppable' : false,
 		},
 	'exotic_excreta': {
 		'name': 'Exotic Excreta',
@@ -66,6 +67,5 @@ var items = {
 	'cruddy_cola': {
 		'name': 'Cruddy Cola',
 		'desc': 'What is this nonsense?',
-		'droppable' : true,
 		},
 	}
