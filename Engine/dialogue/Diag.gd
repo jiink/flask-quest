@@ -62,7 +62,7 @@ func _input(event):
 			select_graphic_offset = selected_choice * 30
 			$Choices/Selection.position.y = select_graphic_offset
 			
-			if event.is_action_pressed("confirm") and $TextBox.text == visible_new_text:
+			if event.is_action_pressed("confirm") and $TextBox.visible_characters >= visible_new_text.length():
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
 						run_func()
@@ -70,7 +70,7 @@ func _input(event):
 						break
 		else:
 			if event.is_action_pressed("confirm") or target_piece.interrupt:
-				if $TextBox.text == visible_new_text:
+				if $TextBox.visible_characters >= visible_new_text.length():
 					if target_piece.get_children():
 						run_func()
 						update_boxes(target_piece.get_child(0))
@@ -80,7 +80,7 @@ func _input(event):
 					
 				elif $TextBox.text.length() > 2 and (target_piece.skippable or Debug.debug_mode):
 					if not target_piece.interrupt:
-						$TextBox.text = visible_new_text
+						$TextBox.visible_characters = visible_new_text.length()
 						text_index = new_text.length() - 1
 		get_tree().set_input_as_handled()
 
@@ -114,7 +114,7 @@ func update_boxes(new_target):
 	target_piece = new_target
 	
 	# reset text and choices 
-	$TextBox.text = ""
+	$TextBox.visible_characters = 0
 	text_index = -1
 	choices = []
 	
@@ -122,6 +122,7 @@ func update_boxes(new_target):
 	
 	for l in effectchars:
 		visible_new_text = new_text.replace(l, "")
+	$TextBox.text = visible_new_text
 	
 	# set the values from the character dict
 	var chosen_character = characters[target_piece.character]
@@ -229,7 +230,7 @@ func next_letter_time():
 			$TextBox/Timer.start(text_time)
 		text_index += 1
 		if new_text[text_index] != "`":
-			$TextBox.text += new_text[text_index]
+			$TextBox.visible_characters = text_index + 1
 		
 		$DialogueBoxSprite.modulate = Color.white
 		if $DialogueBoxSprite/AnimationPlayer.is_playing():
@@ -249,7 +250,7 @@ func next_letter_time():
 		play_sound()
 	
 	# for interrupt...
-	if target_piece.interrupt and $TextBox.text == visible_new_text:
+	if target_piece.interrupt and $TextBox.visible_characters >= visible_new_text.length():#$TextBox.text == visible_new_text:
 		if target_piece.get_children():
 			run_func()
 			update_boxes(target_piece.get_child(0))
