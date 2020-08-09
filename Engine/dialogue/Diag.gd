@@ -46,6 +46,7 @@ onready var audio = $AudioStreamPlayer
 
 func _ready():
 	$TextBox/Timer.connect("timeout", self, "next_letter_time")
+	$DialogueBoxSprite.modulate = Color.white
 	#$TextBox.add_font_override("font", text_font)
 				
 
@@ -230,17 +231,15 @@ func next_letter_time():
 		if new_text[text_index] != "`":
 			$TextBox.text += new_text[text_index]
 		
-		if not $DialogueBoxSprite/AnimationPlayer.is_playing():
-			$DialogueBoxSprite/AnimationPlayer.play("busy")
+		$DialogueBoxSprite.modulate = Color.white
+		if $DialogueBoxSprite/AnimationPlayer.is_playing():
+			$DialogueBoxSprite/AnimationPlayer.stop(true)
 	else:
 		text_index = -1
 		
 		$TextBox/Timer.stop()
 		$Choices.set_visible(not choices.empty())
-		$DialogueBoxSprite/AnimationPlayer.stop()
-		$DialogueBoxSprite/Tween.interpolate_property($DialogueBoxSprite, "modulate", null, Color.white, 0.2)
-		$DialogueBoxSprite/Tween.start()
-		#close()
+		$DialogueBoxSprite/AnimationPlayer.play("done")
 	
 	var ascii_code = new_text[text_index].ord_at(0)
 	# 0-9, A-Z, and a-z are spoken letters
@@ -302,3 +301,4 @@ func close():
 	active = false
 	if not target_piece.dont_unfreeze_player:
 		global.get_player(1).set_frozen(false, true)
+	$DialogueBoxSprite.modulate = Color.white
