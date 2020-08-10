@@ -20,6 +20,7 @@ var stored_function_args = []
 # "`" for delay
 var effectchars = "`"
 var visible_new_text = ""
+var visible_characters_total = 0
 
 var target_tree = null
 var target_piece = null
@@ -62,7 +63,7 @@ func _input(event):
 			select_graphic_offset = selected_choice * 30
 			$Choices/Selection.position.y = select_graphic_offset
 			
-			if event.is_action_pressed("confirm") and $TextBox.visible_characters >= visible_new_text.length():
+			if event.is_action_pressed("confirm") and $TextBox.visible_characters >= visible_characters_total:
 				for D in target_piece.get_children():
 					if D.key == choices[selected_choice]:
 						run_func()
@@ -70,7 +71,7 @@ func _input(event):
 						break
 		else:
 			if event.is_action_pressed("confirm") or target_piece.interrupt:
-				if $TextBox.visible_characters >= visible_new_text.length():
+				if $TextBox.visible_characters >= visible_characters_total:
 					if target_piece.get_children():
 						run_func()
 						update_boxes(target_piece.get_child(0))
@@ -80,7 +81,7 @@ func _input(event):
 					
 				elif $TextBox.text.length() > 2 and (target_piece.skippable or Debug.debug_mode):
 					if not target_piece.interrupt:
-						$TextBox.visible_characters = visible_new_text.length()
+						$TextBox.visible_characters = visible_characters_total
 						text_index = new_text.length() - 1
 		get_tree().set_input_as_handled()
 
@@ -123,6 +124,11 @@ func update_boxes(new_target):
 	for l in effectchars:
 		visible_new_text = new_text.replace(l, "")
 	$TextBox.text = visible_new_text
+
+	# get the number that the label's `visible_characters` should go up to.
+	# this number does not include whitespace
+	var visible_new_text_no_spaces = visible_new_text.replace(' ', '')	
+	visible_characters_total = visible_new_text_no_spaces.length()
 	
 	# set the values from the character dict
 	var chosen_character = characters[target_piece.character]
@@ -190,7 +196,7 @@ func update_boxes(new_target):
 			$Face.texture = target_piece.face_texture
 		
 		var one_expression = false # for 32x32, one face textures (usually for minor npcs)
-		print($Face.texture.get_size())
+		# print($Face.texture.get_size())
 		if $Face.texture.get_size() == Vector2(32, 32):
 			one_expression = true
 
@@ -223,34 +229,38 @@ func update_boxes(new_target):
 	
 func next_letter_time():
 	if not active: return # i don't want to talk about it
-	if text_index < new_text.length() - 1:
+	if text_index < visible_characters_total - 1:
 		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
 			$TextBox/Timer.start(text_time + 0.15)
 		else:
 			$TextBox/Timer.start(text_time)
 		text_index += 1
-		if new_text[text_index] != "`":
-			$TextBox.visible_characters = text_index + 1
+		# if new_text[text_index] != "`":
+		$TextBox.visible_characters = text_index + 1
 		
 		$DialogueBoxSprite.modulate = Color.white
 		if $DialogueBoxSprite/AnimationPlayer.is_playing():
 			$DialogueBoxSprite/AnimationPlayer.stop(true)
+		
+		var ascii_code = new_text[text_index].ord_at(0)
+		# 0-9, A-Z, and a-z are spoken letters
+		if (ascii_code >= 48 and ascii_code <= 57) or \
+				(ascii_code >= 65 and ascii_code <= 90) or \
+				(ascii_code >= 97 and ascii_code <= 122):
+			play_sound()
+		
 	else:
-		text_index = -1
+		#print("%d, %d, %d\n%s" % [text_index, visible_new_text.length(), $TextBox.visible_characters, visible_new_text])
+		#text_index = -1
 		
 		$TextBox/Timer.stop()
 		$Choices.set_visible(not choices.empty())
 		$DialogueBoxSprite/AnimationPlayer.play("done")
 	
-	var ascii_code = new_text[text_index].ord_at(0)
-	# 0-9, A-Z, and a-z are spoken letters
-	if (ascii_code >= 48 and ascii_code <= 57) or \
-			(ascii_code >= 65 and ascii_code <= 90) or \
-			(ascii_code >= 97 and ascii_code <= 122):
-		play_sound()
+	
 	
 	# for interrupt...
-	if target_piece.interrupt and $TextBox.visible_characters >= visible_new_text.length():#$TextBox.text == visible_new_text:
+	if target_piece.interrupt and $TextBox.visible_characters >= visible_characters_total:#$TextBox.text == visible_new_text:
 		if target_piece.get_children():
 			run_func()
 			update_boxes(target_piece.get_child(0))
