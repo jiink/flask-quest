@@ -39,11 +39,9 @@ func _process(delta):
 func on_directiontimer_timeout():
 	travel_vec = Vector2(randf() - 0.5, randf() - 0.5).normalized()
 	$WaitTimer.start(wait_time_adder + randf() * wait_time_multiplier)
-	print("WAIT TIMER = %f" % $WaitTimer.time_left)
 	waiting = true
 	$Sprite.frame = 0
 	
 func on_waittimer_timeout():
 	waiting = false
 	$DirectionChangeTimer.start(direction_time_adder + randf() * direction_time_multiplier)
-	print("DIRECTION TIMER = %f" % $DirectionChangeTimer.time_left)
