@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=2]
+[ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=3]
+[ext_resource path="res://Engine/light2.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Area1/Assets/elevator_button.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Test/T-4/TimeToggleButton.gd" type="Script" id=6]
+[ext_resource path="res://Rooms/Area4/Assets/maloffice-01.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Rooms/Area4/Assets/planet_hologram.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/Area4/Assets/planet_hologram_stand.png" type="Texture" id=9]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 3 )
+
+[node name="T-4" instance=ExtResource( 1 )]
+level_music = ExtResource( 7 )
+battle_music = ExtResource( 10 )
+
+[node name="Base" type="TileMap" parent="Tilemaps" index="0"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 4, 0, 0, 5, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 65540, 0, 1, 65541, 0, 1, 65542, 0, 262144, 65543, 0, 327682, 65544, 0, 327682, 65545, 0, 262145, 65546, 0, 1, 65547, 0, 1, 65548, 0, 1, 65549, 0, 1, 65550, 0, 1, 131076, 0, 2, 131077, 0, 2, 131078, 0, 327680, 131079, 0, 196608, 131080, 0, 196608, 131081, 0, 327681, 131082, 0, 2, 131083, 0, 2, 131084, 0, 2, 131085, 0, 2, 131086, 0, 2, 196612, 0, 3, 196613, 0, 3, 196614, 0, 3, 196615, 0, 3, 196616, 0, 3, 196617, 0, 3, 196618, 0, 3, 196619, 0, 3, 196620, 0, 3, 196621, 0, 3, 196622, 0, 3, 262148, 0, 3, 262149, 0, 5, 262150, 0, 3, 262151, 0, 3, 262152, 0, 3, 262153, 0, 3, 262154, 0, 3, 262155, 0, 3, 262156, 0, 3, 262157, 0, 3, 262158, 0, 3, 327684, 0, 3, 327685, 0, 3, 327686, 0, 3, 327687, 0, 3, 327688, 0, 3, 327689, 0, 3, 327690, 0, 3, 327691, 0, 3, 327692, 0, 3, 327693, 0, 3, 327694, 0, 3, 393220, 0, 3, 393221, 0, 3, 393222, 0, 3, 393223, 0, 3, 393224, 0, 3, 393225, 0, 3, 393226, 0, 3, 393227, 0, 3, 393228, 0, 3, 393229, 0, 3, 393230, 0, 3, 458756, 0, 3, 458757, 0, 65541, 458758, 0, 3, 458759, 0, 3, 458760, 0, 3, 458761, 0, 3, 458762, 0, 3, 458763, 0, 3, 458764, 0, 3, 458765, 0, 3, 458766, 0, 3, 524292, 0, 3, 524293, 0, 3, 524294, 0, 3, 524295, 0, 3, 524296, 0, 3, 524297, 0, 3, 524298, 0, 3, 524299, 0, 3, 524300, 0, 3, 524301, 0, 3, 524302, 0, 3 )
+
+[node name="Collision" type="TileMap" parent="Tilemaps" index="1"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TimeToggleButton" type="Sprite" parent="YSort" index="1"]
+position = Vector2( 214, 66 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Interaction" type="Area2D" parent="YSort/TimeToggleButton" index="0"]
+position = Vector2( 0, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TimeToggleButton/Interaction" index="0"]
+shape = SubResource( 1 )
+
+[node name="planet_hologram_stand" type="Sprite" parent="YSort" index="2"]
+position = Vector2( 220, 124 )
+texture = ExtResource( 9 )
+
+[node name="Unlit" type="CanvasLayer" parent="YSort" index="3"]
+layer = 0
+follow_viewport_enable = true
+
+[node name="Sprite" type="Sprite" parent="YSort/Unlit" index="0"]
+position = Vector2( 220, 122 )
+texture = ExtResource( 8 )
+hframes = 2
+frame = 1
+
+[node name="Lights" type="Node2D" parent="." index="3"]
+
+[node name="NightLight" type="Light2D" parent="Lights" index="0" groups=[
+"night_lights",
+]]
+position = Vector2( 89, 120 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NightLight2" type="Light2D" parent="Lights" index="1" groups=[
+"night_lights",
+]]
+position = Vector2( 89, 72 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NightLight3" type="Light2D" parent="Lights" index="2" groups=[
+"night_lights",
+]]
+position = Vector2( 225, 125 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
+
+[editable path="HUD"]
