@@ -20,6 +20,7 @@ var stored_function_args = []
 # "`" for delay
 var effectchars = "`"
 var visible_new_text = ""
+var visible_new_text_no_spaces = ""
 var visible_characters_total = 0
 
 var target_tree = null
@@ -108,9 +109,6 @@ func start_talk(obj, starting_branch):
 	update_boxes(obj)
 	
 	
-
-	
-	
 func update_boxes(new_target):
 	target_piece = new_target
 	
@@ -127,7 +125,7 @@ func update_boxes(new_target):
 
 	# get the number that the label's `visible_characters` should go up to.
 	# this number does not include whitespace
-	var visible_new_text_no_spaces = visible_new_text.replace(' ', '')	
+	visible_new_text_no_spaces = visible_new_text.replace(' ', '')	
 	visible_characters_total = visible_new_text_no_spaces.length()
 	
 	# set the values from the character dict
@@ -230,7 +228,7 @@ func update_boxes(new_target):
 func next_letter_time():
 	if not active: return # i don't want to talk about it
 	if text_index < visible_characters_total - 1:
-		if ".?!:,;`".find(new_text[text_index + 1]) != -1:
+		if ".?!:,;`".find(visible_new_text_no_spaces[text_index + 1]) != -1:
 			$TextBox/Timer.start(text_time + 0.15)
 		else:
 			$TextBox/Timer.start(text_time)
@@ -267,6 +265,7 @@ func next_letter_time():
 		else:
 			run_func()
 			close()
+
 
 func run_func():
 					
