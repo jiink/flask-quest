@@ -4,6 +4,9 @@
 [ext_resource path="res://NPC/NPCWalking/npc_walking.png" type="Texture" id=2]
 [ext_resource path="res://NPC/NPCWalking/NPCWalking.gd" type="Script" id=3]
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 5, 2 )
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 24, 16, 24 )
@@ -46,25 +49,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 5, 2 )
-
-[node name="NPCWalking" type="AnimatedSprite" groups=[
-"tick",
-]]
-frames = SubResource( 7 )
-animation = "down"
-offset = Vector2( 0, -9 )
+[node name="NPCWalking" type="KinematicBody2D"]
 script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )
 
 [node name="Interaction" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
-shape = SubResource( 8 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 8 )
 
 [node name="ShadowRect" parent="." instance=ExtResource( 1 )]
@@ -73,3 +66,10 @@ margin_left = -4.0
 margin_top = -1.0
 margin_right = 5.0
 margin_bottom = 2.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"tick",
+]]
+frames = SubResource( 7 )
+animation = "down"
+offset = Vector2( 0, -9 )

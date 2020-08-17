@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends KinematicBody2D
 
 enum Direction { UP, RIGHT, DOWN, LEFT }
 
@@ -7,16 +7,37 @@ export(bool) var auto_direction = true
 export(bool) var interactable = true
 export(bool) var up_down_periodic_mirroring = true # every other animation cycle for going up/down, mirror it for "more" frames?
 export(float) var anim_speed_scale = 0.5
+var has_dedicated_idle_animations = false
+var has_dedicated_left_animation = false
 
 onready var last_position = position
 var delta_pos = Vector2(0, 0)
 var moving = false
+var last_moving = true # was the npc moving in the last tick?
 var moving_threshold = 0.1
 
-func _init():
+var animation_strings = {
+	"up" : "up_idle",
+	"right" : "right_idle",
+	"down" : "down_idle",
+	"left" : "left_idle",
+}
+var animation_strings_walking = animation_strings.keys()
+var animation_strings_idle = animation_strings.values()
+
+onready var sprite = $AnimatedSprite
+
+func _ready():
 	add_to_group("tick")
+	# see what animation-related variables to set up
+	# Assumes NPC has the other idle directions too
+	has_dedicated_idle_animations = sprite.frames.has_animation("down") 
+	has_dedicated_left_animation = sprite.frames.has_animation("left_walking")
+
 	if up_down_periodic_mirroring:
-		connect("animation_finished", self, "_on_animation_finished")
+		sprite.connect("animation_finished", self, "_on_animation_finished")
+	
+	sprite.playing = true
 
 func interact():
 	if interactable:
@@ -28,9 +49,16 @@ func _tick():
 	var delta_pos_length = delta_pos.length()
 
 	moving = delta_pos.length() > moving_threshold
-	playing = moving
+	if has_dedicated_idle_animations:
+		if not moving:
+			sprite.set_animation(animation_strings_idle[facing_direction])
+	else:
+		sprite.playing = moving
 
-	speed_scale = delta_pos.length() * anim_speed_scale
+	sprite.speed_scale = delta_pos.length() * anim_speed_scale
+		
+	if (moving) and (not last_moving):
+		sprite.set_animation(animation_strings_walking[facing_direction])
 
 	if moving and auto_direction:
 
@@ -51,6 +79,7 @@ func _tick():
 		set_facing_direction(calculated_dir)		
 
 	last_position = position
+	last_moving = moving
 
 
 func set_facing_direction(dir):
@@ -58,18 +87,22 @@ func set_facing_direction(dir):
 		facing_direction = dir
 		match facing_direction:
 			Direction.UP:
-				flip_h = false
-				set_animation("up")
-			Direction.LEFT:
-				flip_h = true
-				set_animation("right")
+				sprite.flip_h = false
+				sprite.set_animation(animation_strings_walking[Direction.UP])
 			Direction.RIGHT:
-				flip_h = false
-				set_animation("right")
+				sprite.flip_h = false
+				sprite.set_animation(animation_strings_walking[Direction.RIGHT])
 			Direction.DOWN:
-				flip_h = false
-				set_animation("down")
+				sprite.flip_h = false
+				sprite.set_animation(animation_strings_walking[Direction.DOWN])
+			Direction.LEFT:
+				if has_dedicated_left_animation:
+					sprite.flip_h = false
+					sprite.set_animation(animation_strings_walking[Direction.LEFT])
+				else:
+					sprite.flip_h = true
+					sprite.set_animation(animation_strings_walking[Direction.RIGHT])
 
 func _on_animation_finished():
 	if facing_direction == Direction.DOWN or facing_direction == Direction.UP:
-		flip_h = !flip_h
+		sprite.flip_h = !sprite.flip_h
