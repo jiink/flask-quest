@@ -17,14 +17,12 @@ var modulate_color
 
 func save(save_game):
 	save_game.data[SAVE_KEY + "time_of_day"] = time_of_day
-	save_game.data[SAVE_KEY + "dubble_intro_event_occured"] = dubble_intro_event_occured
+
 	
 func load(save_game):
 	time_of_day = save_game.data[SAVE_KEY + "time_of_day"]
-	dubble_intro_event_occured = save_game.data[SAVE_KEY + "dubble_intro_event_occured"]
 	update_time_of_day(time_of_day)
-	remove_dubble_intro_event(dubble_intro_event_occured)
-	
+
 func update_time_of_day(state):
 	match state:
 		DAWN:

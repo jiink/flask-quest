@@ -42,6 +42,7 @@ var characters = {
 	"stercus" : ["res://NPC/Stercus/stercusFaces.png", "res://NPC/Stercus/stercus_voice.wav", 0.0, "Stercus"],
 	"green": ["res://Player/sprites/greenSheet.png", "res://NPC/default_voice2.wav", 0.0, "Green"],
 	"ribbit": ["res://Player/ribbit_sprites/ribbitFaces.png", "res://Player/ribbit_sprites/ribbit_speech.wav", 0.3, "Ribbit"],
+	"dubble": ["res://NPC/Dubble/dubbleFaces.png", "res://NPC/default_voice2.wav", 0.0, "Dubble"],
 	}
 
 onready var audio = $AudioStreamPlayer

@@ -1,35 +1,115 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Engine/Stations/SaveStation/SaveMenu.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Stations/SaveStation/save_slots_bg.png" type="Texture" id=2]
-[ext_resource path="res://Engine/Stations/SaveStation/save_slots.png" type="Texture" id=3]
+[ext_resource path="res://Engine/Stations/SaveStation/floppy_icon.png" type="Texture" id=3]
 [ext_resource path="res://Engine/Stations/SaveStation/save_bg.png" type="Texture" id=4]
 [ext_resource path="res://Engine/Stations/SaveStation/save_fg.png" type="Texture" id=5]
-[ext_resource path="res://Engine/Stations/SaveStation/save_button.png" type="Texture" id=6]
-[ext_resource path="res://Engine/Stations/SaveStation/back_button.png" type="Texture" id=7]
-[ext_resource path="res://Engine/Stations/SaveStation/trash_button.png" type="Texture" id=8]
+[ext_resource path="res://Engine/Theming/save_station_theme.tres" type="Theme" id=6]
+[ext_resource path="res://Engine/Stations/SaveStation/back_button_alt.png" type="Texture" id=7]
+[ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=8]
 
-[sub_resource type="Animation" id=1]
-resource_name = "slot_switch"
-length = 0.5
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 8 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "pulse"
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("save_fg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.5, 0.8 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.915922, 0.913412, 0.954824, 1 ), Color( 0.737255, 0.729412, 0.858824, 1 ), Color( 0.915922, 0.913412, 0.954824, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfoLabel:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0.72549, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("floppy_icon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("floppy_icon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.72549, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "save"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("floppy_icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.72549, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("floppy_icon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InfoLabel:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.72549, 1, 1 ) ]
 }
 
 [node name="SaveMenu" type="Node2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 96.0 ]
-}
 
 [node name="save_slots_bg" type="Sprite" parent="."]
 position = Vector2( 192, 108 )
@@ -37,12 +117,6 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="save_slots" type="Sprite" parent="."]
-position = Vector2( 192, 177 )
-texture = ExtResource( 3 )
-
-[node name="Tween" type="Tween" parent="save_slots"]
 
 [node name="save_bg" type="Sprite" parent="."]
 position = Vector2( 192, 108 )
@@ -58,33 +132,59 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Buttons" type="Node2D" parent="."]
-
-[node name="save_button" type="Sprite" parent="Buttons"]
-position = Vector2( 137, 127 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, 0.5 )
+[node name="floppy_icon" type="Sprite" parent="."]
+modulate = Color( 0, 0.72549, 1, 1 )
+position = Vector2( 133, 101 )
+texture = ExtResource( 3 )
 hframes = 2
 
-[node name="back_button" type="Sprite" parent="Buttons"]
-position = Vector2( 175, 127 )
-texture = ExtResource( 7 )
-offset = Vector2( 0, 0.5 )
-hframes = 2
+[node name="Control" type="Control" parent="."]
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="trash_button" type="Sprite" parent="Buttons"]
-position = Vector2( 254, 127 )
-texture = ExtResource( 8 )
-offset = Vector2( 0.5, 0.5 )
-hframes = 2
+[node name="SaveButton" type="Button" parent="Control"]
+margin_left = 137.0
+margin_top = 133.0
+margin_right = 218.0
+margin_bottom = 156.0
+theme = ExtResource( 6 )
+text = "SAVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons"]
-anims/slot_switch = SubResource( 1 )
+[node name="BackButton" type="Button" parent="Control"]
+margin_left = 223.0
+margin_top = 133.0
+margin_right = 246.0
+margin_bottom = 156.0
+theme = ExtResource( 6 )
+icon = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="LoadButton" type="Button" parent="."]
-margin_left = 296.0
-margin_top = 12.0
-margin_right = 361.0
-margin_bottom = 39.0
-text = "load"
-[connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
+[node name="InfoLabel" type="Label" parent="."]
+margin_left = 154.0
+margin_top = 87.0
+margin_right = 232.0
+margin_bottom = 112.0
+theme = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.72549, 1, 1 )
+text = "Area
+$MONEY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "pulse"
+anims/pulse = SubResource( 2 )
+
+[node name="SaveAnimation" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 4 )
+anims/save = SubResource( 3 )

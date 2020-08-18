@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -87,7 +87,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/large_metal_door.tscn" type="PackedScene" id=85]
 [ext_resource path="res://NPC/Dubble/Dubble.tscn" type="PackedScene" id=86]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown.ogg" type="AudioStream" id=87]
-[ext_resource path="res://Player/sprites/greenup1.png" type="Texture" id=88]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=88]
 [ext_resource path="res://Rooms/Area5/Assets/cabin_bed_cover.png" type="Texture" id=89]
 [ext_resource path="res://Rooms/Area5/5-1/DubbleIntroEvent.gd" type="Script" id=90]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=91]
@@ -171,7 +171,22 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "dubble_walk_by"
+resource_name = "dubble_enter_room"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Dubble:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.5 ),
+"transitions": PoolRealArray( 1, -1.31951, -2 ),
+"update": 0,
+"values": [ Vector2( 3250, 581 ), Vector2( 3250, 581 ), Vector2( 3250, 530 ) ]
+}
+
+[sub_resource type="Animation" id=11]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -185,6 +200,24 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 3212, 467 ), Vector2( 3144.8, 467 ) ]
 }
+
+[sub_resource type="Animation" id=12]
+resource_name = "idle0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Dubble:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3212, 467 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 18, 15 )
 
 [node name="5-1" groups=[
 "save",
@@ -442,15 +475,52 @@ position = Vector2( 3910, 2063 )
 position = Vector2( 18, 44 )
 texture = ExtResource( 78 )
 
-[node name="Orange" parent="YSort" index="0" instance=ExtResource( 55 )]
+[node name="cabin1_A_interior2" parent="YSort" index="0" instance=ExtResource( 5 )]
+position = Vector2( 3207, 470 )
 
-[node name="Player" parent="YSort" index="1"]
+[node name="Windowlight" parent="YSort/cabin1_A_interior2" index="2"]
+visible = false
+
+[node name="Windowlight2" parent="YSort/cabin1_A_interior2" index="3"]
+visible = false
+
+[node name="cabin_painting_D" type="Sprite" parent="YSort/cabin1_A_interior2" index="4"]
+position = Vector2( -9, -49 )
+texture = ExtResource( 61 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cabin_painting_B" type="Sprite" parent="YSort/cabin1_A_interior2" index="5"]
+position = Vector2( 33, -25 )
+texture = ExtResource( 60 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cabin_carpet_D" type="Sprite" parent="YSort/cabin1_A_interior2" index="6"]
+position = Vector2( 44, 62 )
+texture = ExtResource( 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cabin_carpet_C" type="Sprite" parent="YSort/cabin1_A_interior2" index="7"]
+position = Vector2( 34, 36 )
+texture = ExtResource( 63 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
+
+[node name="Player" parent="YSort" index="2"]
 position = Vector2( 3243, 500 )
 
-[node name="Dubble" parent="YSort" index="2" instance=ExtResource( 86 )]
-position = Vector2( 3207.52, 467 )
+[node name="Dubble" parent="YSort" index="3" instance=ExtResource( 86 )]
+position = Vector2( 3212, 467 )
 
-[node name="CorruptVegetation" type="YSort" parent="YSort" index="3"]
+[node name="CorruptVegetation" type="YSort" parent="YSort" index="4"]
 
 [node name="plant3_A_corrupt" parent="YSort/CorruptVegetation" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1391, 478 )
@@ -680,7 +750,7 @@ position = Vector2( 1578, 8 )
 [node name="tree1_B_corruptA25" parent="YSort/CorruptVegetation" index="75" instance=ExtResource( 9 )]
 position = Vector2( 1388, 136 )
 
-[node name="Vegetation" type="YSort" parent="YSort" index="4"]
+[node name="Vegetation" type="YSort" parent="YSort" index="5"]
 
 [node name="tree1_B" parent="YSort/Vegetation" index="0" instance=ExtResource( 14 )]
 position = Vector2( 491, 273 )
@@ -1318,7 +1388,7 @@ position = Vector2( 904, 674 )
 [node name="plant5_A6" parent="YSort/Vegetation" index="211" instance=ExtResource( 21 )]
 position = Vector2( 880, 708 )
 
-[node name="Cabins" type="YSort" parent="YSort" index="5"]
+[node name="Cabins" type="YSort" parent="YSort" index="6"]
 
 [node name="cabin1_A" parent="YSort/Cabins" index="0" instance=ExtResource( 28 )]
 position = Vector2( 499, 1129 )
@@ -1389,7 +1459,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Industrial" type="YSort" parent="YSort" index="6"]
+[node name="Industrial" type="YSort" parent="YSort" index="7"]
 
 [node name="transformer_01" parent="YSort/Industrial" index="0" instance=ExtResource( 31 )]
 position = Vector2( 887, 769 )
@@ -1595,7 +1665,7 @@ position = Vector2( 1877, 567 )
 [node name="eboxB8" parent="YSort/Industrial" index="67" instance=ExtResource( 49 )]
 position = Vector2( 1900, 567 )
 
-[node name="Lampposts" type="YSort" parent="YSort" index="7"]
+[node name="Lampposts" type="YSort" parent="YSort" index="8"]
 
 [node name="lamppost_01" parent="YSort/Lampposts" index="0" instance=ExtResource( 34 )]
 position = Vector2( 992, 821 )
@@ -1675,7 +1745,7 @@ position = Vector2( 144, 1715 )
 [node name="lamppost_26" parent="YSort/Lampposts" index="25" instance=ExtResource( 36 )]
 position = Vector2( 350, 492 )
 
-[node name="furniture" type="YSort" parent="YSort" index="8"]
+[node name="furniture" type="YSort" parent="YSort" index="9"]
 position = Vector2( 3207, 75 )
 
 [node name="cabin_bed" parent="YSort/furniture" index="0" instance=ExtResource( 39 )]
@@ -1790,7 +1860,7 @@ position = Vector2( 702, 1997 )
 [node name="cabin_dresser4" parent="YSort/furniture" index="34" instance=ExtResource( 44 )]
 position = Vector2( 735, 1997 )
 
-[node name="Internet" type="YSort" parent="YSort" index="9"]
+[node name="Internet" type="YSort" parent="YSort" index="10"]
 
 [node name="MapMachine" parent="YSort/Internet" index="0" instance=ExtResource( 70 )]
 position = Vector2( 288, 780 )
@@ -1831,7 +1901,7 @@ position = Vector2( 396, 1308 )
 [node name="MapMachine4" parent="YSort/Internet" index="12" instance=ExtResource( 70 )]
 position = Vector2( 973, 1377 )
 
-[node name="LargeMetalDoor" parent="YSort" index="10" instance=ExtResource( 85 )]
+[node name="LargeMetalDoor" parent="YSort" index="11" instance=ExtResource( 85 )]
 position = Vector2( 1816, 557 )
 
 [node name="ColorRect" type="ColorRect" parent="YSort/LargeMetalDoor" index="2"]
@@ -1845,30 +1915,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cabin1_A_interior2" parent="YSort" index="11" instance=ExtResource( 5 )]
-position = Vector2( 3207, 470 )
-
-[node name="Windowlight" parent="YSort/cabin1_A_interior2" index="2"]
-visible = false
-
-[node name="Windowlight2" parent="YSort/cabin1_A_interior2" index="3"]
-visible = false
-
-[node name="cabin_painting_D" type="Sprite" parent="YSort/cabin1_A_interior2" index="4"]
-position = Vector2( -9, -49 )
-texture = ExtResource( 61 )
-
-[node name="cabin_painting_B" type="Sprite" parent="YSort/cabin1_A_interior2" index="5"]
-position = Vector2( 33, -25 )
-texture = ExtResource( 60 )
-
-[node name="cabin_carpet_D" type="Sprite" parent="YSort/cabin1_A_interior2" index="6"]
-position = Vector2( 44, 62 )
-texture = ExtResource( 64 )
-
-[node name="cabin_carpet_C" type="Sprite" parent="YSort/cabin1_A_interior2" index="7"]
-position = Vector2( 34, 36 )
-texture = ExtResource( 63 )
+[node name="SaveStation" parent="YSort" index="12" instance=ExtResource( 88 )]
+position = Vector2( 3205, 526 )
 
 [node name="Lights" type="Node2D" parent="." index="7"]
 __meta__ = {
@@ -2155,7 +2203,6 @@ texture = ExtResource( 37 )
 offset = Vector2( 256, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="12"]
-color = Color( 0.760784, 0.592157, 0.356863, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 playback_speed = 0.1
@@ -2179,18 +2226,16 @@ starting_direction = "up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal2" index="0"]
 shape = SubResource( 8 )
 
-[node name="DubbleIntroEvent" type="Node2D" parent="." index="17"]
+[node name="DubbleIntroEvent" type="Node2D" parent="." index="17" groups=[
+"save",
+]]
 position = Vector2( 3211, 520 )
 script = ExtResource( 90 )
 
 [node name="OverlayAnimator" type="AnimationPlayer" parent="DubbleIntroEvent" index="0"]
 anims/wake_up = SubResource( 9 )
 
-[node name="SleepyGreen" type="Sprite" parent="DubbleIntroEvent" index="1"]
-position = Vector2( 57, -42 )
-texture = ExtResource( 88 )
-
-[node name="ColorOverlay" type="ColorRect" parent="DubbleIntroEvent" index="2"]
+[node name="ColorOverlay" type="ColorRect" parent="DubbleIntroEvent" index="1"]
 visible = false
 margin_left = -110.0
 margin_top = -133.0
@@ -2201,51 +2246,72 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DialogueTree" parent="DubbleIntroEvent" index="3" instance=ExtResource( 92 )]
+[node name="DialogueTree" parent="DubbleIntroEvent" index="2" instance=ExtResource( 92 )]
 
-[node name="DiagPiece" parent="DubbleIntroEvent/DialogueTree" index="0" instance=ExtResource( 91 )]
+[node name="OrangeTalk" parent="DubbleIntroEvent/DialogueTree" index="0" instance=ExtResource( 91 )]
 message = "...`We're in prison. We're... in prison. We're in prison, we're in prison..."
 character = "orange"
 expression = "cry_sob"
 function = "dubble_walk_by"
 
-[node name="DiagPiece2" parent="DubbleIntroEvent/DialogueTree/DiagPiece" index="0" instance=ExtResource( 91 )]
-message = "We've come all this way just to get in..."
+[node name="DiagPiece2" parent="DubbleIntroEvent/DialogueTree/OrangeTalk" index="0" instance=ExtResource( 91 )]
+message = "We've come all this way just to get into..."
 character = "orange"
 expression = "cry_mourn"
 
-[node name="DiagPiece3" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 91 )]
+[node name="DiagPiece3" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2" index="0" instance=ExtResource( 91 )]
 message = "Who`` was that?"
 character = "orange"
 expression = "big_eyed"
 function = "door_knock"
 
-[node name="DiagPiece4" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 91 )]
+[node name="DiagPiece4" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 91 )]
 message = "...```Green, can you get that?"
 character = "orange"
 expression = "dot_eyes"
 
-[node name="DiagPiece5" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 91 )]
+[node name="DiagPiece5" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 91 )]
 message = "GREEN? GREEN, AWAKEN!!"
 character = "orange"
 expression = "yell_outburst"
 
-[node name="DiagPiece6" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 91 )]
+[node name="DiagPiece6" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 91 )]
 message = "Yea, yea, I'm..."
 character = "green"
-expression = "side_mouth"
+expression = "angry"
 function = "green_wake"
 
-[node name="DiagPiece7" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 91 )]
+[node name="DiagPiece7" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 91 )]
 message = "Awake."
 character = "green"
+expression = "side_mouth"
+
+[node name="DubbleTalk" parent="DubbleIntroEvent/DialogueTree" index="1" instance=ExtResource( 91 )]
+message = "Good evening, knuckleheads."
+character = "dubble"
 expression = "open_mouth"
 
-[node name="CharacterMovement" type="AnimationPlayer" parent="DubbleIntroEvent" index="4"]
-anims/dubble_walk_by = SubResource( 10 )
+[node name="DubbleTalk2" parent="DubbleIntroEvent/DialogueTree/DubbleTalk" index="0" instance=ExtResource( 91 )]
+message = "You two appear new here."
+character = "dubble"
+expression = "frown"
+function = "dubble_intro_end"
 
-[node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="5"]
+[node name="CharacterMovement" type="AnimationPlayer" parent="DubbleIntroEvent" index="3"]
+autoplay = "idle0"
+anims/dubble_enter_room = SubResource( 10 )
+anims/dubble_walk_by = SubResource( 11 )
+anims/idle0 = SubResource( 12 )
+
+[node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="4"]
 stream = ExtResource( 93 )
+
+[node name="ActivateArea" type="Area2D" parent="DubbleIntroEvent" index="5"]
+position = Vector2( 40, 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DubbleIntroEvent/ActivateArea" index="0"]
+shape = SubResource( 13 )
+[connection signal="body_entered" from="DubbleIntroEvent/ActivateArea" to="DubbleIntroEvent" method="_on_ActivateArea_body_entered"]
 
 [editable path="YSort/cabin1_A_interior2"]
 

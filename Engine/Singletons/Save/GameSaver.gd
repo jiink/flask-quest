@@ -6,7 +6,8 @@ var SAVE_FOLDER = "res://debug/save"
 var SAVE_NAME_TEMPLATE = "save_%03d.tres"
 
 
-var save_game = load(SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % 1))
+var active_save_slot_id = 1 # 0 if none, >0 if otherwise
+var save_game = load(SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % active_save_slot_id))
 
 func prepare_save_file(num):
 	save_game = load(SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % num))
@@ -15,7 +16,7 @@ func prepare_save_file(num):
 #	load_from_save_station(1)
 
 
-func save(id):
+func save():
 	
 #	var save_game := SaveGame.new()
 #	var save_file_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
@@ -39,7 +40,7 @@ func save(id):
 #	if error != OK:
 #		print("Couldn't write save %s to %s" % [id, save_file_path])
 
-func load(id):
+func load():
 #	var save_file_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
 #	var file = File.new()
 #	if not file.file_exists(save_file_path):
@@ -50,7 +51,7 @@ func load(id):
 	for node in get_tree().get_nodes_in_group("save"):
 		node.load(save_game)
 
-func save_from_save_station(id):
+func save_from_save_station():
 	
 #	var save_game := SaveGame.new()
 #	save_game = SaveGame.new()
@@ -91,16 +92,16 @@ func save_from_save_station(id):
 		directory.make_dir_recursive(SAVE_FOLDER)
 		
 		
-	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
+	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % active_save_slot_id)
 	print("SAVING to %s" % save_path)
 	var error = ResourceSaver.save(save_path, save_game)
 	
 	if error != OK:
-		print("Couldn't write save %s to %s" % [id, save_path])
+		print("Couldn't write save %s to %s" % [active_save_slot_id, save_path])
 
 
-func load_from_save_station(id): # yeah im a role model and copied the other function becuase m
-	var save_file_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % id)
+func load_from_save_station(): # yeah im a role model and copied the other function becuase m
+	var save_file_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % active_save_slot_id)
 	print("LOADING from %s" % save_file_path)
 	var file = File.new()
 	if not file.file_exists(save_file_path):
@@ -140,7 +141,7 @@ func new_save():
 	if not directory.dir_exists (SAVE_FOLDER):
 		directory.make_dir_recursive(SAVE_FOLDER)
 	
-	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % 1)
+	var save_path = SAVE_FOLDER.plus_file(SAVE_NAME_TEMPLATE % active_save_slot_id)
 	print("SAVING to %s" % save_path)
 	save_game = SaveGame.new()
 	var error = ResourceSaver.save(save_path, save_game)

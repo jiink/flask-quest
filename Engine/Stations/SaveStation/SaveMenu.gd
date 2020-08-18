@@ -1,43 +1,66 @@
 extends Node2D
 
-var save_slot_positions = [177, 121, 65]
-var save_slot_selection = 1
+onready var save_button = $"Control/SaveButton"  
+onready var back_button = $"Control/BackButton"
+onready var players = global.get_players()
+onready var player_money = GameSaver.save_game.data["dollars"]
+onready var player_area_file = GameSaver.save_game.data["player_spawn_scene"]
+onready var player_current_area_file = get_tree().get_current_scene().filename
+var saved = false
+var regex = RegEx.new()
+
+var player_area_dict = {
+	"Test" : "Forbidden Lands",
+	"Area1" : "A1 Laboratories",
+	"Area2" : "Lanetta City",
+	"Area3" : "Lanetta Sewers",
+	"Area4" : "Malus, Inc. HQ",
+	"Area5" : "Glasstown",
+	"Area6" : "Poppyhart",
+	"Area7" : "Mt. Neracla",
+	"Area8" : "Plumb Desert",
+	"Area9" : "S.S. Auxovus",
+	"Area10" : "UNABLE TO CONNECT TO LOCATOR SERVICES. PLEASE CONTACT A1 LABORATORIES."
+}
+
 
 func _ready():
-	get_tree().get_nodes_in_group("Player")[0].frozen = true
+	regex.compile("\/(.*?)\/")
+	if players.size() > 0:
+		players[0].set_frozen(true, true)
+		print(players[0].frozen)
+	save_button.connect("button_down", self, "_on_save_button_down")
+	back_button.connect("button_down", self, "_on_back_button_down")
+#	$Control.grab_focus()
+	save_button.grab_focus()
+	$InfoLabel.text = "%s\n$%s" % [
+		player_area_dict[convert_path_to_area_name(player_area_file)],
+		player_money
+	]
 	
-func _process(delta):
-	if Input.is_action_just_pressed("down"):
-		save_slot_selection += 1
+func convert_path_to_area_name(path):
+	var results = regex.search_all(path)
+	var result = results[1]
+	var area_name = result.get_string(1).replace("/","")
+	return area_name
 	
-	elif Input.is_action_just_pressed("up"):
-		save_slot_selection -= 1
-	
-	if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
-		save_slot_selection = clamp(save_slot_selection, 1, 3)
-		#$save_slots.position.y = save_slot_positions[save_slot_selection - 1]
-		
-		$Buttons/AnimationPlayer.stop(true)
-		$Buttons/AnimationPlayer.play("slot_switch")
-		
-		$save_slots/Tween.interpolate_property($save_slots, "position:y", $save_slots.position.y, 
-		save_slot_positions[save_slot_selection - 1], .3, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
-		$save_slots/Tween.start()
-	
-	elif Input.is_action_just_pressed("confirm"):
-		$"/root/GameSaver".save_from_save_station(save_slot_selection)
-		print("SAVVED")
-		close()
-		
-	
-	elif Input.is_action_just_pressed("cancel"):
-		close()
+func _on_save_button_down():
+	GameSaver.save_from_save_station()
+	print("****GAME SAVED****")
+	$InfoLabel.text = "%s\n$%s" % [
+		player_area_dict[convert_path_to_area_name(get_tree().get_current_scene().filename)],
+		player_money
+	]
+	if saved == false:
+		saved = true
+		$SaveAnimation.play("save")
+func _on_back_button_down():
+	close()
+
+# func _input(event):
+# 	get_tree().set_input_as_handled()
 
 func close():
-	get_tree().get_nodes_in_group("Player")[0].frozen = false
+	players[0].set_frozen(false, true)
 	queue_free()
-
-func _on_LoadButton_pressed():
-	$"/root/GameSaver".load_from_save_station(save_slot_selection)
-	print("LOOOADED??")
-	close()
+	
