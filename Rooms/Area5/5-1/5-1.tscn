@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -92,6 +92,7 @@
 [ext_resource path="res://Rooms/Area5/5-1/DubbleIntroEvent.gd" type="Script" id=90]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=91]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=92]
+[ext_resource path="res://Engine/looptest.ogg" type="AudioStream" id=93]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -172,6 +173,18 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=10]
 resource_name = "dubble_walk_by"
 length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Dubble:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3212, 467 ), Vector2( 3144.8, 467 ) ]
+}
 
 [node name="5-1" groups=[
 "save",
@@ -435,7 +448,7 @@ texture = ExtResource( 78 )
 position = Vector2( 3243, 500 )
 
 [node name="Dubble" parent="YSort" index="2" instance=ExtResource( 86 )]
-position = Vector2( 3212, 467 )
+position = Vector2( 3207.52, 467 )
 
 [node name="CorruptVegetation" type="YSort" parent="YSort" index="3"]
 
@@ -2194,14 +2207,45 @@ __meta__ = {
 message = "...`We're in prison. We're... in prison. We're in prison, we're in prison..."
 character = "orange"
 expression = "cry_sob"
+function = "dubble_walk_by"
 
 [node name="DiagPiece2" parent="DubbleIntroEvent/DialogueTree/DiagPiece" index="0" instance=ExtResource( 91 )]
-message = "pris"
+message = "We've come all this way just to get in..."
 character = "orange"
-expression = "cry_sob"
+expression = "cry_mourn"
+
+[node name="DiagPiece3" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 91 )]
+message = "Who`` was that?"
+character = "orange"
+expression = "big_eyed"
+function = "door_knock"
+
+[node name="DiagPiece4" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 91 )]
+message = "...```Green, can you get that?"
+character = "orange"
+expression = "dot_eyes"
+
+[node name="DiagPiece5" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 91 )]
+message = "GREEN? GREEN, AWAKEN!!"
+character = "orange"
+expression = "yell_outburst"
+
+[node name="DiagPiece6" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 91 )]
+message = "Yea, yea, I'm..."
+character = "green"
+expression = "side_mouth"
+function = "green_wake"
+
+[node name="DiagPiece7" parent="DubbleIntroEvent/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 91 )]
+message = "Awake."
+character = "green"
+expression = "open_mouth"
 
 [node name="CharacterMovement" type="AnimationPlayer" parent="DubbleIntroEvent" index="4"]
 anims/dubble_walk_by = SubResource( 10 )
+
+[node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="5"]
+stream = ExtResource( 93 )
 
 [editable path="YSort/cabin1_A_interior2"]
 
