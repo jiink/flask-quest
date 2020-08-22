@@ -508,7 +508,7 @@ func do_inventory():
 
 func exit_battle():
 	global.end_battle()
-	$"/root/MusicManager".update_music("level")
+	MusicManager.change_music(get_tree().get_current_scene().get("level_music"), false, 1.0)
 	global.get_player().set_frozen(false, true)
 	toggle_lighting(get_tree().get_current_scene(), true)
 	

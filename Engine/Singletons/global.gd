@@ -233,7 +233,7 @@ func copy_actions(from, to):
 
 func start_scene_switch(new_scene, new_player_position, new_player_direction = "none"):
 	# save!!!
-	game_saver.save(1) # todo: slot changing
+	game_saver.save()
 	
 	print("changing scenes to %s..." % new_scene)
 	next_scene = new_scene

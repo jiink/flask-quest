@@ -1,3 +1,8 @@
+# This is bad
+# Don't use it
+# The new one is better
+# Kept for historical purposes of what NOT TO DO
+
 extends Node
 
 var current_level_music

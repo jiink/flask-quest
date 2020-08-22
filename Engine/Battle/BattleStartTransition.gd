@@ -12,10 +12,10 @@ func _ready():
 	print("res://NPC/" + global.initial_enemies[0] + "/" + global.initial_enemies[0] + "Foe.tscn")
 	var foe_instance = foe.instance()
 	if foe_instance.custom_music != null:
-		MusicManager.update_music(foe_instance.custom_music)
+		MusicManager.change_music(foe_instance.custom_music, true, 1.0)
 	else:
 		print("There is NO custom music to play!!!!")
-		MusicManager.update_music("battle")
+		MusicManager.change_music(get_tree().get_current_scene().get("battle_music"), false, 1.0)
 	print("AAAAAAAAAAAAAAAAAAAAAAAAAA" + foe_instance.name)
 	foe_instance.queue_free()
 	
