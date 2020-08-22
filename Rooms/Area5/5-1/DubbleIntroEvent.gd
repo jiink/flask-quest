@@ -9,18 +9,25 @@ func save(save_game):
 	
 func load(save_game):
 	occured = save_game.data[SAVE_KEY + "occured"]
-	suicide(occured)
+
+	prepare_suicide(occured)
 	if not occured:
 		setup()
 
-func suicide(state):
+func prepare_suicide(state): # Places Dubble behind his desk and commits suicide
+	print("STATE? THE STATE IS %s" % state)
 	if state:
-		queue_free()
-	
+		var dubble = get_node("../YSort/Dubble")
+		$CharacterMovement.play("idle_behind_desk")
+		print("HEY, WE GOT HERE. CHARACTERMOVEMENT SHOULD DO ITS THING NOW.")
+		dubble.facing_direction = dubble.Direction.DOWN
+		$"ActivateArea/CollisionShape2D".set_deferred("disabled", true)
+		
 func setup():
 	$OverlayAnimator.play("wake_up")
 	yield(get_tree().create_timer(3), "timeout")
 	DiagHelper.start_talk(self, "OrangeTalk")
+	$CharacterMovement.play("idle_hide_behind_wall")
 		
 func dubble_walk_by():
 	$CharacterMovement.play("dubble_walk_by")
@@ -51,5 +58,6 @@ func _on_ActivateArea_body_entered(body):
 
 func dubble_intro_end():
 	occured = true
+	$CharacterMovement.play("dubble_exit_room")
 #	dubble walks out of room and is transported to behind his desk. Player can now move freely.
 
