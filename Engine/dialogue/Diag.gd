@@ -20,7 +20,6 @@ var stored_function_args = []
 # "`" for delay
 var effectchars = "`"
 var visible_new_text = ""
-var visible_new_text_no_spaces = ""
 var visible_characters_total = 0
 
 var target_tree = null
@@ -47,7 +46,13 @@ var characters = {
 
 onready var audio = $AudioStreamPlayer
 
+var regex = RegEx.new()
+
 func _ready():
+	# selects characters contained in square brackets, as well as effectchar(s)
+	# If you add any more effectchars, make sure escape chars dont have to be dealt with
+	# here in the expression
+	regex.compile("\\[[^\\]]*\\]|\\" + effectchars)
 	$TextBox/Timer.connect("timeout", self, "next_letter_time")
 	$DialogueBoxSprite.modulate = Color.white
 	#$TextBox.add_font_override("font", text_font)
@@ -122,12 +127,15 @@ func update_boxes(new_target):
 	
 	for l in effectchars:
 		visible_new_text = new_text.replace(l, "")
-	$TextBox.text = visible_new_text
+	$TextBox.bbcode_text = visible_new_text
 
 	# get the number that the label's `visible_characters` should go up to.
-	# this number does not include whitespace
-	visible_new_text_no_spaces = visible_new_text.replace(' ', '')	
-	visible_characters_total = visible_new_text_no_spaces.length()
+	# On RichTextLabel, this DOES include whitespace
+	var regex_results = regex.search_all(visible_new_text)
+	for r in regex_results:
+		print(r.get_string())
+		visible_new_text = visible_new_text.replace(r.get_string(), "")
+	visible_characters_total = visible_new_text.length()
 	
 	# set the values from the character dict
 	var chosen_character = characters[target_piece.character]
@@ -229,7 +237,7 @@ func update_boxes(new_target):
 func next_letter_time():
 	if not active: return # i don't want to talk about it
 	if text_index < visible_characters_total - 1:
-		if ".?!:,;`".find(visible_new_text_no_spaces[text_index + 1]) != -1:
+		if ".?!:,;`".find(visible_new_text[text_index + 1]) != -1:
 			$TextBox/Timer.start(text_time + 0.15)
 		else:
 			$TextBox/Timer.start(text_time)
@@ -249,7 +257,7 @@ func next_letter_time():
 			play_sound()
 		
 	else:
-		#print("%d, %d, %d\n%s" % [text_index, visible_new_text.length(), $TextBox.visible_characters, visible_new_text])
+		
 		#text_index = -1
 		
 		$TextBox/Timer.stop()
