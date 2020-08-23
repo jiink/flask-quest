@@ -2,6 +2,10 @@ extends Node2D
 
 export (Vector2) var player_new_position = null
 
+export(AudioStream) var new_song
+export(bool) var start_from_beginning
+export(float) var fade_time
+
 func _ready():
 	connect("body_entered", self, "on_body_entered")
 	
@@ -33,3 +37,7 @@ func on_body_entered(body):
 		if global.get_player(2):
 			global.get_player(2).position = body.position
 			global.get_player(2).get_node("AnimationPlayer").play("appear")
+		
+		# Change music if wanted
+		if new_song != null:
+			MusicManager.change_music(new_song, start_from_beginning, fade_time)
