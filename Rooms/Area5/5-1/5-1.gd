@@ -24,21 +24,30 @@ func load(save_game):
 	update_time_of_day(time_of_day)
 
 func update_time_of_day(state):
+	var modulate_color_animator = get_node("CanvasModulate/AnimationPlayer")
 	match state:
 		DAWN:
-			modulate_color = color_dawn
+			modulate_color_animator.play("dawn")
 		DAY:
-			modulate_color = color_day
+			modulate_color_animator.play("noon")
 		DUSK:
-			modulate_color = color_dusk
+			modulate_color_animator.play("dusk")
 		NIGHT:
-			modulate_color = color_night
-		_:
-			modulate_color = Color(0xff0000ff)
-	$CanvasModulate.color = modulate_color
-	$"Background/ParallaxBackground/ParallaxLayer/outside_forest".modulate = modulate_color
-	print("time of day should be %s" % modulate_color)
+			modulate_color_animator.play("night")
+#		_:
+#			modulate_color = Color(0xff0000ff)
+#	$CanvasModulate.color = modulate_color
+#	$"Background/ParallaxBackground/ParallaxLayer/outside_forest".modulate = modulate_color
+#	print("time of day should be %s" % modulate_color)
 
 func remove_dubble_intro_event(state):
 	if state:
 		$DubbleIntroEvent.queue_free()
+		
+func set_night_lights(state):
+	if state:
+		for night_lights in get_tree().get_nodes_in_group("night_lights"):
+			night_lights.visible = true
+	else:
+		for night_lights in get_tree().get_nodes_in_group("night_lights"):
+			night_lights.visible = false

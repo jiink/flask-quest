@@ -31,8 +31,8 @@ func _ready():
 	add_to_group("tick")
 	# see what animation-related variables to set up
 	# Assumes NPC has the other idle directions too
-	has_dedicated_idle_animations = sprite.frames.has_animation("down") 
-	has_dedicated_left_animation = sprite.frames.has_animation("left_walking")
+	has_dedicated_idle_animations = sprite.frames.has_animation("down_idle") 
+	has_dedicated_left_animation = sprite.frames.has_animation("left")
 
 	if up_down_periodic_mirroring:
 		sprite.connect("animation_finished", self, "_on_animation_finished")

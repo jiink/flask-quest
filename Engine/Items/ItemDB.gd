@@ -69,23 +69,23 @@ var items = {
 		'desc': 'What is this nonsense?',
 		},
 #-------- Glasstown Mission Items ----------
-	'orange_grassbulbs': {
+	'orange_grassbulbs_item': {
 		'name': 'Orange Grassbulbs',
 		'desc': 'All the others seem to be blue.',
 		},
-	'glitter': {
+	'glitter_item': {
 		'name': 'Glitter',
 		'desc': 'What does this even have to do with a bomb?',
 		},
-	'toilet_paper': {
+	'toilet_paper_item': {
 		'name': 'Toilet Paper Roll',
 		'desc': 'Only a little used up.',
 		},
-	'tortured_tortilla': {
+	'tortured_tortilla_item': {
 		'name': 'Tortured Tortilla',
 		'desc': 'It vaguely looks like a tortilla.',
 		},
-	'glasstown_bomb': {
+	'glasstown_bomb_item': {
 		'name': 'Mysterious Bomb',
 		'desc': "Doesn't look like anything you've seen before.",
 		}

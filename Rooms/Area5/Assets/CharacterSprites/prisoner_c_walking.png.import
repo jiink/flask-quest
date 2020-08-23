@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/glasstown_bomb.png-95a91513ddd446a947fd9cb82950e8d7.stex"
+path="res://.import/prisoner_c_walking.png-ccc786763b31b6405124871c46809265.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/glasstown_bomb.png"
-dest_files=[ "res://.import/glasstown_bomb.png-95a91513ddd446a947fd9cb82950e8d7.stex" ]
+source_file="res://Rooms/Area5/Assets/CharacterSprites/prisoner_c_walking.png"
+dest_files=[ "res://.import/prisoner_c_walking.png-ccc786763b31b6405124871c46809265.stex" ]
 
 [params]
 

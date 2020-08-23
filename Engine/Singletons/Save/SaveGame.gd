@@ -14,6 +14,8 @@ export(Dictionary) var data = {
 	"5-1_dubble_intro_event_occured": false,
 	"5-1_dubble_quest_status": 0,
 	"5-1_time_of_day": 1,
+	"5-1_grassbulb_harvested": false,
+	"5-1_frog_current_mission_state": 0,
 	"dollars": 0,
 	"event_seed": int(rand_range(1, 2048)),
 	"green_hp": 100,

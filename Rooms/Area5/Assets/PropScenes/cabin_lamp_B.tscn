@@ -68,12 +68,15 @@ extents = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -12 )
 hframes = 2
+frame = 1
 script = ExtResource( 2 )
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light2D" type="Light2D" parent="." groups=[
+"night_lights",
+]]
 texture = ExtResource( 3 )
 color = Color( 1, 0.964706, 0.823529, 1 )
-energy = 0.0
+energy = 0.9
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

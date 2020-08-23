@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Rooms/Area5/Assets/large_metal_door.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area5/Assets/PropScenes/LargeMetalDoor.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 3 )
@@ -54,6 +55,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, -21 )
 vframes = 5
 hframes = 5
+script = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/PrisonerFrogWalking.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://NPC/NPCWalking/NPCWalking.tscn" type="PackedScene" id=2]
+
+[node name="PrisonerFrog" instance=ExtResource( 2 )]
+
+[node name="AnimatedSprite" parent="." index="3"]
+frames = ExtResource( 1 )

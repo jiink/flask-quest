@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/glitter.png-24cbd301c86dd0048140d1ea16a54567.stex"
+path="res://.import/tortured_tortilla_item.png-44793835f6db8e3eb8ea36ef987aae36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/glitter.png"
-dest_files=[ "res://.import/glitter.png-24cbd301c86dd0048140d1ea16a54567.stex" ]
+source_file="res://Items/Sprites/tortured_tortilla_item.png"
+dest_files=[ "res://.import/tortured_tortilla_item.png-44793835f6db8e3eb8ea36ef987aae36.stex" ]
 
 [params]
 

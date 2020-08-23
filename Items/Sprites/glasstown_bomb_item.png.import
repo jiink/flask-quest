@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/toilet_paper.png-09d58dc111527d9ec8c0814dfc742584.stex"
+path="res://.import/glasstown_bomb_item.png-3f7fc42b446e49095fe66b800e37d6a2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/toilet_paper.png"
-dest_files=[ "res://.import/toilet_paper.png-09d58dc111527d9ec8c0814dfc742584.stex" ]
+source_file="res://Items/Sprites/glasstown_bomb_item.png"
+dest_files=[ "res://.import/glasstown_bomb_item.png-3f7fc42b446e49095fe66b800e37d6a2.stex" ]
 
 [params]
 
