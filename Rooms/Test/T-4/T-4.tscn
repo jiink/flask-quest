@@ -44,7 +44,59 @@ shape = SubResource( 1 )
 position = Vector2( 220, 124 )
 texture = ExtResource( 9 )
 
-[node name="Unlit" type="CanvasLayer" parent="YSort" index="3"]
+[node name="planet_hologram_stand2" type="Sprite" parent="YSort" index="3"]
+position = Vector2( 100, 72 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand3" type="Sprite" parent="YSort" index="4"]
+position = Vector2( 116, 83 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand4" type="Sprite" parent="YSort" index="5"]
+position = Vector2( 107, 94 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand5" type="Sprite" parent="YSort" index="6"]
+position = Vector2( 149, 70 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand6" type="Sprite" parent="YSort" index="7"]
+position = Vector2( 126, 64 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand7" type="Sprite" parent="YSort" index="8"]
+position = Vector2( 129, 105 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand8" type="Sprite" parent="YSort" index="9"]
+position = Vector2( 90, 86 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand9" type="Sprite" parent="YSort" index="10"]
+position = Vector2( 98, 80 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand10" type="Sprite" parent="YSort" index="11"]
+position = Vector2( 88, 111 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand11" type="Sprite" parent="YSort" index="12"]
+position = Vector2( 109, 95 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand12" type="Sprite" parent="YSort" index="13"]
+position = Vector2( 119, 84 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand13" type="Sprite" parent="YSort" index="14"]
+position = Vector2( 125, 73 )
+texture = ExtResource( 9 )
+
+[node name="planet_hologram_stand14" type="Sprite" parent="YSort" index="15"]
+position = Vector2( 125, 73 )
+texture = ExtResource( 9 )
+
+[node name="Unlit" type="CanvasLayer" parent="YSort" index="16"]
 layer = 0
 follow_viewport_enable = true
 
@@ -63,9 +115,6 @@ position = Vector2( 89, 120 )
 scale = Vector2( 0.411133, 0.411133 )
 texture = ExtResource( 4 )
 color = Color( 1, 0.447059, 0, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="NightLight2" type="Light2D" parent="Lights" index="1" groups=[
 "night_lights",
@@ -74,20 +123,334 @@ position = Vector2( 89, 72 )
 scale = Vector2( 0.411133, 0.411133 )
 texture = ExtResource( 4 )
 color = Color( 0.654902, 0.968627, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="NightLight3" type="Light2D" parent="Lights" index="2" groups=[
+[node name="NightLight4" type="Light2D" parent="Lights" index="2" groups=[
 "night_lights",
 ]]
-position = Vector2( 225, 125 )
+position = Vector2( 120.625, 128.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight5" type="Light2D" parent="Lights" index="3" groups=[
+"night_lights",
+]]
+position = Vector2( 120.625, 80.625 )
 scale = Vector2( 0.411133, 0.411133 )
 texture = ExtResource( 4 )
 color = Color( 0.654902, 0.968627, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="NightLight6" type="Light2D" parent="Lights" index="4" groups=[
+"night_lights",
+]]
+position = Vector2( 130.625, 113.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight7" type="Light2D" parent="Lights" index="5" groups=[
+"night_lights",
+]]
+position = Vector2( 130.625, 65.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight8" type="Light2D" parent="Lights" index="6" groups=[
+"night_lights",
+]]
+position = Vector2( 108.625, 114.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight9" type="Light2D" parent="Lights" index="7" groups=[
+"night_lights",
+]]
+position = Vector2( 108.625, 66.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight10" type="Light2D" parent="Lights" index="8" groups=[
+"night_lights",
+]]
+position = Vector2( 90.625, 121.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight11" type="Light2D" parent="Lights" index="9" groups=[
+"night_lights",
+]]
+position = Vector2( 90.625, 73.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight12" type="Light2D" parent="Lights" index="10" groups=[
+"night_lights",
+]]
+position = Vector2( 72.625, 136.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight13" type="Light2D" parent="Lights" index="11" groups=[
+"night_lights",
+]]
+position = Vector2( 72.625, 88.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight14" type="Light2D" parent="Lights" index="12" groups=[
+"night_lights",
+]]
+position = Vector2( 139.625, 161.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight15" type="Light2D" parent="Lights" index="13" groups=[
+"night_lights",
+]]
+position = Vector2( 139.625, 113.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight16" type="Light2D" parent="Lights" index="14" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 162.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight17" type="Light2D" parent="Lights" index="15" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 114.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight18" type="Light2D" parent="Lights" index="16" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 162.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight19" type="Light2D" parent="Lights" index="17" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 114.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight3" type="Light2D" parent="Lights" index="18" groups=[
+"night_lights",
+]]
+position = Vector2( 262, 43 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight20" type="Light2D" parent="Lights" index="19" groups=[
+"night_lights",
+]]
+position = Vector2( 170, 43 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight21" type="Light2D" parent="Lights" index="20" groups=[
+"night_lights",
+]]
+position = Vector2( 142, 70 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight23" type="Light2D" parent="Lights" index="21" groups=[
+"night_lights",
+]]
+position = Vector2( 89, 120 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight24" type="Light2D" parent="Lights" index="22" groups=[
+"night_lights",
+]]
+position = Vector2( 89, 72 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight25" type="Light2D" parent="Lights" index="23" groups=[
+"night_lights",
+]]
+position = Vector2( 120.625, 128.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight26" type="Light2D" parent="Lights" index="24" groups=[
+"night_lights",
+]]
+position = Vector2( 120.625, 80.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight27" type="Light2D" parent="Lights" index="25" groups=[
+"night_lights",
+]]
+position = Vector2( 130.625, 113.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight28" type="Light2D" parent="Lights" index="26" groups=[
+"night_lights",
+]]
+position = Vector2( 130.625, 65.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight29" type="Light2D" parent="Lights" index="27" groups=[
+"night_lights",
+]]
+position = Vector2( 108.625, 114.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight30" type="Light2D" parent="Lights" index="28" groups=[
+"night_lights",
+]]
+position = Vector2( 108.625, 66.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight31" type="Light2D" parent="Lights" index="29" groups=[
+"night_lights",
+]]
+position = Vector2( 90.625, 121.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight32" type="Light2D" parent="Lights" index="30" groups=[
+"night_lights",
+]]
+position = Vector2( 90.625, 73.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight33" type="Light2D" parent="Lights" index="31" groups=[
+"night_lights",
+]]
+position = Vector2( 72.625, 136.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight34" type="Light2D" parent="Lights" index="32" groups=[
+"night_lights",
+]]
+position = Vector2( 72.625, 88.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight35" type="Light2D" parent="Lights" index="33" groups=[
+"night_lights",
+]]
+position = Vector2( 139.625, 161.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight36" type="Light2D" parent="Lights" index="34" groups=[
+"night_lights",
+]]
+position = Vector2( 139.625, 113.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight37" type="Light2D" parent="Lights" index="35" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 162.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight38" type="Light2D" parent="Lights" index="36" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 114.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight39" type="Light2D" parent="Lights" index="37" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 162.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="NightLight40" type="Light2D" parent="Lights" index="38" groups=[
+"night_lights",
+]]
+position = Vector2( 200.625, 114.625 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight41" type="Light2D" parent="Lights" index="39" groups=[
+"night_lights",
+]]
+position = Vector2( 262, 43 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight42" type="Light2D" parent="Lights" index="40" groups=[
+"night_lights",
+]]
+position = Vector2( 170, 43 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight43" type="Light2D" parent="Lights" index="41" groups=[
+"night_lights",
+]]
+position = Vector2( 142, 70 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
+
+[node name="NightLight22" type="Light2D" parent="Lights" index="42" groups=[
+"night_lights",
+]]
+position = Vector2( 169, 53 )
+scale = Vector2( 0.411133, 0.411133 )
+texture = ExtResource( 4 )
+color = Color( 0.654902, 0.968627, 1, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
 

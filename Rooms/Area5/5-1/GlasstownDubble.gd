@@ -86,10 +86,10 @@ func interact():
 				DiagHelper.start_talk(self, "MissionPlantBombReminder")
 				
 func set_time_dawn():
-	scene_root.update_time_of_day(0)
+	scene_root.fade_time_of_day(0)
 func set_time_day():
-	scene_root.update_time_of_day(1)
+	scene_root.fade_time_of_day(1)
 func set_time_dusk():
-	scene_root.update_time_of_day(2)
+	scene_root.fade_time_of_day(2)
 func set_time_night():
-	scene_root.update_time_of_day(3)
+	scene_root.fade_time_of_day(3)

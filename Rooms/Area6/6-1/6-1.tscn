@@ -12,11 +12,12 @@
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/SpeedlimitSign.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=11]
 
-[node name="TemplateRoom" instance=ExtResource( 1 )]
+[node name="6-1" instance=ExtResource( 1 )]
 
 [node name="6-1" parent="Tilemaps" index="0" instance=ExtResource( 2 )]
 
 [node name="Collisions" type="TileMap" parent="Tilemaps" index="1"]
+visible = false
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 format = 1

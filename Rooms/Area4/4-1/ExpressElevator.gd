@@ -8,8 +8,6 @@ func _on_OnArea_body_entered(body):
 	if body == global.get_player():
 		$AnimationPlayer.play("startup")
 		print("a player is in the elevator")
-		$"..".level_music = preload("res://Rooms/Common/elevator.ogg")
-		MusicManager.update_music("level")
 		
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print("animation finished!")

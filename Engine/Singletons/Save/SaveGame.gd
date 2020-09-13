@@ -13,7 +13,7 @@ export(Dictionary) var data = {
 	"4-1_kicked_out_lobby": false,
 	"5-1_dubble_intro_event_occured": false,
 	"5-1_dubble_quest_status": 0,
-	"5-1_time_of_day": 1,
+	"5-1_time_of_day": 0,
 	"5-1_grassbulb_harvested": false,
 	"5-1_frog_current_mission_state": 0,
 	"dollars": 0,

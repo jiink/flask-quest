@@ -2,8 +2,7 @@ extends "res://Rooms/TemplateRoom.gd"
 
 
 func _ready():
-	self.level_music = preload("res://Engine/zzzzzz.ogg")
-	MusicManager.update_music("level")
+	MusicManager.change_music(null, true, 0)
 	if AudioServer.is_bus_mute(1) == false:
 		AudioServer.set_bus_mute(1, true)
 		yield(get_tree().create_timer(20), "timeout")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -104,6 +104,14 @@
 [ext_resource path="res://Rooms/Area5/Assets/cabin_sink_side.png" type="Texture" id=102]
 [ext_resource path="res://Rooms/Area5/Assets/cabin_oven_dishwasher.png" type="Texture" id=103]
 [ext_resource path="res://Rooms/Area5/5-1/PrisonerFrog.gd" type="Script" id=104]
+[ext_resource path="res://Rooms/Area5/Assets/ontoglasstown-07.ogg" type="AudioStream" id=105]
+[ext_resource path="res://Rooms/Area5/Assets/party_music.ogg" type="AudioStream" id=106]
+[ext_resource path="res://Rooms/Area5/5-1/SupertunnelPortal.gd" type="Script" id=107]
+[ext_resource path="res://Engine/light4.png" type="Texture" id=108]
+[ext_resource path="res://Rooms/Area5/5-1/TortureTortilla.gd" type="Script" id=109]
+[ext_resource path="res://Items/Sprites/tortured_tortilla_item.png" type="Texture" id=110]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=111]
+[ext_resource path="res://Rooms/Area5/5-1/BombGuard.gd" type="Script" id=112]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -150,7 +158,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=9]
 resource_name = "enter_door"
 length = 5.0
 tracks/0/type = "value"
@@ -160,8 +168,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.5, 2 ),
+"transitions": PoolRealArray( 1.36604, 1 ),
 "update": 0,
 "values": [ 3616.0, 3673.75 ]
 }
@@ -184,13 +192,25 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=10]
 resource_name = "exit_room"
 length = 1.6
 tracks/0/type = "value"
@@ -217,9 +237,112 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=29]
-resource_name = "idle_in_room"
+[sub_resource type="Animation" id=11]
+resource_name = "exit_supertunnel"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1.36604 ),
+"update": 0,
+"values": [ 3673.75, 3616.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "go_home"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.4, 2.5 ),
+"transitions": PoolRealArray( 12.996, 0, 1.36604 ),
+"update": 0,
+"values": [ 3616.0, 2846.83, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:interactable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
 tracks/0/interp = 1
@@ -244,9 +367,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=30]
-resource_name = "lead_from_house"
+[sub_resource type="Animation" id=14]
 length = 6.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -272,10 +406,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=31]
-resource_name = "lead_into_forest"
-length = 10.0
+[sub_resource type="Animation" id=15]
+length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
 tracks/0/interp = 1
@@ -295,32 +440,50 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 10 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TriggerArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 59.2085, 60.4265 )
+
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 12, 5 )
 
-[sub_resource type="CanvasItemMaterial" id=24]
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 9, 10 )
 
-[sub_resource type="Curve2D" id=32]
+[sub_resource type="CanvasItemMaterial" id=19]
+
+[sub_resource type="Curve2D" id=20]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 3958, 112, 0, 0, 0, 0, 3965, 126, 0, 0, 0, 0, 3976, 131, 0, 0, 0, 0, 3984, 134, 0, 0, 0, 0, 3991, 140, 0, 0, 0, 0, 3992, 147, 0, 0, 0, 0, 3992, 164, 0, 0, 0, 0, 1292, 816, 0, 0, 0, 0, 1297, 836, 0, 0, 0, 0, 1310, 853, 0, 0, 0, 0, 1327, 865, 0, 0, 0, 0, 1357, 872, 0, 0, 0, 0, 1446, 875, 0, 0, 0, 0, 1492, 864, 0, 0, 0, 0, 1515, 852, 0, 0, 0, 0, 1532, 837, 0, 0, 0, 0, 1539, 820, 0, 0, 0, 0, 1540, 804, 0, 0, 0, 0, 1540, 776, 0, 0, 0, 0, 1542, 645, 0, 0, 0, 0, 1556, 608, 0, 0, 0, 0, 1581, 582, 0, 0, 0, 0, 1606, 560, 0, 0, 0, 0, 1631, 547, 0, 0, 0, 0, 1663, 542, 0, 0, 0, 0, 1685, 546, 0, 0, 0, 0, 1706, 557, 0, 0, 0, 0, 1718, 574, 0, 0, 0, 0, 1732, 589, 0, 0, 0, 0, 1749, 593, 0, 0, 0, 0, 1772, 591, 0, 0, 0, 0, 1778, 583, 0, 0, 0, 0, 1779, 579, 0, 0, 0, 0, 1787, 582, 0, 0, 0, 0, 1798, 583, 0, 0, 0, 0, 1811, 579, 0, 0, 0, 0, 1820, 570, 0, 0, 0, 0, 1821, 557 )
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 13, 3 )
 
-[sub_resource type="CanvasItemMaterial" id=12]
+[sub_resource type="CanvasItemMaterial" id=23]
 light_mode = 2
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=24]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -353,8 +516,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=27]
-resource_name = "dawn"
+[sub_resource type="Animation" id=25]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -385,9 +547,20 @@ tracks/1/keys = {
 "method": "set_night_lights"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ) ]
+}
 
-[sub_resource type="Animation" id=25]
-resource_name = "dusk"
+[sub_resource type="Animation" id=26]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -418,9 +591,20 @@ tracks/1/keys = {
 "method": "set_night_lights"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.682353, 0.352941, 1 ), Color( 0.572549, 0.337255, 0.294118, 1 ) ]
+}
 
-[sub_resource type="Animation" id=26]
-resource_name = "night"
+[sub_resource type="Animation" id=27]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -448,8 +632,20 @@ tracks/1/keys = {
 "method": "set_night_lights"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
+}
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=28]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -477,14 +673,26 @@ tracks/1/keys = {
 "method": "set_night_lights"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.760784, 0.592157, 0.356863, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 16, 10 )
 
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 24, 4 )
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 24, 3 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=31]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorOverlay:color")
@@ -511,7 +719,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=32]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -538,7 +746,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=33]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -565,7 +773,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=34]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -592,7 +800,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
 tracks/0/interp = 1
@@ -606,7 +814,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3868, 2078 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=36]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
 tracks/0/interp = 1
@@ -620,7 +828,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3212, 467 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=23]
+[sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 18, 15 )
 
 [node name="5-1" groups=[
@@ -648,7 +856,7 @@ z_index = 2
 tile_set = ExtResource( 84 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 196653, 0, 65538, 196660, 0, 65538, 262178, 0, 65537, 262193, 0, 65538, 262195, 0, 65538, 327715, 0, 65537, 393255, 0, 65537, 1048637, 0, 65538, 1114172, 0, 65538, 1179654, 0, 65538, 1179707, 0, 65538, 1245242, 0, 65538, 1310725, 0, 65538, 1310734, 0, 65537, 1310777, 0, 65538, 1441781, 0, 65537, 1376260, 0, 65538, 1376271, 0, 65537, 1376312, 0, 65538, 1376366, 0, 0, 1376367, 0, 0, 1376368, 0, 0, 1376369, 0, 0, 1376370, 0, 0, 1376371, 0, 0, 1376372, 0, 0, 1376373, 0, 0, 1376374, 0, 0, 1376375, 0, 0, 1507319, 0, 65537, 1441795, 0, 65538, 1441809, 0, 65537, 1441902, 0, 0, 1441911, 0, 0, 1572856, 0, 65537, 1507330, 0, 65538, 1507346, 0, 65537, 1507438, 0, 0, 1507447, 0, 0, 1638393, 0, 65537, 1572865, 0, 65538, 1572883, 0, 65537, 1572974, 0, 0, 1572983, 0, 0, 1703932, 0, 65537, 1638422, 0, 65537, 1638510, 0, 0, 1638519, 0, 0, 1703959, 0, 65537, 1704046, 0, 0, 1704055, 0, 0, 1769496, 0, 65537, 1769499, 0, 65537, 1769582, 0, 0, 1769591, 0, 0, 1835118, 0, 0, 1835127, 0, 0, 1900654, 0, 0, 1900663, 0, 0, 1966190, 0, 0, 1966199, 0, 0, 2031726, 0, 0, 2031735, 0, 0, 2097262, 0, 0, 2097264, 0, 0, 2097265, 0, 0, 2097266, 0, 0, 2097271, 0, 0, 2162798, 0, 0, 2162799, 0, 0, 2162803, 0, 0, 2162804, 0, 0, 2162805, 0, 0, 2162806, 0, 0, 2162807, 0, 0 )
+tile_data = PoolIntArray( 196653, 0, 65538, 196660, 0, 65538, 262178, 0, 65537, 262193, 0, 65538, 262195, 0, 65538, 327715, 0, 65537, 393255, 0, 65537, 1048637, 0, 65538, 1114172, 0, 65538, 1179654, 0, 65538, 1179707, 0, 65538, 1245242, 0, 65538, 1310725, 0, 65538, 1310734, 0, 65537, 1310777, 0, 65538, 1441781, 0, 65537, 1376260, 0, 65538, 1376271, 0, 65537, 1376312, 0, 65538, 1376366, 0, 0, 1376367, 0, 0, 1376368, 0, 0, 1376369, 0, 0, 1376370, 0, 0, 1376371, 0, 0, 1376372, 0, 0, 1376373, 0, 0, 1376374, 0, 0, 1376375, 0, 0, 1507319, 0, 65537, 1441795, 0, 65538, 1441809, 0, 65537, 1441902, 0, 0, 1441911, 0, 0, 1572856, 0, 65537, 1507330, 0, 65538, 1507346, 0, 65537, 1507438, 0, 0, 1507447, 0, 0, 1638393, 0, 65537, 1572865, 0, 65538, 1572883, 0, 65537, 1572974, 0, 0, 1572983, 0, 0, 1703932, 0, 65537, 1638422, 0, 65537, 1638510, 0, 0, 1638519, 0, 0, 1703959, 0, 65537, 1704046, 0, 0, 1704055, 0, 0, 1769496, 0, 65537, 1769499, 0, 65537, 1769582, 0, 0, 1769591, 0, 0, 1835118, 0, 0, 1835127, 0, 0, 1900654, 0, 0, 1900663, 0, 0, 1966190, 0, 0, 1966199, 0, 0, 2031726, 0, 0, 2031735, 0, 0, 2097262, 0, 0, 2097264, 0, 0, 2097265, 0, 0, 2097266, 0, 0, 2097271, 0, 0, 2162798, 0, 0, 2162799, 0, 0, 2162803, 0, 0, 2162804, 0, 0, 2162805, 0, 0, 2162806, 0, 0, 2162807, 0, 0, 3997790, 0, 0, 3997791, 0, 0, 3997792, 0, 0, 3997793, 0, 0, 3997794, 0, 0, 3997795, 0, 0, 3997796, 0, 0, 3997797, 0, 0, 3997798, 0, 0, 3997799, 0, 0, 3997800, 0, 0, 3997801, 0, 0, 3997802, 0, 0, 3997803, 0, 0, 3997804, 0, 0, 3997805, 0, 0, 3997806, 0, 0, 3997807, 0, 0, 3997808, 0, 0, 3997809, 0, 0, 3997810, 0, 0, 3997811, 0, 0, 3997812, 0, 0, 3997813, 0, 0, 3997814, 0, 0, 3997815, 0, 0, 3997816, 0, 0, 3997817, 0, 0, 3997818, 0, 0, 3997819, 0, 0, 3997820, 0, 0, 3997821, 0, 0, 3997822, 0, 0, 3997823, 0, 0, 3997824, 0, 0, 4063326, 0, 0, 4128862, 0, 0, 4194398, 0, 0, 4259934, 0, 0, 4325469, 0, 1, 4325470, 0, 0, 4391005, 0, 0, 4456541, 0, 0, 4522077, 0, 0, 4587613, 0, 0, 4653149, 0, 0, 4718685, 0, 0, 4784221, 0, 0, 4849757, 0, 0, 4915293, 0, 0, 4980829, 0, 0, 5046365, 0, 0, 5111901, 0, 0, 5177437, 0, 0, 5242973, 0, 0, 5308509, 0, 0, 5374045, 0, 0, 5439581, 0, 0, 5505117, 0, 0, 5570653, 0, 0, 5636189, 0, 0, 5701725, 0, 0, 5767261, 0, 0, 5832797, 0, 0, 5898333, 0, 0, 5963869, 0, 0, 6029405, 0, 0, 6094941, 0, 0, 6160477, 0, 0, 6226013, 0, 65537, 6291550, 0, 0, 6357086, 0, 0, 6422621, 0, 1, 6488156, 0, 1, 6553692, 0, 0, 6619228, 0, 0, 6684764, 0, 0, 6750300, 0, 0, 6815836, 0, 0, 6881372, 0, 0, 6946850, 0, 0, 6946851, 0, 0, 6946852, 0, 0, 6946853, 0, 0, 6946854, 0, 0, 6946855, 0, 0, 6946856, 0, 0, 6946857, 0, 0, 6946858, 0, 0, 6946859, 0, 0, 6946860, 0, 0, 6946861, 0, 0, 6946862, 0, 0, 6946863, 0, 0, 6946864, 0, 0, 6946865, 0, 0, 6946866, 0, 0, 6946867, 0, 0, 6946868, 0, 0, 6946869, 0, 0, 6946870, 0, 0, 6946871, 0, 0, 6946872, 0, 0, 6946873, 0, 0, 6946874, 0, 0, 6946875, 0, 0, 6946876, 0, 0, 6946877, 0, 0, 6946878, 0, 0, 6946879, 0, 0, 6946880, 0, 0, 6946881, 0, 0, 6946882, 0, 0, 6946883, 0, 0, 6946884, 0, 0, 6946908, 0, 0, 7012386, 0, 0, 7012420, 0, 0, 7012444, 0, 0, 7077922, 0, 0, 7077956, 0, 0, 7077980, 0, 0, 7143458, 0, 0, 7143492, 0, 0, 7143516, 0, 0, 7208994, 0, 0, 7209028, 0, 0, 7209052, 0, 0, 7274530, 0, 0, 7274564, 0, 0, 7274588, 0, 0, 7340066, 0, 0, 7340100, 0, 0, 7340124, 0, 0, 7405602, 0, 0, 7405636, 0, 0, 7405660, 0, 0, 7471138, 0, 0, 7471172, 0, 0, 7471196, 0, 0, 7536674, 0, 0, 7536708, 0, 0, 7536732, 0, 0, 7602210, 0, 0, 7602244, 0, 0, 7602268, 0, 0, 7667746, 0, 0, 7667780, 0, 0, 7667804, 0, 0, 7733282, 0, 0, 7733316, 0, 0, 7733340, 0, 0, 7798818, 0, 0, 7798852, 0, 0, 7798876, 0, 0, 7864354, 0, 0, 7864388, 0, 0, 7864412, 0, 0, 7929890, 0, 0, 7929914, 0, 0, 7929915, 0, 0, 7929924, 0, 0, 7995426, 0, 0, 7995427, 0, 0, 7995428, 0, 0, 7995429, 0, 0, 7995430, 0, 0, 7995431, 0, 0, 7995432, 0, 0, 7995433, 0, 0, 7995434, 0, 0, 7995435, 0, 0, 7995436, 0, 0, 7995437, 0, 0, 7995438, 0, 0, 7995439, 0, 0, 7995440, 0, 0, 7995441, 0, 0, 7995442, 0, 0, 7995443, 0, 0, 7995444, 0, 0, 7995445, 0, 0, 7995446, 0, 0, 7995447, 0, 0, 7995448, 0, 0, 7995449, 0, 0, 7995452, 0, 0, 7995453, 0, 0, 7995454, 0, 0, 7995455, 0, 0, 7995456, 0, 0, 7995457, 0, 0, 7995458, 0, 0, 7995459, 0, 0, 7995460, 0, 0 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0"]
 
@@ -939,12 +1147,12 @@ __meta__ = {
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
 
 [node name="Player" parent="YSort" index="2"]
-position = Vector2( 3239, 512 )
+position = Vector2( 3245, 503 )
 
 [node name="Dubble" parent="YSort" index="3" groups=[
 "save",
 ] instance=ExtResource( 86 )]
-position = Vector2( 3868, 2078 )
+position = Vector2( 3250, 530 )
 script = ExtResource( 94 )
 up_down_periodic_mirroring = true
 
@@ -1050,23 +1258,28 @@ message = "Here you go!"
 face_texture = ExtResource( 99 )
 
 [node name="PostMission" parent="YSort/Sarah/DialogueTree" index="2" instance=ExtResource( 91 )]
-message = "Good luck with whatever you're doing, guys."
+message = "Well, hope you enjoy the glitter. Feel free to enjoy our party, too!"
+face_texture = ExtResource( 99 )
+
+[node name="LaterMission" parent="YSort/Sarah/DialogueTree" index="3" instance=ExtResource( 91 )]
+message = "Good luck with what you're doing, guys."
 face_texture = ExtResource( 99 )
 
 [node name="PrisonerFrog" parent="YSort" index="5" groups=[
 "save",
 ] instance=ExtResource( 101 )]
 position = Vector2( 1779.36, 580.556 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 104 )
 interactable = false
 
 [node name="CharacterMover" type="AnimationPlayer" parent="YSort/PrisonerFrog" index="4"]
-anims/enter_door = SubResource( 33 )
-anims/exit_room = SubResource( 28 )
-anims/idle_in_room = SubResource( 29 )
-anims/lead_from_house = SubResource( 30 )
-anims/lead_into_forest = SubResource( 31 )
+anims/enter_door = SubResource( 9 )
+anims/exit_room = SubResource( 10 )
+anims/exit_supertunnel = SubResource( 11 )
+anims/go_home = SubResource( 12 )
+anims/idle_in_room = SubResource( 13 )
+anims/lead_from_house = SubResource( 14 )
+anims/lead_into_forest = SubResource( 15 )
 
 [node name="DialogueTree" parent="YSort/PrisonerFrog" index="5" instance=ExtResource( 92 )]
 
@@ -1074,7 +1287,14 @@ anims/lead_into_forest = SubResource( 31 )
 message = "premission"
 
 [node name="Intro" parent="YSort/PrisonerFrog/DialogueTree" index="1" instance=ExtResource( 91 )]
-message = "introduction"
+message = "Sir, do you have toilet paper?"
+character = "orange"
+expression = "smile"
+
+[node name="Intro2" parent="YSort/PrisonerFrog/DialogueTree/Intro" index="0" instance=ExtResource( 91 )]
+message = "Dubble has told us that you are who we should talk to."
+character = "orange"
+expression = "smile"
 function = "exit_house"
 
 [node name="LeadFromHouse" parent="YSort/PrisonerFrog/DialogueTree" index="2" instance=ExtResource( 91 )]
@@ -1092,10 +1312,53 @@ message = "let me help you open this door"
 message = "Okay, I got it. See you on the other side."
 function = "open_door"
 
-[node name="PostMission" parent="YSort/PrisonerFrog/DialogueTree" index="5" instance=ExtResource( 91 )]
+[node name="CloseDoor" parent="YSort/PrisonerFrog/DialogueTree" index="5" instance=ExtResource( 91 )]
+message = "That was super weird. I'm going to close the door now. Let's hope we get to never enter that building again."
+function = "close_door"
+
+[node name="CloseDoor2" parent="YSort/PrisonerFrog/DialogueTree/CloseDoor" index="0" instance=ExtResource( 91 )]
+message = "Well, you got your toilet paper and my job is done. I'm going to go home, guys. Enjoy your day."
+function = "go_home"
+
+[node name="PostMission" parent="YSort/PrisonerFrog/DialogueTree" index="6" instance=ExtResource( 91 )]
 message = "that was fun"
 
-[node name="OrangeGrassBulbs" type="Node2D" parent="YSort" index="6" groups=[
+[node name="TriggerArea" type="Area2D" parent="YSort/PrisonerFrog" index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/PrisonerFrog/TriggerArea" index="0"]
+shape = SubResource( 16 )
+disabled = true
+
+[node name="Guard" parent="YSort" index="6" instance=ExtResource( 111 )]
+position = Vector2( 422, -96 )
+script = ExtResource( 112 )
+
+[node name="DialogueTree" parent="YSort/Guard" index="3" instance=ExtResource( 92 )]
+
+[node name="PreMission" parent="YSort/Guard/DialogueTree" index="0" instance=ExtResource( 91 )]
+message = "Remember to N.U.T. around Glasstown!"
+
+[node name="Mission" parent="YSort/Guard/DialogueTree" index="1" instance=ExtResource( 91 )]
+message = "Hey guard person, can we have a bomb?"
+character = "orange"
+
+[node name="Mission2" parent="YSort/Guard/DialogueTree/Mission" index="0" instance=ExtResource( 91 )]
+message = "Of course you can. That'll be 400 Glassbucks."
+
+[node name="Mission3" parent="YSort/Guard/DialogueTree/Mission/Mission2" index="0" instance=ExtResource( 91 )]
+message = "Oh my god, you actually have the money."
+function = "give_bomb"
+
+[node name="Mission4" parent="YSort/Guard/DialogueTree/Mission/Mission2/Mission3" index="0" instance=ExtResource( 91 )]
+message = "Okay, here's your bomb. Don't do anything bad with this, kid."
+
+[node name="PostMission" parent="YSort/Guard/DialogueTree" index="2" instance=ExtResource( 91 )]
+message = "Don't get nutty with that bomb, kid. I'll keep an eye on you."
+
+[node name="LaterMission" parent="YSort/Guard/DialogueTree" index="3" instance=ExtResource( 91 )]
+message = "Hey, bomb kid, I hope you aren't doing anything nutty with that bomb I gave you earlier. "
+
+[node name="OrangeGrassBulbs" type="Node2D" parent="YSort" index="7" groups=[
 "save",
 ]]
 position = Vector2( 1110, 1532 )
@@ -1109,7 +1372,7 @@ hframes = 2
 [node name="Interaction" type="Area2D" parent="YSort/OrangeGrassBulbs" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeGrassBulbs/Interaction" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 17 )
 
 [node name="DialogueTree" parent="YSort/OrangeGrassBulbs" index="2" instance=ExtResource( 92 )]
 
@@ -1118,7 +1381,21 @@ message = "Is that plant going to survive?"
 character = "orange"
 expression = "sad"
 
-[node name="CorruptVegetation" type="YSort" parent="YSort" index="7"]
+[node name="TortillaTable" parent="YSort" index="8" instance=ExtResource( 40 )]
+position = Vector2( 2640, 2087 )
+
+[node name="Tortilla" type="Sprite" parent="YSort/TortillaTable" index="1"]
+position = Vector2( 0, -10 )
+texture = ExtResource( 110 )
+script = ExtResource( 109 )
+
+[node name="Interaction" type="Area2D" parent="YSort/TortillaTable/Tortilla" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TortillaTable/Tortilla/Interaction" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 18 )
+
+[node name="CorruptVegetation" type="YSort" parent="YSort" index="9"]
 
 [node name="plant3_A_corrupt" parent="YSort/CorruptVegetation" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1391, 478 )
@@ -1348,7 +1625,7 @@ position = Vector2( 1578, 8 )
 [node name="tree1_B_corruptA25" parent="YSort/CorruptVegetation" index="75" instance=ExtResource( 9 )]
 position = Vector2( 1388, 136 )
 
-[node name="Vegetation" type="YSort" parent="YSort" index="8"]
+[node name="Vegetation" type="YSort" parent="YSort" index="10"]
 
 [node name="tree1_B" parent="YSort/Vegetation" index="0" instance=ExtResource( 14 )]
 position = Vector2( 491, 273 )
@@ -1582,13 +1859,13 @@ position = Vector2( 960, 1245 )
 position = Vector2( 1216, 959 )
 
 [node name="tree2_A18" parent="YSort/Vegetation" index="77" instance=ExtResource( 16 )]
-position = Vector2( 605, 1719 )
+position = Vector2( 586, 1662 )
 
 [node name="tree2_A77" parent="YSort/Vegetation" index="78" instance=ExtResource( 16 )]
 position = Vector2( -195, 653 )
 
 [node name="tree2_A25" parent="YSort/Vegetation" index="79" instance=ExtResource( 16 )]
-position = Vector2( 1254, 1897 )
+position = Vector2( 1277, 1917 )
 
 [node name="tree2_A27" parent="YSort/Vegetation" index="80" instance=ExtResource( 16 )]
 position = Vector2( 499, 1886 )
@@ -1633,7 +1910,7 @@ position = Vector2( 1369, 701 )
 position = Vector2( 1094, 423 )
 
 [node name="tree2_A24" parent="YSort/Vegetation" index="94" instance=ExtResource( 16 )]
-position = Vector2( 1015, 1729 )
+position = Vector2( 1300, 1604 )
 
 [node name="tree2_A78" parent="YSort/Vegetation" index="95" instance=ExtResource( 16 )]
 position = Vector2( 172, 731 )
@@ -1669,7 +1946,7 @@ position = Vector2( 150, 1329 )
 position = Vector2( 48, 1190.5 )
 
 [node name="tree2_A15" parent="YSort/Vegetation" index="106" instance=ExtResource( 16 )]
-position = Vector2( 689, 1705 )
+position = Vector2( 666, 1620 )
 
 [node name="tree2_A76" parent="YSort/Vegetation" index="107" instance=ExtResource( 16 )]
 position = Vector2( 43, 706 )
@@ -1711,16 +1988,16 @@ position = Vector2( -76, 819 )
 position = Vector2( 1851, 1013 )
 
 [node name="tree2_A26" parent="YSort/Vegetation" index="120" instance=ExtResource( 16 )]
-position = Vector2( 1349, 1679 )
+position = Vector2( 1321, 1703 )
 
 [node name="tree2_A10" parent="YSort/Vegetation" index="121" instance=ExtResource( 16 )]
 position = Vector2( 116, 1425 )
 
 [node name="tree2_A29" parent="YSort/Vegetation" index="122" instance=ExtResource( 16 )]
-position = Vector2( 546, 1973 )
+position = Vector2( 452, 1931 )
 
 [node name="tree2_A22" parent="YSort/Vegetation" index="123" instance=ExtResource( 16 )]
-position = Vector2( 1180, 1744 )
+position = Vector2( 1246, 1836 )
 
 [node name="tree2_A57" parent="YSort/Vegetation" index="124" instance=ExtResource( 16 )]
 position = Vector2( 1956, 858 )
@@ -1750,7 +2027,7 @@ position = Vector2( 1654, 1172 )
 position = Vector2( 1455, 1272 )
 
 [node name="tree2_A28" parent="YSort/Vegetation" index="133" instance=ExtResource( 16 )]
-position = Vector2( 1239, 1810 )
+position = Vector2( 1436, 1864 )
 
 [node name="tree2_A12" parent="YSort/Vegetation" index="134" instance=ExtResource( 16 )]
 position = Vector2( 720, 1633 )
@@ -1783,7 +2060,7 @@ position = Vector2( -13, 501 )
 position = Vector2( 1697, 1088 )
 
 [node name="tree3_A7" parent="YSort/Vegetation" index="144" instance=ExtResource( 17 )]
-material = SubResource( 24 )
+material = SubResource( 19 )
 position = Vector2( 268, 1626 )
 
 [node name="tree3_A8" parent="YSort/Vegetation" index="145" instance=ExtResource( 17 )]
@@ -1829,7 +2106,7 @@ position = Vector2( -245, 1040 )
 position = Vector2( 425, 1715 )
 
 [node name="tree1_A10" parent="YSort/Vegetation" index="159" instance=ExtResource( 19 )]
-position = Vector2( 328, 1875 )
+position = Vector2( 348, 1826 )
 
 [node name="tree1_A8" parent="YSort/Vegetation" index="160" instance=ExtResource( 19 )]
 position = Vector2( 817, 1664 )
@@ -1871,10 +2148,10 @@ position = Vector2( -25, 1377 )
 position = Vector2( 508, 1758 )
 
 [node name="tree1_B13" parent="YSort/Vegetation" index="173" instance=ExtResource( 14 )]
-position = Vector2( 408, 1931 )
+position = Vector2( 390, 1898 )
 
 [node name="tree1_B10" parent="YSort/Vegetation" index="174" instance=ExtResource( 14 )]
-position = Vector2( 1038, 1814 )
+position = Vector2( 1191, 1929 )
 
 [node name="tree1_B11" parent="YSort/Vegetation" index="175" instance=ExtResource( 14 )]
 position = Vector2( -140, 670 )
@@ -1987,7 +2264,7 @@ position = Vector2( 904, 674 )
 [node name="plant5_A6" parent="YSort/Vegetation" index="211" instance=ExtResource( 21 )]
 position = Vector2( 880, 708 )
 
-[node name="Cabins" type="YSort" parent="YSort" index="9"]
+[node name="Cabins" type="YSort" parent="YSort" index="11"]
 
 [node name="cabin1_A" parent="YSort/Cabins" index="0" instance=ExtResource( 28 )]
 position = Vector2( 499, 1129 )
@@ -2058,7 +2335,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Industrial" type="YSort" parent="YSort" index="10"]
+[node name="Industrial" type="YSort" parent="YSort" index="12"]
 
 [node name="transformer_01" parent="YSort/Industrial" index="0" instance=ExtResource( 31 )]
 position = Vector2( 887, 769 )
@@ -2264,7 +2541,7 @@ position = Vector2( 1877, 567 )
 [node name="eboxB8" parent="YSort/Industrial" index="67" instance=ExtResource( 49 )]
 position = Vector2( 1900, 567 )
 
-[node name="Lampposts" type="YSort" parent="YSort" index="11"]
+[node name="Lampposts" type="YSort" parent="YSort" index="13"]
 
 [node name="lamppost_01" parent="YSort/Lampposts" index="0" instance=ExtResource( 34 )]
 position = Vector2( 992, 821 )
@@ -2344,7 +2621,7 @@ position = Vector2( 144, 1715 )
 [node name="lamppost_26" parent="YSort/Lampposts" index="25" instance=ExtResource( 36 )]
 position = Vector2( 350, 492 )
 
-[node name="furniture" type="YSort" parent="YSort" index="12"]
+[node name="furniture" type="YSort" parent="YSort" index="14"]
 position = Vector2( 3207, 75 )
 
 [node name="cabin_bed" parent="YSort/furniture" index="0" instance=ExtResource( 39 )]
@@ -2492,7 +2769,7 @@ position = Vector2( 627, 45 )
 position = Vector2( 663, 45 )
 flip_h = true
 
-[node name="Internet" type="YSort" parent="YSort" index="13"]
+[node name="Internet" type="YSort" parent="YSort" index="15"]
 
 [node name="MapMachine" parent="YSort/Internet" index="0" instance=ExtResource( 70 )]
 position = Vector2( 288, 780 )
@@ -2533,7 +2810,7 @@ position = Vector2( 396, 1308 )
 [node name="MapMachine4" parent="YSort/Internet" index="12" instance=ExtResource( 70 )]
 position = Vector2( 973, 1377 )
 
-[node name="LargeMetalDoor" parent="YSort" index="14" instance=ExtResource( 85 )]
+[node name="LargeMetalDoor" parent="YSort" index="16" instance=ExtResource( 85 )]
 position = Vector2( 1816, 557 )
 
 [node name="ColorRect" type="ColorRect" parent="YSort/LargeMetalDoor" index="2"]
@@ -2547,14 +2824,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveStation" parent="YSort" index="15" instance=ExtResource( 88 )]
+[node name="SaveStation" parent="YSort" index="17" instance=ExtResource( 88 )]
 position = Vector2( 708, 825 )
 
-[node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 88 )]
+[node name="SaveStation2" parent="YSort" index="18" instance=ExtResource( 88 )]
 position = Vector2( 1209, 1537 )
 
 [node name="FrogPath" type="Path2D" parent="." index="7"]
-curve = SubResource( 32 )
+curve = SubResource( 20 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="FrogPath" index="0"]
 position = Vector2( 1779.36, 580.556 )
@@ -2652,34 +2929,44 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="lantern_cool" parent="Lights" index="9" instance=ExtResource( 68 )]
+[node name="Light2D10" type="Light2D" parent="Lights" index="9"]
+position = Vector2( 2639, 2086 )
+scale = Vector2( 0.242188, 0.242188 )
+texture = ExtResource( 108 )
+color = Color( 1, 0.811765, 0.811765, 1 )
+energy = 1.17
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lantern_cool" parent="Lights" index="10" instance=ExtResource( 68 )]
 position = Vector2( 1232, 799 )
 
-[node name="lantern_warm" parent="Lights" index="10" instance=ExtResource( 69 )]
+[node name="lantern_warm" parent="Lights" index="11" instance=ExtResource( 69 )]
 position = Vector2( 702, 971 )
 
-[node name="lantern_cool2" parent="Lights" index="11" instance=ExtResource( 68 )]
+[node name="lantern_cool2" parent="Lights" index="12" instance=ExtResource( 68 )]
 position = Vector2( 825, 788 )
 
-[node name="lantern_warm2" parent="Lights" index="12" instance=ExtResource( 69 )]
+[node name="lantern_warm2" parent="Lights" index="13" instance=ExtResource( 69 )]
 position = Vector2( 942, 1091 )
 
-[node name="lantern_warm3" parent="Lights" index="13" instance=ExtResource( 69 )]
+[node name="lantern_warm3" parent="Lights" index="14" instance=ExtResource( 69 )]
 position = Vector2( 1019, 1092 )
 
-[node name="lantern_warm4" parent="Lights" index="14" instance=ExtResource( 69 )]
+[node name="lantern_warm4" parent="Lights" index="15" instance=ExtResource( 69 )]
 position = Vector2( 700, 1265 )
 
-[node name="lantern_cool3" parent="Lights" index="15" instance=ExtResource( 68 )]
+[node name="lantern_cool3" parent="Lights" index="16" instance=ExtResource( 68 )]
 position = Vector2( 1160, 1496 )
 
-[node name="lantern_warm5" parent="Lights" index="16" instance=ExtResource( 69 )]
+[node name="lantern_warm5" parent="Lights" index="17" instance=ExtResource( 69 )]
 position = Vector2( 437, 1475 )
 
-[node name="lantern_cool4" parent="Lights" index="17" instance=ExtResource( 68 )]
+[node name="lantern_cool4" parent="Lights" index="18" instance=ExtResource( 68 )]
 position = Vector2( 687, 1460 )
 
-[node name="lantern_warm6" parent="Lights" index="18" instance=ExtResource( 69 )]
+[node name="lantern_warm6" parent="Lights" index="19" instance=ExtResource( 69 )]
 position = Vector2( 511, 1130 )
 
 [node name="InternetBeams" type="Node2D" parent="." index="9"]
@@ -2699,27 +2986,33 @@ points = PoolVector2Array( -232, 22, 16, 0 )
 
 [node name="PositionPortal" parent="PositionPortals" index="0" instance=ExtResource( 77 )]
 position = Vector2( 802, 815 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal" index="1"]
 position = Vector2( 2449, -669 )
 
 [node name="PositionPortal16" parent="PositionPortals" index="1" instance=ExtResource( 77 )]
 position = Vector2( 1209, 830 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal16" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal16" index="1"]
 position = Vector2( 2783, -685 )
 
 [node name="PositionPortal3" parent="PositionPortals" index="2" instance=ExtResource( 77 )]
 position = Vector2( 723, 997 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal3" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2729,9 +3022,11 @@ position = Vector2( 2528, -462 )
 
 [node name="PositionPortal4" parent="PositionPortals" index="3" instance=ExtResource( 77 )]
 position = Vector2( 531, 1159 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal4" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2741,9 +3036,11 @@ position = Vector2( 2722, -183 )
 
 [node name="PositionPortal5" parent="PositionPortals" index="4" instance=ExtResource( 77 )]
 position = Vector2( 204, 1189 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal5" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2753,9 +3050,11 @@ position = Vector2( 2506, -214 )
 
 [node name="PositionPortal6" parent="PositionPortals" index="5" instance=ExtResource( 77 )]
 position = Vector2( 721, 1293 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal6" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2765,9 +3064,11 @@ position = Vector2( 2530, 178 )
 
 [node name="PositionPortal7" parent="PositionPortals" index="6" instance=ExtResource( 77 )]
 position = Vector2( 1181, 1523 )
+new_song = ExtResource( 105 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal7" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2777,9 +3078,12 @@ position = Vector2( 2773, 607 )
 
 [node name="PositionPortal14" parent="PositionPortals" index="7" instance=ExtResource( 77 )]
 position = Vector2( 708, 1489 )
+new_song = ExtResource( 106 )
+start_from_beginning = true
+fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal14" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2787,82 +3091,127 @@ __meta__ = {
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal14" index="1"]
 position = Vector2( 2581, 626 )
 
-[node name="PositionPortal2" parent="PositionPortals" index="8" instance=ExtResource( 77 )]
+[node name="PositionPortal18" parent="PositionPortals" index="8" instance=ExtResource( 77 )]
+position = Vector2( 457, 1505 )
+new_song = ExtResource( 106 )
+start_from_beginning = true
+fade_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal18" index="0"]
+shape = SubResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal18" index="1"]
+position = Vector2( 2257, 611 )
+
+[node name="PositionPortal2" parent="PositionPortals" index="9" instance=ExtResource( 77 )]
 position = Vector2( 3250, 148 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal2" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal2" index="1"]
 position = Vector2( -2448, 681 )
 
-[node name="PositionPortal8" parent="PositionPortals" index="9" instance=ExtResource( 77 )]
+[node name="PositionPortal8" parent="PositionPortals" index="10" instance=ExtResource( 77 )]
 position = Vector2( 3249, 539 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal8" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal8" index="1"]
 position = Vector2( -2526, 469 )
 
-[node name="PositionPortal9" parent="PositionPortals" index="10" instance=ExtResource( 77 )]
+[node name="PositionPortal9" parent="PositionPortals" index="11" instance=ExtResource( 77 )]
 position = Vector2( 3249, 977 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal9" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal9" index="1"]
 position = Vector2( -2720, 203 )
 
-[node name="PositionPortal10" parent="PositionPortals" index="11" instance=ExtResource( 77 )]
+[node name="PositionPortal10" parent="PositionPortals" index="12" instance=ExtResource( 77 )]
 position = Vector2( 2708, 977 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal10" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal10" index="1"]
 position = Vector2( -2503, 233 )
 
-[node name="PositionPortal11" parent="PositionPortals" index="12" instance=ExtResource( 77 )]
+[node name="PositionPortal11" parent="PositionPortals" index="13" instance=ExtResource( 77 )]
 position = Vector2( 3249, 1473 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal11" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal11" index="1"]
 position = Vector2( -2529, -165 )
 
-[node name="PositionPortal12" parent="PositionPortals" index="13" instance=ExtResource( 77 )]
+[node name="PositionPortal12" parent="PositionPortals" index="14" instance=ExtResource( 77 )]
 position = Vector2( 3953, 2133 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal12" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal12" index="1"]
 position = Vector2( -2771, -596 )
 
-[node name="PositionPortal13" parent="PositionPortals" index="14" instance=ExtResource( 77 )]
+[node name="PositionPortal13" parent="PositionPortals" index="15" instance=ExtResource( 77 )]
 position = Vector2( 3288, 2123 )
+new_song = ExtResource( 87 )
+start_from_beginning = true
+fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal13" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal13" index="1"]
 position = Vector2( -2580, -621 )
 
-[node name="PositionPortal15" parent="PositionPortals" index="15" instance=ExtResource( 77 )]
+[node name="PositionPortal17" parent="PositionPortals" index="16" instance=ExtResource( 77 )]
+position = Vector2( 2713, 2123 )
+new_song = ExtResource( 87 )
+start_from_beginning = true
+fade_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal17" index="0"]
+position = Vector2( 1, 8 )
+shape = SubResource( 22 )
+
+[node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal17" index="1"]
+position = Vector2( -2255, -606 )
+
+[node name="PositionPortal15" parent="PositionPortals" index="17" instance=ExtResource( 77 )]
 position = Vector2( 3990, 150 )
+new_song = ExtResource( 87 )
+fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal15" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal15" index="1"]
 position = Vector2( -2782, 691 )
@@ -2887,21 +3236,19 @@ motion_mirroring = Vector2( 512, 512 )
 
 [node name="canopy_shadow" type="Sprite" parent="CanopyShadowPBG/ParallaxLayer" index="0"]
 light_mask = 2
-material = SubResource( 12 )
+material = SubResource( 23 )
 texture = ExtResource( 37 )
 offset = Vector2( 256, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="13"]
-color = Color( 0.760784, 0.592157, 0.356863, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
-autoplay = "cycle"
 playback_speed = 0.5
-anims/cycle = SubResource( 13 )
-anims/dawn = SubResource( 27 )
-anims/dusk = SubResource( 25 )
-anims/night = SubResource( 26 )
-anims/noon = SubResource( 14 )
+anims/cycle = SubResource( 24 )
+anims/dawn = SubResource( 25 )
+anims/dusk = SubResource( 26 )
+anims/night = SubResource( 27 )
+anims/noon = SubResource( 28 )
 
 [node name="ScenePortal" parent="." index="16" instance=ExtResource( 81 )]
 new_scene = "res://Rooms/Area5/5-2/5-2.tscn"
@@ -2909,16 +3256,17 @@ player_new_position = Vector2( -128, 233 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 position = Vector2( 448, -122 )
-shape = SubResource( 15 )
+shape = SubResource( 29 )
 
 [node name="ScenePortal2" parent="." index="17" instance=ExtResource( 81 )]
-position = Vector2( 1816, 556 )
+position = Vector2( 1816, 555 )
+script = ExtResource( 107 )
 new_scene = "res://Rooms/Area5/5-4/5-4.tscn"
-player_new_position = Vector2( 168, -373 )
+player_new_position = Vector2( 167, -373 )
 starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal2" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 30 )
 
 [node name="DubbleIntroEvent" type="Node2D" parent="." index="18" groups=[
 "save",
@@ -2927,7 +3275,7 @@ position = Vector2( 3211, 520 )
 script = ExtResource( 90 )
 
 [node name="OverlayAnimator" type="AnimationPlayer" parent="DubbleIntroEvent" index="0"]
-anims/wake_up = SubResource( 17 )
+anims/wake_up = SubResource( 31 )
 
 [node name="ColorOverlay" type="ColorRect" parent="DubbleIntroEvent" index="1"]
 visible = false
@@ -3004,6 +3352,7 @@ expression = "confused"
 message = "Hey, Travis, this is just temporary dialogue. Use it if you want. Or not."
 character = "dubble"
 expression = "open_mouth"
+function = "set_time_day"
 
 [node name="DubbleTalk5" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3/DubbleTalk5/DubbleTalk4" index="0" instance=ExtResource( 91 )]
 message = "bla bla ok guys, whenever you want meet me at the house farthest south. I'll give you a deal bla bla bla."
@@ -3012,11 +3361,11 @@ expression = "open_mouth"
 function = "dubble_intro_end"
 
 [node name="CharacterMovement" type="AnimationPlayer" parent="DubbleIntroEvent" index="3"]
-anims/dubble_enter_room = SubResource( 18 )
-anims/dubble_exit_room = SubResource( 19 )
-anims/dubble_walk_by = SubResource( 20 )
-anims/idle_behind_desk = SubResource( 21 )
-anims/idle_hide_behind_wall = SubResource( 22 )
+anims/dubble_enter_room = SubResource( 32 )
+anims/dubble_exit_room = SubResource( 33 )
+anims/dubble_walk_by = SubResource( 34 )
+anims/idle_behind_desk = SubResource( 35 )
+anims/idle_hide_behind_wall = SubResource( 36 )
 
 [node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="4"]
 stream = ExtResource( 93 )
@@ -3025,7 +3374,8 @@ stream = ExtResource( 93 )
 position = Vector2( 40, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DubbleIntroEvent/ActivateArea" index="0"]
-shape = SubResource( 23 )
+shape = SubResource( 37 )
+[connection signal="body_entered" from="YSort/PrisonerFrog/TriggerArea" to="YSort/PrisonerFrog" method="_on_TriggerArea_body_entered"]
 [connection signal="body_entered" from="DubbleIntroEvent/ActivateArea" to="DubbleIntroEvent" method="_on_ActivateArea_body_entered"]
 
 [editable path="YSort/cabin1_A_interior2"]

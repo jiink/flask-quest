@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ontoglasstown-07.ogg-f3cbf392384d85b8fabc0740adc52ed4.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area5/Assets/ontoglasstown-07.ogg"
+dest_files=[ "res://.import/ontoglasstown-07.ogg-f3cbf392384d85b8fabc0740adc52ed4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

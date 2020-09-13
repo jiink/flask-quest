@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area4/4-1/4-1.gd" type="Script" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=64]
 [ext_resource path="res://Rooms/Area4/Assets/directory.png" type="Texture" id=65]
 [ext_resource path="res://Engine/DiagZone.tscn" type="PackedScene" id=66]
+[ext_resource path="res://Rooms/Common/elevator.ogg" type="AudioStream" id=67]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Present"
@@ -847,6 +848,9 @@ shape = SubResource( 13 )
 
 [node name="PositionPortal" parent="elevatordoor" index="2" instance=ExtResource( 18 )]
 position = Vector2( 0, 15 )
+new_song = ExtResource( 67 )
+start_from_beginning = true
+fade_time = 0.2
 
 [node name="PortalCollision" type="CollisionShape2D" parent="elevatordoor/PositionPortal" index="0"]
 position = Vector2( 0, -3 )
@@ -1173,7 +1177,7 @@ anims/default = SubResource( 33 )
 position = Vector2( -765, 280 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 89, -204 )
+position = Vector2( -250, -1887 )
 
 [node name="cubicle_chair" type="Sprite" parent="YSort" index="2"]
 position = Vector2( -441, -646 )

@@ -11,13 +11,13 @@ func interact():
 		toggled = true
 		$"../../CanvasModulate".color = color_night
 		for night_lights in get_tree().get_nodes_in_group("night_lights"):
-			night_lights.visible = true
-		$"../..".level_music = preload("res://Rooms/Area4/Assets/maloffice-02.ogg")
-		MusicManager.update_music("level")
+			night_lights.queue_free()
+#		$"../..".level_music = preload("res://Rooms/Area4/Assets/maloffice-02.ogg")
+#		MusicManager.update_music("level")
 	else:
 		toggled = false
 		$"../../CanvasModulate".color = color_day
 		for night_lights in get_tree().get_nodes_in_group("night_lights"):
 			night_lights.visible = false
-		$"../..".level_music = preload("res://Rooms/Area4/Assets/maloffice-01.ogg")
-		MusicManager.update_music("level")
+#		$"../..".level_music = preload("res://Rooms/Area4/Assets/maloffice-01.ogg")
+#		MusicManager.update_music("level")

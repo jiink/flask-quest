@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/party_music.ogg-8c4492cc32aa9281fcfd99c322948f5c.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area5/Assets/party_music.ogg"
+dest_files=[ "res://.import/party_music.ogg-8c4492cc32aa9281fcfd99c322948f5c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
