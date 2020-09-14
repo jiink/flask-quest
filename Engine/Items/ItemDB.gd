@@ -88,6 +88,10 @@ var items = {
 	'glasstown_bomb_item': {
 		'name': 'Mysterious Bomb',
 		'desc': "Doesn't look like anything you've seen before.",
-		}
+		},
+	'glasstown_finished_bomb_item': {
+		'name': 'Refinery Bomb',
+		'desc': 'It\'s finally complete.',
+		},
 #-------------------------------------------
 	}

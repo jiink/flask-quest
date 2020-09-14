@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/AGT_weather_phaser.ogg" type="AudioStream" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/debris_trussB.png" type="Texture" id=27]
 [ext_resource path="res://Rooms/Area3/3-1/FireFlicker.gd" type="Script" id=28]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/cabin1_C.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/transformer_01.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/tank_1.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Rooms/Area5/Assets/PropScenes/tank_2.tscn" type="PackedScene" id=33]
@@ -82,12 +83,14 @@ texture = ExtResource( 27 )
 position = Vector2( 1131, 184 )
 texture = ExtResource( 27 )
 
-[node name="Player" parent="YSort" index="0"]
+[node name="Orange" parent="YSort" index="0" instance=ExtResource( 30 )]
+
+[node name="Player" parent="YSort" index="1"]
 position = Vector2( 1074, 1540 )
 
-[node name="CorruptVegetation" type="YSort" parent="YSort" index="1"]
+[node name="CorruptVegetation" type="YSort" parent="YSort" index="2"]
 
-[node name="Vegetation" type="YSort" parent="YSort" index="2"]
+[node name="Vegetation" type="YSort" parent="YSort" index="3"]
 
 [node name="tree_burnedB" parent="YSort/Vegetation" index="0" instance=ExtResource( 6 )]
 position = Vector2( 439, 1215 )
@@ -326,7 +329,7 @@ position = Vector2( 1046, 403 )
 [node name="tree_stumpC2" parent="YSort/Vegetation" index="78" instance=ExtResource( 13 )]
 position = Vector2( 766, 384 )
 
-[node name="Cabins" type="YSort" parent="YSort" index="3"]
+[node name="Cabins" type="YSort" parent="YSort" index="4"]
 
 [node name="cabin1_C" parent="YSort/Cabins" index="0" instance=ExtResource( 29 )]
 position = Vector2( 636, 1459 )
@@ -378,7 +381,7 @@ flip_h = true
 [node name="cabin_burnedA_front4" parent="YSort/Cabins" index="15" instance=ExtResource( 25 )]
 position = Vector2( 347, 1492.5 )
 
-[node name="Industrial" type="YSort" parent="YSort" index="4"]
+[node name="Industrial" type="YSort" parent="YSort" index="5"]
 
 [node name="transformer_01" parent="YSort/Industrial" index="0" instance=ExtResource( 31 )]
 position = Vector2( 887, 769 )
@@ -467,7 +470,7 @@ position = Vector2( 351, -34 )
 [node name="debris_pipe4" parent="YSort/Industrial" index="28" instance=ExtResource( 10 )]
 position = Vector2( 241, 7 )
 
-[node name="Lampposts" type="YSort" parent="YSort" index="5"]
+[node name="Lampposts" type="YSort" parent="YSort" index="6"]
 
 [node name="lamppost_01" parent="YSort/Lampposts" index="0" instance=ExtResource( 34 )]
 position = Vector2( 992, 821 )

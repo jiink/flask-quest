@@ -93,3 +93,6 @@ func set_time_dusk():
 	scene_root.fade_time_of_day(2)
 func set_time_night():
 	scene_root.fade_time_of_day(3)
+
+func give_finished_bomb():
+	ItemManager.give_item("glasstown_finished_bomb_item")

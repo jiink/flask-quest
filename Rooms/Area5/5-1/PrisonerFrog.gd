@@ -57,6 +57,7 @@ func setup(state):
 	else:
 		in_mission = false
 		character_mover.play("idle_in_room")
+		$"../LargeMetalDoor".set_door_open(false)
 
 func interact():
 	if interactable:
