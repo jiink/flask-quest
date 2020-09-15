@@ -879,9 +879,9 @@ __meta__ = {
 }
 
 [node name="BlackBg2" type="ColorRect" parent="Background" index="2"]
-margin_left = -304.0
+margin_left = -514.0
 margin_top = 2092.0
-margin_right = 2046.0
+margin_right = 2260.0
 margin_bottom = 2736.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
 __meta__ = {
@@ -1735,7 +1735,7 @@ position = Vector2( 115, 767 )
 position = Vector2( 55, 841 )
 
 [node name="tree1_C3" parent="YSort/Vegetation" index="34" instance=ExtResource( 15 )]
-position = Vector2( 87, 896 )
+position = Vector2( -14, 776 )
 
 [node name="tree2_A4" parent="YSort/Vegetation" index="35" instance=ExtResource( 16 )]
 position = Vector2( 30, 1095 )
