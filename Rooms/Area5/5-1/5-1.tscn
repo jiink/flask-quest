@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=2]
+[gd_scene load_steps=151 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -112,53 +112,52 @@
 [ext_resource path="res://Items/Sprites/tortured_tortilla_item.png" type="Texture" id=110]
 [ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=111]
 [ext_resource path="res://Rooms/Area5/5-1/BombGuard.gd" type="Script" id=112]
+[ext_resource path="res://Rooms/Area5/Assets/DomeWallCollision.tscn" type="PackedScene" id=113]
+[ext_resource path="res://Rooms/Area5/Assets/DomeWallCollisoinR.tscn" type="PackedScene" id=114]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
-
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 100 )
 region = Rect2( 0, 34, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 100 )
 region = Rect2( 17, 34, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 100 )
 region = Rect2( 0, 68, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 100 )
 region = Rect2( 17, 68, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 100 )
 region = Rect2( 0, 0, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 100 )
 region = Rect2( 17, 0, 17, 34 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "enter_door"
 length = 5.0
 tracks/0/type = "value"
@@ -210,7 +209,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "exit_room"
 length = 1.6
 tracks/0/type = "value"
@@ -250,7 +249,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "exit_supertunnel"
 length = 5.0
 tracks/0/type = "value"
@@ -302,7 +301,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "go_home"
 length = 2.5
 tracks/0/type = "value"
@@ -342,7 +341,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
 tracks/0/interp = 1
@@ -380,7 +379,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 length = 6.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -419,7 +418,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -458,32 +457,32 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 59.2085, 60.4265 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 12, 5 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 9, 10 )
 
-[sub_resource type="CanvasItemMaterial" id=19]
+[sub_resource type="CanvasItemMaterial" id=18]
 
-[sub_resource type="Curve2D" id=20]
+[sub_resource type="Curve2D" id=19]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 3958, 112, 0, 0, 0, 0, 3965, 126, 0, 0, 0, 0, 3976, 131, 0, 0, 0, 0, 3984, 134, 0, 0, 0, 0, 3991, 140, 0, 0, 0, 0, 3992, 147, 0, 0, 0, 0, 3992, 164, 0, 0, 0, 0, 1292, 816, 0, 0, 0, 0, 1297, 836, 0, 0, 0, 0, 1310, 853, 0, 0, 0, 0, 1327, 865, 0, 0, 0, 0, 1357, 872, 0, 0, 0, 0, 1446, 875, 0, 0, 0, 0, 1492, 864, 0, 0, 0, 0, 1515, 852, 0, 0, 0, 0, 1532, 837, 0, 0, 0, 0, 1539, 820, 0, 0, 0, 0, 1540, 804, 0, 0, 0, 0, 1540, 776, 0, 0, 0, 0, 1542, 645, 0, 0, 0, 0, 1556, 608, 0, 0, 0, 0, 1581, 582, 0, 0, 0, 0, 1606, 560, 0, 0, 0, 0, 1631, 547, 0, 0, 0, 0, 1663, 542, 0, 0, 0, 0, 1685, 546, 0, 0, 0, 0, 1706, 557, 0, 0, 0, 0, 1718, 574, 0, 0, 0, 0, 1732, 589, 0, 0, 0, 0, 1749, 593, 0, 0, 0, 0, 1772, 591, 0, 0, 0, 0, 1778, 583, 0, 0, 0, 0, 1779, 579, 0, 0, 0, 0, 1787, 582, 0, 0, 0, 0, 1798, 583, 0, 0, 0, 0, 1811, 579, 0, 0, 0, 0, 1820, 570, 0, 0, 0, 0, 1821, 557 )
 }
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 13, 3 )
 
-[sub_resource type="CanvasItemMaterial" id=23]
+[sub_resource type="CanvasItemMaterial" id=22]
 light_mode = 2
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=23]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -516,7 +515,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=24]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -560,7 +559,7 @@ tracks/2/keys = {
 "values": [ Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=25]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -602,6 +601,47 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.682353, 0.352941, 1 ), Color( 0.572549, 0.337255, 0.294118, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_night_lights"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
 }
 
 [sub_resource type="Animation" id=27]
@@ -616,47 +656,6 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ true ],
-"method": "set_night_lights"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
-}
-
-[sub_resource type="Animation" id=28]
-length = 6.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
 "values": [ Color( 0.760784, 0.592157, 0.356863, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "method"
@@ -686,13 +685,13 @@ tracks/2/keys = {
 "values": [ Color( 0.760784, 0.592157, 0.356863, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 16, 10 )
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 24, 3 )
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorOverlay:color")
@@ -719,7 +718,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=31]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -746,7 +745,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=32]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -773,7 +772,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=33]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -800,7 +799,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=34]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
 tracks/0/interp = 1
@@ -814,7 +813,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3868, 2078 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
 tracks/0/interp = 1
@@ -828,7 +827,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3212, 467 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=37]
+[sub_resource type="RectangleShape2D" id=36]
 extents = Vector2( 18, 15 )
 
 [node name="5-1" groups=[
@@ -892,127 +891,9 @@ __meta__ = {
 position = Vector2( 880, 892 )
 texture = ExtResource( 56 )
 
-[node name="DomeWallCollision" type="StaticBody2D" parent="." index="3"]
-visible = false
+[node name="DomeWallCollision" parent="." index="3" instance=ExtResource( 113 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DomeWallCollision" index="0"]
-position = Vector2( -76, -60 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="DomeWallCollision" index="1"]
-position = Vector2( 93, -220 )
-rotation = 0.191808
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DomeWallCollision" index="2"]
-position = Vector2( -277, 202 )
-rotation = -0.25202
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="DomeWallCollision" index="3"]
-position = Vector2( -396, 464 )
-rotation = -0.503401
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="DomeWallCollision" index="4"]
-position = Vector2( -461, 748 )
-rotation = -0.688613
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="DomeWallCollision" index="5"]
-position = Vector2( -464, 973 )
-rotation = -0.820316
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="DomeWallCollision" index="6"]
-position = Vector2( -418, 1216 )
-rotation = -1.02051
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="DomeWallCollision" index="7"]
-position = Vector2( -295, 1518 )
-rotation = -1.29774
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="DomeWallCollision" index="8"]
-position = Vector2( -67, 1816 )
-rotation = -1.55597
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="DomeWallCollision" index="9"]
-position = Vector2( 252, 2056 )
-rotation = -1.86664
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="DomeWallCollision" index="10"]
-position = Vector2( 599, 2187 )
-rotation = -2.14067
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="DomeWallCollision" index="11"]
-position = Vector2( 886, 2220 )
-rotation = -2.35684
-shape = SubResource( 1 )
-
-[node name="DomeWallCollisoinR" type="StaticBody2D" parent="." index="4"]
-visible = false
-position = Vector2( 3209, 0 )
-scale = Vector2( -1, 1 )
-
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="DomeWallCollisoinR" index="0"]
-position = Vector2( 1545, -220 )
-rotation = 0.191808
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="DomeWallCollisoinR" index="1"]
-position = Vector2( 1343.02, -23.0911 )
-rotation = -0.0848649
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D20" type="CollisionShape2D" parent="DomeWallCollisoinR" index="2"]
-position = Vector2( 1175, 202 )
-rotation = -0.25202
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="DomeWallCollisoinR" index="3"]
-position = Vector2( 1056, 464 )
-rotation = -0.503401
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="DomeWallCollisoinR" index="4"]
-position = Vector2( 991, 748 )
-rotation = -0.688613
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="DomeWallCollisoinR" index="5"]
-position = Vector2( 988, 973 )
-rotation = -0.820316
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="DomeWallCollisoinR" index="6"]
-position = Vector2( 1034, 1216 )
-rotation = -1.02051
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="DomeWallCollisoinR" index="7"]
-position = Vector2( 1157, 1518 )
-rotation = -1.29774
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="DomeWallCollisoinR" index="8"]
-position = Vector2( 1385, 1816 )
-rotation = -1.55597
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="DomeWallCollisoinR" index="9"]
-position = Vector2( 1704, 2056 )
-rotation = -1.86664
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="DomeWallCollisoinR" index="10"]
-position = Vector2( 2051, 2187 )
-rotation = -2.14067
-shape = SubResource( 1 )
+[node name="DomeWallCollisoinR" parent="." index="4" instance=ExtResource( 114 )]
 
 [node name="CabinInteriors" type="Node2D" parent="." index="5"]
 
@@ -1221,7 +1102,7 @@ margin_top = -2.0
 margin_right = 6.0
 
 [node name="AnimatedSprite" parent="YSort/Sarah" index="3"]
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 offset = Vector2( 0, -15 )
 
 [node name="DialogueTree" parent="YSort/Sarah" index="4" instance=ExtResource( 92 )]
@@ -1278,13 +1159,13 @@ script = ExtResource( 104 )
 interactable = false
 
 [node name="CharacterMover" type="AnimationPlayer" parent="YSort/PrisonerFrog" index="4"]
-anims/enter_door = SubResource( 9 )
-anims/exit_room = SubResource( 10 )
-anims/exit_supertunnel = SubResource( 11 )
-anims/go_home = SubResource( 12 )
-anims/idle_in_room = SubResource( 13 )
-anims/lead_from_house = SubResource( 14 )
-anims/lead_into_forest = SubResource( 15 )
+anims/enter_door = SubResource( 8 )
+anims/exit_room = SubResource( 9 )
+anims/exit_supertunnel = SubResource( 10 )
+anims/go_home = SubResource( 11 )
+anims/idle_in_room = SubResource( 12 )
+anims/lead_from_house = SubResource( 13 )
+anims/lead_into_forest = SubResource( 14 )
 
 [node name="DialogueTree" parent="YSort/PrisonerFrog" index="5" instance=ExtResource( 92 )]
 
@@ -1331,7 +1212,7 @@ message = "that was fun"
 [node name="TriggerArea" type="Area2D" parent="YSort/PrisonerFrog" index="6"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/PrisonerFrog/TriggerArea" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 disabled = true
 
 [node name="Guard" parent="YSort" index="6" instance=ExtResource( 111 )]
@@ -1377,7 +1258,7 @@ hframes = 2
 [node name="Interaction" type="Area2D" parent="YSort/OrangeGrassBulbs" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeGrassBulbs/Interaction" index="0"]
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 
 [node name="DialogueTree" parent="YSort/OrangeGrassBulbs" index="2" instance=ExtResource( 92 )]
 
@@ -1398,7 +1279,7 @@ script = ExtResource( 109 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TortillaTable/Tortilla/Interaction" index="0"]
 position = Vector2( 0, 5 )
-shape = SubResource( 18 )
+shape = SubResource( 17 )
 
 [node name="CorruptVegetation" type="YSort" parent="YSort" index="9"]
 
@@ -2080,7 +1961,7 @@ position = Vector2( -13, 501 )
 position = Vector2( 1697, 1088 )
 
 [node name="tree3_A7" parent="YSort/Vegetation" index="149" instance=ExtResource( 17 )]
-material = SubResource( 19 )
+material = SubResource( 18 )
 position = Vector2( 268, 1626 )
 
 [node name="tree3_A8" parent="YSort/Vegetation" index="150" instance=ExtResource( 17 )]
@@ -2851,7 +2732,7 @@ position = Vector2( 708, 825 )
 position = Vector2( 1209, 1537 )
 
 [node name="FrogPath" type="Path2D" parent="." index="7"]
-curve = SubResource( 20 )
+curve = SubResource( 19 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="FrogPath" index="0"]
 position = Vector2( 1779.36, 580.556 )
@@ -3010,7 +2891,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal" index="1"]
 position = Vector2( 2449, -669 )
@@ -3021,7 +2902,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal16" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal16" index="1"]
 position = Vector2( 2783, -685 )
@@ -3032,7 +2913,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal3" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3046,7 +2927,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal4" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3060,7 +2941,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal5" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3074,7 +2955,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal6" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3088,7 +2969,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal7" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3103,7 +2984,7 @@ start_from_beginning = true
 fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal14" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3118,7 +2999,7 @@ start_from_beginning = true
 fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal18" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3133,7 +3014,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal2" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal2" index="1"]
 position = Vector2( -2448, 681 )
@@ -3145,7 +3026,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal8" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal8" index="1"]
 position = Vector2( -2526, 469 )
@@ -3157,7 +3038,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal9" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal9" index="1"]
 position = Vector2( -2720, 203 )
@@ -3169,7 +3050,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal10" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal10" index="1"]
 position = Vector2( -2503, 233 )
@@ -3181,7 +3062,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal11" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal11" index="1"]
 position = Vector2( -2529, -165 )
@@ -3193,7 +3074,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal12" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal12" index="1"]
 position = Vector2( -2771, -596 )
@@ -3206,7 +3087,7 @@ fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal13" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal13" index="1"]
 position = Vector2( -2580, -621 )
@@ -3219,7 +3100,7 @@ fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal17" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal17" index="1"]
 position = Vector2( -2255, -606 )
@@ -3231,7 +3112,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal15" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal15" index="1"]
 position = Vector2( -2782, 691 )
@@ -3256,7 +3137,7 @@ motion_mirroring = Vector2( 512, 512 )
 
 [node name="canopy_shadow" type="Sprite" parent="CanopyShadowPBG/ParallaxLayer" index="0"]
 light_mask = 2
-material = SubResource( 23 )
+material = SubResource( 22 )
 texture = ExtResource( 37 )
 offset = Vector2( 256, 0 )
 
@@ -3264,11 +3145,11 @@ offset = Vector2( 256, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 playback_speed = 0.5
-anims/cycle = SubResource( 24 )
-anims/dawn = SubResource( 25 )
-anims/dusk = SubResource( 26 )
-anims/night = SubResource( 27 )
-anims/noon = SubResource( 28 )
+anims/cycle = SubResource( 23 )
+anims/dawn = SubResource( 24 )
+anims/dusk = SubResource( 25 )
+anims/night = SubResource( 26 )
+anims/noon = SubResource( 27 )
 
 [node name="RefineryPortal" parent="." index="16" instance=ExtResource( 81 )]
 new_scene = "res://Rooms/Area5/5-2/5-2.tscn"
@@ -3276,7 +3157,7 @@ player_new_position = Vector2( -128, 233 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RefineryPortal" index="0"]
 position = Vector2( 448, -122 )
-shape = SubResource( 29 )
+shape = SubResource( 28 )
 
 [node name="ScenePortal2" parent="." index="17" instance=ExtResource( 81 )]
 position = Vector2( 1816, 555 )
@@ -3286,14 +3167,14 @@ player_new_position = Vector2( 167, -373 )
 starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal2" index="0"]
-shape = SubResource( 30 )
+shape = SubResource( 29 )
 
 [node name="EscapePortal" parent="." index="18" instance=ExtResource( 81 )]
 position = Vector2( 944, 1975 )
 new_scene = "res://Cutscenes/GlasstownExplosion/GlasstownExplosion.tscn"
 
 [node name="EscapePortalCollision" type="CollisionShape2D" parent="EscapePortal" index="0"]
-shape = SubResource( 29 )
+shape = SubResource( 28 )
 disabled = true
 
 [node name="DubbleIntroEvent" type="Node2D" parent="." index="19" groups=[
@@ -3303,7 +3184,7 @@ position = Vector2( 3211, 520 )
 script = ExtResource( 90 )
 
 [node name="OverlayAnimator" type="AnimationPlayer" parent="DubbleIntroEvent" index="0"]
-anims/wake_up = SubResource( 31 )
+anims/wake_up = SubResource( 30 )
 
 [node name="ColorOverlay" type="ColorRect" parent="DubbleIntroEvent" index="1"]
 visible = false
@@ -3389,11 +3270,11 @@ expression = "open_mouth"
 function = "dubble_intro_end"
 
 [node name="CharacterMovement" type="AnimationPlayer" parent="DubbleIntroEvent" index="3"]
-anims/dubble_enter_room = SubResource( 32 )
-anims/dubble_exit_room = SubResource( 33 )
-anims/dubble_walk_by = SubResource( 34 )
-anims/idle_behind_desk = SubResource( 35 )
-anims/idle_hide_behind_wall = SubResource( 36 )
+anims/dubble_enter_room = SubResource( 31 )
+anims/dubble_exit_room = SubResource( 32 )
+anims/dubble_walk_by = SubResource( 33 )
+anims/idle_behind_desk = SubResource( 34 )
+anims/idle_hide_behind_wall = SubResource( 35 )
 
 [node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="4"]
 stream = ExtResource( 93 )
@@ -3402,7 +3283,7 @@ stream = ExtResource( 93 )
 position = Vector2( 40, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DubbleIntroEvent/ActivateArea" index="0"]
-shape = SubResource( 37 )
+shape = SubResource( 36 )
 [connection signal="body_entered" from="YSort/PrisonerFrog/TriggerArea" to="YSort/PrisonerFrog" method="_on_TriggerArea_body_entered"]
 [connection signal="body_entered" from="DubbleIntroEvent/ActivateArea" to="DubbleIntroEvent" method="_on_ActivateArea_body_entered"]
 

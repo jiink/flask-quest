@@ -5,7 +5,21 @@
   <terrain name="Grasspatch" tile="-1"/>
   <terrain name="CorruptGrasspatch" tile="-1"/>
   <terrain name="Transition" tile="0"/>
+  <terrain name="Path" tile="0"/>
  </terraintypes>
+ <tile id="0" terrain=",,,3"/>
+ <tile id="1" terrain=",,3,3"/>
+ <tile id="2" terrain=",,3,"/>
+ <tile id="32" terrain=",3,,3"/>
+ <tile id="33" terrain="3,3,3,3"/>
+ <tile id="34" terrain="3,,3,"/>
+ <tile id="64" terrain=",3,,"/>
+ <tile id="65" terrain="3,3,,"/>
+ <tile id="66" terrain="3,,,"/>
+ <tile id="96" terrain="3,3,3,"/>
+ <tile id="97" terrain="3,3,,3"/>
+ <tile id="128" terrain="3,,3,3"/>
+ <tile id="129" terrain=",3,3,3"/>
  <tile id="144" terrain=",,,0"/>
  <tile id="145" terrain=",,0,0"/>
  <tile id="146" terrain=",,0,"/>

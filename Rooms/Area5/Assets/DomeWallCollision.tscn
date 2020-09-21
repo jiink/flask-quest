@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
+
+[node name="DomeWallCollision" type="StaticBody2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -76, -60 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+position = Vector2( 93, -220 )
+rotation = 0.191808
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -277, 202 )
+rotation = -0.25202
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -396, 464 )
+rotation = -0.503401
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( -461, 748 )
+rotation = -0.688613
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2( -464, 973 )
+rotation = -0.820316
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2( -418, 1216 )
+rotation = -1.02051
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2( -295, 1518 )
+rotation = -1.29774
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
+position = Vector2( -67, 1816 )
+rotation = -1.55597
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
+position = Vector2( 252, 2056 )
+rotation = -1.86664
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
+position = Vector2( 599, 2187 )
+rotation = -2.14067
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+position = Vector2( 886, 2220 )
+rotation = -2.35684
+shape = SubResource( 1 )
