@@ -19,7 +19,7 @@ var current_mission = Missions.GRASSBULB
 
 var SAVE_KEY = "5-1_dubble_"
 
-onready var scene_root = get_node("../..")
+onready var scene_root = get_tree().get_current_scene()
 
 func save(save_game):
 	save_game.data[SAVE_KEY + "quest_status"] = current_mission
@@ -87,10 +87,13 @@ func interact():
 				
 func set_time_dawn():
 	scene_root.fade_time_of_day(0)
+	
 func set_time_day():
 	scene_root.fade_time_of_day(1)
+	
 func set_time_dusk():
 	scene_root.fade_time_of_day(2)
+	
 func set_time_night():
 	scene_root.fade_time_of_day(3)
 

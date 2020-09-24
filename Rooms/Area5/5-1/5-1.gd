@@ -10,10 +10,10 @@ var time_of_day = 0
 var supertunnel_entered = false
 var in_escape_sequence = false
 
-var color_dawn = Color(0xc2975bff)
-var color_day = Color(0xffffffff)
-var color_dusk = Color(0x92564bff)
-var color_night = Color(0x2d3158ff)
+const COLOR_DAWN = Color(0xc2975bff)
+var COLOR_DAY = Color(0xffffffff)
+var COLOR_DUSK = Color(0x92564bff)
+var COLOR_NIGHT = Color(0x2d3158ff)
 
 var modulate_color
 
@@ -29,16 +29,16 @@ func load(save_game):
 func update_time_of_day(state):
 	match state:
 		TimesOfDay.DAWN:
-			modulate_color = color_dawn
+			modulate_color = COLOR_DAWN
 			set_night_lights(true)
 		TimesOfDay.DAY:
-			modulate_color = color_day
+			modulate_color = COLOR_DAY
 			set_night_lights(false)
 		TimesOfDay.DUSK:
-			modulate_color = color_dusk
+			modulate_color = COLOR_DUSK
 			set_night_lights(true)
 		TimesOfDay.NIGHT:
-			modulate_color = color_night
+			modulate_color = COLOR_NIGHT
 			set_night_lights(true)
 #		_:
 #			modulate_color = Color(0xff0000ff)
@@ -77,8 +77,8 @@ func set_night_lights(state):
 func setup_escape(state): #Sets up the scene for after Green and Orange plant the bomb
 	if state:
 #		level_music = "res://Music/goodvibes.ogg"
-		preload("res://Music/goodvibes.ogg")
-		MusicManager.change_music("res://Music/goodvibes.ogg", true, 0) #Replace goodvibes
+		var escape_music = preload("res://Music/goodvibes.ogg")
+		MusicManager.change_music(escape_music, true, 0) #Replace goodvibes
 		$"EscapePortal/EscapePortalCollision".set_deferred("disabled", false)
-		for glasstown_prisoners in get_tree().get_nodes_in_group("glasstown_prisoners"):
-			glasstown_prisoners.queue_free()
+		for glasstown_prisoner in get_tree().get_nodes_in_group("glasstown_prisoners"):
+			glasstown_prisoner.queue_free()

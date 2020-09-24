@@ -13,5 +13,7 @@ func interact():
 	elif (dubble.current_mission == dubble.Missions.GLITTER_REMINDER) and \
 	ItemManager.inventory.has("glitter_item"):
 		DiagHelper.start_talk(self, "PostMission")
+		
+		
 func give_glitter():
 	ItemManager.give_item("glitter_item")

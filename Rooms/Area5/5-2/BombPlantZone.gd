@@ -20,6 +20,7 @@ func load(save_game):
 		bomb.visible = false
 	
 func interact():
+	# 11 is Dubble's last mission 
 	if (dubble_quest_status == 11) and \
 	(ItemManager.inventory.has("glasstown_finished_bomb_item")):
 		var player = global.get_player(1)
@@ -42,7 +43,7 @@ func interact():
 				bomb_position_modifier = Vector2(-8,0)
 			"leftup":
 				bomb_position_modifier = Vector2(-6,-6)
-		bomb.position = global.get_player(1).position + bomb_position_modifier + Vector2(0,-8)
+		bomb.position = player.position + bomb_position_modifier + Vector2(0,-8)
 		bomb.visible = true
 		ItemManager.toss_item('glasstown_finished_bomb_item', ItemManager.ANY, true)
 		MusicManager.change_music("res://Music/goodvibes-battle.ogg", true, 0)

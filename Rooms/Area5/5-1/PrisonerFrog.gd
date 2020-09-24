@@ -6,14 +6,15 @@ onready var path_follow = get_node("../../FrogPath/PathFollow2D")
 
 var SAVE_KEY = "5-1_frog_"
 
+# Whether the frog is directing the player in their toilet-paper mission
 var in_mission = false
 
 enum MissionStates {
-	INTRO
-	LEAD_FROM_HOUSE
-	LEAD_INTO_FOREST
-	OPEN_DOOR
-	DOOR_OPENED
+	INTRO,
+	LEAD_FROM_HOUSE,
+	LEAD_INTO_FOREST,
+	OPEN_DOOR,
+	DOOR_OPENED,
 	SUPERTUNNEL_EXITED
 }
 var current_mission_state = MissionStates.INTRO
@@ -95,9 +96,9 @@ func _on_TriggerArea_body_entered(body):
 		$"TriggerArea/CollisionShape2D".set_deferred("disabled", true)
 		DiagHelper.start_talk(self, "OpenDoor")
 	
+# This is where the actual door opens
+# Froggy enters it and you should too
 func open_door():
-	#This is where the actual door opens
-	#Froggy enters it and you should too
 	$"../LargeMetalDoor".animate_door_open(true)
 	character_mover.play("enter_door")
 	
