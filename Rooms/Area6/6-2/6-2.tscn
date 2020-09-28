@@ -1,0 +1,914 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area6/Assets/poppy_house_worn_interior.png" type="Texture" id=2]
+[ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=3]
+[ext_resource path="res://Rooms/Area6/Assets/green_bound.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Area6/Assets/orange_bound.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Area6/6-2/6-2.gd" type="Script" id=6]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Rooms/Area6/Assets/green_bound_face.png" type="Texture" id=9]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NPC/BearlyBearableBear/BearlyBearableBear.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Engine/light5.png" type="Texture" id=12]
+[ext_resource path="res://NPC/BearlyBearableBear/bearlyBearableBearFaces.png" type="Texture" id=13]
+[ext_resource path="res://NPC/NPCWalking/NPCWalking.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Engine/basic_prop.png" type="Texture" id=15]
+[ext_resource path="res://Engine/light4.png" type="Texture" id=16]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=17]
+[ext_resource path="res://Rooms/Area6/Assets/bearly_bearable_bear_battle_background.png" type="Texture" id=18]
+
+[sub_resource type="Animation" id=1]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( -0.000244141, -0.00012207 ), Vector2( 128.257, -0.00012207 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -0.00200844, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_close"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 128.257, -0.00012207 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.00200844, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.000244141, -0.00012207 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Vector2( 128.257, -0.00012207 ), Vector2( -0.000244141, -0.00012207 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Vector2( -0.00200844, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "open_slam"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 2, 1, 2 ),
+"update": 0,
+"values": [ Vector2( 128.257, -0.00012207 ), Vector2( -0.000244141, -0.00012207 ), Vector2( 15.807, -0.00012207 ), Vector2( -0.000244141, -0.00012207 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 2, 1, 2 ),
+"update": 0,
+"values": [ Vector2( -0.00200844, 1 ), Vector2( 1, 1 ), Vector2( 0.876506, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "open_slow"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( -2, 2 ),
+"update": 0,
+"values": [ Vector2( 128.257, -0.00012207 ), Vector2( -0.000244141, -0.00012207 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( -2, 2 ),
+"update": 0,
+"values": [ Vector2( -0.00200844, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7, 3 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "bear_enter"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/BearlyBearableBear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 168, 207 ), Vector2( 168, 162 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("DoorLight/DoorLightAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle_close", "open_slam" ),
+"times": PoolRealArray( 0, 0.1 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "bear_leave_room"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/BearlyBearableBear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 189, 146 ), Vector2( 169, 154 ), Vector2( 168, 204 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("DoorLight/DoorLightAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle_open", "close" ),
+"times": PoolRealArray( 0, 1.3 )
+}
+
+[sub_resource type="Animation" id=10]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/BearlyBearableBear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1.2, 1.5, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 168, 162 ), Vector2( 168, 190 ), Vector2( 171, 166 ), Vector2( 190, 159 ), Vector2( 189, 147 ), Vector2( 189, 147 ), Vector2( 251, 147 ), Vector2( 189, 147 ), Vector2( 189, 146 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("DoorLight/DoorLightAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle_open", "close" ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spotlight:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.31, 1.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "bear_return"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/BearlyBearableBear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.6, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 168, 204 ), Vector2( 169, 154 ), Vector2( 189, 146 ), Vector2( 189, 142 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("DoorLight/DoorLightAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle_close", "open_slam" ),
+"times": PoolRealArray( 0, 0.1 )
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/BearlyBearableBear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 168, 209 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("DoorLight/DoorLightAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle_close" ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.537255, 0.517647, 0.643137, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/RibbitTemp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 168, 211 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OverlayRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/RibbitBoundTemp:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Spotlight:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("OverlayRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/RibbitTemp:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 168, 211 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/RibbitBoundTemp:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/RibbitTemp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.1, 4.5 ),
+"transitions": PoolRealArray( 0.707107, 0.707107, 1 ),
+"update": 0,
+"values": [ Vector2( 168, 211 ), Vector2( 168, 211 ), Vector2( 168, 168 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("DoorLight/DoorLightAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle_close", "open_slow" ),
+"times": PoolRealArray( 0, 0.1 )
+}
+
+[node name="6-2" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+battle_bg = ExtResource( 18 )
+
+[node name="DialogueTree" parent="." index="0" instance=ExtResource( 7 )]
+
+[node name="Initial" parent="DialogueTree" index="0" instance=ExtResource( 8 )]
+message = "Woah! Green, I can't feel my toes!"
+character = "orange"
+expression = "big_eyed"
+
+[node name="Initial2" parent="DialogueTree/Initial" index="0" instance=ExtResource( 8 )]
+message = "You have toes?"
+character = "green"
+expression = "confused"
+face_texture = ExtResource( 9 )
+
+[node name="Initial3" parent="DialogueTree/Initial/Initial2" index="0" instance=ExtResource( 8 )]
+message = "..."
+character = "orange"
+expression = "frown"
+
+[node name="Initial4" parent="DialogueTree/Initial/Initial2/Initial3" index="0" instance=ExtResource( 8 )]
+message = "Where are we?! Green, are you seeing this place?"
+character = "orange"
+expression = "sad"
+
+[node name="Initial5" parent="DialogueTree/Initial/Initial2/Initial3/Initial4" index="0" instance=ExtResource( 8 )]
+message = "No."
+character = "green"
+expression = "neutral"
+face_texture = ExtResource( 9 )
+
+[node name="Initial6" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5" index="0" instance=ExtResource( 8 )]
+message = "... Oh. I see."
+character = "orange"
+expression = "side_mouth"
+
+[node name="Initial7" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6" index="0" instance=ExtResource( 8 )]
+message = "I don't."
+character = "green"
+face_texture = ExtResource( 9 )
+
+[node name="Initial8" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7" index="0" instance=ExtResource( 8 )]
+message = "Where's that bear guy? Shouldn't he be... like... beating us up? Or something?"
+character = "orange"
+expression = "frown"
+
+[node name="Initial9" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8" index="0" instance=ExtResource( 8 )]
+key = "Yea"
+message = "Yea, that guy `did` look like he wanted to beat us up."
+character = "green"
+face_texture = ExtResource( 9 )
+function = "bear_enter_room"
+
+[node name="Initial10" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8" index="1" instance=ExtResource( 8 )]
+key = "Eh"
+message = "I mean, it's too early to tell."
+character = "green"
+face_texture = ExtResource( 9 )
+function = "bear_enter_room"
+
+[node name="BearInitial" parent="DialogueTree" index="1" instance=ExtResource( 8 )]
+message = "WHAT UP."
+expression = "open_mouth"
+face_texture = ExtResource( 13 )
+function = "bear_reposition"
+
+[node name="BearIntro" parent="DialogueTree" index="2" instance=ExtResource( 8 )]
+message = "So. I'll just cut to the chase here."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+
+[node name="BearIntro2" parent="DialogueTree/BearIntro" index="0" instance=ExtResource( 8 )]
+message = "I have been hired to kill you."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+
+[node name="BearIntro3" parent="DialogueTree/BearIntro/BearIntro2" index="0" instance=ExtResource( 8 )]
+message = "In exchange, I have been offered something no man could refuse."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+
+[node name="BearIntro4" parent="DialogueTree/BearIntro/BearIntro2/BearIntro3" index="0" instance=ExtResource( 8 )]
+message = "That thing? Love"
+expression = "neutral"
+face_texture = ExtResource( 13 )
+function = "ribbit_enter_room"
+interrupt = true
+
+[node name="RibbitIntro" parent="DialogueTree" index="3" instance=ExtResource( 8 )]
+message = "I... Couldn't..."
+character = "ribbit"
+expression = "cry_tear"
+
+[node name="RibbitIntro2" parent="DialogueTree/RibbitIntro" index="0" instance=ExtResource( 8 )]
+message = "I couldn't do it. I just can't bring myself to do it."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="RibbitIntro3" parent="DialogueTree/RibbitIntro/RibbitIntro2" index="0" instance=ExtResource( 8 )]
+message = "Bear man, I just can't kill him. I can't even hold the knife, much less KILL someone!"
+character = "ribbit"
+expression = "yell"
+
+[node name="RibbitIntro4" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3" index="0" instance=ExtResource( 8 )]
+message = "..."
+expression = "big_eyed"
+face_texture = ExtResource( 13 )
+
+[node name="RibbitIntro5" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4" index="0" instance=ExtResource( 8 )]
+message = "But THAT'S NOT THE ONLY PROBLEM."
+character = "ribbit"
+expression = "yell"
+
+[node name="RibbitIntro6" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5" index="0" instance=ExtResource( 8 )]
+message = "THAT GUY WAS A FRIEND OF MINE. I CAN'T JUS"
+text_delay = 0.04
+character = "ribbit"
+expression = "yell_outburst"
+interrupt = true
+
+[node name="RibbitIntro7" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6" index="0" instance=ExtResource( 8 )]
+message = "Ribbit. I swear to..."
+expression = "open_mouth"
+face_texture = ExtResource( 13 )
+interrupt = true
+
+[node name="RibbitIntro8" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7" index="0" instance=ExtResource( 8 )]
+message = "That's it. It's only been four weeks, and I can already tell you're the most arrogant, whiny, spoiled little brat on the block."
+face_texture = ExtResource( 13 )
+
+[node name="RibbitIntro9" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7/RibbitIntro8" index="0" instance=ExtResource( 8 )]
+message = "You can't stop acting like a five year old, can you?"
+face_texture = ExtResource( 13 )
+
+[node name="RibbitIntro10" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7/RibbitIntro8/RibbitIntro9" index="0" instance=ExtResource( 8 )]
+message = "I `AM` FIVE YEARS OLD!"
+character = "ribbit"
+expression = "cry_sob"
+
+[node name="RibbitIntro11" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7/RibbitIntro8/RibbitIntro9/RibbitIntro10" index="0" instance=ExtResource( 8 )]
+message = "..."
+expression = "angry"
+face_texture = ExtResource( 13 )
+function = "ribbit_beat_up"
+
+[node name="BearLeave" parent="DialogueTree" index="4" instance=ExtResource( 8 )]
+message = "Okay, much better."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+
+[node name="BearLeave2" parent="DialogueTree/BearLeave" index="0" instance=ExtResource( 8 )]
+message = "Now, let me go grab something..."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+function = "bear_leave_room"
+
+[node name="RibbitDiscussion" parent="DialogueTree" index="5" instance=ExtResource( 8 )]
+message = "..."
+character = "ribbit"
+expression = "cry_tear"
+
+[node name="RibbitDiscussion2" parent="DialogueTree/RibbitDiscussion" index="0" instance=ExtResource( 8 )]
+message = "(Green, SHE'S SO FLUFFY. Are you SEEING THIS?)"
+character = "orange"
+expression = "smile"
+
+[node name="RibbitDiscussion3" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2" index="0" instance=ExtResource( 8 )]
+message = "(No, I'm not.)"
+character = "green"
+face_texture = ExtResource( 9 )
+
+[node name="RibbitDiscussion4" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3" index="0" instance=ExtResource( 8 )]
+message = "I can hear `everything` you guys say."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="RibbitDiscussion5" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4" index="0" instance=ExtResource( 8 )]
+message = "..."
+character = "ribbit"
+expression = "cry_tear"
+
+[node name="RibbitDiscussion6" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5" index="0" instance=ExtResource( 8 )]
+message = "Okay, you probably need some context."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="DiagPiece" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6" index="0" instance=ExtResource( 8 )]
+message = "Yes. That would be lovely, actually."
+character = "orange"
+expression = "confused"
+
+[node name="RibbitDiscussion7" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece" index="0" instance=ExtResource( 8 )]
+message = "My mommy said that she and my daddy were going on a honeymoon."
+character = "ribbit"
+expression = "cry_tear"
+
+[node name="RibbitDiscussion8" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7" index="0" instance=ExtResource( 8 )]
+message = "But they went to the ACTUAL MOON."
+character = "ribbit"
+expression = "yell"
+
+[node name="RibbitDiscussion9" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8" index="0" instance=ExtResource( 8 )]
+message = "But it's been weeks and they haven't come back! And I ran out of food!"
+character = "ribbit"
+expression = "cry_sob"
+
+[node name="RibbitDiscussion10" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9" index="0" instance=ExtResource( 8 )]
+message = "And now the strangers stopped giving me food!"
+character = "ribbit"
+expression = "cry_sob"
+
+[node name="RibbitDiscussion11" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10" index="0" instance=ExtResource( 8 )]
+message = "But this bear guy said he could give me food..."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="RibbitDiscussion12" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11" index="0" instance=ExtResource( 8 )]
+message = "But of course it was only AFTER ENTERING HIS HOUSE..."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="RibbitDiscussion13" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12" index="0" instance=ExtResource( 8 )]
+message = "...That he gave me a knife and said to put the sharp end inside that big moth guy at the hotel."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="RibbitDiscussion14" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13" index="0" instance=ExtResource( 8 )]
+message = "And, I mean, I took up the offer because I was really hungry."
+character = "ribbit"
+expression = "cry_mourn"
+
+[node name="RibbitDiscussion15" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14" index="0" instance=ExtResource( 8 )]
+message = "But when I got there, I just really didn't... I just couldn't..."
+character = "ribbit"
+expression = "cry_sob"
+
+[node name="RibbitDiscussion16" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15" index="0" instance=ExtResource( 8 )]
+message = "That sounds horrible..."
+character = "orange"
+expression = "sad"
+interrupt = true
+
+[node name="RibbitDiscussion17" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16" index="0" instance=ExtResource( 8 )]
+message = "I know, I failed such a simple task."
+character = "ribbit"
+expression = "cry_sob"
+
+[node name="RibbitDiscussion18" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17" index="0" instance=ExtResource( 8 )]
+message = "No, no, that's not what I meant at all."
+character = "orange"
+expression = "frown"
+
+[node name="RibbitDiscussion19" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18" index="0" instance=ExtResource( 8 )]
+message = "That's not something to feel bad about. You're a little young to be killing people."
+character = "orange"
+expression = "sad"
+
+[node name="RibbitDiscussion20" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19" index="0" instance=ExtResource( 8 )]
+message = "..."
+character = "green"
+face_texture = ExtResource( 9 )
+interrupt = true
+
+[node name="RibbitDiscussion21" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20" index="0" instance=ExtResource( 8 )]
+message = "(Green, does our age even mean anything at this point?)"
+character = "orange"
+expression = "yell"
+
+[node name="RibbitDiscussion22" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21" index="0" instance=ExtResource( 8 )]
+message = "Rabbit... thing... you have a name, right?"
+character = "orange"
+expression = "frown"
+
+[node name="RibbitDiscussion23" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22" index="0" instance=ExtResource( 8 )]
+message = "Ribbit. Ribbit Brown."
+character = "ribbit"
+expression = "cry_tear"
+
+[node name="RibbitDiscussion24" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23" index="0" instance=ExtResource( 8 )]
+message = "Okay. Well, I'm Orange, and this green guy here is Green"
+character = "orange"
+expression = "frown"
+function = "bear_return"
+interrupt = true
+
+[node name="BearReturn" parent="DialogueTree" index="6" instance=ExtResource( 8 )]
+message = "With you two flasks, it's my job. I'm being payed for this. I'll make sure I get that money."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+
+[node name="BearReturn2" parent="DialogueTree/BearReturn" index="0" instance=ExtResource( 8 )]
+message = "With you, though, Ribbit, it's personal. It's a passion. In fact, I will put my heart and soul into dealing with you."
+expression = "open_mouth"
+face_texture = ExtResource( 13 )
+
+[node name="BearReturn3" parent="DialogueTree/BearReturn/BearReturn2" index="0" instance=ExtResource( 8 )]
+message = "...Finally."
+expression = "smile"
+face_texture = ExtResource( 13 )
+
+[node name="BearReturn4" parent="DialogueTree/BearReturn/BearReturn2/BearReturn3" index="0" instance=ExtResource( 8 )]
+message = "A use for this triple-barrel shotgun."
+expression = "smug"
+face_texture = ExtResource( 13 )
+
+[node name="BearReturn5" parent="DialogueTree/BearReturn/BearReturn2/BearReturn3/BearReturn4" index="0" instance=ExtResource( 8 )]
+message = "Oh no. "
+character = "orange"
+expression = "angry"
+
+[node name="BearReturn6" parent="DialogueTree/BearReturn/BearReturn2/BearReturn3/BearReturn4/BearReturn5" index="0" instance=ExtResource( 8 )]
+message = "Oh yes PLEASE."
+expression = "angry"
+face_texture = ExtResource( 13 )
+function = "bear_fight"
+
+[node name="ColorRect2" type="ColorRect" parent="Tilemaps" index="0"]
+material = ExtResource( 17 )
+margin_left = -50.0
+margin_top = -39.0
+margin_right = 431.0
+margin_bottom = 260.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="poppy_house_worn_interior" type="Sprite" parent="Tilemaps" index="1"]
+position = Vector2( 192, 114 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="Tilemaps" index="2"]
+visible = false
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 458759, 0, 0, 458768, 0, 0, 524295, 0, 0, 524304, 0, 0, 589831, 0, 0, 589840, 0, 0, 655367, 0, 0, 655376, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0 )
+
+[node name="Node2D" type="Node2D" parent="Tilemaps" index="3"]
+z_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="Tilemaps/Node2D" index="0"]
+material = ExtResource( 17 )
+margin_left = 136.0
+margin_top = 184.0
+margin_right = 203.0
+margin_bottom = 237.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoorLight" type="Node2D" parent="." index="3"]
+position = Vector2( 168, 157 )
+scale = Vector2( 0.06225, -0.214891 )
+
+[node name="Light2D" type="Light2D" parent="DoorLight" index="0"]
+position = Vector2( 128.257, -0.00012207 )
+scale = Vector2( -0.00200844, 1 )
+texture = ExtResource( 12 )
+color = Color( 1, 0.921569, 0.768627, 1 )
+energy = 1.12
+
+[node name="DoorLightAnimator" type="AnimationPlayer" parent="DoorLight" index="1"]
+autoplay = "idle_close"
+anims/close = SubResource( 1 )
+anims/idle_close = SubResource( 2 )
+anims/idle_open = SubResource( 3 )
+anims/open = SubResource( 4 )
+anims/open_slam = SubResource( 5 )
+anims/open_slow = SubResource( 6 )
+
+[node name="Orange" parent="YSort" index="0" instance=ExtResource( 10 )]
+visible = false
+footstep_noise = false
+
+[node name="Player" parent="YSort" index="1"]
+visible = false
+position = Vector2( 169, 123 )
+footstep_noise = false
+
+[node name="GreenBound" type="Sprite" parent="YSort" index="2"]
+position = Vector2( 170, 115 )
+texture = ExtResource( 4 )
+
+[node name="OrangeBound" type="Sprite" parent="YSort" index="3"]
+position = Vector2( 210, 118 )
+texture = ExtResource( 5 )
+
+[node name="BearlyBearableBear" parent="YSort" index="4" instance=ExtResource( 11 )]
+position = Vector2( 168, 209 )
+interactable = false
+
+[node name="RibbitTemp" parent="YSort" index="5" instance=ExtResource( 14 )]
+position = Vector2( 168, 211 )
+interactable = false
+
+[node name="RibbitBoundTemp" type="Sprite" parent="YSort" index="6"]
+visible = false
+position = Vector2( 191, 116 )
+texture = ExtResource( 15 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
+color = Color( 0.537255, 0.517647, 0.643137, 1 )
+
+[node name="Camera" parent="." index="6"]
+position = Vector2( 192, 114 )
+follow_player = false
+
+[node name="Spotlight" type="Light2D" parent="." index="7"]
+position = Vector2( 192, 122 )
+scale = Vector2( 0.40625, 0.40625 )
+texture = ExtResource( 16 )
+color = Color( 1, 0.913725, 0.8, 1 )
+energy = 0.0
+
+[node name="OverlayRect" type="ColorRect" parent="." index="8"]
+visible = false
+material = ExtResource( 17 )
+margin_left = -50.0
+margin_top = -39.0
+margin_right = 431.0
+margin_bottom = 260.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerBound" type="StaticBody2D" parent="." index="10"]
+visible = false
+position = Vector2( 169, 121 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBound" index="0"]
+position = Vector2( 0, -5 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerBound" index="1"]
+position = Vector2( -14, 1 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PlayerBound" index="2"]
+position = Vector2( 0, 7 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PlayerBound" index="3"]
+position = Vector2( 14, 1 )
+shape = SubResource( 7 )
+
+[node name="MainAnimator" type="AnimationPlayer" parent="." index="11"]
+autoplay = "idle_pre"
+anims/bear_enter = SubResource( 8 )
+anims/bear_leave_room = SubResource( 9 )
+anims/bear_reposition = SubResource( 10 )
+anims/bear_return = SubResource( 11 )
+anims/idle_pre = SubResource( 12 )
+anims/ribbit_beat_up = SubResource( 13 )
+anims/ribbit_enter_room = SubResource( 14 )
+
+[editable path="HUD"]

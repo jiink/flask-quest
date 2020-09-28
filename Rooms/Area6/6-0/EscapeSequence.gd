@@ -25,5 +25,5 @@ func diag_finished():
 	$"../BusPath/AnimationPlayer".play("bus_go")
 
 	yield(get_tree().create_timer(4), "timeout")
-	global.start_scene_switch("res://Rooms/Area6/6-1/6-1.tscn", Vector2(0,0))
+	global.start_scene_switch("res://Rooms/Area6/6-1/6-1.tscn", Vector2(667,-78))
 	global.swap_scenes()

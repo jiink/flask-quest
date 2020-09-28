@@ -46,7 +46,7 @@ tracks/1/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "bus_idle_begin"
 length = 0.1
 tracks/0/type = "value"
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 5.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("PathFollow2D:offset")
@@ -89,7 +89,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 259, 5 )
 
 [node name="6-0" instance=ExtResource( 1 )]
@@ -109,8 +109,8 @@ curve = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BusPath" index="0"]
 autoplay = "bus_idle_begin"
 anims/bus_go = SubResource( 2 )
-anims/bus_idle_begin = SubResource( 5 )
-anims/bus_stop = SubResource( 3 )
+anims/bus_idle_begin = SubResource( 3 )
+anims/bus_stop = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BusPath" index="1"]
 position = Vector2( 556.133, -49 )
@@ -153,7 +153,7 @@ script = ExtResource( 9 )
 [node name="Tween" type="Tween" parent="EscapeTrigger" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EscapeTrigger" index="1"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="DialogueTree" parent="EscapeTrigger" index="2" instance=ExtResource( 10 )]
 
