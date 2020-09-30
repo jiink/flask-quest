@@ -17,7 +17,7 @@ enum Missions {
 
 var current_mission = Missions.GRASSBULB
 
-var SAVE_KEY = "5-1_dubble_"
+const SAVE_KEY = "5-1_dubble_"
 
 onready var scene_root = get_tree().get_current_scene()
 

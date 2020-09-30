@@ -4,6 +4,8 @@
 [ext_resource path="res://NPC/BearlyBearableBear/bearly_bearable_bear_foe.png" type="Texture" id=2]
 
 [node name="BearlyBearableBearFoe" instance=ExtResource( 1 )]
+lines = [ "Just give up already, idiots.", "Eat a rock, juicebrains.", "Lose already, will you?", "This is my job.", "This is my hobby.", "Guess I'll have rabbit stew for dinner.", "I can't wait to expand my flask collection!" ]
+is_boss = true
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )

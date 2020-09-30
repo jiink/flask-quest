@@ -18,6 +18,7 @@ export(Dictionary) var data = {
 	"5-1_frog_current_mission_state": 0,
 	"5-2_bomb_planted": false,
 	"5-2_bomb_position": Vector2(0,0),
+	"6-1_pre_kidnap_events_occured": false,
 	"dollars": 0,
 	"event_seed": int(rand_range(1, 2048)),
 	"green_hp": 100,
