@@ -2,6 +2,7 @@ extends Node2D
 
 onready var scene_camera = get_tree().get_current_scene().get_node("Camera")
 onready var player = get_tree().get_current_scene().get_node("YSort/Player")
+onready var scene_root = get_tree().get_current_scene()
 	
 const BEARLY_BEARABLE_BEAR_SCENE = preload("res://NPC/BearlyBearableBear/BearlyBearableBear.tscn")
 
@@ -50,6 +51,8 @@ func kidnap():
 	yield(get_tree().create_timer(0.5), "timeout")
 	$HitNoise.play()
 	$BreakNoise.play()
+	
+	scene_root.pre_kidnap_events_occured = true
 	
 	yield(get_tree().create_timer(3), "timeout")
 	global.start_scene_switch("res://Rooms/Area6/6-2/6-2.tscn", Vector2(169,123))

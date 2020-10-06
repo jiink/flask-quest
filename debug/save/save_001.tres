@@ -29,8 +29,8 @@ data = {
 "orange_hp": 100,
 "orange_max_hp": 100,
 "party_members": [  ],
-"player_spawn_pos": Vector2( 743.031, 869.781 ),
-"player_spawn_scene": "res://Rooms/Area5/5-1/5-1.tscn",
+"player_spawn_pos": Vector2( 867.252, -1372.63 ),
+"player_spawn_scene": "res://Rooms/Area6/6-1/6-1.tscn",
 "test_SaveTester": "blue",
 "test_SaveTester2": "blue",
 "test_SaveTester3": "blue"

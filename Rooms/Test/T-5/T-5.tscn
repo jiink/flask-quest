@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Rooms/Test/Assets/hdri_sky_test.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area2/Assets/citytree_02.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Area2/Assets/cultsign_03.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Area2/Assets/buildingsign01.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Area1/Assets/A1_floor_small.png" type="Texture" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
+roughness = 0.39
+
+[sub_resource type="PanoramaSky" id=3]
+radiance_size = 0
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+background_color = Color( 0, 0.611765, 0.909804, 1 )
+fog_color = Color( 0.129412, 0.219608, 0.305882, 1 )
+fog_sun_amount = 0.05
+fog_depth_enabled = false
+fog_depth_begin = 41.7
+fog_depth_end = 141.7
+fog_transmit_enabled = true
+fog_height_enabled = true
+auto_exposure_enabled = true
+
+[node name="T-5" type="Node"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 2.5, -6.1 )
+pixel_size = 0.1
+billboard = 2
+alpha_cut = 2
+texture = ExtResource( 2 )
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 2.5, 3.9 )
+pixel_size = 0.1
+billboard = 2
+alpha_cut = 2
+texture = ExtResource( 2 )
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 2.5, -4.9 )
+pixel_size = 0.1
+billboard = 2
+double_sided = false
+alpha_cut = 2
+texture = ExtResource( 2 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform( 0.766044, 0, -0.642789, 0, 1, 0, 0.642789, 0, 0.766044, 2.5, 0.6, -2.9 )
+pixel_size = 0.05
+texture = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+width = 14.0
+depth = 14.0
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2, 1.3, 0 )
+width = 2.4
+height = 6.6
+depth = 14.0
+material = SubResource( 2 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 1.3, 3.5 )
+width = 2.4
+height = 1.6
+depth = 3.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )

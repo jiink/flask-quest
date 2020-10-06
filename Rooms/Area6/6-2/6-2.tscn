@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/Assets/poppy_house_worn_interior.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Engine/light4.png" type="Texture" id=16]
 [ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=17]
 [ext_resource path="res://Rooms/Area6/Assets/bearly_bearable_bear_battle_background.png" type="Texture" id=18]
+[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 resource_name = "close"
@@ -451,6 +452,9 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 11, 3 )
+
 [node name="6-2" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 battle_bg = ExtResource( 18 )
@@ -701,14 +705,14 @@ character = "ribbit"
 expression = "cry_sob"
 
 [node name="RibbitDiscussion18" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17" index="0" instance=ExtResource( 8 )]
-message = "No, no, that's not what I meant at all."
+message = "No, that's... not what I meant."
 character = "orange"
-expression = "frown"
+expression = "dot_eyes"
 
 [node name="RibbitDiscussion19" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18" index="0" instance=ExtResource( 8 )]
-message = "That's not something to feel bad about. You're a little young to be killing people."
+message = "You shouldn't feel bad about that. Aren't you a little young to be murdering people?"
 character = "orange"
-expression = "sad"
+expression = "confused"
 
 [node name="RibbitDiscussion20" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19" index="0" instance=ExtResource( 8 )]
 message = "..."
@@ -722,52 +726,72 @@ character = "orange"
 expression = "yell"
 
 [node name="RibbitDiscussion22" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21" index="0" instance=ExtResource( 8 )]
-message = "Rabbit... thing... you have a name, right?"
+message = "Wow. Okay. You have a name, right?"
 character = "orange"
 expression = "frown"
 
 [node name="RibbitDiscussion23" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22" index="0" instance=ExtResource( 8 )]
-message = "Ribbit. Ribbit Brown."
+message = "My name is Ribbit. "
 character = "ribbit"
 expression = "cry_tear"
 
 [node name="RibbitDiscussion24" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23" index="0" instance=ExtResource( 8 )]
-message = "Okay. Well, I'm Orange, and this green guy here is Green"
+message = "Nice. I'm Orange, and that green guy covered in rope is Green"
 character = "orange"
 expression = "frown"
 function = "bear_return"
 interrupt = true
 
 [node name="BearReturn" parent="DialogueTree" index="6" instance=ExtResource( 8 )]
+message = "Okay, now I'm ready."
+expression = "neutral"
+face_texture = ExtResource( 13 )
+
+[node name="BearReturn" parent="DialogueTree/BearReturn" index="0" instance=ExtResource( 8 )]
 message = "With you two flasks, it's my job. I'm being payed for this. I'll make sure I get that money."
 expression = "neutral"
 face_texture = ExtResource( 13 )
 
-[node name="BearReturn2" parent="DialogueTree/BearReturn" index="0" instance=ExtResource( 8 )]
+[node name="BearReturn2" parent="DialogueTree/BearReturn/BearReturn" index="0" instance=ExtResource( 8 )]
 message = "With you, though, Ribbit, it's personal. It's a passion. In fact, I will put my heart and soul into dealing with you."
 expression = "open_mouth"
 face_texture = ExtResource( 13 )
 
-[node name="BearReturn3" parent="DialogueTree/BearReturn/BearReturn2" index="0" instance=ExtResource( 8 )]
+[node name="BearReturn6" parent="DialogueTree/BearReturn/BearReturn/BearReturn2" index="0" instance=ExtResource( 8 )]
+message = "Oh no. "
+character = "orange"
+expression = "sad"
+
+[node name="BearReturn3" parent="DialogueTree/BearReturn/BearReturn/BearReturn2/BearReturn6" index="0" instance=ExtResource( 8 )]
 message = "...Finally."
 expression = "smile"
 face_texture = ExtResource( 13 )
 
-[node name="BearReturn4" parent="DialogueTree/BearReturn/BearReturn2/BearReturn3" index="0" instance=ExtResource( 8 )]
+[node name="BearReturn4" parent="DialogueTree/BearReturn/BearReturn/BearReturn2/BearReturn6/BearReturn3" index="0" instance=ExtResource( 8 )]
 message = "A use for this triple-barrel shotgun."
 expression = "smug"
 face_texture = ExtResource( 13 )
 
-[node name="BearReturn5" parent="DialogueTree/BearReturn/BearReturn2/BearReturn3/BearReturn4" index="0" instance=ExtResource( 8 )]
+[node name="BearReturn5" parent="DialogueTree/BearReturn/BearReturn/BearReturn2/BearReturn6/BearReturn3/BearReturn4" index="0" instance=ExtResource( 8 )]
 message = "Oh no. "
 character = "orange"
-expression = "angry"
+expression = "cry_sob"
 
-[node name="BearReturn6" parent="DialogueTree/BearReturn/BearReturn2/BearReturn3/BearReturn4/BearReturn5" index="0" instance=ExtResource( 8 )]
+[node name="BearReturn6" parent="DialogueTree/BearReturn/BearReturn/BearReturn2/BearReturn6/BearReturn3/BearReturn4/BearReturn5" index="0" instance=ExtResource( 8 )]
 message = "Oh yes PLEASE."
 expression = "angry"
 face_texture = ExtResource( 13 )
 function = "bear_fight"
+
+[node name="PostBear" parent="DialogueTree" index="7" instance=ExtResource( 8 )]
+message = "Wow, we actually did it. I thought we were going to die."
+character = "orange"
+expression = "neutral"
+
+[node name="PostBear2" parent="DialogueTree/PostBear" index="0" instance=ExtResource( 8 )]
+message = "Well, time to return to our lives."
+character = "orange"
+expression = "smile"
 
 [node name="ColorRect2" type="ColorRect" parent="Tilemaps" index="0"]
 material = ExtResource( 17 )
@@ -910,5 +934,13 @@ anims/bear_return = SubResource( 11 )
 anims/idle_pre = SubResource( 12 )
 anims/ribbit_beat_up = SubResource( 13 )
 anims/ribbit_enter_room = SubResource( 14 )
+
+[node name="ExitPortal" parent="." index="12" instance=ExtResource( 19 )]
+position = Vector2( 168, 190 )
+new_scene = "res://Rooms/Area6/6-1/6-1.tscn"
+player_new_position = Vector2( 960, -1435 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitPortal" index="0"]
+shape = SubResource( 15 )
 
 [editable path="HUD"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buildingsign01.png-96ebc380b8833927795d559883aed296.stex"
+path="res://.import/hdri_sky_test.png-4e646ce817e85ba55be2826643d6763f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/buildingsign01.png"
-dest_files=[ "res://.import/buildingsign01.png-96ebc380b8833927795d559883aed296.stex" ]
+source_file="res://Rooms/Test/Assets/hdri_sky_test.png"
+dest_files=[ "res://.import/hdri_sky_test.png-4e646ce817e85ba55be2826643d6763f.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
