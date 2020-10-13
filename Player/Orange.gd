@@ -28,21 +28,21 @@ func _process(delta):
 	
 	match motion:
 		Vector2(0, -1):
-			direction = "up"
+			direction = Direction.UP
 		Vector2(1, -1):
-			direction = "rightup"
+			direction = Direction.RIGHTUP
 		Vector2(1, 0):
-			direction = "right"
+			direction = Direction.RIGHT
 		Vector2(1, 1):
-			direction = "rightdown"
+			direction = Direction.RIGHTDOWN
 		Vector2(0, 1):
-			direction = "down"
+			direction = Direction.DOWN
 		Vector2(-1, 1):
-			direction = "leftdown"
+			direction = Direction.LEFTDOWN
 		Vector2(-1, 0):
-			direction = "left"
+			direction = Direction.LEFT
 		Vector2(-1, -1):
-			direction = "leftup"
+			direction = Direction.LEFTUP
 #	if t%20 > t%15 : print($AnimatedSprite.playing)
 	$AnimatedSprite.animation = direction
 	

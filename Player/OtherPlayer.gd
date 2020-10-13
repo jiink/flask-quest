@@ -2,14 +2,6 @@ extends "res://Player/Player.gd"
 
 var follow_distance = 5
 
-enum {
-	HUMAN,
-	BOT,
-	EXTERNAL
-}
-
-export(int, "HUMAN", "BOT", "EXTERNAL") var controlled_by = HUMAN
-
 onready var leader = get_node("../Player")
 
 export(bool) var spawn_with_p1 = true
@@ -48,7 +40,7 @@ func _process(delta):
 	# if other cases unused, use set_process to make this not happen if this
 	#  is controlled by a bot
 	match controlled_by:
-		HUMAN:
+		PERSON:
 			previous_position = position
 			#if not get_owner().get_node("HUD/Diag").visible:
 			if not frozen:
@@ -79,23 +71,23 @@ func _tick():
 		
 		match motion:
 			Vector2(0, -1):
-				direction = "up"
+				direction = Direction.UP
 			Vector2(1, -1):
-				direction = "rightup"
+				direction = Direction.RIGHTUP
 			Vector2(1, 0):
-				direction = "right"
+				direction = Direction.RIGHT
 			Vector2(1, 1):
-				direction = "rightdown"
+				direction = Direction.RIGHTDOWN
 			Vector2(0, 1):
-				direction = "down"
+				direction = Direction.DOWN
 			Vector2(-1, 1):
-				direction = "leftdown"
+				direction = Direction.LEFTDOWN
 			Vector2(-1, 0):
-				direction = "left"
+				direction = Direction.LEFT
 			Vector2(-1, -1):
-				direction = "leftup"
+				direction = Direction.LEFTUP
 	#	if t%20 > t%15 : print($AnimatedSprite.playing)
-		$AnimatedSprite.animation = direction
+		$AnimatedSprite.animation = direction_enum_to_string[direction]
 		
 		$AnimatedSprite.speed_scale = 1.3
 	#	if t%20 == 0:

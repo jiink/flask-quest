@@ -1,5 +1,16 @@
 extends KinematicBody2D
 
+# this script could use some cleaning up... there's a lot of mish-mash and redundancy 🤢
+
+enum Direction { UP, RIGHTUP, RIGHT, RIGHTDOWN, DOWN, LEFTDOWN, LEFT, LEFTUP }
+
+enum {
+	PERSON,
+	BOT,
+	EXTERNAL
+}
+
+export(int, "PERSON", "BOT", "EXTERNAL") var controlled_by = PERSON setget set_controlled_by
 export(int) var ground_speed = 60
 export(int) var water_speed = 33
 export(float) var sprintMultiplier
@@ -8,11 +19,24 @@ export(int) var player_number = 1
 
 export (int, 0, 200) var push = 100
 
+export(Direction) var extctrl_facing_direction = Direction.DOWN setget set_facing_direction
+export(bool) var extctrl_auto_direction = true
+
 var speed = ground_speed
 var sprint = false
 export(bool) var footstep_noise = true
 var motion = Vector2(0, 0)
-var direction = "right"
+var direction = Direction.RIGHT
+var direction_enum_to_string = {
+	Direction.UP : "up",
+	Direction.RIGHTUP : "rightup",
+	Direction.RIGHT : "right",
+	Direction.RIGHTDOWN : "rightdown",
+	Direction.DOWN : "down",
+	Direction.LEFTDOWN : "leftdown",
+	Direction.LEFT : "left",
+	Direction.LEFTUP : "leftup",
+}
 var frozen = false
 var invincible = false
 var in_water = false
@@ -39,6 +63,7 @@ var player_action = "action"
 var new_step = false
 
 onready var in_water_cutoff_material = preload("res://Player/in_water_cutoff.tres")
+onready var sprite = $AnimatedSprite
 
 func _ready():
 	$LightOccluder2D.visible = true
@@ -63,9 +88,6 @@ func _process(delta):
 	
 		move_and_animate()
 	
-	
-	
-		
 	#	if position != previous_position: 
 	#		position_history.pop_back()
 	#		position_history.push_front(position)
@@ -84,7 +106,7 @@ func move_and_animate():
 
 	change_izone_pos()
 		
-	$AnimatedSprite.animation = direction
+	$AnimatedSprite.animation = direction_enum_to_string[direction]
 	if sprint:
 		$AnimatedSprite.speed_scale = 2.73
 	else:
@@ -102,7 +124,6 @@ func move_and_animate():
 		$StepSound.pitch_scale = (randf() + 0.8) * 0.8
 		$StepSound.play()
 		new_step = false
-		
 		
 
 
@@ -125,21 +146,21 @@ func get_inputs():
 #	motion_simplified.x = motion.x
 	match motion_simplified:
 		Vector2(0, -1):
-			direction = "up"
+			direction = Direction.UP
 		Vector2(1, -1):
-			direction = "rightup"
+			direction = Direction.RIGHTUP
 		Vector2(1, 0):
-			direction = "right"
+			direction = Direction.RIGHT
 		Vector2(1, 1):
-			direction = "rightdown"
+			direction = Direction.RIGHTDOWN
 		Vector2(0, 1):
-			direction = "down"
+			direction = Direction.DOWN
 		Vector2(-1, 1):
-			direction = "leftdown"
+			direction = Direction.LEFTDOWN
 		Vector2(-1, 0):
-			direction = "left"
+			direction = Direction.LEFT
 		Vector2(-1, -1):
-			direction = "leftup"
+			direction = Direction.LEFTUP
 	sprint = Input.is_action_pressed(player_action)
 	
 func _input(event):
@@ -155,21 +176,21 @@ func _input(event):
 		
 func change_izone_pos():
 	match direction:
-		"up":
+		Direction.UP:
 			interactionZone.position = $Interaction/Up.position 
-		"upright":
+		Direction.RIGHTUP:
 			interactionZone.position = $Interaction/Up.position + $Interaction/Right.position 
-		"right":
+		Direction.RIGHT:
 			interactionZone.position = $Interaction/Right.position 
-		"downright":
+		Direction.RIGHTDOWN:
 			interactionZone.position = $Interaction/Down.position + $Interaction/Right.position 
-		"down":
+		Direction.DOWN:
 			interactionZone.position = $Interaction/Down.position 
-		"downleft":
+		Direction.LEFTDOWN:
 			interactionZone.position = $Interaction/Down.position + $Interaction/Left.position 
-		"left":
+		Direction.LEFT:
 			interactionZone.position = $Interaction/Left.position
-		"upleft":
+		Direction.LEFTUP:
 			interactionZone.position = $Interaction/Up.position + $Interaction/Left.position 
 
 func set_in_water(setting):
@@ -242,3 +263,98 @@ func clear_history():
 # 		var collision = get_slide_collision(index)
 # 		if collision.collider.is_in_group("PushableProp"):
 # 			collision.collider.apply_central_impulse(-collision.normal * push)
+
+func set_controlled_by(new_controller):
+	if new_controller == null: return
+	controlled_by = new_controller
+	print("Player now being controlled by %s" % controlled_by)
+	match controlled_by:
+		PERSON:
+			remove_from_group("tick")
+			set_process(true)
+		BOT:
+			pass
+		EXTERNAL:
+			add_to_group("tick")
+			set_process(false)
+		
+
+# This (including the entire _tick function as of now) is used solely for the external control stuff
+var extctrl_animation_strings_walking = ["up", "rightup", "right", "rightdown", "down", "leftdown", "left", "leftup"]
+var extctrl_delta_pos = position
+var extctrl_last_position = position
+var extctrl_moving_threshold = 0.1
+var extctrl_moving = false
+var extctrl_last_moving = false
+var extctrl_anim_speed_scale = 0.5
+func _tick():
+	extctrl_delta_pos = position - extctrl_last_position
+
+	var delta_pos_length = extctrl_delta_pos.length()
+
+	extctrl_moving = extctrl_delta_pos.length() > extctrl_moving_threshold
+	sprite.playing = extctrl_moving
+
+	sprite.speed_scale = extctrl_delta_pos.length() * extctrl_anim_speed_scale
+		
+	if (extctrl_moving) and (not extctrl_last_moving):
+		sprite.set_animation(extctrl_animation_strings_walking[extctrl_facing_direction])
+
+	if extctrl_moving and extctrl_auto_direction:
+
+		var calculated_dir
+
+		# if abs(extctrl_delta_pos.y) > abs(extctrl_delta_pos.x):
+		# 	if extctrl_delta_pos.y > 0:
+		# 		calculated_dir = Direction.DOWN
+		# 	elif extctrl_delta_pos.y < 0:
+		# 		calculated_dir = Direction.UP
+				
+		# elif abs(extctrl_delta_pos.x) > abs(extctrl_delta_pos.y):
+		# 	if extctrl_delta_pos.x > 0:
+		# 		calculated_dir = Direction.RIGHT
+		# 	elif extctrl_delta_pos.x < 0:
+		# 		calculated_dir = Direction.LEFT
+		
+		var delta_pos_simplified = Vector2(make_one(extctrl_delta_pos.x), make_one(extctrl_delta_pos.y))
+		#	delta_pos_simplified.x = motion.x
+		print(delta_pos_simplified)
+		match delta_pos_simplified:
+			Vector2(0, -1):
+				calculated_dir = Direction.UP
+			Vector2(1, -1):
+				calculated_dir = Direction.RIGHTUP
+			Vector2(1, 0):
+				calculated_dir = Direction.RIGHT
+			Vector2(1, 1):
+				calculated_dir = Direction.RIGHTDOWN
+			Vector2(0, 1):
+				calculated_dir = Direction.DOWN
+			Vector2(-1, 1):
+				calculated_dir = Direction.LEFTDOWN
+			Vector2(-1, 0):
+				calculated_dir = Direction.LEFT
+			Vector2(-1, -1):
+				calculated_dir = Direction.LEFTUP
+			Vector2(0, 0):
+				calculated_dir = Direction.DOWN
+
+		set_facing_direction(calculated_dir)		
+
+	extctrl_last_position = position
+	extctrl_last_moving = extctrl_moving
+
+func set_facing_direction(dir):
+	if (dir != extctrl_facing_direction) and (dir != null):
+		extctrl_facing_direction = dir
+		
+		sprite.set_animation(extctrl_animation_strings_walking[dir])
+		# match extctrl_facing_direction:
+		# 	Direction.UP:
+		# 		sprite.set_animation("up")
+		# 	Direction.RIGHT:
+		# 		sprite.set_animation("right")
+		# 	Direction.DOWN:
+		# 		sprite.set_animation("down")
+		# 	Direction.LEFT:
+		# 		sprite.set_animation("left")
