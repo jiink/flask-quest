@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/captured_by_the_bearly_bearable_bear.ogg-663b0cb30f2545daf970721b77942a6e.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area6/Assets/captured_by_the_bearly_bearable_bear.ogg"
+dest_files=[ "res://.import/captured_by_the_bearly_bearable_bear.ogg-663b0cb30f2545daf970721b77942a6e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

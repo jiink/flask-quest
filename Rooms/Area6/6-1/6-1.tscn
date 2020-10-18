@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://NPC/MinorNPCs/bus_driver_a_face.png" type="Texture" id=26]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.gd" type="Script" id=27]
 [ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Rooms/Area6/Assets/poppy_place.ogg" type="AudioStream" id=29]
+[ext_resource path="res://Rooms/Area5/Assets/PostApoc/AGT_weather_phaser.ogg" type="AudioStream" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69, 35 )
@@ -146,6 +148,7 @@ extents = Vector2( 434, 8 )
 "save",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 27 )
+level_music = ExtResource( 29 )
 
 [node name="6-1" parent="Tilemaps" index="0" instance=ExtResource( 2 )]
 
@@ -369,8 +372,14 @@ position = Vector2( 0, -161 )
 position = Vector2( 429, -494 )
 stream = ExtResource( 7 )
 autoplay = true
+bus = "Environment"
 
-[node name="KidnapEvent" type="Node2D" parent="." index="9"]
+[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource( 30 )
+autoplay = true
+bus = "Environment"
+
+[node name="KidnapEvent" type="Node2D" parent="." index="10"]
 position = Vector2( 832, -233 )
 script = ExtResource( 21 )
 

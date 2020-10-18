@@ -34,6 +34,7 @@ func bear_appear():
 	$CharTween.start()
 	###
 	
+	MusicManager.change_music(null, true, 0.2)
 	$AlertNoise.play()
 	
 	####Camera tween

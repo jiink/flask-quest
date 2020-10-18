@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme_of_the_bearly_bearable_bear_2.ogg-e27d182e0b1977b5d150a82894f23b2e.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area6/Assets/theme_of_the_bearly_bearable_bear_2.ogg"
+dest_files=[ "res://.import/theme_of_the_bearly_bearable_bear_2.ogg-e27d182e0b1977b5d150a82894f23b2e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

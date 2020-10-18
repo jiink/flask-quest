@@ -19,7 +19,7 @@ data = {
 "5-1_time_of_day": 3,
 "5-2_bomb_planted": false,
 "5-2_bomb_position": Vector2( 0, 0 ),
-"6-1_pre_kidnap_events_occured": true,
+"6-1_pre_kidnap_events_occured": false,
 "dollars": 0,
 "event_seed": 0,
 "green_hp": 100,
