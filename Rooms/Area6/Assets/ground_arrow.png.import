@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/18_wheeler.png-3eeeab35e20a74d8417bce590fbffb2c.stex"
+path="res://.import/ground_arrow.png-19a40bda0cb6fdd77cdd5f8fd5998cce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Area2/Assets/18_wheeler.png"
-dest_files=[ "res://.import/18_wheeler.png-3eeeab35e20a74d8417bce590fbffb2c.stex" ]
+source_file="res://Rooms/Area6/Assets/ground_arrow.png"
+dest_files=[ "res://.import/ground_arrow.png-19a40bda0cb6fdd77cdd5f8fd5998cce.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

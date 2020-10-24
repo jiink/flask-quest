@@ -1303,6 +1303,10 @@ stream = ExtResource( 125 )
 volume_db = 0.4
 max_distance = 256.0
 
+[node name="Timer" type="Timer" parent="VehiclePaths/RedCarPath/PathFollow2D/red_car" index="6"]
+wait_time = 3.0
+one_shot = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/RedCarPath" index="1"]
 autoplay = "drive"
 anims/drive = SubResource( 17 )
@@ -1361,6 +1365,10 @@ stream = ExtResource( 125 )
 volume_db = 0.4
 max_distance = 256.0
 
+[node name="Timer" type="Timer" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="6"]
+wait_time = 3.0
+one_shot = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/YellowCarPath" index="1"]
 autoplay = "drive"
 anims/drive = SubResource( 20 )
@@ -1412,6 +1420,10 @@ rotation = -0.000804549
 stream = ExtResource( 125 )
 volume_db = 0.4
 max_distance = 256.0
+
+[node name="Timer" type="Timer" parent="VehiclePaths/BlueCarPath/PathFollow2D/car_blue" index="6"]
+wait_time = 3.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/BlueCarPath" index="1"]
 autoplay = "drive"
