@@ -142,6 +142,61 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "ring"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
 [sub_resource type="Animation" id=7]
 resource_name = "idle"
 length = 0.1
@@ -747,65 +802,10 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="Animation" id=29]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=30]
-resource_name = "ring"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 434, 8 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 16, 3 )
 
 [node name="6-1" groups=[
@@ -1005,15 +1005,15 @@ position = Vector2( 1021, -369 )
 position = Vector2( 7, -138 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell1" index="3"]
-anims/idle = SubResource( 7 )
-anims/ring = SubResource( 8 )
+anims/idle = SubResource( 5 )
+anims/ring = SubResource( 6 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem2" index="2"]
 position = Vector2( 385, -106 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell2" index="3"]
-anims/idle = SubResource( 9 )
-anims/ring = SubResource( 10 )
+anims/idle = SubResource( 7 )
+anims/ring = SubResource( 8 )
 
 [node name="Pos1" parent="YSort/CallBellSystem2" index="3"]
 position = Vector2( 47, -143 )
@@ -1029,11 +1029,9 @@ frame = 2
 
 [node name="ground_arrow" parent="YSort/CallBellSystem2" index="7"]
 position = Vector2( 3, -132 )
-offset = Vector2( 0, 6 )
 
 [node name="ground_arrow2" parent="YSort/CallBellSystem2" index="8"]
 position = Vector2( 381, -101 )
-offset = Vector2( 0, 6 )
 
 [node name="CallBellSystem3" parent="YSort" index="12" instance=ExtResource( 32 )]
 position = Vector2( 826, -752 )
@@ -1042,15 +1040,15 @@ position = Vector2( 826, -752 )
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell1" index="3"]
-anims/idle = SubResource( 11 )
-anims/ring = SubResource( 12 )
+anims/idle = SubResource( 9 )
+anims/ring = SubResource( 10 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem3" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell2" index="3"]
-anims/idle = SubResource( 13 )
-anims/ring = SubResource( 14 )
+anims/idle = SubResource( 11 )
+anims/ring = SubResource( 12 )
 
 [node name="Pos1" parent="YSort/CallBellSystem3" index="3"]
 position = Vector2( 90, -31 )
@@ -1066,12 +1064,10 @@ frame = 5
 
 [node name="ground_arrow" parent="YSort/CallBellSystem3" index="7"]
 position = Vector2( 78, -60 )
-offset = Vector2( 0, 6 )
 frame = 4
 
 [node name="ground_arrow2" parent="YSort/CallBellSystem3" index="8"]
 position = Vector2( 45, 63 )
-offset = Vector2( 0, 6 )
 frame = 0
 
 [node name="CallBellSystem4" parent="YSort" index="13" instance=ExtResource( 32 )]
@@ -1081,15 +1077,15 @@ position = Vector2( 546, -752 )
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell1" index="3"]
-anims/idle = SubResource( 15 )
-anims/ring = SubResource( 16 )
+anims/idle = SubResource( 13 )
+anims/ring = SubResource( 14 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem4" index="2"]
 position = Vector2( 244, 59 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell2" index="3"]
-anims/idle = SubResource( 17 )
-anims/ring = SubResource( 18 )
+anims/idle = SubResource( 15 )
+anims/ring = SubResource( 16 )
 
 [node name="Pos1" parent="YSort/CallBellSystem4" index="3"]
 position = Vector2( 90, -31 )
@@ -1105,12 +1101,10 @@ frame = 4
 
 [node name="ground_arrow" parent="YSort/CallBellSystem4" index="7"]
 position = Vector2( 78, -60 )
-offset = Vector2( 0, 6 )
 frame = 3
 
 [node name="ground_arrow2" parent="YSort/CallBellSystem4" index="8"]
 position = Vector2( 240, 64 )
-offset = Vector2( 0, 6 )
 frame = 7
 
 [node name="CallBellSystem5" parent="YSort" index="14" instance=ExtResource( 32 )]
@@ -1120,15 +1114,15 @@ position = Vector2( 420, -443 )
 position = Vector2( 185, -79 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell1" index="3"]
-anims/idle = SubResource( 19 )
-anims/ring = SubResource( 20 )
+anims/idle = SubResource( 17 )
+anims/ring = SubResource( 18 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem5" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell2" index="3"]
-anims/idle = SubResource( 21 )
-anims/ring = SubResource( 22 )
+anims/idle = SubResource( 19 )
+anims/ring = SubResource( 20 )
 
 [node name="Pos1" parent="YSort/CallBellSystem5" index="3"]
 position = Vector2( 145, -83 )
@@ -1144,12 +1138,10 @@ frame = 3
 
 [node name="ground_arrow" parent="YSort/CallBellSystem5" index="7"]
 position = Vector2( 181, -73 )
-offset = Vector2( 0, 6 )
 frame = 5
 
 [node name="ground_arrow2" parent="YSort/CallBellSystem5" index="8"]
 position = Vector2( 45, 63 )
-offset = Vector2( 0, 6 )
 frame = 1
 
 [node name="CallBellSystem6" parent="YSort" index="15" instance=ExtResource( 32 )]
@@ -1159,15 +1151,15 @@ position = Vector2( 832, -999 )
 position = Vector2( -105, -74 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell1" index="3"]
-anims/idle = SubResource( 23 )
-anims/ring = SubResource( 24 )
+anims/idle = SubResource( 21 )
+anims/ring = SubResource( 22 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem6" index="2"]
 position = Vector2( 60, 108 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell2" index="3"]
-anims/idle = SubResource( 25 )
-anims/ring = SubResource( 26 )
+anims/idle = SubResource( 23 )
+anims/ring = SubResource( 24 )
 
 [node name="Pos1" parent="YSort/CallBellSystem6" index="3"]
 position = Vector2( -94, -47 )
@@ -1183,12 +1175,10 @@ frame = 1
 
 [node name="ground_arrow" parent="YSort/CallBellSystem6" index="7"]
 position = Vector2( -109, -68 )
-offset = Vector2( 0, 6 )
 frame = 3
 
 [node name="ground_arrow2" parent="YSort/CallBellSystem6" index="8"]
 position = Vector2( 56, 113 )
-offset = Vector2( 0, 6 )
 frame = 7
 
 [node name="CallBellSystem7" parent="YSort" index="16" instance=ExtResource( 32 )]
@@ -1199,15 +1189,15 @@ talkative = true
 position = Vector2( -43, -200 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell1" index="3"]
-anims/idle = SubResource( 27 )
-anims/ring = SubResource( 28 )
+anims/idle = SubResource( 25 )
+anims/ring = SubResource( 26 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem7" index="2"]
 position = Vector2( 88, 230 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell2" index="3"]
-anims/idle = SubResource( 29 )
-anims/ring = SubResource( 30 )
+anims/idle = SubResource( 27 )
+anims/ring = SubResource( 28 )
 
 [node name="Pos1" parent="YSort/CallBellSystem7" index="3"]
 position = Vector2( -32, -173 )
@@ -1220,12 +1210,10 @@ position = Vector2( 48, 131 )
 
 [node name="ground_arrow" parent="YSort/CallBellSystem7" index="7"]
 position = Vector2( -47, -194 )
-offset = Vector2( 0, 6 )
 frame = 4
 
 [node name="ground_arrow2" parent="YSort/CallBellSystem7" index="8"]
 position = Vector2( 84, 235 )
-offset = Vector2( 0, 6 )
 frame = 0
 
 [node name="DialogueTree" parent="YSort/CallBellSystem7" index="9" instance=ExtResource( 19 )]
@@ -1285,7 +1273,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KidnapEvent/KidnapZone" index="0"]
 position = Vector2( 0, 38 )
-shape = SubResource( 5 )
+shape = SubResource( 29 )
 
 [node name="Tween" type="Tween" parent="KidnapEvent" index="1"]
 
@@ -1367,7 +1355,7 @@ new_scene = "res://Rooms/Area6/6-3/6-3.tscn"
 player_new_position = Vector2( 0, 190 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HotelPortal" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 30 )
 [connection signal="body_entered" from="KidnapEvent/KidnapZone" to="KidnapEvent" method="_on_KidnapZone_body_entered"]
 
 [editable path="YSort/CallBellSystem2"]
