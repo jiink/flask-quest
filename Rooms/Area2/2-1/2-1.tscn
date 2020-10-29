@@ -3100,6 +3100,7 @@ expression = "nervous"
 
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 320, 44 )
+location_on_map = Vector2( -63, 19 )
 
 [node name="SaveStation" parent="YSort" index="12" instance=ExtResource( 132 )]
 position = Vector2( 488, -25 )
