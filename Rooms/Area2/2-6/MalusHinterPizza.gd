@@ -6,10 +6,11 @@ onready var camera = get_node("../../Camera")
 onready var animator = $CharacterMover
 onready var player = global.get_player(1)
 
-enum State { INTRO, INTRO_CLUB, POST_TALK }
+enum State { INTRO, INTRO_CLUB, POST_TALK, POST_MANHOLE }
 var current_state = State.INTRO
 var finished_talk
 var entered_scene
+var manhole_event_happened
 
 const SAVE_KEY = "2-6_malus_hinter_"
 
@@ -19,11 +20,15 @@ func save(save_game):
 func load(save_game):
 	finished_talk = save_game.data[SAVE_KEY + "talked_to"]
 	entered_scene = save_game.data["2-1_malus_hinter_left"]
+	manhole_event_happened = save_game.data["2-1_manhole_event_happened"]
 	if finished_talk:
 		current_state = State.POST_TALK
-		animator.play("")
+		animator.play("recenter_in_club")
 	else:
 		current_state = State.INTRO
+		animator.play("idle_startpos")
+	if manhole_event_happened:
+		current_state = State.POST_MANHOLE
 	if not entered_scene:
 		queue_free()
 	
@@ -36,7 +41,8 @@ func interact():
 				DiagHelper.start_talk(self, "IntroClub")
 			State.POST_TALK:
 				DiagHelper.start_talk(self, "PostTalk")
-
+			State.POST_MANHOLE:
+				DiagHelper.start_talk(self, "PostManhole")
 func enter_club():
 	walking = true
 	animator.play("enter_club")

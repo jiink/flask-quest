@@ -261,7 +261,9 @@ texture = ExtResource( 23 )
 [node name="Player" parent="YSort" index="1"]
 position = Vector2( 24, 43 )
 
-[node name="MalusHinter" parent="YSort" index="2" instance=ExtResource( 10 )]
+[node name="MalusHinter" parent="YSort" index="2" groups=[
+"save",
+] instance=ExtResource( 10 )]
 position = Vector2( -72, -441 )
 script = ExtResource( 11 )
 up_down_periodic_mirroring = false
@@ -611,6 +613,42 @@ message = "I'm so sorry. We drank them all."
 expression = "sad"
 face_texture = ExtResource( 12 )
 
+[node name="PostManhole" parent="YSort/MalusHinter/DialogueTree" index="4" instance=ExtResource( 14 )]
+message = "Wow, you did that fast."
+expression = "frown"
+face_texture = ExtResource( 12 )
+
+[node name="PostManhole2" parent="YSort/MalusHinter/DialogueTree/PostManhole" index="0" instance=ExtResource( 14 )]
+message = "Congradulations! Club, we finally"
+expression = "kawaii"
+face_texture = ExtResource( 12 )
+interrupt = true
+
+[node name="PostManhole3" parent="YSort/MalusHinter/DialogueTree/PostManhole/PostManhole2" index="0" instance=ExtResource( 14 )]
+message = "No."
+character = "orange"
+expression = "frown"
+
+[node name="PostManhole4" parent="YSort/MalusHinter/DialogueTree/PostManhole/PostManhole2/PostManhole3" index="0" instance=ExtResource( 14 )]
+message = "....No?"
+expression = "big_eyed"
+face_texture = ExtResource( 12 )
+
+[node name="PostManhole5" parent="YSort/MalusHinter/DialogueTree/PostManhole/PostManhole2/PostManhole3/PostManhole4" index="0" instance=ExtResource( 14 )]
+message = "Apparently we needed an elevator keycard. Now they're blocking the entrance with a big guy."
+character = "orange"
+expression = "open_mouth"
+
+[node name="PostManhole6" parent="YSort/MalusHinter/DialogueTree/PostManhole/PostManhole2/PostManhole3/PostManhole4/PostManhole5" index="0" instance=ExtResource( 14 )]
+message = "The big guy won't let us in!"
+character = "orange"
+expression = "cry_sob"
+
+[node name="PostManhole7" parent="YSort/MalusHinter/DialogueTree/PostManhole/PostManhole2/PostManhole3/PostManhole4/PostManhole5/PostManhole6" index="0" instance=ExtResource( 14 )]
+message = "Oh. That's unfortunate. Why don't you try finding some other way in? I'm sure there's, like, some kind of back entrance. Heck, maybe even through the sewers. "
+expression = "frown"
+face_texture = ExtResource( 12 )
+
 [node name="Tween" type="Tween" parent="YSort/MalusHinter" index="6"]
 
 [node name="Ari2" parent="YSort" index="3" instance=ExtResource( 20 )]
@@ -763,7 +801,7 @@ position = Vector2( 0, 191 )
 [node name="ScenePortal" parent="." index="13" instance=ExtResource( 9 )]
 position = Vector2( 24, 61 )
 new_scene = "res://Rooms/Area2/2-1/2-1.tscn"
-player_new_position = Vector2( 600, -272 )
+player_new_position = Vector2( 1608, -616 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 position = Vector2( 0, 15 )

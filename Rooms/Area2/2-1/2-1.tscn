@@ -2536,7 +2536,9 @@ position = Vector2( 437, 107 )
 
 [node name="NPC" type="YSort" parent="YSort" index="10"]
 
-[node name="MalusHinterWalking" parent="YSort/NPC" index="0" instance=ExtResource( 78 )]
+[node name="MalusHinterWalking" parent="YSort/NPC" index="0" groups=[
+"save",
+] instance=ExtResource( 78 )]
 position = Vector2( 1008, -343 )
 script = ExtResource( 79 )
 
