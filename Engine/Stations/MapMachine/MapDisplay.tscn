@@ -216,7 +216,6 @@ text = "gamercat_xX
 autowrap = true
 
 [node name="ok" type="Label" parent="CanvasLayer/LoginScreen"]
-visible = false
 margin_left = -50.0
 margin_top = 62.0
 margin_right = 55.0

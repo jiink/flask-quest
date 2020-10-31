@@ -1,8 +1,10 @@
 extends Sprite
 
 signal map_machine_opened
-
 var map_scene
+export(Vector2) var location_on_map
+enum AvailableMaps { LANETTA, GLASSTOWN, POPPYHART }
+export(AvailableMaps) var map
 
 func interact():
 #	if ItemManager.inventory.find("map_login") >= 0:
@@ -10,6 +12,8 @@ func interact():
 	map_scene = load("res://Engine/Stations/MapMachine/MapDisplay.tscn")
 	map_scene = map_scene.instance()
 	get_owner().get_node("HUD").add_child(map_scene)
+	map_scene.map = map
+	map_scene.location_on_map = location_on_map
 	
 	if ("map_login" in ItemManager.inventory):
 		emit_signal("map_machine_opened")

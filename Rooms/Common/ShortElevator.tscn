@@ -1,0 +1,202 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Rooms/Area6/Assets/hotel_elevator_doors.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Common/ShortElevator.gd" type="Script" id=2]
+[ext_resource path="res://Rooms/Area6/Assets/elevator_signal.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Area6/Assets/shorterbell.wav" type="AudioStream" id=4]
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 9 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "doors_close"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ElevatorDoorBottom:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElevatorDoorTop:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "doors_open"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ElevatorDoorBottom:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ElevatorDoorTop:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "open_bottom"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ElevatorDoorBottom:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "open_top"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ElevatorDoorTop:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 31, 31 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 5 )
+shader_param/speed = 5
+shader_param/pal_size = 6
+shader_param/source_pal_size = 1
+shader_param/p1 = Color( 0.180392, 0.0588235, 0.0588235, 1 )
+shader_param/p2 = Color( 0.2, 0.129412, 0.027451, 1 )
+shader_param/p3 = Color( 0.396078, 0.235294, 0.0431373, 1 )
+shader_param/p4 = Color( 0.2, 0.129412, 0.027451, 1 )
+shader_param/p5 = Color( 0.180392, 0.0588235, 0.0588235, 1 )
+shader_param/p6 = null
+shader_param/p7 = null
+shader_param/p8 = null
+shader_param/p9 = null
+shader_param/p10 = null
+shader_param/p11 = null
+shader_param/p12 = null
+shader_param/p13 = null
+shader_param/p14 = null
+shader_param/p15 = null
+shader_param/p16 = null
+
+[node name="ShortElevator" type="YSort"]
+script = ExtResource( 2 )
+
+[node name="ElevatorDoorBottom" type="Sprite" parent="."]
+position = Vector2( 0, 31 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -15 )
+hframes = 9
+
+[node name="ElevatorDoorTop" type="Sprite" parent="."]
+position = Vector2( 0, -65 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -15 )
+hframes = 9
+
+[node name="TriggerAreaBottom" type="Area2D" parent="."]
+position = Vector2( 0, 21 )
+
+[node name="TriggerBottom" type="CollisionShape2D" parent="TriggerAreaBottom"]
+shape = SubResource( 1 )
+
+[node name="TriggerAreaTop" type="Area2D" parent="."]
+position = Vector2( 0, -75 )
+
+[node name="TriggerTop" type="CollisionShape2D" parent="TriggerAreaTop"]
+shape = SubResource( 1 )
+
+[node name="PosBottom" type="Position2D" parent="."]
+position = Vector2( 0, 23 )
+
+[node name="PosTop" type="Position2D" parent="."]
+position = Vector2( 0, -74 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="DoorAnimator" type="AnimationPlayer" parent="."]
+anims/doors_close = SubResource( 2 )
+anims/doors_open = SubResource( 3 )
+anims/open_bottom = SubResource( 4 )
+anims/open_top = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="DoorAreaBottom" type="Area2D" parent="."]
+position = Vector2( 0, 33 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaBottom"]
+shape = SubResource( 6 )
+
+[node name="DoorAreaTop" type="Area2D" parent="."]
+position = Vector2( 0, -63 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorAreaTop"]
+shape = SubResource( 6 )
+
+[node name="elevator_signal_bottom" type="Sprite" parent="."]
+material = SubResource( 7 )
+position = Vector2( 24, 8 )
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="elevator_signal_top" type="Sprite" parent="."]
+material = SubResource( 7 )
+position = Vector2( 24, -88 )
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+[connection signal="body_entered" from="TriggerAreaBottom" to="." method="_on_TriggerAreaBottom_body_entered"]
+[connection signal="body_entered" from="TriggerAreaTop" to="." method="_on_TriggerAreaTop_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="DoorAreaBottom" to="." method="_on_DoorAreaBottom_body_entered"]
+[connection signal="body_exited" from="DoorAreaBottom" to="." method="_on_DoorAreaBottom_body_exited"]
+[connection signal="body_entered" from="DoorAreaTop" to="." method="_on_DoorAreaTop_body_entered"]
+[connection signal="body_exited" from="DoorAreaTop" to="." method="_on_DoorAreaTop_body_exited"]

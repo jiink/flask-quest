@@ -1,6 +1,9 @@
 extends Node2D
 
 onready var diag = get_tree().get_current_scene().get_node("HUD/Diag") # gotta check if its visible for later
+var location_on_map
+enum AvailableMaps { LANETTA, GLASSTOWN, POPPYHART }
+var map
 
 func _ready():
 	global.get_player().frozen = true
@@ -19,6 +22,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "turn_on":
 		if "map_login" in ItemManager.inventory:
 			$AnimationPlayer.play("log_in")
+			var current_location = $CanvasLayer/DisplayedMap/map_you_location
+			current_location.position = location_on_map
 		else:
 			DiagHelper.start_talk(get_tree().get_current_scene().get_node("YSort/MapMachine"))
 #			DiagHelper.start_talk(get_node(".."))
