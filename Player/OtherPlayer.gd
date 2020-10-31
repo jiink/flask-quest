@@ -1,6 +1,6 @@
 extends "res://Player/Player.gd"
 
-var follow_distance = 5
+export(int) var follow_distance = 5
 
 onready var leader = get_node("../Player")
 
@@ -87,7 +87,7 @@ func _tick():
 			Vector2(-1, -1):
 				direction = Direction.LEFTUP
 	#	if t%20 > t%15 : print($AnimatedSprite.playing)
-		$AnimatedSprite.animation = direction_enum_to_string[direction]
+		$AnimatedSprite.animation = direction_enum_to_string[direction][int(not (motion.length() > 0))]
 		
 		$AnimatedSprite.speed_scale = 1.3
 	#	if t%20 == 0:

@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
+
+[ext_resource path="res://Player/green_sprites/ghost/greenghost1.png" type="Texture" id=1]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost2.png" type="Texture" id=2]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost3.png" type="Texture" id=3]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost4.png" type="Texture" id=4]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost5.png" type="Texture" id=5]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost6.png" type="Texture" id=6]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost7.png" type="Texture" id=7]
+[ext_resource path="res://Player/green_sprites/ghost/greenghost8.png" type="Texture" id=8]
+
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "right",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "up",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "down",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "rightdown",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "leftdown",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "rightup",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "leftup",
+"speed": 10.0
+} ]

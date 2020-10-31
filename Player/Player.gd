@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-# this script could use some cleaning up... there's a lot of mish-mash and redundancy 🤢
+# this script could use some cleaning up... there's a lot of mish-mash and redundancy  
 
 enum Direction { UP, RIGHTUP, RIGHT, RIGHTDOWN, DOWN, LEFTDOWN, LEFT, LEFTUP }
 
@@ -28,14 +28,14 @@ export(bool) var footstep_noise = true
 var motion = Vector2(0, 0)
 var direction = Direction.RIGHT
 var direction_enum_to_string = {
-	Direction.UP : "up",
-	Direction.RIGHTUP : "rightup",
-	Direction.RIGHT : "right",
-	Direction.RIGHTDOWN : "rightdown",
-	Direction.DOWN : "down",
-	Direction.LEFTDOWN : "leftdown",
-	Direction.LEFT : "left",
-	Direction.LEFTUP : "leftup",
+	Direction.UP : ["up", "up_idle"],
+	Direction.RIGHTUP : ["rightup", "rightup_idle"],
+	Direction.RIGHT : ["right", "right_idle"],
+	Direction.RIGHTDOWN : ["rightdown", "rightdown_idle"],
+	Direction.DOWN : ["down", "down_idle"],
+	Direction.LEFTDOWN : ["leftdown", "leftdown_idle"],
+	Direction.LEFT : ["left", "left_idle"],
+	Direction.LEFTUP : ["leftup", "leftup_idle"],
 }
 var frozen = false
 var invincible = false
@@ -105,17 +105,21 @@ func move_and_animate():
 			collision.collider.apply_central_impulse(-collision.normal * push)
 
 	change_izone_pos()
-		
-	$AnimatedSprite.animation = direction_enum_to_string[direction]
+	
+	$AnimatedSprite.set_animation(direction_enum_to_string[direction][int(not (motion.length() > 0))])
+	
 	if sprint:
 		$AnimatedSprite.speed_scale = 2.73
 	else:
 		$AnimatedSprite.speed_scale = 1.3
-	if motion.length() > 0:
-		$AnimatedSprite.playing = true
-	else:
-		$AnimatedSprite.playing = false
-		$AnimatedSprite.frame = 0
+	
+	$AnimatedSprite.playing = true
+	# if motion.length() > 0:
+	# 	#$AnimatedSprite.playing = true
+	# 	$AnimatedSprite.animation = ""
+	# else:
+	# 	#$AnimatedSprite.playing = false
+	# 	$AnimatedSprite.frame = 0
 	
 	if $AnimatedSprite.frame == 1 or $AnimatedSprite.frame == 3 and not in_water:
 		new_step = true
@@ -280,7 +284,14 @@ func set_controlled_by(new_controller):
 		
 
 # This (including the entire _tick function as of now) is used solely for the external control stuff
-var extctrl_animation_strings_walking = ["up", "rightup", "right", "rightdown", "down", "leftdown", "left", "leftup"]
+var extctrl_animation_strings_walking = [["up", "up_idle"],
+	["rightup", "rightup_idle"],
+	["right", "right_idle"],
+	["rightdown", "rightdown_idle"],
+	["down", "down_idle"],
+	["leftdown", "leftdown_idle"],
+	["left", "left_idle"],
+	["leftup", "leftup_idle"],]
 var extctrl_delta_pos = position
 var extctrl_last_position = position
 var extctrl_moving_threshold = 0.1
@@ -288,6 +299,7 @@ var extctrl_moving = false
 var extctrl_last_moving = false
 var extctrl_anim_speed_scale = 0.5
 func _tick():
+	print(sprite.get_animation())
 	extctrl_delta_pos = position - extctrl_last_position
 
 	var delta_pos_length = extctrl_delta_pos.length()
@@ -297,8 +309,8 @@ func _tick():
 
 	sprite.speed_scale = extctrl_delta_pos.length() * extctrl_anim_speed_scale
 		
-	if (extctrl_moving) and (not extctrl_last_moving):
-		sprite.set_animation(extctrl_animation_strings_walking[extctrl_facing_direction])
+	#if (extctrl_moving) and (not extctrl_last_moving):
+		#sprite.set_animation(extctrl_animation_strings_walking[extctrl_facing_direction][0])#int(not (extctrl_moving))])
 
 	if extctrl_moving and extctrl_auto_direction:
 
@@ -348,7 +360,7 @@ func set_facing_direction(dir):
 	if (dir != extctrl_facing_direction) and (dir != null):
 		extctrl_facing_direction = dir
 		
-		sprite.set_animation(extctrl_animation_strings_walking[dir])
+		sprite.set_animation(extctrl_animation_strings_walking[dir][int(not extctrl_moving)])#(motion.length() > 0))])
 		# match extctrl_facing_direction:
 		# 	Direction.UP:
 		# 		sprite.set_animation("up")
@@ -358,3 +370,4 @@ func set_facing_direction(dir):
 		# 		sprite.set_animation("down")
 		# 	Direction.LEFT:
 		# 		sprite.set_animation("left")
+

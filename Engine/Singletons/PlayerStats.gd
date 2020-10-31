@@ -11,7 +11,7 @@ var orange_hp = 100
 var dollars = 0
 
 enum {
-	HUMAN,
+	PERSON,
 	BOT,
 	EXTERNAL
 }
@@ -29,7 +29,7 @@ func set_player_num(num):
 			
 			print("switching to 2 player...")
 			player_count = 2
-			# if Orange exists make him a human
+			# if Orange exists make him a person
 			if get_tree().get_nodes_in_group("Player").size() > 1:
 				var orange = global.get_player(2)
-				orange.controlled_by = orange.HUMAN
+				orange.controlled_by = orange.PERSON
