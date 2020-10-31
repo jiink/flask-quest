@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=2]
+[gd_scene load_steps=153 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -800,17 +800,20 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=34]
+resource_name = "green_exit_bed"
+length = 3.0
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("../YSort/Dubble:position")
+tracks/0/path = NodePath("../YSort/Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.7, 0.8, 0.85, 0.9 ),
+"transitions": PoolRealArray( 0.5, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3868, 2078 ) ]
+"values": [ Vector2( 3268, 487 ), Vector2( 3247, 487 ), Vector2( 3247, 499 ), Vector2( 3247, 498 ), Vector2( 3247, 499 ) ]
 }
 
 [sub_resource type="Animation" id=35]
@@ -824,11 +827,64 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3212, 467 ) ]
+"values": [ Vector2( 3868, 2078 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=36]
-extents = Vector2( 18, 15 )
+[sub_resource type="Animation" id=36]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Dubble:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3212, 467 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3268, 487 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../YSort/Orange:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3167, 501 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "orange_run_to_window"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Orange:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3167, 501 ), Vector2( 3189, 491 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 14, 10 )
 
 [node name="5-1" groups=[
 "save",
@@ -1026,9 +1082,10 @@ __meta__ = {
 }
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
+position = Vector2( 3189, 491 )
 
 [node name="Player" parent="YSort" index="2"]
-position = Vector2( 3243, 504 )
+position = Vector2( 3268, 487 )
 
 [node name="Dubble" parent="YSort" index="3" groups=[
 "glasstown_prisoners",
@@ -1036,6 +1093,7 @@ position = Vector2( 3243, 504 )
 ] instance=ExtResource( 86 )]
 position = Vector2( 3250, 530 )
 script = ExtResource( 94 )
+interactable = false
 up_down_periodic_mirroring = true
 
 [node name="DialogueTree" parent="YSort/Dubble" index="4" instance=ExtResource( 92 )]
@@ -2529,11 +2587,13 @@ position = Vector2( 3207, 75 )
 position = Vector2( 59, 24 )
 
 [node name="cabin_bed2" parent="YSort/furniture" index="1" instance=ExtResource( 39 )]
-position = Vector2( 61, 418 )
+position = Vector2( 61, 399 )
+offset = Vector2( 0, 14 )
 frame = 1
 
 [node name="BedCover" type="Sprite" parent="YSort/furniture/cabin_bed2" index="1"]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 21 )
+z_index = 1
 texture = ExtResource( 89 )
 
 [node name="cabin_dresser2" parent="YSort/furniture" index="2" instance=ExtResource( 44 )]
@@ -3181,6 +3241,7 @@ disabled = true
 "save",
 ]]
 position = Vector2( 3211, 520 )
+z_index = 1
 script = ExtResource( 90 )
 
 [node name="OverlayAnimator" type="AnimationPlayer" parent="DubbleIntroEvent" index="0"]
@@ -3209,6 +3270,7 @@ function = "dubble_walk_by"
 message = "We've come all this way just to get into..."
 character = "orange"
 expression = "cry_mourn"
+function = "orange_run_to_window"
 
 [node name="DiagPiece3" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2" index="0" instance=ExtResource( 91 )]
 message = "Who`` was that?"
@@ -3220,6 +3282,7 @@ function = "door_knock"
 message = "...```Green, can you get that?"
 character = "orange"
 expression = "dot_eyes"
+function = "orange_turn"
 
 [node name="DiagPiece5" parent="DubbleIntroEvent/DialogueTree/OrangeTalk/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 91 )]
 message = "GREEN? GREEN, AWAKEN!!"
@@ -3248,7 +3311,7 @@ character = "dubble"
 expression = "frown"
 
 [node name="DubbleTalk3" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2" index="0" instance=ExtResource( 91 )]
-message = " Just... stay away from Knucklehead Fred.` He'll probably try to` smoke you` one way or another."
+message = "Enjoy your stay."
 character = "dubble"
 expression = "unique"
 
@@ -3273,8 +3336,10 @@ function = "dubble_intro_end"
 anims/dubble_enter_room = SubResource( 31 )
 anims/dubble_exit_room = SubResource( 32 )
 anims/dubble_walk_by = SubResource( 33 )
-anims/idle_behind_desk = SubResource( 34 )
-anims/idle_hide_behind_wall = SubResource( 35 )
+anims/green_exit_bed = SubResource( 34 )
+anims/idle_behind_desk = SubResource( 35 )
+anims/idle_hide_behind_wall = SubResource( 36 )
+anims/orange_run_to_window = SubResource( 37 )
 
 [node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="4"]
 stream = ExtResource( 93 )
@@ -3283,7 +3348,9 @@ stream = ExtResource( 93 )
 position = Vector2( 40, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DubbleIntroEvent/ActivateArea" index="0"]
-shape = SubResource( 36 )
+shape = SubResource( 38 )
+
+[node name="Tween" type="Tween" parent="DubbleIntroEvent" index="6"]
 [connection signal="body_entered" from="YSort/PrisonerFrog/TriggerArea" to="YSort/PrisonerFrog" method="_on_TriggerArea_body_entered"]
 [connection signal="body_entered" from="DubbleIntroEvent/ActivateArea" to="DubbleIntroEvent" method="_on_ActivateArea_body_entered"]
 

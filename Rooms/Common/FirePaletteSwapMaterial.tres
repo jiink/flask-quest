@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/speed = 5
+shader_param/pal_size = 6
+shader_param/source_pal_size = 3
+shader_param/p1 = Color( 0.384314, 0.0588235, 0.188235, 1 )
+shader_param/p2 = Color( 0.772549, 0.117647, 0.0666667, 1 )
+shader_param/p3 = Color( 1, 0.490196, 0.0431373, 1 )
+shader_param/p4 = Color( 1, 0.960784, 0, 1 )
+shader_param/p5 = Color( 1, 0.490196, 0.0431373, 1 )
+shader_param/p6 = Color( 0.772549, 0.117647, 0.0666667, 1 )
+shader_param/p7 = null
+shader_param/p8 = null
+shader_param/p9 = null
+shader_param/p10 = null
+shader_param/p11 = null
+shader_param/p12 = null
+shader_param/p13 = null
+shader_param/p14 = null
+shader_param/p15 = null
+shader_param/p16 = null
