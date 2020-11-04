@@ -6,6 +6,7 @@ onready var hud = $".."
 
 onready var open_sound = preload("res://SoundEffects/pause_menu_open.wav")
 onready var close_sound = preload("res://SoundEffects/pause_menu_close.wav")
+onready var error_sound = preload("res://SoundEffects/ui_deny.wav")
 
 func _ready():
 	$Tween.interpolate_property(self, "position:y", 0, -256, .15, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
@@ -61,6 +62,11 @@ func _input(event):
 			elif Debug.debug_mode:
 				open()
 				print("opening pause menu anyway because debug mode")
+				# play a sound to indicate that usually the pause menu wouldn't
+				#  be able to open in this case
+				$AudioStreamPlayer.stream = error_sound
+				$AudioStreamPlayer.play()
+
 
 func open():
 	visible = true
