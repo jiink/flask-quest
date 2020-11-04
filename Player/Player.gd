@@ -247,11 +247,17 @@ func make_one(num):
 
 func set_frozen(choice = true, all = true): # freeze all players or just this one?
 	frozen = choice
-	if all and global.get_player(2):
-		global.get_player(2).frozen = choice
-		global.get_player(2).motion = Vector2(0, 0)
-		global.get_player(2).get_node("AnimatedSprite").playing = false
-		global.get_player(2).get_node("AnimatedSprite").frame = 0
+	if all:
+		if global.get_player(2):
+			global.get_player(2).frozen = choice
+			global.get_player(2).motion = Vector2(0, 0)
+			global.get_player(2).get_node("AnimatedSprite").playing = false
+			global.get_player(2).get_node("AnimatedSprite").frame = 0
+		if global.get_player(3):
+			global.get_player(3).frozen = choice
+			global.get_player(3).motion = Vector2(0, 0)
+			global.get_player(3).get_node("AnimatedSprite").playing = false
+			global.get_player(3).get_node("AnimatedSprite").frame = 0
 	
 func clear_history():
 	position_history = []
