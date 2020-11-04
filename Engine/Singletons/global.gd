@@ -11,21 +11,15 @@ const SAVE_KEY = "global_"
 var player_hp = 100
 
 func get_player(num = 1):
-	match num:
-		1:
-			if get_tree().get_current_scene().has_node("YSort/Player"):
-				return get_tree().get_current_scene().get_node("YSort/Player")
-			# if that doesn't work try the other way :(
-			for n in get_tree().get_nodes_in_group("Player"):
-				if n.name == "Player":
-					return n
-		2:
-			if get_tree().get_current_scene().has_node("YSort/Orange"):
-				return get_tree().get_current_scene().get_node("YSort/Orange")
-			# if that doesn't work try the other way :(
-			for n in get_tree().get_nodes_in_group("Player"):
-				if n.name == "Orange":
-					return n
+	var player_names = ["Player", "Orange", "Ribbit"]
+	var player_search_name = player_names[num-1]
+	if get_tree().get_current_scene().has_node("YSort/%s" % player_search_name):
+		return get_tree().get_current_scene().get_node("YSort/%s" % player_search_name)
+	# if that doesn't work try the other way :(
+	for n in get_tree().get_nodes_in_group("Player"):
+		if n.name == player_search_name:
+			return n
+
 	print("get_player error! couldn't get player #%s" % num)
 	return null
 
@@ -286,3 +280,4 @@ func get_camera():
 func get_hud():
 	if get_tree().get_current_scene().has_node("HUD"):
 		return get_tree().get_current_scene().get_node("HUD")
+	return null
