@@ -4,13 +4,16 @@ extends Node
 var debug_mode = true
 ###############################################
 
-var launch_without_music = false
+var launch_without_music = true
 
 onready var debug_mode_watermark = preload("res://Engine/Debug/DebugModeWatermark.tscn")
 
 func _ready():
 	global.connect("scene_changed", self, "on_scene_change")
 	on_scene_change()
+
+	if launch_without_music:
+		AudioServer.set_bus_mute(1, true)
 
 func on_scene_change():
 	if debug_mode:
@@ -31,3 +34,4 @@ func on_scene_change():
 			scene.add_child(canvas)
 			
 		canvas.add_child(debug_mode_watermark.instance())
+
