@@ -7,7 +7,7 @@ export(bool) var talkative
 
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
-#onready var ribbit = global.get_player(3)
+onready var ribbit = global.get_player(3)
 onready var players_in_boat = get_node("Boat/PlayersInBoat")
 onready var boat_oar = $Boat/poppyhart_boaters/BoatOar
 	
@@ -53,14 +53,14 @@ func move_boat(callbell_number):
 		null, first_pos + position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 		tween.interpolate_property(orange, "position", \
 		null, first_pos + position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
-	#	tween.interpolate_property(ribbit, "position", \
-	#	null, first_pos + position, 0.5, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+		tween.interpolate_property(ribbit, "position", \
+		null, first_pos + position, 0.5, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 		tween.start()
 		yield(tween, "tween_all_completed")
 		
 		green.visible = false
 		orange.visible = false
-	#	ribbit.visible = false
+		ribbit.visible = false
 		players_in_boat.visible = true
 		
 		var travel_time
@@ -85,15 +85,15 @@ func move_boat(callbell_number):
 	#	move players back onto land
 		green.visible = true
 		orange.visible = true
-	#	ribbit.visible = true
+		ribbit.visible = true
 		players_in_boat.visible = false
 		
 		tween.interpolate_property(green, "position", \
 		null, player_new_pos + position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 		tween.interpolate_property(orange, "position", \
 		null, player_new_pos + position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
-	#	tween.interpolate_property(ribbit, "position", \
-	#	null, $CallBell1.position + Vector2(-5, -5)+ position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+		tween.interpolate_property(ribbit, "position", \
+		null, $CallBell1.position + Vector2(-5, -5)+ position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 		tween.start()
 		yield(tween, "tween_all_completed")
 	

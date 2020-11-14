@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Rooms/Area6/Assets/monster_stand.png" type="Texture" id=12]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/PoppyhartSign.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Rooms/Area6/Assets/poppy_house_worn.png" type="Texture" id=14]
+[ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Rooms/Common/orange_bus.png" type="Texture" id=16]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Area6/6-1/PoppyBus.gd" type="Script" id=18]
@@ -31,15 +32,51 @@
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/AGT_weather_phaser.ogg" type="AudioStream" id=30]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/CallBellSystem.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_forest_sky.png" type="Texture" id=33]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_hills_b.png" type="Texture" id=34]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_hills_d.png" type="Texture" id=35]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_hills_a.png" type="Texture" id=36]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_hills_c.png" type="Texture" id=37]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_clouds_c.png" type="Texture" id=38]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_clouds_b.png" type="Texture" id=39]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_clouds_d.png" type="Texture" id=40]
+[ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_clouds_a.png" type="Texture" id=41]
+[ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=42]
+[ext_resource path="res://Rooms/Area6/6-1/monster_stand.gd" type="Script" id=43]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 42 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/speed_scale = 0.01
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 42 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/speed_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 42 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/speed_scale = 0.05
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 42 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/speed_scale = 0.1
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 69, 35 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 21, 8 )
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 21, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 68, 18 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "drive_away"
+[sub_resource type="Animation" id=7]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -90,8 +127,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -142,118 +178,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "ring"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "ring"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
-}
-
 [sub_resource type="Animation" id=9]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -281,7 +206,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -308,7 +232,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -336,7 +259,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -363,7 +285,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -391,7 +312,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -418,7 +338,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -446,7 +365,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=16]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -473,7 +391,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=17]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -501,7 +418,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=18]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -528,7 +444,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=19]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -556,7 +471,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=20]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -583,7 +497,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=21]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -611,7 +524,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=22]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -638,7 +550,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=23]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -666,7 +577,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=24]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -693,7 +603,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=25]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -721,7 +630,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=26]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -748,7 +656,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=27]
-resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -776,7 +683,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=28]
-resource_name = "ring"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -802,10 +708,116 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="Animation" id=29]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=30]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=32]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=33]
 extents = Vector2( 434, 8 )
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 16, 3 )
 
 [node name="6-1" groups=[
@@ -823,18 +835,98 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -6291443, 0, 1, -6291442, 0, 0, -6291441, 0, 0, -6291440, 0, 0, -6291439, 0, 0, -6291438, 0, 0, -6291437, 0, 0, -6291436, 0, 0, -6291435, 0, 0, -6291434, 0, 0, -6291433, 0, 0, -6291432, 0, 0, -6291431, 0, 0, -6291430, 0, 0, -6291429, 0, 2, -6225915, 0, 1, -6225914, 0, 0, -6225913, 0, 0, -6225912, 0, 0, -6225911, 0, 0, -6225910, 0, 0, -6225909, 0, 0, -6225908, 0, 0, -6225892, 0, 0, -6225891, 0, 0, -6225890, 0, 0, -6225889, 0, 0, -6225888, 0, 0, -6225887, 0, 0, -6225886, 0, 2, -6160379, 0, 0, -6160349, 0, 0, -6160348, 0, 0, -6160347, 0, 0, -6160346, 0, 2, -6094843, 0, 65537, -6094842, 0, 0, -6094841, 0, 0, -6094809, 0, 0, -6094808, 0, 2, -6029304, 0, 65537, -6029303, 0, 0, -6029302, 0, 0, -6029301, 0, 0, -6029300, 0, 0, -6029299, 0, 0, -6029298, 0, 0, -6029297, 0, 0, -6029296, 0, 0, -6029295, 0, 0, -6029294, 0, 0, -6029271, 0, 0, -6029270, 0, 2, -5963757, 0, 65537, -5963756, 0, 0, -5963755, 0, 0, -5963754, 0, 0, -5963733, 0, 2, -5898217, 0, 65537, -5898216, 0, 0, -5898215, 0, 0, -5898214, 0, 0, -5898213, 0, 0, -5898212, 0, 0, -5898211, 0, 0, -5898210, 0, 0, -5898197, 0, 0, -5832673, 0, 65537, -5832672, 0, 0, -5832671, 0, 0, -5832660, 0, 0, -5832659, 0, 2, -5767134, 0, 65537, -5767122, 0, 0, -5767121, 0, 2, -5767090, 0, 1, -5767089, 0, 0, -5767088, 0, 0, -5767087, 0, 0, -5767086, 0, 2, -5701597, 0, 65537, -5701584, 0, 2, -5701556, 0, 1, -5701555, 0, 0, -5701549, 0, 0, -5701548, 0, 0, -5701547, 0, 0, -5701546, 0, 2, -5636060, 0, 65537, -5636059, 0, 0, -5636047, 0, 2, -5636023, 0, 1, -5636022, 0, 0, -5636021, 0, 0, -5636010, 0, 0, -5570522, 0, 65537, -5570521, 0, 0, -5570511, 0, 0, -5570490, 0, 1, -5570489, 0, 0, -5570488, 0, 0, -5570473, 0, 2, -5504984, 0, 65537, -5504983, 0, 0, -5504975, 0, 0, -5504957, 0, 1, -5504956, 0, 0, -5504955, 0, 0, -5504936, 0, 2, -5439446, 0, 65537, -5439445, 0, 0, -5439438, 0, 0, -5439437, 0, 0, -5439436, 0, 0, -5439435, 0, 0, -5439434, 0, 0, -5439433, 0, 0, -5439432, 0, 0, -5439431, 0, 0, -5439430, 0, 0, -5439429, 0, 0, -5439428, 0, 0, -5439427, 0, 0, -5439426, 0, 0, -5439425, 0, 0, -5439424, 0, 0, -5439423, 0, 0, -5439422, 0, 0, -5439399, 0, 2, -5373908, 0, 0, -5373862, 0, 2, -5308372, 0, 65537, -5308326, 0, 0, -5242835, 0, 0, -5242790, 0, 0, -5177299, 0, 65537, -5177254, 0, 0, -5111762, 0, 0, -5111718, 0, 0, -5046226, 0, 0, -5046182, 0, 0, -4980690, 0, 65537, -4980646, 0, 65538, -4915153, 0, 65537, -4915112, 0, 0, -4915111, 0, 65538, -4849616, 0, 0, -4849577, 0, 0, -4784080, 0, 0, -4784041, 0, 0, -4718544, 0, 0, -4718504, 0, 2, -4653008, 0, 0, -4652968, 0, 0, -4587472, 0, 0, -4587431, 0, 2, -4521936, 0, 0, -4521895, 0, 0, -4456400, 0, 0, -4456359, 0, 0, -4390864, 0, 0, -4390823, 0, 0, -4325359, 0, 0, -4325358, 0, 0, -4325357, 0, 0, -4325356, 0, 0, -4325355, 0, 0, -4325354, 0, 0, -4325353, 0, 0, -4325352, 0, 0, -4325351, 0, 0, -4325350, 0, 0, -4325349, 0, 0, -4325348, 0, 0, -4325347, 0, 0, -4325346, 0, 0, -4325345, 0, 0, -4325344, 0, 0, -4325343, 0, 0, -4325342, 0, 0, -4325341, 0, 0, -4325340, 0, 0, -4325339, 0, 0, -4325338, 0, 0, -4325337, 0, 0, -4325336, 0, 0, -4325335, 0, 0, -4325334, 0, 0, -4325333, 0, 0, -4325332, 0, 0, -4325331, 0, 0, -4325330, 0, 0, -4325329, 0, 0, -4325328, 0, 0, -4325287, 0, 0, -4259823, 0, 0, -4259751, 0, 0, -4194287, 0, 0, -4194215, 0, 0, -4128751, 0, 0, -4128679, 0, 0, -4063215, 0, 0, -4063143, 0, 65538, -3997679, 0, 0, -3997608, 0, 65538, -3932143, 0, 0, -3932074, 0, 0, -3932073, 0, 65538, -3866607, 0, 0, -3866578, 0, 0, -3866577, 0, 0, -3866570, 0, 0, -3866569, 0, 0, -3866568, 0, 0, -3866567, 0, 0, -3866566, 0, 0, -3866565, 0, 0, -3866564, 0, 0, -3866563, 0, 0, -3866562, 0, 0, -3866561, 0, 0, -3866560, 0, 0, -3866559, 0, 0, -3866558, 0, 0, -3866557, 0, 0, -3866556, 0, 0, -3866555, 0, 0, -3866554, 0, 0, -3866553, 0, 0, -3866552, 0, 0, -3866551, 0, 0, -3866550, 0, 0, -3866549, 0, 0, -3866548, 0, 0, -3866547, 0, 0, -3866546, 0, 0, -3866538, 0, 0, -3801071, 0, 0, -3801043, 0, 0, -3801040, 0, 0, -3801034, 0, 0, -3801010, 0, 0, -3801009, 0, 0, -3801008, 0, 0, -3801007, 0, 0, -3801006, 0, 0, -3801005, 0, 0, -3801004, 0, 0, -3801003, 0, 0, -3801002, 0, 0, -3735535, 0, 0, -3735507, 0, 0, -3735504, 0, 0, -3735498, 0, 0, -3669999, 0, 0, -3669971, 0, 0, -3669968, 0, 0, -3669962, 0, 0, -3604463, 0, 0, -3604435, 0, 0, -3604432, 0, 0, -3604426, 0, 0, -3538927, 0, 0, -3538899, 0, 0, -3538896, 0, 0, -3538890, 0, 0, -3473391, 0, 0, -3473377, 0, 0, -3473376, 0, 0, -3473375, 0, 0, -3473374, 0, 0, -3473373, 0, 0, -3473372, 0, 0, -3473371, 0, 0, -3473370, 0, 0, -3473369, 0, 0, -3473368, 0, 0, -3473367, 0, 0, -3473366, 0, 0, -3473365, 0, 0, -3473364, 0, 0, -3473363, 0, 0, -3473360, 0, 0, -3473354, 0, 0, -3407855, 0, 0, -3407842, 0, 0, -3407824, 0, 0, -3407818, 0, 0, -3342319, 0, 0, -3342306, 0, 0, -3342288, 0, 0, -3342282, 0, 0, -3276783, 0, 0, -3276769, 0, 0, -3276768, 0, 0, -3276767, 0, 0, -3276766, 0, 0, -3276765, 0, 0, -3276764, 0, 0, -3276763, 0, 0, -3276762, 0, 0, -3276761, 0, 0, -3276760, 0, 0, -3276759, 0, 0, -3276758, 0, 0, -3276757, 0, 0, -3276756, 0, 0, -3276755, 0, 0, -3276754, 0, 0, -3276753, 0, 0, -3276746, 0, 0, -3276745, 0, 0, -3276744, 0, 0, -3276743, 0, 0, -3276742, 0, 0, -3276741, 0, 0, -3276740, 0, 0, -3276739, 0, 0, -3276738, 0, 0, -3276737, 0, 0, -3276736, 0, 0, -3276735, 0, 0, -3276734, 0, 0, -3276733, 0, 0, -3276732, 0, 0, -3276731, 0, 0, -3276730, 0, 0, -3211247, 0, 0, -3211194, 0, 0, -3145711, 0, 0, -3145658, 0, 0, -3080175, 0, 0, -3080122, 0, 0, -3014639, 0, 0, -3014586, 0, 0, -2949103, 0, 0, -2949084, 0, 0, -2949083, 0, 0, -2949082, 0, 0, -2949081, 0, 0, -2949080, 0, 0, -2949079, 0, 0, -2949078, 0, 0, -2949077, 0, 0, -2949076, 0, 0, -2949075, 0, 0, -2949074, 0, 0, -2949073, 0, 0, -2949072, 0, 0, -2949071, 0, 0, -2949070, 0, 0, -2949069, 0, 0, -2949068, 0, 0, -2949067, 0, 0, -2949066, 0, 0, -2949065, 0, 0, -2949064, 0, 0, -2949063, 0, 0, -2949062, 0, 0, -2949061, 0, 0, -2949060, 0, 0, -2949059, 0, 0, -2949058, 0, 0, -2949057, 0, 0, -2949056, 0, 0, -2949055, 0, 0, -2949050, 0, 0, -2883567, 0, 0, -2883548, 0, 0, -2883519, 0, 0, -2883514, 0, 0, -2818031, 0, 0, -2818012, 0, 0, -2817983, 0, 0, -2817978, 0, 0, -2752495, 0, 0, -2752476, 0, 0, -2752447, 0, 0, -2752442, 0, 0, -2686959, 0, 0, -2686940, 0, 0, -2686934, 0, 0, -2686933, 0, 0, -2686932, 0, 0, -2686931, 0, 0, -2686930, 0, 0, -2686929, 0, 0, -2686928, 0, 0, -2686927, 0, 0, -2686926, 0, 0, -2686925, 0, 0, -2686924, 0, 0, -2686923, 0, 0, -2686922, 0, 0, -2686921, 0, 0, -2686920, 0, 0, -2686919, 0, 0, -2686918, 0, 0, -2686917, 0, 0, -2686911, 0, 0, -2686906, 0, 0, -2621423, 0, 0, -2621404, 0, 0, -2621398, 0, 0, -2621381, 0, 0, -2621375, 0, 0, -2621370, 0, 0, -2555887, 0, 0, -2555868, 0, 0, -2555862, 0, 0, -2555845, 0, 0, -2555839, 0, 0, -2555834, 0, 0, -2490351, 0, 0, -2490332, 0, 0, -2490326, 0, 0, -2490309, 0, 0, -2490303, 0, 0, -2490298, 0, 0, -2424815, 0, 0, -2424796, 0, 0, -2424790, 0, 0, -2424773, 0, 0, -2424767, 0, 0, -2424762, 0, 0, -2359279, 0, 0, -2359260, 0, 0, -2359254, 0, 0, -2359237, 0, 0, -2359231, 0, 0, -2359226, 0, 0, -2293743, 0, 0, -2293724, 0, 0, -2293718, 0, 0, -2293701, 0, 0, -2293695, 0, 0, -2293690, 0, 0, -2228207, 0, 0, -2228200, 0, 0, -2228199, 0, 0, -2228198, 0, 0, -2228197, 0, 0, -2228196, 0, 0, -2228188, 0, 0, -2228182, 0, 0, -2228165, 0, 0, -2228159, 0, 0, -2228154, 0, 0, -2162671, 0, 0, -2162665, 0, 0, -2162659, 0, 0, -2162652, 0, 0, -2162646, 0, 0, -2162629, 0, 0, -2162623, 0, 0, -2162618, 0, 0, -2162617, 0, 0, -2162616, 0, 0, -2162615, 0, 0, -2162614, 0, 0, -2162613, 0, 0, -2162612, 0, 0, -2162611, 0, 0, -2162610, 0, 0, -2162609, 0, 0, -2162608, 0, 0, -2162607, 0, 0, -2162606, 0, 0, -2162605, 0, 0, -2162604, 0, 0, -2162603, 0, 0, -2162602, 0, 0, -2097135, 0, 0, -2097129, 0, 0, -2097123, 0, 0, -2097116, 0, 0, -2097110, 0, 0, -2097093, 0, 0, -2097087, 0, 0, -2097066, 0, 0, -2031599, 0, 0, -2031593, 0, 0, -2031587, 0, 0, -2031580, 0, 0, -2031574, 0, 0, -2031557, 0, 0, -2031551, 0, 0, -2031530, 0, 0, -1966063, 0, 0, -1966056, 0, 0, -1966055, 0, 0, -1966054, 0, 0, -1966053, 0, 0, -1966052, 0, 0, -1966044, 0, 0, -1966038, 0, 0, -1966021, 0, 0, -1966015, 0, 0, -1965994, 0, 0, -1900527, 0, 0, -1900508, 0, 0, -1900502, 0, 0, -1900485, 0, 0, -1900479, 0, 0, -1900458, 0, 0, -1834991, 0, 0, -1834972, 0, 0, -1834966, 0, 0, -1834960, 0, 0, -1834959, 0, 0, -1834958, 0, 0, -1834957, 0, 0, -1834956, 0, 0, -1834955, 0, 0, -1834949, 0, 0, -1834943, 0, 0, -1834922, 0, 0, -1769455, 0, 0, -1769436, 0, 0, -1769430, 0, 0, -1769425, 0, 0, -1769418, 0, 0, -1769414, 0, 0, -1769413, 0, 0, -1769407, 0, 0, -1769386, 0, 0, -1703919, 0, 0, -1703918, 0, 0, -1703917, 0, 0, -1703916, 0, 0, -1703915, 0, 0, -1703914, 0, 0, -1703913, 0, 0, -1703912, 0, 0, -1703911, 0, 0, -1703910, 0, 0, -1703909, 0, 0, -1703908, 0, 0, -1703907, 0, 0, -1703906, 0, 0, -1703900, 0, 0, -1703894, 0, 65537, -1703893, 0, 0, -1703892, 0, 0, -1703891, 0, 0, -1703890, 0, 0, -1703889, 0, 65538, -1703882, 0, 65537, -1703881, 0, 0, -1703880, 0, 0, -1703879, 0, 0, -1703878, 0, 0, -1703877, 0, 65538, -1703871, 0, 0, -1703866, 0, 0, -1703865, 0, 0, -1703864, 0, 0, -1703863, 0, 0, -1703862, 0, 0, -1703861, 0, 0, -1703860, 0, 0, -1703859, 0, 0, -1703858, 0, 0, -1703857, 0, 0, -1703856, 0, 0, -1703855, 0, 0, -1703854, 0, 0, -1703853, 0, 0, -1703852, 0, 0, -1703851, 0, 0, -1703850, 0, 0, -1638370, 0, 0, -1638364, 0, 0, -1638335, 0, 0, -1638330, 0, 0, -1572834, 0, 0, -1572828, 0, 0, -1572799, 0, 0, -1572794, 0, 0, -1507298, 0, 0, -1507292, 0, 0, -1507263, 0, 0, -1507258, 0, 0, -1441762, 0, 0, -1441756, 0, 0, -1441727, 0, 0, -1441722, 0, 0, -1376226, 0, 0, -1376220, 0, 0, -1376219, 0, 0, -1376218, 0, 0, -1376217, 0, 0, -1376216, 0, 0, -1376215, 0, 0, -1376214, 0, 0, -1376213, 0, 0, -1376212, 0, 0, -1376211, 0, 0, -1376210, 0, 0, -1376209, 0, 0, -1376208, 0, 0, -1376207, 0, 0, -1376206, 0, 0, -1376205, 0, 0, -1376204, 0, 0, -1376203, 0, 0, -1376202, 0, 0, -1376201, 0, 0, -1376200, 0, 0, -1376199, 0, 0, -1376198, 0, 0, -1376197, 0, 0, -1376196, 0, 0, -1376195, 0, 0, -1376194, 0, 0, -1376193, 0, 0, -1376192, 0, 0, -1376191, 0, 0, -1376186, 0, 0, -1310690, 0, 0, -1310650, 0, 0, -1245154, 0, 0, -1245114, 0, 0, -1179618, 0, 0, -1179578, 0, 0, -1114082, 0, 0, -1114042, 0, 0, -1048546, 0, 0, -1048545, 0, 0, -1048544, 0, 0, -1048543, 0, 0, -1048542, 0, 0, -1048541, 0, 0, -1048540, 0, 0, -1048539, 0, 0, -1048538, 0, 0, -1048537, 0, 0, -1048536, 0, 0, -1048535, 0, 0, -1048534, 0, 0, -1048533, 0, 0, -1048532, 0, 0, -1048531, 0, 0, -1048530, 0, 0, -1048529, 0, 0, -1048528, 0, 0, -1048527, 0, 0, -1048526, 0, 0, -1048525, 0, 0, -1048524, 0, 0, -1048523, 0, 0, -1048522, 0, 0, -1048521, 0, 0, -1048520, 0, 0, -1048519, 0, 0, -1048518, 0, 0, -1048517, 0, 0, -1048516, 0, 0, -1048515, 0, 0, -1048514, 0, 0, -1048513, 0, 0, -1048512, 0, 0, -1048511, 0, 0, -1048510, 0, 0, -1048509, 0, 0, -1048508, 0, 0, -1048507, 0, 0, -1048506, 0, 0 )
 
+[node name="CityParallaxBG" type="ParallaxBackground" parent="Background" index="0"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/CityParallaxBG" index="0"]
+position = Vector2( 192, 0 )
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 50, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer" index="0"]
+texture = ExtResource( 33 )
+offset = Vector2( 192, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer" index="1"]
+material = SubResource( 1 )
+position = Vector2( 0, -29 )
+texture = ExtResource( 41 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/CityParallaxBG" index="1"]
+position = Vector2( 192, 0 )
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer2" index="0"]
+position = Vector2( 0, -26 )
+texture = ExtResource( 36 )
+offset = Vector2( 192, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer2" index="1"]
+material = SubResource( 2 )
+position = Vector2( 0, -26 )
+texture = ExtResource( 39 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/CityParallaxBG" index="2"]
+position = Vector2( 192, -78 )
+motion_scale = Vector2( 0.02, 0.02 )
+motion_offset = Vector2( 50, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer3" index="0"]
+material = SubResource( 3 )
+position = Vector2( 0, 19 )
+texture = ExtResource( 38 )
+offset = Vector2( 192, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer3" index="1"]
+position = Vector2( 0, 13 )
+texture = ExtResource( 34 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/CityParallaxBG" index="3"]
+position = Vector2( 192, -110 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 50, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer4" index="0"]
+position = Vector2( 0, -79 )
+texture = ExtResource( 37 )
+offset = Vector2( 192, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer4" index="1"]
+material = SubResource( 4 )
+position = Vector2( 0, -71 )
+texture = ExtResource( 40 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/CityParallaxBG" index="4"]
+position = Vector2( 192, -122 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer5" index="0"]
+position = Vector2( 0, -411 )
+texture = ExtResource( 35 )
+offset = Vector2( 192, 0 )
+
 [node name="Signs" type="Node2D" parent="." index="2"]
 
 [node name="restaurant_sign" type="Sprite" parent="Signs" index="0"]
 position = Vector2( 689, -884 )
 texture = ExtResource( 6 )
 
-[node name="Orange" parent="YSort" index="0" instance=ExtResource( 17 )]
+[node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 15 )]
 
-[node name="Player" parent="YSort" index="1"]
-position = Vector2( 667, -78 )
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 17 )]
 
-[node name="Buildings" type="YSort" parent="YSort" index="2"]
+[node name="Player" parent="YSort" index="2"]
+position = Vector2( 931, -810 )
+
+[node name="Buildings" type="YSort" parent="YSort" index="3"]
 
 [node name="PoppyHouseA" parent="YSort/Buildings" index="0" instance=ExtResource( 4 )]
 position = Vector2( 1508, -373 )
@@ -875,9 +967,9 @@ offset = Vector2( 0, -25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Buildings/BearHouse" index="1"]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
-[node name="Props" type="YSort" parent="YSort" index="3"]
+[node name="Props" type="YSort" parent="YSort" index="4"]
 
 [node name="TrashCan" parent="YSort/Props" index="0" instance=ExtResource( 8 )]
 position = Vector2( 710, -388 )
@@ -903,7 +995,7 @@ frame = 3
 position = Vector2( 257, -797 )
 frame = 2
 
-[node name="Streetlamps" type="YSort" parent="YSort" index="4"]
+[node name="Streetlamps" type="YSort" parent="YSort" index="5"]
 
 [node name="StreetLamp" parent="YSort/Streetlamps" index="0" instance=ExtResource( 9 )]
 position = Vector2( 660, -376 )
@@ -944,17 +1036,90 @@ position = Vector2( 943, -825 )
 [node name="StreetLamp13" parent="YSort/Streetlamps" index="12" instance=ExtResource( 9 )]
 position = Vector2( 1183, -729 )
 
-[node name="monster_stand" type="Sprite" parent="YSort" index="5"]
+[node name="monster_stand" type="Sprite" parent="YSort" index="6"]
 position = Vector2( 1197, -889 )
 texture = ExtResource( 12 )
+offset = Vector2( 1, -21 )
+script = ExtResource( 43 )
 
-[node name="PoppyhartSign" parent="YSort" index="6" instance=ExtResource( 13 )]
+[node name="DialogueTree" parent="YSort/monster_stand" index="0" instance=ExtResource( 19 )]
+
+[node name="Event" parent="YSort/monster_stand/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "The Murk Monster's arrival is predicted to be any moment now. Wanna go see it up close?"
+no_face = true
+
+[node name="Event3" parent="YSort/monster_stand/DialogueTree/Event" index="0" instance=ExtResource( 20 )]
+key = "Yes"
+message = "Sounds interesting. Sure."
+character = "green"
+expression = "smile"
+
+[node name="Event4" parent="YSort/monster_stand/DialogueTree/Event/Event3" index="0" instance=ExtResource( 20 )]
+message = "Lovely choice, my viridescent friend!"
+no_face = true
+
+[node name="Event5" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4" index="0" instance=ExtResource( 20 )]
+message = "That'll be four dollars. "
+no_face = true
+
+[node name="Event6" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5" index="0" instance=ExtResource( 20 )]
+message = "What if I payed by..."
+character = "ribbit"
+expression = "smile"
+
+[node name="Event7" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6" index="0" instance=ExtResource( 20 )]
+message = "Doin' a lil' this, a lil' somethin'.."
+character = "ribbit"
+expression = "smug2"
+
+[node name="Event8" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7" index="0" instance=ExtResource( 20 )]
+message = "A cool lil'.. dance.."
+character = "ribbit"
+expression = "nervous"
+
+[node name="Event9" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7/Event8" index="0" instance=ExtResource( 20 )]
+message = "I'll accept that. Hop on the boat, kids."
+no_face = true
+
+[node name="Event10" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7/Event8/Event9" index="0" instance=ExtResource( 20 )]
+message = "YYEEEEAAA"
+no_face = true
+character = "ribbit"
+expression = "unique"
+
+[node name="Event11" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7/Event8/Event9/Event10" index="0" instance=ExtResource( 20 )]
+message = "Oh YES"
+no_face = true
+character = "orange"
+expression = "grin"
+
+[node name="Event2" parent="YSort/monster_stand/DialogueTree/Event" index="1" instance=ExtResource( 20 )]
+key = "No"
+message = "No, thank you, sir."
+character = "green"
+expression = "open_mouth"
+
+[node name="Event4" parent="YSort/monster_stand/DialogueTree/Event/Event2" index="0" instance=ExtResource( 20 )]
+message = "YOU. You.. you're missing out! You don't know what you're going to miss!"
+no_face = true
+
+[node name="Interaction" type="Area2D" parent="YSort/monster_stand" index="1"]
+
+[node name="InteractionCOllision" type="CollisionShape2D" parent="YSort/monster_stand/Interaction" index="0"]
+shape = SubResource( 35 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/monster_stand" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/monster_stand/StaticBody2D" index="0"]
+shape = SubResource( 36 )
+
+[node name="PoppyhartSign" parent="YSort" index="7" instance=ExtResource( 13 )]
 position = Vector2( 1335, -293 )
 
-[node name="PoppyhartSign2" parent="YSort" index="7" instance=ExtResource( 13 )]
+[node name="PoppyhartSign2" parent="YSort" index="8" instance=ExtResource( 13 )]
 position = Vector2( 333, -262 )
 
-[node name="Bus" type="KinematicBody2D" parent="YSort" index="8"]
+[node name="Bus" type="KinematicBody2D" parent="YSort" index="9"]
 position = Vector2( 616, -104 )
 script = ExtResource( 18 )
 
@@ -966,12 +1131,12 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Bus" index="1"]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Bus" index="2"]
 autoplay = "idle"
-anims/drive_away = SubResource( 3 )
-anims/idle = SubResource( 4 )
+anims/drive_away = SubResource( 7 )
+anims/idle = SubResource( 8 )
 
 [node name="DialogueTree" parent="YSort/Bus" index="3" instance=ExtResource( 19 )]
 
@@ -992,28 +1157,28 @@ function = "drive_away"
 message = "Adios!"
 face_texture = ExtResource( 26 )
 
-[node name="SaveStation" parent="YSort" index="9" instance=ExtResource( 28 )]
+[node name="SaveStation" parent="YSort" index="10" instance=ExtResource( 28 )]
 position = Vector2( 1496, -476 )
 
-[node name="SaveStation2" parent="YSort" index="10" instance=ExtResource( 28 )]
+[node name="SaveStation2" parent="YSort" index="11" instance=ExtResource( 28 )]
 position = Vector2( 848, -1353 )
 
-[node name="CallBellSystem2" parent="YSort" index="11" instance=ExtResource( 32 )]
+[node name="CallBellSystem2" parent="YSort" index="12" instance=ExtResource( 32 )]
 position = Vector2( 1021, -369 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem2" index="1"]
 position = Vector2( 7, -138 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell1" index="3"]
-anims/idle = SubResource( 5 )
-anims/ring = SubResource( 6 )
+anims/idle = SubResource( 9 )
+anims/ring = SubResource( 10 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem2" index="2"]
 position = Vector2( 385, -106 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell2" index="3"]
-anims/idle = SubResource( 7 )
-anims/ring = SubResource( 8 )
+anims/idle = SubResource( 11 )
+anims/ring = SubResource( 12 )
 
 [node name="Pos1" parent="YSort/CallBellSystem2" index="3"]
 position = Vector2( 47, -143 )
@@ -1023,6 +1188,7 @@ position = Vector2( 342, -111 )
 
 [node name="Boat" parent="YSort/CallBellSystem2" index="5"]
 position = Vector2( 189, -110 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem2/Boat" index="1"]
 frame = 2
@@ -1033,22 +1199,22 @@ position = Vector2( 3, -132 )
 [node name="ground_arrow2" parent="YSort/CallBellSystem2" index="8"]
 position = Vector2( 381, -101 )
 
-[node name="CallBellSystem3" parent="YSort" index="12" instance=ExtResource( 32 )]
+[node name="CallBellSystem3" parent="YSort" index="13" instance=ExtResource( 32 )]
 position = Vector2( 826, -752 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem3" index="1"]
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell1" index="3"]
-anims/idle = SubResource( 9 )
-anims/ring = SubResource( 10 )
+anims/idle = SubResource( 13 )
+anims/ring = SubResource( 14 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem3" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell2" index="3"]
-anims/idle = SubResource( 11 )
-anims/ring = SubResource( 12 )
+anims/idle = SubResource( 15 )
+anims/ring = SubResource( 16 )
 
 [node name="Pos1" parent="YSort/CallBellSystem3" index="3"]
 position = Vector2( 90, -31 )
@@ -1058,6 +1224,7 @@ position = Vector2( 61, 19 )
 
 [node name="Boat" parent="YSort/CallBellSystem3" index="5"]
 position = Vector2( 183, -4 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem3/Boat" index="1"]
 frame = 5
@@ -1070,22 +1237,22 @@ frame = 4
 position = Vector2( 45, 63 )
 frame = 0
 
-[node name="CallBellSystem4" parent="YSort" index="13" instance=ExtResource( 32 )]
+[node name="CallBellSystem4" parent="YSort" index="14" instance=ExtResource( 32 )]
 position = Vector2( 546, -752 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem4" index="1"]
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell1" index="3"]
-anims/idle = SubResource( 13 )
-anims/ring = SubResource( 14 )
+anims/idle = SubResource( 17 )
+anims/ring = SubResource( 18 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem4" index="2"]
 position = Vector2( 244, 59 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell2" index="3"]
-anims/idle = SubResource( 15 )
-anims/ring = SubResource( 16 )
+anims/idle = SubResource( 19 )
+anims/ring = SubResource( 20 )
 
 [node name="Pos1" parent="YSort/CallBellSystem4" index="3"]
 position = Vector2( 90, -31 )
@@ -1095,6 +1262,7 @@ position = Vector2( 255, 19 )
 
 [node name="Boat" parent="YSort/CallBellSystem4" index="5"]
 position = Vector2( 183, -4 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem4/Boat" index="1"]
 frame = 4
@@ -1107,22 +1275,22 @@ frame = 3
 position = Vector2( 240, 64 )
 frame = 7
 
-[node name="CallBellSystem5" parent="YSort" index="14" instance=ExtResource( 32 )]
+[node name="CallBellSystem5" parent="YSort" index="15" instance=ExtResource( 32 )]
 position = Vector2( 420, -443 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem5" index="1"]
 position = Vector2( 185, -79 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell1" index="3"]
-anims/idle = SubResource( 17 )
-anims/ring = SubResource( 18 )
+anims/idle = SubResource( 21 )
+anims/ring = SubResource( 22 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem5" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell2" index="3"]
-anims/idle = SubResource( 19 )
-anims/ring = SubResource( 20 )
+anims/idle = SubResource( 23 )
+anims/ring = SubResource( 24 )
 
 [node name="Pos1" parent="YSort/CallBellSystem5" index="3"]
 position = Vector2( 145, -83 )
@@ -1132,6 +1300,7 @@ position = Vector2( 86, 37 )
 
 [node name="Boat" parent="YSort/CallBellSystem5" index="5"]
 position = Vector2( 117, -14 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem5/Boat" index="1"]
 frame = 3
@@ -1144,22 +1313,22 @@ frame = 5
 position = Vector2( 45, 63 )
 frame = 1
 
-[node name="CallBellSystem6" parent="YSort" index="15" instance=ExtResource( 32 )]
+[node name="CallBellSystem6" parent="YSort" index="16" instance=ExtResource( 32 )]
 position = Vector2( 832, -999 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem6" index="1"]
 position = Vector2( -105, -74 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell1" index="3"]
-anims/idle = SubResource( 21 )
-anims/ring = SubResource( 22 )
+anims/idle = SubResource( 25 )
+anims/ring = SubResource( 26 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem6" index="2"]
 position = Vector2( 60, 108 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell2" index="3"]
-anims/idle = SubResource( 23 )
-anims/ring = SubResource( 24 )
+anims/idle = SubResource( 27 )
+anims/ring = SubResource( 28 )
 
 [node name="Pos1" parent="YSort/CallBellSystem6" index="3"]
 position = Vector2( -94, -47 )
@@ -1169,6 +1338,7 @@ position = Vector2( 26, 105 )
 
 [node name="Boat" parent="YSort/CallBellSystem6" index="5"]
 position = Vector2( -49, 13 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem6/Boat" index="1"]
 frame = 1
@@ -1181,7 +1351,7 @@ frame = 3
 position = Vector2( 56, 113 )
 frame = 7
 
-[node name="CallBellSystem7" parent="YSort" index="16" instance=ExtResource( 32 )]
+[node name="CallBellSystem7" parent="YSort" index="17" instance=ExtResource( 32 )]
 position = Vector2( 1043, -1144 )
 talkative = true
 
@@ -1189,15 +1359,15 @@ talkative = true
 position = Vector2( -43, -200 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell1" index="3"]
-anims/idle = SubResource( 25 )
-anims/ring = SubResource( 26 )
+anims/idle = SubResource( 29 )
+anims/ring = SubResource( 30 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem7" index="2"]
 position = Vector2( 88, 230 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell2" index="3"]
-anims/idle = SubResource( 27 )
-anims/ring = SubResource( 28 )
+anims/idle = SubResource( 31 )
+anims/ring = SubResource( 32 )
 
 [node name="Pos1" parent="YSort/CallBellSystem7" index="3"]
 position = Vector2( -32, -173 )
@@ -1207,6 +1377,7 @@ position = Vector2( 71, 184 )
 
 [node name="Boat" parent="YSort/CallBellSystem7" index="5"]
 position = Vector2( 48, 131 )
+frame = 0
 
 [node name="ground_arrow" parent="YSort/CallBellSystem7" index="7"]
 position = Vector2( -47, -194 )
@@ -1273,7 +1444,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KidnapEvent/KidnapZone" index="0"]
 position = Vector2( 0, 38 )
-shape = SubResource( 29 )
+shape = SubResource( 33 )
 
 [node name="Tween" type="Tween" parent="KidnapEvent" index="1"]
 
@@ -1355,7 +1526,7 @@ new_scene = "res://Rooms/Area6/6-3/6-3.tscn"
 player_new_position = Vector2( 0, 190 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HotelPortal" index="0"]
-shape = SubResource( 30 )
+shape = SubResource( 34 )
 [connection signal="body_entered" from="KidnapEvent/KidnapZone" to="KidnapEvent" method="_on_KidnapZone_body_entered"]
 
 [editable path="YSort/CallBellSystem2"]
