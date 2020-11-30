@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=2]
+[gd_scene load_steps=251 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -179,6 +179,14 @@
 [ext_resource path="res://NPC/SodaBoy/SodaBoy.tscn" type="PackedScene" id=177]
 [ext_resource path="res://Rooms/Area2/Assets/MalusHinter.tres" type="SpriteFrames" id=178]
 [ext_resource path="res://Rooms/Area2/Assets/SodaCollection.tscn" type="PackedScene" id=179]
+[ext_resource path="res://NPC/MinorNPCs/robo_guard_face.png" type="Texture" id=180]
+[ext_resource path="res://NPC/MinorNPCs/moondog_face.png" type="Texture" id=181]
+[ext_resource path="res://NPC/MinorNPCs/sundog_face.png" type="Texture" id=182]
+[ext_resource path="res://NPC/MinorNPCs/man_d_yelling_face.png" type="Texture" id=183]
+[ext_resource path="res://NPC/MinorNPCs/scream_talk.wav" type="AudioStream" id=184]
+[ext_resource path="res://NPC/robo.wav" type="AudioStream" id=185]
+[ext_resource path="res://NPC/MinorNPCs/not_dog_stand_face.png" type="Texture" id=186]
+[ext_resource path="res://NPC/MinorNPCs/pizza_man_face.png" type="Texture" id=187]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -1093,10 +1101,12 @@ shape = SubResource( 1 )
 [node name="DiagPiece" parent="exteriordecor_1/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "Hi there. ```Guess what I got here?"
 no_face = true
+face_texture = ExtResource( 187 )
 
 [node name="DiagPiece2" parent="exteriordecor_1/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "That's right, baby. An entire pizza for ME!"
 no_face = true
+face_texture = ExtResource( 187 )
 
 [node name="MalusEntrance" type="Node2D" parent="." index="3"]
 position = Vector2( 1872, -1232 )
@@ -2843,6 +2853,13 @@ position = Vector2( 1651, -341 )
 [node name="RoboGuard" parent="YSort/NPC" index="10" instance=ExtResource( 120 )]
 position = Vector2( -551, 87 )
 
+[node name="DialogueTree" parent="YSort/NPC/RoboGuard" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuard/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "TALK TO ROBOT 2 FOR ROAD CLOSURE INFORMATION. "
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+
 [node name="ManYelling" parent="YSort/NPC" index="11" instance=ExtResource( 77 )]
 position = Vector2( 313, 428 )
 texture = ExtResource( 147 )
@@ -2867,6 +2884,29 @@ autoplay = "default"
 playback_speed = 2.0
 anims/default = SubResource( 50 )
 
+[node name="DialogueTree" parent="YSort/NPC/ManYelling" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/ManYelling/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "NO, CHA-- HANG ON, CHARL, I'M BEING INTERRUPTED BY A GREEN TRIANGLE. "
+text_delay = 0.02
+face_texture = ExtResource( 183 )
+voice_sound = ExtResource( 184 )
+voice_variation = 0.4
+
+[node name="DiagPiece2" parent="YSort/NPC/ManYelling/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "...ARE YOU INSANE, JUICE HEAD? DO YOU HAVE SOME KIND OF PROBLEM? CAN'T YOU SEE THAT I'M BUSY?!"
+text_delay = 0.02
+face_texture = ExtResource( 183 )
+voice_sound = ExtResource( 184 )
+voice_variation = 0.1
+
+[node name="DiagPiece3" parent="YSort/NPC/ManYelling/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "IT'S `RUDE` TO INTERRUPT SOMEONE WHEN THEY'RE IN THE MIDDLE OF A CALL! ARE YOU, LIKE, ACTUALLY INSANE? GO AWAY!!"
+text_delay = 0.01
+face_texture = ExtResource( 183 )
+voice_sound = ExtResource( 184 )
+voice_variation = 0.1
+
 [node name="RoboGuard2" parent="YSort/NPC" index="12" instance=ExtResource( 120 )]
 position = Vector2( -549, 122 )
 
@@ -2874,6 +2914,9 @@ position = Vector2( -549, 122 )
 
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "HELLO. PLEASE DO NOT PASS."
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.1
 
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "Alright..."
@@ -2887,9 +2930,15 @@ expression = "openmouth"
 
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "THIS IS ACCESS TO OCEAN. WATER BAD FOR ROBOT."
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.1
 
 [node name="DiagPiece2" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "ARE YOU GOING TO PASS THIS AREA ANYWAY?"
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.1
 
 [node name="DiagPiece3" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
 key = "Yes"
@@ -2904,6 +2953,9 @@ expression = "sad"
 
 [node name="DiagPiece6" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece5" index="0" instance=ExtResource( 9 )]
 message = "UNBELIEVABLE. ANYWAYS, YOU CAN'T. YOU LITERALLY CANNOT PASS."
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.1
 
 [node name="DiagPiece4" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2" index="1" instance=ExtResource( 9 )]
 key = "No"
@@ -2913,9 +2965,19 @@ expression = "confused"
 
 [node name="DiagPiece5" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece4" index="0" instance=ExtResource( 9 )]
 message = "ATTA BOY. STAY SAFE OUT THERE."
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.1
 
 [node name="RoboGuard3" parent="YSort/NPC" index="13" instance=ExtResource( 120 )]
 position = Vector2( -542, 341 )
+
+[node name="DialogueTree" parent="YSort/NPC/RoboGuard3" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuard3/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "TALK TO ROBOT 2 FOR ROAD CLOSURE INFORMATION. "
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
 
 [node name="JumpRoper" parent="YSort/NPC" index="14" instance=ExtResource( 129 )]
 position = Vector2( 1504, -169 )
@@ -3036,6 +3098,24 @@ shape = SubResource( 56 )
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/StaticBody2D" index="0"]
 shape = SubResource( 57 )
 
+[node name="DialogueTree" parent="YSort/NPC/NotDogStand" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/NotDogStand/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Hi there, glass guys! Care to purchase a Not Dog?"
+face_texture = ExtResource( 186 )
+
+[node name="DiagPiece2" parent="YSort/NPC/NotDogStand/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+key = "No"
+message = "No thanks."
+character = "green"
+expression = "frown"
+
+[node name="DiagPiece3" parent="YSort/NPC/NotDogStand/DialogueTree/DiagPiece" index="1" instance=ExtResource( 9 )]
+key = "Yes"
+message = "Now check if player has enough money, and if so, give it to them and take away the money. Otherwise, make the seller get angry."
+character = "green"
+expression = "yell_outburst"
+
 [node name="SunDog" parent="YSort/NPC" index="24" instance=ExtResource( 77 )]
 position = Vector2( 325, 468 )
 texture = ExtResource( 159 )
@@ -3045,6 +3125,25 @@ shape = SubResource( 58 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/SunDog/StaticBody2D" index="0"]
 shape = SubResource( 58 )
+
+[node name="DialogueTree" parent="YSort/NPC/SunDog" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/SunDog/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Hi there green guy! I'm talking on a phone! To my friend Moon Dog!"
+face_texture = ExtResource( 182 )
+voice_sound = ExtResource( 128 )
+voice_variation = 0.1
+
+[node name="DiagPiece2" parent="YSort/NPC/SunDog/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "Aren't you guys` like` five feet apart."
+character = "orange"
+expression = "open_mouth"
+
+[node name="DiagPiece3" parent="YSort/NPC/SunDog/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "...uh. I `love `talking`` on my phone! La la dee da!"
+face_texture = ExtResource( 182 )
+voice_sound = ExtResource( 128 )
+voice_variation = 0.1
 
 [node name="MoonDog" parent="YSort/NPC" index="25" instance=ExtResource( 77 )]
 position = Vector2( 284, 479 )
@@ -3056,6 +3155,21 @@ shape = SubResource( 59 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/MoonDog/StaticBody2D" index="0"]
 shape = SubResource( 59 )
+
+[node name="DialogueTree" parent="YSort/NPC/MoonDog" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/MoonDog/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Hey. I'm on the phone. Why are you talking to me. It's rude to interrupt people on the phone, you know."
+face_texture = ExtResource( 181 )
+
+[node name="DiagPiece2" parent="YSort/NPC/MoonDog/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "Woah, Moon Dog, be nice!"
+face_texture = ExtResource( 182 )
+voice_variation = 0.1
+
+[node name="DiagPiece3" parent="YSort/NPC/MoonDog/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "...I hate it. I hate it all. Why am I the shape the moon. You know, as ugly as Sun Dog is, at least she doesn't have to be a SPHERE."
+face_texture = ExtResource( 181 )
 
 [node name="SodaBoy" parent="YSort/NPC" index="26" instance=ExtResource( 177 )]
 position = Vector2( 192, 17 )

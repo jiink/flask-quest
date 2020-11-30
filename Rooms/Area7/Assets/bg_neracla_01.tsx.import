@@ -1,0 +1,20 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/bg_neracla_01.tsx-61015aaaea712369f14a0a4da9821262.res"
+
+[deps]
+
+source_file="res://Rooms/Area7/Assets/bg_neracla_01.tsx"
+dest_files=[ "res://.import/bg_neracla_01.tsx-61015aaaea712369f14a0a4da9821262.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=7
+embed_internal_images=false
+save_tiled_properties=false
+apply_offset=false
+post_import_script=""

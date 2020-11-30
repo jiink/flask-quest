@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/neracla_mountain.obj-dfe1fda6439a1feba615ec147c140711.mesh"
+
+[deps]
+
+files=[ "res://.import/neracla_mountain.obj-dfe1fda6439a1feba615ec147c140711.mesh" ]
+
+source_file="res://Rooms/Area7/Assets/neracla_mountain.obj"
+dest_files=[ "res://.import/neracla_mountain.obj-dfe1fda6439a1feba615ec147c140711.mesh", "res://.import/neracla_mountain.obj-dfe1fda6439a1feba615ec147c140711.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

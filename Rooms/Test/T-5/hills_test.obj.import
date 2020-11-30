@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/hills_test.obj-f9cf92cb2395dc6cd5f2ec852d3068cd.mesh"
+
+[deps]
+
+files=[ "res://.import/hills_test.obj-f9cf92cb2395dc6cd5f2ec852d3068cd.mesh" ]
+
+source_file="res://Rooms/Test/T-5/hills_test.obj"
+dest_files=[ "res://.import/hills_test.obj-f9cf92cb2395dc6cd5f2ec852d3068cd.mesh", "res://.import/hills_test.obj-f9cf92cb2395dc6cd5f2ec852d3068cd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

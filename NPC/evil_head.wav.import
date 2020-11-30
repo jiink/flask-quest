@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/evil_head.wav-ddf0423151ac979b4515471a5d75bec4.sample"
+
+[deps]
+
+source_file="res://NPC/evil_head.wav"
+dest_files=[ "res://.import/evil_head.wav-ddf0423151ac979b4515471a5d75bec4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

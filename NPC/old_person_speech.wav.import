@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/old_person_speech.wav-eec5090572cfb9d43c7f16b9ff14a2ba.sample"
+
+[deps]
+
+source_file="res://NPC/old_person_speech.wav"
+dest_files=[ "res://.import/old_person_speech.wav-eec5090572cfb9d43c7f16b9ff14a2ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

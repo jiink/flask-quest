@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ribbit_speech.wav-2eab5822a974f55c4a7399844849de8f.sample"
+
+[deps]
+
+source_file="res://NPC/ribbit_speech.wav"
+dest_files=[ "res://.import/ribbit_speech.wav-2eab5822a974f55c4a7399844849de8f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

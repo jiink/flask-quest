@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bouncin.ogg-b0a8083851df307e15d822bef7f31cf4.oggstr"
+
+[deps]
+
+source_file="res://Music/bouncin.ogg"
+dest_files=[ "res://.import/bouncin.ogg-b0a8083851df307e15d822bef7f31cf4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
