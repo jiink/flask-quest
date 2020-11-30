@@ -139,7 +139,10 @@ func update_boxes(new_target):
 	
 	# set the values from the character dict
 	var chosen_character = characters[target_piece.character]
-	if chosen_character[CHAR_FACE] != null: $Face.texture = load(chosen_character[CHAR_FACE])
+	if chosen_character[CHAR_FACE] != null:
+		$Face.texture = load(chosen_character[CHAR_FACE])
+		if $Face.texture == null:
+			print("character face texture NOT FOUND! couldn't be loaded")
 	voice_sound = load(chosen_character[CHAR_VOICE])
 	voice_variation = chosen_character[CHAR_VOICE_VARIATION]
 	
