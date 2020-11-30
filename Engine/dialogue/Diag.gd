@@ -39,7 +39,7 @@ var characters = {
 	"(none)": [null, "res://NPC/default_voice2.wav", 0.0, ""],
 	"orange" : ["res://Player/orange_sprites/orangeFaces.png", "res://Player/orange_sprites/orange_speech.wav", 0.3, "Orange"],
 	"stercus" : ["res://NPC/Stercus/stercusFaces.png", "res://NPC/Stercus/stercus_voice.wav", 0.0, "Stercus"],
-	"green": ["res://Player/sprites/greenSheet.png", "res://NPC/default_voice2.wav", 0.0, "Green"],
+	"green": ["res://Player/green_sprites/greenFaces.png", "res://NPC/default_voice2.wav", 0.0, "Green"],
 	"ribbit": ["res://Player/ribbit_sprites/ribbitFaces.png", "res://Player/ribbit_sprites/ribbit_speech.wav", 0.3, "Ribbit"],
 	"dubble": ["res://NPC/Dubble/dubbleFaces.png", "res://NPC/default_voice2.wav", 0.0, "Dubble"],
 	}
@@ -204,7 +204,8 @@ func update_boxes(new_target):
 		
 		var one_expression = false # for 32x32, one face textures (usually for minor npcs)
 		# print($Face.texture.get_size())
-		if $Face.texture.get_size() == Vector2(32, 32):
+
+		if ($Face.texture != null) and ($Face.texture.get_size() == Vector2(32, 32)):
 			one_expression = true
 
 		if target_piece.expression != "(none)":
