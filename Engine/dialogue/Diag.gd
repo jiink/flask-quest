@@ -207,9 +207,11 @@ func update_boxes(new_target):
 
 		if ($Face.texture != null) and ($Face.texture.get_size() == Vector2(32, 32)):
 			one_expression = true
-
+		
 		if target_piece.expression != "(none)":
 			face_index = expressions.find(target_piece.expression)
+			if face_index == -1: # not found
+				print("expression '%s' not valid" % target_piece.expression)
 		
 		if not one_expression:
 			$Face.vframes = 8

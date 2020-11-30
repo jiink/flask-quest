@@ -1436,7 +1436,7 @@ position = Vector2( 159, -58 )
 position = Vector2( 264, 28 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 278, 34 )
+position = Vector2( -514, 113 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -2926,7 +2926,6 @@ expression = "neutral"
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "...Why"
 character = "orange"
-expression = "openmouth"
 
 [node name="DiagPiece" parent="YSort/NPC/RoboGuard2/DialogueTree/DiagPiece/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "THIS IS ACCESS TO OCEAN. WATER BAD FOR ROBOT."
