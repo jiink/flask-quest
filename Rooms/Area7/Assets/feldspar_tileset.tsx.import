@@ -1,0 +1,20 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/feldspar_tileset.tsx-9cec03c00b34779a2dbaf2f1ea22f986.res"
+
+[deps]
+
+source_file="res://Rooms/Area7/Assets/feldspar_tileset.tsx"
+dest_files=[ "res://.import/feldspar_tileset.tsx-9cec03c00b34779a2dbaf2f1ea22f986.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=7
+embed_internal_images=false
+save_tiled_properties=false
+apply_offset=false
+post_import_script=""

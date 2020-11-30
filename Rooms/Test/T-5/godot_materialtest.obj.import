@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/godot_materialtest.obj-c0092ca75f486bcbb05252538759e540.mesh"
+
+[deps]
+
+files=[ "res://.import/godot_materialtest.obj-c0092ca75f486bcbb05252538759e540.mesh" ]
+
+source_file="res://Rooms/Test/T-5/godot_materialtest.obj"
+dest_files=[ "res://.import/godot_materialtest.obj-c0092ca75f486bcbb05252538759e540.mesh", "res://.import/godot_materialtest.obj-c0092ca75f486bcbb05252538759e540.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

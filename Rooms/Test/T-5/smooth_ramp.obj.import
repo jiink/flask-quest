@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/smooth_ramp.obj-62b3c95ed525a90e7c3b7d7711658f9a.mesh"
+
+[deps]
+
+files=[ "res://.import/smooth_ramp.obj-62b3c95ed525a90e7c3b7d7711658f9a.mesh" ]
+
+source_file="res://Rooms/Test/T-5/smooth_ramp.obj"
+dest_files=[ "res://.import/smooth_ramp.obj-62b3c95ed525a90e7c3b7d7711658f9a.mesh", "res://.import/smooth_ramp.obj-62b3c95ed525a90e7c3b7d7711658f9a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

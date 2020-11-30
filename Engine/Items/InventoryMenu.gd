@@ -93,133 +93,133 @@ func _ready():
 
 func _unhandled_input(event):
 
-    if visible:
-        if not $InfoBar.visible:
-            
-            if event.is_action_pressed("ui_right"):
-                selection_index += 1
-            elif event.is_action_pressed("ui_left"):
-                selection_index -= 1
-            elif event.is_action_pressed("ui_up"):
-                if state == INVENTORY:
-                    if selection_index < 11:
-                        selection_index = 0
-                        state = LOADOUT
-                        container = get_node("Loadout/GridContainer")
-                    else:
-                        selection_index -= 11
-                    
-            elif event.is_action_pressed("ui_down"):
-                if state == LOADOUT:
-                    selection_index = 0
-                    state = INVENTORY
-                    container = get_node("Inventory/GridContainer")
-                else:
-                    selection_index += 11
-                
-            elif event.is_action_pressed("ui_accept") and get_item_list().size() > 0:
-                $InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
-                                                    manager.items[get_item_list()[selection_index]].desc]
-                $InfoBar.set_visible(true)
-                # grey-out the trash can icon if it's in the loadout
-                if state == LOADOUT:
-                    $InfoBar/ItemOptions/Choices/Toss.modulate = Color(0x72377b)
-                else:
-                    $InfoBar/ItemOptions/Choices/Toss.modulate = Color(1, 1, 1, 1)
-                #if state == INVENTORY:
-                    #$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
-                #elif state == LOADOUT:
-                    #$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
-            if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_down"):
-                update_item_selection(selection_index)
-            
-        else:
-            if event.is_action_pressed("ui_left"):
-                selected_option -= 1
-            elif event.is_action_pressed("ui_right"):
-                selected_option += 1
-            selected_option = clamp(selected_option, 0, item_options.get_children().size() - 1)
-            #item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
-            update_item_action_icons()
-            
-            if event.is_action_pressed("ui_accept"):
-                match item_options.get_child(selected_option).name:
-                    "Toss":
-                        toss_item(selection_index)
-                        update_list()
-                        $InfoBar.set_visible(false)
-                        if in_battle and state == LOADOUT:
-                            loadout_changed = true
-                
-                    "Equip":
-                        if state == INVENTORY:
-                            if manager.loadout.size() <3:
-                                equip_item(selection_index)
-                                $InfoBar.set_visible(false)
-                                if in_battle and state == LOADOUT:
-                                    loadout_changed = true
-                            else:
-                                print("loadout full")
-                        else:
-                            equip_item(selection_index)
-                            $InfoBar.set_visible(false)
-                            if in_battle and state == LOADOUT:
-                                loadout_changed = true
-                    "Use":
-                        var item_script_path = "res://Items/Scripts/%s.gd" % get_item_list()[selection_index]
-                        var directory = Directory.new()
-                        var doFileExists = directory.file_exists(item_script_path)
-                        if doFileExists:
-                            var item_script = load(item_script_path).new()
-                            item_script.use()
-                            var item_listing = manager.items[get_item_list()[selection_index]]
-                            if (item_listing.has('consumable') and item_listing.get('consumable') == true) or (not item_listing.has('consumable')):
-                                toss_item(selection_index)
-                                update_list()
-                            $InfoBar.set_visible(false)
-                        else:
-                            print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
-        if event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left"):
-                audio.stream = horiz_sound
-                audio.play()
-        elif event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
-                audio.stream = vert_sound
-                audio.play()
-    if not in_battle:
-        
-        if event.is_action_pressed("ui_cancel"):
-            if not $InfoBar.visible:
-                if not visible:
-                    if (not get_tree().get_nodes_in_group("Player")[0].frozen) and get_parent().get_visibility() == false:
-                        set_visible(true)
-                        update_item_selection(3)
-                        
-                else:
-                    set_visible(false)
-                global.get_player().set_frozen(visible, true)
-                update_list()
-            else:
-                $InfoBar.set_visible(false)
-    else:
-        
-        #if bchoicenode.ready_for_inv:
-        if battle.selected_battle_choice == "item" and battle.state == battle.PLAYER_TURN:
-            
-            if event.is_action_pressed("ui_accept"):
-                if not visible:
-                    set_visible(true)
-                    update_list()
-            elif event.is_action_pressed("ui_cancel"):
-                if visible:
-                    if not $InfoBar.visible:
-                        set_visible(false)
-                        battle.battle_choice_confirmed = false
-                        if loadout_changed:
-                            yield(get_tree().create_timer(0.8), "timeout")
-                            battle.state = battle.ENEMY_TURN
-                            loadout_changed = false
-                    else:
-                        $InfoBar.set_visible(false)
+	if visible:
+		if not $InfoBar.visible:
+			
+			if event.is_action_pressed("ui_right"):
+				selection_index += 1
+			elif event.is_action_pressed("ui_left"):
+				selection_index -= 1
+			elif event.is_action_pressed("ui_up"):
+				if state == INVENTORY:
+					if selection_index < 11:
+						selection_index = 0
+						state = LOADOUT
+						container = get_node("Loadout/GridContainer")
+					else:
+						selection_index -= 11
+					
+			elif event.is_action_pressed("ui_down"):
+				if state == LOADOUT:
+					selection_index = 0
+					state = INVENTORY
+					container = get_node("Inventory/GridContainer")
+				else:
+					selection_index += 11
+				
+			elif event.is_action_pressed("ui_accept") and get_item_list().size() > 0:
+				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
+													manager.items[get_item_list()[selection_index]].desc]
+				$InfoBar.set_visible(true)
+				# grey-out the trash can icon if it's in the loadout
+				if state == LOADOUT:
+					$InfoBar/ItemOptions/Choices/Toss.modulate = Color(0x72377b)
+				else:
+					$InfoBar/ItemOptions/Choices/Toss.modulate = Color(1, 1, 1, 1)
+				#if state == INVENTORY:
+					#$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
+				#elif state == LOADOUT:
+					#$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
+			if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_down"):
+				update_item_selection(selection_index)
+			
+		else:
+			if event.is_action_pressed("ui_left"):
+				selected_option -= 1
+			elif event.is_action_pressed("ui_right"):
+				selected_option += 1
+			selected_option = clamp(selected_option, 0, item_options.get_children().size() - 1)
+			#item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
+			update_item_action_icons()
+			
+			if event.is_action_pressed("ui_accept"):
+				match item_options.get_child(selected_option).name:
+					"Toss":
+						toss_item(selection_index)
+						update_list()
+						$InfoBar.set_visible(false)
+						if in_battle and state == LOADOUT:
+							loadout_changed = true
+				
+					"Equip":
+						if state == INVENTORY:
+							if manager.loadout.size() <3:
+								equip_item(selection_index)
+								$InfoBar.set_visible(false)
+								if in_battle and state == LOADOUT:
+									loadout_changed = true
+							else:
+								print("loadout full")
+						else:
+							equip_item(selection_index)
+							$InfoBar.set_visible(false)
+							if in_battle and state == LOADOUT:
+								loadout_changed = true
+					"Use":
+						var item_script_path = "res://Items/Scripts/%s.gd" % get_item_list()[selection_index]
+						var directory = Directory.new()
+						var doFileExists = directory.file_exists(item_script_path)
+						if doFileExists:
+							var item_script = load(item_script_path).new()
+							item_script.use()
+							var item_listing = manager.items[get_item_list()[selection_index]]
+							if (item_listing.has('consumable') and item_listing.get('consumable') == true) or (not item_listing.has('consumable')):
+								toss_item(selection_index)
+								update_list()
+							$InfoBar.set_visible(false)
+						else:
+							print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
+		if event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left"):
+				audio.stream = horiz_sound
+				audio.play()
+		elif event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+				audio.stream = vert_sound
+				audio.play()
+	if not in_battle:
+		
+		if event.is_action_pressed("ui_cancel"):
+			if not $InfoBar.visible:
+				if not visible:
+					if (not get_tree().get_nodes_in_group("Player")[0].frozen) and get_parent().get_visibility() == false:
+						set_visible(true)
+						update_item_selection(3)
+						
+				else:
+					set_visible(false)
+				global.get_player().set_frozen(visible, true)
+				update_list()
+			else:
+				$InfoBar.set_visible(false)
+	else:
+		
+		#if bchoicenode.ready_for_inv:
+		if battle.selected_battle_choice == "item" and battle.state == battle.PLAYER_TURN:
+			
+			if event.is_action_pressed("ui_accept"):
+				if not visible:
+					set_visible(true)
+					update_list()
+			elif event.is_action_pressed("ui_cancel"):
+				if visible:
+					if not $InfoBar.visible:
+						set_visible(false)
+						battle.battle_choice_confirmed = false
+						if loadout_changed:
+							yield(get_tree().create_timer(0.8), "timeout")
+							battle.state = battle.ENEMY_TURN
+							loadout_changed = false
+					else:
+						$InfoBar.set_visible(false)
 		
 	
 
