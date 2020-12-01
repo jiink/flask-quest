@@ -19,6 +19,7 @@ var stored_function_args = []
 
 # "`" for delay
 var effectchars = "`"
+var tagless_new_text = ""
 var visible_new_text = ""
 var visible_characters_total = 0
 
@@ -49,10 +50,8 @@ onready var audio = $AudioStreamPlayer
 var regex = RegEx.new()
 
 func _ready():
-	# selects characters contained in square brackets, as well as effectchar(s)
-	# If you add any more effectchars, make sure escape chars dont have to be dealt with
-	# here in the expression
-	regex.compile("\\[[^\\]]*\\]|\\" + effectchars)
+	# selects characters contained in square brackets
+	regex.compile("\\[(.*?)\\]")
 	$TextBox/Timer.connect("timeout", self, "next_letter_time")
 	$DialogueBoxSprite.modulate = Color.white
 	#$TextBox.add_font_override("font", text_font)
@@ -89,7 +88,7 @@ func _input(event):
 				elif $TextBox.text.length() > 2 and (target_piece.skippable or Debug.debug_mode):
 					if not target_piece.interrupt:
 						$TextBox.visible_characters = visible_characters_total
-						text_index = new_text.length() - 1
+						text_index = tagless_new_text.length() - 1
 		get_tree().set_input_as_handled()
 
 
@@ -124,17 +123,35 @@ func update_boxes(new_target):
 	choices = []
 	
 	new_text = target_piece.message
-	
-	for l in effectchars:
-		visible_new_text = new_text.replace(l, "")
-	$TextBox.bbcode_text = visible_new_text
+	# Process `bbcode_input`. this is what we will give to the TextBox. it's just our main input \
+	#  text without the effectchars
+	var bbcode_input = new_text
 
-	# get the number that the label's `visible_characters` should go up to.
-	# On RichTextLabel, this DOES include whitespace
+	for l in effectchars:
+		bbcode_input = bbcode_input.replace(l, "")
+
+	$TextBox.bbcode_text = bbcode_input
+
+	# process `visible_new_text` this just contains letters you ACTUALLY literally see
+	visible_new_text = bbcode_input
 	var regex_results = regex.search_all(visible_new_text)
 	for r in regex_results:
-		print(r.get_string())
+		#print("!-! " + r.get_string())
 		visible_new_text = visible_new_text.replace(r.get_string(), "")
+	visible_characters_total = visible_new_text.length()
+
+	# process `tagless_new_text`. this contains effectchars but no bbcode tags
+	tagless_new_text = new_text
+	regex_results = regex.search_all(tagless_new_text)
+	for r in regex_results:
+		#print("!!! " + r.get_string())
+		tagless_new_text = tagless_new_text.replace(r.get_string(), "")
+
+	
+	#$TextBox.bbcode_text = visible_new_text
+	#print("AAAAAAAAAAA %s, %s" % [tagless_new_text, tagless_new_text.length()])
+	# get the number that the label's `visible_characters` should go up to.
+	# On RichTextLabel, this DOES include whitespace
 	visible_characters_total = visible_new_text.length()
 	
 	# set the values from the character dict
@@ -242,20 +259,20 @@ func update_boxes(new_target):
 	
 func next_letter_time():
 	if not active: return # i don't want to talk about it
-	if text_index < visible_characters_total - 1:
-		if ".?!:,;`".find(visible_new_text[text_index + 1]) != -1:
+	if text_index < tagless_new_text.length() - 1:
+		if ".?!:,;`".find(tagless_new_text[text_index + 1]) != -1:
 			$TextBox/Timer.start(text_time + 0.15)
 		else:
 			$TextBox/Timer.start(text_time)
 		text_index += 1
-		# if new_text[text_index] != "`":
-		$TextBox.visible_characters = text_index + 1
+		if tagless_new_text[text_index] != "`":
+			$TextBox.visible_characters += 1
 		
 		$DialogueBoxSprite.modulate = Color.white
 		if $DialogueBoxSprite/AnimationPlayer.is_playing():
 			$DialogueBoxSprite/AnimationPlayer.stop(true)
 		
-		var ascii_code = new_text[text_index].ord_at(0)
+		var ascii_code = tagless_new_text[text_index].ord_at(0)
 		# 0-9, A-Z, and a-z are spoken letters
 		if (ascii_code >= 48 and ascii_code <= 57) or \
 				(ascii_code >= 65 and ascii_code <= 90) or \
