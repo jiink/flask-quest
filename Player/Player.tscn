@@ -76,7 +76,7 @@ position = Vector2( 0, -2 )
 shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-light_mask = 1025
+light_mask = -2147482623
 position = Vector2( 0, -10 )
 frames = ExtResource( 2 )
 animation = "down"

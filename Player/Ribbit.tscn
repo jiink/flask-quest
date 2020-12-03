@@ -12,6 +12,7 @@ ground_speed = 75
 water_speed = 25
 player_number = 3
 push = 90
+spritesheet_num_rows = 12
 follow_distance = 6
 
 [node name="ShadowRect" parent="." index="3" instance=ExtResource( 4 )]

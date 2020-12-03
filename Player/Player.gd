@@ -25,6 +25,9 @@ export(bool) var extctrl_auto_direction = true
 var speed = ground_speed
 var sprint = false
 export(bool) var footstep_noise = true
+
+export(int) var spritesheet_num_rows = 10; # for shaders
+
 var motion = Vector2(0, 0)
 var direction = Direction.RIGHT
 var direction_enum_to_string = {
@@ -62,7 +65,7 @@ var player_action = "action"
 
 var new_step = false
 
-onready var in_water_cutoff_material = preload("res://Player/in_water_cutoff.tres")
+onready var in_water_cutoff_shader = preload("res://Player/in_water_cutoff.shader")
 onready var sprite = $AnimatedSprite
 
 func _ready():
@@ -204,6 +207,9 @@ func set_in_water(setting):
 			$InWaterEffect.visible = true
 		else:
 			add_child(load("res://Player/InWaterEffect.tscn").instance())
+		var in_water_cutoff_material = ShaderMaterial.new()
+		in_water_cutoff_material.shader = in_water_cutoff_shader
+		in_water_cutoff_material.set_shader_param("row_count", spritesheet_num_rows)
 		$AnimatedSprite.set_material(in_water_cutoff_material)
 		$AnimatedSprite.offset.y = 7
 		speed = water_speed
