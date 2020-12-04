@@ -229,8 +229,6 @@ func get_chem_choice():
 	# % is NOT modulo, it's REMAINDER!!!
 	var b = item_manager.loadout.size()
 	
-	
-	
 	if Input.is_action_just_pressed(player_down):
 		selected_chem = ((selected_chem+1) % b + b) % b
 		set_arrow_pos() # to make the foe arrow invisible if need be
@@ -514,9 +512,7 @@ func exit_battle():
 	
 	# undo worldfoe changes
 	for f in get_tree().get_nodes_in_group("WorldFoes"):
-		f.speed /= 1.5
-		f.follow_distance /= 2.0
-		f.collision_mask = 32768 # (bit 15)
+		f.set_rush(false)
 
 func next_player_turn():
 	

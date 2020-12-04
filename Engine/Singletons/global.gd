@@ -65,13 +65,7 @@ func start_battle(foes):
 	
 		# alert surround foes!
 		for f in get_tree().get_nodes_in_group("WorldFoes"):
-			f.speed *= 1.5
-			f.follow_distance *= 2.0
-			
-			# make them not stack on top of eachother
-#			# no longer exist on 1st collision layer
-#			f.collision_layer = 4#0b100
-			f.collision_mask = 0 # original is 32768 (bit 15)
+			f.set_rush(true)
 			
 	else:
 		for n in foes:

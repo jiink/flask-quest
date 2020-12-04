@@ -7,6 +7,7 @@ var target_distance
 var chasing = false
 onready var target = global.get_player()
 var angle = 0.0
+var rush = false setget set_rush
 
 func _ready():
 	pass
@@ -25,3 +26,23 @@ func _process(delta):
 	if chasing:
 		move_and_slide(Vector2(speed, 0).rotated(angle))
 
+func set_rush(should_rush):
+	rush = should_rush
+	if should_rush:
+		speed *= 1.5
+		follow_distance *= 2.0
+		
+		# make them not stack on top of eachother
+#			# no longer exist on 1st collision layer
+#			collision_layer = 4#0b100
+		collision_mask = 0 # original is 32768 (bit 15)
+	else:
+		speed /= 1.5
+		follow_distance /= 2.0
+		collision_mask = 32768 # (bit 15)
+
+func trigger():
+	if (not global.get_player().frozen) or rush:
+		set_process(false)
+		TickManager.set_tick(self, false)
+		global.start_battle([base_name])
