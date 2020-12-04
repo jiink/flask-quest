@@ -1,33 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Engine/PositionTransition.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=1]
-resource_name = "go"
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 3
+
+[sub_resource type="Animation" id=2]
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 2
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0.015625, 1, 0 ) ]
+"update": 1,
+"values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
+tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PoolRealArray( 0, 0.05, 0.4 ),
+"transitions": PoolRealArray( 0.203063, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.0156863, 0, 0.447059, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="PositionTransition" type="Node2D"]
@@ -39,11 +41,16 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 383.0
-margin_bottom = 216.0
-color = Color( 0, 0.015625, 1, 0 )
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 386.0
+margin_bottom = 218.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/go = SubResource( 1 )
+anims/go = SubResource( 2 )
