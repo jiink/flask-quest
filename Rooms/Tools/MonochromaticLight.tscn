@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Engine/light4.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Tools/MonochromaticLight.shader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/brightness = 0.2
+shader_param/color = Vector3( -3.608, 5.444, -0.16 )
+
+[node name="MonochomaticLight" type="Sprite"]
+material = SubResource( 2 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
