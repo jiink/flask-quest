@@ -82,3 +82,25 @@ func orange_green_closeup_d():
 func boat_front_far_c():
 	change_image("boat_front_far", 2)
 	
+func boat_guideside_view_d():
+	change_image("boat_guideside_view", 3)
+	
+func malus_discovery():
+	binocular_view()
+	$MalusDiscovery.playing = true
+
+func orange_thumbsup():
+	change_image("orange_thumbsup", 0)
+
+func guide_approval():
+	change_image("guide_approval", 0)
+
+func pre_fall():
+	boat_front_far_a()
+	animation_player.play("PreFall")
+	
+func fall():
+	for image in get_tree().get_nodes_in_group("MMSequence"):
+		image.visible = false
+	$BoatFalling.visible = true
+	animation_player.play("FallingBoat")
