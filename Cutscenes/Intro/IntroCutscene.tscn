@@ -753,27 +753,35 @@ hframes = 2
 
 [node name="AudioBuuuum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
 
 [node name="IntroMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+bus = "Music"
 
 [node name="AudioReverseCymbal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+bus = "SFX"
 
 [node name="BurstOfLifeBurst" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+bus = "SFX"
 
 [node name="BurstOfLife2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+bus = "SFX"
 
 [node name="BurstOfLife2Overlap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+bus = "SFX"
 
 [node name="BurstOfLifeReverb" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
+bus = "SFX"
 
 [node name="BurstOfLifeReverbSpace" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "play"

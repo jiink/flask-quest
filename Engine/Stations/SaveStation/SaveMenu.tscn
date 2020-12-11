@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.915922, 0.913412, 0.954824, 1 ), Color( 0.737255, 0.729412, 0.858824, 1 ), Color( 0.915922, 0.913412, 0.954824, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
@@ -68,8 +68,7 @@ tracks/2/keys = {
 "values": [ Color( 0, 0.72549, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "save"
+[sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("floppy_icon:modulate")
@@ -186,5 +185,5 @@ anims/pulse = SubResource( 2 )
 
 [node name="SaveAnimation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 4 )
-anims/save = SubResource( 3 )
+anims/idle = SubResource( 3 )
+anims/save = SubResource( 4 )

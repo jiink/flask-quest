@@ -1286,7 +1286,7 @@ __meta__ = {
 position = Vector2( -765, 280 )
 
 [node name="Player" parent="YSort" index="3"]
-position = Vector2( -786, 279 )
+position = Vector2( -420, -14 )
 
 [node name="cubicle_chair" type="Sprite" parent="YSort" index="4"]
 position = Vector2( -441, -646 )

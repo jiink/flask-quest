@@ -1,0 +1,581 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=1]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flying_up_lightbeams_fg_yloop.png" type="Texture" id=2]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flying_up_clouds_bg_yloop.png" type="Texture" id=3]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flying_up.png" type="Texture" id=4]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flying_up_boat.png" type="Texture" id=5]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/clouds_bigpicture.png" type="Texture" id=6]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/poppyhart_murkmonster_sequence.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/clouds_bg.png" type="Texture" id=8]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/MurkMonsterSequence.gd" type="Script" id=9]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/ribbit_green_orange_closeup.png" type="Texture" id=14]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_front_far.png" type="Texture" id=15]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/mountains_view.png" type="Texture" id=16]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/orange_green_closeup.png" type="Texture" id=17]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/sweaty_green.png" type="Texture" id=18]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_guideside_view.png" type="Texture" id=19]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/ship_zoomed_ship.png" type="Texture" id=20]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/orange_denied.png" type="Texture" id=21]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/ship_zoomed_scope.png" type="Texture" id=22]
+[ext_resource path="res://NPC/MinorNPCs/mm_guide.png" type="Texture" id=23]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_a.png" type="Texture" id=24]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_c.png" type="Texture" id=25]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_b.png" type="Texture" id=26]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_d.png" type="Texture" id=27]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_e.png" type="Texture" id=28]
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=29]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 0, -1 )
+shader_param/speed_scale = 2.0
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 384, 0, 384, 216 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 14.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 384, 0, 384, 216 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 14.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 1 )
+shader_param/direction = Vector2( 0, -1 )
+shader_param/speed_scale = 2.5
+
+[sub_resource type="Animation" id=11]
+resource_name = "FlashBacks"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("FlashBacks:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 12.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FlashBacks/flashback_a:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 0, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FlashBacks/Black2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FlashBacks/flashback_b:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.3, 2.5, 2.6, 3, 3.1, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 59 ), Vector2( 192, 59 ), Vector2( 192, 151 ), Vector2( 192, 59 ), Vector2( 192, 151 ), Vector2( 192, 59 ), Vector2( 192, 151 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FlashBacks/flashback_b:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.3, 2.5, 2.6, 3, 3.1, 4 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 1, 0 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.533333 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("FlashBacks/flashback_d:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3.4, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 642, 104 ), Vector2( -252, 104 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("FlashBacks/flashback_c:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 3.3, 4.5, 5.3, 5.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 0.0588235, 0.0588235, 0.262745, 1 ), Color( 0.0941176, 0.262745, 0.0588235, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("FlashBacks/flashback_e:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.9, 7.3, 10.5 ),
+"transitions": PoolRealArray( 0.757858, 1.56917, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 111 ), Vector2( 242, 111 ), Vector2( -235, 111 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "InitialSequence"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("clouds_bigpicture:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FlyingUp:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FlyingUp/flying_up_clouds_bg_yloop/flying_up:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 4.9, 8.2 ),
+"transitions": PoolRealArray( 0.34151, 0.45, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 162 ), Vector2( 0, 162 ), Vector2( 24, 0 ), Vector2( 168, 167 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Black:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1.3, 7.6, 7.8, 8.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 0, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 216 ), Vector2( 0, 216 ), Vector2( 0, -216 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Black:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1.3, 7.8, 8.2, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 0, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Music:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("FlyingUp/flying_up_clouds_bg_yloop/flying_up:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.2, 4.2, 6, 8.2 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 2, 0.5 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 0.0, 15.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "shake"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ship_zoomed_ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9, 1, 1.1, 1.4, 1.5, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9 ),
+"transitions": PoolRealArray( -2, 1, 1, 1, 1, -2, 1, 1, -2, 1, -2, -2, -2, -2, -2, -2, 1, 1, -2, 1, 1, 1, 1, -2, 1, 1, 1, 1, -2, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 108 ), Vector2( 192, 110 ), Vector2( 198, 103 ), Vector2( 196, 105 ), Vector2( 197, 100 ), Vector2( 202, 100 ), Vector2( 195, 104 ), Vector2( 177, 102 ), Vector2( 168, 105 ), Vector2( 175, 111 ), Vector2( 181, 114 ), Vector2( 202, 100 ), Vector2( 203, 97 ), Vector2( 197, 118 ), Vector2( 204, 110 ), Vector2( 203, 118 ), Vector2( 205, 113 ), Vector2( 203, 115 ), Vector2( 204, 112 ), Vector2( 202, 110 ), Vector2( 203, 112 ), Vector2( 204, 110 ), Vector2( 198, 113 ), Vector2( 196, 112 ), Vector2( 202, 98 ), Vector2( 197, 113 ), Vector2( 198, 105 ), Vector2( 198, 107 ), Vector2( 198, 105 ), Vector2( 200, 104 ), Vector2( 196, 107 ), Vector2( 199, 106 ), Vector2( 194, 106 ), Vector2( 195, 104 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=14]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 29 )
+shader_param/speed = 40
+shader_param/pal_size = 12
+shader_param/source_pal_size = 80
+shader_param/p1 = Color( 1, 0.921569, 0, 1 )
+shader_param/p2 = Color( 0.929412, 0.678431, 0.0627451, 1 )
+shader_param/p3 = Color( 0.988235, 0.54902, 0.133333, 1 )
+shader_param/p4 = Color( 0.929412, 0.678431, 0.0627451, 1 )
+shader_param/p5 = Color( 1, 0.921569, 0, 1 )
+shader_param/p6 = Color( 0.976471, 1, 0.533333, 1 )
+shader_param/p7 = Color( 1, 0.976471, 0.72549, 1 )
+shader_param/p8 = Color( 1, 0.988235, 0.894118, 1 )
+shader_param/p9 = Color( 1, 1, 1, 1 )
+shader_param/p10 = Color( 1, 0.988235, 0.894118, 1 )
+shader_param/p11 = Color( 1, 0.976471, 0.72549, 1 )
+shader_param/p12 = Color( 0.976471, 1, 0.533333, 1 )
+shader_param/p13 = null
+shader_param/p14 = null
+shader_param/p15 = null
+shader_param/p16 = null
+
+[node name="MurkMonsterSequence" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="HUD" parent="." instance=ExtResource( 13 )]
+
+[node name="DialogueTree" parent="." instance=ExtResource( 10 )]
+
+[node name="Ascent" parent="DialogueTree" instance=ExtResource( 11 )]
+message = "```This is unusual.```"
+interrupt = true
+
+[node name="PreBinoc" parent="DialogueTree" instance=ExtResource( 11 )]
+message = "I think that smoke shortened my lifespan. "
+face_texture = ExtResource( 23 )
+
+[node name="PreBinoc2" parent="DialogueTree/PreBinoc" instance=ExtResource( 11 )]
+message = "Actually, woah, this is a good view. I think it's a good time to use my.."
+face_texture = ExtResource( 23 )
+function = "boat_guideside_view_a"
+
+[node name="PreBinoc3" parent="DialogueTree/PreBinoc/PreBinoc2" instance=ExtResource( 11 )]
+message = "My binoculars. Incredible. This is a lovely view."
+face_texture = ExtResource( 23 )
+function = "mountains_view"
+
+[node name="PreBinoc4" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3" instance=ExtResource( 11 )]
+message = "Magnificent. I have never seen the grand desert behind those mountains until now."
+face_texture = ExtResource( 23 )
+function = "boat_guideside_view_b"
+
+[node name="PreBinoc5" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4" instance=ExtResource( 11 )]
+message = "Unbelievable! Looks like they're even constructing a formidable cruise ship back there!"
+face_texture = ExtResource( 23 )
+function = "boat_guideside_view_c"
+
+[node name="PreBinoc6" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5" instance=ExtResource( 11 )]
+message = "Fascinating. They seemed to have put MALUS in giant letters on the side of that ship! That must be the ship's name."
+face_texture = ExtResource( 23 )
+function = "ribbit_green_orange_closeup"
+
+[node name="PreBinoc7" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5/PreBinoc6" instance=ExtResource( 11 )]
+message = "What a dumb name. You know, back in my day, I used to operate all kinds of vessels. They had beautiful names."
+face_texture = ExtResource( 23 )
+function = "sweaty_green"
+
+[node name="Post" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5/PreBinoc6/PreBinoc7" instance=ExtResource( 11 )]
+message = "It's an ignominy that we now have imbeciles like these naming ships with punk names. It even sounds a lot like 'malice,' doesn't it?"
+face_texture = ExtResource( 23 )
+
+[node name="PostFlashBacks" parent="DialogueTree" instance=ExtResource( 11 )]
+message = "May I take a look."
+character = "orange"
+expression = "open_mouth"
+function = "orange_denied"
+
+[node name="PreBinoc10" parent="DialogueTree/PostFlashBacks" instance=ExtResource( 11 )]
+message = "No, you insolent cantaloupe spar. But your green friend may, he's been polite this whole time."
+face_texture = ExtResource( 23 )
+function = "orange_green_closeup_a"
+
+[node name="PreBinoc11" parent="DialogueTree/PostFlashBacks/PreBinoc10" instance=ExtResource( 11 )]
+message = "WHAT DO YOU SEE"
+character = "orange"
+expression = "yell"
+function = "binocular_view"
+
+[node name="PreBinoc12" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11" instance=ExtResource( 11 )]
+message = "That's the Malus we're thinking of, all right."
+character = "green"
+expression = "frown"
+function = "orange_green_closeup_b"
+
+[node name="PreBinoc13" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12" instance=ExtResource( 11 )]
+message = "Oh no. Is that where we need to go now?"
+character = "orange"
+expression = "sad"
+function = "binocular_view"
+
+[node name="PreBinoc14" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13" instance=ExtResource( 11 )]
+message = "I'm not sure, I can't see any bomb or superweapon from here. I do see that cruise... ship..."
+character = "green"
+expression = "neutral"
+
+[node name="PreBinoc15" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14" instance=ExtResource( 11 )]
+message = "Why is there a cruise ship being made in the middle of a desert? "
+character = "green"
+expression = "confused"
+
+[node name="PreBinoc16" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15" instance=ExtResource( 11 )]
+message = "Oh. Maybe it's one of those spaceship things, punks like making those these days as well. "
+face_texture = ExtResource( 23 )
+function = "orange_green_closeup_c"
+
+[node name="PreBinoc17" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16" instance=ExtResource( 11 )]
+message = "SPACE. `SHIP?"
+character = "orange"
+expression = "big_eyed"
+function = "orange_green_closeup_b"
+
+[node name="PreBinoc18" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17" instance=ExtResource( 11 )]
+message = "Like the one they're using to escape after their weapon is used?!"
+character = "orange"
+expression = "sad"
+function = "orange_green_closeup_d"
+
+[node name="PreBinoc19" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18" instance=ExtResource( 11 )]
+message = "Not sure if you saw it, but that's what the presentations in Malus' offices said."
+character = "orange"
+expression = "open_mouth"
+function = "boat_front_far_c"
+
+[node name="PreBinoc20" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19" instance=ExtResource( 11 )]
+message = "WE HAVE TO GO THERE. Surely a shipyard is a better place to build a bomb!"
+character = "orange"
+expression = "open_mouth"
+
+[node name="PreBinoc21" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20" instance=ExtResource( 11 )]
+message = "And even if we're wrong, we can still remove their escape route! Surely that'd stop them?"
+character = "orange"
+expression = "open_mouth"
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 409, 112 )
+ground_speed = 0
+
+[node name="FlyingUp" type="Node2D" parent="."]
+
+[node name="flying_up_clouds_bg_yloop" type="Sprite" parent="FlyingUp"]
+material = SubResource( 1 )
+position = Vector2( 192, 108 )
+texture = ExtResource( 3 )
+
+[node name="flying_up" type="AnimatedSprite" parent="FlyingUp/flying_up_clouds_bg_yloop"]
+position = Vector2( 0, 162 )
+frames = SubResource( 4 )
+playing = true
+
+[node name="flying_up_boat" type="AnimatedSprite" parent="FlyingUp/flying_up_clouds_bg_yloop/flying_up"]
+frames = SubResource( 7 )
+frame = 1
+playing = true
+
+[node name="flying_up_lightbeams_fg_yloop" type="Sprite" parent="FlyingUp/flying_up_clouds_bg_yloop"]
+modulate = Color( 1, 1, 1, 0.219608 )
+material = SubResource( 8 )
+position = Vector2( 0, -2 )
+texture = ExtResource( 2 )
+
+[node name="clouds_bigpicture" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 108 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "InitialSequence"
+anims/FlashBacks = SubResource( 11 )
+anims/InitialSequence = SubResource( 9 )
+
+[node name="Black" type="ColorRect" parent="."]
+margin_right = 384.0
+margin_bottom = 216.002
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Music"
+
+[node name="clouds_bg" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 108 )
+texture = ExtResource( 8 )
+
+[node name="boat_front_far" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 15 )
+hframes = 3
+
+[node name="boat_guideside_view" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 19 )
+hframes = 4
+
+[node name="mountains_view" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 16 )
+
+[node name="ribbit_green_orange_closeup" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 14 )
+
+[node name="sweaty_green" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 18 )
+
+[node name="orange_denied" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 21 )
+
+[node name="orange_green_closeup" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+position = Vector2( 192, 108 )
+texture = ExtResource( 17 )
+hframes = 4
+
+[node name="BinocularView" type="Node2D" parent="." groups=[
+"MMSequence",
+]]
+
+[node name="ship_zoomed_ship" type="Sprite" parent="BinocularView"]
+position = Vector2( 202.671, 110.671 )
+texture = ExtResource( 20 )
+
+[node name="ship_zoomed_scope" type="Sprite" parent="BinocularView"]
+position = Vector2( 192, 108 )
+texture = ExtResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BinocularView"]
+autoplay = "shake"
+anims/shake = SubResource( 10 )
+
+[node name="FlashBacks" type="Node2D" parent="."]
+
+[node name="Black2" type="ColorRect" parent="FlashBacks"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 384.0
+margin_bottom = 216.002
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flashback_a" type="Sprite" parent="FlashBacks"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 12 )
+position = Vector2( 193, 108 )
+texture = ExtResource( 24 )
+
+[node name="flashback_b" type="Sprite" parent="FlashBacks"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 192, 59 )
+texture = ExtResource( 26 )
+
+[node name="flashback_d" type="Sprite" parent="FlashBacks"]
+position = Vector2( -252, 104 )
+texture = ExtResource( 27 )
+
+[node name="flashback_c" type="Sprite" parent="FlashBacks"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 14 )
+position = Vector2( 198, 103 )
+texture = ExtResource( 25 )
+
+[node name="flashback_e" type="Sprite" parent="FlashBacks"]
+material = SubResource( 13 )
+position = Vector2( -235, 111 )
+texture = ExtResource( 28 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
