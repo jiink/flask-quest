@@ -1354,7 +1354,7 @@ position = Vector2( 120, 42 )
 texture = ExtResource( 23 )
 
 [node name="gold_urinal" parent="YSort" index="19" instance=ExtResource( 24 )]
-position = Vector2( 112, -232 )
+position = Vector2( 111, -232 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="YSort/gold_urinal" index="1"]
 
@@ -1401,7 +1401,7 @@ voice_variation = 0.1
 function = "assume_positions"
 
 [node name="GoAway2" parent="YSort/Receptionist/DialogueTree/GoAway" index="0" instance=ExtResource( 21 )]
-message = "Drones ````[shake rate=70 level=7]INITIATED!!![/shake]"
+message = "Drones ````INITIATED!!!"
 face_texture = ExtResource( 71 )
 function = "get_out_of_building"
 dont_unfreeze_player = true
