@@ -317,17 +317,17 @@ expression = "open_mouth"
 face_texture = ExtResource( 12 )
 
 [node name="IntroClub4" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3" index="0" instance=ExtResource( 14 )]
-message = "Why did we let you name the club"
+message = "Why did we let you name the club."
 face_texture = ExtResource( 27 )
 
 [node name="IntroClub5" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4" index="0" instance=ExtResource( 14 )]
-message = "Its meaning is now a bit more metaphorical since we're not all cats. "
-expression = "side_mouth"
+message = "Hey, it's better than what you made, which made me want to gouge my eyes out."
+expression = "angry"
 face_texture = ExtResource( 12 )
 
 [node name="IntroClub6" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5" index="0" instance=ExtResource( 14 )]
-message = "And, Ari, I named this club because what you came up with contained, like, three different swear words."
-expression = "confused"
+message = "Anyways, the name's meaning is a bit more metaphorical now that we're not all cats."
+expression = "smile"
 face_texture = ExtResource( 12 )
 
 [node name="IntroClub7" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6" index="0" instance=ExtResource( 14 )]
@@ -361,214 +361,155 @@ message = "You don't have to be extra nice to me, kids."
 face_texture = ExtResource( 29 )
 
 [node name="IntroClub13" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12" index="0" instance=ExtResource( 14 )]
-message = "If you're ever like, on a bus, kids, and there's one last seat left, and you're looking for a seat, but Alice is also there, you'd give your seat to her, okay?"
+message = "Uuuh, `YES` we do, Alice. What you're expecting could be very bad. You must be under a lot of stress."
 expression = "angry"
 face_texture = ExtResource( 12 )
 
-[node name="IntroClub14" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13" index="0" instance=ExtResource( 14 )]
-message = "...I mean, I guess."
-face_texture = ExtResource( 29 )
-function = "introduce_alex"
-
-[node name="IntroClub15" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14" index="0" instance=ExtResource( 14 )]
-message = "Okay, so, LASTLY we got Alex over here. He's our first non-feline member. "
+[node name="IntroClub15" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13" index="0" instance=ExtResource( 14 )]
+message = "Lastly we got Alex over here. He's our first non-feline member. "
 expression = "frown"
 face_texture = ExtResource( 12 )
 
-[node name="IntroClub16" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub16" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15" index="0" instance=ExtResource( 14 )]
 message = "Yes. In fact, the full name is "
 face_texture = ExtResource( 28 )
 interrupt = true
 
-[node name="IntroClub17" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub17" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16" index="0" instance=ExtResource( 14 )]
 message = "No no WAIT"
 expression = "drunk"
 face_texture = ExtResource( 12 )
 interrupt = true
 
-[node name="IntroClub18" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub18" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17" index="0" instance=ExtResource( 14 )]
 message = "Alexandriousworth"
 face_texture = ExtResource( 28 )
 interrupt = true
 
-[node name="IntroClub19" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub19" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17/IntroClub18" index="0" instance=ExtResource( 14 )]
 message = "NO STOP"
 expression = "big_eyed2"
 face_texture = ExtResource( 12 )
 interrupt = true
 
-[node name="IntroClub20" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub20" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19" index="0" instance=ExtResource( 14 )]
 message = "J. Alexanderousanison"
 face_texture = ExtResource( 28 )
 interrupt = true
 
-[node name="IntroClub21" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub21" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20" index="0" instance=ExtResource( 14 )]
 message = "DEAR GOD"
 expression = "yell_outburst"
 face_texture = ExtResource( 12 )
 interrupt = true
 
-[node name="IntroClub22" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub22" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21" index="0" instance=ExtResource( 14 )]
 message = "-sonsworthemeyersonsworthisonna Jr."
 face_texture = ExtResource( 28 )
 
-[node name="IntroClub23" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22" index="0" instance=ExtResource( 14 )]
+[node name="IntroClub23" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22" index="0" instance=ExtResource( 14 )]
 message = "Okay. Thanks. Flask kids, PLEASE call this guy \"Alex.\""
 expression = "big_eyed2"
 face_texture = ExtResource( 12 )
 
-[node name="IntroClub24" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22/IntroClub23" index="0" instance=ExtResource( 14 )]
-message = "Or, if you'd like to, you may call me Alexa."
-face_texture = ExtResource( 28 )
-interrupt = true
-
-[node name="IntroClub25" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22/IntroClub23/IntroClub24" index="0" instance=ExtResource( 14 )]
-message = "NO"
-expression = "big_eyed"
-face_texture = ExtResource( 12 )
-
-[node name="IntroClub26" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22/IntroClub23/IntroClub24/IntroClub25" index="0" instance=ExtResource( 14 )]
-message = "...No?"
-face_texture = ExtResource( 28 )
-
-[node name="IntroClub27" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22/IntroClub23/IntroClub24/IntroClub25/IntroClub26" index="0" instance=ExtResource( 14 )]
-message = "Oh. Sorry, I thought you were gonna..."
-expression = "frown"
-face_texture = ExtResource( 12 )
-
-[node name="IntroClub28" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub14/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22/IntroClub23/IntroClub24/IntroClub25/IntroClub26/IntroClub27" index="0" instance=ExtResource( 14 )]
-message = "Okay, that's enough about the people in this club. Now, here's the thing..."
+[node name="IntroClub28" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13/IntroClub15/IntroClub16/IntroClub17/IntroClub18/IntroClub19/IntroClub20/IntroClub21/IntroClub22/IntroClub23" index="0" instance=ExtResource( 14 )]
+message = "That's enough about the people in this club. Now, here's your task..."
 expression = "frown"
 face_texture = ExtResource( 12 )
 function = "explain_mission"
 
 [node name="MissionExplanation" parent="YSort/MalusHinter/DialogueTree" index="2" instance=ExtResource( 14 )]
-message = "We need your help."
+message = "We need you to take action."
 expression = "side_mouth"
 face_texture = ExtResource( 12 )
 
 [node name="MissionExplanation2" parent="YSort/MalusHinter/DialogueTree/MissionExplanation" index="0" instance=ExtResource( 14 )]
-message = "To take action."
-expression = "sad"
+message = "We have been observing Malus' interiors for a long time now."
+expression = "frown"
 face_texture = ExtResource( 12 )
 
 [node name="MissionExplanation3" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2" index="0" instance=ExtResource( 14 )]
-message = "Well, let's back up and explain why we're doing this."
+message = "We've concluded that they're building a bomb to convince people to use their product."
 expression = "frown"
 face_texture = ExtResource( 12 )
 
 [node name="MissionExplanation4" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3" index="0" instance=ExtResource( 14 )]
-message = "You see, Stercus and his army of employees are trying to colonize an exto-star in outer space."
-expression = "side_mouth"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation5" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4" index="0" instance=ExtResource( 14 )]
-message = "No, Austin, it's an `EXO``-PLANET. They're trying to colonize the habitable `exoplanet` they just found."
-face_texture = ExtResource( 27 )
-
-[node name="DiagPiece" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5" index="0" instance=ExtResource( 14 )]
-message = "OH YES I am also named Austin. "
-text_delay = 0.02
-expression = "big_eyed"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation6" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece" index="0" instance=ExtResource( 14 )]
-message = "Okay so, uh, exo-whatever. Point is, they apparently really want customers to help them colonize the place."
-expression = "angry"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation7" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6" index="0" instance=ExtResource( 14 )]
-message = "Now, there are many different ways that businesses advertise their services, and Malus has definitely chosen a unique one."
+message = "That product being a spot on the interstellar spaceship that will deliver them all to an exoplanet where they can start a new civilization."
 expression = "frown"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation8" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7" index="0" instance=ExtResource( 14 )]
-message = "They plan to use a weapon."
-expression = "frown"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation9" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8" index="0" instance=ExtResource( 14 )]
-message = "You see, the goal of advertising is to make customers want your service, and I guess that by threatening their lives, the customers will want to leave the planet with Malus?"
+[node name="DiagPiece" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4" index="0" instance=ExtResource( 14 )]
+message = "Anyways, we don't know exactly how strong this bomb is, but it uses all-new technology, so it can't be a small thing."
 expression = "sad"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation10" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9" index="0" instance=ExtResource( 14 )]
-message = "I don't know, I'm not Malus. Anyways, weird technique."
+[node name="MissionExplanation6" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece" index="0" instance=ExtResource( 14 )]
+message = "We really need someone to sneak into those offices and remove their evil leader, Stercus."
+expression = "angry"
+face_texture = ExtResource( 12 )
+
+[node name="StercusBehindThis" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6" index="0" instance=ExtResource( 14 )]
+message = "Stercus is the driving force behind all of this, so removing him should fix everything."
 expression = "frown"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation11" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10" index="0" instance=ExtResource( 14 )]
-message = "Now, our spies, by using binoculars and Malus's big, clear windows, have been able to discover that they're currently in the process of designing a bomb."
-expression = "angry"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation12" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11" index="0" instance=ExtResource( 14 )]
-message = "We don't know exactly how powerful the bomb is, but it looks pretty huge."
-expression = "sad"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation13" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12" index="0" instance=ExtResource( 14 )]
-message = "We need someone to sneak in there and remove their evil leader Stercus. He's the one behind all this, and beating him up would probably fix this whole mess."
-expression = "angry"
-face_texture = ExtResource( 12 )
-
-[node name="MissionExplanation14" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13" index="0" instance=ExtResource( 14 )]
+[node name="WeNeedSomeone" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis" index="0" instance=ExtResource( 14 )]
 message = "We need someone GLAMOROUS! CAPABLE! COURAGEOUS!"
 expression = "yell_outburst"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation15" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14" index="0" instance=ExtResource( 14 )]
-message = "None of us are able to go in there. Ari's not, uh, `energetic` enough. And we can't send in a pregnant woman."
+[node name="MissionExplanation15" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone" index="0" instance=ExtResource( 14 )]
+message = "None of us are able to go in there. Ari's not, uh, `energetic` enough. And we can't send in a woman```` who's expecting something."
 expression = "sad"
 face_texture = ExtResource( 12 )
 function = "reveal_crutches"
 
-[node name="MissionExplanation16" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation16" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15" index="0" instance=ExtResource( 14 )]
 message = "And I'm in crutches."
 expression = "cry_tear"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation17" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation17" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16" index="0" instance=ExtResource( 14 )]
 message = "And, Alex you're..."
 expression = "frown"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation18" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation18" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17" index="0" instance=ExtResource( 14 )]
 message = "Wait, why weren't you able to again?"
 expression = "confused"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation20" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation20" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18" index="0" instance=ExtResource( 14 )]
 message = "Oh. Uh... I..."
 face_texture = ExtResource( 28 )
 function = "alex_break_leg"
 
-[node name="MissionExplanation19" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation19" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20" index="0" instance=ExtResource( 14 )]
 message = "Broke my leg. "
 face_texture = ExtResource( 28 )
 
-[node name="MissionExplanation20" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation20" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19" index="0" instance=ExtResource( 14 )]
 message = "Holy mother of nature"
 expression = "big_eyed"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation21" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation21" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20" index="0" instance=ExtResource( 14 )]
 message = "So, yeh, none of us can do it. All we need is for you to go in there and beat up Stercus. His office should be mentioned on the directory in there. Shouldn't be too hard."
 expression = "open_mouth"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation22" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20/MissionExplanation21" index="0" instance=ExtResource( 14 )]
-message = "Just... be careful. And avoid the red spotlights. They're not spotlights."
+[node name="MissionExplanation22" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20/MissionExplanation21" index="0" instance=ExtResource( 14 )]
+message = "Just... be careful."
 expression = "open_mouth"
 face_texture = ExtResource( 12 )
 function = "move_camera_to_player"
 
-[node name="MissionExplanation23" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20/MissionExplanation21/MissionExplanation22" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation23" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20/MissionExplanation21/MissionExplanation22" index="0" instance=ExtResource( 14 )]
 message = "Got it? Good. Nice."
 expression = "open_mouth"
 face_texture = ExtResource( 12 )
 
-[node name="MissionExplanation24" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/MissionExplanation5/DiagPiece/MissionExplanation6/MissionExplanation7/MissionExplanation8/MissionExplanation9/MissionExplanation10/MissionExplanation11/MissionExplanation12/MissionExplanation13/MissionExplanation14/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20/MissionExplanation21/MissionExplanation22/MissionExplanation23" index="0" instance=ExtResource( 14 )]
+[node name="MissionExplanation24" parent="YSort/MalusHinter/DialogueTree/MissionExplanation/MissionExplanation2/MissionExplanation3/MissionExplanation4/DiagPiece/MissionExplanation6/StercusBehindThis/WeNeedSomeone/MissionExplanation15/MissionExplanation16/MissionExplanation17/MissionExplanation18/MissionExplanation20/MissionExplanation19/MissionExplanation20/MissionExplanation21/MissionExplanation22/MissionExplanation23" index="0" instance=ExtResource( 14 )]
 message = "Here, take this. It's some map credentials. You can use this to find the Malus building."
 expression = "open_mouth"
 face_texture = ExtResource( 12 )

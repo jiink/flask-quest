@@ -4,6 +4,7 @@ func _on_EventArea_body_entered(body):
 	if body == global.get_player():
 		body.frozen = true
 		#$"Collisionshape2D".set_deferred("disabled", true)
+		MusicManager.change_music("res://Engine/zzzzzz.ogg", true, 0.1)
 		$"../Camera".follow_player = false
 		
 		yield(get_tree().create_timer(0.5), "timeout")

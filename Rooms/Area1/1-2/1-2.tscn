@@ -443,12 +443,55 @@ shape = SubResource( 12 )
 [node name="DialogueTree" parent="ElevatorRoom" index="7" instance=ExtResource( 30 )]
 
 [node name="DiagPiece" parent="ElevatorRoom/DialogueTree" index="0" instance=ExtResource( 31 )]
-message = "hi time to talk"
-character = "green"
+message = "I'm telling you."
+character = "orange"
+expression = "open_mouth"
 
 [node name="DiagPiece2" parent="ElevatorRoom/DialogueTree/DiagPiece" index="0" instance=ExtResource( 31 )]
-message = "no"
+message = "That ```GUY`` is a ``[shake rate=80 level=7]jerk![/shake]"
 character = "orange"
+expression = "yell_outburst"
+
+[node name="DiagPiece3" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 31 )]
+message = "A scary one, too!"
+character = "orange"
+expression = "sad"
+
+[node name="DiagPiece4" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 31 )]
+message = "What do you make of this situation?"
+character = "orange"
+expression = "neutral"
+
+[node name="DiagPiece5" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 31 )]
+message = "I thi"
+character = "green"
+expression = "neutral"
+interrupt = true
+
+[node name="DiagPiece6" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 31 )]
+message = "[shake rate=80 level=6]AAAAH[/shake]"
+character = "orange"
+expression = "yell"
+
+[node name="DiagPiece7" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 31 )]
+message = "...What?"
+character = "green"
+expression = "frown"
+
+[node name="DiagPiece8" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" index="0" instance=ExtResource( 31 )]
+message = "[shake rate=6 level=6]WHY ARE WE HERE?![/shake]"
+character = "orange"
+expression = "angry"
+
+[node name="DiagPiece9" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 31 )]
+message = "Eh, nevermind, we'll find out. "
+character = "orange"
+expression = "neutral"
+
+[node name="DiagPiece10" parent="ElevatorRoom/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9" index="0" instance=ExtResource( 31 )]
+message = "Let's `just`` exit this lab first..."
+character = "orange"
+expression = "open_mouth"
 function = "done"
 
 [node name="wine_spill" type="Sprite" parent="." index="11"]
@@ -722,7 +765,7 @@ character = "stercus"
 expression = "frown"
 
 [node name="DiagPiece6" parent="TV/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 31 )]
-message = "Now."
+message = "[shake rate=60 level=10]Now.[/shake]"
 character = "stercus"
 expression = "closeup"
 

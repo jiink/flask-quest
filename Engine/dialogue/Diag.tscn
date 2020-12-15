@@ -60,8 +60,8 @@ margin_right = 363.0
 margin_bottom = 43.0
 custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
-bbcode_text = "Lorem dolor sit amet, [color=blue]consectetur[/color] adipiscing elit, sed do eiusmod tempor incididunt [wave amp=25 freq=10]ut [color=yellow]labore[/color][/wave] et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labor"
-text = "Lorem dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labor"
+bbcode_text = "[shake rate=80 level=6]AAAAH[/shake]"
+text = "AAAAH"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
