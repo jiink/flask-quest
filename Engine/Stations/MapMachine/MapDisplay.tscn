@@ -170,7 +170,6 @@ position = Vector2( 192, 108 )
 texture = ExtResource( 2 )
 
 [node name="map_you_location" type="Sprite" parent="CanvasLayer/DisplayedMap"]
-position = Vector2( -63, 19 )
 texture = ExtResource( 6 )
 hframes = 3
 script = ExtResource( 5 )
@@ -203,6 +202,9 @@ Username:[                 ]
 Password:[                 ]"
 align = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Login" type="Label" parent="CanvasLayer/LoginScreen"]
 margin_left = -38.0

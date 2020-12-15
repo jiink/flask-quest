@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/amazing_cats.ogg-2c4e1d7029e873b9feac6d263a5ce571.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area2/Assets/amazing_cats.ogg"
+dest_files=[ "res://.import/amazing_cats.ogg-2c4e1d7029e873b9feac6d263a5ce571.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

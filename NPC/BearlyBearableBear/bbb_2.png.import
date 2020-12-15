@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bearly_bearable_bear_foe.png-87c6c6e3ba37b45ae212a627be0049eb.stex"
+path="res://.import/bbb_2.png-b31cca22cc665eeef84cfeb5aa35c1c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/BearlyBearableBear/bearly_bearable_bear_foe.png"
-dest_files=[ "res://.import/bearly_bearable_bear_foe.png-87c6c6e3ba37b45ae212a627be0049eb.stex" ]
+source_file="res://NPC/BearlyBearableBear/bbb_2.png"
+dest_files=[ "res://.import/bbb_2.png-b31cca22cc665eeef84cfeb5aa35c1c9.stex" ]
 
 [params]
 

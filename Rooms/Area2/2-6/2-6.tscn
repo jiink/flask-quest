@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Rooms/Area2/2-6/2-6.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Rooms/Area2/Assets/club_ari_face.png" type="Texture" id=27]
 [ext_resource path="res://Rooms/Area2/Assets/club_alex_face.png" type="Texture" id=28]
 [ext_resource path="res://Rooms/Area2/Assets/club_alice_face.png" type="Texture" id=29]
+[ext_resource path="res://Rooms/Area2/Assets/pizza_pow_wow.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 18 )
@@ -213,6 +215,7 @@ extents = Vector2( 8, 5 )
 extents = Vector2( 30, 10 )
 
 [node name="2-6" instance=ExtResource( 3 )]
+level_music = ExtResource( 30 )
 
 [node name="2-6" parent="Tilemaps" index="0" instance=ExtResource( 1 )]
 
@@ -619,7 +622,7 @@ expression = "frown"
 face_texture = ExtResource( 12 )
 
 [node name="PostManhole2" parent="YSort/MalusHinter/DialogueTree/PostManhole" index="0" instance=ExtResource( 14 )]
-message = "Congradulations! Club, we finally"
+message = "Congradulations! Club, we finally defeate"
 expression = "kawaii"
 face_texture = ExtResource( 12 )
 interrupt = true
@@ -782,6 +785,8 @@ __meta__ = {
 
 [node name="PositionPortal" parent="." index="11" instance=ExtResource( 8 )]
 position = Vector2( 88, -122 )
+new_song = ExtResource( 31 )
+fade_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortal" index="0"]
 shape = SubResource( 19 )
@@ -791,6 +796,8 @@ position = Vector2( 0, -196 )
 
 [node name="PositionPortal2" parent="." index="12" instance=ExtResource( 8 )]
 position = Vector2( 88, -296 )
+new_song = ExtResource( 30 )
+fade_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortal2" index="0"]
 shape = SubResource( 19 )

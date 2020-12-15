@@ -81,7 +81,7 @@ shader = ExtResource( 1 )
 shader_param/direction = Vector2( 0, -1 )
 shader_param/speed_scale = 2.5
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=9]
 resource_name = "FallingBoat"
 length = 3.0
 tracks/0/type = "value"
@@ -133,8 +133,7 @@ tracks/3/keys = {
 "values": [ Vector2( 216, 96 ), Vector2( 212, 93 ), Vector2( 209, 97 ), Vector2( 216, 109 ), Vector2( 221, 111 ), Vector2( 224, 112 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "FlashBacks"
+[sub_resource type="Animation" id=10]
 length = 14.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FlashBacks:visible")
@@ -245,7 +244,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 14.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("clouds_bigpicture:visible")
@@ -332,7 +331,7 @@ tracks/6/keys = {
 "values": [ 0.0, -15.0, 0.0, 0.0, 15.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=12]
 resource_name = "PreFall"
 length = 4.0
 loop = true
@@ -349,7 +348,7 @@ tracks/0/keys = {
 "values": [ Vector2( 192, 108 ), Vector2( 180, 108 ), Vector2( 176, 114 ), Vector2( 174, 113 ), Vector2( 193, 108 ), Vector2( 208, 112 ), Vector2( 215, 108 ), Vector2( 185, 109 ), Vector2( 172, 117 ), Vector2( 182, 117 ), Vector2( 202, 110 ), Vector2( 211, 111 ), Vector2( 196, 116 ), Vector2( 183, 124 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -365,13 +364,13 @@ tracks/0/keys = {
 "values": [ Vector2( 192, 108 ), Vector2( 192, 110 ), Vector2( 198, 103 ), Vector2( 196, 105 ), Vector2( 197, 100 ), Vector2( 202, 100 ), Vector2( 195, 104 ), Vector2( 177, 102 ), Vector2( 168, 105 ), Vector2( 175, 111 ), Vector2( 181, 114 ), Vector2( 202, 100 ), Vector2( 203, 97 ), Vector2( 197, 118 ), Vector2( 204, 110 ), Vector2( 203, 118 ), Vector2( 205, 113 ), Vector2( 203, 115 ), Vector2( 204, 112 ), Vector2( 202, 110 ), Vector2( 203, 112 ), Vector2( 204, 110 ), Vector2( 198, 113 ), Vector2( 196, 112 ), Vector2( 202, 98 ), Vector2( 197, 113 ), Vector2( 198, 105 ), Vector2( 198, 107 ), Vector2( 198, 105 ), Vector2( 200, 104 ), Vector2( 196, 107 ), Vector2( 199, 106 ), Vector2( 194, 106 ), Vector2( 195, 104 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=12]
+[sub_resource type="CanvasItemMaterial" id=14]
 blend_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id=13]
+[sub_resource type="CanvasItemMaterial" id=15]
 blend_mode = 1
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=16]
 shader = ExtResource( 29 )
 shader_param/speed = 40
 shader_param/pal_size = 12
@@ -567,11 +566,11 @@ texture = ExtResource( 3 )
 [node name="flying_up" type="AnimatedSprite" parent="FlyingUp/flying_up_clouds_bg_yloop"]
 position = Vector2( 0, 162 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="flying_up_boat" type="AnimatedSprite" parent="FlyingUp/flying_up_clouds_bg_yloop/flying_up"]
 frames = SubResource( 7 )
-frame = 1
 playing = true
 
 [node name="flying_up_lightbeams_fg_yloop" type="Sprite" parent="FlyingUp/flying_up_clouds_bg_yloop"]
@@ -587,10 +586,10 @@ texture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "InitialSequence"
-anims/FallingBoat = SubResource( 15 )
-anims/FlashBacks = SubResource( 9 )
-anims/InitialSequence = SubResource( 10 )
-anims/PreFall = SubResource( 16 )
+anims/FallingBoat = SubResource( 9 )
+anims/FlashBacks = SubResource( 10 )
+anims/InitialSequence = SubResource( 11 )
+anims/PreFall = SubResource( 12 )
 
 [node name="Black" type="ColorRect" parent="."]
 visible = false
@@ -694,7 +693,7 @@ texture = ExtResource( 22 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BinocularView"]
 autoplay = "shake"
-anims/shake = SubResource( 11 )
+anims/shake = SubResource( 13 )
 
 [node name="FlashBacks" type="Node2D" parent="."]
 visible = false
@@ -710,7 +709,7 @@ __meta__ = {
 
 [node name="flashback_a" type="Sprite" parent="FlashBacks"]
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 193, 108 )
 texture = ExtResource( 24 )
 
@@ -725,12 +724,12 @@ texture = ExtResource( 27 )
 
 [node name="flashback_c" type="Sprite" parent="FlashBacks"]
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 13 )
+material = SubResource( 15 )
 position = Vector2( 198, 103 )
 texture = ExtResource( 25 )
 
 [node name="flashback_e" type="Sprite" parent="FlashBacks"]
-material = SubResource( 14 )
+material = SubResource( 16 )
 position = Vector2( 640, 111 )
 texture = ExtResource( 28 )
 

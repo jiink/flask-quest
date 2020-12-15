@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Rooms/Area3/3-2/3-2.gd" type="Script" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/physics_player.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/shadow.png" type="Texture" id=11]
 [ext_resource path="res://Engine/light5.png" type="Texture" id=12]
 [ext_resource path="res://Rooms/Area3/Assets/PipeTravel/interior_pipe_door.png" type="Texture" id=13]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -415,27 +416,27 @@ visibility_rect = Rect2( -100, -100, 200, 512 )
 draw_order = 1
 process_material = ExtResource( 10 )
 
-[node name="Player" type="RigidBody2D" parent="."]
+[node name="PhysicsPlayer" type="RigidBody2D" parent="."]
 position = Vector2( -1, 292 )
 physics_material_override = SubResource( 12 )
 angular_damp = 10.0
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Player"]
+[node name="Sprite" type="Sprite" parent="PhysicsPlayer"]
 position = Vector2( 2.563e-06, -0.500002 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicsPlayer"]
 shape = SubResource( 13 )
 
-[node name="RocketLight" type="Light2D" parent="Player"]
+[node name="RocketLight" type="Light2D" parent="PhysicsPlayer"]
 position = Vector2( 0, 28 )
 scale = Vector2( 0.507813, 0.507813 )
 texture = ExtResource( 6 )
 color = Color( 1, 0.690196, 0.203922, 1 )
 energy = 0.0
 
-[node name="RocketParticles" type="Particles2D" parent="Player"]
+[node name="RocketParticles" type="Particles2D" parent="PhysicsPlayer"]
 position = Vector2( 0, 27 )
 emitting = false
 amount = 64
@@ -517,4 +518,10 @@ position = Vector2( -1, -11861 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 shape = SubResource( 21 )
+
+[node name="Player" parent="." instance=ExtResource( 14 )]
+visible = false
+position = Vector2( -219, 169 )
+ground_speed = 0
+footstep_noise = false
 [connection signal="body_entered" from="ExitArea" to="." method="_on_ExitArea_body_entered"]

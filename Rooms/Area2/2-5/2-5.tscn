@@ -1,9 +1,7 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Player/sprites/greenleftdown1.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Area2/Assets/onto_glasstown.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Area2/2-5/2-5.gd" type="Script" id=3]
-[ext_resource path="res://Player/orange_sprites/orangeleftup1.png" type="Texture" id=4]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Engine/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Engine/Camera.tscn" type="PackedScene" id=7]
@@ -425,12 +423,10 @@ anims/Default = SubResource( 4 )
 
 [node name="orangeleftup1" type="Sprite" parent="YSort"]
 position = Vector2( 202, 132 )
-texture = ExtResource( 4 )
 offset = Vector2( 0, -10 )
 
 [node name="greenleftdown1" type="Sprite" parent="YSort"]
 position = Vector2( 206, 114 )
-texture = ExtResource( 1 )
 offset = Vector2( 0, -10 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 9 )]
