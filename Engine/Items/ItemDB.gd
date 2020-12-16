@@ -68,6 +68,11 @@ var items = {
 		'name': 'Cruddy Cola',
 		'desc': 'What is this nonsense?',
 		},
+	'ingredient_bag': {
+		'name': 'Ingredient Bag',
+		'desc': 'Your ingredients are in here.',
+		'consumable': false,
+		},
 #-------- Glasstown Mission Items ----------
 	'orange_grassbulbs_item': {
 		'name': 'Orange Grassbulbs',
@@ -95,3 +100,5 @@ var items = {
 		},
 #-------------------------------------------
 	}
+
+

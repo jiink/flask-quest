@@ -27,6 +27,7 @@ export(Dictionary) var data = {
 	"green_max_hp": 100,
 	"inventory": [],
 	"loadout": [],
+	"ingredient_bag": [],
 	"orange_hp": 100,
 	"orange_max_hp": 100,
 	"party_members": [],

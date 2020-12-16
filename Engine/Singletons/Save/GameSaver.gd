@@ -80,7 +80,9 @@ func save_from_save_station():
 	print("inventory being saved: %s" % [$"/root/ItemManager".inventory])
 	save_game.data["inventory"] = $"/root/ItemManager".inventory
 	print("loadout being saved: %s" % [$"/root/ItemManager".loadout])
-	save_game.data["loadout"] = $"/root/ItemManager".loadout
+	save_game.data["ingredient_bag"] = $"/root/ItemManager".loadout
+	print("ingredient_bag being saved: %s" % [$"/root/ItemManager".ingredient_bag])
+	save_game.data["ingredient_bag"] = $"/root/ItemManager".ingredient_bag
 	
 	print("event_seed being saved : %s" % global.event_seed)
 	save_game.data["event_seed"] = global.event_seed
@@ -113,7 +115,7 @@ func load_from_save_station(): # yeah im a role model and copied the other funct
 	var spawn_scene = save_game.data["player_spawn_scene"]
 	get_tree().change_scene(spawn_scene)
 	
-	yield(get_tree().create_timer(0.1), "timeout")
+	yield(get_tree().get_current_scene(), "ready") # wait for the scene to finish loading!
 	
 	var spawn_pos = save_game.data["player_spawn_pos"]
 	get_tree().get_nodes_in_group("Player")[0].position = spawn_pos
@@ -128,6 +130,7 @@ func load_from_save_station(): # yeah im a role model and copied the other funct
 	$"/root/PlayerStats".orange_max_hp = save_game.data["orange_max_hp"]
 	$"/root/PlayerStats".dollars = save_game.data["dollars"]
 	$"/root/ItemManager".inventory = save_game.data["inventory"]
+	$"/root/ItemManager".ingredient_bag = save_game.data["ingredient_bag"]
 	$"/root/ItemManager".loadout = save_game.data["loadout"]
 	global.event_seed = save_game.data["event_seed"]
 	
