@@ -7,6 +7,8 @@ const ORANGE_COLOR = Color("f68f31")
 const GREEN_COLOR = Color("72d031")
 const SAVE_KEY = "global_"
 
+enum Direction { UP, RIGHTUP, RIGHT, RIGHTDOWN, DOWN, LEFTDOWN, LEFT, LEFTUP }
+
 # player vars
 var player_hp = 100
 
@@ -155,6 +157,8 @@ var next_scene
 var next_player_position
 var next_player_direction
 
+enum StartingDirection { NONE, UP, RIGHTUP, RIGHT, RIGHTDOWN, DOWN, LEFTDOWN, LEFT, LEFTUP }
+
 #signal transition_close
 
 onready var game_saver = get_node("/root/GameSaver")
@@ -219,14 +223,17 @@ func copy_actions(from, to):
 	for event in InputMap.get_action_list(from):
 		InputMap.action_add_event(to, event)
 
-func start_scene_switch(new_scene, new_player_position, new_player_direction = "none"):
+func start_scene_switch(new_scene, new_player_position, new_player_direction = StartingDirection.NONE):
 	# save!!!
 	game_saver.save()
 	
 	print("changing scenes to %s..." % new_scene)
 	next_scene = new_scene
 	next_player_position = new_player_position
-	next_player_direction = new_player_direction
+	if typeof(new_player_direction) == TYPE_INT:
+		next_player_direction = new_player_direction
+	else:
+		print("new_player_direction isn't an INT")
 
 #	emit_signal("transition_close")
 	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
@@ -242,7 +249,7 @@ func swap_scenes():
 	if next_player_position != null:
 		for p in get_tree().get_nodes_in_group("Player"):
 			p.position = next_player_position
-			if next_player_direction != null and next_player_direction != "none":
+			if next_player_direction != null and next_player_direction != StartingDirection.NONE:
 				p.direction = next_player_direction
 	else:
 		print("warning: new player pos is null")

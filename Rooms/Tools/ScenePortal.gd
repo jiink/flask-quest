@@ -1,8 +1,10 @@
 extends Node2D
 
+enum StartingDirection { NONE, UP, RIGHTUP, RIGHT, RIGHTDOWN, DOWN, LEFTDOWN, LEFT, LEFTUP }
+
 export (String, FILE, "*.tscn") var new_scene = ""
 export (Vector2) var player_new_position = null
-export(String, "none", "up", "rightup", "right", "rightdown", "down", "leftdown", "left", "leftup") var starting_direction = "none"
+export(StartingDirection) var starting_direction = StartingDirection.NONE
 
 func _ready():
 	connect("body_entered", self, "on_body_entered")
