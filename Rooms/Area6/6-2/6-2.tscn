@@ -557,47 +557,31 @@ character = "ribbit"
 expression = "cry_mourn"
 
 [node name="RibbitIntro3" parent="DialogueTree/RibbitIntro/RibbitIntro2" index="0" instance=ExtResource( 8 )]
-message = "Bear man, I just can't kill him. I can't even hold the knife, much less KILL someone!"
+message = "Bear man, I just can't kill him. I'm not the right shape! I CAN'T DO IT"
 character = "ribbit"
 expression = "yell"
-
-[node name="RibbitIntro4" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3" index="0" instance=ExtResource( 8 )]
-message = "..."
-expression = "big_eyed"
-face_texture = ExtResource( 13 )
-
-[node name="RibbitIntro5" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4" index="0" instance=ExtResource( 8 )]
-message = "But THAT'S NOT THE ONLY PROBLEM."
-character = "ribbit"
-expression = "yell"
-
-[node name="RibbitIntro6" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5" index="0" instance=ExtResource( 8 )]
-message = "THAT GUY WAS A FRIEND OF MINE. I CAN'T JUS"
-text_delay = 0.04
-character = "ribbit"
-expression = "yell_outburst"
 interrupt = true
 
-[node name="RibbitIntro7" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6" index="0" instance=ExtResource( 8 )]
+[node name="RibbitIntro7" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3" index="0" instance=ExtResource( 8 )]
 message = "Ribbit. I swear to..."
 expression = "open_mouth"
 face_texture = ExtResource( 13 )
 interrupt = true
 
-[node name="RibbitIntro8" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7" index="0" instance=ExtResource( 8 )]
+[node name="RibbitIntro8" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro7" index="0" instance=ExtResource( 8 )]
 message = "That's it. It's only been four weeks, and I can already tell you're the most arrogant, whiny, spoiled little brat on the block."
 face_texture = ExtResource( 13 )
 
-[node name="RibbitIntro9" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7/RibbitIntro8" index="0" instance=ExtResource( 8 )]
+[node name="RibbitIntro9" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro7/RibbitIntro8" index="0" instance=ExtResource( 8 )]
 message = "You can't stop acting like a five year old, can you?"
 face_texture = ExtResource( 13 )
 
-[node name="RibbitIntro10" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7/RibbitIntro8/RibbitIntro9" index="0" instance=ExtResource( 8 )]
+[node name="RibbitIntro10" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro7/RibbitIntro8/RibbitIntro9" index="0" instance=ExtResource( 8 )]
 message = "I `AM` FIVE YEARS OLD!"
 character = "ribbit"
 expression = "cry_sob"
 
-[node name="RibbitIntro11" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro4/RibbitIntro5/RibbitIntro6/RibbitIntro7/RibbitIntro8/RibbitIntro9/RibbitIntro10" index="0" instance=ExtResource( 8 )]
+[node name="RibbitIntro11" parent="DialogueTree/RibbitIntro/RibbitIntro2/RibbitIntro3/RibbitIntro7/RibbitIntro8/RibbitIntro9/RibbitIntro10" index="0" instance=ExtResource( 8 )]
 message = "..."
 expression = "angry"
 face_texture = ExtResource( 13 )
@@ -640,7 +624,7 @@ character = "ribbit"
 expression = "cry_tear"
 
 [node name="RibbitDiscussion6" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5" index="0" instance=ExtResource( 8 )]
-message = "Okay, you probably need some context."
+message = "Okay, you probably wanna know why I'm here."
 character = "ribbit"
 expression = "cry_mourn"
 
@@ -650,7 +634,7 @@ character = "orange"
 expression = "confused"
 
 [node name="RibbitDiscussion7" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece" index="0" instance=ExtResource( 8 )]
-message = "My mommy said that she and my daddy were going on a honeymoon."
+message = "Uh, I'll keep it short since we're about to die, but my mother and daddy went on a honeymoon..."
 character = "ribbit"
 expression = "cry_tear"
 
@@ -665,7 +649,7 @@ character = "ribbit"
 expression = "cry_sob"
 
 [node name="RibbitDiscussion10" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9" index="0" instance=ExtResource( 8 )]
-message = "And now the strangers stopped giving me food!"
+message = "And now even the strangers stopped giving me food!"
 character = "ribbit"
 expression = "cry_sob"
 
@@ -675,163 +659,152 @@ character = "ribbit"
 expression = "cry_mourn"
 
 [node name="RibbitDiscussion12" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11" index="0" instance=ExtResource( 8 )]
-message = "But of course it was only AFTER ENTERING HIS HOUSE..."
+message = "But he told me to kill the moth guy in the hotel if I wanted it! He handed me a knife!!"
 character = "ribbit"
 expression = "cry_mourn"
 
 [node name="RibbitDiscussion13" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12" index="0" instance=ExtResource( 8 )]
-message = "...That he gave me a knife and said to put the sharp end inside that big moth guy at the hotel."
+message = "I wasn't able to kill the guy! I CAN'T EVEN HOLD A KNIFE! I just walked up to him, juggling a knife, and he laughed! He told me to put it back where I found it!"
 character = "ribbit"
 expression = "cry_mourn"
 
-[node name="RibbitDiscussion14" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13" index="0" instance=ExtResource( 8 )]
-message = "And, I mean, I took up the offer because I was really hungry."
-character = "ribbit"
-expression = "cry_mourn"
-
-[node name="RibbitDiscussion15" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14" index="0" instance=ExtResource( 8 )]
-message = "But when I got there, I just really didn't... I just couldn't..."
-character = "ribbit"
-expression = "cry_sob"
-
-[node name="RibbitDiscussion16" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15" index="0" instance=ExtResource( 8 )]
+[node name="React" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13" index="0" instance=ExtResource( 8 )]
 message = "That sounds horrible..."
 character = "orange"
 expression = "sad"
-interrupt = true
 
-[node name="RibbitDiscussion17" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion17" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React" index="0" instance=ExtResource( 8 )]
 message = "I know, I failed such a simple task."
 character = "ribbit"
 expression = "cry_sob"
 
-[node name="RibbitDiscussion18" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion18" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17" index="0" instance=ExtResource( 8 )]
 message = "No, that's... not what I meant."
 character = "orange"
 expression = "dot_eyes"
 
-[node name="RibbitDiscussion19" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion19" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18" index="0" instance=ExtResource( 8 )]
 message = "You shouldn't feel bad about that. Aren't you a little young to be murdering people?"
 character = "orange"
 expression = "confused"
 
-[node name="RibbitDiscussion20" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion20" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19" index="0" instance=ExtResource( 8 )]
 message = "..."
 character = "green"
 face_texture = ExtResource( 9 )
 interrupt = true
 
-[node name="RibbitDiscussion21" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion21" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20" index="0" instance=ExtResource( 8 )]
 message = "(Green, does our age even mean anything at this point?)"
 character = "orange"
 expression = "yell"
 
-[node name="RibbitDiscussion22" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion22" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21" index="0" instance=ExtResource( 8 )]
 message = "Wow. Okay. You have a name, right?"
 character = "orange"
 expression = "frown"
 
-[node name="RibbitDiscussion23" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion23" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22" index="0" instance=ExtResource( 8 )]
 message = "My name is Ribbit. "
 character = "ribbit"
 expression = "cry_tear"
 
-[node name="RibbitDiscussion24" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion24" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23" index="0" instance=ExtResource( 8 )]
 message = "Nice. I don't."
 character = "orange"
 expression = "frown"
 
-[node name="RibbitDiscussion25" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion25" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24" index="0" instance=ExtResource( 8 )]
 message = "You don't... what?"
 character = "ribbit"
 expression = "confused"
 
-[node name="RibbitDiscussion26" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion26" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25" index="0" instance=ExtResource( 8 )]
 message = "Have a name."
 character = "orange"
 expression = "frown"
 
-[node name="RibbitDiscussion27" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion27" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26" index="0" instance=ExtResource( 8 )]
 message = "..."
 character = "ribbit"
 expression = "big_eyed"
 
-[node name="RibbitDiscussion28" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion28" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27" index="0" instance=ExtResource( 8 )]
 message = "WHY?!"
 character = "ribbit"
 expression = "angry"
 
-[node name="RibbitDiscussion29" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion29" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28" index="0" instance=ExtResource( 8 )]
 message = "I... never thought of getting a name."
 character = "orange"
 expression = "big_eyed"
 
-[node name="RibbitDiscussion30" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion30" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29" index="0" instance=ExtResource( 8 )]
 message = "You just... didn't? No. No. I can't... This isn't..."
 character = "ribbit"
 expression = "yell"
 
-[node name="RibbitDiscussion31" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion31" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30" index="0" instance=ExtResource( 8 )]
 message = "!!!"
 character = "ribbit"
 expression = "big_eyed"
 
-[node name="RibbitDiscussion32" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31" index="0" instance=ExtResource( 8 )]
-message = "I've got an idea... You can give yourself one!"
+[node name="RibbitDiscussion32" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31" index="0" instance=ExtResource( 8 )]
+message = "I've got an idea... You can `give` yourself one!"
 character = "ribbit"
 expression = "side_mouth"
 
-[node name="RibbitDiscussion33" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion33" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32" index="0" instance=ExtResource( 8 )]
 message = "Right now. There are so many choices. There are so many that... choices are endless!"
 character = "ribbit"
 expression = "cry_recover"
 
-[node name="RibbitDiscussion34" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion34" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33" index="0" instance=ExtResource( 8 )]
 message = "Oh no."
 character = "orange"
 expression = "big_eyed"
 
-[node name="RibbitDiscussion35" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion35" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34" index="0" instance=ExtResource( 8 )]
 message = "What?"
 character = "ribbit"
 expression = "sad"
 
-[node name="RibbitDiscussion36" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion36" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35" index="0" instance=ExtResource( 8 )]
 message = "Dear god... SO many choices."
 character = "orange"
 expression = "angry"
 
-[node name="RibbitDiscussion37" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion37" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36" index="0" instance=ExtResource( 8 )]
 message = "Come on, you're almost there!"
 character = "ribbit"
 expression = "kawaii"
 
-[node name="RibbitDiscussion38" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion38" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37" index="0" instance=ExtResource( 8 )]
 message = "I... I... The name will... be..."
 character = "orange"
 expression = "cry_mourn"
 
-[node name="RibbitDiscussion39" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion39" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38" index="0" instance=ExtResource( 8 )]
 message = "Orange!"
 character = "orange"
 expression = "yell_outburst"
 
-[node name="RibbitDiscussion40" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion40" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39" index="0" instance=ExtResource( 8 )]
 message = "Orange... F.... Bottle!"
 character = "orange"
 expression = "nervous"
 
-[node name="RibbitDiscussion41" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39/RibbitDiscussion40" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion41" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39/RibbitDiscussion40" index="0" instance=ExtResource( 8 )]
 message = "...That's... Is that even a name?"
 character = "ribbit"
 expression = "side_mouth"
 
-[node name="RibbitDiscussion42" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39/RibbitDiscussion40/RibbitDiscussion41" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion42" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39/RibbitDiscussion40/RibbitDiscussion41" index="0" instance=ExtResource( 8 )]
 message = "Well. I guess it works. And it's fitting, too."
 character = "ribbit"
 expression = "neutral"
 
-[node name="RibbitDiscussion43" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/RibbitDiscussion14/RibbitDiscussion15/RibbitDiscussion16/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39/RibbitDiscussion40/RibbitDiscussion41/RibbitDiscussion42" index="0" instance=ExtResource( 8 )]
+[node name="RibbitDiscussion43" parent="DialogueTree/RibbitDiscussion/RibbitDiscussion2/RibbitDiscussion3/RibbitDiscussion4/RibbitDiscussion5/RibbitDiscussion6/DiagPiece/RibbitDiscussion7/RibbitDiscussion8/RibbitDiscussion9/RibbitDiscussion10/RibbitDiscussion11/RibbitDiscussion12/RibbitDiscussion13/React/RibbitDiscussion17/RibbitDiscussion18/RibbitDiscussion19/RibbitDiscussion20/RibbitDiscussion21/RibbitDiscussion22/RibbitDiscussion23/RibbitDiscussion24/RibbitDiscussion25/RibbitDiscussion26/RibbitDiscussion27/RibbitDiscussion28/RibbitDiscussion29/RibbitDiscussion30/RibbitDiscussion31/RibbitDiscussion32/RibbitDiscussion33/RibbitDiscussion34/RibbitDiscussion35/RibbitDiscussion36/RibbitDiscussion37/RibbitDiscussion38/RibbitDiscussion39/RibbitDiscussion40/RibbitDiscussion41/RibbitDiscussion42" index="0" instance=ExtResource( 8 )]
 message = "So, if you're Orange, then that green bottle guy over there must be Green"
 character = "ribbit"
 expression = "neutral"
@@ -849,7 +822,7 @@ expression = "neutral"
 face_texture = ExtResource( 13 )
 
 [node name="BearReturn2" parent="DialogueTree/BearReturn/BearReturn" index="0" instance=ExtResource( 8 )]
-message = "With you, though, Ribbit, it's personal. It's a passion. In fact, I will put my heart and soul into dealing with you."
+message = "With you, though, Ribbit, it's personal. It's a passion. In fact, I will put my heart and soul into removing you."
 expression = "open_mouth"
 face_texture = ExtResource( 13 )
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bearly_bearable_bear_foe.png-87c6c6e3ba37b45ae212a627be0049eb.stex"
+path="res://.import/orange_thumbsup.png-a58b3df81622a0a1795a5705aff65d89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/BearlyBearableBear/bearly_bearable_bear_foe.png"
-dest_files=[ "res://.import/bearly_bearable_bear_foe.png-87c6c6e3ba37b45ae212a627be0049eb.stex" ]
+source_file="res://Cutscenes/MurkMonsterSequence/orange_thumbsup.png"
+dest_files=[ "res://.import/orange_thumbsup.png-a58b3df81622a0a1795a5705aff65d89.stex" ]
 
 [params]
 

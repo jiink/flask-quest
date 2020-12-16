@@ -64,6 +64,7 @@ func move_camera_to_club():
 	$Tween.interpolate_property(camera, "position", \
 	null, Vector2(-76,-476), 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
+	MusicManager.change_music("res://Rooms/Area2/Assets/amazing_cats.ogg", true, 0)
 	
 func move_camera_to_player():
 	$Tween.interpolate_property(camera, "position", \

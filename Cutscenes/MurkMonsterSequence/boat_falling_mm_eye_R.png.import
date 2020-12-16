@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spotlight_truss.png-b81258b69c5a5c79bad817790e038a3c.stex"
+path="res://.import/boat_falling_mm_eye_R.png-b230ab52b650a35f7e3c9a8f7c4ae872.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Douglas/spotlight_truss.png"
-dest_files=[ "res://.import/spotlight_truss.png-b81258b69c5a5c79bad817790e038a3c.stex" ]
+source_file="res://Cutscenes/MurkMonsterSequence/boat_falling_mm_eye_R.png"
+dest_files=[ "res://.import/boat_falling_mm_eye_R.png-b230ab52b650a35f7e3c9a8f7c4ae872.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

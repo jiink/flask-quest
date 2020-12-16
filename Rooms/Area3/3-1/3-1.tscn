@@ -1149,7 +1149,7 @@ position = Vector2( 3077, -276 )
 position = Vector2( 3095, -308 )
 
 [node name="Battery3" parent="YSort/Pushables" index="4" instance=ExtResource( 42 )]
-position = Vector2( 3009, -281 )
+position = Vector2( 3024, -283 )
 charged = true
 
 [node name="Battery4" parent="YSort/Pushables" index="5" instance=ExtResource( 42 )]
@@ -1201,7 +1201,7 @@ position = Vector2( 1827, -40 )
 collision_mask = 1
 
 [node name="OminousRat4" parent="YSort/Enemies" index="9" instance=ExtResource( 22 )]
-position = Vector2( 3026, -307 )
+position = Vector2( 2776, -315 )
 collision_layer = 5
 collision_mask = 1
 
@@ -1221,7 +1221,7 @@ collision_layer = 5
 collision_mask = 1
 
 [node name="OminousRat10" parent="YSort/Enemies" index="13" instance=ExtResource( 22 )]
-position = Vector2( 2379, -154 )
+position = Vector2( 2593, -162 )
 collision_layer = 5
 collision_mask = 1
 

@@ -9,7 +9,7 @@ data = {
 "1-1_orange_state": 2,
 "1-2_tv_event_seen": false,
 "2-1_malus_door_locked": false,
-"2-1_malus_hinter_left": false,
+"2-1_malus_hinter_left": true,
 "2-1_manhole_event_happened": false,
 "2-1_soda_boy_seen": false,
 "2-6_malus_hinter_talked_to": false,

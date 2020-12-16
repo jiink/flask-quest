@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/malus_discovery.ogg-c5192bfe46439d48abca630fd2e05ec5.oggstr"
+
+[deps]
+
+source_file="res://Cutscenes/MurkMonsterSequence/malus_discovery.ogg"
+dest_files=[ "res://.import/malus_discovery.ogg-c5192bfe46439d48abca630fd2e05ec5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

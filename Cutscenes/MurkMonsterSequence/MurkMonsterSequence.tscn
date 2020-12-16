@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=1]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/flying_up_lightbeams_fg_yloop.png" type="Texture" id=2]
@@ -29,6 +29,15 @@
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_d.png" type="Texture" id=27]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_e.png" type="Texture" id=28]
 [ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=29]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/malus_flashbacks.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/malus_discovery.ogg" type="AudioStream" id=31]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/orange_thumbsup.png" type="Texture" id=32]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/guide_approval.png" type="Texture" id=33]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_falling_mm_eye_L.png" type="Texture" id=34]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_falling_bg.png" type="Texture" id=35]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_falling_mm.png" type="Texture" id=36]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_falling_mm_eye_R.png" type="Texture" id=37]
+[ext_resource path="res://Cutscenes/MurkMonsterSequence/boat_falling_boat.png" type="Texture" id=38]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -72,9 +81,60 @@ shader = ExtResource( 1 )
 shader_param/direction = Vector2( 0, -1 )
 shader_param/speed_scale = 2.5
 
-[sub_resource type="Animation" id=11]
-resource_name = "FlashBacks"
-length = 16.0
+[sub_resource type="Animation" id=9]
+resource_name = "FallingBoat"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoatFalling/boat_falling_boat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.4, 1.9 ),
+"transitions": PoolRealArray( 2, 1.36604, 1.31951, 1 ),
+"update": 0,
+"values": [ Vector2( 193, 45 ), Vector2( 158, 46 ), Vector2( 115, 71 ), Vector2( 50, 272 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoatFalling/boat_falling_boat:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4, 1.9 ),
+"transitions": PoolRealArray( 1, 2, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -33.5, -200.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BoatFalling/boat_falling_mm_eye_L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2, 1.6, 1.9, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 172, 104 ), Vector2( 162, 101 ), Vector2( 153, 107 ), Vector2( 154, 120 ), Vector2( 158, 122 ), Vector2( 161, 122 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BoatFalling/boat_falling_mm_eye_R:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2, 1.6, 1.9, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 216, 96 ), Vector2( 212, 93 ), Vector2( 209, 97 ), Vector2( 216, 109 ), Vector2( 221, 111 ), Vector2( 224, 112 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 14.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FlashBacks:visible")
 tracks/0/interp = 1
@@ -82,7 +142,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 12.6 ),
+"times": PoolRealArray( 0, 13 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -106,10 +166,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1.7, 8.9, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FlashBacks/flashback_b:position")
@@ -142,10 +202,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 3.4, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 3.4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 642, 104 ), Vector2( -252, 104 ) ]
+"values": [ Vector2( 642, 104 ), Vector2( 642, 104 ), Vector2( -252, 104 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("FlashBacks/flashback_c:modulate")
@@ -166,14 +226,25 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 4.9, 7.3, 10.5 ),
-"transitions": PoolRealArray( 0.757858, 1.56917, 1 ),
+"times": PoolRealArray( 0, 4.9, 7.3, 10.5 ),
+"transitions": PoolRealArray( 0.757858, 0.757858, 1.56917, 1 ),
 "update": 0,
-"values": [ Vector2( 640, 111 ), Vector2( 242, 111 ), Vector2( -235, 111 ) ]
+"values": [ Vector2( 640, 111 ), Vector2( 640, 111 ), Vector2( 242, 111 ), Vector2( -235, 111 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MalusFlashbacks:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "InitialSequence"
+[sub_resource type="Animation" id=11]
 length = 14.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("clouds_bigpicture:visible")
@@ -240,7 +311,7 @@ tracks/5/path = NodePath("Music:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = false
+tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -260,8 +331,24 @@ tracks/6/keys = {
 "values": [ 0.0, -15.0, 0.0, 0.0, 15.0 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "shake"
+[sub_resource type="Animation" id=12]
+resource_name = "PreFall"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("boat_front_far:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9, 1, 1.4, 1.8, 2, 2.3, 2.5, 2.6, 2.9, 3, 3.2, 3.5 ),
+"transitions": PoolRealArray( -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2 ),
+"update": 0,
+"values": [ Vector2( 192, 108 ), Vector2( 180, 108 ), Vector2( 176, 114 ), Vector2( 174, 113 ), Vector2( 193, 108 ), Vector2( 208, 112 ), Vector2( 215, 108 ), Vector2( 185, 109 ), Vector2( 172, 117 ), Vector2( 182, 117 ), Vector2( 202, 110 ), Vector2( 211, 111 ), Vector2( 196, 116 ), Vector2( 183, 124 ) ]
+}
+
+[sub_resource type="Animation" id=13]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -277,13 +364,13 @@ tracks/0/keys = {
 "values": [ Vector2( 192, 108 ), Vector2( 192, 110 ), Vector2( 198, 103 ), Vector2( 196, 105 ), Vector2( 197, 100 ), Vector2( 202, 100 ), Vector2( 195, 104 ), Vector2( 177, 102 ), Vector2( 168, 105 ), Vector2( 175, 111 ), Vector2( 181, 114 ), Vector2( 202, 100 ), Vector2( 203, 97 ), Vector2( 197, 118 ), Vector2( 204, 110 ), Vector2( 203, 118 ), Vector2( 205, 113 ), Vector2( 203, 115 ), Vector2( 204, 112 ), Vector2( 202, 110 ), Vector2( 203, 112 ), Vector2( 204, 110 ), Vector2( 198, 113 ), Vector2( 196, 112 ), Vector2( 202, 98 ), Vector2( 197, 113 ), Vector2( 198, 105 ), Vector2( 198, 107 ), Vector2( 198, 105 ), Vector2( 200, 104 ), Vector2( 196, 107 ), Vector2( 199, 106 ), Vector2( 194, 106 ), Vector2( 195, 104 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=12]
-blend_mode = 1
-
 [sub_resource type="CanvasItemMaterial" id=14]
 blend_mode = 1
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="CanvasItemMaterial" id=15]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id=16]
 shader = ExtResource( 29 )
 shader_param/speed = 40
 shader_param/pal_size = 12
@@ -369,7 +456,7 @@ function = "orange_green_closeup_a"
 message = "WHAT DO YOU SEE"
 character = "orange"
 expression = "yell"
-function = "binocular_view"
+function = "malus_discovery"
 
 [node name="PreBinoc12" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11" instance=ExtResource( 11 )]
 message = "That's the Malus we're thinking of, all right."
@@ -394,7 +481,7 @@ character = "green"
 expression = "confused"
 
 [node name="PreBinoc16" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15" instance=ExtResource( 11 )]
-message = "Oh. Maybe it's one of those spaceship things, punks like making those these days as well. "
+message = "Oh. Maybe it's one of those spaceship things, punks like making those these days as well. Or Noah's just doing that thing again."
 face_texture = ExtResource( 23 )
 function = "orange_green_closeup_c"
 
@@ -425,6 +512,44 @@ expression = "open_mouth"
 message = "And even if we're wrong, we can still remove their escape route! Surely that'd stop them?"
 character = "orange"
 expression = "open_mouth"
+function = "boat_guideside_view_d"
+
+[node name="PreBinoc22" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21" instance=ExtResource( 11 )]
+message = "Guide person, how do we get to that desert?"
+character = "orange"
+expression = "frown"
+
+[node name="PreBinoc23" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21/PreBinoc22" instance=ExtResource( 11 )]
+message = "Why.. what..`` ??"
+character = "ribbit"
+expression = "yell_outburst"
+
+[node name="PreBinoc24" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21/PreBinoc22/PreBinoc23" instance=ExtResource( 11 )]
+message = "Ribbit, we'll explain later. What's the best way through those mountains, guide guy?"
+character = "orange"
+expression = "open_mouth"
+
+[node name="PreBinoc25" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21/PreBinoc22/PreBinoc23/PreBinoc24" instance=ExtResource( 11 )]
+message = "You're going to want to drive down the freeway located right next to the town we're ten miles above right now, then you'll want to drive through a place called Feldspar Surf."
+face_texture = ExtResource( 23 )
+function = "orange_thumbsup"
+
+[node name="PreBinoc26" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21/PreBinoc22/PreBinoc23/PreBinoc24/PreBinoc25" instance=ExtResource( 11 )]
+message = "Thanks, tour guide person!"
+character = "orange"
+expression = "grin"
+function = "guide_approval"
+
+[node name="PreBinoc27" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21/PreBinoc22/PreBinoc23/PreBinoc24/PreBinoc25/PreBinoc26" instance=ExtResource( 11 )]
+message = "No problem, little guy. By the way, the name's Natha--"
+face_texture = ExtResource( 23 )
+function = "pre_fall"
+
+[node name="PreBinoc28" parent="DialogueTree/PostFlashBacks/PreBinoc10/PreBinoc11/PreBinoc12/PreBinoc13/PreBinoc14/PreBinoc15/PreBinoc16/PreBinoc17/PreBinoc18/PreBinoc19/PreBinoc20/PreBinoc21/PreBinoc22/PreBinoc23/PreBinoc24/PreBinoc25/PreBinoc26/PreBinoc27" instance=ExtResource( 11 )]
+message = "WHY DOES IT FEEL ALL SHAKY LIKE THAT"
+character = "ribbit"
+expression = "cry_tear"
+function = "fall"
 
 [node name="Player" parent="." instance=ExtResource( 12 )]
 visible = false
@@ -441,11 +566,11 @@ texture = ExtResource( 3 )
 [node name="flying_up" type="AnimatedSprite" parent="FlyingUp/flying_up_clouds_bg_yloop"]
 position = Vector2( 0, 162 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="flying_up_boat" type="AnimatedSprite" parent="FlyingUp/flying_up_clouds_bg_yloop/flying_up"]
 frames = SubResource( 7 )
-frame = 1
 playing = true
 
 [node name="flying_up_lightbeams_fg_yloop" type="Sprite" parent="FlyingUp/flying_up_clouds_bg_yloop"]
@@ -461,10 +586,13 @@ texture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "InitialSequence"
-anims/FlashBacks = SubResource( 11 )
-anims/InitialSequence = SubResource( 9 )
+anims/FallingBoat = SubResource( 9 )
+anims/FlashBacks = SubResource( 10 )
+anims/InitialSequence = SubResource( 11 )
+anims/PreFall = SubResource( 12 )
 
 [node name="Black" type="ColorRect" parent="."]
+visible = false
 margin_right = 384.0
 margin_bottom = 216.002
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
@@ -474,10 +602,14 @@ __meta__ = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-bus = "Music"
+
+[node name="MalusFlashbacks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+
+[node name="MalusDiscovery" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
 
 [node name="clouds_bg" type="Sprite" parent="."]
-visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 8 )
 
@@ -491,6 +623,7 @@ hframes = 3
 [node name="boat_guideside_view" type="Sprite" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 19 )
 hframes = 4
@@ -498,37 +631,57 @@ hframes = 4
 [node name="mountains_view" type="Sprite" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 16 )
 
 [node name="ribbit_green_orange_closeup" type="Sprite" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 14 )
 
 [node name="sweaty_green" type="Sprite" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 18 )
 
 [node name="orange_denied" type="Sprite" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 21 )
 
 [node name="orange_green_closeup" type="Sprite" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 position = Vector2( 192, 108 )
 texture = ExtResource( 17 )
 hframes = 4
 
+[node name="orange_thumbsup" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+visible = false
+position = Vector2( 192, 108 )
+texture = ExtResource( 32 )
+
+[node name="guide_approval" type="Sprite" parent="." groups=[
+"MMSequence",
+]]
+visible = false
+position = Vector2( 192, 108 )
+texture = ExtResource( 33 )
+
 [node name="BinocularView" type="Node2D" parent="." groups=[
 "MMSequence",
 ]]
+visible = false
 
 [node name="ship_zoomed_ship" type="Sprite" parent="BinocularView"]
 position = Vector2( 202.671, 110.671 )
@@ -540,9 +693,10 @@ texture = ExtResource( 22 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BinocularView"]
 autoplay = "shake"
-anims/shake = SubResource( 10 )
+anims/shake = SubResource( 13 )
 
 [node name="FlashBacks" type="Node2D" parent="."]
+visible = false
 
 [node name="Black2" type="ColorRect" parent="FlashBacks"]
 modulate = Color( 1, 1, 1, 0 )
@@ -555,7 +709,7 @@ __meta__ = {
 
 [node name="flashback_a" type="Sprite" parent="FlashBacks"]
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 12 )
+material = SubResource( 14 )
 position = Vector2( 193, 108 )
 texture = ExtResource( 24 )
 
@@ -565,17 +719,72 @@ position = Vector2( 192, 59 )
 texture = ExtResource( 26 )
 
 [node name="flashback_d" type="Sprite" parent="FlashBacks"]
-position = Vector2( -252, 104 )
+position = Vector2( 642, 104 )
 texture = ExtResource( 27 )
 
 [node name="flashback_c" type="Sprite" parent="FlashBacks"]
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 14 )
+material = SubResource( 15 )
 position = Vector2( 198, 103 )
 texture = ExtResource( 25 )
 
 [node name="flashback_e" type="Sprite" parent="FlashBacks"]
-material = SubResource( 13 )
-position = Vector2( -235, 111 )
+material = SubResource( 16 )
+position = Vector2( 640, 111 )
 texture = ExtResource( 28 )
+
+[node name="BoatFalling" type="Node2D" parent="." groups=[
+"MMSequence",
+]]
+visible = false
+
+[node name="boat_falling_bg" type="Sprite" parent="BoatFalling"]
+position = Vector2( 192, 108 )
+texture = ExtResource( 35 )
+
+[node name="boat_falling_boat" type="Sprite" parent="BoatFalling"]
+position = Vector2( 193, 45 )
+texture = ExtResource( 38 )
+
+[node name="ColorRect" type="ColorRect" parent="BoatFalling"]
+margin_left = 172.0
+margin_top = 78.0
+margin_right = 244.0
+margin_bottom = 161.0
+color = Color( 0.854902, 0.819608, 0.498039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="BoatFalling/ColorRect"]
+margin_left = -33.0
+margin_top = 15.0
+margin_right = 86.0
+margin_bottom = 61.0
+color = Color( 0.854902, 0.819608, 0.498039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="BoatFalling/ColorRect"]
+margin_left = -21.0
+margin_top = 8.0
+margin_right = 80.0
+margin_bottom = 49.0
+color = Color( 0.854902, 0.819608, 0.498039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boat_falling_mm_eye_L" type="Sprite" parent="BoatFalling"]
+position = Vector2( 172, 104 )
+texture = ExtResource( 34 )
+
+[node name="boat_falling_mm_eye_R" type="Sprite" parent="BoatFalling"]
+position = Vector2( 216, 96 )
+texture = ExtResource( 37 )
+
+[node name="boat_falling_mm" type="Sprite" parent="BoatFalling"]
+position = Vector2( 192, 108 )
+texture = ExtResource( 36 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
