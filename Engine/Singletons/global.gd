@@ -23,10 +23,18 @@ func get_player(num = 1):
 			return n
 
 	print("get_player error! couldn't get player #%s" % num)
+
 	return null
 
 func get_players():
 	return [get_player(1), get_player(2)]
+
+func freeze_all_players(setting = true):
+	var p = get_player()
+	if p:
+		p.set_frozen(setting, true)
+	else:
+		print("couldn't freeze all players")
 
 ################## battle ##################
 
