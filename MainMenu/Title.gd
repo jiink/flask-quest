@@ -74,7 +74,7 @@ func _process(delta):
 			$SaveSelect.visible = false
 			focus = MAIN
 		elif Input.is_action_just_pressed("confirm"):
-			$"/root/GameSaver".load_from_save_station(save_selection)
+			$"/root/GameSaver".load_from_save_station()#save_selection)
 			
 	elif focus == QUITCONFIRM:
 		if Input.is_action_just_pressed("confirm") or Input.is_key_pressed(KEY_Y):
