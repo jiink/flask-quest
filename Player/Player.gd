@@ -283,13 +283,15 @@ func clear_history():
 func set_controlled_by(new_controller):
 	if new_controller == null: return
 	controlled_by = new_controller
-	print("Player now being controlled by %s" % controlled_by)
+	print("%s now being controlled by %s" % [name, controlled_by])
 	match controlled_by:
 		PERSON:
 			remove_from_group("tick")
 			set_process(true)
 		BOT:
-			pass
+			#pass
+			add_to_group("tick")
+			set_process(false)
 		EXTERNAL:
 			add_to_group("tick")
 			set_process(false)
