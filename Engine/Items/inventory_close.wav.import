@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/inventory_close.wav-3bb3bd83ade38d7646826450de2a99ba.sample"
+
+[deps]
+
+source_file="res://Engine/Items/inventory_close.wav"
+dest_files=[ "res://.import/inventory_close.wav-3bb3bd83ade38d7646826450de2a99ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

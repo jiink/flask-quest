@@ -9,6 +9,8 @@ onready var audio = get_node("AudioStreamPlayer")
 
 onready var horiz_sound = preload("res://SoundEffects/ui_move_1.wav")
 onready var vert_sound = preload("res://SoundEffects/ui_move_2.wav")
+onready var close_sound = preload("res://Engine/Items/inventory_close.wav")
+onready var open_sound = preload("res://Engine/Items/inventory_open.wav")
 
 var item_selection
 var selection_index = 0
@@ -91,16 +93,28 @@ func _ready():
 		bchoicenode = battle.get_node("BattleChoices")
 	
 
+func open():
+	set_visible(true)
+	audio.stream = open_sound
+	audio.play()
+
+
+func close():
+	set_visible(false)
+	audio.stream = close_sound
+	audio.play()
+
+
 func _unhandled_input(event):
 
 	if visible:
 		if not $InfoBar.visible:
 			
-			if event.is_action_pressed("ui_right"):
+			if event.is_action_pressed("right"):
 				selection_index += 1
-			elif event.is_action_pressed("ui_left"):
+			elif event.is_action_pressed("left"):
 				selection_index -= 1
-			elif event.is_action_pressed("ui_up"):
+			elif event.is_action_pressed("up"):
 				if state == INVENTORY:
 					if selection_index < 11:
 						selection_index = 0
@@ -109,7 +123,7 @@ func _unhandled_input(event):
 					else:
 						selection_index -= 11
 					
-			elif event.is_action_pressed("ui_down"):
+			elif event.is_action_pressed("down"):
 				if state == LOADOUT:
 					selection_index = 0
 					state = INVENTORY
@@ -117,7 +131,7 @@ func _unhandled_input(event):
 				else:
 					selection_index += 11
 				
-			elif event.is_action_pressed("ui_accept") and get_item_list().size() > 0:
+			elif event.is_action_pressed("confirm") and get_item_list().size() > 0:
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 													manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
@@ -130,19 +144,19 @@ func _unhandled_input(event):
 					#$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
 				#elif state == LOADOUT:
 					#$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
-			if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_down"):
+			if event.is_action_pressed("up") or event.is_action_pressed("right") or event.is_action_pressed("left") or event.is_action_pressed("down"):
 				update_item_selection(selection_index)
 			
 		else:
-			if event.is_action_pressed("ui_left"):
+			if event.is_action_pressed("left"):
 				selected_option -= 1
-			elif event.is_action_pressed("ui_right"):
+			elif event.is_action_pressed("right"):
 				selected_option += 1
 			selected_option = clamp(selected_option, 0, item_options.get_children().size() - 1)
 			#item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
 			update_item_action_icons()
 			
-			if event.is_action_pressed("ui_accept"):
+			if event.is_action_pressed("confirm"):
 				match item_options.get_child(selected_option).name:
 					"Toss":
 						toss_item(selection_index)
@@ -179,23 +193,23 @@ func _unhandled_input(event):
 							$InfoBar.set_visible(false)
 						else:
 							print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
-		if event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left"):
+		if event.is_action_pressed("right") or event.is_action_pressed("left"):
 				audio.stream = horiz_sound
 				audio.play()
-		elif event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+		elif event.is_action_pressed("up") or event.is_action_pressed("down"):
 				audio.stream = vert_sound
 				audio.play()
-	if not in_battle:
+	if (not in_battle):
 		
-		if event.is_action_pressed("ui_cancel"):
+		if event.is_action_pressed("cancel"):
 			if not $InfoBar.visible:
 				if not visible:
-					if (not get_tree().get_nodes_in_group("Player")[0].frozen) and get_parent().get_visibility() == false:
-						set_visible(true)
+					if (not global.get_player().frozen) and (get_parent().get_visibility() == false):
+						open()
 						update_item_selection(3)
 						
 				else:
-					set_visible(false)
+					close()
 				global.get_player().set_frozen(visible, true)
 				update_list()
 			else:
@@ -205,14 +219,14 @@ func _unhandled_input(event):
 		#if bchoicenode.ready_for_inv:
 		if battle.selected_battle_choice == "item" and battle.state == battle.PLAYER_TURN:
 			
-			if event.is_action_pressed("ui_accept"):
+			if event.is_action_pressed("confirm"):
 				if not visible:
-					set_visible(true)
+					open()
 					update_list()
-			elif event.is_action_pressed("ui_cancel"):
+			elif event.is_action_pressed("cancel"):
 				if visible:
 					if not $InfoBar.visible:
-						set_visible(false)
+						close()
 						battle.battle_choice_confirmed = false
 						if loadout_changed:
 							yield(get_tree().create_timer(0.8), "timeout")

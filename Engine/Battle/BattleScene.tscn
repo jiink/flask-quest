@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Engine/Battle/BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Battle/BattleMenu.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Engine/Battle/CharacterSprites/Green/green_flask_mask.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Items/InventoryMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Engine/Battle/Tint.gd" type="Script" id=14]
+[ext_resource path="res://Engine/Battle/tube_move.wav" type="AudioStream" id=15]
 [ext_resource path="res://Engine/Battle/Win.gd" type="Script" id=16]
 [ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Engine/Fonts/FontQuestLittle.tres" type="DynamicFont" id=18]
@@ -293,6 +294,9 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BattleChoices"]
+stream = ExtResource( 15 )
 
 [node name="PouringEvent" type="Node2D" parent="."]
 script = ExtResource( 5 )

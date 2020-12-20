@@ -232,9 +232,11 @@ func get_chem_choice():
 	if Input.is_action_just_pressed(player_down):
 		selected_chem = ((selected_chem+1) % b + b) % b
 		set_arrow_pos() # to make the foe arrow invisible if need be
+		$BattleChoices/AudioStreamPlayer.play()
 	elif Input.is_action_just_pressed(player_up):
 		selected_chem = ((selected_chem-1) % b + b) % b
 		set_arrow_pos() # to make the foe arrow invisible if need be
+		$BattleChoices/AudioStreamPlayer.play()
 		
 		
 #	if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
