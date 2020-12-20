@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ingredient_use2.wav-68c86ea647a610546d12e1eb53670818.sample"
+
+[deps]
+
+source_file="res://Rooms/Tools/MiniLab/ingredient_use2.wav"
+dest_files=[ "res://.import/ingredient_use2.wav-68c86ea647a610546d12e1eb53670818.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

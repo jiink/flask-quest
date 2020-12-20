@@ -87,6 +87,11 @@ func is_inventory_full():
 func is_ingredient_bag_full():
 	return ingredient_bag.size() >= ingredient_bag_capacity
 
+# checks both inventory and loadout. returns true or false
+func has_item(request):
+	return inventory.has(request) or loadout.has(request)
+
+
 func _ready():
 	pass
 
