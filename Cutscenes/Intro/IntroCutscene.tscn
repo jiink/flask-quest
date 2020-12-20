@@ -25,7 +25,7 @@
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city4.png" type="Texture" id=23]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_exteriorlab-sheet.png" type="Texture" id=24]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_wifipole.png" type="Texture" id=25]
-[ext_resource path="res://Engine/light2.png" type="Texture" id=26]
+[ext_resource path="res://Engine/light.png" type="Texture" id=26]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_observers_alt.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]

@@ -23,7 +23,7 @@
 [ext_resource path="res://Rooms/Area5/5-4/TalkArea.gd" type="Script" id=21]
 [ext_resource path="res://Items/Pickups/BasePickup.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Engine/looptest.ogg" type="AudioStream" id=23]
-[ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/prisoner_frog_face.png" type="Texture" id=24]
+[ext_resource path="res://NPC/MinorNPCs/prisonerfrog_face.png" type="Texture" id=24]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -403,11 +403,15 @@ face_texture = ExtResource( 24 )
 function = "enter_maintenance_door"
 
 [node name="OpenDoor" parent="YSort/PrisonerFrog/DialogueTree" index="1" instance=ExtResource( 15 )]
-message = "Okay, enter that door and I'll tell you what to do from there."
+message = "Enter the door that the glowy arrow is pointing at and I'll tell you what to do from there."
 face_texture = ExtResource( 24 )
 
 [node name="Instruction" parent="YSort/PrisonerFrog/DialogueTree" index="2" instance=ExtResource( 15 )]
-message = "Okay, guys, be careful in there. "
+message = "Okay. The toilet paper should be down that tunnel right next to you."
+face_texture = ExtResource( 24 )
+
+[node name="Instruction2" parent="YSort/PrisonerFrog/DialogueTree/Instruction" index="0" instance=ExtResource( 15 )]
+message = "I haven't been down there in years. It's a wierd place down there. I feel too... free. When I go down there. I wish you luck."
 face_texture = ExtResource( 24 )
 
 [node name="Post" parent="YSort/PrisonerFrog/DialogueTree" index="3" instance=ExtResource( 15 )]
@@ -415,7 +419,7 @@ message = "...According to the screen I got here, you spent 0.047 seconds inside
 face_texture = ExtResource( 24 )
 
 [node name="Post2" parent="YSort/PrisonerFrog/DialogueTree/Post" index="0" instance=ExtResource( 15 )]
-message = "Too scary for ya?"
+message = "I should've guessed that it were too scary for you."
 face_texture = ExtResource( 24 )
 
 [node name="Post3" parent="YSort/PrisonerFrog/DialogueTree/Post/Post2" index="0" instance=ExtResource( 15 )]
@@ -424,11 +428,11 @@ character = "orange"
 expression = "confused"
 
 [node name="Post4" parent="YSort/PrisonerFrog/DialogueTree/Post/Post2/Post3" index="0" instance=ExtResource( 15 )]
-message = "Oh. I guess that tunnel doesn't like time. Anyways, ain't it quite a sight on the other side?"
+message = "Oh. I guess that tunnel doesn't like time. Anyways, isn't it so funny back down there? "
 face_texture = ExtResource( 24 )
 
 [node name="Post5" parent="YSort/PrisonerFrog/DialogueTree/Post/Post2/Post3/Post4" index="0" instance=ExtResource( 15 )]
-message = "Yes. ...Why was there toilet paper out there?"
+message = "I don't really like that place, yea. ...Say, why was there toilet paper out there?"
 character = "orange"
 expression = "confused"
 function = "crumble_noise"

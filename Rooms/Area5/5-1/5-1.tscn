@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=2]
+[gd_scene load_steps=155 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -114,51 +114,115 @@
 [ext_resource path="res://Rooms/Area5/5-1/BombGuard.gd" type="Script" id=112]
 [ext_resource path="res://Rooms/Area5/Assets/DomeWallCollision.tscn" type="PackedScene" id=113]
 [ext_resource path="res://Rooms/Area5/Assets/DomeWallCollisoinR.tscn" type="PackedScene" id=114]
+[ext_resource path="res://NPC/MinorNPCs/prisonerfrog_face.png" type="Texture" id=115]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 100 )
-region = Rect2( 0, 34, 17, 34 )
+[sub_resource type="Animation" id=1]
+resource_name = "MoveToHouse"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Camera:follow_player")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.8, 0.9, 1.2, 2.8, 3.4, 3.5, 3.6, 6 ),
+"transitions": PoolRealArray( 3.4822, 0.5, 0, 0, 0.5, -2, 1, 1, 1, 0, 1 ),
+"update": 0,
+"values": [ Vector2( 3893, 2073 ), Vector2( 3907, 2082 ), Vector2( 3888, 2073 ), Vector2( 3921, 1837 ), Vector2( 1148, 1456 ), Vector2( 1148, 1456 ), Vector2( 781, 1463 ), Vector2( 781, 1463 ), Vector2( 357, 1429 ), Vector2( 385, 1431 ), Vector2( 192, 108 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../Camera:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 2.3, 2.8, 6 ),
+"transitions": PoolRealArray( 1, -2, -2, -2, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, -15.0, 0.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Camera:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 2.8, 3.8, 4.3, 6 ),
+"transitions": PoolRealArray( 1, 0.5, -2, 1, -2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../Camera:rotating")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 100 )
-region = Rect2( 17, 34, 17, 34 )
+region = Rect2( 0, 34, 17, 34 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 100 )
-region = Rect2( 0, 68, 17, 34 )
+region = Rect2( 17, 34, 17, 34 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 100 )
-region = Rect2( 17, 68, 17, 34 )
+region = Rect2( 0, 68, 17, 34 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 100 )
-region = Rect2( 0, 0, 17, 34 )
+region = Rect2( 17, 68, 17, 34 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 100 )
+region = Rect2( 0, 0, 17, 34 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 100 )
 region = Rect2( 17, 0, 17, 34 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=8]
-resource_name = "enter_door"
+[sub_resource type="Animation" id=9]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -209,8 +273,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "exit_room"
+[sub_resource type="Animation" id=10]
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -249,8 +312,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "exit_supertunnel"
+[sub_resource type="Animation" id=11]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -301,8 +363,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "go_home"
+[sub_resource type="Animation" id=12]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -341,7 +402,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
 tracks/0/interp = 1
@@ -379,7 +440,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 6.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -418,7 +479,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../FrogPath/PathFollow2D:offset")
@@ -457,32 +518,32 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 59.2085, 60.4265 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 12, 5 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 9, 10 )
 
-[sub_resource type="CanvasItemMaterial" id=18]
+[sub_resource type="CanvasItemMaterial" id=19]
 
-[sub_resource type="Curve2D" id=19]
+[sub_resource type="Curve2D" id=20]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 3958, 112, 0, 0, 0, 0, 3965, 126, 0, 0, 0, 0, 3976, 131, 0, 0, 0, 0, 3984, 134, 0, 0, 0, 0, 3991, 140, 0, 0, 0, 0, 3992, 147, 0, 0, 0, 0, 3992, 164, 0, 0, 0, 0, 1292, 816, 0, 0, 0, 0, 1297, 836, 0, 0, 0, 0, 1310, 853, 0, 0, 0, 0, 1327, 865, 0, 0, 0, 0, 1357, 872, 0, 0, 0, 0, 1446, 875, 0, 0, 0, 0, 1492, 864, 0, 0, 0, 0, 1515, 852, 0, 0, 0, 0, 1532, 837, 0, 0, 0, 0, 1539, 820, 0, 0, 0, 0, 1540, 804, 0, 0, 0, 0, 1540, 776, 0, 0, 0, 0, 1542, 645, 0, 0, 0, 0, 1556, 608, 0, 0, 0, 0, 1581, 582, 0, 0, 0, 0, 1606, 560, 0, 0, 0, 0, 1631, 547, 0, 0, 0, 0, 1663, 542, 0, 0, 0, 0, 1685, 546, 0, 0, 0, 0, 1706, 557, 0, 0, 0, 0, 1718, 574, 0, 0, 0, 0, 1732, 589, 0, 0, 0, 0, 1749, 593, 0, 0, 0, 0, 1772, 591, 0, 0, 0, 0, 1778, 583, 0, 0, 0, 0, 1779, 579, 0, 0, 0, 0, 1787, 582, 0, 0, 0, 0, 1798, 583, 0, 0, 0, 0, 1811, 579, 0, 0, 0, 0, 1820, 570, 0, 0, 0, 0, 1821, 557 )
 }
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 13, 3 )
 
-[sub_resource type="CanvasItemMaterial" id=22]
+[sub_resource type="CanvasItemMaterial" id=23]
 light_mode = 2
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -515,50 +576,6 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=24]
-length = 6.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ) ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ true ],
-"method": "set_night_lights"
-}, {
-"args": [ false ],
-"method": "set_night_lights"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ) ]
-}
-
 [sub_resource type="Animation" id=25]
 length = 6.0
 tracks/0/type = "value"
@@ -568,10 +585,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.682353, 0.352941, 1 ), Color( 0.572549, 0.337255, 0.294118, 1 ) ]
+"values": [ Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("..")
@@ -583,10 +600,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ false ],
+"args": [ true ],
 "method": "set_night_lights"
 }, {
-"args": [ true ],
+"args": [ false ],
 "method": "set_night_lights"
 } ]
 }
@@ -597,10 +614,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 3, 6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.682353, 0.352941, 1 ), Color( 0.572549, 0.337255, 0.294118, 1 ) ]
+"values": [ Color( 0.176471, 0.192157, 0.345098, 1 ), Color( 0.760784, 0.592157, 0.356863, 1 ) ]
 }
 
 [sub_resource type="Animation" id=26]
@@ -612,10 +629,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.682353, 0.352941, 1 ), Color( 0.572549, 0.337255, 0.294118, 1 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("..")
@@ -624,9 +641,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ false ],
+"method": "set_night_lights"
+}, {
 "args": [ true ],
 "method": "set_night_lights"
 } ]
@@ -638,10 +658,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.682353, 0.352941, 1 ), Color( 0.572549, 0.337255, 0.294118, 1 ) ]
 }
 
 [sub_resource type="Animation" id=27]
@@ -656,6 +676,47 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
+"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_night_lights"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Background/ParallaxBackground/ParallaxLayer/outside_forest:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.572549, 0.337255, 0.294118, 1 ), Color( 0.176471, 0.192157, 0.345098, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
 "values": [ Color( 0.760784, 0.592157, 0.356863, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "method"
@@ -685,13 +746,13 @@ tracks/2/keys = {
 "values": [ Color( 0.760784, 0.592157, 0.356863, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 16, 10 )
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 24, 3 )
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=31]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorOverlay:color")
@@ -718,7 +779,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=32]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -745,7 +806,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=33]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -772,7 +833,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=34]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
@@ -799,8 +860,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=34]
-resource_name = "green_exit_bed"
+[sub_resource type="Animation" id=35]
 length = 3.0
 step = 0.05
 tracks/0/type = "value"
@@ -816,7 +876,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3268, 487 ), Vector2( 3247, 487 ), Vector2( 3247, 499 ), Vector2( 3247, 498 ), Vector2( 3247, 499 ) ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=36]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
 tracks/0/interp = 1
@@ -830,7 +890,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3868, 2078 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=37]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Dubble:position")
 tracks/0/interp = 1
@@ -868,8 +928,7 @@ tracks/2/keys = {
 "values": [ Vector2( 3167, 501 ) ]
 }
 
-[sub_resource type="Animation" id=37]
-resource_name = "orange_run_to_window"
+[sub_resource type="Animation" id=38]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Orange:position")
 tracks/0/interp = 1
@@ -883,7 +942,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3167, 501 ), Vector2( 3189, 491 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=38]
+[sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 14, 10 )
 
 [node name="5-1" groups=[
@@ -1091,7 +1150,7 @@ position = Vector2( 3268, 487 )
 "glasstown_prisoners",
 "save",
 ] instance=ExtResource( 86 )]
-position = Vector2( 3250, 530 )
+position = Vector2( 3250, 581 )
 script = ExtResource( 94 )
 interactable = false
 up_down_periodic_mirroring = true
@@ -1099,54 +1158,354 @@ up_down_periodic_mirroring = true
 [node name="DialogueTree" parent="YSort/Dubble" index="4" instance=ExtResource( 92 )]
 
 [node name="MissionGrassbulb" parent="YSort/Dubble/DialogueTree" index="0" instance=ExtResource( 91 )]
-message = "Ok welcome idiots. Give me grass bulb."
+message = "Oh. You're here."
 character = "dubble"
+expression = "unique"
+
+[node name="MissionGrassbulb2" parent="YSort/Dubble/DialogueTree/MissionGrassbulb" index="0" instance=ExtResource( 91 )]
+message = "Yes. I am elated."
+character = "dubble"
+expression = "grin"
+
+[node name="MissionGrassbulb3" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2" index="0" instance=ExtResource( 91 )]
+message = "Okay, so, I know a way to help you get out of here in less than 140 years."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionGrassbulb4" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3" index="0" instance=ExtResource( 91 )]
+message = "I will build you a bomb that will explode the outer wall."
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionGrassbulb5" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4" index="0" instance=ExtResource( 91 )]
+message = "However, in exchange, you must get me the materials required to make the bomb [tornado radius=2 freq=10]``and``[/tornado] you must place the bomb in the right spot."
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionGrassbulb6" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5" index="0" instance=ExtResource( 91 )]
+message = "Sounds like a deal?"
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionGrassbulb7" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6" index="0" instance=ExtResource( 91 )]
+message = "Green, I'm not even going to give you a choice here. We have to get out of here `A`S`A`P`! Or else we're going to, you know, dissapoint the Amazing Cats Club ``and`` explode."
+character = "orange"
+expression = "cry_sob"
+
+[node name="MissionGrassbulb8" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7" index="0" instance=ExtResource( 91 )]
+message = "Yes, Bubble, we will gladly accept."
+character = "orange"
+expression = "cry_recover"
+
+[node name="MissionGrassbulb9" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8" index="0" instance=ExtResource( 91 )]
+message = "I'm `sorry..."
+character = "dubble"
+expression = "smile"
+
+[node name="MissionGrassbulb10" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8/MissionGrassbulb9" index="0" instance=ExtResource( 91 )]
+message = "[shake rate=70 level=8]BUBBLE?![/shake]"
+text_delay = 0.01
+character = "dubble"
+expression = "drunk"
+
+[node name="MissionGrassbulb11" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8/MissionGrassbulb9/MissionGrassbulb10" index="0" instance=ExtResource( 91 )]
+message = "No. Wrong. Never call me that again."
+character = "dubble"
+expression = "unique"
+
+[node name="MissionGrassbulb12" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8/MissionGrassbulb9/MissionGrassbulb10/MissionGrassbulb11" index="0" instance=ExtResource( 91 )]
+message = "The name's ``DUBBLE.``"
+character = "dubble"
+expression = "angry"
+
+[node name="MissionGrassbulb13" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8/MissionGrassbulb9/MissionGrassbulb10/MissionGrassbulb11/MissionGrassbulb12" index="0" instance=ExtResource( 91 )]
+message = "Anyways. I'm glad you accepted. Let me start with asking for our first bomb ingredient..."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionGrassbulb14" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8/MissionGrassbulb9/MissionGrassbulb10/MissionGrassbulb11/MissionGrassbulb12/MissionGrassbulb13" index="0" instance=ExtResource( 91 )]
+message = "I need you to collect some 'orange grass bulbs'. There's only one patch of them in this entire prison, so it shouldn't be too difficult."
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionGrassbulb15" parent="YSort/Dubble/DialogueTree/MissionGrassbulb/MissionGrassbulb2/MissionGrassbulb3/MissionGrassbulb4/MissionGrassbulb5/MissionGrassbulb6/MissionGrassbulb7/MissionGrassbulb8/MissionGrassbulb9/MissionGrassbulb10/MissionGrassbulb11/MissionGrassbulb12/MissionGrassbulb13/MissionGrassbulb14" index="0" instance=ExtResource( 91 )]
+message = "Got it? Good. Great. Now get on with it."
+character = "dubble"
+expression = "smile"
 
 [node name="MissionGrassbulbReminder" parent="YSort/Dubble/DialogueTree" index="1" instance=ExtResource( 91 )]
-message = "Grassbulb reminder"
+message = "How's that mission going? Did you somehow forget?"
 character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionGrassbulbReminder2" parent="YSort/Dubble/DialogueTree/MissionGrassbulbReminder" index="0" instance=ExtResource( 91 )]
+key = "Great"
+message = "It's going great, thanks."
+character = "green"
+expression = "open_mouth"
+
+[node name="MissionGrassbulbReminder4" parent="YSort/Dubble/DialogueTree/MissionGrassbulbReminder/MissionGrassbulbReminder2" index="0" instance=ExtResource( 91 )]
+message = "Okay."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionGrassbulbReminder3" parent="YSort/Dubble/DialogueTree/MissionGrassbulbReminder" index="1" instance=ExtResource( 91 )]
+key = "Remind"
+message = "No. I need help remembering."
+character = "green"
+expression = "open_mouth"
+
+[node name="MissionGrassbulbReminder4" parent="YSort/Dubble/DialogueTree/MissionGrassbulbReminder/MissionGrassbulbReminder3" index="0" instance=ExtResource( 91 )]
+message = "Wow. Impressive. Welp, you just gotta go grab an 'orange grass bulb' and bring it back to me."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionGrassbulbReminder5" parent="YSort/Dubble/DialogueTree/MissionGrassbulbReminder/MissionGrassbulbReminder3/MissionGrassbulbReminder4" index="0" instance=ExtResource( 91 )]
+message = "In fact, there might even be one ``RIGHT`` in front of this cabin."
+character = "dubble"
+expression = "smile"
 
 [node name="MissionGlitter" parent="YSort/Dubble/DialogueTree" index="2" instance=ExtResource( 91 )]
-message = "Glitter."
+message = "Okay, good, you `FINALLY` completed the intentionally easy task. "
 character = "dubble"
+expression = "neutral"
+
+[node name="MissionGlitter2" parent="YSort/Dubble/DialogueTree/MissionGlitter" index="0" instance=ExtResource( 91 )]
+message = "Next ingredient is gonna be some fresh glitter."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionGlitter3" parent="YSort/Dubble/DialogueTree/MissionGlitter/MissionGlitter2" index="0" instance=ExtResource( 91 )]
+message = "All you need to do is talk to Sarah, who's currently hosting a party right down this street. She'll have some."
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionGlitter4" parent="YSort/Dubble/DialogueTree/MissionGlitter/MissionGlitter2/MissionGlitter3" index="0" instance=ExtResource( 91 )]
+message = "Got it? I don't care if you did. Go. Get the glitter and bring it back."
+character = "dubble"
+expression = "side_mouth"
 
 [node name="MissionGlitterReminder" parent="YSort/Dubble/DialogueTree" index="3" instance=ExtResource( 91 )]
-message = "Glitter reminder."
+message = "Do you need the directions again?"
 character = "dubble"
+expression = "angry"
+
+[node name="MissionGlitterReminder2" parent="YSort/Dubble/DialogueTree/MissionGlitterReminder" index="0" instance=ExtResource( 91 )]
+key = "Yes"
+message = "Yes please."
+character = "green"
+expression = "open_mouth"
+
+[node name="MissionGlitterReminder4" parent="YSort/Dubble/DialogueTree/MissionGlitterReminder/MissionGlitterReminder2" index="0" instance=ExtResource( 91 )]
+message = "Go directly west of this building until you find the two-story cabin. In there, find Sarah and ask for glitter. And give it to me."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionGlitterReminder3" parent="YSort/Dubble/DialogueTree/MissionGlitterReminder" index="1" instance=ExtResource( 91 )]
+key = "No"
+message = "No, we're good."
+character = "green"
+expression = "open_mouth"
 
 [node name="MissionToiletpaper" parent="YSort/Dubble/DialogueTree" index="4" instance=ExtResource( 91 )]
-message = "Toilet paper."
+message = "You guys aren't too bad at this."
 character = "dubble"
+expression = "frown"
+
+[node name="MissionToiletpaper2" parent="YSort/Dubble/DialogueTree/MissionToiletpaper" index="0" instance=ExtResource( 91 )]
+message = "Now I'll need a [rainbow freq=2 sat=4]toilet paper roll[/rainbow]. All you gotta do is go to the frog guy that lives up north, and he'll direct you from there. "
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionToiletpaper5" parent="YSort/Dubble/DialogueTree/MissionToiletpaper/MissionToiletpaper2" index="0" instance=ExtResource( 91 )]
+message = "Yea, we don't normally use toilet paper here. That frog is the only guy here who knows where any is."
+character = "dubble"
+expression = "unique"
+
+[node name="MissionToiletpaper3" parent="YSort/Dubble/DialogueTree/MissionToiletpaper/MissionToiletpaper2/MissionToiletpaper5" index="0" instance=ExtResource( 91 )]
+message = "Describing its location will take too long, but fortunately it's marked on the map machine. "
+character = "dubble"
+expression = "frown"
+
+[node name="MissionToiletpaper4" parent="YSort/Dubble/DialogueTree/MissionToiletpaper/MissionToiletpaper2/MissionToiletpaper5/MissionToiletpaper3" index="0" instance=ExtResource( 91 )]
+message = "Now go. And make sure to come back once you're done. And don't get... lost."
+character = "dubble"
+expression = "open_mouth"
 
 [node name="MissionToiletpaperReminder" parent="YSort/Dubble/DialogueTree" index="5" instance=ExtResource( 91 )]
-message = "Toilet paper reminder."
+message = "Here's a reminder for you, buddy: Check the map. Go to the frog's place, ask about the 'paper, and he'll direct you from there."
 character = "dubble"
+expression = "open_mouth"
 
 [node name="MissionTortilla" parent="YSort/Dubble/DialogueTree" index="6" instance=ExtResource( 91 )]
-message = "Tortilla."
+message = "Wow, I'm surprised you made it out alive. Or at least this version of you did."
 character = "dubble"
+expression = "frown"
 function = "set_time_dusk"
 
-[node name="MissionTortillaReminder" parent="YSort/Dubble/DialogueTree" index="7" instance=ExtResource( 91 )]
-message = "Tortilla reminder."
+[node name="MissionTortilla2" parent="YSort/Dubble/DialogueTree/MissionTortilla" index="0" instance=ExtResource( 91 )]
+message = "Okay, I think we're almost there for our ingredients. Now go fetch me a finely tortured tortilla."
 character = "dubble"
+expression = "smile"
+
+[node name="MissionTortilla3" parent="YSort/Dubble/DialogueTree/MissionTortilla/MissionTortilla2" index="0" instance=ExtResource( 91 )]
+message = "Remember that two-story cabin you went to when getting glitter? That house just west of this place?"
+character = "dubble"
+expression = "side_mouth"
+
+[node name="MissionTortilla4" parent="YSort/Dubble/DialogueTree/MissionTortilla/MissionTortilla2/MissionTortilla3" index="0" instance=ExtResource( 91 )]
+message = "Because now you need to go check out the cabin just west of it. That's gonna be the westmost house of the street we're on. Got it?"
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionTortilla5" parent="YSort/Dubble/DialogueTree/MissionTortilla/MissionTortilla2/MissionTortilla3/MissionTortilla4" index="0" instance=ExtResource( 91 )]
+message = "No, I don't care if you did. I've given you enough hints."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionTortilla6" parent="YSort/Dubble/DialogueTree/MissionTortilla/MissionTortilla2/MissionTortilla3/MissionTortilla4/MissionTortilla5" index="0" instance=ExtResource( 91 )]
+message = "Once you enter that cabin, just torture the tortilla in it and give it back to me."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionTortilla7" parent="YSort/Dubble/DialogueTree/MissionTortilla/MissionTortilla2/MissionTortilla3/MissionTortilla4/MissionTortilla5/MissionTortilla6" index="0" instance=ExtResource( 91 )]
+message = "Now go. Torture that tortilla [tornado radius=2 freq=15]good[/tornado]."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionTortillaReminder" parent="YSort/Dubble/DialogueTree" index="7" instance=ExtResource( 91 )]
+message = "Need help remembering? "
+character = "dubble"
+expression = "frown"
+
+[node name="MissionTortillaReminder5" parent="YSort/Dubble/DialogueTree/MissionTortillaReminder" index="0" instance=ExtResource( 91 )]
+key = "No"
+message = "Okay. Cool."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionTortillaReminder2" parent="YSort/Dubble/DialogueTree/MissionTortillaReminder" index="1" instance=ExtResource( 91 )]
+key = "Yes"
+message = "Go to the house two houses down of from left of this house, or just one house dow... You know what, let me just..."
+character = "dubble"
+expression = "open_mouth"
+function = "show_player_tortilla"
+
+[node name="MissionTortillaReminder3" parent="YSort/Dubble/DialogueTree/MissionTortillaReminder/MissionTortillaReminder2" index="0" instance=ExtResource( 91 )]
+message = "NNRRRGHNNNGNGNGNGNGGGGGAAAAAAAAAAAAAAAAAAA"
+character = "dubble"
+expression = "yell_outburst"
+
+[node name="MissionTortillaReminder4" parent="YSort/Dubble/DialogueTree/MissionTortillaReminder/MissionTortillaReminder2/MissionTortillaReminder3" index="0" instance=ExtResource( 91 )]
+message = "Do you/did you see it?! Anyways, yea, that's where you go."
+character = "dubble"
+expression = "yell_outburst"
 
 [node name="MissionBomb" parent="YSort/Dubble/DialogueTree" index="8" instance=ExtResource( 91 )]
-message = "Bomb."
+message = "Wow. You really went wild on that tortilla."
 character = "dubble"
+expression = "neutral"
+
+[node name="MissionBomb2" parent="YSort/Dubble/DialogueTree/MissionBomb" index="0" instance=ExtResource( 91 )]
+message = "Okay, we are on the VERY LAST ingredient. I am going to need a bomb to complete this explosive device."
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionBomb3" parent="YSort/Dubble/DialogueTree/MissionBomb/MissionBomb2" index="0" instance=ExtResource( 91 )]
+message = "All you have to do is go to the enterance of the refinery (the building furthest north) and ask the guard in front for a bomb."
+character = "dubble"
+expression = "open_mouth"
 
 [node name="MissionBombReminder" parent="YSort/Dubble/DialogueTree" index="9" instance=ExtResource( 91 )]
-message = "Bomb reminder."
+message = "Don't remember? Just go north as much as is possible. There, you'll find a big grey building with purple windows. Ask the guard in front for a bomb. Then give it to me. Boom. Done."
 character = "dubble"
+expression = "frown"
 
 [node name="MissionPlantBomb" parent="YSort/Dubble/DialogueTree" index="10" instance=ExtResource( 91 )]
-message = "Okay, now plant the bomb."
+message = "Wow, I had no idea the guards had such good bombs."
 character = "dubble"
+expression = "smile"
+
+[node name="MissionPlantBomb2" parent="YSort/Dubble/DialogueTree/MissionPlantBomb" index="0" instance=ExtResource( 91 )]
+message = "Okay, I'm just gonna throw together this finished product..........................and..................."
+character = "dubble"
+expression = "side_mouth"
 function = "give_finished_bomb"
 
-[node name="MissionPlantBombReminder" parent="YSort/Dubble/DialogueTree" index="11" instance=ExtResource( 91 )]
-message = "Plant bomb in refinery. Remember?"
+[node name="MissionPlantBomb3" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2" index="0" instance=ExtResource( 91 )]
+message = "Here ya go."
 character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionPlantBomb4" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3" index="0" instance=ExtResource( 91 )]
+message = "Now, listen carefully."
+character = "dubble"
+expression = "closeup"
+
+[node name="MissionPlantBomb5" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4" index="0" instance=ExtResource( 91 )]
+message = "You are going to now place this bomb for me. There is a ``VERY`` specifc spot`` you need to place this bomb."
+character = "dubble"
+expression = "frown"
+
+[node name="MissionPlantBomb6" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5" index="0" instance=ExtResource( 91 )]
+message = "Inside of that refinery up north, I need you to go as far into it as you can, and place the bomb in the storage room. "
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionPlantBomb7" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5/MissionPlantBomb6" index="0" instance=ExtResource( 91 )]
+message = "Then you need to run south as FAST as you can, because the bomb has a timer."
+character = "dubble"
+expression = "angry"
+
+[node name="MissionPlantBomb8" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5/MissionPlantBomb6/MissionPlantBomb7" index="0" instance=ExtResource( 91 )]
+message = "Once you're at the southernmost point of this prison, you'll find a concrete building. That's going to be our blast shelter."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionPlantBomb9" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5/MissionPlantBomb6/MissionPlantBomb7/MissionPlantBomb8" index="0" instance=ExtResource( 91 )]
+message = "Enter the building, and I'll meet you on the roof."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionPlantBomb10" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5/MissionPlantBomb6/MissionPlantBomb7/MissionPlantBomb8/MissionPlantBomb9" index="0" instance=ExtResource( 91 )]
+message = "And don't worry about the other prisoners here, I'll make sure to keep them safe and bring them with me."
+character = "dubble"
+expression = "open_mouth"
+
+[node name="MissionPlantBomb11" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5/MissionPlantBomb6/MissionPlantBomb7/MissionPlantBomb8/MissionPlantBomb9/MissionPlantBomb10" index="0" instance=ExtResource( 91 )]
+message = "Got it? Good. After you plant that bomb, don't go in here looking for a reminder of what to do afterwards, because I'll be in the blast shelter."
+character = "dubble"
+expression = "side_mouth"
+
+[node name="MissionPlantBomb12" parent="YSort/Dubble/DialogueTree/MissionPlantBomb/MissionPlantBomb2/MissionPlantBomb3/MissionPlantBomb4/MissionPlantBomb5/MissionPlantBomb6/MissionPlantBomb7/MissionPlantBomb8/MissionPlantBomb9/MissionPlantBomb10/MissionPlantBomb11" index="0" instance=ExtResource( 91 )]
+message = "Okay, I'm going to let you off now. It's getting pretty late, so make it quick."
+character = "dubble"
+expression = "side_mouth"
+
+[node name="MissionPlantBombReminder" parent="YSort/Dubble/DialogueTree" index="11" instance=ExtResource( 91 )]
+message = "Need a reminder?"
+character = "dubble"
+expression = "frown"
+
+[node name="MissionPlantBombReminder2" parent="YSort/Dubble/DialogueTree/MissionPlantBombReminder" index="0" instance=ExtResource( 91 )]
+key = "Yes"
+message = "Yes, please."
+character = "green"
+expression = "frown"
+
+[node name="MissionPlantBombReminder4" parent="YSort/Dubble/DialogueTree/MissionPlantBombReminder/MissionPlantBombReminder2" index="0" instance=ExtResource( 91 )]
+message = "Plant the bomb in the storage area of the refinery that's up north. Then run south as far as you can until you find the concrete building that we'll use as a blast shelter."
+character = "dubble"
+expression = "neutral"
+
+[node name="MissionPlantBombReminder3" parent="YSort/Dubble/DialogueTree/MissionPlantBombReminder" index="1" instance=ExtResource( 91 )]
+key = "No"
+message = "No, I don't need one."
+character = "green"
+expression = "frown"
+
+[node name="CameraMover" type="AnimationPlayer" parent="YSort/Dubble" index="5"]
+anims/MoveToHouse = SubResource( 1 )
 
 [node name="Sarah" parent="YSort" index="4" groups=[
 "glasstown_prisoners",
@@ -1160,7 +1519,7 @@ margin_top = -2.0
 margin_right = 6.0
 
 [node name="AnimatedSprite" parent="YSort/Sarah" index="3"]
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 offset = Vector2( 0, -15 )
 
 [node name="DialogueTree" parent="YSort/Sarah" index="4" instance=ExtResource( 92 )]
@@ -1217,18 +1576,19 @@ script = ExtResource( 104 )
 interactable = false
 
 [node name="CharacterMover" type="AnimationPlayer" parent="YSort/PrisonerFrog" index="4"]
-anims/enter_door = SubResource( 8 )
-anims/exit_room = SubResource( 9 )
-anims/exit_supertunnel = SubResource( 10 )
-anims/go_home = SubResource( 11 )
-anims/idle_in_room = SubResource( 12 )
-anims/lead_from_house = SubResource( 13 )
-anims/lead_into_forest = SubResource( 14 )
+anims/enter_door = SubResource( 9 )
+anims/exit_room = SubResource( 10 )
+anims/exit_supertunnel = SubResource( 11 )
+anims/go_home = SubResource( 12 )
+anims/idle_in_room = SubResource( 13 )
+anims/lead_from_house = SubResource( 14 )
+anims/lead_into_forest = SubResource( 15 )
 
 [node name="DialogueTree" parent="YSort/PrisonerFrog" index="5" instance=ExtResource( 92 )]
 
 [node name="PreMission" parent="YSort/PrisonerFrog/DialogueTree" index="0" instance=ExtResource( 91 )]
-message = "premission"
+message = "Hi, little greeny and little orange."
+face_texture = ExtResource( 115 )
 
 [node name="Intro" parent="YSort/PrisonerFrog/DialogueTree" index="1" instance=ExtResource( 91 )]
 message = "Sir, do you have toilet paper?"
@@ -1241,36 +1601,48 @@ character = "orange"
 expression = "smile"
 function = "exit_house"
 
+[node name="Intro3" parent="YSort/PrisonerFrog/DialogueTree/Intro/Intro2" index="0" instance=ExtResource( 91 )]
+message = "Follow me."
+face_texture = ExtResource( 115 )
+function = "exit_house"
+
 [node name="LeadFromHouse" parent="YSort/PrisonerFrog/DialogueTree" index="2" instance=ExtResource( 91 )]
-message = "i'll lead you from the house now"
+message = "Good. You're following. Now follow more."
+face_texture = ExtResource( 115 )
 function = "lead_from_house"
 
 [node name="LeadIntoForest" parent="YSort/PrisonerFrog/DialogueTree" index="3" instance=ExtResource( 91 )]
-message = "let's go into the forest"
+message = "Yes. We're entering forests. Yes. Follow."
+face_texture = ExtResource( 115 )
 function = "lead_into_forest"
 
 [node name="OpenDoor" parent="YSort/PrisonerFrog/DialogueTree" index="4" instance=ExtResource( 91 )]
-message = "let me help you open this door"
+message = "This door is a little closed. It should be reverse closed. Let me fix that."
+face_texture = ExtResource( 115 )
 
 [node name="OpenDoor2" parent="YSort/PrisonerFrog/DialogueTree/OpenDoor" index="0" instance=ExtResource( 91 )]
-message = "Okay, I got it. See you on the other side."
+message = "Fantastical! I cracked it open! Reverse closed!"
+face_texture = ExtResource( 115 )
 function = "open_door"
 
 [node name="CloseDoor" parent="YSort/PrisonerFrog/DialogueTree" index="5" instance=ExtResource( 91 )]
 message = "That was super weird. I'm going to close the door now. Let's hope we get to never enter that building again."
+face_texture = ExtResource( 115 )
 function = "close_door"
 
 [node name="CloseDoor2" parent="YSort/PrisonerFrog/DialogueTree/CloseDoor" index="0" instance=ExtResource( 91 )]
-message = "Well, you got your toilet paper and my job is done. I'm going to go home, guys. Enjoy your day."
+message = "Well, you got your toilet paper and my job is done. I'm go home. Have your day with joy."
+face_texture = ExtResource( 115 )
 function = "go_home"
 
 [node name="PostMission" parent="YSort/PrisonerFrog/DialogueTree" index="6" instance=ExtResource( 91 )]
-message = "that was fun"
+message = "I hope you explode ````the wall so we can finally get away from that scary tunnel. "
+face_texture = ExtResource( 115 )
 
 [node name="TriggerArea" type="Area2D" parent="YSort/PrisonerFrog" index="6"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/PrisonerFrog/TriggerArea" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 disabled = true
 
 [node name="Guard" parent="YSort" index="6" instance=ExtResource( 111 )]
@@ -1316,7 +1688,7 @@ hframes = 2
 [node name="Interaction" type="Area2D" parent="YSort/OrangeGrassBulbs" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeGrassBulbs/Interaction" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 17 )
 
 [node name="DialogueTree" parent="YSort/OrangeGrassBulbs" index="2" instance=ExtResource( 92 )]
 
@@ -1337,7 +1709,7 @@ script = ExtResource( 109 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TortillaTable/Tortilla/Interaction" index="0"]
 position = Vector2( 0, 5 )
-shape = SubResource( 17 )
+shape = SubResource( 18 )
 
 [node name="CorruptVegetation" type="YSort" parent="YSort" index="9"]
 
@@ -2019,7 +2391,7 @@ position = Vector2( -13, 501 )
 position = Vector2( 1697, 1088 )
 
 [node name="tree3_A7" parent="YSort/Vegetation" index="149" instance=ExtResource( 17 )]
-material = SubResource( 18 )
+material = SubResource( 19 )
 position = Vector2( 268, 1626 )
 
 [node name="tree3_A8" parent="YSort/Vegetation" index="150" instance=ExtResource( 17 )]
@@ -2792,7 +3164,7 @@ position = Vector2( 708, 825 )
 position = Vector2( 1209, 1537 )
 
 [node name="FrogPath" type="Path2D" parent="." index="7"]
-curve = SubResource( 19 )
+curve = SubResource( 20 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="FrogPath" index="0"]
 position = Vector2( 1779.36, 580.556 )
@@ -2951,7 +3323,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal" index="1"]
 position = Vector2( 2449, -669 )
@@ -2962,7 +3334,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal16" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal16" index="1"]
 position = Vector2( 2783, -685 )
@@ -2973,7 +3345,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal3" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2987,7 +3359,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal4" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3001,7 +3373,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal5" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3015,7 +3387,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal6" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3029,7 +3401,7 @@ new_song = ExtResource( 105 )
 fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal7" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3044,7 +3416,7 @@ start_from_beginning = true
 fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal14" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3059,7 +3431,7 @@ start_from_beginning = true
 fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal18" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3074,7 +3446,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal2" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal2" index="1"]
 position = Vector2( -2448, 681 )
@@ -3086,7 +3458,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal8" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal8" index="1"]
 position = Vector2( -2526, 469 )
@@ -3098,7 +3470,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal9" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal9" index="1"]
 position = Vector2( -2720, 203 )
@@ -3110,7 +3482,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal10" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal10" index="1"]
 position = Vector2( -2503, 233 )
@@ -3122,7 +3494,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal11" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal11" index="1"]
 position = Vector2( -2529, -165 )
@@ -3134,7 +3506,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal12" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal12" index="1"]
 position = Vector2( -2771, -596 )
@@ -3147,7 +3519,7 @@ fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal13" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal13" index="1"]
 position = Vector2( -2580, -621 )
@@ -3160,7 +3532,7 @@ fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal17" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal17" index="1"]
 position = Vector2( -2255, -606 )
@@ -3172,7 +3544,7 @@ fade_time = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortals/PositionPortal15" index="0"]
 position = Vector2( 1, 8 )
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortals/PositionPortal15" index="1"]
 position = Vector2( -2782, 691 )
@@ -3197,7 +3569,7 @@ motion_mirroring = Vector2( 512, 512 )
 
 [node name="canopy_shadow" type="Sprite" parent="CanopyShadowPBG/ParallaxLayer" index="0"]
 light_mask = 2
-material = SubResource( 22 )
+material = SubResource( 23 )
 texture = ExtResource( 37 )
 offset = Vector2( 256, 0 )
 
@@ -3205,11 +3577,14 @@ offset = Vector2( 256, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 playback_speed = 0.5
-anims/cycle = SubResource( 23 )
-anims/dawn = SubResource( 24 )
-anims/dusk = SubResource( 25 )
-anims/night = SubResource( 26 )
-anims/noon = SubResource( 27 )
+anims/cycle = SubResource( 24 )
+anims/dawn = SubResource( 25 )
+anims/dusk = SubResource( 26 )
+anims/night = SubResource( 27 )
+anims/noon = SubResource( 28 )
+
+[node name="Camera" parent="." index="14"]
+position = Vector2( 192, 108 )
 
 [node name="RefineryPortal" parent="." index="16" instance=ExtResource( 81 )]
 new_scene = "res://Rooms/Area5/5-2/5-2.tscn"
@@ -3217,24 +3592,23 @@ player_new_position = Vector2( -128, 233 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RefineryPortal" index="0"]
 position = Vector2( 448, -122 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="ScenePortal2" parent="." index="17" instance=ExtResource( 81 )]
 position = Vector2( 1816, 555 )
 script = ExtResource( 107 )
 new_scene = "res://Rooms/Area5/5-4/5-4.tscn"
 player_new_position = Vector2( 167, -373 )
-starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal2" index="0"]
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="EscapePortal" parent="." index="18" instance=ExtResource( 81 )]
 position = Vector2( 944, 1975 )
 new_scene = "res://Cutscenes/GlasstownExplosion/GlasstownExplosion.tscn"
 
 [node name="EscapePortalCollision" type="CollisionShape2D" parent="EscapePortal" index="0"]
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 disabled = true
 
 [node name="DubbleIntroEvent" type="Node2D" parent="." index="19" groups=[
@@ -3245,7 +3619,7 @@ z_index = 1
 script = ExtResource( 90 )
 
 [node name="OverlayAnimator" type="AnimationPlayer" parent="DubbleIntroEvent" index="0"]
-anims/wake_up = SubResource( 30 )
+anims/wake_up = SubResource( 31 )
 
 [node name="ColorOverlay" type="ColorRect" parent="DubbleIntroEvent" index="1"]
 visible = false
@@ -3299,6 +3673,7 @@ function = "green_wake"
 message = "Awake."
 character = "green"
 expression = "side_mouth"
+function = "set_time_day"
 
 [node name="DubbleTalk" parent="DubbleIntroEvent/DialogueTree" index="1" instance=ExtResource( 91 )]
 message = "Good evening, juicebrains."
@@ -3306,40 +3681,44 @@ character = "dubble"
 expression = "open_mouth"
 
 [node name="DubbleTalk2" parent="DubbleIntroEvent/DialogueTree/DubbleTalk" index="0" instance=ExtResource( 91 )]
-message = "You're going to have a fun time here."
+message = "My name is Dubble. It's nice to meet you."
 character = "dubble"
 expression = "frown"
 
 [node name="DubbleTalk3" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2" index="0" instance=ExtResource( 91 )]
-message = "Enjoy your stay."
+message = "It doesn't look like you guys really want to be here, eh?"
 character = "dubble"
-expression = "unique"
-
-[node name="DubbleTalk5" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3" index="0" instance=ExtResource( 91 )]
-message = "..."
-character = "orange"
 expression = "confused"
 
-[node name="DubbleTalk4" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3/DubbleTalk5" index="0" instance=ExtResource( 91 )]
-message = "Hey, Travis, this is just temporary dialogue. Use it if you want. Or not."
-character = "dubble"
-expression = "open_mouth"
-function = "set_time_day"
+[node name="DubbleTalk4" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3" index="0" instance=ExtResource( 91 )]
+message = "`"
+character = "orange"
+expression = "cry_mourn"
 
-[node name="DubbleTalk5" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3/DubbleTalk5/DubbleTalk4" index="0" instance=ExtResource( 91 )]
-message = "bla bla ok guys, whenever you want meet me at the house farthest south. I'll give you a deal bla bla bla."
+[node name="DubbleTalk5" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3/DubbleTalk4" index="0" instance=ExtResource( 91 )]
+message = "Yea, I thought so. Well, if you want, you can meet me at the cabin furthest south and we can make a deal."
 character = "dubble"
 expression = "open_mouth"
+
+[node name="DubbleTalk6" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3/DubbleTalk4/DubbleTalk5" index="0" instance=ExtResource( 91 )]
+message = "Or you can stay in this prison for the rest of your life."
+character = "dubble"
+expression = "frown"
+
+[node name="DubbleTalk7" parent="DubbleIntroEvent/DialogueTree/DubbleTalk/DubbleTalk2/DubbleTalk3/DubbleTalk4/DubbleTalk5/DubbleTalk6" index="0" instance=ExtResource( 91 )]
+message = "Your choice."
+character = "dubble"
+expression = "smug"
 function = "dubble_intro_end"
 
 [node name="CharacterMovement" type="AnimationPlayer" parent="DubbleIntroEvent" index="3"]
-anims/dubble_enter_room = SubResource( 31 )
-anims/dubble_exit_room = SubResource( 32 )
-anims/dubble_walk_by = SubResource( 33 )
-anims/green_exit_bed = SubResource( 34 )
-anims/idle_behind_desk = SubResource( 35 )
-anims/idle_hide_behind_wall = SubResource( 36 )
-anims/orange_run_to_window = SubResource( 37 )
+anims/dubble_enter_room = SubResource( 32 )
+anims/dubble_exit_room = SubResource( 33 )
+anims/dubble_walk_by = SubResource( 34 )
+anims/green_exit_bed = SubResource( 35 )
+anims/idle_behind_desk = SubResource( 36 )
+anims/idle_hide_behind_wall = SubResource( 37 )
+anims/orange_run_to_window = SubResource( 38 )
 
 [node name="DoorKnockAudio" type="AudioStreamPlayer" parent="DubbleIntroEvent" index="4"]
 stream = ExtResource( 93 )
@@ -3348,13 +3727,15 @@ stream = ExtResource( 93 )
 position = Vector2( 40, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DubbleIntroEvent/ActivateArea" index="0"]
-shape = SubResource( 38 )
+shape = SubResource( 39 )
 
 [node name="Tween" type="Tween" parent="DubbleIntroEvent" index="6"]
 [connection signal="body_entered" from="YSort/PrisonerFrog/TriggerArea" to="YSort/PrisonerFrog" method="_on_TriggerArea_body_entered"]
 [connection signal="body_entered" from="DubbleIntroEvent/ActivateArea" to="DubbleIntroEvent" method="_on_ActivateArea_body_entered"]
 
 [editable path="YSort/cabin1_A_interior2"]
+
+[editable path="YSort/Dubble"]
 
 [editable path="YSort/Sarah"]
 

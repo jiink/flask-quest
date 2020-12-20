@@ -21,6 +21,6 @@ func start_tv_event():
 	$TV.set_tv_active(true)
 	yield(get_tree().create_timer(0.6), "timeout")
 	DiagHelper.start_talk($TV)
-	global.get_player(1).direction = "left"
-	global.get_player(2).direction = "left"
+	global.get_player(1).direction = 6
+	global.get_player(2).direction = 6
 	tv_event_seen = true

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Engine/light2.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Area2/Assets/beach_background.png" type="Texture" id=2]
+[ext_resource path="res://Engine/white.png" type="Texture" id=3]
+[ext_resource path="res://Engine/light5.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec4 light_col : hint_color;
+uniform float brightness : hint_range(0, 10) = 4.0;
+uniform float boost = 0.0;
+//uniform float ratio : hint_range(0.01, 100) = 5.0;
+
+void fragment(){
+	
+	float tex_val = texture(TEXTURE, UV).r;
+	vec3 col = textureLod(SCREEN_TEXTURE,SCREEN_UV,0.0).rgb;
+	//float limited_tex_val = round(log(tex_val * brightness));
+	float limited_tex_val = round(pow(tex_val * brightness, 2.0));
+	limited_tex_val *= (boost / 10.0);
+		
+	COLOR.rgb = col + (limited_tex_val * light_col.rgb);
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/light_col = Color( 0.690196, 0.419608, 1, 1 )
+shader_param/brightness = 1.953
+shader_param/boost = 2.086
+
+[node name="Light" type="Node2D"]
+
+[node name="beach_background" type="Sprite" parent="."]
+modulate = Color( 0.866667, 0.866667, 0.866667, 1 )
+position = Vector2( -73, 46 )
+scale = Vector2( 2.05729, 2.50463 )
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -244, 146 )
+texture = ExtResource( 1 )
+energy = 0.86
+
+[node name="Darkness" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 0
+position = Vector2( 90, -4 )
+scale = Vector2( 5.84375, 5.75 )
+texture = ExtResource( 3 )
+
+[node name="Light" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 54, -15 )
+texture = ExtResource( 4 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2( -226, -54 )
+color = Color( 0, 0, 0, 1 )

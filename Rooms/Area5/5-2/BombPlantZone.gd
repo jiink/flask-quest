@@ -5,6 +5,7 @@ onready var bomb = get_node("../YSort/Bomb")
 var interacting_player = 1
 var dubble_quest_status = 0
 var bomb_planted = false
+var gave_instructions = false
 
 func save(save_game):
 	save_game.data[SAVE_KEY + "planted"] = bomb_planted
@@ -16,13 +17,14 @@ func load(save_game):
 	dubble_quest_status = save_game.data["5-1_dubble_quest_status"]
 	if bomb_planted:
 		bomb.visible = true
+		$BombAudio.position = bomb.position + position
+		$BombAudio.playing = true
 	else:
 		bomb.visible = false
 	
 func interact():
 	# 11 is Dubble's last mission 
-	if (dubble_quest_status == 11) and \
-	(ItemManager.inventory.has("glasstown_finished_bomb_item")):
+	if (ItemManager.inventory.has("glasstown_finished_bomb_item")):
 		var player = global.get_player(1)
 		var bomb_position_modifier = Vector2(0,0)
 		bomb_planted = true
@@ -44,6 +46,15 @@ func interact():
 			"leftup":
 				bomb_position_modifier = Vector2(-6,-6)
 		bomb.position = player.position + bomb_position_modifier + Vector2(0,-8)
+		$BombAudio.position = bomb.position + position
+		$BombAudio.playing = true
 		bomb.visible = true
 		ItemManager.toss_item('glasstown_finished_bomb_item', ItemManager.ANY, true)
 		MusicManager.change_music("res://Music/goodvibes-battle.ogg", true, 0)
+
+
+func _on_Interaction_body_entered(body):
+	if body == global.get_player() and bomb_planted == false and \
+	(ItemManager.inventory.has("glasstown_finished_bomb_item")):
+		DiagHelper.start_talk(self)
+		gave_instructions = true

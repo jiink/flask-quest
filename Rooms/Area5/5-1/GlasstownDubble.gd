@@ -99,3 +99,6 @@ func set_time_night():
 
 func give_finished_bomb():
 	ItemManager.give_item("glasstown_finished_bomb_item")
+
+func show_player_tortilla():
+	$CameraMover.play("MoveToHouse")

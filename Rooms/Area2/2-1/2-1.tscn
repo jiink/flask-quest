@@ -1,4 +1,4 @@
-[gd_scene load_steps=252 format=2]
+[gd_scene load_steps=253 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -188,6 +188,7 @@
 [ext_resource path="res://NPC/MinorNPCs/not_dog_stand_face.png" type="Texture" id=186]
 [ext_resource path="res://NPC/MinorNPCs/pizza_man_face.png" type="Texture" id=187]
 [ext_resource path="res://NPC/MinorNPCs/woman_1_face.png" type="Texture" id=188]
+[ext_resource path="res://NPC/MalusLobbyGuard/big_guard_face.png" type="Texture" id=189]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -2621,7 +2622,7 @@ expression = "angry"
 face_texture = ExtResource( 102 )
 
 [node name="ToGiveCreds14" parent="YSort/NPC/MalusHinterWalking/DialogueTree/AskToJoin/ToGiveCreds2/ToGiveCreds3/ToGiveCreds4/ToGiveCreds5/ToGiveCreds6/ToGiveCreds7/ToGiveCreds8/ToGiveCreds9/ToGiveCreds10/ToGiveCreds11/ToGiveCreds12/ToGiveCreds13" index="0" instance=ExtResource( 9 )]
-message = "However, we got a nice `secret club` against him."
+message = "However, we got a nice [rainbow freq=0.4 sat=0.6]`secret club`[/rainbow] against him."
 expression = "neutral"
 face_texture = ExtResource( 102 )
 
@@ -2696,7 +2697,7 @@ character = "green"
 expression = "confused"
 
 [node name="ToGiveCreds24" parent="YSort/NPC/MalusHinterWalking/DialogueTree/AskToJoin/ToGiveCreds2/ToGiveCreds3/ToGiveCreds4/ToGiveCreds5/ToGiveCreds6/ToGiveCreds7/ToGiveCreds8/ToGiveCreds9/ToGiveCreds10/ToGiveCreds11/ToGiveCreds12/ToGiveCreds13/ToGiveCreds14/ToGiveCreds15/ToGiveCreds16/DiagPiece/ToGiveCreds17/ToGiveCreds18/ToGiveCreds20/ToGiveCreds21/ToGiveCreds23" index="0" instance=ExtResource( 9 )]
-message = "Maybe we should. It seems like he really wants us to help. And what do we have to lose?"
+message = "Sorry, but I think we should, and I hate your freedom of choice. It seems like he really wants us to help. And what do we have to lose?"
 character = "orange"
 expression = "sad"
 
@@ -2706,7 +2707,7 @@ expression = "sad"
 face_texture = ExtResource( 102 )
 
 [node name="ToGiveCreds26" parent="YSort/NPC/MalusHinterWalking/DialogueTree/AskToJoin/ToGiveCreds2/ToGiveCreds3/ToGiveCreds4/ToGiveCreds5/ToGiveCreds6/ToGiveCreds7/ToGiveCreds8/ToGiveCreds9/ToGiveCreds10/ToGiveCreds11/ToGiveCreds12/ToGiveCreds13/ToGiveCreds14/ToGiveCreds15/ToGiveCreds16/DiagPiece/ToGiveCreds17/ToGiveCreds18/ToGiveCreds20/ToGiveCreds21/ToGiveCreds23/ToGiveCreds24/ToGiveCreds25" index="0" instance=ExtResource( 9 )]
-message = "In fact, I'll be going there right now. Just drop by whenever you're ready."
+message = "In fact, I'll be going there right now. Just drop by. If you want."
 expression = "frown"
 face_texture = ExtResource( 102 )
 function = "enter_pizza_place"
@@ -3023,6 +3024,7 @@ position = Vector2( 1873, -1224 )
 
 [node name="DiagPiece" parent="YSort/NPC/MalusGuard/DialogueTree" index="0" instance=ExtResource( 9 )]
 message = "Go... bother some other company instead. Okay?"
+face_texture = ExtResource( 189 )
 
 [node name="BirdA" parent="YSort/NPC" index="20" instance=ExtResource( 77 )]
 position = Vector2( 2129, -967 )
@@ -3367,7 +3369,6 @@ shape = SubResource( 62 )
 [node name="DougPortal" parent="." index="11" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
 player_new_position = Vector2( -112, 1446 )
-starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DougPortal" index="0"]
 position = Vector2( 936, -601 )
