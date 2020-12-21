@@ -43,7 +43,6 @@ void fragment() {
 	
 	COLOR.rgb= COLOR.rgb*c;
 }"
-custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
@@ -388,6 +387,7 @@ __meta__ = {
 [node name="PrisonerFrog" parent="YSort" index="2" instance=ExtResource( 12 )]
 position = Vector2( 182, -381 )
 script = ExtResource( 13 )
+interactable = false
 
 [node name="CharacterMover" type="AnimationPlayer" parent="YSort/PrisonerFrog" index="4"]
 autoplay = "frog_approach_maintenance_door"
@@ -521,7 +521,6 @@ position = Vector2( 16, -305 )
 position = Vector2( 168, -351 )
 new_scene = "res://Rooms/Area5/5-1/5-1.tscn"
 player_new_position = Vector2( 1816, 568 )
-starting_direction = "down"
 
 [node name="ExitDoorLight" type="Light2D" parent="ExitScenePortal" index="0"]
 position = Vector2( 0, -32.5 )
