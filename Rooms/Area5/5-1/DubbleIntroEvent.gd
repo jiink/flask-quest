@@ -25,6 +25,7 @@ func prepare_suicide(state): # Places Dubble behind his desk and commits suicide
 		$CharacterMovement.play("idle_behind_desk")
 #		print("HEY, WE GOT HERE. CHARACTERMOVEMENT SHOULD DO ITS THING NOW.")
 		dubble.facing_direction = dubble.Direction.DOWN
+		dubble.interactable = true
 		$"ActivateArea/CollisionShape2D".set_deferred("disabled", true)
 		
 func setup():
