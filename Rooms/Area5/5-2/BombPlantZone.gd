@@ -2,6 +2,7 @@ extends Node2D
 
 var SAVE_KEY = "5-2_bomb_"
 onready var bomb = get_node("../YSort/Bomb")
+onready var bomb_audio = get_node("../YSort/Bomb/BombAudio")
 var interacting_player = 1
 var dubble_quest_status = 0
 var bomb_planted = false
@@ -17,8 +18,7 @@ func load(save_game):
 	dubble_quest_status = save_game.data["5-1_dubble_quest_status"]
 	if bomb_planted:
 		bomb.visible = true
-		$BombAudio.position = bomb.position + position
-		$BombAudio.playing = true
+		bomb_audio.playing = true
 	else:
 		bomb.visible = false
 	
@@ -46,8 +46,7 @@ func interact():
 			"leftup":
 				bomb_position_modifier = Vector2(-6,-6)
 		bomb.position = player.position + bomb_position_modifier + Vector2(0,-8)
-		$BombAudio.position = bomb.position + position
-		$BombAudio.playing = true
+		bomb_audio.playing = true
 		bomb.visible = true
 		ItemManager.toss_item('glasstown_finished_bomb_item', ItemManager.ANY, true)
 		MusicManager.change_music("res://Music/goodvibes-battle.ogg", true, 0)

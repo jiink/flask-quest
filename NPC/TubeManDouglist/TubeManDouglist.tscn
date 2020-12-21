@@ -10,7 +10,7 @@ extents = Vector2( 5, 2 )
 [node name="TubeManDouglist" type="AnimatedSprite"]
 frames = ExtResource( 2 )
 animation = "dance"
-frame = 11
+frame = 4
 playing = true
 offset = Vector2( 0, -15 )
 script = ExtResource( 1 )

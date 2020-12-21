@@ -71,13 +71,6 @@ message = "Plant the bomb by pressing the 'interact' button!"
 no_face = true
 character = "orange"
 
-[node name="BombAudio" type="AudioStreamPlayer2D" parent="BombPlantZone" index="2"]
-position = Vector2( 5, 24 )
-stream = ExtResource( 19 )
-volume_db = 14.706
-max_distance = 987.0
-attenuation = 2.0
-
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 10 )]
 
 [node name="Player" parent="YSort" index="1"]
@@ -86,7 +79,14 @@ position = Vector2( -128, 233 )
 [node name="Bomb" type="Sprite" parent="YSort" index="2"]
 position = Vector2( -204, -418 )
 texture = ExtResource( 16 )
-offset = Vector2( 0, 5 )
+offset = Vector2( 0, -5 )
+
+[node name="BombAudio" type="AudioStreamPlayer2D" parent="YSort/Bomb" index="0"]
+position = Vector2( 0, 2 )
+stream = ExtResource( 19 )
+volume_db = 14.706
+max_distance = 987.0
+attenuation = 2.0
 
 [node name="MachineFusion" parent="YSort" index="3" instance=ExtResource( 4 )]
 position = Vector2( 214, -217 )

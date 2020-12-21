@@ -8,6 +8,6 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 0, -13 )
+offset = Vector2( 0, -14 )
 hframes = 5
 frame = 2

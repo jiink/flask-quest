@@ -23,6 +23,9 @@ position = Vector2( 0, -6 )
 texture = ExtResource( 3 )
 hframes = 3
 
+[node name="TouchArea" parent="." index="3"]
+position = Vector2( 0, 1 )
+
 [node name="DirectionChangeTimer" type="Timer" parent="." index="4"]
 one_shot = true
 

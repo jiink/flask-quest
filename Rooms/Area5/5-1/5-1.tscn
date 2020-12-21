@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=2]
+[gd_scene load_steps=157 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -115,6 +115,8 @@
 [ext_resource path="res://Rooms/Area5/Assets/DomeWallCollision.tscn" type="PackedScene" id=113]
 [ext_resource path="res://Rooms/Area5/Assets/DomeWallCollisoinR.tscn" type="PackedScene" id=114]
 [ext_resource path="res://NPC/MinorNPCs/prisonerfrog_face.png" type="Texture" id=115]
+[ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/prisoner_d.png" type="Texture" id=116]
+[ext_resource path="res://NPC/MinorNPCs/prisoner_d_face.png" type="Texture" id=117]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveToHouse"
@@ -1103,7 +1105,22 @@ position = Vector2( 3910, 2063 )
 position = Vector2( 18, 44 )
 texture = ExtResource( 78 )
 
-[node name="cabin1_A_interior2" parent="YSort" index="0" instance=ExtResource( 5 )]
+[node name="BigMan" parent="YSort" index="0" instance=ExtResource( 111 )]
+position = Vector2( 3923, 87 )
+texture = ExtResource( 116 )
+offset = Vector2( 0, -14 )
+
+[node name="DialogueTree" parent="YSort/BigMan" index="3" instance=ExtResource( 92 )]
+
+[node name="DiagPiece" parent="YSort/BigMan/DialogueTree" index="0" instance=ExtResource( 91 )]
+message = "What is UP my GREEN FRIEND!"
+face_texture = ExtResource( 117 )
+
+[node name="DiagPiece2" parent="YSort/BigMan/DialogueTree/DiagPiece" index="0" instance=ExtResource( 91 )]
+message = "Enjoying the place?"
+face_texture = ExtResource( 117 )
+
+[node name="cabin1_A_interior2" parent="YSort" index="1" instance=ExtResource( 5 )]
 position = Vector2( 3207, 470 )
 
 [node name="Windowlight" parent="YSort/cabin1_A_interior2" index="2"]
@@ -1140,13 +1157,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Orange" parent="YSort" index="1" instance=ExtResource( 55 )]
+[node name="Orange" parent="YSort" index="2" instance=ExtResource( 55 )]
 position = Vector2( 3189, 491 )
 
-[node name="Player" parent="YSort" index="2"]
+[node name="Player" parent="YSort" index="3"]
 position = Vector2( 3268, 487 )
 
-[node name="Dubble" parent="YSort" index="3" groups=[
+[node name="Dubble" parent="YSort" index="4" groups=[
 "glasstown_prisoners",
 "save",
 ] instance=ExtResource( 86 )]
@@ -1507,7 +1524,7 @@ expression = "frown"
 [node name="CameraMover" type="AnimationPlayer" parent="YSort/Dubble" index="5"]
 anims/MoveToHouse = SubResource( 1 )
 
-[node name="Sarah" parent="YSort" index="4" groups=[
+[node name="Sarah" parent="YSort" index="5" groups=[
 "glasstown_prisoners",
 ] instance=ExtResource( 97 )]
 position = Vector2( 3213, 2071 )
@@ -1567,7 +1584,7 @@ face_texture = ExtResource( 99 )
 message = "Good luck with what you're doing, guys."
 face_texture = ExtResource( 99 )
 
-[node name="PrisonerFrog" parent="YSort" index="5" groups=[
+[node name="PrisonerFrog" parent="YSort" index="6" groups=[
 "glasstown_prisoners",
 "save",
 ] instance=ExtResource( 101 )]
@@ -1645,7 +1662,7 @@ face_texture = ExtResource( 115 )
 shape = SubResource( 16 )
 disabled = true
 
-[node name="Guard" parent="YSort" index="6" instance=ExtResource( 111 )]
+[node name="Guard" parent="YSort" index="7" instance=ExtResource( 111 )]
 position = Vector2( 422, -96 )
 script = ExtResource( 112 )
 
@@ -1674,7 +1691,7 @@ message = "Don't get nutty with that bomb, kid. I'll keep an eye on you."
 [node name="LaterMission" parent="YSort/Guard/DialogueTree" index="3" instance=ExtResource( 91 )]
 message = "Hey, bomb kid, I hope you aren't doing anything nutty with that bomb I gave you earlier. "
 
-[node name="OrangeGrassBulbs" type="Node2D" parent="YSort" index="7" groups=[
+[node name="OrangeGrassBulbs" type="Node2D" parent="YSort" index="8" groups=[
 "save",
 ]]
 position = Vector2( 1110, 1532 )
@@ -1697,7 +1714,7 @@ message = "Is that plant going to survive?"
 character = "orange"
 expression = "sad"
 
-[node name="TortillaTable" parent="YSort" index="8" instance=ExtResource( 40 )]
+[node name="TortillaTable" parent="YSort" index="9" instance=ExtResource( 40 )]
 position = Vector2( 2640, 2087 )
 
 [node name="Tortilla" type="Sprite" parent="YSort/TortillaTable" index="1"]
@@ -1711,7 +1728,7 @@ script = ExtResource( 109 )
 position = Vector2( 0, 5 )
 shape = SubResource( 18 )
 
-[node name="CorruptVegetation" type="YSort" parent="YSort" index="9"]
+[node name="CorruptVegetation" type="YSort" parent="YSort" index="10"]
 
 [node name="plant3_A_corrupt" parent="YSort/CorruptVegetation" index="0" instance=ExtResource( 6 )]
 position = Vector2( 1391, 478 )
@@ -1941,7 +1958,7 @@ position = Vector2( 1578, 8 )
 [node name="tree1_B_corruptA25" parent="YSort/CorruptVegetation" index="75" instance=ExtResource( 9 )]
 position = Vector2( 1388, 136 )
 
-[node name="Vegetation" type="YSort" parent="YSort" index="10"]
+[node name="Vegetation" type="YSort" parent="YSort" index="11"]
 
 [node name="tree1_B" parent="YSort/Vegetation" index="0" instance=ExtResource( 14 )]
 position = Vector2( 491, 273 )
@@ -2595,7 +2612,7 @@ position = Vector2( 904, 674 )
 [node name="plant5_A6" parent="YSort/Vegetation" index="216" instance=ExtResource( 21 )]
 position = Vector2( 880, 708 )
 
-[node name="Cabins" type="YSort" parent="YSort" index="11"]
+[node name="Cabins" type="YSort" parent="YSort" index="12"]
 
 [node name="cabin1_A" parent="YSort/Cabins" index="0" instance=ExtResource( 28 )]
 position = Vector2( 499, 1129 )
@@ -2666,7 +2683,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Industrial" type="YSort" parent="YSort" index="12"]
+[node name="Industrial" type="YSort" parent="YSort" index="13"]
 
 [node name="transformer_01" parent="YSort/Industrial" index="0" instance=ExtResource( 31 )]
 position = Vector2( 887, 769 )
@@ -2872,7 +2889,7 @@ position = Vector2( 1877, 567 )
 [node name="eboxB8" parent="YSort/Industrial" index="67" instance=ExtResource( 49 )]
 position = Vector2( 1900, 567 )
 
-[node name="Lampposts" type="YSort" parent="YSort" index="13"]
+[node name="Lampposts" type="YSort" parent="YSort" index="14"]
 
 [node name="lamppost_01" parent="YSort/Lampposts" index="0" instance=ExtResource( 34 )]
 position = Vector2( 992, 821 )
@@ -2952,7 +2969,7 @@ position = Vector2( 144, 1715 )
 [node name="lamppost_26" parent="YSort/Lampposts" index="25" instance=ExtResource( 36 )]
 position = Vector2( 350, 492 )
 
-[node name="furniture" type="YSort" parent="YSort" index="14"]
+[node name="furniture" type="YSort" parent="YSort" index="15"]
 position = Vector2( 3207, 75 )
 
 [node name="cabin_bed" parent="YSort/furniture" index="0" instance=ExtResource( 39 )]
@@ -3102,7 +3119,7 @@ position = Vector2( 627, 45 )
 position = Vector2( 663, 45 )
 flip_h = true
 
-[node name="Internet" type="YSort" parent="YSort" index="15"]
+[node name="Internet" type="YSort" parent="YSort" index="16"]
 
 [node name="MapMachine" parent="YSort/Internet" index="0" instance=ExtResource( 70 )]
 position = Vector2( 288, 780 )
@@ -3143,7 +3160,7 @@ position = Vector2( 396, 1308 )
 [node name="MapMachine4" parent="YSort/Internet" index="12" instance=ExtResource( 70 )]
 position = Vector2( 973, 1377 )
 
-[node name="LargeMetalDoor" parent="YSort" index="16" instance=ExtResource( 85 )]
+[node name="LargeMetalDoor" parent="YSort" index="17" instance=ExtResource( 85 )]
 position = Vector2( 1816, 557 )
 
 [node name="ColorRect" type="ColorRect" parent="YSort/LargeMetalDoor" index="2"]
@@ -3157,10 +3174,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveStation" parent="YSort" index="17" instance=ExtResource( 88 )]
+[node name="SaveStation" parent="YSort" index="18" instance=ExtResource( 88 )]
 position = Vector2( 708, 825 )
 
-[node name="SaveStation2" parent="YSort" index="18" instance=ExtResource( 88 )]
+[node name="SaveStation2" parent="YSort" index="19" instance=ExtResource( 88 )]
 position = Vector2( 1209, 1537 )
 
 [node name="FrogPath" type="Path2D" parent="." index="7"]
