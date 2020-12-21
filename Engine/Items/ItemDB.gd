@@ -39,7 +39,7 @@ var items = {
 		},
 	'exotic_excreta': {
 		'name': 'Exotic Excreta',
-		'desc': 'It\'s sewage.',
+		'desc': "It's sewage.",
 		'equippable': true,
 		},
 #-------------------------------------------
@@ -77,26 +77,32 @@ var items = {
 	'orange_grassbulbs_item': {
 		'name': 'Orange Grassbulbs',
 		'desc': 'All the others seem to be blue.',
+		'droppable' : false,
 		},
 	'glitter_item': {
 		'name': 'Glitter',
 		'desc': 'What does this even have to do with a bomb?',
+		'droppable' : false,
 		},
 	'toilet_paper_item': {
 		'name': 'Toilet Paper Roll',
 		'desc': 'Only a little used up.',
+		'droppable' : false,
 		},
 	'tortured_tortilla_item': {
 		'name': 'Tortured Tortilla',
 		'desc': 'It vaguely looks like a tortilla.',
+		'droppable' : false,
 		},
 	'glasstown_bomb_item': {
 		'name': 'Mysterious Bomb',
 		'desc': "Doesn't look like anything you've seen before.",
+		'droppable' : false,
 		},
 	'glasstown_finished_bomb_item': {
 		'name': 'Refinery Bomb',
-		'desc': 'It\'s finally complete.',
+		'desc': "It's finally complete.",
+		'droppable' : false,
 		},
 #-------------------------------------------
 	}
