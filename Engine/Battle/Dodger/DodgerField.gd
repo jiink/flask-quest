@@ -86,7 +86,7 @@ func spawn_attack(foe_index):
 	var foe_name = foe.get_name()
 	foe_name = foe_name.replace("@", "")
 	foe_name = foe_name.replace("Foe", "")
-	for i in range(9): # take out any numbers
+	for i in range(10): # take out any numbers
 		foe_name = foe_name.replace(str(i), "")
 	print(foe_name)
 	
@@ -94,7 +94,7 @@ func spawn_attack(foe_index):
 	var att_dir = get_attacks_in_dir("res://NPC/%s/Attacks/" % foe_name)
 	var look = "res://NPC/%s/Attacks/" % foe_name
 	
-	print("att dir size: %s" % att_dir.size())
+	print("%s size: %s" % ["res://NPC/%s/Attacks/" % foe_name, att_dir.size()])
 	if att_dir.size() <= 0: # if the attack directory has no attacks in it get out
 		return
 
