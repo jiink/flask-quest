@@ -21,7 +21,7 @@
 [ext_resource path="res://Engine/light5.png" type="Texture" id=19]
 [ext_resource path="res://Rooms/Area5/Assets/electric_bell.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Rooms/Area5/5-4/TalkArea.gd" type="Script" id=21]
-[ext_resource path="res://Items/Pickups/BasePickup.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Engine/looptest.ogg" type="AudioStream" id=23]
 [ext_resource path="res://NPC/MinorNPCs/prisonerfrog_face.png" type="Texture" id=24]
 
@@ -448,6 +448,7 @@ position = Vector2( 56, -67 )
 [node name="ToiletPaper" parent="YSort" index="4" instance=ExtResource( 22 )]
 position = Vector2( -3269, -25 )
 item_name = "toilet_paper_item"
+auto_sprite = false
 
 [node name="Lights" type="Node2D" parent="." index="5"]
 

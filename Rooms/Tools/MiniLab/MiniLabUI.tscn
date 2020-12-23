@@ -20,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bearly_bearable_bear_battle_background" type="Sprite" parent="."]
+[node name="background" type="Sprite" parent="."]
 modulate = Color( 0.290196, 0.290196, 0.290196, 1 )
 material = SubResource( 1 )
 position = Vector2( -74, 115 )

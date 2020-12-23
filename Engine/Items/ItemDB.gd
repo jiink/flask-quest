@@ -4,10 +4,13 @@ var items = {
 	'stick' : {
 		'name' : 'Stick',
 		'desc' : "It's quite sticky.",
+		'consumable': false,
+		'droppable' : true,
 		},
 	'stone' : {
 		'name': 'Stone',
 		'desc': "A frozen mineral soup.",
+		'droppable' : true,
 		},
 #--------------- chemicals -----------------
 	'base_chemical_offense': {
@@ -19,6 +22,7 @@ var items = {
 		'name': 'Liquid Heiss',
 		'desc': 'Made by Scharles Heiss himself.',
 		'equippable': true,
+		'droppable' : false,
 		},
 	'miniman_item': {
 		'name': 'Miniman',
@@ -41,6 +45,7 @@ var items = {
 		'name': 'Exotic Excreta',
 		'desc': "It's sewage.",
 		'equippable': true,
+		'droppable' : false,
 		},
 #-------------------------------------------
 	'elevator_card': {
@@ -54,8 +59,8 @@ var items = {
 		'desc': 'Use this to log into the Map Machine.',
 		'droppable' : false,
 		},
-	'base_pickup': {
-		'name': 'Base Pickup',
+	'item_pickup': {
+		'name': 'Item Pickup',
 		'desc': 'You picked up something. Congradulations.',
 		'droppable' : false,
 		},
@@ -72,6 +77,7 @@ var items = {
 		'name': 'Ingredient Bag',
 		'desc': 'Your ingredients are in here.',
 		'consumable': false,
+		'droppable' : false,
 		},
 #-------- Glasstown Mission Items ----------
 	'orange_grassbulbs_item': {

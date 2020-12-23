@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Rooms/Area1/1-1/1-1tiles.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=9]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/CityParallaxBG.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorRoom.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorEntrance.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area1/Assets/elevator_button.png" type="Texture" id=19]
@@ -17,8 +18,7 @@
 [ext_resource path="res://Engine/light2.png" type="Texture" id=24]
 [ext_resource path="res://Rooms/Area1/Assets/Elevator/ElevatorCardPickup.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Rooms/Area1/1-1/OrangeNPC.gd" type="Script" id=26]
-[ext_resource path="res://Player/orange_sprites/orangeright1.png" type="Texture" id=27]
-[ext_resource path="res://Player/orange_sprites/orangeright2.png" type="Texture" id=28]
+[ext_resource path="res://Player/orange_sprites/orange_movement_sheet.png" type="Texture" id=28]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/tableL.tscn" type="PackedScene" id=31]
@@ -106,36 +106,44 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 28 )
+region = Rect2( 16, 144, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 28 )
+region = Rect2( 32, 144, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 4.56, 6.83 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 12, 11 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 8, 4 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 17, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 21, 10 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 18, 4 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 18 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -151,7 +159,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -166,7 +174,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -5 ), Vector2( 45, 0 ), Vector2( 99, 31 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 50, 10 )
 
 [node name="1-1" groups=[
@@ -357,13 +365,12 @@ script = ExtResource( 26 )
 
 [node name="Sprite" type="AnimatedSprite" parent="YSort/OrangeNPC" index="0"]
 position = Vector2( -1, -9 )
-frames = SubResource( 2 )
-flip_h = true
+frames = SubResource( 4 )
 
 [node name="Interaction" type="Area2D" parent="YSort/OrangeNPC" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OrangeNPC/Interaction" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="DialogueTree" parent="YSort/OrangeNPC" index="2" instance=ExtResource( 29 )]
 
@@ -404,7 +411,7 @@ position = Vector2( 6, 0 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="YSort/OrangeNPC/StaticBody2D" index="0"]
 position = Vector2( -9.53674e-07, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Props" type="YSort" parent="YSort" index="3"]
 
@@ -422,7 +429,7 @@ texture = ExtResource( 33 )
 position = Vector2( -13, -7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/tableL/OrangeDisabled/Interaction" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="DialogueTree" parent="YSort/Props/tableL/OrangeDisabled" index="2" instance=ExtResource( 29 )]
 
@@ -462,7 +469,7 @@ texture = ExtResource( 41 )
 position = Vector2( 0, -3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/Interaction" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="DialogueTree" parent="YSort/Props/LabDoor" index="3" instance=ExtResource( 29 )]
 
@@ -490,21 +497,21 @@ visible = false
 position = Vector2( 0, -17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/StaticBody2D" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="ClosedCollision" type="StaticBody2D" parent="YSort/Props/LabDoor" index="5"]
 visible = false
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/ClosedCollision" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="PositionPortal" parent="YSort/Props/LabDoor" index="6" instance=ExtResource( 42 )]
 visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal" index="1"]
 position = Vector2( -1, -161 )
@@ -513,7 +520,7 @@ position = Vector2( -1, -161 )
 position = Vector2( 0, -141 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Props/LabDoor/PositionPortal2" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/LabDoor/PositionPortal2" index="1"]
 position = Vector2( -1, 152 )
@@ -522,7 +529,7 @@ position = Vector2( -1, 152 )
 position = Vector2( 352, 103 )
 
 [node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorToElev" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorToElev" index="1"]
 position = Vector2( 168, 1 )
@@ -532,7 +539,7 @@ position = Vector2( 352, 103 )
 
 [node name="Interaction" type="CollisionShape2D" parent="YSort/Props/DoorFromElev" index="0"]
 position = Vector2( 146, 1 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="Position2D" type="Position2D" parent="YSort/Props/DoorFromElev" index="1"]
 position = Vector2( -25, 0 )
@@ -554,10 +561,10 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="1"]
 autoplay = "default"
-anims/default = SubResource( 10 )
+anims/default = SubResource( 12 )
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="YSort/BrainJarNPC" index="2"]
-anims/default = SubResource( 11 )
+anims/default = SubResource( 13 )
 
 [node name="DialogueTree" parent="YSort/BrainJarNPC" index="3" instance=ExtResource( 29 )]
 
@@ -579,6 +586,11 @@ position = Vector2( 168, -243 )
 
 [node name="BAMBOOP2" parent="YSort" index="8" instance=ExtResource( 49 )]
 position = Vector2( 504, -259 )
+
+[node name="IngrBagPickup" parent="YSort" index="9" instance=ExtResource( 11 )]
+position = Vector2( 788, 313 )
+item_name = "ingredient_bag"
+auto_sprite = true
 
 [node name="Dark" type="Node2D" parent="." index="7"]
 
@@ -682,7 +694,7 @@ position = Vector2( 200, -162 )
 script = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 [connection signal="animation_finished" from="MinimanDoorEvent/AnimationPlayer" to="MinimanDoorEvent" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_TriggerZone_body_entered"]
 
