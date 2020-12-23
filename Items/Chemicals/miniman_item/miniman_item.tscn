@@ -6,6 +6,8 @@
 [ext_resource path="res://Engine/Battle/SpeechBubble.tscn" type="PackedScene" id=4]
 
 [node name="MinimanItem" instance=ExtResource( 1 )]
+fill_target = 75
+fill_speed = 0.5
 effectiveness = 50
 min_effectiveness = 15
 color = Color( 0.0901961, 0.843137, 0.886275, 1 )

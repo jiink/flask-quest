@@ -39,8 +39,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if not i.is_processing():
 			i.queue_free()
 		else:
-			i.speed /= 1.5
-			i.follow_distance /= 1.5
+			# i.speed /= 1.5
+			# i.follow_distance /= 1.5
+			pass
 
 	var battle_scene = preload("res://Engine/Battle/BattleScene.tscn").instance()
 	

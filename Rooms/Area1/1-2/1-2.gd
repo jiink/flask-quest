@@ -24,3 +24,10 @@ func start_tv_event():
 	global.get_player(1).direction = 6
 	global.get_player(2).direction = 6
 	tv_event_seen = true
+
+
+func _ready():
+	# give the player the ingredient bag if they are so DUMB and INOBSERVANT and STIFF-MINDED such\
+	#  as to SOMEHOW not have TOUCHED the bag RIGHT next to them in the SMALL elevator.... SMH mY HEAD!
+	if not ItemManager.inventory.has("ingredient_bag"):
+		ItemManager.give_item("ingredient_bag")
