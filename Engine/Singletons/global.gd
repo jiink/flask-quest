@@ -22,7 +22,7 @@ func get_player(num = 1):
 		if n.name == player_search_name:
 			return n
 
-	print("get_player error! couldn't get player #%s" % num)
+	print("couldn't get_player #%s" % num)
 
 	return null
 
@@ -64,11 +64,13 @@ func custompause(node, x):
 #			print("- "+N.get_name())
 
 func start_battle(foes):
+	print("starting a battle?")
 	get_player().frozen = true
 	
 	var hud = get_tree().get_current_scene().get_node("HUD")
 	
 	if not hud.has_node("BattleStartTransition"):
+		print("hud doesnt have battle transition")
 		initial_enemies = foes
 		var battle_start_transition = preload("res://Engine/Battle/BattleStartTransition.tscn").instance()
 		hud.add_child(battle_start_transition)

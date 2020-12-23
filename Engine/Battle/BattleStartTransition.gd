@@ -3,6 +3,8 @@ extends Node2D
 export(int) var shader_frequency = 0
 export(float) var shader_depth = 0.0
 
+onready var player = global.get_player(1)
+
 func _ready():
 #	$"/root/MusicManager/AnimationPlayer".play("fade_out")
 #	for i in get_tree().get_nodes_in_group("WorldFoes"):
@@ -22,10 +24,12 @@ func _ready():
 	# close inventory
 	global.get_hud().get_node("InventoryMenu").set_visible(false)
 	
+	player.set_frozen(true, true)
+	
 func _process(delta):
 	$Shader.get_material().set_shader_param("frequency", shader_frequency)
 	$Shader.get_material().set_shader_param("depth", shader_depth)
-	global.get_player().set_frozen(true, true)
+	player.set_frozen(true, false)
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name):

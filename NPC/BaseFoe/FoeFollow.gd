@@ -41,8 +41,7 @@ func set_rush(should_rush):
 		follow_distance /= 2.0
 		collision_mask = 32768 # (bit 15)
 
-func trigger():
-	if (not global.get_player().frozen) or rush:
-		set_process(false)
-		TickManager.set_tick(self, false)
-		global.start_battle([base_name])
+func trigger(): 
+	set_process(false)
+	TickManager.set_tick(self, false)
+	global.start_battle([base_name])
