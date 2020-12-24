@@ -246,8 +246,11 @@ func start_scene_switch(new_scene, new_player_position, new_player_direction = S
 		print("new_player_direction isn't an INT")
 
 #	emit_signal("transition_close")
+	# show a transition if possible
 	if get_tree().get_current_scene().has_node("HUD/SceneTransition"):
 		get_tree().get_current_scene().get_node("HUD/SceneTransition").fade_out()
+	else:
+		swap_scenes()
 	
 
 func swap_scenes():

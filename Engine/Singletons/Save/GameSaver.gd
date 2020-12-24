@@ -113,12 +113,13 @@ func load_from_save_station(): # yeah im a role model and copied the other funct
 	save_game = load(save_file_path)
 	
 	var spawn_scene = save_game.data["player_spawn_scene"]
-	get_tree().change_scene(spawn_scene)
+	#get_tree().change_scene(spawn_scene)
+	global.start_scene_switch(spawn_scene, save_game.data["player_spawn_pos"], global.Direction.DOWN)
 	
 	yield(get_tree().get_current_scene(), "ready") # wait for the scene to finish loading!
 	
-	var spawn_pos = save_game.data["player_spawn_pos"]
-	get_tree().get_nodes_in_group("Player")[0].position = spawn_pos
+	#var spawn_pos = save_game.data["player_spawn_pos"]
+	#get_tree().get_nodes_in_group("Player")[0].position = spawn_pos
 	
 	
 #	for node in get_tree().get_nodes_in_group("save"):
