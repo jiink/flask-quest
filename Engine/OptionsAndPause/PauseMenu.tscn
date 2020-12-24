@@ -95,6 +95,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -24.0
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -110,28 +111,28 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="DebugButtons"]
 margin_right = 87.0
-margin_bottom = 11.0
+margin_bottom = 12.0
 text = "Debug Menu"
 align = 1
 
 [node name="NoclipButton" type="Button" parent="DebugButtons"]
-margin_top = 15.0
+margin_top = 16.0
 margin_right = 87.0
-margin_bottom = 26.0
+margin_bottom = 28.0
 toggle_mode = true
 text = "Noclip"
 
 [node name="InvincibilityButton" type="Button" parent="DebugButtons"]
-margin_top = 30.0
+margin_top = 32.0
 margin_right = 87.0
-margin_bottom = 41.0
+margin_bottom = 44.0
 toggle_mode = true
 text = "Invincibility"
 
 [node name="MusicButton" type="Button" parent="DebugButtons"]
-margin_top = 45.0
+margin_top = 48.0
 margin_right = 87.0
-margin_bottom = 56.0
+margin_bottom = 60.0
 toggle_mode = true
 text = "Music"
 __meta__ = {
@@ -139,23 +140,23 @@ __meta__ = {
 }
 
 [node name="GiveText" type="LineEdit" parent="DebugButtons"]
-margin_top = 60.0
+margin_top = 64.0
 margin_right = 87.0
-margin_bottom = 81.0
+margin_bottom = 86.0
 
 [node name="GiveButton" type="Button" parent="DebugButtons"]
-margin_top = 85.0
+margin_top = 90.0
 margin_right = 87.0
-margin_bottom = 96.0
+margin_bottom = 102.0
 text = "Give Item"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpawnOrangeButton" type="Button" parent="DebugButtons"]
-margin_top = 100.0
+margin_top = 106.0
 margin_right = 87.0
-margin_bottom = 111.0
+margin_bottom = 118.0
 text = "Spawn Orange"
 __meta__ = {
 "_edit_use_anchors_": false
