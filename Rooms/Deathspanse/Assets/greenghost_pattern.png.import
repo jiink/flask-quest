@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/greenghost_pattern.png-facaace79923bec3534025e381fa1db6.stex"
+path="res://.import/greenghost_pattern.png-3b4b1b247baaa7ba1ee8094075cbb8a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Deadlands/Assets/greenghost_pattern.png"
-dest_files=[ "res://.import/greenghost_pattern.png-facaace79923bec3534025e381fa1db6.stex" ]
+source_file="res://Rooms/Deathspanse/Assets/greenghost_pattern.png"
+dest_files=[ "res://.import/greenghost_pattern.png-3b4b1b247baaa7ba1ee8094075cbb8a4.stex" ]
 
 [params]
 

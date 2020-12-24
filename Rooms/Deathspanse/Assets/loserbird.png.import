@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/loserbird.png-713b10e0b0cb8d886776fa3aa3d172d2.stex"
+path="res://.import/loserbird.png-9772adc3bcd2ff33084f351eba907a7a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Deadlands/Assets/loserbird.png"
-dest_files=[ "res://.import/loserbird.png-713b10e0b0cb8d886776fa3aa3d172d2.stex" ]
+source_file="res://Rooms/Deathspanse/Assets/loserbird.png"
+dest_files=[ "res://.import/loserbird.png-9772adc3bcd2ff33084f351eba907a7a.stex" ]
 
 [params]
 
