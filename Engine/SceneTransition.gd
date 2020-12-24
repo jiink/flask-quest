@@ -10,7 +10,9 @@ func _ready():
 func fade_out():
 	visible = true
 	$AnimationPlayer.play("close")
-	global.get_player().set_frozen(true, true)
+	var p = global.get_player()
+	if p.has_method("set_frozen"):
+		global.get_player().set_frozen(true, true)
 	
 func alert_global(anim):
 	if anim == "close":
