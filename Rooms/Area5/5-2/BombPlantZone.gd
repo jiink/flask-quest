@@ -54,6 +54,7 @@ func interact():
 
 func _on_Interaction_body_entered(body):
 	if body == global.get_player() and bomb_planted == false and \
-	(ItemManager.inventory.has("glasstown_finished_bomb_item")):
-		DiagHelper.start_talk(self)
+	(ItemManager.inventory.has("glasstown_finished_bomb_item")) and gave_instructions == false:
+		global.get_player().do_floaty_text("Interact to place the bomb!")
+#		DiagHelper.start_talk(self)
 		gave_instructions = true
