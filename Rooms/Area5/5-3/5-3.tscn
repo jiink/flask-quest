@@ -654,7 +654,6 @@ bus = "Environment"
 position = Vector2( 784, -359 )
 new_scene = "res://Rooms/Area6/6-0/6-0.tscn"
 player_new_position = Vector2( 257, 681 )
-starting_direction = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 shape = SubResource( 3 )

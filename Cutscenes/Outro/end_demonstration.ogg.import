@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/end_demonstration.ogg-e968ad54d42493232eac909471ec62df.oggstr"
+
+[deps]
+
+source_file="res://Cutscenes/Outro/end_demonstration.ogg"
+dest_files=[ "res://.import/end_demonstration.ogg-e968ad54d42493232eac909471ec62df.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

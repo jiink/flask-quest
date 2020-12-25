@@ -3,6 +3,7 @@
 [ext_resource path="res://Engine/Fonts/FontQuest.ttf" type="DynamicFontData" id=1]
 
 [resource]
+size = 64
 extra_spacing_bottom = -3
 extra_spacing_space = 1
 font_data = ExtResource( 1 )
