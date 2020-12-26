@@ -4,11 +4,13 @@ extends Node
 var debug_mode = true
 ###############################################
 
-var launch_without_music = true
+var launch_without_music = false
 
 onready var debug_mode_watermark = preload("res://Engine/Debug/DebugModeWatermark.tscn")
 
+
 func _ready():
+
 	global.connect("scene_changed", self, "on_scene_change")
 	on_scene_change()
 
@@ -18,6 +20,11 @@ func _ready():
 func on_scene_change():
 	if debug_mode:
 		# add the watermark, creating the canvaslayer if there isnt already one
+		# ... but don't do this if there is already a watermark
+		for d in get_tree().get_nodes_in_group("debug"):
+			if d.name.find("Watermark") != -1:
+				return
+		
 		var scene = get_tree().get_current_scene()
 		var canvas
 		var scene_has_canvas = false

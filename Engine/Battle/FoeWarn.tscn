@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Engine/Battle/foe_warn.wav" type="AudioStream" id=1]
+[ext_resource path="res://Engine/Battle/foe_warn.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Battle/FoeWarn.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="FoeWarn" type="AnimatedSprite"]
+material = SubResource( 1 )
+frames = SubResource( 4 )
+frame = 1
+offset = Vector2( 0, -13 )
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="DelayTimer" type="Timer" parent="."]
+one_shot = true

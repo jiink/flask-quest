@@ -11,6 +11,7 @@ var regex = RegEx.new()
 
 var player_area_dict = {
 	"Test" : "Forbidden Lands",
+	"Intro" : "Brand-new Life",
 	"Area1" : "A1 Laboratories",
 	"Area2" : "Lanetta City",
 	"Area3" : "Lanetta Sewers",
@@ -33,10 +34,20 @@ func _ready():
 	back_button.connect("button_down", self, "_on_back_button_down")
 #	$Control.grab_focus()
 	save_button.grab_focus()
-	$InfoLabel.text = "%s\n$%s" % [
-		player_area_dict[convert_path_to_area_name(player_area_file)],
-		player_money
-	]
+	
+	# Display the name of the area the save file remembers. If unable to aquire the
+	# display name, just show the name used for the file.
+	var area_code_name = convert_path_to_area_name(player_area_file)
+	if player_area_dict.keys().has(area_code_name):
+		$InfoLabel.text = "%s\n$%s" % [
+			player_area_dict[area_code_name],
+			player_money
+		]
+	else:
+		$InfoLabel.text = "%s\n$%s" % [
+			area_code_name,
+			player_money
+		]
 	
 func convert_path_to_area_name(path):
 	var results = regex.search_all(path)

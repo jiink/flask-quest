@@ -116,7 +116,7 @@ func load_from_save_station(): # yeah im a role model and copied the other funct
 	#get_tree().change_scene(spawn_scene)
 	global.start_scene_switch(spawn_scene, save_game.data["player_spawn_pos"], global.Direction.DOWN)
 	
-	yield(get_tree().get_current_scene(), "ready") # wait for the scene to finish loading!
+	yield(global, "scene_changed") # wait for the scene to finish loading!
 	
 	#var spawn_pos = save_game.data["player_spawn_pos"]
 	#get_tree().get_nodes_in_group("Player")[0].position = spawn_pos
@@ -135,7 +135,7 @@ func load_from_save_station(): # yeah im a role model and copied the other funct
 	$"/root/ItemManager".loadout = save_game.data["loadout"]
 	global.event_seed = save_game.data["event_seed"]
 	
-	$"/root/MusicManager".update_music("level")
+	#$"/root/MusicManager".update_music("level")
 
 	global.emit_signal("scene_changed") # yep
 	

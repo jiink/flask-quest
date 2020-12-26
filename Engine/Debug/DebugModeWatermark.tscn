@@ -18,7 +18,9 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.231373 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.231373 ) ]
 }
 
-[node name="DebugModeWatermark" type="Label"]
+[node name="DebugModeWatermark" type="Label" groups=[
+"debug",
+]]
 modulate = Color( 1, 1, 1, 0.231373 )
 margin_left = 303.0
 margin_top = 198.0
@@ -29,6 +31,9 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.380392 )
 text = "Debug Mode"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "appear"
