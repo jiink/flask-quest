@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=2]
+[gd_scene load_steps=194 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area5/5-1/5-1.gd" type="Script" id=2]
@@ -102,6 +102,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/prisoner_c_walking.png" type="Texture" id=100]
 [ext_resource path="res://Rooms/Area5/Assets/CharacterSprites/PrisonerFrog.tscn" type="PackedScene" id=101]
 [ext_resource path="res://NPC/TubeManDouglist/TubeManDouglist.tscn" type="PackedScene" id=102]
+[ext_resource path="res://Engine/Debug/Wipsign.tscn" type="PackedScene" id=103]
 [ext_resource path="res://Rooms/Area5/5-1/PrisonerFrog.gd" type="Script" id=104]
 [ext_resource path="res://Rooms/Area5/Assets/ontoglasstown-07.ogg" type="AudioStream" id=105]
 [ext_resource path="res://Rooms/Area5/Assets/party_music.ogg" type="AudioStream" id=106]
@@ -3347,50 +3348,68 @@ position = Vector2( 1209, 1537 )
 [node name="CloakyDouglistCrowdMember8" parent="YSort/Party" index="0" instance=ExtResource( 118 )]
 position = Vector2( 3193, 2095 )
 frames = SubResource( 26 )
-frame = 1
+frame = 0
 
 [node name="CloakyDouglistCrowdMember9" parent="YSort/Party" index="1" instance=ExtResource( 118 )]
 position = Vector2( 3167, 2088 )
 frames = SubResource( 32 )
-frame = 4
+frame = 0
 
 [node name="CloakyDouglistCrowdMember" parent="YSort/Party" index="2" instance=ExtResource( 118 )]
 position = Vector2( 3131, 2074 )
 frames = SubResource( 51 )
-frame = 17
+frame = 4
 
 [node name="CloakyDouglistCrowdMember2" parent="YSort/Party" index="3" instance=ExtResource( 118 )]
 position = Vector2( 3147, 2094 )
 frames = SubResource( 51 )
-frame = 16
+frame = 3
 
 [node name="CloakyDouglistCrowdMember3" parent="YSort/Party" index="4" instance=ExtResource( 118 )]
 position = Vector2( 3179, 2069 )
 frames = SubResource( 51 )
-frame = 16
+frame = 3
 
 [node name="CloakyDouglistCrowdMember4" parent="YSort/Party" index="5" instance=ExtResource( 118 )]
 position = Vector2( 3307, 2072 )
 frames = SubResource( 51 )
-frame = 16
+frame = 3
 
 [node name="CloakyDouglistCrowdMember5" parent="YSort/Party" index="6" instance=ExtResource( 118 )]
 position = Vector2( 3304, 2097 )
 frames = SubResource( 51 )
-frame = 17
+frame = 4
 
 [node name="CloakyDouglistCrowdMember6" parent="YSort/Party" index="7" instance=ExtResource( 118 )]
 position = Vector2( 3284, 2085 )
 frames = SubResource( 51 )
-frame = 14
+frame = 1
 
 [node name="CloakyDouglistCrowdMember7" parent="YSort/Party" index="8" instance=ExtResource( 118 )]
 position = Vector2( 3116, 2103 )
 frames = SubResource( 51 )
-frame = 14
+frame = 1
 
 [node name="TubeManDouglist" parent="YSort/Party" index="9" instance=ExtResource( 102 )]
 position = Vector2( 3151, 2064 )
+frame = 5
+
+[node name="Warnings" type="YSort" parent="YSort" index="21"]
+
+[node name="Wipsign" parent="YSort/Warnings" index="0" instance=ExtResource( 103 )]
+position = Vector2( 998, 1398 )
+frame = 21
+
+[node name="Wipsign2" parent="YSort/Warnings" index="1" instance=ExtResource( 103 )]
+position = Vector2( 299, 1309 )
+
+[node name="Wipsign3" parent="YSort/Warnings" index="2" instance=ExtResource( 103 )]
+position = Vector2( 1388, 759 )
+frame = 26
+
+[node name="Wipsign4" parent="YSort/Warnings" index="3" instance=ExtResource( 103 )]
+position = Vector2( 311, 794 )
+frame = 2
 
 [node name="FrogPath" type="Path2D" parent="." index="7"]
 curve = SubResource( 52 )
