@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_lights.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/city5.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_wifipole.png" type="Texture" id=25]
 [ext_resource path="res://Engine/light.png" type="Texture" id=26]
 [ext_resource path="res://Cutscenes/Intro/beg_cutscene_observers_alt.png" type="Texture" id=27]
+[ext_resource path="res://Engine/Fonts/FontQuest.tres" type="DynamicFont" id=28]
 
 [sub_resource type="Animation" id=1]
 resource_name = "play"
@@ -786,4 +787,24 @@ bus = "SFX"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "play"
 anims/play = SubResource( 1 )
+
+[node name="SkipTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="SkipLabel" type="Label" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 48.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 28 )
+custom_colors/font_color = Color( 0.447059, 0.815686, 0.192157, 1 )
+text = "skip?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkipNoInputsTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
