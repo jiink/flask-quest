@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
+[ext_resource path="res://Player/orange_sprites/orange_movement_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Area2/Assets/onto_glasstown.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Area2/2-5/2-5.gd" type="Script" id=3]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=5]
@@ -404,6 +405,7 @@ level_music = ExtResource( 12 )
 position = Vector2( 192, 109 )
 texture = ExtResource( 2 )
 hframes = 8
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tilemaps/onto_glasstown"]
 autoplay = "default"
@@ -421,20 +423,12 @@ anims/Default = SubResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="orangeleftup1" type="Sprite" parent="YSort"]
-position = Vector2( 202, 132 )
-offset = Vector2( 0, -10 )
-
-[node name="greenleftdown1" type="Sprite" parent="YSort"]
-position = Vector2( 206, 114 )
-offset = Vector2( 0, -10 )
-
 [node name="Player" parent="YSort" instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 206, 114 )
 ground_speed = 0
 water_speed = 0
 sprintMultiplier = 0.0
+footstep_noise = false
 
 [node name="PrisonerA" type="Sprite" parent="YSort"]
 position = Vector2( 182, 110 )
@@ -451,6 +445,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Orangent" type="Sprite" parent="YSort"]
+position = Vector2( 203, 121 )
+texture = ExtResource( 1 )
+vframes = 10
+hframes = 15
+frame = 106
+
 [node name="Camera" parent="." instance=ExtResource( 7 )]
 follow_player = false
 
@@ -459,54 +460,110 @@ follow_player = false
 [node name="DialogueTree" parent="." instance=ExtResource( 5 )]
 
 [node name="DiagPiece" parent="DialogueTree" instance=ExtResource( 8 )]
-message = "After that, I told Stercus \"I'm TELLING ON YOU\" and he ordered the guards to punch me."
+message = "What are those glass things on your face?"
 character = "orange"
 expression = "neutral"
 
-[node name="DiagPiece2" parent="DialogueTree/DiagPiece" instance=ExtResource( 8 )]
-message = "Hey, Orange, that green dude is awake."
+[node name="DiagPiece" parent="DialogueTree/DiagPiece" instance=ExtResource( 8 )]
+message = "Wow, that's a little rude."
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece2" parent="DialogueTree/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = " Woah, orange guy, that green dude is awake."
 face_texture = ExtResource( 16 )
 skippable = false
-interrupt = true
 
-[node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece2" instance=ExtResource( 8 )]
+[node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2" instance=ExtResource( 8 )]
 message = "..."
 text_delay = 0.03
 character = "orange"
 expression = "kawaii"
 
-[node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" instance=ExtResource( 8 )]
-message = "Nice. And, uh, I have a name, you know."
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3" instance=ExtResource( 8 )]
+message = "Hey. What did I miss?"
+character = "green"
+
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece" instance=ExtResource( 8 )]
+message = "We were, uh, captured."
+character = "orange"
+expression = "smile"
+
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = "WE FAILED! WE ``FAILED`` THE AMAZING CATS CLUB!!"
+character = "orange"
+expression = "cry_tear"
+
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = "I don't know what the heck that is, but I'm sorry to hear."
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = "Okay, uh, what are we doing in here, exactly? "
+character = "green"
+expression = "open_mouth"
+
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = "Heading to `PRISON!!"
+character = "orange"
+expression = "cry_mourn"
+
+[node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = "Yea. Fortunately, it's not a bad prison. I've been there before."
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece2" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece" instance=ExtResource( 8 )]
+message = "It's more of a place where rich people can go `instead` of prison. Not that it's not a prison."
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece3" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2" instance=ExtResource( 8 )]
+message = "And Stercus happens to be good friends with the prison manager there. So that's where Stercus sends people he doesn't like."
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3" instance=ExtResource( 8 )]
+message = "Welp. Nice meeting you, green guy. My name's Lucas."
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece5" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
+message = "Thanks."
+character = "green"
+expression = "smile"
+
+[node name="DiagPiece6" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" instance=ExtResource( 8 )]
+message = "Uh, what's your name?"
+face_texture = ExtResource( 16 )
+
+[node name="DiagPiece4" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" instance=ExtResource( 8 )]
+message = "I don't think `I ever,`` eh` tried to `get one."
 text_delay = 0.03
 character = "green"
 expression = "smile"
 
-[node name="DiagPiece5" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" instance=ExtResource( 8 )]
-message = "I'm going to guess it's... El Barabanadido."
+[node name="DiagPiece5" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece4" instance=ExtResource( 8 )]
+message = "That's strange. Well, if I had to guess, it'd be El Barabanadido."
 text_delay = 0.03
 face_texture = ExtResource( 16 )
 function = "start_stage_1"
 
-[node name="DiagPiece6" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" instance=ExtResource( 8 )]
-message = "Sorry, what did ju say? I'm getting a little tired."
+[node name="DiagPiece6" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece4/DiagPiece5" instance=ExtResource( 8 )]
+message = "Sorry, what did ju say? Boy, I'm feeling a littel drosy. "
 text_delay = 0.03
 character = "green"
 expression = "confused"
 
-[node name="DiagPiece7" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" instance=ExtResource( 8 )]
+[node name="DiagPiece7" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece4/DiagPiece5/DiagPiece6" instance=ExtResource( 8 )]
 message = "Shikashi, anata wa me o samashita."
 text_delay = 0.03
 character = "orange"
 expression = "smile"
 function = "start_stage_2"
 
-[node name="DiagPiece8" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" instance=ExtResource( 8 )]
+[node name="DiagPiece8" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" instance=ExtResource( 8 )]
 message = "Ha, kare wa mata nete imasu."
 text_delay = 0.03
 character = "orange"
 expression = "blush"
 
-[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" instance=ExtResource( 8 )]
+[node name="DiagPiece9" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" instance=ExtResource( 8 )]
 message = "...Wjua? W... Eh... That's cool."
 text_delay = 0.03
 character = "green"
@@ -524,18 +581,22 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 206, 127 )
 shape = SubResource( 5 )
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 222, 115 )
 shape = SubResource( 5 )
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 206, 101 )
 shape = SubResource( 5 )
+disabled = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 190, 117 )
 shape = SubResource( 5 )
+disabled = true
 
 [node name="CarEngineLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
