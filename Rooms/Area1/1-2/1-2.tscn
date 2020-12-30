@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-2/1-2.gd" type="Script" id=2]
@@ -41,6 +41,8 @@
 [ext_resource path="res://Rooms/Area1/Assets/lab_security_camera.png" type="Texture" id=39]
 [ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=40]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/CityParallaxBG.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=43]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 22 )
@@ -504,6 +506,11 @@ position = Vector2( 102, 142 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TVTriggerZone" index="0"]
 shape = SubResource( 13 )
 
+[node name="ItemPickup2" parent="." index="13" instance=ExtResource( 42 )]
+position = Vector2( 224, 169 )
+item_name = "bleach"
+mode = 0
+
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 35 )]
 position = Vector2( 269, 52 )
 
@@ -536,12 +543,15 @@ position = Vector2( 444, 92 )
 [node name="SecurityMop5" parent="YSort" index="7" instance=ExtResource( 25 )]
 position = Vector2( 482, 71 )
 
-[node name="LabSecurityCamera" type="Sprite" parent="." index="14"]
+[node name="SaveStation" parent="YSort" index="8" instance=ExtResource( 43 )]
+position = Vector2( 179, 53 )
+
+[node name="LabSecurityCamera" type="Sprite" parent="." index="15"]
 material = SubResource( 14 )
 position = Vector2( 38, 61 )
 texture = ExtResource( 39 )
 
-[node name="ShadeRects" type="Node2D" parent="." index="15"]
+[node name="ShadeRects" type="Node2D" parent="." index="16"]
 position = Vector2( 38, 61 )
 z_index = 3
 
@@ -552,6 +562,7 @@ margin_right = 290.0
 margin_bottom = 187.0
 color = Color( 0.054902, 0.0666667, 0.109804, 0.423529 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -561,6 +572,9 @@ margin_top = -146.0
 margin_right = 22.0
 margin_bottom = 138.0
 color = Color( 0.054902, 0.0666667, 0.109804, 0.423529 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ShadeRect3" type="ColorRect" parent="ShadeRects" index="2"]
 margin_left = 298.0
@@ -573,7 +587,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MopCollision" type="StaticBody2D" parent="." index="16"]
+[node name="MopCollision" type="StaticBody2D" parent="." index="17"]
 position = Vector2( 406, 208 )
 collision_layer = 32768
 collision_mask = 32768
@@ -581,7 +595,7 @@ collision_mask = 32768
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MopCollision" index="0"]
 shape = SubResource( 15 )
 
-[node name="MopCollision3" type="StaticBody2D" parent="." index="17"]
+[node name="MopCollision3" type="StaticBody2D" parent="." index="18"]
 position = Vector2( 406, 208 )
 collision_layer = 32768
 collision_mask = 32768
@@ -602,7 +616,7 @@ shape = SubResource( 15 )
 position = Vector2( 21, -24 )
 shape = SubResource( 15 )
 
-[node name="MopCollision2" type="StaticBody2D" parent="." index="18"]
+[node name="MopCollision2" type="StaticBody2D" parent="." index="19"]
 position = Vector2( 464, 135 )
 collision_layer = 32768
 collision_mask = 32768
@@ -610,73 +624,106 @@ collision_mask = 32768
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MopCollision2" index="0"]
 shape = SubResource( 15 )
 
-[node name="Lights" type="Node" parent="." index="19"]
+[node name="Lights" type="Node" parent="." index="20"]
 
 [node name="Light2D" type="Light2D" parent="Lights" index="0"]
 position = Vector2( 136, 104 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D2" type="Light2D" parent="Lights" index="1"]
 position = Vector2( 136, 184 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D8" type="Light2D" parent="Lights" index="2"]
 position = Vector2( 47, 154 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D7" type="Light2D" parent="Lights" index="3"]
 position = Vector2( 240, 180 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D3" type="Light2D" parent="Lights" index="4"]
 position = Vector2( 199, 24 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D4" type="Light2D" parent="Lights" index="5"]
 position = Vector2( 136, 52 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D5" type="Light2D" parent="Lights" index="6"]
 position = Vector2( 296, 173 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D6" type="Light2D" parent="Lights" index="7"]
 position = Vector2( 184, 173 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 34 )
 color = Color( 0.72549, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D9" type="Light2D" parent="Lights" index="8"]
 position = Vector2( 463, -2 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.945098, 0.72549, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D11" type="Light2D" parent="Lights" index="9"]
 position = Vector2( 440, 105 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.533333, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D12" type="Light2D" parent="Lights" index="10"]
 position = Vector2( 488, 104 )
 scale = Vector2( 0.364844, 0.364844 )
 texture = ExtResource( 34 )
 color = Color( 1, 0.533333, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D14" type="Light2D" parent="Lights" index="11"]
 position = Vector2( 440, 164.7 )
@@ -720,7 +767,7 @@ scale = Vector2( 0.117188, 0.136719 )
 texture = ExtResource( 38 )
 color = Color( 1, 0.945098, 0.72549, 1 )
 
-[node name="TV" type="Node2D" parent="." index="20"]
+[node name="TV" type="Node2D" parent="." index="21"]
 position = Vector2( 29, 137 )
 script = ExtResource( 26 )
 

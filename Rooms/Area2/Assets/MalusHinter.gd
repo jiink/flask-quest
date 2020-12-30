@@ -1,7 +1,7 @@
 extends "res://NPC/NPCWalking/NPCWalking.gd"
 
-var currently_walking
-var left_scene
+var currently_walking = false
+var left_scene = false
 
 const SAVE_KEY = "2-1_malus_hinter_"
 
@@ -10,9 +10,12 @@ func save(save_game):
 
 func load(save_game):
 	left_scene = save_game.data[SAVE_KEY + "left"]
-	print(left_scene)
+	print("DID I LEAVE ALREADY? %s" % left_scene)
 	if left_scene:
 		self.queue_free()
+	else:
+		visible = true
+		position = Vector2(1008, -343)
 
 func interact():
 	if not currently_walking:

@@ -8,7 +8,7 @@ var ingredient_bag = [ "lemon", "iron_shavings", "mundane_fluid", "tree_bark" ]
 var ingredient_bag_capacity = 32 # how can ingredients can you have?
 # these are ingredients that are recognized. add to this list as part of making a new ingredient
 var valid_ingredients = [
-	"lemon", "iron_shavings", "mundane_fluid", "tree_bark"
+	"lemon", "iron_shavings", "mundane_fluid", "tree_bark", "bleach"
 ]
 
 enum { ANY, INVENTORY, LOADOUT }

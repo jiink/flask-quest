@@ -212,16 +212,16 @@ extents = Vector2( 7, 6 )
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 8, 6 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 15, 8 )
 
-[sub_resource type="CanvasItemMaterial" id=18]
+[sub_resource type="CanvasItemMaterial" id=19]
 blend_mode = 3
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 8, 5 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 30, 10 )
 
 [node name="2-6" instance=ExtResource( 3 )]
@@ -287,7 +287,7 @@ position = Vector2( 24, 43 )
 [node name="MalusHinter" parent="YSort" index="2" groups=[
 "save",
 ] instance=ExtResource( 10 )]
-position = Vector2( -72, -441 )
+position = Vector2( 40, -58 )
 script = ExtResource( 11 )
 up_down_periodic_mirroring = false
 
@@ -297,7 +297,6 @@ animation = "hide_crutches"
 frame = 2
 
 [node name="CharacterMover" type="AnimationPlayer" parent="YSort/MalusHinter" index="4"]
-autoplay = "idle_startpos"
 anims/alex_break_leg = SubResource( 5 )
 anims/enter_club = SubResource( 6 )
 anims/idle_startpos = SubResource( 7 )
@@ -384,6 +383,7 @@ face_texture = ExtResource( 29 )
 message = "Uuuh, `YES` we do, Alice. What you're expecting could be very bad. You must be under a lot of stress."
 expression = "angry"
 face_texture = ExtResource( 12 )
+function = "introduce_alex"
 
 [node name="IntroClub15" parent="YSort/MalusHinter/DialogueTree/IntroClub/IntroClub2/IntroClub3/IntroClub4/IntroClub5/IntroClub6/IntroClub7/IntroClub8/IntroClub9/IntroClub10/IntroClub11/IntroClub12/IntroClub13" index="0" instance=ExtResource( 14 )]
 message = "Lastly we got Alex over here. He's our first non-feline member. "
@@ -831,7 +831,7 @@ texture = ExtResource( 34 )
 position = Vector2( 144, -41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Furniture/StaticBody2D" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 18 )
 
 [node name="vending_machine" type="Sprite" parent="YSort/Furniture/StaticBody2D" index="1"]
 texture = ExtResource( 35 )
@@ -939,7 +939,7 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="ShadeOverlay" index="0"]
 modulate = Color( 0.372549, 0.4, 0.498039, 1 )
-material = SubResource( 18 )
+material = SubResource( 19 )
 margin_left = -196.0
 margin_top = -140.0
 margin_right = 623.0
@@ -955,7 +955,7 @@ new_song = ExtResource( 31 )
 fade_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortal" index="0"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortal" index="1"]
 position = Vector2( 0, -196 )
@@ -966,7 +966,7 @@ new_song = ExtResource( 30 )
 fade_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PositionPortal2" index="0"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="Position2D" type="Position2D" parent="PositionPortal2" index="1"]
 position = Vector2( 0, 191 )
@@ -978,7 +978,7 @@ player_new_position = Vector2( 1608, -616 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
 position = Vector2( 0, 15 )
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [editable path="Tilemaps/2-6"]
 

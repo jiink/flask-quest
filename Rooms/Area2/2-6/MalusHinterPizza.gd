@@ -97,3 +97,4 @@ func alex_break_leg():
 func give_map_credentials():
 	ItemManager.give_item("map_login")
 	current_state = State.POST_TALK
+	finished_talk = true

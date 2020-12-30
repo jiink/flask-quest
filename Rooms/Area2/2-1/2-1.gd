@@ -3,6 +3,7 @@
 var malus_door_locked = true
 var manhole_event_happened = false
 var soda_boy_seen = false
+var cat_talked_to = false
 
 var SAVE_KEY = "2-1_"
 
@@ -11,9 +12,9 @@ enum { SIGN_CLOSED, SIGN_OPEN }
 onready var soda_boy = $YSort/NPC/SodaBoy
 
 func _ready():
-	$YSort/MapMachine.connect("map_machine_opened", self, "_on_map_machine_opened")
-	
-	
+#	$YSort/MapMachine.connect("map_machine_opened", self, "_on_map_machine_opened")
+#
+#
 	# do manhole event when they come out of malus
 	var should_do_manhole_event = GameSaver.save_game.data["4-1_kicked_out_lobby"] and (not manhole_event_happened)
 	print("should_do_manhole_event: %s" % should_do_manhole_event)
@@ -38,7 +39,11 @@ func save(save_game):
 func load(save_game):
 	malus_door_locked = save_game.data[SAVE_KEY + "malus_door_locked"]
 	manhole_event_happened = save_game.data[SAVE_KEY + "manhole_event_happened"]
-	update_malus_door(malus_door_locked)
+	cat_talked_to = save_game.data["2-6_malus_hinter_talked_to"]
+	if cat_talked_to:
+		update_malus_door(false)
+	else:
+		update_malus_door(malus_door_locked)
 	soda_boy_seen = save_game.data[SAVE_KEY + "soda_boy_seen"]
 	if soda_boy_seen: # you see him once.
 		if soda_boy != null:
@@ -78,9 +83,9 @@ func update_malus_door(state):
 		if get_node_or_null("YSort/NPC/MalusHinterWalking") != null:
 			$YSort/NPC/MalusHinterWalking.queue_free()
 
-func _on_map_machine_opened():
-	# now that the player viewed the map machine, unlock the doors to malus
-	update_malus_door(false)
+#func _on_map_machine_opened():
+#	# now that the player viewed the map machine, unlock the doors to malus
+#	update_malus_door(false)
 
 func do_manhole_event():
 	manhole_event_happened = true
