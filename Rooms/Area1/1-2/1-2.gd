@@ -31,3 +31,4 @@ func _ready():
 	#  as to SOMEHOW not have TOUCHED the bag RIGHT next to them in the SMALL elevator.... SMH mY HEAD!
 	if not ItemManager.inventory.has("ingredient_bag"):
 		ItemManager.give_item("ingredient_bag")
+	ItemManager.give_ingredient("vinegar")

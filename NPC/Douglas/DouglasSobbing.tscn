@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NPC/Douglas/douglas.png" type="Texture" id=1]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=4]
+
+[node name="DouglasSobbing" instance=ExtResource( 2 )]
+modulate = Color( 0.298039, 0.462745, 0.85098, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -19 )
+
+[node name="DialogueTree" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="DiagPiece" parent="DialogueTree" index="0" instance=ExtResource( 3 )]
+message = "Oh... you weren't supposed to have me on my knees! Oh no oh no ohh.. my reputation! My income! "
+voice_variation = 0.3
+
+[node name="DiagPiece2" parent="DialogueTree/DiagPiece" index="0" instance=ExtResource( 3 )]
+message = "WHAT WILL I DO NOW?? You aren't the fantastical green and oranges I was expecting... relieve me of the sight of you."
+voice_variation = 0.15

@@ -11,7 +11,8 @@ func interact():
 		return
 
 	if remaining_sodas == total_sodas:
-		ItemManager.give_item("peppy_pop")
+		if not ItemManager.has_item("peppy_pop"):
+			ItemManager.give_item("peppy_pop")
 	else:
 		ItemManager.give_item("cruddy_cola")
 	remaining_sodas -= 1

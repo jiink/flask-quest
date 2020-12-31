@@ -510,6 +510,9 @@ shape = SubResource( 13 )
 position = Vector2( 224, 169 )
 item_name = "bleach"
 mode = 0
+auto_sprite = true
+custom_texture = null
+unlimited_if_item = false
 
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 35 )]
 position = Vector2( 269, 52 )
@@ -534,16 +537,13 @@ position = Vector2( 441, 63 )
 [node name="SecurityMop2" parent="YSort" index="4" instance=ExtResource( 25 )]
 position = Vector2( 446, 184 )
 
-[node name="SecurityMop3" parent="YSort" index="5" instance=ExtResource( 25 )]
-position = Vector2( 465, 182 )
-
-[node name="SecurityMop4" parent="YSort" index="6" instance=ExtResource( 25 )]
+[node name="SecurityMop4" parent="YSort" index="5" instance=ExtResource( 25 )]
 position = Vector2( 444, 92 )
 
-[node name="SecurityMop5" parent="YSort" index="7" instance=ExtResource( 25 )]
+[node name="SecurityMop5" parent="YSort" index="6" instance=ExtResource( 25 )]
 position = Vector2( 482, 71 )
 
-[node name="SaveStation" parent="YSort" index="8" instance=ExtResource( 43 )]
+[node name="SaveStation" parent="YSort" index="7" instance=ExtResource( 43 )]
 position = Vector2( 179, 53 )
 
 [node name="LabSecurityCamera" type="Sprite" parent="." index="15"]

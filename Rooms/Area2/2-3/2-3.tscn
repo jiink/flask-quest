@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Rooms/Area2/2-3/2-3.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
@@ -21,12 +21,13 @@
 [ext_resource path="res://Rooms/Area2/2-3/DecoyDouglas.gd" type="Script" id=19]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Rooms/Area2/2-3/DouglasEvent.gd" type="Script" id=21]
-[ext_resource path="res://Rooms/Area2/Assets/city_background.png" type="Texture" id=22]
+[ext_resource path="res://Rooms/Area2/Assets/douglas_battle_background.png" type="Texture" id=22]
 [ext_resource path="res://Music/odd.ogg" type="AudioStream" id=23]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=25]
 [ext_resource path="res://Rooms/Area2/2-3/CustomMusic.gd" type="Script" id=26]
 [ext_resource path="res://Rooms/Area2/Assets/doug_entry.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Effects/Shaders/screenspace_palette_swap.shader" type="Shader" id=28]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -63,6 +64,28 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 133, -3 ), Vector2( -81, -12 ) ]
 }
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 28 )
+shader_param/speed = 0
+shader_param/pal_size = 16
+shader_param/source_pal_size = 5
+shader_param/p1 = Color( 0.345098, 0.329412, 0.294118, 1 )
+shader_param/p2 = Color( 0.592157, 0.607843, 0.541176, 1 )
+shader_param/p3 = Color( 0.466667, 0.286275, 0.501961, 1 )
+shader_param/p4 = Color( 0.541176, 0.572549, 0.615686, 1 )
+shader_param/p5 = Color( 0.180392, 0.2, 0.215686, 1 )
+shader_param/p6 = Color( 0.0313726, 0.0352941, 0.0352941, 1 )
+shader_param/p7 = Color( 0.0352941, 0.172549, 0.137255, 1 )
+shader_param/p8 = Color( 0.0509804, 0.101961, 0.0627451, 1 )
+shader_param/p9 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p10 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p11 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p12 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p13 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p14 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p15 = Color( 0.054902, 0.0666667, 0.109804, 1 )
+shader_param/p16 = Color( 0.054902, 0.0666667, 0.109804, 1 )
 
 [sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
@@ -101,7 +124,6 @@ void fragment(){
 	}
 	COLOR = col;
 }"
-custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 4 )
@@ -153,7 +175,9 @@ extents = Vector2( 27, 10 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 33, 10 )
 
-[node name="2-3" instance=ExtResource( 2 )]
+[node name="2-3" groups=[
+"save",
+] instance=ExtResource( 2 )]
 script = ExtResource( 12 )
 battle_bg = ExtResource( 22 )
 level_music = ExtResource( 25 )
@@ -164,9 +188,11 @@ script = ExtResource( 26 )
 
 [node name="DougApproaching" type="AudioStreamPlayer" parent="CustomMusic" index="0"]
 stream = ExtResource( 11 )
+bus = "Music"
 
 [node name="DougEntry" type="AudioStreamPlayer" parent="CustomMusic" index="1"]
 stream = ExtResource( 27 )
+bus = "Music"
 
 [node name="Tween" type="Tween" parent="CustomMusic" index="2"]
 
@@ -184,7 +210,7 @@ tile_data = PoolIntArray( -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 
 script = ExtResource( 7 )
 
 [node name="Throne" type="Sprite" parent="." index="4"]
-position = Vector2( -112.5, -95 )
+position = Vector2( -112, -95 )
 texture = ExtResource( 14 )
 
 [node name="DecoyDouglas" type="Sprite" parent="Throne" index="0"]
@@ -210,40 +236,60 @@ anims/douglas_walk_in = SubResource( 3 )
 
 [node name="DialogueTree" parent="DouglasEvent" index="1" instance=ExtResource( 18 )]
 
-[node name="DiagPiece7" parent="DouglasEvent/DialogueTree" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece" parent="DouglasEvent/DialogueTree" index="0" instance=ExtResource( 20 )]
 message = "What the heck are those two.."
 skippable = false
 
-[node name="DiagPiece8" parent="DouglasEvent/DialogueTree/DiagPiece7" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece8" parent="DouglasEvent/DialogueTree/DiagPiece" index="0" instance=ExtResource( 20 )]
 message = "Oh no."
 skippable = false
 
-[node name="DiagPiece" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece8" index="0" instance=ExtResource( 20 )]
 message = "Speech, speech, this is my``` speeeeech!"
 skippable = false
 
-[node name="DiagPiece2" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece2" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece8/DiagPiece" index="0" instance=ExtResource( 20 )]
 message = "Looks like the highly prophesied 'fellows of orange and green hue' have finally arrived."
 skippable = false
 
-[node name="DiagPiece3" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece3" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece8/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 20 )]
 message = "They shall attempt to take reign of the Church of Doug."
 skippable = false
 
-[node name="DiagPiece4" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece4" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 20 )]
 message = "But alas, they shall fail in trying as my power is demonstrated."
 skippable = false
 
-[node name="DiagPiece5" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece5" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 20 )]
 message = "You've made a mistake by coming here, Enemies. "
 skippable = false
 
-[node name="DiagPiece6" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 20 )]
+[node name="DiagPiece6" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 20 )]
 message = "Prepare to wither in the face of my great energy."
 function = "start_douglas_fight"
 skippable = false
 
-[node name="PaletteSwap" type="TextureRect" parent="." index="7"]
+[node name="DouglasSobbingLocation" type="Position2D" parent="DouglasEvent" index="2"]
+position = Vector2( -68, -23 )
+
+[node name="RealProphetPairStartLocation" type="Position2D" parent="DouglasEvent" index="3"]
+position = Vector2( -112, 1280 )
+
+[node name="PostBattlePaletteSwap" type="TextureRect" parent="." index="7"]
+visible = false
+material = SubResource( 9 )
+margin_left = -360.0
+margin_top = -274.0
+margin_right = 187.0
+margin_bottom = 1497.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="StrobePaletteSwap" type="TextureRect" parent="." index="8"]
 material = ExtResource( 10 )
 margin_left = -360.0
 margin_top = -274.0
@@ -256,7 +302,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DougSpotlight" type="TextureRect" parent="." index="8"]
+[node name="DougSpotlight" type="TextureRect" parent="." index="9"]
 show_behind_parent = true
 material = SubResource( 5 )
 margin_left = -61.0
@@ -277,12 +323,12 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="DougSpotlight" index="0"]
 
-[node name="DougSpotlightOnDougHimself" type="TextureRect" parent="." index="9"]
+[node name="DougSpotlightOnDougHimself" type="TextureRect" parent="." index="10"]
 show_behind_parent = true
 material = SubResource( 6 )
-margin_left = -147.5
+margin_left = -148.0
 margin_top = -124.0
-margin_right = -57.5
+margin_right = -58.0
 margin_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -294,7 +340,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Light2D" type="Light2D" parent="." index="10"]
+[node name="Light2D" type="Light2D" parent="." index="11"]
 position = Vector2( -112, 1434 )
 rotation = 3.14159
 scale = Vector2( 0.850009, 1 )
@@ -302,7 +348,7 @@ texture = ExtResource( 8 )
 texture_scale = 0.3
 energy = 1.82
 
-[node name="EventTrigger" type="Area2D" parent="." index="11"]
+[node name="EventTrigger" type="Area2D" parent="." index="12"]
 position = Vector2( -112, -12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EventTrigger" index="0"]
@@ -312,7 +358,7 @@ shape = SubResource( 7 )
 position = Vector2( -95, 1444 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( -115, 1437 )
+position = Vector2( -112, 16 )
 
 [node name="Douglas" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 133, -3 )
@@ -324,7 +370,7 @@ __meta__ = {
 texture = ExtResource( 17 )
 offset = Vector2( 0, -19 )
 
-[node name="ScenePortal" parent="." index="15" instance=ExtResource( 9 )]
+[node name="ScenePortal" parent="." index="16" instance=ExtResource( 9 )]
 position = Vector2( -111, 1481 )
 new_scene = "res://Rooms/Area2/2-4/2-4.tscn"
 player_new_position = Vector2( 173, 116 )

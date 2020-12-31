@@ -1,8 +1,12 @@
 extends "res://Rooms/TemplateRoom.gd"
 
+var SAVE_KEY = "2-3_"
+
 onready var player = global.get_player(1)
 var douglas_intro_triggered = false
 onready var douglas = $YSort/Douglas
+
+var douglas_defeated = true # set to true in DouglasEvent when the battle is won
 
 func _ready():
 	$EventTrigger.connect("body_entered", self, "_on_EventTrigger_body_entered")
@@ -24,3 +28,12 @@ func start_douglas_fight():
 	$CustomMusic.stop()
 
 	global.start_battle(["Douglas"])
+
+func save(save_game):
+	save_game.data[SAVE_KEY + "douglas_defeated"] = douglas_defeated
+
+func load(save_game):
+	douglas_defeated = save_game.data[SAVE_KEY + "douglas_defeated"]
+	if douglas_defeated:
+		$DouglasEvent.douglas_defeated_setup()
+
