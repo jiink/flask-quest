@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Battle/NewBattleProtoA/GreenPawn3D.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Environment" id=1]
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+albedo_color = Color( 0.0935, 0.055, 0.11, 1 )
+
+[node name="NewBattleProtoA" type="WorldEnvironment"]
+environment = SubResource( 1 )
+
+[node name="Ground" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+calculate_tangents = false
+use_collision = true
+radius = 5.0
+height = 0.5
+sides = 16
+
+[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215014, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.732353, 0.680926, 0, -0.680926, 0.732353, 0, 3.69321, 6.44663 )
+current = true
+fov = 55.2

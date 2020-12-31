@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/green_pawn_3d.obj-b1624afb2a73fd3ee354aec5b378aeca.mesh"
+
+[deps]
+
+files=[ "res://.import/green_pawn_3d.obj-b1624afb2a73fd3ee354aec5b378aeca.mesh" ]
+
+source_file="res://Engine/Battle/NewBattleProtoA/green_pawn_3d.obj"
+dest_files=[ "res://.import/green_pawn_3d.obj-b1624afb2a73fd3ee354aec5b378aeca.mesh", "res://.import/green_pawn_3d.obj-b1624afb2a73fd3ee354aec5b378aeca.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
