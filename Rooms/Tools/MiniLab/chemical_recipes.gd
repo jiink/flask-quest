@@ -7,5 +7,6 @@ var recipes = {
 	# these ones right here are just for testing right now. \
 	# delete this comment when no longer relevent 
 	"fire_chemical" : ["lemon", "iron_shavings"],
-	"peppy_pop" : ["mundane_fluid", "tree_bark", "lemon"]
+	"peppy_pop" : ["mundane_fluid", "tree_bark", "lemon"],
+	"bitter_dog_sauce": ["vinegar", "hot_dog"],
 }

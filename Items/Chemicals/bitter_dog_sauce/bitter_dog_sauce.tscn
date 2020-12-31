@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Items/Chemicals/base_chemical_defense/base_chemical_defense.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Effects/Shaders/masked_texture_scroll.shader" type="Shader" id=2]
+[ext_resource path="res://Items/Chemicals/bitter_dog_sauce/bitter_dog_sauce_fluid.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/direction = Vector2( 0.1, 0.01 )
+shader_param/pic = ExtResource( 3 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0.0114286, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.442857, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+width = 128
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 16, 16, 0 )
+flag_disable_z = true
+gravity = Vector3( 0, -20, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 3 )
+color = Color( 0.247059, 0.247059, 0, 1 )
+
+[node name="BitterDogSauce" instance=ExtResource( 1 )]
+fill_target = 38
+fill_speed = 2.0
+effects = [ "Tough" ]
+
+[node name="Liquid" parent="." index="0"]
+material = SubResource( 1 )
+
+[node name="Tube" parent="." index="1"]
+modulate = Color( 0.905882, 0.929412, 0.623529, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="." index="2"]
+position = Vector2( 28, -31 )
+process_material = SubResource( 4 )

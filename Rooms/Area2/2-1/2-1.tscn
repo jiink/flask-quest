@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=2]
+[gd_scene load_steps=255 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -190,6 +190,7 @@
 [ext_resource path="res://NPC/MinorNPCs/woman_1_face.png" type="Texture" id=188]
 [ext_resource path="res://NPC/MalusLobbyGuard/big_guard_face.png" type="Texture" id=189]
 [ext_resource path="res://Rooms/Tools/MiniLab/MiniLab.tscn" type="PackedScene" id=190]
+[ext_resource path="res://Rooms/Area2/Assets/NotDogMan.gd" type="Script" id=191]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -1439,7 +1440,7 @@ position = Vector2( 159, -58 )
 position = Vector2( 264, 28 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( -514, 113 )
+position = Vector2( 425, 6 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -3091,6 +3092,7 @@ expression = "open_mouth"
 position = Vector2( 866, 119 )
 texture = ExtResource( 158 )
 offset = Vector2( 0, -17 )
+script = ExtResource( 191 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/Interaction" index="0"]
 shape = SubResource( 56 )
@@ -3112,9 +3114,9 @@ expression = "frown"
 
 [node name="DiagPiece3" parent="YSort/NPC/NotDogStand/DialogueTree/DiagPiece" index="1" instance=ExtResource( 9 )]
 key = "Yes"
-message = "Now check if player has enough money, and if so, give it to them and take away the money. Otherwise, make the seller get angry."
-character = "green"
-expression = "yell_outburst"
+message = "You get hot dog... NOT!"
+face_texture = ExtResource( 186 )
+function = "give_hot_dog"
 
 [node name="SunDog" parent="YSort/NPC" index="24" instance=ExtResource( 77 )]
 position = Vector2( 325, 468 )

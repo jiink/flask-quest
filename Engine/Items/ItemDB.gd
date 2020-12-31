@@ -47,6 +47,12 @@ var items = {
 		'equippable': true,
 		'droppable' : false,
 		},
+	'bitter_dog_sauce': {
+		'name': 'Bitter Dog Sauce',
+		'desc': "It's gross, but makes you feel tough.",
+		'equippable': true,
+		'droppable' : false,
+	},
 #-------------------------------------------
 	'elevator_card': {
 		'name': 'Elevator Card',

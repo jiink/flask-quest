@@ -459,7 +459,7 @@ __meta__ = {
 }
 
 [node name="WinButton" type="Button" parent="."]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 355.0
 margin_top = 7.0
 margin_right = 374.0
