@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/sign_biohazard.png" type="Texture" id=2]
@@ -57,6 +57,7 @@
 [ext_resource path="res://Engine/BgChanger.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Rooms/Area3/Assets/sewers_background_catwalks.png" type="Texture" id=56]
 [ext_resource path="res://Rooms/Area3/Assets/crate_s.png" type="Texture" id=57]
+[ext_resource path="res://NPC/FlyingGrubber/FlyingGrubber.tscn" type="PackedScene" id=58]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -787,18 +788,12 @@ texture = ExtResource( 14 )
 position = Vector2( -776, -184 )
 script = ExtResource( 23 )
 
-[node name="Interaction" parent="PlankPickup2" index="0"]
-visible = true
-
 [node name="CollisionShape2D" parent="PlankPickup2/Interaction" index="0"]
 shape = SubResource( 2 )
 
 [node name="PlankPickup3" parent="." index="7" instance=ExtResource( 21 )]
 position = Vector2( 1862, -490 )
 script = ExtResource( 23 )
-
-[node name="Interaction" parent="PlankPickup3" index="0"]
-visible = true
 
 [node name="CollisionShape2D" parent="PlankPickup3/Interaction" index="0"]
 shape = SubResource( 2 )
@@ -807,18 +802,12 @@ shape = SubResource( 2 )
 position = Vector2( 1779, -490 )
 script = ExtResource( 23 )
 
-[node name="Interaction" parent="PlankPickup4" index="0"]
-visible = true
-
 [node name="CollisionShape2D" parent="PlankPickup4/Interaction" index="0"]
 shape = SubResource( 2 )
 
 [node name="PlankPickup5" parent="." index="9" instance=ExtResource( 21 )]
 position = Vector2( 1695, -490 )
 script = ExtResource( 23 )
-
-[node name="Interaction" parent="PlankPickup5" index="0"]
-visible = true
 
 [node name="CollisionShape2D" parent="PlankPickup5/Interaction" index="0"]
 shape = SubResource( 2 )
@@ -827,9 +816,6 @@ shape = SubResource( 2 )
 position = Vector2( 1695, -465 )
 script = ExtResource( 23 )
 
-[node name="Interaction" parent="PlankPickup6" index="0"]
-visible = true
-
 [node name="CollisionShape2D" parent="PlankPickup6/Interaction" index="0"]
 shape = SubResource( 2 )
 
@@ -837,18 +823,12 @@ shape = SubResource( 2 )
 position = Vector2( 1779, -465 )
 script = ExtResource( 23 )
 
-[node name="Interaction" parent="PlankPickup7" index="0"]
-visible = true
-
 [node name="CollisionShape2D" parent="PlankPickup7/Interaction" index="0"]
 shape = SubResource( 2 )
 
 [node name="PlankPickup8" parent="." index="12" instance=ExtResource( 21 )]
 position = Vector2( 1779, -440 )
 script = ExtResource( 23 )
-
-[node name="Interaction" parent="PlankPickup8" index="0"]
-visible = true
 
 [node name="CollisionShape2D" parent="PlankPickup8/Interaction" index="0"]
 shape = SubResource( 2 )
@@ -947,9 +927,6 @@ shape = SubResource( 4 )
 [node name="PlankPickup" parent="." index="20" instance=ExtResource( 21 )]
 position = Vector2( 570, -198 )
 
-[node name="Interaction" parent="PlankPickup" index="0"]
-visible = true
-
 [node name="CollisionShape2D" parent="PlankPickup/Interaction" index="0"]
 shape = SubResource( 6 )
 
@@ -1030,7 +1007,7 @@ shape = SubResource( 12 )
 position = Vector2( 2718, -297 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 1535, -761 )
+position = Vector2( -93, 54 )
 
 [node name="barrel_empty3" parent="YSort" index="2" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )
@@ -1173,57 +1150,68 @@ position = Vector2( 311, 278 )
 collision_mask = 1
 
 [node name="Inkler3" parent="YSort/Enemies" index="2" instance=ExtResource( 19 )]
-position = Vector2( 217, 195 )
+position = Vector2( 301, 302 )
 collision_mask = 1
 
-[node name="Inkler4" parent="YSort/Enemies" index="3" instance=ExtResource( 19 )]
-position = Vector2( 860, -191 )
+[node name="Inkler5" parent="YSort/Enemies" index="3" instance=ExtResource( 19 )]
+position = Vector2( 917, -195 )
 collision_mask = 1
 
-[node name="Inkler5" parent="YSort/Enemies" index="4" instance=ExtResource( 19 )]
-position = Vector2( 896, -165 )
+[node name="Inkler6" parent="YSort/Enemies" index="4" instance=ExtResource( 19 )]
+position = Vector2( 937, -180 )
 collision_mask = 1
 
-[node name="Inkler6" parent="YSort/Enemies" index="5" instance=ExtResource( 19 )]
-position = Vector2( 881, -206 )
-collision_mask = 1
-
-[node name="Inkler7" parent="YSort/Enemies" index="6" instance=ExtResource( 19 )]
+[node name="Inkler7" parent="YSort/Enemies" index="5" instance=ExtResource( 19 )]
 position = Vector2( 1468, -53 )
 collision_mask = 1
 
-[node name="Inkler8" parent="YSort/Enemies" index="7" instance=ExtResource( 19 )]
-position = Vector2( 1808, -50 )
+[node name="Inkler8" parent="YSort/Enemies" index="6" instance=ExtResource( 19 )]
+position = Vector2( 1861, 139 )
 collision_mask = 1
 
-[node name="Inkler9" parent="YSort/Enemies" index="8" instance=ExtResource( 19 )]
-position = Vector2( 1827, -40 )
+[node name="Inkler9" parent="YSort/Enemies" index="7" instance=ExtResource( 19 )]
+position = Vector2( 1845, -45 )
 collision_mask = 1
 
-[node name="OminousRat4" parent="YSort/Enemies" index="9" instance=ExtResource( 22 )]
-position = Vector2( 2776, -315 )
+[node name="OminousRat4" parent="YSort/Enemies" index="8" instance=ExtResource( 22 )]
+position = Vector2( 2701, -320 )
 collision_layer = 5
 collision_mask = 1
 
-[node name="OminousRat7" parent="YSort/Enemies" index="10" instance=ExtResource( 22 )]
-position = Vector2( 1156, -51 )
+[node name="OminousRat7" parent="YSort/Enemies" index="9" instance=ExtResource( 22 )]
+position = Vector2( 1319, -10 )
 collision_layer = 5
 collision_mask = 1
 
-[node name="OminousRat8" parent="YSort/Enemies" index="11" instance=ExtResource( 22 )]
-position = Vector2( 1440, -45 )
+[node name="OminousRat8" parent="YSort/Enemies" index="10" instance=ExtResource( 22 )]
+position = Vector2( 1867, -47 )
 collision_layer = 5
 collision_mask = 1
 
-[node name="OminousRat9" parent="YSort/Enemies" index="12" instance=ExtResource( 22 )]
-position = Vector2( 1861, -55 )
+[node name="OminousRat9" parent="YSort/Enemies" index="11" instance=ExtResource( 22 )]
+position = Vector2( 1842, 149 )
 collision_layer = 5
 collision_mask = 1
 
-[node name="OminousRat10" parent="YSort/Enemies" index="13" instance=ExtResource( 22 )]
-position = Vector2( 2593, -162 )
+[node name="OminousRat10" parent="YSort/Enemies" index="12" instance=ExtResource( 22 )]
+position = Vector2( 2519, -193 )
 collision_layer = 5
 collision_mask = 1
+
+[node name="FlyingGrubber" parent="YSort/Enemies" index="13" instance=ExtResource( 58 )]
+position = Vector2( 2879, -623 )
+
+[node name="FlyingGrubber2" parent="YSort/Enemies" index="14" instance=ExtResource( 58 )]
+position = Vector2( 2071, -749 )
+
+[node name="FlyingGrubber3" parent="YSort/Enemies" index="15" instance=ExtResource( 58 )]
+position = Vector2( 2503, -792 )
+
+[node name="OminousRat" parent="YSort/Enemies" index="16" instance=ExtResource( 22 )]
+position = Vector2( 2104, -788 )
+
+[node name="Inkler4" parent="YSort/Enemies" index="17" instance=ExtResource( 19 )]
+position = Vector2( 2086, -718 )
 
 [node name="Lights" type="Node" parent="." index="30"]
 

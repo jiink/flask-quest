@@ -1,8 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Pickups/BasePickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area3/Assets/wood_plank.png" type="Texture" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36, 11 )
+
 [node name="PlankPickup" instance=ExtResource( 1 )]
-texture = ExtResource( 2 )
 item_name = "plank"
+mode = 0
+auto_sprite = false
+shine_effect = false
+custom_texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Interaction" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+material = null
+scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )

@@ -10,6 +10,7 @@ var angle = 0.0
 var focus_position = position # what to swarm around
 var goto_position = position # where to go. is near focus_position
 var travel_vec = Vector2(0.0, 0.0)
+var rush = false setget set_rush
 
 func _ready():
 	$DirectionChangeTimer.connect("timeout", self, "on_directiontimer_timeout")
@@ -34,6 +35,20 @@ func _process(delta):
 		pass
 	move_and_slide(travel_vec) #* speed)
 	
+func set_rush(should_rush):
+	rush = should_rush
+	if should_rush:
+		speed *= 1.5
+		follow_distance *= 2.0
+		
+		# make them not stack on top of eachother
+#			# no longer exist on 1st collision layer
+#			collision_layer = 4#0b100
+		collision_mask = 0 # original is 32768 (bit 15)
+	else:
+		speed /= 1.5
+		follow_distance /= 2.0
+		collision_mask = 32768 # (bit 15)
 
 func on_directiontimer_timeout():
 	# pick a new place to head towards
