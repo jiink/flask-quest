@@ -19,3 +19,6 @@ func trigger():
 	set_process(false)
 	TickManager.set_tick(self, false)
 	global.start_battle([base_name])
+
+func set_rush(should_rush):
+	pass
