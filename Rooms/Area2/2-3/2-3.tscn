@@ -210,17 +210,36 @@ anims/douglas_walk_in = SubResource( 3 )
 
 [node name="DialogueTree" parent="DouglasEvent" index="1" instance=ExtResource( 18 )]
 
-[node name="DiagPiece" parent="DouglasEvent/DialogueTree" index="0" instance=ExtResource( 20 )]
-message = "speech speech this is my ``` speeeech"
+[node name="DiagPiece7" parent="DouglasEvent/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "What the heck are those two.."
 skippable = false
 
-[node name="DiagPiece2" parent="DouglasEvent/DialogueTree/DiagPiece" index="0" instance=ExtResource( 20 )]
-message = "the orange and green lads you have all been waiting for are finally here"
+[node name="DiagPiece8" parent="DouglasEvent/DialogueTree/DiagPiece7" index="0" instance=ExtResource( 20 )]
+message = "Oh no."
 skippable = false
 
-[node name="DiagPiece3" parent="DouglasEvent/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 20 )]
-message = "blah blah blah fight time
-"
+[node name="DiagPiece" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 20 )]
+message = "Speech, speech, this is my``` speeeeech!"
+skippable = false
+
+[node name="DiagPiece2" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece" index="0" instance=ExtResource( 20 )]
+message = "Looks like the highly prophesied 'fellows of orange and green hue' have finally arrived."
+skippable = false
+
+[node name="DiagPiece3" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 20 )]
+message = "They shall attempt to take reign of the Church of Doug."
+skippable = false
+
+[node name="DiagPiece4" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 20 )]
+message = "But alas, they shall fail in trying as my power is demonstrated."
+skippable = false
+
+[node name="DiagPiece5" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 20 )]
+message = "You've made a mistake by coming here, Enemies. "
+skippable = false
+
+[node name="DiagPiece6" parent="DouglasEvent/DialogueTree/DiagPiece7/DiagPiece8/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 20 )]
+message = "Prepare to wither in the face of my great energy."
 function = "start_douglas_fight"
 skippable = false
 
@@ -293,7 +312,7 @@ shape = SubResource( 7 )
 position = Vector2( -95, 1444 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( -101, -13 )
+position = Vector2( -115, 1437 )
 
 [node name="Douglas" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 133, -3 )

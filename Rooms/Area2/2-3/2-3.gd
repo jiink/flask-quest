@@ -19,7 +19,7 @@ func _on_EventTrigger_body_entered(body):
 		DiagHelper.start_talk($DouglasEvent)
 
 func start_douglas_fight():
-	MusicManager.set_volume( 0)
+	$"CustomMusic/DougEntry".playing = false
 	$CustomMusic.remove_from_group("tick") # so the custom music volume thing stops happening
 	$CustomMusic.stop()
 
