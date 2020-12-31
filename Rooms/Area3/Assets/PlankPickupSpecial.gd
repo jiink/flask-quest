@@ -1,6 +1,8 @@
-extends "res://BasePickup.gd"
+extends "res://ItemPickup.gd"
 
-
+func _ready():
+	$Sprite.scale = Vector2.ONE
+	
 func interact():
 	if global.get_player().position.x > position.x + 32 or \
 			global.get_player().position.x < position.x - 32:

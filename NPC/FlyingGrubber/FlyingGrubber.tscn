@@ -10,6 +10,7 @@
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 4 )
+follow_distance = 40
 speed = 100
 
 [node name="Sprite" parent="." index="1"]
