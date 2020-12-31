@@ -28,6 +28,14 @@ var battle
 var bchoicenode
 var loadout_changed = false
 
+func update_in_battle():
+	#in_battle = (get_parent().name.find("BattleScene") != -1) #not has_node("../Diag")
+	battle = get_tree().get_current_scene().get_node_or_null("BattleScene")
+	in_battle = (battle != null)
+	if in_battle:
+		bchoicenode = battle.get_node("BattleChoices")
+
+
 func update_list():
 	
 	# main inventory
@@ -66,6 +74,8 @@ func update_list():
 	
 	money_label.text = "$%s" % PlayerStats.dollars
 	
+	update_in_battle()
+
 	if in_battle:
 		battle.update_chem_loadout()
 	
@@ -87,7 +97,7 @@ func _ready():
 	item_selection.position.x = -64 # off the screen in case there's no items
 	update_item_selection(selection_index)
 	$InfoBar.set_visible(false)
-	in_battle = not has_node("../Diag")
+	in_battle = (get_parent().name.find("BattleScene") != -1) #not has_node("../Diag")
 	if in_battle:
 		battle = get_parent()
 		bchoicenode = battle.get_node("BattleChoices")
@@ -106,6 +116,8 @@ func close():
 
 
 func _unhandled_input(event):
+
+	update_in_battle()
 
 	if visible:
 		if not $InfoBar.visible:

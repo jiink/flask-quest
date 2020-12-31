@@ -12,13 +12,12 @@ func interact():
 	map_scene = load("res://Engine/Stations/MapMachine/MapDisplay.tscn")
 	map_scene = map_scene.instance()
 	get_owner().get_node("HUD").add_child(map_scene)
+	map_scene.associated_machine = self
 	map_scene.map = map
 	map_scene.location_on_map = location_on_map
 	
 	if ("map_login" in ItemManager.inventory):
 		emit_signal("map_machine_opened")
-#	else:
-#		DiagHelper.start_talk(self)
 	
 
 func _ready():

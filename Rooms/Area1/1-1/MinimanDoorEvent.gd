@@ -7,7 +7,7 @@ func start_event():
 			null, Vector2(209, 68),
 			0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
-	player.direction = "up"
+	player.direction = player.Direction.UP
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayer.play("main")
 

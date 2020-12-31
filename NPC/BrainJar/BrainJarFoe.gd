@@ -19,5 +19,5 @@ func attack_completed():
 		explosion_instance.position = position
 		yield(get_tree().create_timer(.33), "timeout")
 		var brain_eating_event_instance = brain_eating_event.instance()
-		battle.add_child_below_node(battle.get_node("InventoryMenu"), brain_eating_event_instance)
+		battle.add_child_below_node(battle.get_node("Win"), brain_eating_event_instance)
 		visible = false

@@ -65,6 +65,28 @@ func custompause(node, x):
 
 func start_battle(foes):
 	print("starting a battle?")
+	# if you seriously don't have any chemicals, you just get hurt
+	# check if you have chemicals
+	var has_any_chemicals = false
+	if ItemManager.loadout.size() > 0:
+		has_any_chemicals = true
+	else:
+		# check the inventory
+		for item in ItemManager.inventory:
+			if ItemManager.items[item].has("equippable") and (ItemManager.items[item])["equippable"]:
+				has_any_chemicals =  true
+				break
+	if not has_any_chemicals:
+		print("YOU HAVE NO CHEMICALS GET HURT !!")
+		var p = get_player()
+		if p:
+			p.do_floaty_text("owch")
+			PlayerStats.green_hp -= 15
+		## done with function ##
+		return
+
+	# --- usual case: player has chemicals and a battle actually starts -- ##
+	
 	get_player().frozen = true
 	
 	var hud = get_tree().get_current_scene().get_node("HUD")

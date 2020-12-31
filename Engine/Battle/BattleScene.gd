@@ -73,6 +73,7 @@ onready var item_manager = get_node("/root/ItemManager")
 var foe = load("res://NPC/BaseFoe/BaseFoe.tscn")
 
 var new_effect_icon = preload("res://Engine/Battle/StatusEffects/Icons/EffectIcon.tscn")
+var foe_warn_scene = preload("res://Engine/Battle/FoeWarn.tscn")
 
 var total_dollar_reward = 0
 
@@ -130,9 +131,10 @@ func _ready():
 	# but it should still be invisible at first
 	$SelectedFoeArrow.visible = false
 	
-	# debug mode has win button
+	# debug mode has an invisible win button near the upper-right corner
 	if Debug.debug_mode:
-		$WinButton.visible = true
+		#$WinButton.visible = true
+		pass
 	else:
 		$WinButton.queue_free()
 	
@@ -222,7 +224,9 @@ func get_move_choice():
 			battle_choice_confirmed = false
 			$SelectedChemArrow.visible = false
 	elif focused_menu == INV:
-		focused_menu = MENU if not $InventoryMenu.visible else focused_menu
+		#focused_menu = MENU if not $InventoryMenu.visible else focused_menu
+		if global.get_hud():
+			focused_menu = MENU if not global.get_hud().get_node("InventoryMenu").visible else focused_menu
 
 func get_chem_choice():
 	# (a % b + b) % b
@@ -348,7 +352,7 @@ func hurt(who, damage):
 		_:
 			who.call("get_hurt", damage)
 	if pstats.green_hp < 0 and pstats.orange_hp < 0:
-		get_tree().change_scene_to(load("res://Rooms/Deadlands/Deadlands.tscn"))
+		get_tree().change_scene_to(load("res://Rooms/Deathspanse/Deathspanse.tscn"))
 #		exit_battle()
 		
 	print("%s took %s damage" % [who, damage])
@@ -475,6 +479,12 @@ func start_dodge_game():
 		return
 	
 	if get_foes().size() > 0:
+		# let foes give off a warning sound+visual and then start the dodge game
+		for f in get_foes():
+			var foe_warn = foe_warn_scene.instance()
+			foe_warn.position = Vector2(0.0, -64.0)
+			f.add_child(foe_warn)
+			
 		$DodgerField.visible = true
 		$Tint.visible = true
 		$DodgerField/AnimationPlayer.play("appear")

@@ -11,7 +11,7 @@ func on_ticktimer_timeout():
 	get_tree().call_group("tick", "_tick")
 
 func set_tick(who, choice):
-	if choice == true:
+	if (choice == true) and (not who.is_in_group("tick")):
 		who.add_to_group("tick")
-	elif choice == false:
+	elif (choice == false) and (who.is_in_group("tick")):
 		who.remove_from_group("tick")

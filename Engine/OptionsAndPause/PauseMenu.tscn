@@ -95,7 +95,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -24.0
+volume_db = -18.0
 
 [node name="Tween" type="Tween" parent="."]
 

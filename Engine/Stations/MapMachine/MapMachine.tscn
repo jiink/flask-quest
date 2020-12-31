@@ -84,6 +84,7 @@ position = Vector2( 0, 2 )
 shape = SubResource( 4 )
 
 [node name="OnArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnArea"]
 shape = SubResource( 5 )

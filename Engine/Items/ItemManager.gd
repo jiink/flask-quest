@@ -1,14 +1,14 @@
 extends "res://Engine/Items/ItemDB.gd"
 
-var inventory = ["elevator_card", "elevator_card", "elevator_card", "ingredient_bag"]
-var loadout = [ "fire_chemical", "exotic_excreta"]
+var inventory = []
+var loadout = []
 var inventory_capacity = 20
 # what do you have in your ingredient bag?
-var ingredient_bag = [ "lemon", "iron_shavings", "mundane_fluid", "tree_bark" ]
+var ingredient_bag = []
 var ingredient_bag_capacity = 32 # how can ingredients can you have?
 # these are ingredients that are recognized. add to this list as part of making a new ingredient
 var valid_ingredients = [
-	"lemon", "iron_shavings", "mundane_fluid", "tree_bark", "bleach"
+	"lemon", "iron_shavings", "mundane_fluid", "tree_bark", "bleach", "vinegar", "hot_dog"
 ]
 
 enum { ANY, INVENTORY, LOADOUT }
@@ -53,17 +53,15 @@ func toss_item(to_go, container, force=false): # container: see enum near top
 			loadout.remove(index)
 	else:
 		print("Failed to throw away item, it's not droppable")
-		get_tree().get_nodes_in_group("Player")[0].do_floaty_text("But this is important...")
+		global.get_player(1).do_floaty_text("But this is important...")
 
 # given an ingredient name (string), add it it to the `ingredient_bag`
 # returns `true` if ingridient was stored successfully, `false` otherwise
 # todo: add feedback
 func give_ingredient(requested_ingredient):
-	if is_ingredient_bag_full():
-		return false
-	
-	# check for valid input
-	if not valid_ingredients.has(requested_ingredient):
+	# can't give the ingredient if the bag is full, the ingredient is not valid, or if you already have
+	if (is_ingredient_bag_full() or (not valid_ingredients.has(requested_ingredient))
+	or ingredient_bag.has(requested_ingredient)):
 		return false
 	
 	# add

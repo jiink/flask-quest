@@ -4,6 +4,7 @@ onready var diag = get_tree().get_current_scene().get_node("HUD/Diag") # gotta c
 var location_on_map
 enum AvailableMaps { LANETTA, GLASSTOWN, POPPYHART }
 var map
+var associated_machine # what MapMachine caused this to spawn?
 
 func _ready():
 	global.get_player().frozen = true
@@ -25,7 +26,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			var current_location = $CanvasLayer/DisplayedMap/map_you_location
 			current_location.position = location_on_map
 		else:
-			DiagHelper.start_talk(get_tree().get_current_scene().get_node("YSort/MapMachine"))
+			DiagHelper.start_talk(associated_machine)
 #			DiagHelper.start_talk(get_node(".."))
 	
 	elif anim_name == "turn_off":
