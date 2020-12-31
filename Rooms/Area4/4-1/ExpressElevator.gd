@@ -14,7 +14,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "startup":
 		$AnimationPlayer.play("motion")
 		$OnArea/CollisionShape2D.disabled = true
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(10), "timeout")
 		DiagHelper.start_talk(self)
 
 func elevator_stop():

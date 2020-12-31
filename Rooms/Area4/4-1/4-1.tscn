@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area4/4-1/4-1.gd" type="Script" id=2]
@@ -71,6 +71,8 @@
 [ext_resource path="res://NPC/MinorNPCs/malus_receptionist_face.png" type="Texture" id=69]
 [ext_resource path="res://NPC/old_person_speech.wav" type="AudioStream" id=70]
 [ext_resource path="res://NPC/MalusLobbyGuard/big_guard_face.png" type="Texture" id=71]
+[ext_resource path="res://SoundEffects/computer_ambience_instrumentation.ogg" type="AudioStream" id=72]
+[ext_resource path="res://SoundEffects/computer_ambience_keyboards.ogg" type="AudioStream" id=73]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Present"
@@ -854,15 +856,65 @@ __meta__ = {
 [node name="DialogueTree" parent="elevator" index="4" instance=ExtResource( 20 )]
 
 [node name="DiagPiece" parent="elevator/DialogueTree" index="0" instance=ExtResource( 21 )]
-message = "Can't believe we're gonna"
+message = "Oh my goodness. "
 character = "orange"
+expression = "sad"
 skippable = false
-interrupt = true
 
 [node name="DiagPiece2" parent="elevator/DialogueTree/DiagPiece" index="0" instance=ExtResource( 21 )]
-message = "Beat up Stercus."
+message = "We actually made it! "
+character = "orange"
+expression = "cry_recover"
+skippable = false
+
+[node name="DiagPiece3" parent="elevator/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 21 )]
+message = "At least, we ``almost`` made it. We're practically there."
+character = "orange"
+expression = "side_mouth"
+skippable = false
+
+[node name="DiagPiece4" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 21 )]
+message = "After we get this whole Stercus guy over with, let's go find out why we exist or something."
+character = "orange"
+expression = "neutral"
+skippable = false
+
+[node name="DiagPiece5" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 21 )]
+message = "Golly, how ``would`` you do that?"
+character = "orange"
+expression = "frown"
+skippable = false
+
+[node name="DiagPiece6" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 21 )]
+message = "I don't know. "
 character = "green"
+expression = "confused"
+skippable = false
+
+[node name="DiagPiece7" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 21 )]
+message = "Wow."
+character = "orange"
+expression = "frown"
+skippable = false
+
+[node name="DiagPiece8" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" index="0" instance=ExtResource( 21 )]
+message = "Say, what are we actually going to do once we see Stercus?"
+character = "orange"
+expression = "open_mouth"
+skippable = false
+
+[node name="DiagPiece9" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 21 )]
+message = "Throw chemicals at him. Hope he dies quickly."
+character = "green"
+expression = "open_mouth"
+skippable = false
+
+[node name="DiagPiece10" parent="elevator/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8/DiagPiece9" index="0" instance=ExtResource( 21 )]
+message = "And then we escape and report back to the club."
+character = "green"
+expression = "frown"
 function = "elevator_stop"
+skippable = false
 
 [node name="ElevatorCollisions" type="StaticBody2D" parent="." index="5"]
 position = Vector2( 830, -288 )
@@ -1294,60 +1346,97 @@ position = Vector2( -765, 280 )
 position = Vector2( -659, 275 )
 
 [node name="cubicle_chair" type="Sprite" parent="YSort" index="4"]
-position = Vector2( -441, -646 )
+position = Vector2( -441, -634 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 2
 
 [node name="cubicle_chair8" type="Sprite" parent="YSort" index="5"]
-position = Vector2( -429, -754 )
+position = Vector2( -429, -742 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
 
 [node name="cubicle_chair2" type="Sprite" parent="YSort" index="6"]
-position = Vector2( -392, -647 )
+position = Vector2( -392, -635 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
 
 [node name="cubicle_chair10" type="Sprite" parent="YSort" index="7"]
-position = Vector2( -381, -755 )
+position = Vector2( -381, -743 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 1
 
 [node name="cubicle_chair3" type="Sprite" parent="YSort" index="8"]
-position = Vector2( -345, -645 )
+position = Vector2( -345, -633 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 1
 
 [node name="cubicle_chair14" type="Sprite" parent="YSort" index="9"]
-position = Vector2( -332, -753 )
+position = Vector2( -332, -741 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 2
 
 [node name="cubicle_chair4" type="Sprite" parent="YSort" index="10"]
-position = Vector2( -297, -649 )
+position = Vector2( -297, -637 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
 
 [node name="cubicle_chair9" type="Sprite" parent="YSort" index="11"]
-position = Vector2( -284, -757 )
+position = Vector2( -284, -745 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
 
 [node name="cubicle_chair5" type="Sprite" parent="YSort" index="12"]
-position = Vector2( -251, -647 )
+position = Vector2( -251, -635 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 3
 
 [node name="cubicle_chair13" type="Sprite" parent="YSort" index="13"]
-position = Vector2( -237, -755 )
+position = Vector2( -237, -743 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 1
 
 [node name="cubicle_chair6" type="Sprite" parent="YSort" index="14"]
-position = Vector2( -201, -648 )
+position = Vector2( -201, -636 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 2
 
 [node name="cubicle_chair12" type="Sprite" parent="YSort" index="15"]
-position = Vector2( -188, -756 )
+position = Vector2( -188, -744 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 3
 
 [node name="cubicle_chair7" type="Sprite" parent="YSort" index="16"]
-position = Vector2( -154, -647 )
+position = Vector2( -154, -635 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
+frame = 2
 
 [node name="cubicle_chair11" type="Sprite" parent="YSort" index="17"]
-position = Vector2( -140, -754 )
+position = Vector2( -140, -742 )
 texture = ExtResource( 22 )
+offset = Vector2( 0, -9 )
+hframes = 4
 
 [node name="stalls" type="Sprite" parent="YSort" index="18"]
 position = Vector2( 120, 42 )
@@ -1426,92 +1515,108 @@ position = Vector2( -298, -660 )
 [node name="cubicles2" parent="YSort" index="24" instance=ExtResource( 30 )]
 position = Vector2( -285, -767 )
 
-[node name="cubicles3" type="Node2D" parent="YSort" index="25"]
-position = Vector2( 121, 9 )
+[node name="cubicles3" type="YSort" parent="YSort" index="25"]
+position = Vector2( 121, 23 )
 
 [node name="cubicle_monitor_straight" type="Sprite" parent="YSort/cubicles3" index="0"]
 position = Vector2( -563, -680 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 
 [node name="cubicle_monitor_straight2" type="Sprite" parent="YSort/cubicles3" index="1"]
 position = Vector2( -511, -680 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 1
 
 [node name="cubicle_monitor_straight3" type="Sprite" parent="YSort/cubicles3" index="2"]
 position = Vector2( -469, -682 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 5
 
 [node name="cubicle_monitor_straight4" type="Sprite" parent="YSort/cubicles3" index="3"]
 position = Vector2( -373, -680 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 2
 
 [node name="cubicle_monitor_straight5" type="Sprite" parent="YSort/cubicles3" index="4"]
 position = Vector2( -325, -681 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 7
 
 [node name="cubicle_monitor_straight7" type="Sprite" parent="YSort/cubicles3" index="5"]
 position = Vector2( -553, -787 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 
 [node name="cubicle_monitor_straight8" type="Sprite" parent="YSort/cubicles3" index="6"]
 position = Vector2( -454, -787 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 4
 
 [node name="cubicle_monitor_straight9" type="Sprite" parent="YSort/cubicles3" index="7"]
 position = Vector2( -406, -787 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 6
 
 [node name="cubicle_monitor_curved" type="Sprite" parent="YSort/cubicles3" index="8"]
 position = Vector2( -262, -789 )
 texture = ExtResource( 32 )
+offset = Vector2( 0, -14 )
 hframes = 2
 
 [node name="cubicle_monitor_curved2" type="Sprite" parent="YSort/cubicles3" index="9"]
 position = Vector2( -502, -787 )
 texture = ExtResource( 32 )
+offset = Vector2( 0, -14 )
 hframes = 2
 frame = 1
 
 [node name="cubicle_monitor_straight10" type="Sprite" parent="YSort/cubicles3" index="10"]
 position = Vector2( -357, -788 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 
 [node name="cubicle_monitor_straight6" type="Sprite" parent="YSort/cubicles3" index="11"]
 position = Vector2( -275, -680 )
 texture = ExtResource( 31 )
+offset = Vector2( 0, -14 )
 hframes = 8
 frame = 3
 
 [node name="papers2" type="Sprite" parent="YSort/cubicles3" index="12"]
 position = Vector2( -480, -673 )
 texture = ExtResource( 33 )
+offset = Vector2( 0, -14 )
 
 [node name="papers4" type="Sprite" parent="YSort/cubicles3" index="13"]
 position = Vector2( -296, -782 )
 texture = ExtResource( 34 )
+offset = Vector2( 0, -14 )
 
 [node name="papers3" type="Sprite" parent="YSort/cubicles3" index="14"]
 position = Vector2( -420, -779 )
 texture = ExtResource( 33 )
+offset = Vector2( 0, -14 )
 
 [node name="papers1" type="Sprite" parent="YSort/cubicles3" index="15"]
 position = Vector2( -412, -675 )
 texture = ExtResource( 35 )
+offset = Vector2( 0, -14 )
 
 [node name="table_meeting" parent="YSort" index="26" instance=ExtResource( 36 )]
 position = Vector2( -425, -1520 )
@@ -1648,24 +1753,31 @@ position = Vector2( -24, 44 )
 
 [node name="cubicle_chair15" parent="YSort" index="45" instance=ExtResource( 46 )]
 position = Vector2( -408, -1436 )
+hframes = 4
 
 [node name="cubicle_chair16" parent="YSort" index="46" instance=ExtResource( 46 )]
 position = Vector2( -441, -1436 )
+hframes = 4
 
 [node name="cubicle_chair17" parent="YSort" index="47" instance=ExtResource( 46 )]
 position = Vector2( -448, -1500 )
+hframes = 4
 
 [node name="cubicle_chair18" parent="YSort" index="48" instance=ExtResource( 46 )]
 position = Vector2( -423, -1498 )
+hframes = 4
 
 [node name="cubicle_chair19" parent="YSort" index="49" instance=ExtResource( 46 )]
 position = Vector2( -401, -1500 )
+hframes = 4
 
 [node name="cubicle_chair20" parent="YSort" index="50" instance=ExtResource( 46 )]
 position = Vector2( -456, -1391 )
+hframes = 4
 
 [node name="cubicle_chair21" parent="YSort" index="51" instance=ExtResource( 46 )]
 position = Vector2( -171, -1363 )
+hframes = 4
 
 [node name="Darkness" type="Node2D" parent="." index="13"]
 
@@ -2035,6 +2147,37 @@ shape = SubResource( 47 )
 message = "I don't see Stercus mentioned on this first panel."
 character = "green"
 expression = "side_mouth"
+
+[node name="Ambience" type="Node2D" parent="." index="21"]
+
+[node name="TypingAudio" type="AudioStreamPlayer2D" parent="Ambience" index="0"]
+position = Vector2( -401, -725 )
+stream = ExtResource( 73 )
+autoplay = true
+max_distance = 700.0
+bus = "Environment"
+
+[node name="TypingAudio2" type="AudioStreamPlayer2D" parent="Ambience" index="1"]
+position = Vector2( -173, -730 )
+stream = ExtResource( 73 )
+autoplay = true
+max_distance = 700.0
+bus = "Environment"
+
+[node name="ComputerAmbience" type="AudioStreamPlayer2D" parent="Ambience" index="2"]
+position = Vector2( -260, -769 )
+stream = ExtResource( 72 )
+autoplay = true
+max_distance = 700.0
+bus = "Environment"
+
+[node name="ComputerAmbience2" type="AudioStreamPlayer2D" parent="Ambience" index="3"]
+position = Vector2( -426, -1588 )
+stream = ExtResource( 72 )
+pitch_scale = 0.86
+autoplay = true
+max_distance = 700.0
+bus = "Environment"
 [connection signal="animation_finished" from="elevator/AnimationPlayer" to="elevator" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="elevator/OnArea" to="elevator" method="_on_OnArea_body_entered"]
 
