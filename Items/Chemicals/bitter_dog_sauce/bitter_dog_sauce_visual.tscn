@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Items/Chemicals/base_chemical_defense/base_chemical_defense_visual.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Items/Chemicals/peppy_pop/small_bubble.png" type="Texture" id=2]
 
 [sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 0 ), 0.0, 2.78783, 0, 0, Vector2( 1, 0.330682 ), -1.94229, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 2.78783, 0, 0, Vector2( 0.717143, 0.968182 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.94229, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
@@ -17,10 +16,12 @@ flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 2.29
 gravity = Vector3( 0, -200, 0 )
-initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+radial_accel = -100.0
+radial_accel_random = 0.82
 scale_curve = SubResource( 2 )
+color = Color( 0.552941, 0.721569, 0.160784, 1 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "New Anim"
@@ -62,15 +63,13 @@ tracks/2/keys = {
 "values": [  ]
 }
 
-[node name="peppy_pop_visual" instance=ExtResource( 1 )]
+[node name="bitter_dog_sauce_visual" instance=ExtResource( 1 )]
 
 [node name="Particles2D" type="Particles2D" parent="." index="0"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 48 )
 amount = 20
 local_coords = false
 process_material = SubResource( 3 )
-texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 autoplay = "New Anim"

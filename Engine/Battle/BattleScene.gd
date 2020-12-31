@@ -329,9 +329,19 @@ func get_foes():
 
 func hurt(who, damage):
 	damage = int(round(damage))
+
 	var pstats = $"/root/PlayerStats"
 	match who:
 		"green":
+			print("tough may take effect")
+			# water down the damage if there's a toughness effect (temporary solution?)
+			for c in $PouringEvent/FillingFlask.get_children():
+				print("is %s tough?" % c.name)
+				if c.is_in_group("status_effects") and (c.name.find("Tough") != -1):
+					damage = round(damage / (log(c.level + 0.01) + 1.5)) # theoretical division by zero
+					print("toughness has taken effect. damage reduced")
+					break
+
 			pstats.green_hp -= damage
 			pstats.green_hp = clamp(pstats.green_hp, 0, 9999)
 			$BattleChoices/GreenHPBar.update_bar()
@@ -341,6 +351,12 @@ func hurt(who, damage):
 			else:
 				print("DodgerField/DodgeCircle/GreenHPBar missing")
 		"orange":
+			# water down the damage if there's a toughness effect (temporary solution?)
+			for c in $PouringEvent/FillingFlask.get_children():
+				if c.is_in_group("status_effects") and (c.name.find("Toughness") != -1):
+					damage = round(damage / (log(c.level + 0.01) + 1.5)) # theoretical division by zero
+					print("toughness has taken effect. damage reduced")
+					break
 			pstats.orange_hp -= damage
 			pstats.orange_hp = clamp(pstats.orange_hp, 0, 9999)
 			$BattleChoices/OrangeHPBar.update_bar()
