@@ -3362,7 +3362,7 @@ position = Vector2( 1420, -25 )
 position = Vector2( 1799, -270 )
 
 [node name="MiniLab" parent="YSort" index="18" instance=ExtResource( 190 )]
-position = Vector2( 423, -23 )
+position = Vector2( 454, -23 )
 
 [node name="CafePortal" parent="." index="10" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"

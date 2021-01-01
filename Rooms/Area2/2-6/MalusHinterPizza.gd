@@ -5,6 +5,7 @@ var walking = false
 onready var camera = get_node("../../Camera")
 onready var animator = $CharacterMover
 onready var player = global.get_player(1)
+onready var pizza_door = get_tree().get_current_scene().get_node("pizza_door")
 
 enum State { INTRO, INTRO_CLUB, POST_TALK, POST_MANHOLE }
 var current_state = State.INTRO
@@ -24,9 +25,11 @@ func load(save_game):
 	if finished_talk:
 		current_state = State.POST_TALK
 		animator.play("recenter_in_club")
+		pizza_door.lock(false)
 	else:
 		current_state = State.INTRO
 		animator.play("idle_startpos")
+		pizza_door.lock(true)
 	if manhole_event_happened:
 		current_state = State.POST_MANHOLE
 	if not entered_scene:
@@ -43,12 +46,15 @@ func interact():
 				DiagHelper.start_talk(self, "PostTalk")
 			State.POST_MANHOLE:
 				DiagHelper.start_talk(self, "PostManhole")
+				
+				
 func enter_club():
 	walking = true
 	animator.play("enter_club")
 	yield(animator, "animation_finished")
 	walking = false
 	current_state = State.INTRO_CLUB
+	pizza_door.lock(false)
 	
 func introduce_ari():
 	animator.play("introduce_ari")
