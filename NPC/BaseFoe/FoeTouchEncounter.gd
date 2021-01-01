@@ -22,3 +22,6 @@ func trigger():
 
 func set_rush(should_rush):
 	pass
+
+func _process(delta):
+	pass

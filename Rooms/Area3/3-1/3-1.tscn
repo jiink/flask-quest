@@ -1008,7 +1008,7 @@ shape = SubResource( 12 )
 position = Vector2( 2718, -297 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 1573, -772 )
+position = Vector2( 1619, -757 )
 
 [node name="barrel_empty3" parent="YSort" index="2" instance=ExtResource( 15 )]
 position = Vector2( 149, 73 )
@@ -1209,14 +1209,12 @@ position = Vector2( 2071, -749 )
 position = Vector2( 2503, -792 )
 
 [node name="OminousRat" parent="YSort/Enemies" index="16" instance=ExtResource( 22 )]
-position = Vector2( 2104, -788 )
+position = Vector2( 2103, -788 )
 
 [node name="Inkler4" parent="YSort/Enemies" index="17" instance=ExtResource( 19 )]
 position = Vector2( 2086, -718 )
 
-[node name="RatKing" parent="YSort/Enemies" index="18" groups=[
-"WorldFoes",
-] instance=ExtResource( 59 )]
+[node name="RatKing" parent="YSort/Enemies" index="18" instance=ExtResource( 59 )]
 position = Vector2( 1528, -785 )
 
 [node name="Lights" type="Node" parent="." index="30"]

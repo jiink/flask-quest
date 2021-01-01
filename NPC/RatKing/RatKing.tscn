@@ -49,7 +49,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 22, 22 )
 
-[node name="RatKing" type="KinematicBody2D"]
+[node name="RatKing" type="KinematicBody2D" groups=[
+"WorldFoes",
+]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,7 +60,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -4 )
 frames = SubResource( 10 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="TouchArea" type="Area2D" parent="."]

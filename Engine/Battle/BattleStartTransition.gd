@@ -35,7 +35,7 @@ func _process(delta):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	for i in get_tree().get_nodes_in_group("WorldFoes"):
-		print("BBBBBBBBBBBBBBBB" + str(i))
+		print("BBBBBBBBBBBBBBBB" + i.name)
 		if not i.is_processing():
 			i.queue_free()
 		else:
