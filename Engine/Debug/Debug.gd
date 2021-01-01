@@ -1,10 +1,10 @@
 extends Node
 
 ###############################################
-var debug_mode = true
+var debug_mode = false
 ###############################################
 
-var launch_without_music = true
+var launch_without_music = false
 
 onready var debug_mode_watermark = preload("res://Engine/Debug/DebugModeWatermark.tscn")
 
@@ -17,8 +17,9 @@ func _ready():
 	if launch_without_music:
 		AudioServer.set_bus_mute(1, true)
 	
-	if debug_mode:
-		ItemManager.give_item("miniman_item")
+	# if debug_mode:
+	# 	ItemManager.give_item("miniman_item")
+	# 	ItemManager.give_item("bitter_dog_sauce")
 
 func on_scene_change():
 	if debug_mode:

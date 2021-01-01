@@ -115,6 +115,22 @@ func close():
 	audio.play()
 
 
+func is_action_pressed_2p(action, event):
+	# in the overworld, look for inputs from either player.
+	# in battles, look for inputs only from the person who's turn it is
+	if in_battle:
+		match battle.whos_turn:
+			1:
+				return event.is_action_pressed(action)
+			2:
+				return event.is_action_pressed(action + "2")
+			_:
+				print("InventoryMenu: i dunno what to do when it's P%s's turn" % battle.whos_turn)
+				return false
+	else:
+		return event.is_action_pressed(action) or event.is_action_pressed(action + "2")
+
+
 func _unhandled_input(event):
 
 	update_in_battle()
@@ -122,11 +138,11 @@ func _unhandled_input(event):
 	if visible:
 		if not $InfoBar.visible:
 			
-			if event.is_action_pressed("right"):
+			if is_action_pressed_2p("right", event):
 				selection_index += 1
-			elif event.is_action_pressed("left"):
+			elif is_action_pressed_2p("left", event):
 				selection_index -= 1
-			elif event.is_action_pressed("up"):
+			elif is_action_pressed_2p("up", event):
 				if state == INVENTORY:
 					if selection_index < 11:
 						selection_index = 0
@@ -135,7 +151,7 @@ func _unhandled_input(event):
 					else:
 						selection_index -= 11
 					
-			elif event.is_action_pressed("down"):
+			elif is_action_pressed_2p("down", event):
 				if state == LOADOUT:
 					selection_index = 0
 					state = INVENTORY
@@ -143,7 +159,7 @@ func _unhandled_input(event):
 				else:
 					selection_index += 11
 				
-			elif event.is_action_pressed("confirm") and get_item_list().size() > 0:
+			elif is_action_pressed_2p("confirm", event) and get_item_list().size() > 0:
 				$InfoBar/Label.text = "%s\n%s" % [manager.items[get_item_list()[selection_index]].name,
 													manager.items[get_item_list()[selection_index]].desc]
 				$InfoBar.set_visible(true)
@@ -156,19 +172,19 @@ func _unhandled_input(event):
 					#$InfoBar/ItemOptions/Choices/Equip/Label.text = "Equip"
 				#elif state == LOADOUT:
 					#$InfoBar/ItemOptions/Choices/Equip/Label.text = "Unequip"
-			if event.is_action_pressed("up") or event.is_action_pressed("right") or event.is_action_pressed("left") or event.is_action_pressed("down"):
+			if is_action_pressed_2p("up", event) or is_action_pressed_2p("right", event) or is_action_pressed_2p("left", event) or is_action_pressed_2p("down", event):
 				update_item_selection(selection_index)
 			
 		else:
-			if event.is_action_pressed("left"):
+			if is_action_pressed_2p("left", event):
 				selected_option -= 1
-			elif event.is_action_pressed("right"):
+			elif is_action_pressed_2p("right", event):
 				selected_option += 1
 			selected_option = clamp(selected_option, 0, item_options.get_children().size() - 1)
 			#item_options.get_node("Selection").position = item_options.get_node("Choices").get_child(selected_option).position
 			update_item_action_icons()
 			
-			if event.is_action_pressed("confirm"):
+			if is_action_pressed_2p("confirm", event):
 				match item_options.get_child(selected_option).name:
 					"Toss":
 						toss_item(selection_index)
@@ -205,15 +221,15 @@ func _unhandled_input(event):
 							$InfoBar.set_visible(false)
 						else:
 							print("the %s item doesn't have a use-script" % get_item_list()[selection_index])
-		if event.is_action_pressed("right") or event.is_action_pressed("left"):
+		if is_action_pressed_2p("right", event) or is_action_pressed_2p("left", event):
 				audio.stream = horiz_sound
 				audio.play()
-		elif event.is_action_pressed("up") or event.is_action_pressed("down"):
+		elif is_action_pressed_2p("up", event) or is_action_pressed_2p("down", event):
 				audio.stream = vert_sound
 				audio.play()
 	if (not in_battle):
 		
-		if event.is_action_pressed("cancel"):
+		if is_action_pressed_2p("cancel", event):
 			if not $InfoBar.visible:
 				if not visible:
 					if (not global.get_player().frozen) and (get_parent().get_visibility() == false):
@@ -231,11 +247,11 @@ func _unhandled_input(event):
 		#if bchoicenode.ready_for_inv:
 		if battle.selected_battle_choice == "item" and battle.state == battle.PLAYER_TURN:
 			
-			if event.is_action_pressed("confirm"):
+			if is_action_pressed_2p("confirm", event):
 				if not visible:
 					open()
 					update_list()
-			elif event.is_action_pressed("cancel"):
+			elif is_action_pressed_2p("cancel", event):
 				if visible:
 					if not $InfoBar.visible:
 						close()

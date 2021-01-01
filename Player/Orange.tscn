@@ -25,7 +25,7 @@ tracks/0/keys = {
 ] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 controlled_by = 1
-sprintMultiplier = 2.0
+ground_speed = 61
 player_number = 2
 follow_distance = 3
 

@@ -28,18 +28,26 @@ func _ready():
 	hp = max_hp
 	connect("foe_died", battle, "foe_died")
 	battle.connect("foe_attack_completed", self, "attack_completed")
-	update_hp_label()
+	if Debug.debug_mode:
+		update_hp_label()
+	else:
+		# hide that label
+		var h = get_node_or_null("HPLabel")
+		if h:
+			h.visible = false
 	
 func get_hurt(base_damage):
 	$BaseAnimationPlayer.play("hurt")
 	hp -= base_damage
 	update_hp_label()
 	
-	var damage_number = load("res://Engine/Battle/DamageNumber.tscn").instance()
-#	damage_number.set_position(position)
-	damage_number.num = base_damage
-	get_parent().add_child(damage_number)
-	damage_number.position = self.position
+	# only do damage numbers in debug mode
+	if Debug.debug_mode:
+		var damage_number = load("res://Engine/Battle/DamageNumber.tscn").instance()
+	#	damage_number.set_position(position)
+		damage_number.num = base_damage
+		get_parent().add_child(damage_number)
+		damage_number.position = self.position
 	
 	if hp <= 0:
 		die()
@@ -58,9 +66,10 @@ func say_line():
 			sbub.rect_position += Vector2(randi() % 32 - 16, -64 + randi() % 16 - 8)
 			add_child(sbub)
 		
-
+# only shown in debug mode
 func update_hp_label():
-	$HPLabel.text = str(str(hp), " / ", str(max_hp))
+	if Debug.debug_mode:
+		$HPLabel.text = str(str(hp), " / ", str(max_hp))
 
 func attack_completed():
 #	print("i, %s, completed my %sth attack" % [name, attacks_completed])

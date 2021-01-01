@@ -78,12 +78,12 @@ shape = SubResource( 1 )
 
 [node name="BattleInputHintLeft" parent="." index="8" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0.498039 )
-position = Vector2( 175, 192 )
+position = Vector2( 143, 192 )
 action_hint = "left"
 
 [node name="BattleInputHintRight" parent="." index="9" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0.498039 )
-position = Vector2( 207, 192 )
+position = Vector2( 239, 192 )
 [connection signal="successful_hit" from="BrainBullet" to="." method="_on_BrainBullet_successful_hit"]
 [connection signal="successful_hit" from="BrainBullet2" to="." method="_on_BrainBullet_successful_hit"]
 [connection signal="successful_hit" from="BrainBullet3" to="." method="_on_BrainBullet_successful_hit"]

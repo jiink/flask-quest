@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=9]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/CityParallaxBG.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Rooms/Area1/Assets/lab_door_boom.wav" type="AudioStream" id=12]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorRoom.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorEntrance.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area1/Assets/elevator_button.png" type="Texture" id=19]
@@ -104,6 +105,18 @@ tracks/4/keys = {
 "args": [  ],
 "method": "open_lab_door"
 } ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="AtlasTexture" id=2]
@@ -213,6 +226,10 @@ margin_bottom = 297.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MinimanDoorEvent" index="4"]
+stream = ExtResource( 12 )
+volume_db = 3.0
 
 [node name="TileMaps" parent="." index="2" instance=ExtResource( 8 )]
 
@@ -357,7 +374,7 @@ texture = ExtResource( 19 )
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 142, 78 )
+position = Vector2( 209, 71 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 331, 111 )
@@ -590,7 +607,7 @@ position = Vector2( 504, -259 )
 [node name="IngrBagPickup" parent="YSort" index="9" instance=ExtResource( 11 )]
 position = Vector2( 788, 313 )
 item_name = "ingredient_bag"
-auto_sprite = true
+auto_sprite_half_scale = true
 
 [node name="Dark" type="Node2D" parent="." index="7"]
 

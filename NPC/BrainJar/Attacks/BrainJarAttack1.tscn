@@ -7,7 +7,6 @@
 [ext_resource path="res://NPC/BrainJar/brainjarsketchy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Engine/Battle/BattleInputHint.tscn" type="PackedScene" id=6]
 
-
 [node name="BrainJarAttack1" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
@@ -41,11 +40,11 @@ text = "What a surprise."
 position = Vector2( 336, 155 )
 
 [node name="BattleInputHintLeft" parent="." index="6" instance=ExtResource( 6 )]
-position = Vector2( 176, 186 )
+position = Vector2( 144, 186 )
 flashy = true
 action_hint = "left"
 
 [node name="BattleInputHintRight" parent="." index="7" instance=ExtResource( 6 )]
-position = Vector2( 208, 186 )
+position = Vector2( 240, 186 )
 flashy = true
 [connection signal="successful_hit" from="HomingMissile" to="." method="_on_HomingMissile_successful_hit"]

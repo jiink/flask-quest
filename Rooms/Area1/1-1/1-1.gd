@@ -53,6 +53,9 @@ func set_orange_state(i):
 			if disabled_orange: disabled_orange.queue_free()
 			var orange_follower = preload("res://Player/Orange.tscn").instance()
 			$YSort.add_child(orange_follower)
+			if PlayerStats.player_count > 1: 
+				orange_follower.set_controlled_by(orange_follower.PERSON)
+
 #			PlayerStats.party_members = ["orange"]
 #			$YSort.add_child(load("res://Player/Orange.tscn").instance())
 
