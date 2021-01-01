@@ -14,6 +14,6 @@ func _ready():
 		print(AudioServer.is_bus_mute(1))
 		
 func _on_AnimationPlayer_animation_finished(anim_name):
-	global.start_scene_switch("res://Rooms/Area2/2-5/2-5.tscn", Vector2(0,0))
+	global.start_scene_switch("res://Rooms/Area2/2-5/2-5.tscn", Vector2(206, 114))
 	global.swap_scenes()
 

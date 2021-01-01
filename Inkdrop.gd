@@ -14,6 +14,6 @@ func _process(delta):
 
 func _tick():
 	if position.y <= 108:
-		set_type(ORANGE)
-	else:
 		set_type(GREEN)
+	else:
+		set_type(ORANGE)

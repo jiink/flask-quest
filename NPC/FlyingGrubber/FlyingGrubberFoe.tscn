@@ -5,6 +5,7 @@
 [ext_resource path="res://Engine/AnimateSpritesheet.gd" type="Script" id=3]
 
 [node name="GrubberFoe" instance=ExtResource( 1 )]
+max_hp = 120
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )

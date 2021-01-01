@@ -74,7 +74,12 @@ func _on_ActivateArea_body_entered(body):
 
 func dubble_intro_end():
 	occured = true
-	orange.controlled_by = orange_original_controller
+	#orange.controlled_by = orange_original_controller
+	if PlayerStats.player_count > 1:
+		orange.controlled_by = orange.PERSON
+	else:
+		orange.controlled_by = orange.BOT
+	
 	$CharacterMovement.play("dubble_exit_room")
 #	dubble walks out of room and is transported to behind his desk. Player can now move freely.
 

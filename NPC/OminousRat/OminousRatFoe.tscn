@@ -4,7 +4,7 @@
 [ext_resource path="res://NPC/OminousRat/ominous_rat_battle.png" type="Texture" id=2]
 
 [node name="OminousRatFoe" instance=ExtResource( 1 )]
-max_hp = 120
+max_hp = 90
 dollar_reward = 3
 
 [node name="Sprite" parent="." index="1"]

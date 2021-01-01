@@ -18,8 +18,8 @@ wait_time = 1.5
 [node name="Rat" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 413, 108 )
 rotation = -3.14159
+damage = 13
 destructable = false
-speed = 100.0
 speed_change = 1.02
 
 [node name="Sprite" parent="Rat" index="0"]

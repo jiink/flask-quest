@@ -141,7 +141,6 @@ void fragment() {
 	COLOR.rgb= COLOR.rgb*c;
 }
 "
-custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
@@ -482,6 +481,7 @@ expression = "kawaii"
 [node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3" instance=ExtResource( 8 )]
 message = "Hey. What did I miss?"
 character = "green"
+expression = "neutral"
 
 [node name="DiagPiece" parent="DialogueTree/DiagPiece/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece" instance=ExtResource( 8 )]
 message = "We were, uh, captured."

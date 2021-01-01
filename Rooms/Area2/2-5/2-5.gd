@@ -13,5 +13,5 @@ func start_stage_2():
 func start_stage_3():
 	$SleepStages.play("sleep_stage_3")
 	yield(get_tree().create_timer(4), "timeout")
-	global.start_scene_switch("res://Rooms/Area5/5-1/5-1.tscn", Vector2(3243,500), "down")
+	global.start_scene_switch("res://Rooms/Area5/5-1/5-1.tscn", Vector2(3268,487), "down")
 	global.swap_scenes()
