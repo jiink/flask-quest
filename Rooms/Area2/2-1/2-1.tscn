@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=2]
+[gd_scene load_steps=256 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -191,6 +191,7 @@
 [ext_resource path="res://NPC/MalusLobbyGuard/big_guard_face.png" type="Texture" id=189]
 [ext_resource path="res://Rooms/Tools/MiniLab/MiniLab.tscn" type="PackedScene" id=190]
 [ext_resource path="res://Rooms/Area2/Assets/NotDogMan.gd" type="Script" id=191]
+[ext_resource path="res://Engine/Stations/HealthStation/HealthStation.tscn" type="PackedScene" id=192]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -1008,10 +1009,10 @@ __meta__ = {
 }
 
 [node name="BlackRect2" type="ColorRect" parent="Tilemaps" index="1"]
-margin_left = 583.0
+margin_left = 454.0
 margin_top = -1168.0
 margin_right = 2317.0
-margin_bottom = 902.0
+margin_bottom = 472.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -3222,7 +3223,7 @@ character = "orange"
 expression = "nervous"
 
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
-position = Vector2( 320, 44 )
+position = Vector2( 400, -36 )
 location_on_map = Vector2( -63, 19 )
 
 [node name="MapMachine3" parent="YSort" index="12" instance=ExtResource( 80 )]
@@ -3234,12 +3235,16 @@ position = Vector2( 1440, -612 )
 location_on_map = Vector2( 10, -32 )
 
 [node name="SaveStation" parent="YSort" index="14" instance=ExtResource( 132 )]
-position = Vector2( 392, -24 )
+position = Vector2( 308, 23 )
 
-[node name="SaveStation2" parent="YSort" index="15" instance=ExtResource( 132 )]
+[node name="HealthStation" parent="YSort" index="15" instance=ExtResource( 192 )]
+position = Vector2( 335, 22 )
+frame = 7
+
+[node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 132 )]
 position = Vector2( 1644, -617 )
 
-[node name="StaticVehicles" type="YSort" parent="YSort" index="16"]
+[node name="StaticVehicles" type="YSort" parent="YSort" index="17"]
 
 [node name="car_red" parent="YSort/StaticVehicles" index="0" instance=ExtResource( 133 )]
 position = Vector2( 1552, 528 )
@@ -3323,7 +3328,7 @@ position = Vector2( 2239, -978 )
 [node name="car_greentruck3" parent="YSort/StaticVehicles" index="20" instance=ExtResource( 141 )]
 position = Vector2( 2172, -978 )
 
-[node name="Critters" type="YSort" parent="YSort" index="17"]
+[node name="Critters" type="YSort" parent="YSort" index="18"]
 
 [node name="BirdA" parent="YSort/Critters" index="0" instance=ExtResource( 174 )]
 position = Vector2( 1615, 3 )
@@ -3361,7 +3366,7 @@ position = Vector2( 1420, -25 )
 [node name="SquirrelA3" parent="YSort/Critters" index="11" instance=ExtResource( 171 )]
 position = Vector2( 1799, -270 )
 
-[node name="MiniLab" parent="YSort" index="18" instance=ExtResource( 190 )]
+[node name="MiniLab" parent="YSort" index="19" instance=ExtResource( 190 )]
 position = Vector2( 454, -23 )
 
 [node name="CafePortal" parent="." index="10" instance=ExtResource( 12 )]
@@ -3464,7 +3469,7 @@ __meta__ = {
 
 [node name="BlackRect2" type="ColorRect" parent="." index="16"]
 margin_left = 430.0
-margin_top = 528.0
+margin_top = 879.0
 margin_right = 854.0
 margin_bottom = 953.0
 color = Color( 0.054902, 0.0666667, 0.109804, 1 )

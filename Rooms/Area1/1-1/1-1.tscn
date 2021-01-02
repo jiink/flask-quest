@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area1/1-1/1-1.gd" type="Script" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://Rooms/Area1/1-1/bg_lab_01.tres" type="TileSet" id=9]
 [ext_resource path="res://Rooms/Area1/Assets/CitySillouette/CityParallaxBG.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Rooms/Area1/Assets/lab_door_boom.wav" type="AudioStream" id=12]
+[ext_resource path="res://Rooms/Area1/Assets/explosion_anim.png" type="Texture" id=12]
+[ext_resource path="res://Rooms/Area1/Assets/explosion.wav" type="AudioStream" id=13]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorRoom.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Rooms/Tools/Elevator/ElevatorEntrance.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Rooms/Area1/Assets/elevator_button.png" type="Texture" id=19]
@@ -43,7 +44,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "main"
-length = 3.5
+length = 5.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Player:position")
 tracks/0/interp = 1
@@ -106,17 +108,31 @@ tracks/4/keys = {
 "method": "open_lab_door"
 } ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/type = "audio"
+tracks/5/path = NodePath("ExplosionAudio")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 2.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 1.8 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("explosion_anim:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 2.3, 2.35, 2.4, 2.45, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 2.95, 3, 3.05, 3.1, 3.15, 3.2, 3.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
 
 [sub_resource type="AtlasTexture" id=2]
@@ -208,7 +224,7 @@ anims/main = SubResource( 1 )
 
 [node name="minimansprite" type="Sprite" parent="MinimanDoorEvent" index="2"]
 visible = false
-position = Vector2( 211, 31 )
+position = Vector2( 215.5, 55 )
 z_index = 1
 texture = ExtResource( 7 )
 hframes = 19
@@ -227,9 +243,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MinimanDoorEvent" index="4"]
-stream = ExtResource( 12 )
-volume_db = 3.0
+[node name="ExplosionAudio" type="AudioStreamPlayer" parent="MinimanDoorEvent" index="4"]
+stream = ExtResource( 13 )
+volume_db = 1.126
+
+[node name="explosion_anim" type="Sprite" parent="MinimanDoorEvent" index="5"]
+position = Vector2( 207, 41 )
+z_index = 1
+texture = ExtResource( 12 )
+vframes = 4
+hframes = 5
+frame = 19
 
 [node name="TileMaps" parent="." index="2" instance=ExtResource( 8 )]
 
@@ -374,7 +398,7 @@ texture = ExtResource( 19 )
 position = Vector2( 451, -354 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 209, 71 )
+position = Vector2( 209, 68 )
 
 [node name="OrangeNPC" type="Node2D" parent="YSort" index="2"]
 position = Vector2( 331, 111 )
@@ -607,7 +631,11 @@ position = Vector2( 504, -259 )
 [node name="IngrBagPickup" parent="YSort" index="9" instance=ExtResource( 11 )]
 position = Vector2( 788, 313 )
 item_name = "ingredient_bag"
+mode = 1
+auto_sprite = true
 auto_sprite_half_scale = true
+custom_texture = null
+unlimited_if_item = false
 
 [node name="Dark" type="Node2D" parent="." index="7"]
 
