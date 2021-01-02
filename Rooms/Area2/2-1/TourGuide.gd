@@ -86,7 +86,6 @@ func camera_follow_player():
 	camera.follow_player = true
 	
 func move_camera(pos, time):
-	$Tween.stop_all()
 	camera.follow_player = false
 	$Tween.interpolate_property(camera, "position", \
 		null, pos, time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)

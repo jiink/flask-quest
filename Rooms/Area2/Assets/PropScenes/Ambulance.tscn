@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=1]
+[ext_resource path="res://Rooms/Area2/Assets/car_ambulance.png" type="Texture" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/speed = 10
+shader_param/pal_size = 6
+shader_param/source_pal_size = 7
+shader_param/p1 = Color( 1, 0, 0, 1 )
+shader_param/p2 = Color( 0.4, 0.0901961, 0.215686, 1 )
+shader_param/p3 = Color( 0, 0, 0, 1 )
+shader_param/p4 = null
+shader_param/p5 = null
+shader_param/p6 = null
+shader_param/p7 = null
+shader_param/p8 = null
+shader_param/p9 = null
+shader_param/p10 = null
+shader_param/p11 = null
+shader_param/p12 = null
+shader_param/p13 = null
+shader_param/p14 = null
+shader_param/p15 = null
+shader_param/p16 = null
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13, 23 )
+
+[node name="Ambulance" type="StaticBody2D"]
+
+[node name="ShadeRect" type="ColorRect" parent="."]
+margin_left = -13.0
+margin_top = -18.0
+margin_right = 13.0
+margin_bottom = 24.0
+color = Color( 0.0352941, 0, 0.109804, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="car_ambulance" type="Sprite" parent="."]
+material = SubResource( 1 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
