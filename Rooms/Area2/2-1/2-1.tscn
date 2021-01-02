@@ -1,4 +1,4 @@
-[gd_scene load_steps=256 format=2]
+[gd_scene load_steps=289 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -167,7 +167,7 @@
 [ext_resource path="res://NPC/MinorNPCs/bodybuilder_a_face.png" type="Texture" id=165]
 [ext_resource path="res://NPC/MinorNPCs/runnerboy_face.png" type="Texture" id=166]
 [ext_resource path="res://NPC/MinorNPCs/man_1_face.png" type="Texture" id=167]
-[ext_resource path="res://NPC/MinorNPCs/man_3_face.png" type="Texture" id=168]
+[ext_resource path="res://Rooms/Area2/Assets/greenoveralls_cat_face.png" type="Texture" id=168]
 [ext_resource path="res://NPC/MinorNPCs/dog_1_face.png" type="Texture" id=169]
 [ext_resource path="res://NPC/MinorNPCs/bird_1_face.png" type="Texture" id=170]
 [ext_resource path="res://Rooms/Common/Critters/SquirrelA.tscn" type="PackedScene" id=171]
@@ -192,6 +192,18 @@
 [ext_resource path="res://Rooms/Tools/MiniLab/MiniLab.tscn" type="PackedScene" id=190]
 [ext_resource path="res://Rooms/Area2/Assets/NotDogMan.gd" type="Script" id=191]
 [ext_resource path="res://Engine/Stations/HealthStation/HealthStation.tscn" type="PackedScene" id=192]
+[ext_resource path="res://NPC/MinorNPCs/man_2_face.png" type="Texture" id=193]
+[ext_resource path="res://NPC/MinorNPCs/blue_face.png" type="Texture" id=194]
+[ext_resource path="res://Rooms/Area2/Assets/PropScenes/ParkSign.tscn" type="PackedScene" id=195]
+[ext_resource path="res://Rooms/Area2/Assets/guide_truck_anim.png" type="Texture" id=196]
+[ext_resource path="res://Engine/Battle/circle32.png" type="Texture" id=197]
+[ext_resource path="res://Effects/Shaders/palette_swap.shader" type="Shader" id=198]
+[ext_resource path="res://Rooms/Area2/2-1/TourGuide.gd" type="Script" id=199]
+[ext_resource path="res://Rooms/Area1/Assets/explosion.wav" type="AudioStream" id=200]
+[ext_resource path="res://Rooms/Area2/Assets/enginestart.ogg" type="AudioStream" id=201]
+[ext_resource path="res://Engine/Battle/chemical_explosion.wav" type="AudioStream" id=202]
+[ext_resource path="res://Rooms/Area6/Assets/shorterbell.wav" type="AudioStream" id=203]
+[ext_resource path="res://NPC/MinorNPCs/tourguide_face.png" type="Texture" id=204]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 18 )
@@ -555,21 +567,9 @@ tracks/4/keys = {
 "values": [ Vector2( 38.996, 5.0267 ), Vector2( 38.996, 5.0267 ), Vector2( 0.0846252, 36.6884 ), Vector2( 0.0846252, 36.6884 ) ]
 }
 
-[sub_resource type="Animation" id=25]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
+[sub_resource type="Curve2D" id=25]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 307, 211, 0, 0, 0, 0, 408, 211, 0, 0, 0, 0, 469, 211, 0, 0, 0, 0, 502, 207, 0, 0, 0, 0, 550, 199, 0, 0, 0, 0, 599, 189, 0, 0, 0, 0, 637, 189, 0, 0, 0, 0, 666, 192, 0, 0, 0, 0, 681, 200, 0, 0, 0, 0, 692, 210, 0, 0, 0, 0, 696, 221, 0, 0, 0, 0, 694, 237, 0, 0, 0, 0, 688, 247, 0, 0, 0, 0, 673, 261, 0, 0, 0, 0, 657, 273, 0, 0, 0, 0, 594, 275, 0, 0, 0, 0, 556, 252, 0, 0, 0, 0, 528, 231, 0, 0, 0, 0, 494, 214, 0, 0, 0, 0, 430, 208, 0, 0, 0, 0, 363, 198, 0, 0, 0, 0, 167, 194, 0, 0, 0, 0, -65, 205, 0, 0, 0, 0, -147, 195, 0, 0, 0, 0, -214, 180, 0, 0, 0, 0, -291, 145, 0, 0, 0, 0, -341, 112, 0, 0, 0, 0, -388, 95, 0, 0, 0, 0, -428, 81, 0, 0, 0, 0, -456, 79, 0, 0, 0, 0, -472, 81, 0, 0, 0, 0, -493, 89, 0, 0, 0, 0, -516, 119, 0, 0, 0, 0, -476, 166, 0, 0, 0, 0, -417, 203, 0, 0, 0, 0, -309, 230, 0, 0, 0, 0, -146, 241, 0, 0, 0, 0, -14, 229, 0, 0, 0, 0, 149, 213, 0, 0, 0, 0, 502, 203, 0, 0, 0, 0, 835, 210, 0, 0, 0, 0, 949, 202, 0, 0, 0, 0, 1010, 173, 0, 0, 0, 0, 1075, 120, 0, 0, 0, 0, 1172, 60, 0, 0, 0, 0, 1281, -9, 0, 0, 0, 0, 1404, -62, 0, 0, 0, 0, 1462, -84, 0, 0, 0, 0, 1490, -99, 0, 0, 0, 0, 1520, -125, 0, 0, 0, 0, 1536, -135, 0, 0, 0, 0, 1556, -139, 0, 0, 0, 0, 1580, -139, 0, 0, 0, 0, 1599, -129, 0, 0, 0, 0, 1608, -111, 0, 0, 0, 0, 1584, -89, 0, 0, 0, 0, 1532, -101, 0, 0, 0, 0, 1490, -140, 0, 0, 0, 0, 1422, -164, 0, 0, 0, 0, 1306, -218, 0, 0, 0, 0, 1266, -263, 0, 0, 0, 0, 1203, -361, 0, 0, 0, 0, 1150, -419, 0, 0, 0, 0, 1075, -450, 0, 0, 0, 0, 1002, -458, 0, 0, 0, 0, 834, -457, 0, 0, 0, 0, 529, -479, 0, 0, 0, 0, 686, -514, 0, 0, 0, 0, 1210, -533, 0, 0, 0, 0, 1583, -539, 0, 0, 0, 0, 1746, -536, 0, 0, 0, 0, 1840, -515, 0, 0, 0, 0, 1917, -484, 0, 0, 0, 0, 1982, -421, 0, 0, 0, 0, 2027, -312, 0, 0, 0, 0, 2012, -179, 0, 0, 0, 0, 1979, 119, 0, 0, 0, 0, 1916, 248, 0, 0, 0, 0, 1799, 311, 0, 0, 0, 0, 1746, 418, 0, 0, 0, 0, 1653, 561, 0, 0, 0, 0, 1560, 607, 0, 0, 0, 0, 1441, 611, 0, 0, 0, 0, 1301, 582, 0, 0, 0, 0, 1227, 496, 0, 0, 0, 0, 1183, 398, 0, 0, 0, 0, 1127, 362, 0, 0, 0, 0, 877, 362, 0, 0, 0, 0, 713, 355, 0, 0, 0, 0, 630, 328, 0, 0, 0, 0, 527, 257, 0, 0, 0, 0, 418, 222, 0, 0, 0, 0, 307, 211 )
 }
 
 [sub_resource type="Animation" id=26]
@@ -726,7 +726,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=35]
-length = 2.0
+length = 20.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -736,10 +736,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 0 ]
+"values": [ 0, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -760,23 +760,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=37]
-length = 20.0
-loop = true
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 19 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 2, 1 ]
-}
-
-[sub_resource type="Animation" id=38]
 length = 2.0
 loop = true
 step = 1.0
@@ -793,7 +776,41 @@ tracks/0/keys = {
 "values": [ 4, 0 ]
 }
 
+[sub_resource type="Animation" id=38]
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 2, 1 ]
+}
+
 [sub_resource type="Animation" id=39]
+length = 2.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 0 ]
+}
+
+[sub_resource type="Animation" id=40]
 length = 0.96
 loop = true
 step = 0.08
@@ -810,7 +827,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0 ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=41]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -825,7 +842,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=42]
 length = 2.2
 loop = true
 step = 0.2
@@ -842,7 +859,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ]
 }
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=43]
 length = 2.0
 loop = true
 step = 1.0
@@ -859,19 +876,19 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=43]
+[sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 18, 17 )
 
-[sub_resource type="RectangleShape2D" id=44]
-extents = Vector2( 18, 15 )
-
 [sub_resource type="RectangleShape2D" id=45]
-extents = Vector2( 25, 5 )
+extents = Vector2( 18, 15 )
 
 [sub_resource type="RectangleShape2D" id=46]
 extents = Vector2( 25, 5 )
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 25, 5 )
+
+[sub_resource type="Animation" id=48]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -887,14 +904,13 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=48]
+[sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="RectangleShape2D" id=49]
+[sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 12, 2 )
 
-[sub_resource type="Animation" id=50]
-resource_name = "default"
+[sub_resource type="Animation" id=51]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -910,12 +926,12 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Curve2D" id=51]
+[sub_resource type="Curve2D" id=52]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 30.9999, 1.00003, 0, 0, 0, 0, -403, 1.00003 )
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=53]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -943,14 +959,13 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=53]
-extents = Vector2( 11, 2 )
-
 [sub_resource type="RectangleShape2D" id=54]
 extents = Vector2( 11, 2 )
 
-[sub_resource type="Animation" id=55]
-resource_name = "pumping"
+[sub_resource type="RectangleShape2D" id=55]
+extents = Vector2( 11, 2 )
+
+[sub_resource type="Animation" id=56]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -966,28 +981,1080 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=56]
-extents = Vector2( 18, 5 )
-
 [sub_resource type="RectangleShape2D" id=57]
 extents = Vector2( 18, 5 )
 
 [sub_resource type="RectangleShape2D" id=58]
-extents = Vector2( 12, 4 )
+extents = Vector2( 18, 5 )
 
 [sub_resource type="RectangleShape2D" id=59]
-extents = Vector2( 11, 4 )
+extents = Vector2( 12, 4 )
 
 [sub_resource type="RectangleShape2D" id=60]
-extents = Vector2( 11, 24 )
+extents = Vector2( 11, 4 )
 
 [sub_resource type="RectangleShape2D" id=61]
-extents = Vector2( 12, 30 )
+extents = Vector2( 11, 24 )
 
 [sub_resource type="RectangleShape2D" id=62]
-extents = Vector2( 16, 6 )
+extents = Vector2( 12, 30 )
 
 [sub_resource type="RectangleShape2D" id=63]
+extents = Vector2( 33, 15 )
+
+[sub_resource type="ShaderMaterial" id=64]
+shader = ExtResource( 198 )
+shader_param/speed = 20
+shader_param/pal_size = 8
+shader_param/source_pal_size = 6
+shader_param/p1 = Color( 1, 1, 1, 1 )
+shader_param/p2 = Color( 0.772549, 1, 0.741176, 1 )
+shader_param/p3 = Color( 0.392157, 1, 0, 1 )
+shader_param/p4 = Color( 0.0509804, 0.333333, 0.203922, 1 )
+shader_param/p5 = Color( 0.0235294, 0.0352941, 0.156863, 1 )
+shader_param/p6 = null
+shader_param/p7 = null
+shader_param/p8 = Color( 0.113725, 0, 0.419608, 1 )
+shader_param/p9 = null
+shader_param/p10 = null
+shader_param/p11 = null
+shader_param/p12 = null
+shader_param/p13 = null
+shader_param/p14 = null
+shader_param/p15 = null
+shader_param/p16 = null
+
+[sub_resource type="Animation" id=65]
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ExhaustParticles:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 5.28378, 0.0, 11.3209, 10.1135, 11.3209, -0.7, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExhaustParticles:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -46, -13 ), Vector2( -47, -9 ), Vector2( -46, -16 ), Vector2( -44, -19 ), Vector2( -46, -16 ), Vector2( -49, -6 ), Vector2( -47, -9 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ExhaustParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=66]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ExhaustParticles:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -46, -9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExhaustParticles:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ExhaustParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SparkParticles:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -46, -9 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SparkParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=67]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("SparkParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SparkParticles:lifetime")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 2 ),
+"transitions": PoolRealArray( 0, 1 ),
+"update": 0,
+"values": [ 0.01, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 0.5, 0.5, 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( -10, 0 ), Vector2( -10, 0 ), Vector2( -8, 0 ), Vector2( -10, 0 ), Vector2( -8, 0 ), Vector2( -10, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ExhaustParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ExhaustParticles:process_material:spread")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 45.0, 8.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ExhaustParticles:process_material:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3, 4 ),
+"transitions": PoolRealArray( 8.87655, 1 ),
+"update": 0,
+"values": [ 0.5, 3.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ExhaustParticles:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -46, -9 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ExhaustParticles:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Gradient" id=68]
+offsets = PoolRealArray( 2.44863e-35, 0.243309, 0.50365, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.999292, 0.27451, 1, 1, 0.462745, 0.380392, 1, 0.341176, 0.341176, 0.341176, 1 )
+
+[sub_resource type="GradientTexture" id=69]
+gradient = SubResource( 68 )
+
+[sub_resource type="Curve" id=70]
+_data = [ Vector2( 0, 0.0754073 ), 0.0, 0.959706, 0, 0, Vector2( 1, 0.504953 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=71]
+curve = SubResource( 70 )
+
+[sub_resource type="ParticlesMaterial" id=72]
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 8.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 311.11
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+scale_curve = SubResource( 71 )
+color_ramp = SubResource( 69 )
+
+[sub_resource type="Gradient" id=73]
+offsets = PoolRealArray( 2.44863e-35, 0.255474, 0.506083, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.27451, 0.917647, 1, 1, 0.380392, 0.45098, 1, 1, 0.341176, 0.341176, 0.341176, 1 )
+
+[sub_resource type="GradientTexture" id=74]
+gradient = SubResource( 73 )
+
+[sub_resource type="ParticlesMaterial" id=75]
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 48.48
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 81.44
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 74 )
+
+[sub_resource type="Animation" id=76]
+resource_name = "goto_cat"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.3, 3, 4 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ 3800.0, 3800.0, 3969.96, 4692.29 ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "startup", "drive", "idle" ),
+"times": PoolRealArray( 0.1, 2.3, 4 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.8, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -19 ), Vector2( 0, -19 ), Vector2( -63, -19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ExhaustParticles:process_material:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.8, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0, 0 ), Vector3( -1, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 200 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+} ],
+"times": PoolRealArray( 1.5, 4 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RocketAudio:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("EngineAudio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 126 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "goto_coast"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4, 6 ),
+"transitions": PoolRealArray( 1, 0.5, -2.92817, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 424.9, 1614.62 ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle", "startup", "drive", "idle" ),
+"times": PoolRealArray( 0, 1, 3, 6 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.8, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -19 ), Vector2( 0, -19 ), Vector2( -63, -19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ExhaustParticles:process_material:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.8, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0, 0 ), Vector3( -1, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 201 )
+}, {
+"end_offset": 4.17,
+"start_offset": 0.0,
+"stream": ExtResource( 200 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+} ],
+"times": PoolRealArray( 0, 2.5, 5.5 )
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("EngineAudio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 126 )
+} ],
+"times": PoolRealArray( 0.4 )
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RocketAudio:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RocketAudio:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3.7, 4, 5.6, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 13.277, 13.277, -3.122, 13.277, -30.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RocketAudio:pitch_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 3.7, 4, 5.6, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.51, 0.82, 1.35, 0.82, 0.2 ]
+}
+
+[sub_resource type="Animation" id=78]
+resource_name = "goto_park"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.1, 2.5, 3, 4, 4.5, 5.4, 5.6 ),
+"transitions": PoolRealArray( 1, 1, 2.54912, 1, -0.5, 1, 0.5, 1 ),
+"update": 0,
+"values": [ 1614.62, 1614.62, 1657.11, 1869.56, 3101.77, 3314.22, 3824.1, 3800.0 ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "startup", "drive", "idle" ),
+"times": PoolRealArray( 0.1, 2.5, 5.4 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -63, -19 ), Vector2( -63, -19 ), Vector2( 0, -19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ExhaustParticles:process_material:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0, 0 ), Vector3( 1, 0, 0 ), Vector3( -1, 0, 0 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 202 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+} ],
+"times": PoolRealArray( 1.8, 4, 5.4 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4, 5.3 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ 1.0, 0.7, 1.0 ]
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("EngineAudio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 126 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RocketAudio:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.1, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RocketAudio:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 2, 3.4, 4, 5, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 13.277, 13.277, 15.0, 13.277, 15.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("RocketAudio:pitch_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 2, 3.4, 4, 5, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.2, 1.0, 0.2 ]
+}
+
+[sub_resource type="Animation" id=79]
+resource_name = "goto_restaurant"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.3, 4, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 4692.29, 4692.29, 6250.42, 6264.42 ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "startup", "drive", "idle" ),
+"times": PoolRealArray( 0.1, 2.3, 4 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.7, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -63, -19 ), Vector2( -63, -19 ), Vector2( 0, -19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ExhaustParticles:process_material:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.7, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0, 0 ), Vector3( 1, 0, 0 ), Vector3( -1, 0, 0 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 200 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+} ],
+"times": PoolRealArray( 1.7, 4 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RocketAudio:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RocketAudio:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2.3, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 0.5 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RocketAudio:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2.3, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 24.0, 15.0 ]
+}
+tracks/9/type = "audio"
+tracks/9/path = NodePath("ExtraAudio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 203 )
+} ],
+"times": PoolRealArray( 2.8 )
+}
+tracks/10/type = "audio"
+tracks/10/path = NodePath("EngineAudio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 126 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+
+[sub_resource type="Animation" id=80]
+resource_name = "return"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.3, 4, 7.5, 8.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ 6264.42, 6264.42, 6816.79, 8496.55, 9305.32 ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "startup", "drive", "idle" ),
+"times": PoolRealArray( 0.1, 2.3, 7.5 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.9, 4.1, 7.4, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -19 ), Vector2( 0, -19 ), Vector2( -63, -19 ), Vector2( -63, -19 ), Vector2( 0, -19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ExhaustParticles:process_material:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.9, 4.1, 7.4, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0, 0 ), Vector3( -1, 0, 0 ), Vector3( 1, 0, 0 ), Vector3( 1, 0, 0 ), Vector3( -1, 0, 0 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 200 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 125 )
+} ],
+"times": PoolRealArray( 1.9, 4, 7.3, 8.5 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4, 7.3, 8.5 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
+"update": 0,
+"values": [ 1.0, 0.7, 0.5, 0.8 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RocketAudio:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.4, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RocketAudio:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2.4, 3.3, 6.2, 7.1, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.7, 2.0, 2.0, 0.5 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RocketAudio:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 2.4, 3.3, 6.2, 7.1, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 13.0, 12.0, 15.0, 15.0, 1.0 ]
+}
+tracks/10/type = "audio"
+tracks/10/path = NodePath("EngineAudio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 126 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+} ],
+"times": PoolRealArray( 0.5, 8.9 )
+}
+
+[sub_resource type="Animation" id=81]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "idle" ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ExhaustParticles:process_material:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=82]
+extents = Vector2( 40, 20 )
+
+[sub_resource type="RectangleShape2D" id=83]
+extents = Vector2( 16, 6 )
+
+[sub_resource type="RectangleShape2D" id=84]
 extents = Vector2( 8, 6 )
 
 [node name="2-1" groups=[
@@ -1434,6 +2501,17 @@ one_shot = true
 autoplay = "drive"
 anims/drive = SubResource( 24 )
 
+[node name="TourPath" type="Path2D" parent="VehiclePaths" index="3"]
+curve = SubResource( 25 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="VehiclePaths/TourPath" index="0"]
+position = Vector2( 1597.62, -538.731 )
+offset = 6264.42
+rotate = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="VehiclePaths/TourPath/PathFollow2D" index="0"]
+remote_path = NodePath("../../../../YSort/TourGuide")
+
 [node name="SodaCollection" parent="." index="8" instance=ExtResource( 179 )]
 position = Vector2( 159, -58 )
 
@@ -1441,7 +2519,7 @@ position = Vector2( 159, -58 )
 position = Vector2( 264, 28 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 425, 6 )
+position = Vector2( 274, 30 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -1728,6 +2806,15 @@ position = Vector2( 1751, 110 )
 [node name="cone14" parent="YSort/Props" index="45" instance=ExtResource( 139 )]
 position = Vector2( 1783, 125 )
 
+[node name="ParkSign" parent="YSort/Props" index="46" instance=ExtResource( 195 )]
+position = Vector2( 1014, 117 )
+
+[node name="ParkSign2" parent="YSort/Props" index="47" instance=ExtResource( 195 )]
+position = Vector2( 488, 131 )
+
+[node name="ParkSign3" parent="YSort/Props" index="48" instance=ExtResource( 195 )]
+position = Vector2( 938, -363 )
+
 [node name="streetlamps" type="YSort" parent="YSort" index="4"]
 
 [node name="streetlamp02" parent="YSort/streetlamps" index="0" instance=ExtResource( 33 )]
@@ -1987,7 +3074,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front/trafficlight_signal" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 25 )
+anims/trafficDefault = SubResource( 26 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front" index="2"]
 position = Vector2( 137, -73 )
@@ -2009,7 +3096,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 26 )
+anims/trafficDefault = SubResource( 27 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front2" index="2"]
 position = Vector2( -471, -73 )
@@ -2019,7 +3106,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front2/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 27 )
+anims/trafficDefault = SubResource( 28 )
 
 [node name="trafficlight_front3" parent="YSort/traffic_signals" index="2" instance=ExtResource( 36 )]
 position = Vector2( 1848, 120 )
@@ -2032,7 +3119,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 28 )
+anims/trafficDefault = SubResource( 29 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front3" index="2"]
 position = Vector2( -471, -73 )
@@ -2042,7 +3129,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front3/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 29 )
+anims/trafficDefault = SubResource( 30 )
 
 [node name="trafficlight_front4" parent="YSort/traffic_signals" index="3" instance=ExtResource( 36 )]
 position = Vector2( 1848, -584 )
@@ -2055,7 +3142,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 30 )
+anims/trafficDefault = SubResource( 31 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front4" index="2"]
 position = Vector2( -471, -73 )
@@ -2065,7 +3152,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front4/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 31 )
+anims/trafficDefault = SubResource( 32 )
 
 [node name="trafficlight_front5" parent="YSort/traffic_signals" index="4" instance=ExtResource( 36 )]
 position = Vector2( 1128, -584 )
@@ -2078,7 +3165,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 32 )
+anims/trafficDefault = SubResource( 33 )
 
 [node name="trafficlight_signal_arrow2" type="Sprite" parent="YSort/traffic_signals/trafficlight_front5" index="2"]
 position = Vector2( -471, -73 )
@@ -2088,7 +3175,7 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front5/trafficlight_signal_arrow2" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 33 )
+anims/trafficDefault = SubResource( 34 )
 
 [node name="trafficlight_front6" parent="YSort/traffic_signals" index="5" instance=ExtResource( 36 )]
 position = Vector2( 520, -584 )
@@ -2101,7 +3188,7 @@ hframes = 5
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal3" index="0"]
 autoplay = "trafficDefault"
-anims/trafficDefault = SubResource( 34 )
+anims/trafficDefault = SubResource( 35 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front6" index="2"]
 position = Vector2( 137, -73 )
@@ -2111,7 +3198,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front6/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 35 )
+anims/default = SubResource( 36 )
 
 [node name="trafficlight_front7" parent="YSort/traffic_signals" index="6" instance=ExtResource( 36 )]
 position = Vector2( 520, -1160 )
@@ -2125,8 +3212,8 @@ frame = 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal3" index="0"]
 autoplay = "default"
-anims/default = SubResource( 36 )
-anims/trafficDefault = SubResource( 37 )
+anims/default = SubResource( 37 )
+anims/trafficDefault = SubResource( 38 )
 
 [node name="trafficlight_signal_arrow" type="Sprite" parent="YSort/traffic_signals/trafficlight_front7" index="2"]
 position = Vector2( 137, -73 )
@@ -2136,7 +3223,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/traffic_signals/trafficlight_front7/trafficlight_signal_arrow" index="0"]
 autoplay = "default"
-anims/default = SubResource( 38 )
+anims/default = SubResource( 39 )
 
 [node name="trafficlight_back" parent="YSort/traffic_signals" index="7" instance=ExtResource( 40 )]
 position = Vector2( 776, 344 )
@@ -2221,7 +3308,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_3/talkingreporter" index="0"]
 autoplay = "default"
-anims/default = SubResource( 39 )
+anims/default = SubResource( 40 )
 
 [node name="billboard_3_grid" type="Sprite" parent="YSort/signs/billboard_3" index="1"]
 position = Vector2( 0, 10 )
@@ -2250,7 +3337,7 @@ hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_4/impinge_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 40 )
+anims/default = SubResource( 41 )
 
 [node name="billboard_4_grid" type="Sprite" parent="YSort/signs/billboard_4" index="1"]
 position = Vector2( 0, -11 )
@@ -2280,7 +3367,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_1/snee_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 41 )
+anims/default = SubResource( 42 )
 
 [node name="billboard_1_grid" type="Sprite" parent="YSort/signs/billboard_1" index="1"]
 position = Vector2( 8, -1 )
@@ -2298,7 +3385,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/signs/billboard_2/solis_ad" index="0"]
 autoplay = "default"
-anims/default = SubResource( 42 )
+anims/default = SubResource( 43 )
 
 [node name="billboard_2_grid" type="Sprite" parent="YSort/signs/billboard_2" index="1"]
 position = Vector2( 9, 0 )
@@ -2732,12 +3819,12 @@ face_texture = ExtResource( 154 )
 [node name="Interaction" type="Area2D" parent="YSort/NPC/bearly_bear" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/Interaction" index="0"]
-shape = SubResource( 43 )
+shape = SubResource( 44 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/NPC/bearly_bear" index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC/bearly_bear/StaticBody2D" index="0"]
-shape = SubResource( 44 )
+shape = SubResource( 45 )
 
 [node name="ShadowRect" parent="YSort/NPC/bearly_bear" index="3" instance=ExtResource( 72 )]
 visible = false
@@ -2748,11 +3835,25 @@ margin_right = 4.0
 margin_bottom = 11.0
 
 [node name="CatA" parent="YSort/NPC" index="2" instance=ExtResource( 77 )]
-position = Vector2( 208, 364 )
+position = Vector2( 283, 358 )
 texture = ExtResource( 73 )
 
 [node name="ShadowRect" parent="YSort/NPC/CatA" index="2"]
 visible = false
+
+[node name="DialogueTree" parent="YSort/NPC/CatA" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/CatA/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "You look like a smart guy."
+face_texture = ExtResource( 168 )
+
+[node name="DiagPiece2" parent="YSort/NPC/CatA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "I wish I could've been like you."
+face_texture = ExtResource( 168 )
+
+[node name="DiagPiece3" parent="YSort/NPC/CatA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "But nope. I HAD to run away. Now I'm stuck here, pretending to be an adult who can handle himself."
+face_texture = ExtResource( 168 )
 
 [node name="ManA" parent="YSort/NPC" index="3" instance=ExtResource( 77 )]
 position = Vector2( 229, 371 )
@@ -2762,17 +3863,16 @@ offset = Vector2( 0, -15 )
 [node name="DialogueTree" parent="YSort/NPC/ManA" index="0" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/ManA/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "WAKE UP OLD MAN."
-character = "green"
-expression = "yell_outburst"
+message = "Hey. Nice costume."
+face_texture = ExtResource( 167 )
 
 [node name="DiagPiece2" parent="YSort/NPC/ManA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "Wakeup in 3... 2... 1..."
+message = "I've seen a few folks like you already. They just ran out of that lab."
 face_texture = ExtResource( 167 )
 
 [node name="DiagPiece3" parent="YSort/NPC/ManA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
-message = "Woke"
-face_texture = ExtResource( 168 )
+message = "I know what you're up to."
+face_texture = ExtResource( 167 )
 
 [node name="ShadowRect" parent="YSort/NPC/ManA" index="3"]
 visible = false
@@ -2796,7 +3896,7 @@ expression = "neutral"
 [node name="DiagPiece" parent="YSort/NPC/MouseA/DialogueTree/DiagPiece/DiagPiece" index="0" instance=ExtResource( 9 )]
 message = "You too."
 character = "orange"
-expression = "smug"
+expression = "smug2"
 
 [node name="ShadowRect" parent="YSort/NPC/MouseA" index="3"]
 visible = false
@@ -2809,10 +3909,10 @@ hframes = 6
 frame = 5
 
 [node name="CollisionShape2D" parent="YSort/NPC/DogA/Interaction" index="0"]
-shape = SubResource( 45 )
+shape = SubResource( 46 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/DogA/StaticBody2D" index="0"]
-shape = SubResource( 46 )
+shape = SubResource( 47 )
 
 [node name="ShadowRect" parent="YSort/NPC/DogA" index="2"]
 visible = false
@@ -2832,13 +3932,50 @@ voice_variation = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/DogA" index="4"]
 autoplay = "idleBounce"
-anims/idleBounce = SubResource( 47 )
+anims/idleBounce = SubResource( 48 )
 
 [node name="ManB" parent="YSort/NPC" index="6" instance=ExtResource( 98 )]
 position = Vector2( 356, 351 )
 
+[node name="DialogueTree" parent="YSort/NPC/ManB" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/ManB/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "I almost said goodbye to the world just a few minutes ago."
+face_texture = ExtResource( 193 )
+
+[node name="DiagPiece2" parent="YSort/NPC/ManB/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "But this kind blue fellow gave me just the words I needed."
+face_texture = ExtResource( 193 )
+
 [node name="BlueFlask" parent="YSort/NPC" index="7" instance=ExtResource( 99 )]
 position = Vector2( 374, 346 )
+
+[node name="DialogueTree" parent="YSort/NPC/BlueFlask" index="3" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/BlueFlask/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Nice to get to meet my extended family."
+face_texture = ExtResource( 194 )
+
+[node name="DiagPiece2" parent="YSort/NPC/BlueFlask/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
+message = "What do you plan on doing now that you exist?"
+character = "orange"
+expression = "grin"
+
+[node name="DiagPiece3" parent="YSort/NPC/BlueFlask/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
+message = "Killing myself. "
+face_texture = ExtResource( 194 )
+
+[node name="DiagPiece4" parent="YSort/NPC/BlueFlask/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 9 )]
+message = "I'm kidding. In fact, quite the opposite."
+face_texture = ExtResource( 194 )
+
+[node name="DiagPiece5" parent="YSort/NPC/BlueFlask/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 9 )]
+message = "I just saved this guy's life. He was about to do it."
+face_texture = ExtResource( 194 )
+
+[node name="DiagPiece6" parent="YSort/NPC/BlueFlask/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 9 )]
+message = "This blue bottle thing is the best thing I've seen since men set foot on Europa."
+face_texture = ExtResource( 193 )
 
 [node name="WomanB" parent="YSort/NPC" index="8" instance=ExtResource( 101 )]
 position = Vector2( 1496, -66 )
@@ -2870,11 +4007,11 @@ hframes = 8
 
 [node name="CollisionShape2D" parent="YSort/NPC/ManYelling/Interaction" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 48 )
+shape = SubResource( 49 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/ManYelling/StaticBody2D" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 49 )
+shape = SubResource( 50 )
 
 [node name="ShadowRect" parent="YSort/NPC/ManYelling" index="2"]
 margin_left = -10.0
@@ -2884,7 +4021,7 @@ margin_right = 16.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/ManYelling" index="3"]
 autoplay = "default"
 playback_speed = 2.0
-anims/default = SubResource( 50 )
+anims/default = SubResource( 51 )
 
 [node name="DialogueTree" parent="YSort/NPC/ManYelling" index="4" instance=ExtResource( 8 )]
 
@@ -2992,7 +4129,7 @@ flip_h = true
 
 [node name="RunnerBoyPath2D" type="Path2D" parent="YSort/NPC" index="17"]
 position = Vector2( 1786, -378 )
-curve = SubResource( 51 )
+curve = SubResource( 52 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="YSort/NPC/RunnerBoyPath2D" index="0"]
 position = Vector2( 30.9999, 1.00003 )
@@ -3012,7 +4149,7 @@ face_texture = ExtResource( 166 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/RunnerBoyPath2D" index="1"]
 autoplay = "run_path"
-anims/run_path = SubResource( 52 )
+anims/run_path = SubResource( 53 )
 
 [node name="internetworkerA" parent="YSort/NPC" index="18" instance=ExtResource( 138 )]
 position = Vector2( 1789, 119 )
@@ -3065,17 +4202,17 @@ frame = 3
 visible = false
 
 [node name="CollisionShape2D" parent="YSort/NPC/BodyBuilderA/Interaction" index="0"]
-shape = SubResource( 53 )
+shape = SubResource( 54 )
 
 [node name="StaticBody2D" parent="YSort/NPC/BodyBuilderA" index="1"]
 visible = false
 
 [node name="CollisionShape2D" parent="YSort/NPC/BodyBuilderA/StaticBody2D" index="0"]
-shape = SubResource( 54 )
+shape = SubResource( 55 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/BodyBuilderA" index="3"]
 autoplay = "pumping"
-anims/pumping = SubResource( 55 )
+anims/pumping = SubResource( 56 )
 
 [node name="DialogueTree" parent="YSort/NPC/BodyBuilderA" index="4" instance=ExtResource( 8 )]
 
@@ -3096,15 +4233,15 @@ offset = Vector2( 0, -17 )
 script = ExtResource( 191 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/Interaction" index="0"]
-shape = SubResource( 56 )
+shape = SubResource( 57 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/NotDogStand/StaticBody2D" index="0"]
-shape = SubResource( 57 )
+shape = SubResource( 58 )
 
 [node name="DialogueTree" parent="YSort/NPC/NotDogStand" index="3" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/NotDogStand/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "Hi there, glass guys! Care to purchase a Not Dog?"
+message = "Hi there, glass guys! Care to purchase a Not Dog for just 3 dollars?"
 face_texture = ExtResource( 186 )
 
 [node name="DiagPiece2" parent="YSort/NPC/NotDogStand/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
@@ -3115,19 +4252,40 @@ expression = "frown"
 
 [node name="DiagPiece3" parent="YSort/NPC/NotDogStand/DialogueTree/DiagPiece" index="1" instance=ExtResource( 9 )]
 key = "Yes"
-message = "You get hot dog... NOT!"
+message = "That sounds lovely."
+character = "green"
+expression = "open_mouth"
+
+[node name="DiagPiece" parent="YSort/NPC/NotDogStand/DialogueTree/DiagPiece/DiagPiece3" index="0" instance=ExtResource( 9 )]
+message = "Ohkay, kiddo, let me see those dollar bucks!"
 face_texture = ExtResource( 186 )
 function = "give_hot_dog"
+
+[node name="Successful" parent="YSort/NPC/NotDogStand/DialogueTree" index="1" instance=ExtResource( 9 )]
+message = "Wow, you actually have money, kid!"
+face_texture = ExtResource( 186 )
+
+[node name="Successful2" parent="YSort/NPC/NotDogStand/DialogueTree/Successful" index="0" instance=ExtResource( 9 )]
+message = "Enjoy your hot dog! `I-`I I mean not dog!"
+face_texture = ExtResource( 186 )
+
+[node name="NoMoney" parent="YSort/NPC/NotDogStand/DialogueTree" index="2" instance=ExtResource( 9 )]
+message = "Are you KIDDING ME?"
+face_texture = ExtResource( 186 )
+
+[node name="NoMoney2" parent="YSort/NPC/NotDogStand/DialogueTree/NoMoney" index="0" instance=ExtResource( 9 )]
+message = "I can SEE past your evil tricks!"
+face_texture = ExtResource( 186 )
 
 [node name="SunDog" parent="YSort/NPC" index="24" instance=ExtResource( 77 )]
 position = Vector2( 325, 468 )
 texture = ExtResource( 159 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/SunDog/Interaction" index="0"]
-shape = SubResource( 58 )
+shape = SubResource( 59 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/SunDog/StaticBody2D" index="0"]
-shape = SubResource( 58 )
+shape = SubResource( 59 )
 
 [node name="DialogueTree" parent="YSort/NPC/SunDog" index="3" instance=ExtResource( 8 )]
 
@@ -3143,7 +4301,7 @@ character = "orange"
 expression = "open_mouth"
 
 [node name="DiagPiece3" parent="YSort/NPC/SunDog/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
-message = "...uh. I `love `talking`` on my phone! La la dee da!"
+message = "Nope!"
 face_texture = ExtResource( 182 )
 voice_sound = ExtResource( 128 )
 voice_variation = 0.1
@@ -3154,15 +4312,15 @@ texture = ExtResource( 160 )
 offset = Vector2( 0, -4 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/MoonDog/Interaction" index="0"]
-shape = SubResource( 59 )
+shape = SubResource( 60 )
 
 [node name="CollisionShape2D" parent="YSort/NPC/MoonDog/StaticBody2D" index="0"]
-shape = SubResource( 59 )
+shape = SubResource( 60 )
 
 [node name="DialogueTree" parent="YSort/NPC/MoonDog" index="3" instance=ExtResource( 8 )]
 
 [node name="DiagPiece" parent="YSort/NPC/MoonDog/DialogueTree" index="0" instance=ExtResource( 9 )]
-message = "Hey. I'm on the phone. Why are you talking to me. It's rude to interrupt people on the phone, you know."
+message = "Shut up, green thing, I'm busy talking to my disgusting half-friend."
 face_texture = ExtResource( 181 )
 
 [node name="DiagPiece2" parent="YSort/NPC/MoonDog/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
@@ -3172,11 +4330,7 @@ voice_sound = ExtResource( 128 )
 voice_variation = 0.1
 
 [node name="DiagPiece3" parent="YSort/NPC/MoonDog/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
-message = "Shut your mouth, Sun Dog. "
-face_texture = ExtResource( 181 )
-
-[node name="DiagPiece4" parent="YSort/NPC/MoonDog/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 9 )]
-message = "...I hate being sphere shaped. WHY `am I `sphere`-shaped? WHO` THOUGHT` A `SPHERE` WAS A GOOD IDEA?! I JUST ROLL AROUND` AND GET HARASSED EVERY DAY!!"
+message = "Shut your mouth, Sun Dog. It's not my fault I'm sphere-shaped."
 face_texture = ExtResource( 181 )
 
 [node name="SodaBoy" parent="YSort/NPC" index="26" instance=ExtResource( 177 )]
@@ -3239,7 +4393,7 @@ position = Vector2( 308, 23 )
 
 [node name="HealthStation" parent="YSort" index="15" instance=ExtResource( 192 )]
 position = Vector2( 335, 22 )
-frame = 7
+frame = 13
 
 [node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 132 )]
 position = Vector2( 1644, -617 )
@@ -3300,7 +4454,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 60 )
+shape = SubResource( 61 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="16" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )
@@ -3308,7 +4462,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown2/StaticBody2D" index="0"]
 position = Vector2( 0, -3.99999 )
-shape = SubResource( 60 )
+shape = SubResource( 61 )
 
 [node name="car_red3" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 133 )]
 position = Vector2( 2060, -169 )
@@ -3317,7 +4471,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red3/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 61 )
+shape = SubResource( 62 )
 
 [node name="EighteenWheeler" parent="YSort/StaticVehicles" index="18" instance=ExtResource( 155 )]
 position = Vector2( 2173, -1020 )
@@ -3369,13 +4523,230 @@ position = Vector2( 1799, -270 )
 [node name="MiniLab" parent="YSort" index="19" instance=ExtResource( 190 )]
 position = Vector2( 454, -23 )
 
+[node name="TourGuide" type="KinematicBody2D" parent="YSort" index="20"]
+position = Vector2( 1597.62, -538.731 )
+script = ExtResource( 199 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TourGuide" index="0"]
+shape = SubResource( 63 )
+
+[node name="Sprite" type="Sprite" parent="YSort/TourGuide" index="1"]
+material = SubResource( 64 )
+position = Vector2( -10, 0 )
+texture = ExtResource( 196 )
+offset = Vector2( 0, -19 )
+vframes = 2
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/TourGuide" index="2"]
+autoplay = "idle"
+playback_speed = 2.0
+anims/drive = SubResource( 65 )
+anims/idle = SubResource( 66 )
+anims/startup = SubResource( 67 )
+
+[node name="ExhaustParticles" type="Particles2D" parent="YSort/TourGuide" index="3"]
+position = Vector2( -46, -9 )
+emitting = false
+amount = 32
+lifetime = 0.5
+explosiveness = 0.14
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 72 )
+texture = ExtResource( 197 )
+
+[node name="SparkParticles" type="Particles2D" parent="YSort/TourGuide" index="4"]
+position = Vector2( -46, -9 )
+emitting = false
+amount = 16
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 75 )
+
+[node name="PathMovement" type="AnimationPlayer" parent="YSort/TourGuide" index="5"]
+autoplay = "start_pos"
+anims/goto_cat = SubResource( 76 )
+anims/goto_coast = SubResource( 77 )
+anims/goto_park = SubResource( 78 )
+anims/goto_restaurant = SubResource( 79 )
+anims/return = SubResource( 80 )
+anims/start_pos = SubResource( 81 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/TourGuide" index="6"]
+remote_path = NodePath("../../Player")
+update_position = false
+update_rotation = false
+update_scale = false
+
+[node name="DialogueTree" parent="YSort/TourGuide" index="7" instance=ExtResource( 8 )]
+
+[node name="Intro" parent="YSort/TourGuide/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "Hey, new to Lanetta?"
+face_texture = ExtResource( 204 )
+
+[node name="DiagPiece" parent="YSort/TourGuide/DialogueTree/Intro" index="0" instance=ExtResource( 9 )]
+message = "Want a tour?"
+face_texture = ExtResource( 204 )
+
+[node name="Intro2" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece" index="0" instance=ExtResource( 9 )]
+key = "Yes"
+message = "Sounds nice."
+character = "green"
+expression = "smile"
+function = "move_camera"
+args = [ Vector2( 0, 10 ), 1.0 ]
+
+[node name="Intro4" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece/Intro2" index="0" instance=ExtResource( 9 )]
+message = "Okay. Starting in our immediate area, we have a nice cafe and a statue of none other than the bean who is our mayor. "
+face_texture = ExtResource( 204 )
+function = "move_camera"
+args = [ Vector2( 375, -40 ), 2.0 ]
+
+[node name="Intro6" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece/Intro2/Intro4" index="0" instance=ExtResource( 9 )]
+message = "We also have convenient map machine and save station here."
+face_texture = ExtResource( 204 )
+function = "move_camera"
+args = [ Vector2( 375, 400 ), 3.0 ]
+
+[node name="Intro7" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece/Intro2/Intro4/Intro6" index="0" instance=ExtResource( 9 )]
+message = "Below us is one of A1 Labs' Internet Fluid Transformers. Around that thing, you can get really fast Internet!"
+face_texture = ExtResource( 204 )
+function = "camera_follow_player"
+
+[node name="Intro5" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece/Intro2/Intro4/Intro6/Intro7" index="0" instance=ExtResource( 9 )]
+message = "Now grab on, because we're going to our next stop."
+face_texture = ExtResource( 204 )
+function = "goto_coast"
+
+[node name="Intro3" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece" index="1" instance=ExtResource( 9 )]
+key = "No"
+message = "No thanks."
+character = "green"
+expression = "open_mouth"
+
+[node name="Intro4" parent="YSort/TourGuide/DialogueTree/Intro/DiagPiece/Intro3" index="0" instance=ExtResource( 9 )]
+message = "Wow, okay. Well, I hope you get lost so you can use my services later."
+face_texture = ExtResource( 204 )
+
+[node name="PresentCoast" parent="YSort/TourGuide/DialogueTree" index="1" instance=ExtResource( 9 )]
+message = "This is Lanetta City's coast."
+face_texture = ExtResource( 204 )
+
+[node name="PresentCoast3" parent="YSort/TourGuide/DialogueTree/PresentCoast" index="0" instance=ExtResource( 9 )]
+message = "Easily one of the nicest beaches in the world when this road isn't closed for no reason."
+face_texture = ExtResource( 204 )
+
+[node name="PresentCoast2" parent="YSort/TourGuide/DialogueTree/PresentCoast/PresentCoast3" index="0" instance=ExtResource( 9 )]
+message = "Can you `get your `van off `of my`` TOE ``please?"
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.2
+function = "goto_park"
+
+[node name="PresentPark" parent="YSort/TourGuide/DialogueTree" index="2" instance=ExtResource( 9 )]
+message = "This is one of Lanetta City's parks. It's a popular place for recreational exercising and holding elections."
+face_texture = ExtResource( 204 )
+
+[node name="PresentPark2" parent="YSort/TourGuide/DialogueTree/PresentPark" index="0" instance=ExtResource( 9 )]
+message = "Easily a personal favorite of mine."
+face_texture = ExtResource( 204 )
+function = "goto_cat"
+
+[node name="PresentCat" parent="YSort/TourGuide/DialogueTree" index="3" instance=ExtResource( 9 )]
+message = "...Hey, Austin!"
+face_texture = ExtResource( 204 )
+
+[node name="PresentCat2" parent="YSort/TourGuide/DialogueTree/PresentCat" index="0" instance=ExtResource( 9 )]
+message = "What do you want this time?"
+expression = "angry"
+face_texture = ExtResource( 102 )
+
+[node name="PresentCat2" parent="YSort/TourGuide/DialogueTree/PresentCat/PresentCat2" index="0" instance=ExtResource( 9 )]
+message = "Is that a new outfit?"
+face_texture = ExtResource( 204 )
+
+[node name="PresentCat3" parent="YSort/TourGuide/DialogueTree/PresentCat/PresentCat2/PresentCat2" index="0" instance=ExtResource( 9 )]
+message = "Nope. It's the same one. It looks just as stupid."
+face_texture = ExtResource( 204 )
+
+[node name="PresentCat4" parent="YSort/TourGuide/DialogueTree/PresentCat/PresentCat2/PresentCat2/PresentCat3" index="0" instance=ExtResource( 9 )]
+message = "Hey, green and orange things, NEVER talk to this stupid cat guy."
+face_texture = ExtResource( 204 )
+
+[node name="PresentCat5" parent="YSort/TourGuide/DialogueTree/PresentCat/PresentCat2/PresentCat2/PresentCat3/PresentCat4" index="0" instance=ExtResource( 9 )]
+message = "Of all the stops, this one's a personal ``least favorite."
+face_texture = ExtResource( 204 )
+
+[node name="PresentCat6" parent="YSort/TourGuide/DialogueTree/PresentCat/PresentCat2/PresentCat2/PresentCat3/PresentCat4/PresentCat5" index="0" instance=ExtResource( 9 )]
+message = "Uh, YOU'RE the one who ran over my tail!"
+expression = "angry"
+face_texture = ExtResource( 102 )
+
+[node name="PresentCat7" parent="YSort/TourGuide/DialogueTree/PresentCat/PresentCat2/PresentCat2/PresentCat3/PresentCat4/PresentCat5/PresentCat6" index="0" instance=ExtResource( 9 )]
+message = "And you reacted by clawing at my previously UNSULLIED van?!"
+face_texture = ExtResource( 204 )
+function = "goto_restaurant"
+
+[node name="MissingCat" parent="YSort/TourGuide/DialogueTree" index="4" instance=ExtResource( 9 )]
+message = "Wow, I'm glad that the stupid cat who usually stands here is gone."
+face_texture = ExtResource( 204 )
+
+[node name="MissingCat2" parent="YSort/TourGuide/DialogueTree/MissingCat" index="0" instance=ExtResource( 9 )]
+message = "I still hate him."
+face_texture = ExtResource( 204 )
+function = "goto_restaurant"
+
+[node name="PresentRestaurant" parent="YSort/TourGuide/DialogueTree" index="5" instance=ExtResource( 9 )]
+message = "This is one of our local restaurants."
+face_texture = ExtResource( 204 )
+
+[node name="PresentRestaurant2" parent="YSort/TourGuide/DialogueTree/PresentRestaurant" index="0" instance=ExtResource( 9 )]
+message = "I was there with my family just a few minutes ago. Their ketchup is AMAZING."
+face_texture = ExtResource( 204 )
+function = "goto_return"
+
+[node name="Final" parent="YSort/TourGuide/DialogueTree" index="6" instance=ExtResource( 9 )]
+message = "Well, thank you for riding along my legal tour."
+face_texture = ExtResource( 204 )
+
+[node name="Final2" parent="YSort/TourGuide/DialogueTree/Final" index="0" instance=ExtResource( 9 )]
+message = "Thanks for showing us around."
+character = "orange"
+expression = "smile"
+function = "release_players"
+
+[node name="Interaction" type="Area2D" parent="YSort/TourGuide" index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TourGuide/Interaction" index="0"]
+shape = SubResource( 82 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/TourGuide" index="9"]
+stream = ExtResource( 125 )
+pitch_scale = 0.8
+
+[node name="EngineAudio" type="AudioStreamPlayer" parent="YSort/TourGuide" index="10"]
+stream = ExtResource( 126 )
+
+[node name="RocketAudio" type="AudioStreamPlayer" parent="YSort/TourGuide" index="11"]
+stream = ExtResource( 124 )
+volume_db = 15.0
+pitch_scale = 0.5
+
+[node name="ExtraAudio" type="AudioStreamPlayer" parent="YSort/TourGuide" index="12"]
+stream = ExtResource( 203 )
+volume_db = 11.077
+pitch_scale = 1.94
+
+[node name="Tween" type="Tween" parent="YSort/TourGuide" index="13"]
+
 [node name="CafePortal" parent="." index="10" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"
 player_new_position = Vector2( -48, 230 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CafePortal" index="0"]
 position = Vector2( -32, 71 )
-shape = SubResource( 62 )
+shape = SubResource( 83 )
 
 [node name="DougPortal" parent="." index="11" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
@@ -3383,11 +4754,11 @@ player_new_position = Vector2( -112, 1446 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DougPortal" index="0"]
 position = Vector2( 936, -601 )
-shape = SubResource( 63 )
+shape = SubResource( 84 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DougPortal" index="1"]
 position = Vector2( 968, -601 )
-shape = SubResource( 63 )
+shape = SubResource( 84 )
 
 [node name="PizzaPortal" parent="." index="12" instance=ExtResource( 12 )]
 position = Vector2( 656, -32 )
@@ -3396,11 +4767,11 @@ player_new_position = Vector2( 24, 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PizzaPortal" index="0"]
 position = Vector2( 936, -601 )
-shape = SubResource( 63 )
+shape = SubResource( 84 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PizzaPortal" index="1"]
 position = Vector2( 968, -601 )
-shape = SubResource( 63 )
+shape = SubResource( 84 )
 
 [node name="WifiBeams" type="Node2D" parent="." index="13"]
 

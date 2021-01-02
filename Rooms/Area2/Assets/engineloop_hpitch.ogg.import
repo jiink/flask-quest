@@ -11,5 +11,5 @@ dest_files=[ "res://.import/engineloop_hpitch.ogg-256ab24632e4fddb39b9beac180d88
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

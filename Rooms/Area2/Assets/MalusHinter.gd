@@ -16,7 +16,8 @@ func load(save_game):
 	else:
 		visible = true
 		position = Vector2(1008, -343)
-
+	yield(get_tree().create_timer(1), "timeout")
+	
 func interact():
 	if not currently_walking:
 		DiagHelper.start_talk(self, "AskToJoin")
