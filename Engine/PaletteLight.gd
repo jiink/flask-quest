@@ -1,4 +1,4 @@
-tool
+#replace this line with "tool" when you're ready!
 extends Node2D
 
 export(Texture) var sprite setget change_sprite

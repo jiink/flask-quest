@@ -76,6 +76,7 @@ func release_players():
 	$CollisionShape2D.set_deferred("disabled", false)
 	green.visible = true
 	orange.visible = true
+	orange.clear_history()
 	interactable = true
 
 func camera_follow_player():

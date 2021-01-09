@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rooms/Area6/Assets/hotel_floor_lamp.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 5 )
+
+[node name="HotelFloorLamp" type="StaticBody2D"]
+
+[node name="hotel_floor_lamp" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 2, -10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )

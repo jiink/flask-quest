@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Items/Pickups/ItemPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Engine/Stations/HealthStation/HealthStation.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPC/MalusLobbyGuard/big_guard_light.png" type="Texture" id=14]
+[ext_resource path="res://Rooms/Tools/RoomDark.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Rooms/Tools/ChapterPortal.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -51,6 +54,36 @@ shader_param/region = Vector2( 0, 0 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 3 )
 
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise : hint_albedo;
+
+void fragment(){
+	vec4 tex_val = texture(TEXTURE, UV);
+	vec3 col = textureLod(SCREEN_TEXTURE,SCREEN_UV,0.0).rgb;
+	vec3 noise_tex = texture(noise, UV).rgb;
+	COLOR = tex_val + vec4(noise_tex, 1.0);
+}"
+custom_defines = ""
+
+[sub_resource type="OpenSimplexNoise" id=5]
+octaves = 2
+period = 65.2
+persistence = 0.414
+lacunarity = 1.77
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+noise = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 4 )
+shader_param/noise = SubResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6, 6 )
+
 [node name="T-4" instance=ExtResource( 1 )]
 level_music = ExtResource( 7 )
 battle_music = ExtResource( 10 )
@@ -59,7 +92,7 @@ battle_music = ExtResource( 10 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 4, 0, 0, 5, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 65540, 0, 1, 65541, 0, 1, 65542, 0, 262144, 65543, 0, 327682, 65544, 0, 327682, 65545, 0, 262145, 65546, 0, 1, 65547, 0, 1, 65548, 0, 1, 65549, 0, 1, 65550, 0, 1, 131076, 0, 2, 131077, 0, 2, 131078, 0, 327680, 131079, 0, 196608, 131080, 0, 196608, 131081, 0, 327681, 131082, 0, 2, 131083, 0, 2, 131084, 0, 2, 131085, 0, 2, 131086, 0, 2, 196612, 0, 3, 196613, 0, 3, 196614, 0, 3, 196615, 0, 3, 196616, 0, 3, 196617, 0, 3, 196618, 0, 3, 196619, 0, 3, 196620, 0, 3, 196621, 0, 3, 196622, 0, 3, 262148, 0, 3, 262149, 0, 5, 262150, 0, 3, 262151, 0, 3, 262152, 0, 3, 262153, 0, 3, 262154, 0, 3, 262155, 0, 3, 262156, 0, 3, 262157, 0, 3, 262158, 0, 3, 327684, 0, 3, 327685, 0, 3, 327686, 0, 3, 327687, 0, 3, 327688, 0, 3, 327689, 0, 3, 327690, 0, 3, 327691, 0, 3, 327692, 0, 3, 327693, 0, 3, 327694, 0, 3, 327695, 0, 3, 327696, 0, 3, 327697, 0, 3, 327698, 0, 3, 327699, 0, 3, 327700, 0, 3, 327701, 0, 3, 327702, 0, 3, 327703, 0, 3, 393220, 0, 3, 393221, 0, 3, 393222, 0, 3, 393223, 0, 3, 393224, 0, 3, 393225, 0, 3, 393226, 0, 3, 393227, 0, 3, 393228, 0, 3, 393229, 0, 3, 393230, 0, 3, 393231, 0, 3, 393232, 0, 3, 393233, 0, 3, 393234, 0, 65541, 393235, 0, 65541, 393236, 0, 65541, 393237, 0, 65541, 393238, 0, 65541, 393239, 0, 3, 458756, 0, 3, 458757, 0, 65541, 458758, 0, 3, 458759, 0, 3, 458760, 0, 3, 458761, 0, 3, 458762, 0, 3, 458763, 0, 3, 458764, 0, 3, 458765, 0, 3, 458766, 0, 3, 458769, 0, 3, 458770, 0, 65541, 458771, 0, 65541, 458772, 0, 65541, 458773, 0, 65541, 458774, 0, 65541, 458775, 0, 3, 524292, 0, 3, 524293, 0, 3, 524294, 0, 3, 524295, 0, 3, 524296, 0, 3, 524297, 0, 3, 524298, 0, 3, 524299, 0, 3, 524300, 0, 3, 524301, 0, 3, 524302, 0, 3, 524305, 0, 3, 524306, 0, 65541, 524307, 0, 65541, 524308, 0, 65541, 524309, 0, 65541, 524310, 0, 65541, 524311, 0, 3, 589841, 0, 3, 589842, 0, 65541, 589843, 0, 65541, 589844, 0, 65541, 589845, 0, 65541, 589846, 0, 65541, 589847, 0, 3, 655377, 0, 3, 655378, 0, 65541, 655379, 0, 65541, 655380, 0, 65541, 655381, 0, 65541, 655382, 0, 65541, 655383, 0, 3, 720913, 0, 3, 720914, 0, 3, 720915, 0, 3, 720916, 0, 3, 720917, 0, 3, 720918, 0, 3, 720919, 0, 3 )
+tile_data = PoolIntArray( -327656, 0, 3, -327655, 0, 3, -327654, 0, 3, -262120, 0, 3, -262119, 0, 3, -262118, 0, 3, -196584, 0, 3, -196583, 0, 3, -196582, 0, 3, -131047, 0, 524288, -65511, 0, 524291, 4, 0, 0, 5, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 19, 0, 3, 20, 0, 3, 21, 0, 3, 24, 0, 3, 25, 0, 3, 26, 0, 3, 65540, 0, 1, 65541, 0, 1, 65542, 0, 262144, 65543, 0, 327682, 65544, 0, 327682, 65545, 0, 262145, 65546, 0, 1, 65547, 0, 1, 65548, 0, 1, 65549, 0, 1, 65550, 0, 1, 65555, 0, 3, 65556, 0, 3, 65557, 0, 3, 65558, 0, 3, 65559, 0, 3, 65560, 0, 3, 65561, 0, 3, 65562, 0, 3, 131076, 0, 2, 131077, 0, 2, 131078, 0, 327680, 131079, 0, 196608, 131080, 0, 196608, 131081, 0, 327681, 131082, 0, 2, 131083, 0, 2, 131084, 0, 2, 131085, 0, 2, 131086, 0, 2, 131091, 0, 3, 131092, 0, 3, 131093, 0, 3, 131096, 0, 3, 131097, 0, 3, 131098, 0, 3, 196612, 0, 3, 196613, 0, 3, 196614, 0, 3, 196615, 0, 3, 196616, 0, 3, 196617, 0, 3, 196618, 0, 3, 196619, 0, 3, 196620, 0, 3, 196621, 0, 3, 196622, 0, 3, 196628, 0, 3, 262148, 0, 3, 262149, 0, 5, 262150, 0, 3, 262151, 0, 3, 262152, 0, 3, 262153, 0, 3, 262154, 0, 3, 262155, 0, 3, 262156, 0, 3, 262157, 0, 3, 262158, 0, 3, 262164, 0, 3, 327684, 0, 3, 327685, 0, 3, 327686, 0, 3, 327687, 0, 3, 327688, 0, 3, 327689, 0, 3, 327690, 0, 3, 327691, 0, 3, 327692, 0, 3, 327693, 0, 3, 327694, 0, 3, 327695, 0, 3, 327696, 0, 3, 327697, 0, 3, 327698, 0, 3, 327699, 0, 3, 327700, 0, 3, 327701, 0, 3, 327702, 0, 3, 327703, 0, 3, 393220, 0, 3, 393221, 0, 3, 393222, 0, 3, 393223, 0, 3, 393224, 0, 3, 393225, 0, 3, 393226, 0, 3, 393227, 0, 3, 393228, 0, 3, 393229, 0, 3, 393230, 0, 3, 393231, 0, 3, 393232, 0, 3, 393233, 0, 3, 393234, 0, 65541, 393235, 0, 65541, 393236, 0, 65541, 393237, 0, 65541, 393238, 0, 65541, 393239, 0, 3, 458756, 0, 3, 458757, 0, 65541, 458758, 0, 3, 458759, 0, 3, 458760, 0, 3, 458761, 0, 3, 458762, 0, 3, 458763, 0, 3, 458764, 0, 3, 458765, 0, 3, 458766, 0, 3, 458769, 0, 3, 458770, 0, 65541, 458771, 0, 65541, 458772, 0, 65541, 458773, 0, 65541, 458774, 0, 65541, 458775, 0, 3, 524292, 0, 3, 524293, 0, 3, 524294, 0, 3, 524295, 0, 3, 524296, 0, 3, 524297, 0, 3, 524298, 0, 3, 524299, 0, 3, 524300, 0, 3, 524301, 0, 3, 524302, 0, 3, 524305, 0, 3, 524306, 0, 65541, 524307, 0, 65541, 524308, 0, 65541, 524309, 0, 65541, 524310, 0, 65541, 524311, 0, 3, 589841, 0, 3, 589842, 0, 65541, 589843, 0, 65541, 589844, 0, 65541, 589845, 0, 65541, 589846, 0, 65541, 589847, 0, 3, 655377, 0, 3, 655378, 0, 65541, 655379, 0, 65541, 655380, 0, 65541, 655381, 0, 65541, 655382, 0, 65541, 655383, 0, 3, 720913, 0, 3, 720914, 0, 3, 720915, 0, 3, 720916, 0, 3, 720917, 0, 3, 720918, 0, 3, 720919, 0, 3 )
 
 [node name="Collision" type="TileMap" parent="Tilemaps" index="1"]
 tile_set = ExtResource( 2 )
@@ -83,25 +116,38 @@ region_rect = Rect2( 0, 0, 256, 256 )
 position = Vector2( 179, 79 )
 item_name = "orange_grassbulbs_item"
 mode = 0
+auto_sprite = true
 auto_sprite_half_scale = true
+custom_texture = null
+unlimited_if_item = false
 
 [node name="ItemPickup2" parent="." index="5" instance=ExtResource( 11 )]
 position = Vector2( 212, 94 )
 item_name = "iron_shavings"
 mode = 0
+auto_sprite = true
+custom_texture = null
+unlimited_if_item = false
 
 [node name="ItemPickup3" parent="." index="6" instance=ExtResource( 11 )]
 position = Vector2( 169, 124 )
 item_name = "tortured_tortilla_item"
 mode = 0
+auto_sprite = true
+custom_texture = null
 unlimited_if_item = true
 
 [node name="ItemPickup4" parent="." index="7" instance=ExtResource( 11 )]
 position = Vector2( 123, 113 )
 item_name = "lemon"
 mode = 0
+auto_sprite = true
 auto_sprite_half_scale = true
+custom_texture = null
 unlimited_if_item = true
+
+[node name="Player" parent="YSort" index="0"]
+position = Vector2( 142, 131 )
 
 [node name="TimeToggleButton" type="Sprite" parent="YSort" index="1"]
 position = Vector2( 214, 66 )
@@ -130,11 +176,139 @@ frame = 1
 
 [node name="HealthStation" parent="YSort" index="4" instance=ExtResource( 12 )]
 position = Vector2( 90, 51 )
-frame = 26
+frame = 18
 
 [node name="SaveStation" parent="YSort" index="5" instance=ExtResource( 13 )]
 position = Vector2( 72, 52 )
 
 [node name="Lights" type="Node2D" parent="." index="9"]
+
+[node name="Sprite" type="Sprite" parent="." index="12"]
+material = SubResource( 7 )
+position = Vector2( 128, 55 )
+texture = ExtResource( 14 )
+
+[node name="RoomDark" parent="." index="13" instance=ExtResource( 15 )]
+position = Vector2( 282, -21 )
+
+[node name="RoomDark2" parent="." index="14" instance=ExtResource( 15 )]
+position = Vector2( 368, -16 )
+
+[node name="RoomDark3" parent="." index="15" instance=ExtResource( 15 )]
+position = Vector2( 368, -100 )
+
+[node name="ChapterPortal" parent="." index="16" instance=ExtResource( 16 )]
+position = Vector2( 94, 156 )
+new_scene = "res://Rooms/Test/T-4/T-4.tscn"
+player_new_position = Vector2( 142, 131 )
+starting_direction = 5
+chapter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal" index="0"]
+shape = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="ChapterPortal" index="1"]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterPortal2" parent="." index="17" instance=ExtResource( 16 )]
+position = Vector2( 108, 156 )
+new_scene = "res://Rooms/Test/T-4/T-4.tscn"
+player_new_position = Vector2( 142, 131 )
+starting_direction = 5
+chapter = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal2" index="0"]
+shape = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="ChapterPortal2" index="1"]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterPortal3" parent="." index="18" instance=ExtResource( 16 )]
+position = Vector2( 122, 156 )
+new_scene = "res://Rooms/Test/T-4/T-4.tscn"
+player_new_position = Vector2( 142, 131 )
+starting_direction = 5
+chapter = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal3" index="0"]
+shape = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="ChapterPortal3" index="1"]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterPortal4" parent="." index="19" instance=ExtResource( 16 )]
+position = Vector2( 136, 156 )
+new_scene = "res://Rooms/Test/T-4/T-4.tscn"
+player_new_position = Vector2( 142, 131 )
+starting_direction = 5
+chapter = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal4" index="0"]
+shape = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="ChapterPortal4" index="1"]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterPortal5" parent="." index="20" instance=ExtResource( 16 )]
+position = Vector2( 150, 156 )
+new_scene = "res://Rooms/Test/T-4/T-4.tscn"
+player_new_position = Vector2( 142, 131 )
+starting_direction = 5
+chapter = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal5" index="0"]
+shape = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="ChapterPortal5" index="1"]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterPortal6" parent="." index="21" instance=ExtResource( 16 )]
+position = Vector2( 164, 156 )
+new_scene = "res://Rooms/Test/T-4/T-4.tscn"
+player_new_position = Vector2( 142, 131 )
+starting_direction = 5
+chapter = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal6" index="0"]
+shape = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="ChapterPortal6" index="1"]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="HUD"]

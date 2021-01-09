@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rooms/Area6/Assets/hotel_radial_couch.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 6, 20, 20, 20, 20, 1, 5, -11, -10, -16, -21, -16, -21, -5 )
+
+[node name="HotelRadialCouch" type="StaticBody2D"]
+
+[node name="hotel_radial_couch" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
