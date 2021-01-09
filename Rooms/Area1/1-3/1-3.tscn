@@ -10,7 +10,7 @@
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/stool.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Rooms/Area1/Assets/FurnitureScenes/BAMBOOP.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Engine/light2.png" type="Texture" id=10]
-[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Rooms/Tools/ChapterPortal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Rooms/Area1/Assets/partner_poster.png" type="Texture" id=12]
 [ext_resource path="res://Rooms/Area1/Assets/a1poster.png" type="Texture" id=13]
 [ext_resource path="res://Rooms/Area1/Assets/labs-2-battle.ogg" type="AudioStream" id=14]
@@ -87,7 +87,7 @@ tracks/1/keys = {
 blend_mode = 3
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 31, 3 )
+extents = Vector2( 32, 3 )
 
 [node name="1-3" instance=ExtResource( 1 )]
 level_music = ExtResource( 15 )
@@ -493,11 +493,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ScenePortal" parent="." index="12" instance=ExtResource( 11 )]
-new_scene = "res://Cutscenes/ChapterIntro/ChapterIntro.tscn"
+[node name="ChapterPortal" parent="." index="12" instance=ExtResource( 11 )]
+position = Vector2( 176, 480 )
+new_scene = "res://Rooms/Area2/2-1/2-1.tscn"
+player_new_position = Vector2( 275, 25 )
+starting_direction = 5
+chapter = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
-position = Vector2( 176, 477 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal" index="0"]
 shape = SubResource( 5 )
 
 [editable path="ClosingStartElevator"]

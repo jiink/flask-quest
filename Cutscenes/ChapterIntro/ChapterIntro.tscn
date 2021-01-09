@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Cutscenes/ChapterIntro/chapter_1.png" type="Texture" id=1]
+[ext_resource path="res://Cutscenes/ChapterIntro/chapter_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Cutscenes/ChapterIntro/ChapterIntro.gd" type="Script" id=2]
 [ext_resource path="res://Cutscenes/ChapterIntro/new_chapter.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "intro"
-length = 10.0
+length = 6.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("chapter_1:visible")
+tracks/0/path = NodePath("ChapterSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -16,7 +17,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ false, true ]
 }
 tracks/1/type = "value"
@@ -32,19 +33,19 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("White:modulate")
+tracks/2/path = NodePath("ChapterSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.5, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Vector2( 192, 18 ), Vector2( 192, 90 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("chapter_1:modulate")
+tracks/3/path = NodePath("ChapterSprite:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -56,16 +57,16 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.403922 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("chapter_1:position")
+tracks/4/path = NodePath("White:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.2, 3 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 4.5, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 192, 18 ), Vector2( 192, 108 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("AudioStreamPlayer:playing")
@@ -79,27 +80,46 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Blacc:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.447059, 0.815686, 0.192157, 0 ), Color( 0.054902, 0.0666667, 0.109804, 1 ) ]
+}
 
 [node name="ChapterIntro" type="Node2D"]
+material = ExtResource( 4 )
+z_index = 4
 script = ExtResource( 2 )
 
 [node name="Blacc" type="ColorRect" parent="."]
+material = ExtResource( 4 )
 margin_right = 384.0
 margin_bottom = 216.0
-color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+color = Color( 0.447059, 0.815686, 0.192157, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="chapter_1" type="Sprite" parent="."]
+[node name="ChapterSprite" type="Sprite" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 192, 18 )
+modulate = Color( 1, 1, 1, 0.0336602 )
+material = ExtResource( 4 )
+position = Vector2( 192, 27.9184 )
 texture = ExtResource( 1 )
+vframes = 3
+hframes = 3
 
 [node name="White" type="ColorRect" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.522134 )
+modulate = Color( 1, 1, 1, 0 )
+material = ExtResource( 4 )
 margin_right = 384.0
 margin_bottom = 216.0
 __meta__ = {
@@ -112,5 +132,6 @@ anims/intro = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = 15.422
+volume_db = 15.0
+bus = "Music"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
