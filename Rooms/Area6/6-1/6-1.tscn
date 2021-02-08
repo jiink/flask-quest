@@ -1,10 +1,10 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/PoppyHouseB.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/PoppyHouseA.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Rooms/Area5/Assets/rain.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Rooms/Common/rain.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Rooms/Area6/Assets/restaurant_sign.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/Area6/Assets/rivers+crickets.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/TrashCan.tscn" type="PackedScene" id=8]
@@ -43,40 +43,73 @@
 [ext_resource path="res://Rooms/Area6/Assets/PoppyForestBG/poppy_clouds_a.png" type="Texture" id=41]
 [ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=42]
 [ext_resource path="res://Rooms/Area6/6-1/monster_stand.gd" type="Script" id=43]
+[ext_resource path="res://NPC/MMGuide/mmguide_sheet.png" type="Texture" id=44]
+[ext_resource path="res://NPC/NPCWalking/NPCWalking.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Rooms/Area6/Assets/players_in_boat.png" type="Texture" id=46]
+[ext_resource path="res://Rooms/Area6/Assets/pink_boat.png" type="Texture" id=47]
+[ext_resource path="res://NPC/MMGuide/mmguide_rowing.png" type="Texture" id=48]
+[ext_resource path="res://Rooms/Area2/Assets/engineloop.ogg" type="AudioStream" id=49]
+[ext_resource path="res://Rooms/Area2/Assets/enginestart.ogg" type="AudioStream" id=50]
+[ext_resource path="res://NPC/MMGuide/mm_guide.png" type="Texture" id=51]
+[ext_resource path="res://Rooms/Area6/Assets/murk_monster.png" type="Texture" id=52]
+[ext_resource path="res://NPC/MinorNPCs/fox_boater_face.png" type="Texture" id=53]
+[ext_resource path="res://Engine/basic_prop.png" type="Texture" id=54]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 42 )
 shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.01
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 42 )
 shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.03
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 42 )
 shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.05
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 42 )
 shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0.25 )
 shader_param/speed_scale = 0.1
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 52 )
+region = Rect2( 0, 0, 96, 66 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 52 )
+region = Rect2( 96, 0, 96, 66 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 52 )
+region = Rect2( 192, 0, 96, 66 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 52 )
+region = Rect2( 288, 0, 96, 66 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 6 ), SubResource( 5 ), SubResource( 5 ), SubResource( 6 ), SubResource( 6 ), SubResource( 5 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 69, 35 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 21, 8 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 21, 8 )
-
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 68, 18 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -127,7 +160,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=13]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -178,89 +211,10 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=12]
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
-}
-
-[sub_resource type="Animation" id=13]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
 [sub_resource type="Animation" id=14]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -269,25 +223,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=15]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -296,24 +249,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=16]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -322,25 +276,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=17]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -349,24 +302,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=18]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -375,25 +329,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=19]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -402,24 +355,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=20]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -428,25 +382,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=21]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -455,24 +408,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=22]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -481,25 +435,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=23]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -508,24 +461,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=24]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -534,25 +488,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=25]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -561,24 +514,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=26]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -587,25 +541,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=27]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -614,24 +567,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=28]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -640,25 +594,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=29]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -667,24 +620,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=30]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -693,25 +647,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=31]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -720,48 +673,22 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=32]
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
-}
-
-[sub_resource type="Animation" id=33]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -788,7 +715,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=33]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -814,10 +741,815 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=35]
+[sub_resource type="Animation" id=34]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=35]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=37]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 48 )
+region = Rect2( 0, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 48 )
+region = Rect2( 70, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 48 )
+region = Rect2( 140, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 48 )
+region = Rect2( 210, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 48 )
+region = Rect2( 280, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 48 )
+region = Rect2( 350, 0, 70, 48 )
+
+[sub_resource type="SpriteFrames" id=44]
+animations = [ {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 21, 8 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 21, 8 )
+
+[sub_resource type="Animation" id=47]
+length = 17.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../MMGuide:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.9, 1.4, 3.5, 4, 4.4, 4.9, 5.1, 5.6, 5.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1197, -893 ), Vector2( 1202, -904 ), Vector2( 1239, -904 ), Vector2( 1243, -885 ), Vector2( 1243, -885 ), Vector2( 1274, -893 ), Vector2( 1286, -930 ), Vector2( 1286, -967.905 ), Vector2( 1286, -970 ), Vector2( 1286, -970 ), Vector2( 1258, -983 ), Vector2( 1245, -969 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../MMGuide:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../PinkBoat/MMGuideRowing:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../PinkBoat/MMGuideRowing:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6, 9.3, 13.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../PinkBoat/MMGuideRowing:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 6, 13.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 4 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 4, 4.5, 5.2, 6.2, 6.7, 7.1, 8, 8.1, 9.9, 13.5 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1243, -866 ), Vector2( 1274, -887 ), Vector2( 1285, -945 ), Vector2( 1285, -945 ), Vector2( 1275, -969 ), Vector2( 1269, -983 ), Vector2( 1269, -983 ), Vector2( 1230, -970 ), Vector2( 1230, -970 ), Vector2( 1115, -1203 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Orange:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 4.1, 4.7, 5.4, 6.3, 6.7, 7.3, 7.4, 8, 8.1 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1218, -864 ), Vector2( 1265, -874 ), Vector2( 1275, -931 ), Vector2( 1275, -931 ), Vector2( 1274, -959 ), Vector2( 1270, -967 ), Vector2( 1269, -967 ), Vector2( 1269, -967 ), Vector2( 1215, -976 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Ribbit:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.2, 4.8, 5.4, 6.5, 7.3, 8, 8.1 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1232, -853 ), Vector2( 1279, -875 ), Vector2( 1288, -926 ), Vector2( 1288, -926 ), Vector2( 1283, -968 ), Vector2( 1283, -968 ), Vector2( 1217, -971 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../Player:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../Ribbit:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../Orange:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../PinkBoat/players_in_boat:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/12/type = "audio"
+tracks/12/path = NodePath("AudioStreamPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 50 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 49 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+} ],
+"times": PoolRealArray( 9.1, 9.9, 14.5 )
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 9.1, 9.9, 11.5, 12.7, 13.5 ),
+"transitions": PoolRealArray( 0, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 10.747, 4.274, 17.22, 17.22, 1.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("../PinkBoat:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 9.9, 13.5 ),
+"transitions": PoolRealArray( 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 1234, -983 ), Vector2( 1234, -983 ), Vector2( 1119, -1216 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 9.9, 11.5, 12.7, 13.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 1.46, 1.46, 0.5 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("../PinkBoat/MMGuideRowing:speed_scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 9.3, 9.7, 9.9, 11.7, 13.5 ),
+"transitions": PoolRealArray( 0, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ 3.0, 0.0, 0.5, 2.0, 0.1 ]
+}
+
+[sub_resource type="Animation" id=48]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../PinkBoat/players_in_boat:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../PinkBoat/MMGuideRowing:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../PinkBoat/MMGuideRowing:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../MMGuide:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1197, -893 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../MMWaterOverlap:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../../MurkMonster:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1235, -1226 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../PinkBoat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1234, -983 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../../MurkMonster:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../MMGuide:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../../MMNeck:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1086, -1203 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../../MMNeck:rect_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 28, 40 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../../MMNeck:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "mm_elevate"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../MurkMonster:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1116, -1216 ), Vector2( 1116, -1575 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../MMWaterOverlap:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../MurkMonster:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../MurkMonster:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../PinkBoat:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1119, -1248 ), Vector2( 1119, -1609 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1.41421, 1 ),
+"update": 0,
+"values": [ Vector2( 1115, -1203 ), Vector2( 1115, -1677 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../../MMNeck:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../../MMNeck:rect_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 28, 40 ), Vector2( 28, 390 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../../MMNeck:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1086, -1203 ), Vector2( 1086, -1553 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../MurkMonster:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( -2, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 1116, -1159 ), Vector2( 1116, -1159 ), Vector2( 1116, -1216 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../MMWaterOverlap:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../MurkMonster:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../MurkMonster:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../PinkBoat:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.3, 1.5, 1.6, 1.9, 2, 2.1, 2.2 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 0.5, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1119, -1216 ), Vector2( 1119, -1216 ), Vector2( 1119, -1236 ), Vector2( 1119, -1234 ), Vector2( 1119, -1250 ), Vector2( 1119, -1248 ), Vector2( 1119, -1250 ), Vector2( 1119, -1248 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../MurkMonster:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1235, -1226 ), Vector2( 1235, -1226 ), Vector2( 1235, -1159 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../MMWaterOverlap:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../MurkMonster:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../MurkMonster:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 44 )
+region = Rect2( 0, 48, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 44 )
+region = Rect2( 32, 48, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 44 )
+region = Rect2( 0, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 44 )
+region = Rect2( 32, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 44 )
+region = Rect2( 0, 96, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 44 )
+region = Rect2( 32, 96, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 44 )
+region = Rect2( 64, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 44 )
+region = Rect2( 96, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 44 )
+region = Rect2( 128, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 44 )
+region = Rect2( 160, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 44 )
+region = Rect2( 192, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 44 )
+region = Rect2( 224, 0, 32, 48 )
+
+[sub_resource type="SpriteFrames" id=64]
+animations = [ {
+"frames": [ SubResource( 52 ), SubResource( 53 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 54 ), SubResource( 55 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 56 ), SubResource( 57 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
+"loop": true,
+"name": "down_idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=65]
 extents = Vector2( 434, 8 )
 
-[sub_resource type="RectangleShape2D" id=36]
+[sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 16, 3 )
 
 [node name="6-1" groups=[
@@ -833,7 +1565,7 @@ visible = false
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -6291443, 0, 1, -6291442, 0, 0, -6291441, 0, 0, -6291440, 0, 0, -6291439, 0, 0, -6291438, 0, 0, -6291437, 0, 0, -6291436, 0, 0, -6291435, 0, 0, -6291434, 0, 0, -6291433, 0, 0, -6291432, 0, 0, -6291431, 0, 0, -6291430, 0, 0, -6291429, 0, 2, -6225915, 0, 1, -6225914, 0, 0, -6225913, 0, 0, -6225912, 0, 0, -6225911, 0, 0, -6225910, 0, 0, -6225909, 0, 0, -6225908, 0, 0, -6225892, 0, 0, -6225891, 0, 0, -6225890, 0, 0, -6225889, 0, 0, -6225888, 0, 0, -6225887, 0, 0, -6225886, 0, 2, -6160379, 0, 0, -6160349, 0, 0, -6160348, 0, 0, -6160347, 0, 0, -6160346, 0, 2, -6094843, 0, 65537, -6094842, 0, 0, -6094841, 0, 0, -6094809, 0, 0, -6094808, 0, 2, -6029304, 0, 65537, -6029303, 0, 0, -6029302, 0, 0, -6029301, 0, 0, -6029300, 0, 0, -6029299, 0, 0, -6029298, 0, 0, -6029297, 0, 0, -6029296, 0, 0, -6029295, 0, 0, -6029294, 0, 0, -6029271, 0, 0, -6029270, 0, 2, -5963757, 0, 65537, -5963756, 0, 0, -5963755, 0, 0, -5963754, 0, 0, -5963733, 0, 2, -5898217, 0, 65537, -5898216, 0, 0, -5898215, 0, 0, -5898214, 0, 0, -5898213, 0, 0, -5898212, 0, 0, -5898211, 0, 0, -5898210, 0, 0, -5898197, 0, 0, -5832673, 0, 65537, -5832672, 0, 0, -5832671, 0, 0, -5832660, 0, 0, -5832659, 0, 2, -5767134, 0, 65537, -5767122, 0, 0, -5767121, 0, 2, -5767090, 0, 1, -5767089, 0, 0, -5767088, 0, 0, -5767087, 0, 0, -5767086, 0, 2, -5701597, 0, 65537, -5701584, 0, 2, -5701556, 0, 1, -5701555, 0, 0, -5701549, 0, 0, -5701548, 0, 0, -5701547, 0, 0, -5701546, 0, 2, -5636060, 0, 65537, -5636059, 0, 0, -5636047, 0, 2, -5636023, 0, 1, -5636022, 0, 0, -5636021, 0, 0, -5636010, 0, 0, -5570522, 0, 65537, -5570521, 0, 0, -5570511, 0, 0, -5570490, 0, 1, -5570489, 0, 0, -5570488, 0, 0, -5570473, 0, 2, -5504984, 0, 65537, -5504983, 0, 0, -5504975, 0, 0, -5504957, 0, 1, -5504956, 0, 0, -5504955, 0, 0, -5504936, 0, 2, -5439446, 0, 65537, -5439445, 0, 0, -5439438, 0, 0, -5439437, 0, 0, -5439436, 0, 0, -5439435, 0, 0, -5439434, 0, 0, -5439433, 0, 0, -5439432, 0, 0, -5439431, 0, 0, -5439430, 0, 0, -5439429, 0, 0, -5439428, 0, 0, -5439427, 0, 0, -5439426, 0, 0, -5439425, 0, 0, -5439424, 0, 0, -5439423, 0, 0, -5439422, 0, 0, -5439399, 0, 2, -5373908, 0, 0, -5373862, 0, 2, -5308372, 0, 65537, -5308326, 0, 0, -5242835, 0, 0, -5242790, 0, 0, -5177299, 0, 65537, -5177254, 0, 0, -5111762, 0, 0, -5111718, 0, 0, -5046226, 0, 0, -5046182, 0, 0, -4980690, 0, 65537, -4980646, 0, 65538, -4915153, 0, 65537, -4915112, 0, 0, -4915111, 0, 65538, -4849616, 0, 0, -4849577, 0, 0, -4784080, 0, 0, -4784041, 0, 0, -4718544, 0, 0, -4718504, 0, 2, -4653008, 0, 0, -4652968, 0, 0, -4587472, 0, 0, -4587431, 0, 2, -4521936, 0, 0, -4521895, 0, 0, -4456400, 0, 0, -4456359, 0, 0, -4390864, 0, 0, -4390823, 0, 0, -4325359, 0, 0, -4325358, 0, 0, -4325357, 0, 0, -4325356, 0, 0, -4325355, 0, 0, -4325354, 0, 0, -4325353, 0, 0, -4325352, 0, 0, -4325351, 0, 0, -4325350, 0, 0, -4325349, 0, 0, -4325348, 0, 0, -4325347, 0, 0, -4325346, 0, 0, -4325345, 0, 0, -4325344, 0, 0, -4325343, 0, 0, -4325342, 0, 0, -4325341, 0, 0, -4325340, 0, 0, -4325339, 0, 0, -4325338, 0, 0, -4325337, 0, 0, -4325336, 0, 0, -4325335, 0, 0, -4325334, 0, 0, -4325333, 0, 0, -4325332, 0, 0, -4325331, 0, 0, -4325330, 0, 0, -4325329, 0, 0, -4325328, 0, 0, -4325287, 0, 0, -4259823, 0, 0, -4259751, 0, 0, -4194287, 0, 0, -4194215, 0, 0, -4128751, 0, 0, -4128679, 0, 0, -4063215, 0, 0, -4063143, 0, 65538, -3997679, 0, 0, -3997608, 0, 65538, -3932143, 0, 0, -3932074, 0, 0, -3932073, 0, 65538, -3866607, 0, 0, -3866578, 0, 0, -3866577, 0, 0, -3866570, 0, 0, -3866569, 0, 0, -3866568, 0, 0, -3866567, 0, 0, -3866566, 0, 0, -3866565, 0, 0, -3866564, 0, 0, -3866563, 0, 0, -3866562, 0, 0, -3866561, 0, 0, -3866560, 0, 0, -3866559, 0, 0, -3866558, 0, 0, -3866557, 0, 0, -3866556, 0, 0, -3866555, 0, 0, -3866554, 0, 0, -3866553, 0, 0, -3866552, 0, 0, -3866551, 0, 0, -3866550, 0, 0, -3866549, 0, 0, -3866548, 0, 0, -3866547, 0, 0, -3866546, 0, 0, -3866538, 0, 0, -3801071, 0, 0, -3801043, 0, 0, -3801040, 0, 0, -3801034, 0, 0, -3801010, 0, 0, -3801009, 0, 0, -3801008, 0, 0, -3801007, 0, 0, -3801006, 0, 0, -3801005, 0, 0, -3801004, 0, 0, -3801003, 0, 0, -3801002, 0, 0, -3735535, 0, 0, -3735507, 0, 0, -3735504, 0, 0, -3735498, 0, 0, -3669999, 0, 0, -3669971, 0, 0, -3669968, 0, 0, -3669962, 0, 0, -3604463, 0, 0, -3604435, 0, 0, -3604432, 0, 0, -3604426, 0, 0, -3538927, 0, 0, -3538899, 0, 0, -3538896, 0, 0, -3538890, 0, 0, -3473391, 0, 0, -3473377, 0, 0, -3473376, 0, 0, -3473375, 0, 0, -3473374, 0, 0, -3473373, 0, 0, -3473372, 0, 0, -3473371, 0, 0, -3473370, 0, 0, -3473369, 0, 0, -3473368, 0, 0, -3473367, 0, 0, -3473366, 0, 0, -3473365, 0, 0, -3473364, 0, 0, -3473363, 0, 0, -3473360, 0, 0, -3473354, 0, 0, -3407855, 0, 0, -3407842, 0, 0, -3407824, 0, 0, -3407818, 0, 0, -3342319, 0, 0, -3342306, 0, 0, -3342288, 0, 0, -3342282, 0, 0, -3276783, 0, 0, -3276769, 0, 0, -3276768, 0, 0, -3276767, 0, 0, -3276766, 0, 0, -3276765, 0, 0, -3276764, 0, 0, -3276763, 0, 0, -3276762, 0, 0, -3276761, 0, 0, -3276760, 0, 0, -3276759, 0, 0, -3276758, 0, 0, -3276757, 0, 0, -3276756, 0, 0, -3276755, 0, 0, -3276754, 0, 0, -3276753, 0, 0, -3276746, 0, 0, -3276745, 0, 0, -3276744, 0, 0, -3276743, 0, 0, -3276742, 0, 0, -3276741, 0, 0, -3276740, 0, 0, -3276739, 0, 0, -3276738, 0, 0, -3276737, 0, 0, -3276736, 0, 0, -3276735, 0, 0, -3276734, 0, 0, -3276733, 0, 0, -3276732, 0, 0, -3276731, 0, 0, -3276730, 0, 0, -3211247, 0, 0, -3211194, 0, 0, -3145711, 0, 0, -3145658, 0, 0, -3080175, 0, 0, -3080122, 0, 0, -3014639, 0, 0, -3014586, 0, 0, -2949103, 0, 0, -2949084, 0, 0, -2949083, 0, 0, -2949082, 0, 0, -2949081, 0, 0, -2949080, 0, 0, -2949079, 0, 0, -2949078, 0, 0, -2949077, 0, 0, -2949076, 0, 0, -2949075, 0, 0, -2949074, 0, 0, -2949073, 0, 0, -2949072, 0, 0, -2949071, 0, 0, -2949070, 0, 0, -2949069, 0, 0, -2949068, 0, 0, -2949067, 0, 0, -2949066, 0, 0, -2949065, 0, 0, -2949064, 0, 0, -2949063, 0, 0, -2949062, 0, 0, -2949061, 0, 0, -2949060, 0, 0, -2949059, 0, 0, -2949058, 0, 0, -2949057, 0, 0, -2949056, 0, 0, -2949055, 0, 0, -2949050, 0, 0, -2883567, 0, 0, -2883548, 0, 0, -2883519, 0, 0, -2883514, 0, 0, -2818031, 0, 0, -2818012, 0, 0, -2817983, 0, 0, -2817978, 0, 0, -2752495, 0, 0, -2752476, 0, 0, -2752447, 0, 0, -2752442, 0, 0, -2686959, 0, 0, -2686940, 0, 0, -2686934, 0, 0, -2686933, 0, 0, -2686932, 0, 0, -2686931, 0, 0, -2686930, 0, 0, -2686929, 0, 0, -2686928, 0, 0, -2686927, 0, 0, -2686926, 0, 0, -2686925, 0, 0, -2686924, 0, 0, -2686923, 0, 0, -2686922, 0, 0, -2686921, 0, 0, -2686920, 0, 0, -2686919, 0, 0, -2686918, 0, 0, -2686917, 0, 0, -2686911, 0, 0, -2686906, 0, 0, -2621423, 0, 0, -2621404, 0, 0, -2621398, 0, 0, -2621381, 0, 0, -2621375, 0, 0, -2621370, 0, 0, -2555887, 0, 0, -2555868, 0, 0, -2555862, 0, 0, -2555845, 0, 0, -2555839, 0, 0, -2555834, 0, 0, -2490351, 0, 0, -2490332, 0, 0, -2490326, 0, 0, -2490309, 0, 0, -2490303, 0, 0, -2490298, 0, 0, -2424815, 0, 0, -2424796, 0, 0, -2424790, 0, 0, -2424773, 0, 0, -2424767, 0, 0, -2424762, 0, 0, -2359279, 0, 0, -2359260, 0, 0, -2359254, 0, 0, -2359237, 0, 0, -2359231, 0, 0, -2359226, 0, 0, -2293743, 0, 0, -2293724, 0, 0, -2293718, 0, 0, -2293701, 0, 0, -2293695, 0, 0, -2293690, 0, 0, -2228207, 0, 0, -2228200, 0, 0, -2228199, 0, 0, -2228198, 0, 0, -2228197, 0, 0, -2228196, 0, 0, -2228188, 0, 0, -2228182, 0, 0, -2228165, 0, 0, -2228159, 0, 0, -2228154, 0, 0, -2162671, 0, 0, -2162665, 0, 0, -2162659, 0, 0, -2162652, 0, 0, -2162646, 0, 0, -2162629, 0, 0, -2162623, 0, 0, -2162618, 0, 0, -2162617, 0, 0, -2162616, 0, 0, -2162615, 0, 0, -2162614, 0, 0, -2162613, 0, 0, -2162612, 0, 0, -2162611, 0, 0, -2162610, 0, 0, -2162609, 0, 0, -2162608, 0, 0, -2162607, 0, 0, -2162606, 0, 0, -2162605, 0, 0, -2162604, 0, 0, -2162603, 0, 0, -2162602, 0, 0, -2097135, 0, 0, -2097129, 0, 0, -2097123, 0, 0, -2097116, 0, 0, -2097110, 0, 0, -2097093, 0, 0, -2097087, 0, 0, -2097066, 0, 0, -2031599, 0, 0, -2031593, 0, 0, -2031587, 0, 0, -2031580, 0, 0, -2031574, 0, 0, -2031557, 0, 0, -2031551, 0, 0, -2031530, 0, 0, -1966063, 0, 0, -1966056, 0, 0, -1966055, 0, 0, -1966054, 0, 0, -1966053, 0, 0, -1966052, 0, 0, -1966044, 0, 0, -1966038, 0, 0, -1966021, 0, 0, -1966015, 0, 0, -1965994, 0, 0, -1900527, 0, 0, -1900508, 0, 0, -1900502, 0, 0, -1900485, 0, 0, -1900479, 0, 0, -1900458, 0, 0, -1834991, 0, 0, -1834972, 0, 0, -1834966, 0, 0, -1834960, 0, 0, -1834959, 0, 0, -1834958, 0, 0, -1834957, 0, 0, -1834956, 0, 0, -1834955, 0, 0, -1834949, 0, 0, -1834943, 0, 0, -1834922, 0, 0, -1769455, 0, 0, -1769436, 0, 0, -1769430, 0, 0, -1769425, 0, 0, -1769418, 0, 0, -1769414, 0, 0, -1769413, 0, 0, -1769407, 0, 0, -1769386, 0, 0, -1703919, 0, 0, -1703918, 0, 0, -1703917, 0, 0, -1703916, 0, 0, -1703915, 0, 0, -1703914, 0, 0, -1703913, 0, 0, -1703912, 0, 0, -1703911, 0, 0, -1703910, 0, 0, -1703909, 0, 0, -1703908, 0, 0, -1703907, 0, 0, -1703906, 0, 0, -1703900, 0, 0, -1703894, 0, 65537, -1703893, 0, 0, -1703892, 0, 0, -1703891, 0, 0, -1703890, 0, 0, -1703889, 0, 65538, -1703882, 0, 65537, -1703881, 0, 0, -1703880, 0, 0, -1703879, 0, 0, -1703878, 0, 0, -1703877, 0, 65538, -1703871, 0, 0, -1703866, 0, 0, -1703865, 0, 0, -1703864, 0, 0, -1703863, 0, 0, -1703862, 0, 0, -1703861, 0, 0, -1703860, 0, 0, -1703859, 0, 0, -1703858, 0, 0, -1703857, 0, 0, -1703856, 0, 0, -1703855, 0, 0, -1703854, 0, 0, -1703853, 0, 0, -1703852, 0, 0, -1703851, 0, 0, -1703850, 0, 0, -1638370, 0, 0, -1638364, 0, 0, -1638335, 0, 0, -1638330, 0, 0, -1572834, 0, 0, -1572828, 0, 0, -1572799, 0, 0, -1572794, 0, 0, -1507298, 0, 0, -1507292, 0, 0, -1507263, 0, 0, -1507258, 0, 0, -1441762, 0, 0, -1441756, 0, 0, -1441727, 0, 0, -1441722, 0, 0, -1376226, 0, 0, -1376220, 0, 0, -1376219, 0, 0, -1376218, 0, 0, -1376217, 0, 0, -1376216, 0, 0, -1376215, 0, 0, -1376214, 0, 0, -1376213, 0, 0, -1376212, 0, 0, -1376211, 0, 0, -1376210, 0, 0, -1376209, 0, 0, -1376208, 0, 0, -1376207, 0, 0, -1376206, 0, 0, -1376205, 0, 0, -1376204, 0, 0, -1376203, 0, 0, -1376202, 0, 0, -1376201, 0, 0, -1376200, 0, 0, -1376199, 0, 0, -1376198, 0, 0, -1376197, 0, 0, -1376196, 0, 0, -1376195, 0, 0, -1376194, 0, 0, -1376193, 0, 0, -1376192, 0, 0, -1376191, 0, 0, -1376186, 0, 0, -1310690, 0, 0, -1310650, 0, 0, -1245154, 0, 0, -1245114, 0, 0, -1179618, 0, 0, -1179578, 0, 0, -1114082, 0, 0, -1114042, 0, 0, -1048546, 0, 0, -1048545, 0, 0, -1048544, 0, 0, -1048543, 0, 0, -1048542, 0, 0, -1048541, 0, 0, -1048540, 0, 0, -1048539, 0, 0, -1048538, 0, 0, -1048537, 0, 0, -1048536, 0, 0, -1048535, 0, 0, -1048534, 0, 0, -1048533, 0, 0, -1048532, 0, 0, -1048531, 0, 0, -1048530, 0, 0, -1048529, 0, 0, -1048528, 0, 0, -1048527, 0, 0, -1048526, 0, 0, -1048525, 0, 0, -1048524, 0, 0, -1048523, 0, 0, -1048522, 0, 0, -1048521, 0, 0, -1048520, 0, 0, -1048519, 0, 0, -1048518, 0, 0, -1048517, 0, 0, -1048516, 0, 0, -1048515, 0, 0, -1048514, 0, 0, -1048513, 0, 0, -1048512, 0, 0, -1048511, 0, 0, -1048510, 0, 0, -1048509, 0, 0, -1048508, 0, 0, -1048507, 0, 0, -1048506, 0, 0 )
+tile_data = PoolIntArray( -6291443, 0, 1, -6291442, 0, 0, -6291441, 0, 0, -6291440, 0, 0, -6291439, 0, 0, -6291438, 0, 0, -6291437, 0, 0, -6291436, 0, 0, -6291435, 0, 0, -6291434, 0, 0, -6291433, 0, 0, -6291432, 0, 0, -6291431, 0, 0, -6291430, 0, 0, -6291429, 0, 2, -6225915, 0, 1, -6225914, 0, 0, -6225913, 0, 0, -6225912, 0, 0, -6225911, 0, 0, -6225910, 0, 0, -6225909, 0, 0, -6225908, 0, 0, -6225892, 0, 0, -6225891, 0, 0, -6225890, 0, 0, -6225889, 0, 0, -6225888, 0, 0, -6225887, 0, 0, -6225886, 0, 2, -6160379, 0, 0, -6160349, 0, 0, -6160348, 0, 0, -6160347, 0, 0, -6160346, 0, 2, -6094843, 0, 65537, -6094842, 0, 0, -6094841, 0, 0, -6094809, 0, 0, -6094808, 0, 2, -6029304, 0, 65537, -6029303, 0, 0, -6029302, 0, 0, -6029301, 0, 0, -6029300, 0, 0, -6029299, 0, 0, -6029298, 0, 0, -6029297, 0, 0, -6029296, 0, 0, -6029295, 0, 0, -6029294, 0, 0, -6029271, 0, 0, -6029270, 0, 2, -5963757, 0, 65537, -5963756, 0, 0, -5963755, 0, 0, -5963754, 0, 0, -5963733, 0, 2, -5898217, 0, 65537, -5898216, 0, 0, -5898215, 0, 0, -5898214, 0, 0, -5898213, 0, 0, -5898212, 0, 0, -5898211, 0, 0, -5898210, 0, 0, -5898197, 0, 0, -5832673, 0, 65537, -5832672, 0, 0, -5832671, 0, 0, -5832660, 0, 0, -5832659, 0, 2, -5767134, 0, 65537, -5767122, 0, 0, -5767121, 0, 2, -5767090, 0, 1, -5767089, 0, 0, -5767088, 0, 0, -5767087, 0, 0, -5767086, 0, 2, -5701597, 0, 65537, -5701584, 0, 2, -5701556, 0, 1, -5701555, 0, 0, -5701549, 0, 0, -5701548, 0, 0, -5701547, 0, 0, -5701546, 0, 2, -5636060, 0, 65537, -5636059, 0, 0, -5636047, 0, 2, -5636023, 0, 1, -5636022, 0, 0, -5636021, 0, 0, -5636010, 0, 0, -5570522, 0, 65537, -5570521, 0, 0, -5570511, 0, 0, -5570490, 0, 1, -5570489, 0, 0, -5570488, 0, 0, -5570473, 0, 2, -5504984, 0, 65537, -5504983, 0, 0, -5504975, 0, 0, -5504957, 0, 1, -5504956, 0, 0, -5504955, 0, 0, -5504936, 0, 2, -5439446, 0, 65537, -5439445, 0, 0, -5439438, 0, 0, -5439437, 0, 0, -5439436, 0, 0, -5439435, 0, 0, -5439434, 0, 0, -5439433, 0, 0, -5439432, 0, 0, -5439431, 0, 0, -5439430, 0, 0, -5439429, 0, 0, -5439428, 0, 0, -5439427, 0, 0, -5439426, 0, 0, -5439425, 0, 0, -5439424, 0, 0, -5439423, 0, 0, -5439422, 0, 0, -5439399, 0, 2, -5373908, 0, 0, -5373862, 0, 2, -5308372, 0, 65537, -5308326, 0, 0, -5242835, 0, 0, -5242790, 0, 0, -5177299, 0, 65537, -5177254, 0, 0, -5111762, 0, 0, -5111718, 0, 0, -5046226, 0, 0, -5046182, 0, 0, -4980690, 0, 65537, -4980646, 0, 65538, -4915153, 0, 65537, -4915112, 0, 0, -4915111, 0, 65538, -4849616, 0, 0, -4849577, 0, 0, -4784080, 0, 0, -4784041, 0, 0, -4718544, 0, 0, -4718504, 0, 2, -4653008, 0, 0, -4652968, 0, 0, -4587472, 0, 0, -4587431, 0, 2, -4521936, 0, 0, -4521895, 0, 0, -4456400, 0, 0, -4456359, 0, 0, -4390864, 0, 0, -4390823, 0, 0, -4325359, 0, 0, -4325358, 0, 0, -4325357, 0, 0, -4325356, 0, 0, -4325355, 0, 0, -4325354, 0, 0, -4325353, 0, 0, -4325352, 0, 0, -4325351, 0, 0, -4325350, 0, 0, -4325349, 0, 0, -4325348, 0, 0, -4325347, 0, 0, -4325346, 0, 0, -4325345, 0, 0, -4325344, 0, 0, -4325343, 0, 0, -4325342, 0, 0, -4325341, 0, 0, -4325340, 0, 0, -4325339, 0, 0, -4325338, 0, 0, -4325337, 0, 0, -4325336, 0, 0, -4325335, 0, 0, -4325334, 0, 0, -4325333, 0, 0, -4325332, 0, 0, -4325331, 0, 0, -4325330, 0, 0, -4325329, 0, 0, -4325328, 0, 0, -4325287, 0, 0, -4259823, 0, 0, -4259762, 0, 0, -4259761, 0, 0, -4259760, 0, 0, -4259759, 0, 0, -4259751, 0, 0, -4194287, 0, 0, -4194226, 0, 0, -4194223, 0, 0, -4194222, 0, 0, -4194215, 0, 0, -4128751, 0, 0, -4128690, 0, 0, -4128686, 0, 0, -4128679, 0, 0, -4063215, 0, 0, -4063154, 0, 0, -4063150, 0, 0, -4063143, 0, 65538, -3997679, 0, 0, -3997618, 0, 0, -3997614, 0, 0, -3997608, 0, 0, -3932143, 0, 0, -3932082, 0, 0, -3932078, 0, 0, -3932072, 0, 0, -3932071, 0, 0, -3932070, 0, 0, -3932069, 0, 0, -3932068, 0, 0, -3932067, 0, 0, -3932066, 0, 0, -3932065, 0, 0, -3932064, 0, 0, -3932063, 0, 0, -3932062, 0, 0, -3932061, 0, 0, -3866607, 0, 0, -3866578, 0, 0, -3866577, 0, 0, -3866570, 0, 0, -3866569, 0, 0, -3866568, 0, 0, -3866567, 0, 0, -3866566, 0, 0, -3866565, 0, 0, -3866564, 0, 0, -3866563, 0, 0, -3866562, 0, 0, -3866561, 0, 0, -3866560, 0, 0, -3866559, 0, 0, -3866558, 0, 0, -3866557, 0, 0, -3866556, 0, 0, -3866555, 0, 0, -3866554, 0, 0, -3866553, 0, 0, -3866552, 0, 0, -3866551, 0, 0, -3866550, 0, 0, -3866549, 0, 0, -3866548, 0, 0, -3866547, 0, 0, -3866546, 0, 0, -3866542, 0, 0, -3866525, 0, 0, -3801071, 0, 0, -3801043, 0, 0, -3801040, 0, 0, -3801034, 0, 0, -3801011, 0, 65537, -3801010, 0, 0, -3801006, 0, 0, -3800989, 0, 0, -3735535, 0, 0, -3735507, 0, 0, -3735504, 0, 0, -3735498, 0, 0, -3735470, 0, 0, -3735453, 0, 0, -3669999, 0, 0, -3669971, 0, 0, -3669968, 0, 0, -3669962, 0, 0, -3669934, 0, 0, -3669917, 0, 0, -3604463, 0, 0, -3604435, 0, 0, -3604432, 0, 0, -3604426, 0, 0, -3604398, 0, 0, -3604381, 0, 0, -3538927, 0, 0, -3538899, 0, 0, -3538896, 0, 0, -3538890, 0, 0, -3538862, 0, 0, -3538845, 0, 0, -3473391, 0, 0, -3473377, 0, 0, -3473376, 0, 0, -3473375, 0, 0, -3473374, 0, 0, -3473373, 0, 0, -3473372, 0, 0, -3473371, 0, 0, -3473370, 0, 0, -3473369, 0, 0, -3473368, 0, 0, -3473367, 0, 0, -3473366, 0, 0, -3473365, 0, 0, -3473364, 0, 0, -3473363, 0, 0, -3473360, 0, 0, -3473354, 0, 0, -3473326, 0, 0, -3473309, 0, 0, -3407855, 0, 0, -3407842, 0, 0, -3407824, 0, 0, -3407818, 0, 0, -3407790, 0, 0, -3407773, 0, 0, -3342319, 0, 0, -3342306, 0, 0, -3342288, 0, 0, -3342282, 0, 0, -3342254, 0, 0, -3342237, 0, 0, -3276783, 0, 0, -3276769, 0, 0, -3276768, 0, 0, -3276767, 0, 0, -3276766, 0, 0, -3276765, 0, 0, -3276764, 0, 0, -3276763, 0, 0, -3276762, 0, 0, -3276761, 0, 0, -3276760, 0, 0, -3276759, 0, 0, -3276758, 0, 0, -3276757, 0, 0, -3276756, 0, 0, -3276755, 0, 0, -3276754, 0, 0, -3276753, 0, 0, -3276746, 0, 0, -3276745, 0, 0, -3276744, 0, 0, -3276743, 0, 0, -3276742, 0, 0, -3276741, 0, 0, -3276740, 0, 0, -3276739, 0, 0, -3276738, 0, 0, -3276737, 0, 0, -3276736, 0, 0, -3276735, 0, 0, -3276734, 0, 0, -3276733, 0, 0, -3276732, 0, 0, -3276731, 0, 0, -3276730, 0, 0, -3276718, 0, 0, -3276701, 0, 0, -3211247, 0, 0, -3211194, 0, 0, -3211182, 0, 0, -3211165, 0, 0, -3145711, 0, 0, -3145658, 0, 0, -3145646, 0, 0, -3145629, 0, 0, -3080175, 0, 0, -3080122, 0, 0, -3080110, 0, 0, -3080093, 0, 0, -3014639, 0, 0, -3014586, 0, 0, -3014574, 0, 0, -3014557, 0, 0, -2949103, 0, 0, -2949084, 0, 0, -2949083, 0, 0, -2949082, 0, 0, -2949081, 0, 0, -2949080, 0, 0, -2949079, 0, 0, -2949078, 0, 0, -2949077, 0, 0, -2949076, 0, 0, -2949075, 0, 0, -2949074, 0, 0, -2949073, 0, 0, -2949072, 0, 0, -2949071, 0, 0, -2949070, 0, 0, -2949069, 0, 0, -2949068, 0, 0, -2949067, 0, 0, -2949066, 0, 0, -2949065, 0, 0, -2949064, 0, 0, -2949063, 0, 0, -2949062, 0, 0, -2949061, 0, 0, -2949060, 0, 0, -2949059, 0, 0, -2949058, 0, 0, -2949057, 0, 0, -2949056, 0, 0, -2949055, 0, 0, -2949050, 0, 0, -2949038, 0, 0, -2949029, 0, 0, -2949028, 0, 0, -2949027, 0, 0, -2949026, 0, 0, -2949025, 0, 0, -2949024, 0, 0, -2949023, 0, 0, -2949022, 0, 0, -2949021, 0, 0, -2883567, 0, 0, -2883548, 0, 0, -2883519, 0, 0, -2883514, 0, 0, -2883502, 0, 0, -2883493, 0, 0, -2818031, 0, 0, -2818012, 0, 0, -2817983, 0, 0, -2817978, 0, 0, -2817966, 0, 0, -2817957, 0, 0, -2752495, 0, 0, -2752476, 0, 0, -2752447, 0, 0, -2752442, 0, 0, -2752430, 0, 0, -2752424, 0, 0, -2752423, 0, 0, -2752422, 0, 0, -2752421, 0, 0, -2686959, 0, 0, -2686940, 0, 0, -2686934, 0, 0, -2686933, 0, 0, -2686932, 0, 0, -2686931, 0, 0, -2686930, 0, 0, -2686929, 0, 0, -2686928, 0, 0, -2686927, 0, 0, -2686926, 0, 0, -2686925, 0, 0, -2686924, 0, 0, -2686923, 0, 0, -2686922, 0, 0, -2686921, 0, 0, -2686920, 0, 0, -2686919, 0, 0, -2686918, 0, 0, -2686917, 0, 0, -2686911, 0, 0, -2686906, 0, 0, -2686894, 0, 0, -2686893, 0, 0, -2686892, 0, 0, -2686891, 0, 0, -2686890, 0, 0, -2686889, 0, 0, -2686886, 0, 0, -2686885, 0, 0, -2621423, 0, 0, -2621404, 0, 0, -2621398, 0, 0, -2621381, 0, 0, -2621375, 0, 0, -2621370, 0, 0, -2555887, 0, 0, -2555868, 0, 0, -2555862, 0, 0, -2555845, 0, 0, -2555839, 0, 0, -2555834, 0, 0, -2490351, 0, 0, -2490332, 0, 0, -2490326, 0, 0, -2490309, 0, 0, -2490303, 0, 0, -2490298, 0, 0, -2424815, 0, 0, -2424796, 0, 0, -2424790, 0, 0, -2424773, 0, 0, -2424767, 0, 0, -2424762, 0, 0, -2359279, 0, 0, -2359260, 0, 0, -2359254, 0, 0, -2359237, 0, 0, -2359231, 0, 0, -2359226, 0, 0, -2293743, 0, 0, -2293724, 0, 0, -2293718, 0, 0, -2293701, 0, 0, -2293695, 0, 0, -2293690, 0, 0, -2228207, 0, 0, -2228200, 0, 0, -2228199, 0, 0, -2228198, 0, 0, -2228197, 0, 0, -2228196, 0, 0, -2228188, 0, 0, -2228182, 0, 0, -2228165, 0, 0, -2228159, 0, 0, -2228154, 0, 0, -2162671, 0, 0, -2162665, 0, 0, -2162659, 0, 0, -2162652, 0, 0, -2162646, 0, 0, -2162629, 0, 0, -2162623, 0, 0, -2162618, 0, 0, -2162617, 0, 0, -2162616, 0, 0, -2162615, 0, 0, -2162614, 0, 0, -2162613, 0, 0, -2162612, 0, 0, -2162611, 0, 0, -2162610, 0, 0, -2162609, 0, 0, -2162608, 0, 0, -2162607, 0, 0, -2162606, 0, 0, -2162605, 0, 0, -2162604, 0, 0, -2162603, 0, 0, -2162602, 0, 0, -2097135, 0, 0, -2097129, 0, 0, -2097123, 0, 0, -2097116, 0, 0, -2097110, 0, 0, -2097093, 0, 0, -2097087, 0, 0, -2097066, 0, 0, -2031599, 0, 0, -2031593, 0, 0, -2031587, 0, 0, -2031580, 0, 0, -2031574, 0, 0, -2031557, 0, 0, -2031551, 0, 0, -2031530, 0, 0, -1966063, 0, 0, -1966056, 0, 0, -1966055, 0, 0, -1966054, 0, 0, -1966053, 0, 0, -1966052, 0, 0, -1966044, 0, 0, -1966038, 0, 0, -1966021, 0, 0, -1966015, 0, 0, -1965994, 0, 0, -1900527, 0, 0, -1900508, 0, 0, -1900502, 0, 0, -1900485, 0, 0, -1900479, 0, 0, -1900458, 0, 0, -1834991, 0, 0, -1834972, 0, 0, -1834966, 0, 0, -1834960, 0, 0, -1834959, 0, 0, -1834958, 0, 0, -1834957, 0, 0, -1834956, 0, 0, -1834955, 0, 0, -1834949, 0, 0, -1834943, 0, 0, -1834922, 0, 0, -1703952, 0, 1, -1703951, 0, 2, -1769455, 0, 0, -1769436, 0, 0, -1769430, 0, 0, -1769425, 0, 0, -1769418, 0, 0, -1769414, 0, 0, -1769413, 0, 0, -1769407, 0, 0, -1769386, 0, 0, -1638416, 0, 0, -1638415, 0, 0, -1703919, 0, 0, -1703918, 0, 0, -1703917, 0, 0, -1703916, 0, 0, -1703915, 0, 0, -1703914, 0, 0, -1703913, 0, 0, -1703912, 0, 0, -1703911, 0, 0, -1703910, 0, 0, -1703909, 0, 0, -1703908, 0, 0, -1703907, 0, 0, -1703906, 0, 0, -1703900, 0, 0, -1703894, 0, 65537, -1703893, 0, 0, -1703892, 0, 0, -1703891, 0, 0, -1703890, 0, 0, -1703889, 0, 65538, -1703882, 0, 65537, -1703881, 0, 0, -1703880, 0, 0, -1703879, 0, 0, -1703878, 0, 0, -1703877, 0, 65538, -1703871, 0, 0, -1703866, 0, 0, -1703865, 0, 0, -1703864, 0, 0, -1703863, 0, 0, -1703862, 0, 0, -1703861, 0, 0, -1703860, 0, 0, -1703859, 0, 0, -1703858, 0, 0, -1703857, 0, 0, -1703856, 0, 0, -1703855, 0, 0, -1703854, 0, 0, -1703853, 0, 0, -1703852, 0, 0, -1703851, 0, 0, -1703850, 0, 0, -1572880, 0, 0, -1572879, 0, 0, -1638370, 0, 0, -1638364, 0, 0, -1638335, 0, 0, -1638330, 0, 0, -1507344, 0, 0, -1507342, 0, 2, -1572834, 0, 0, -1572828, 0, 0, -1572799, 0, 0, -1572794, 0, 0, -1441808, 0, 0, -1441806, 0, 0, -1507298, 0, 0, -1507292, 0, 0, -1507263, 0, 0, -1507258, 0, 0, -1376272, 0, 0, -1376270, 0, 0, -1441762, 0, 0, -1441756, 0, 0, -1441727, 0, 0, -1441722, 0, 0, -1310736, 0, 0, -1310734, 0, 0, -1376226, 0, 0, -1376220, 0, 0, -1376219, 0, 0, -1376218, 0, 0, -1376217, 0, 0, -1376216, 0, 0, -1376215, 0, 0, -1376214, 0, 0, -1376213, 0, 0, -1376212, 0, 0, -1376211, 0, 0, -1376210, 0, 0, -1376209, 0, 0, -1376208, 0, 0, -1376207, 0, 0, -1376206, 0, 0, -1376205, 0, 0, -1376204, 0, 0, -1376203, 0, 0, -1376202, 0, 0, -1376201, 0, 0, -1376200, 0, 0, -1376199, 0, 0, -1376198, 0, 0, -1376197, 0, 0, -1376196, 0, 0, -1376195, 0, 0, -1376194, 0, 0, -1376193, 0, 0, -1376192, 0, 0, -1376191, 0, 0, -1376186, 0, 0, -1245200, 0, 0, -1245197, 0, 2, -1310690, 0, 0, -1310650, 0, 0, -1179664, 0, 0, -1179661, 0, 0, -1245154, 0, 0, -1245114, 0, 0, -1114128, 0, 0, -1114124, 0, 2, -1179618, 0, 0, -1179578, 0, 0, -1179542, 0, 1, -1179541, 0, 0, -1179540, 0, 0, -1179539, 0, 0, -1179538, 0, 0, -1179537, 0, 0, -1179536, 0, 0, -1179535, 0, 0, -1179534, 0, 0, -1179533, 0, 0, -1179532, 0, 2, -1048592, 0, 0, -1048587, 0, 2, -1114082, 0, 0, -1114042, 0, 0, -1114008, 0, 1, -1114007, 0, 0, -1113995, 0, 0, -1113994, 0, 0, -983056, 0, 0, -983050, 0, 2, -1048546, 0, 0, -1048545, 0, 0, -1048544, 0, 0, -1048543, 0, 0, -1048542, 0, 0, -1048541, 0, 0, -1048540, 0, 0, -1048539, 0, 0, -1048538, 0, 0, -1048537, 0, 0, -1048536, 0, 0, -1048535, 0, 0, -1048534, 0, 0, -1048533, 0, 0, -1048532, 0, 0, -1048531, 0, 0, -1048530, 0, 0, -1048529, 0, 0, -1048528, 0, 0, -1048527, 0, 0, -1048526, 0, 0, -1048525, 0, 0, -1048524, 0, 0, -1048523, 0, 0, -1048522, 0, 0, -1048521, 0, 0, -1048520, 0, 0, -1048519, 0, 0, -1048518, 0, 0, -1048517, 0, 0, -1048516, 0, 0, -1048515, 0, 0, -1048514, 0, 0, -1048513, 0, 0, -1048512, 0, 0, -1048511, 0, 0, -1048510, 0, 0, -1048509, 0, 0, -1048508, 0, 0, -1048507, 0, 0, -1048506, 0, 0, -1048473, 0, 1, -1048458, 0, 0, -917520, 0, 0, -917513, 0, 0, -917512, 0, 0, -917511, 0, 0, -917510, 0, 2, -982952, 0, 1, -982951, 0, 0, -982950, 0, 0, -982949, 0, 0, -982948, 0, 0, -982947, 0, 0, -982946, 0, 0, -982945, 0, 0, -982944, 0, 0, -982943, 0, 0, -982942, 0, 0, -982941, 0, 0, -982940, 0, 0, -982939, 0, 0, -982938, 0, 0, -982922, 0, 0, -851984, 0, 65537, -851973, 0, 0, -851972, 0, 0, -851971, 0, 0, -851970, 0, 2, -917421, 0, 1, -917420, 0, 0, -917419, 0, 0, -917418, 0, 0, -917417, 0, 0, -917386, 0, 0, -786447, 0, 0, -786433, 0, 0, -851968, 0, 0, -851967, 0, 0, -851966, 0, 0, -851965, 0, 0, -851964, 0, 0, -851963, 0, 0, -851962, 0, 0, -851961, 0, 0, -851960, 0, 0, -851959, 0, 2, -851946, 0, 1, -851945, 0, 0, -851944, 0, 2, -851889, 0, 1, -851888, 0, 0, -851887, 0, 0, -851886, 0, 0, -851850, 0, 0, -720911, 0, 0, -786422, 0, 0, -786421, 0, 0, -786420, 0, 0, -786419, 0, 0, -786418, 0, 0, -786417, 0, 0, -786416, 0, 0, -786415, 0, 0, -786414, 0, 0, -786413, 0, 0, -786412, 0, 0, -786411, 0, 0, -786409, 0, 0, -786408, 0, 65538, -786353, 0, 0, -786314, 0, 0, -655375, 0, 0, -720874, 0, 0, -720873, 0, 65538, -720817, 0, 65537, -720816, 0, 0, -720815, 0, 0, -720779, 0, 0, -589839, 0, 0, -655339, 0, 0, -655278, 0, 65537, -655243, 0, 65538, -524303, 0, 0, -589804, 0, 0, -589803, 0, 65538, -589741, 0, 65537, -589708, 0, 65538, -458767, 0, 65537, -458766, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -524270, 0, 0, -524269, 0, 65538, -524204, 0, 65537, -524173, 0, 0, -393226, 0, 65537, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458740, 0, 0, -458739, 0, 0, -458738, 0, 0, -458737, 0, 0, -458736, 0, 0, -458735, 0, 65538, -458667, 0, 65537, -458666, 0, 0, -458637, 0, 65538, -393214, 0, 65537, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 65538, -393129, 0, 65537, -393128, 0, 0, -393103, 0, 0, -393102, 0, 65538, -327591, 0, 65537, -327590, 0, 0, -327589, 0, 0, -327569, 0, 0, -327568, 0, 65538, -262052, 0, 65537, -262051, 0, 0, -262036, 0, 0, -262035, 0, 0, -262034, 0, 65538, -196514, 0, 65537, -196513, 0, 0, -196512, 0, 0, -196511, 0, 0, -196510, 0, 0, -196509, 0, 0, -196508, 0, 0, -196507, 0, 0, -196506, 0, 0, -196505, 0, 0, -196504, 0, 0, -196503, 0, 0, -196502, 0, 0, -196501, 0, 65538 )
 
 [node name="CityParallaxBG" type="ParallaxBackground" parent="Background" index="0"]
 
@@ -919,12 +1651,43 @@ offset = Vector2( 192, 0 )
 position = Vector2( 689, -884 )
 texture = ExtResource( 6 )
 
+[node name="MMNeck" type="ColorRect" parent="." index="3"]
+visible = false
+margin_left = 1086.0
+margin_top = -1203.0
+margin_right = 1114.0
+margin_bottom = -1163.0
+color = Color( 0.407843, 0.137255, 0.560784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MurkMonster" type="AnimatedSprite" parent="." index="4"]
+visible = false
+position = Vector2( 1235, -1226 )
+frames = SubResource( 9 )
+frame = 1
+playing = true
+
+[node name="MMWaterOverlap" type="ColorRect" parent="." index="5"]
+visible = false
+margin_left = 1045.0
+margin_top = -1193.0
+margin_right = 1296.0
+margin_bottom = -1121.0
+color = Color( 0.027451, 0.145098, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 15 )]
+position = Vector2( 1288, -926 )
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 17 )]
+position = Vector2( 1275, -931 )
 
 [node name="Player" parent="YSort" index="2"]
-position = Vector2( 931, -810 )
+position = Vector2( 1285, -879 )
 
 [node name="Buildings" type="YSort" parent="YSort" index="3"]
 
@@ -932,7 +1695,11 @@ position = Vector2( 931, -810 )
 position = Vector2( 1508, -373 )
 
 [node name="PoppyHouseB" parent="YSort/Buildings" index="1" instance=ExtResource( 3 )]
-position = Vector2( 1006, -869 )
+position = Vector2( 1000, -890 )
+
+[node name="CafeSign" type="Sprite" parent="YSort/Buildings/PoppyHouseB" index="3"]
+position = Vector2( 34, -5 )
+texture = ExtResource( 54 )
 
 [node name="PoppyHouseA2" parent="YSort/Buildings" index="2" instance=ExtResource( 4 )]
 position = Vector2( 257, -1174 )
@@ -967,7 +1734,7 @@ offset = Vector2( 0, -25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Buildings/BearHouse" index="1"]
 visible = false
-shape = SubResource( 5 )
+shape = SubResource( 10 )
 
 [node name="Props" type="YSort" parent="YSort" index="4"]
 
@@ -1036,91 +1803,13 @@ position = Vector2( 943, -825 )
 [node name="StreetLamp13" parent="YSort/Streetlamps" index="12" instance=ExtResource( 9 )]
 position = Vector2( 1183, -729 )
 
-[node name="monster_stand" type="Sprite" parent="YSort" index="6"]
-position = Vector2( 1197, -889 )
-texture = ExtResource( 12 )
-offset = Vector2( 1, -21 )
-script = ExtResource( 43 )
-
-[node name="DialogueTree" parent="YSort/monster_stand" index="0" instance=ExtResource( 19 )]
-
-[node name="Event" parent="YSort/monster_stand/DialogueTree" index="0" instance=ExtResource( 20 )]
-message = "The Murk Monster's arrival is predicted to be any moment now. Wanna go see it up close?"
-no_face = true
-
-[node name="Event3" parent="YSort/monster_stand/DialogueTree/Event" index="0" instance=ExtResource( 20 )]
-key = "Yes"
-message = "Sounds interesting. Sure."
-character = "green"
-expression = "smile"
-
-[node name="Event4" parent="YSort/monster_stand/DialogueTree/Event/Event3" index="0" instance=ExtResource( 20 )]
-message = "Lovely choice, my viridescent friend!"
-no_face = true
-
-[node name="Event5" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4" index="0" instance=ExtResource( 20 )]
-message = "That'll be four dollars. "
-no_face = true
-
-[node name="Event6" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5" index="0" instance=ExtResource( 20 )]
-message = "What if I payed by..."
-character = "ribbit"
-expression = "smile"
-
-[node name="Event7" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6" index="0" instance=ExtResource( 20 )]
-message = "Doin' a lil' this, a lil' somethin'.."
-character = "ribbit"
-expression = "smug2"
-
-[node name="Event8" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7" index="0" instance=ExtResource( 20 )]
-message = "A cool lil'.. dance.."
-character = "ribbit"
-expression = "nervous"
-
-[node name="Event9" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7/Event8" index="0" instance=ExtResource( 20 )]
-message = "I'll accept that. Hop on the boat, kids."
-no_face = true
-
-[node name="Event10" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7/Event8/Event9" index="0" instance=ExtResource( 20 )]
-message = "YYEEEEAAA"
-no_face = true
-character = "ribbit"
-expression = "unique"
-
-[node name="Event11" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7/Event8/Event9/Event10" index="0" instance=ExtResource( 20 )]
-message = "Oh YES"
-no_face = true
-character = "orange"
-expression = "grin"
-function = "accept"
-
-[node name="Event2" parent="YSort/monster_stand/DialogueTree/Event" index="1" instance=ExtResource( 20 )]
-key = "No"
-message = "No, thank you, sir."
-character = "green"
-expression = "open_mouth"
-
-[node name="Event4" parent="YSort/monster_stand/DialogueTree/Event/Event2" index="0" instance=ExtResource( 20 )]
-message = "YOU. You.. you're missing out! You don't know what you're going to miss!"
-no_face = true
-
-[node name="Interaction" type="Area2D" parent="YSort/monster_stand" index="1"]
-
-[node name="InteractionCOllision" type="CollisionShape2D" parent="YSort/monster_stand/Interaction" index="0"]
-shape = SubResource( 6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort/monster_stand" index="2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/monster_stand/StaticBody2D" index="0"]
-shape = SubResource( 7 )
-
-[node name="PoppyhartSign" parent="YSort" index="7" instance=ExtResource( 13 )]
+[node name="PoppyhartSign" parent="YSort" index="6" instance=ExtResource( 13 )]
 position = Vector2( 1335, -293 )
 
-[node name="PoppyhartSign2" parent="YSort" index="8" instance=ExtResource( 13 )]
+[node name="PoppyhartSign2" parent="YSort" index="7" instance=ExtResource( 13 )]
 position = Vector2( 333, -262 )
 
-[node name="Bus" type="KinematicBody2D" parent="YSort" index="9"]
+[node name="Bus" type="KinematicBody2D" parent="YSort" index="8"]
 position = Vector2( 616, -104 )
 script = ExtResource( 18 )
 
@@ -1132,12 +1821,12 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Bus" index="1"]
 visible = false
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Bus" index="2"]
 autoplay = "idle"
-anims/drive_away = SubResource( 9 )
-anims/idle = SubResource( 10 )
+anims/drive_away = SubResource( 12 )
+anims/idle = SubResource( 13 )
 
 [node name="DialogueTree" parent="YSort/Bus" index="3" instance=ExtResource( 19 )]
 
@@ -1158,28 +1847,28 @@ function = "drive_away"
 message = "Adios!"
 face_texture = ExtResource( 26 )
 
-[node name="SaveStation" parent="YSort" index="10" instance=ExtResource( 28 )]
+[node name="SaveStation" parent="YSort" index="9" instance=ExtResource( 28 )]
 position = Vector2( 1496, -476 )
 
-[node name="SaveStation2" parent="YSort" index="11" instance=ExtResource( 28 )]
+[node name="SaveStation2" parent="YSort" index="10" instance=ExtResource( 28 )]
 position = Vector2( 848, -1353 )
 
-[node name="CallBellSystem2" parent="YSort" index="12" instance=ExtResource( 32 )]
+[node name="CallBellSystem2" parent="YSort" index="11" instance=ExtResource( 32 )]
 position = Vector2( 1021, -369 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem2" index="1"]
 position = Vector2( 7, -138 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell1" index="3"]
-anims/idle = SubResource( 11 )
-anims/ring = SubResource( 12 )
+anims/idle = SubResource( 14 )
+anims/ring = SubResource( 15 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem2" index="2"]
 position = Vector2( 385, -106 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell2" index="3"]
-anims/idle = SubResource( 13 )
-anims/ring = SubResource( 14 )
+anims/idle = SubResource( 16 )
+anims/ring = SubResource( 17 )
 
 [node name="Pos1" parent="YSort/CallBellSystem2" index="3"]
 position = Vector2( 47, -143 )
@@ -1200,22 +1889,22 @@ position = Vector2( 3, -132 )
 [node name="ground_arrow2" parent="YSort/CallBellSystem2" index="8"]
 position = Vector2( 381, -101 )
 
-[node name="CallBellSystem3" parent="YSort" index="13" instance=ExtResource( 32 )]
+[node name="CallBellSystem3" parent="YSort" index="12" instance=ExtResource( 32 )]
 position = Vector2( 826, -752 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem3" index="1"]
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell1" index="3"]
-anims/idle = SubResource( 15 )
-anims/ring = SubResource( 16 )
+anims/idle = SubResource( 18 )
+anims/ring = SubResource( 19 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem3" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell2" index="3"]
-anims/idle = SubResource( 17 )
-anims/ring = SubResource( 18 )
+anims/idle = SubResource( 20 )
+anims/ring = SubResource( 21 )
 
 [node name="Pos1" parent="YSort/CallBellSystem3" index="3"]
 position = Vector2( 90, -31 )
@@ -1238,22 +1927,22 @@ frame = 4
 position = Vector2( 45, 63 )
 frame = 0
 
-[node name="CallBellSystem4" parent="YSort" index="14" instance=ExtResource( 32 )]
+[node name="CallBellSystem4" parent="YSort" index="13" instance=ExtResource( 32 )]
 position = Vector2( 546, -752 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem4" index="1"]
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell1" index="3"]
-anims/idle = SubResource( 19 )
-anims/ring = SubResource( 20 )
+anims/idle = SubResource( 22 )
+anims/ring = SubResource( 23 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem4" index="2"]
 position = Vector2( 244, 59 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell2" index="3"]
-anims/idle = SubResource( 21 )
-anims/ring = SubResource( 22 )
+anims/idle = SubResource( 24 )
+anims/ring = SubResource( 25 )
 
 [node name="Pos1" parent="YSort/CallBellSystem4" index="3"]
 position = Vector2( 90, -31 )
@@ -1276,22 +1965,22 @@ frame = 3
 position = Vector2( 240, 64 )
 frame = 7
 
-[node name="CallBellSystem5" parent="YSort" index="15" instance=ExtResource( 32 )]
+[node name="CallBellSystem5" parent="YSort" index="14" instance=ExtResource( 32 )]
 position = Vector2( 420, -443 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem5" index="1"]
 position = Vector2( 185, -79 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell1" index="3"]
-anims/idle = SubResource( 23 )
-anims/ring = SubResource( 24 )
+anims/idle = SubResource( 26 )
+anims/ring = SubResource( 27 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem5" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell2" index="3"]
-anims/idle = SubResource( 25 )
-anims/ring = SubResource( 26 )
+anims/idle = SubResource( 28 )
+anims/ring = SubResource( 29 )
 
 [node name="Pos1" parent="YSort/CallBellSystem5" index="3"]
 position = Vector2( 145, -83 )
@@ -1314,22 +2003,22 @@ frame = 5
 position = Vector2( 45, 63 )
 frame = 1
 
-[node name="CallBellSystem6" parent="YSort" index="16" instance=ExtResource( 32 )]
+[node name="CallBellSystem6" parent="YSort" index="15" instance=ExtResource( 32 )]
 position = Vector2( 832, -999 )
 
 [node name="CallBell1" parent="YSort/CallBellSystem6" index="1"]
 position = Vector2( -105, -74 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell1" index="3"]
-anims/idle = SubResource( 27 )
-anims/ring = SubResource( 28 )
+anims/idle = SubResource( 30 )
+anims/ring = SubResource( 31 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem6" index="2"]
 position = Vector2( 60, 108 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell2" index="3"]
-anims/idle = SubResource( 29 )
-anims/ring = SubResource( 30 )
+anims/idle = SubResource( 32 )
+anims/ring = SubResource( 33 )
 
 [node name="Pos1" parent="YSort/CallBellSystem6" index="3"]
 position = Vector2( -94, -47 )
@@ -1352,7 +2041,7 @@ frame = 3
 position = Vector2( 56, 113 )
 frame = 7
 
-[node name="CallBellSystem7" parent="YSort" index="17" instance=ExtResource( 32 )]
+[node name="CallBellSystem7" parent="YSort" index="16" instance=ExtResource( 32 )]
 position = Vector2( 1043, -1144 )
 talkative = true
 
@@ -1360,15 +2049,15 @@ talkative = true
 position = Vector2( -43, -200 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell1" index="3"]
-anims/idle = SubResource( 31 )
-anims/ring = SubResource( 32 )
+anims/idle = SubResource( 34 )
+anims/ring = SubResource( 35 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem7" index="2"]
 position = Vector2( 88, 230 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell2" index="3"]
-anims/idle = SubResource( 33 )
-anims/ring = SubResource( 34 )
+anims/idle = SubResource( 36 )
+anims/ring = SubResource( 37 )
 
 [node name="Pos1" parent="YSort/CallBellSystem7" index="3"]
 position = Vector2( -32, -173 )
@@ -1391,53 +2080,375 @@ frame = 0
 [node name="DialogueTree" parent="YSort/CallBellSystem7" index="9" instance=ExtResource( 19 )]
 
 [node name="DiagPiece" parent="YSort/CallBellSystem7/DialogueTree" index="0" instance=ExtResource( 20 )]
-message = "You guys new here?"
+message = "Good mornin'."
+face_texture = ExtResource( 53 )
 
 [node name="DiagPiece2" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece" index="0" instance=ExtResource( 20 )]
-message = "Yes. Not the rabbit. But us, yes."
+message = "Are you the fox lady from that Glasstown place?"
 character = "orange"
-expression = "neutral"
+expression = "open_mouth"
 
 [node name="DiagPiece3" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 20 )]
-message = "Oh, Ribbit. Isn't she so adorable?"
-no_face = true
+message = "I don't know ``what`` you're talking about."
+face_texture = ExtResource( 53 )
 
 [node name="DiagPiece4" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 20 )]
-message = "But she also annoys everyone by asking for free food. So it kind of cancels out."
-no_face = true
+message = "Oh.."
+character = "orange"
+expression = "sad"
 
 [node name="DiagPiece6" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 20 )]
-message = "I am sitting `INCHES` from you! I can hear `EVERYTHING` you say!"
-character = "ribbit"
-expression = "yell_outburst"
-
-[node name="DiagPiece5" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece6" index="0" instance=ExtResource( 20 )]
-message = "Unfortunate."
+message = "Welp. We're gonna be in this Poppyhart place for a while."
 character = "orange"
 expression = "frown"
 
-[node name="Lights" type="Node2D" parent="." index="4"]
+[node name="DiagPiece5" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece6" index="0" instance=ExtResource( 20 )]
+message = "If you need it, there's a hotel near where we're being dropped off. "
+character = "ribbit"
+expression = "open_mouth"
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
+[node name="DiagPiece6" parent="YSort/CallBellSystem7/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece6/DiagPiece5" index="0" instance=ExtResource( 20 )]
+message = "We might just need that."
+character = "orange"
+expression = "smile"
+
+[node name="PinkBoat" type="Sprite" parent="YSort" index="17"]
+position = Vector2( 1234, -983 )
+texture = ExtResource( 47 )
+offset = Vector2( 0, 7 )
+hframes = 2
+
+[node name="players_in_boat" type="Sprite" parent="YSort/PinkBoat" index="0"]
 visible = false
-color = Color( 0.290196, 0.231373, 0.317647, 1 )
+position = Vector2( -12, 0 )
+texture = ExtResource( 46 )
+
+[node name="MMGuideRowing" type="AnimatedSprite" parent="YSort/PinkBoat" index="1"]
+visible = false
+position = Vector2( 0, 1 )
+frames = SubResource( 44 )
+frame = 4
+speed_scale = 3.0
+
+[node name="monster_stand" type="Sprite" parent="YSort" index="18" groups=[
+"save",
+]]
+position = Vector2( 1197, -889 )
+texture = ExtResource( 12 )
+offset = Vector2( 1, -21 )
+hframes = 2
+script = ExtResource( 43 )
+
+[node name="DialogueTree" parent="YSort/monster_stand" index="0" instance=ExtResource( 19 )]
+
+[node name="PreMM" parent="YSort/monster_stand/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "The Murk Monster's arrival is predicted to be soon. Would you like to see it up close?"
+face_texture = ExtResource( 51 )
+
+[node name="PreMM2" parent="YSort/monster_stand/DialogueTree/PreMM" index="0" instance=ExtResource( 20 )]
+message = "We should get that hotel room first."
+character = "ribbit"
+expression = "frown"
+
+[node name="PreMM3" parent="YSort/monster_stand/DialogueTree/PreMM/PreMM2" index="0" instance=ExtResource( 20 )]
+message = "Yea. GREEN."
+character = "orange"
+expression = "smile"
+
+[node name="Event" parent="YSort/monster_stand/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "The Murk Monster's arrival is predicted to be any moment now. Wanna go see it up close?"
+face_texture = ExtResource( 51 )
+
+[node name="Event3" parent="YSort/monster_stand/DialogueTree/Event" index="0" instance=ExtResource( 20 )]
+key = "Yes"
+message = "Sounds interesting. Sure."
+character = "green"
+expression = "smile"
+
+[node name="Event4" parent="YSort/monster_stand/DialogueTree/Event/Event3" index="0" instance=ExtResource( 20 )]
+message = "Lovely choice, my viridescent friend!"
+face_texture = ExtResource( 51 )
+
+[node name="Event5" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4" index="0" instance=ExtResource( 20 )]
+message = "That'll be four dollars. "
+face_texture = ExtResource( 51 )
+
+[node name="Event6" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5" index="0" instance=ExtResource( 20 )]
+message = "Wait-- four [tornado freq=10 radius=2] ``indirect`` [/tornado] dollars."
+face_texture = ExtResource( 51 )
+
+[node name="Event7" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6" index="0" instance=ExtResource( 20 )]
+message = "So I really just want a cup of Poppy Dog from our town's cafe."
+face_texture = ExtResource( 51 )
+
+[node name="Event8" parent="YSort/monster_stand/DialogueTree/Event/Event3/Event4/Event5/Event6/Event7" index="0" instance=ExtResource( 20 )]
+message = "That's all the payment I'll need. Pretty generous, if you ask me."
+face_texture = ExtResource( 51 )
+function = "look_for_sneaky_boys"
+
+[node name="Event2" parent="YSort/monster_stand/DialogueTree/Event" index="1" instance=ExtResource( 20 )]
+key = "No"
+message = "No, thank you, sir."
+character = "green"
+expression = "open_mouth"
+
+[node name="Event4" parent="YSort/monster_stand/DialogueTree/Event/Event2" index="0" instance=ExtResource( 20 )]
+message = "YOU. You.. you're missing out! You don't know what you're going to miss!"
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired" parent="YSort/monster_stand/DialogueTree" index="2" instance=ExtResource( 20 )]
+message = "Hey, wait a sec, you already have a Cup of Poppy Dog!"
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired2" parent="YSort/monster_stand/DialogueTree/PreAcquired" index="0" instance=ExtResource( 20 )]
+message = "Still want to go? Because I can take this as payment, and we can go ``right`` now."
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired3" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2" index="0" instance=ExtResource( 20 )]
+key = "Yes"
+message = "Sure. Here you go."
+character = "green"
+expression = "smile"
+function = "take_poppy_dog"
+
+[node name="PreAcquired4" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired3" index="0" instance=ExtResource( 20 )]
+message = "Excellent! Let's get going, then."
+face_texture = ExtResource( 51 )
+function = "accept"
+
+[node name="PreAcquired4" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2" index="1" instance=ExtResource( 20 )]
+key = "No"
+message = "I don't want to go on this anymore."
+character = "green"
+expression = "frown"
+
+[node name="PreAcquired4" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4" index="0" instance=ExtResource( 20 )]
+message = "..REALLY? Are you SURE? Because you can always just buy another cup."
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired5" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4" index="0" instance=ExtResource( 20 )]
+key = "Lets do it"
+message = "Eh, I guess I'll go. Here's your cup."
+character = "green"
+expression = "open_mouth"
+function = "take_poppy_dog"
+
+[node name="PreAcquired7" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired5" index="0" instance=ExtResource( 20 )]
+message = "Oh, thanks! I hope you didn't drink out of it. Anyways, let's get going now."
+face_texture = ExtResource( 51 )
+function = "accept"
+
+[node name="PreAcquired6" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4" index="1" instance=ExtResource( 20 )]
+key = "I'm sure"
+message = "I'm sure and certain."
+character = "green"
+expression = "frown"
+
+[node name="PreAcquired7" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired6" index="0" instance=ExtResource( 20 )]
+message = "What if you could pay with regular money? Would you still decline??"
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired8" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired6/PreAcquired7" index="0" instance=ExtResource( 20 )]
+key = "Fine"
+message = "Okay, fine. Here's four dollars."
+character = "green"
+expression = "confused"
+function = "take_money"
+
+[node name="PreAcquired9" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired6/PreAcquired7" index="1" instance=ExtResource( 20 )]
+key = "NO."
+message = "No. Stop asking. I'm good."
+character = "green"
+expression = "angry"
+
+[node name="PreAcquired9" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired6/PreAcquired7/PreAcquired9" index="0" instance=ExtResource( 20 )]
+message = "(Ribbit, he doesn't ``seem`` very good.)"
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired10" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired6/PreAcquired7/PreAcquired9/PreAcquired9" index="0" instance=ExtResource( 20 )]
+message = "Well. Fine. Go on. Miss the event."
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired11" parent="YSort/monster_stand/DialogueTree/PreAcquired/PreAcquired2/PreAcquired4/PreAcquired4/PreAcquired6/PreAcquired7/PreAcquired9/PreAcquired9/PreAcquired10" index="0" instance=ExtResource( 20 )]
+message = "But if you change your mind... feel free."
+face_texture = ExtResource( 51 )
+
+[node name="HasItem" parent="YSort/monster_stand/DialogueTree" index="3" instance=ExtResource( 20 )]
+message = "Mmmm, this tastes fantastic. Reminds me of my tadpole years."
+face_texture = ExtResource( 51 )
+
+[node name="HasItem2" parent="YSort/monster_stand/DialogueTree/HasItem" index="0" instance=ExtResource( 20 )]
+message = "Welp. Let's get going. "
+face_texture = ExtResource( 51 )
+function = "accept"
+
+[node name="NoItem" parent="YSort/monster_stand/DialogueTree" index="4" instance=ExtResource( 20 )]
+message = "Yea. Still waiting for that payment."
+face_texture = ExtResource( 51 )
+
+[node name="NoItem2" parent="YSort/monster_stand/DialogueTree/NoItem" index="0" instance=ExtResource( 20 )]
+message = "If it helps, the cafe is just north-east of here, across the water."
+face_texture = ExtResource( 51 )
+
+[node name="UseMoney" parent="YSort/monster_stand/DialogueTree" index="5" instance=ExtResource( 20 )]
+message = "C'est exellent! Good to hear!"
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired10" parent="YSort/monster_stand/DialogueTree/UseMoney" index="0" instance=ExtResource( 20 )]
+message = "Alright, kids, let's go now. The arrival can happen at any moment."
+face_texture = ExtResource( 51 )
+function = "accept"
+
+[node name="Poor" parent="YSort/monster_stand/DialogueTree" index="6" instance=ExtResource( 20 )]
+message = "Uh... I don't have the money."
+character = "green"
+expression = "drunk"
+
+[node name="PreAcquired10" parent="YSort/monster_stand/DialogueTree/Poor" index="0" instance=ExtResource( 20 )]
+message = "Are you.. serious? You don't have FOUR dollars?"
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired11" parent="YSort/monster_stand/DialogueTree/Poor/PreAcquired10" index="0" instance=ExtResource( 20 )]
+message = "Oh my god. Fine. You know what. "
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired12" parent="YSort/monster_stand/DialogueTree/Poor/PreAcquired10/PreAcquired11" index="0" instance=ExtResource( 20 )]
+message = "I'll give you guys a free pass."
+face_texture = ExtResource( 51 )
+
+[node name="PreAcquired13" parent="YSort/monster_stand/DialogueTree/Poor/PreAcquired10/PreAcquired11/PreAcquired12" index="0" instance=ExtResource( 20 )]
+message = "Consider this your reward for being so difficult."
+face_texture = ExtResource( 51 )
+function = "accept"
+
+[node name="BoatPreMonster" parent="YSort/monster_stand/DialogueTree" index="7" instance=ExtResource( 20 )]
+message = "Any moment now, kids."
+face_texture = ExtResource( 51 )
+function = "cutscene_a"
+
+[node name="BoatMonster" parent="YSort/monster_stand/DialogueTree" index="8" instance=ExtResource( 20 )]
+message = "[shake rate=40 level=6] (Breathe in. [/shake][shake rate=10 level=6]``Breathe out.``[/shake] [shake rate=2 level=6]Breathe in...) [/shake]"
+face_texture = ExtResource( 51 )
+
+[node name="BoatMonster2" parent="YSort/monster_stand/DialogueTree/BoatMonster" index="0" instance=ExtResource( 20 )]
+message = "Rest your eyes on the biggest pair of eyes in the solar system, kids. "
+face_texture = ExtResource( 51 )
+
+[node name="BoatMonster3" parent="YSort/monster_stand/DialogueTree/BoatMonster/BoatMonster2" index="0" instance=ExtResource( 20 )]
+message = "I have waited my whooole life to see this."
+face_texture = ExtResource( 51 )
+function = "mm_submerge"
+
+[node name="BoatMonsterSubmerge" parent="YSort/monster_stand/DialogueTree" index="9" instance=ExtResource( 20 )]
+message = "Oh, uh..."
+face_texture = ExtResource( 51 )
+
+[node name="BoatMonsterSubmerge2" parent="YSort/monster_stand/DialogueTree/BoatMonsterSubmerge" index="0" instance=ExtResource( 20 )]
+message = "It shall return aaany moment now."
+face_texture = ExtResource( 51 )
+
+[node name="BoatMonsterSubmerge3" parent="YSort/monster_stand/DialogueTree/BoatMonsterSubmerge/BoatMonsterSubmerge2" index="0" instance=ExtResource( 20 )]
+message = "Any moment."
+face_texture = ExtResource( 51 )
+
+[node name="BoatMonsterSubmerge4" parent="YSort/monster_stand/DialogueTree/BoatMonsterSubmerge/BoatMonsterSubmerge2/BoatMonsterSubmerge3" index="0" instance=ExtResource( 20 )]
+message = "You can ``feel`` it coming back."
+face_texture = ExtResource( 51 )
+function = "mm_remerge"
+
+[node name="BoatMonsterRemerge" parent="YSort/monster_stand/DialogueTree" index="10" instance=ExtResource( 20 )]
+message = "Oh, uh, that's cute."
+face_texture = ExtResource( 51 )
+function = "mm_elevate"
+
+[node name="BoatMonsterElevate" parent="YSort/monster_stand/DialogueTree" index="11" instance=ExtResource( 20 )]
+message = "[shake rate=100 level=7]WOAH WOAH WHAT IS GOING ON [/shake] [shake rate=50 level=30]I CAN BARELY HANDLE THIS SITUATION[/shake][shake rate=100 level=100] AAAAAAAAAAAAAAAA[/shake]"
+function = "enter_cutscene"
+interrupt = true
+
+[node name="Post" parent="YSort/monster_stand/DialogueTree" index="12" instance=ExtResource( 20 )]
+message = "Are you all right after that massive fall?"
+face_texture = ExtResource( 51 )
+
+[node name="Post2" parent="YSort/monster_stand/DialogueTree/Post" index="0" instance=ExtResource( 20 )]
+message = "I landed on another person, so I'm okay."
+face_texture = ExtResource( 51 )
+
+[node name="Post3" parent="YSort/monster_stand/DialogueTree/Post/Post2" index="0" instance=ExtResource( 20 )]
+message = "At least we're famous now!"
+face_texture = ExtResource( 51 )
+
+[node name="Post4" parent="YSort/monster_stand/DialogueTree/Post/Post2/Post3" index="0" instance=ExtResource( 20 )]
+message = "..At least ``I`` am."
+face_texture = ExtResource( 51 )
+
+[node name="Interaction" type="Area2D" parent="YSort/monster_stand" index="1"]
+visible = false
+
+[node name="InteractionCOllision" type="CollisionShape2D" parent="YSort/monster_stand/Interaction" index="0"]
+shape = SubResource( 45 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/monster_stand" index="2"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/monster_stand/StaticBody2D" index="0"]
+shape = SubResource( 46 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/monster_stand" index="3"]
+autoplay = "idle"
+anims/enter_boat = SubResource( 47 )
+anims/idle = SubResource( 48 )
+anims/mm_elevate = SubResource( 49 )
+anims/mm_remerge = SubResource( 50 )
+anims/mm_submerge = SubResource( 51 )
+
+[node name="Tween" type="Tween" parent="YSort/monster_stand" index="4"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/monster_stand" index="5"]
+stream = ExtResource( 49 )
+volume_db = 10.747
+
+[node name="MMGuide" parent="YSort" index="19" instance=ExtResource( 45 )]
+position = Vector2( 1197, -893 )
+
+[node name="CollisionShape2D" parent="YSort/MMGuide" index="0"]
+visible = false
+
+[node name="Interaction" parent="YSort/MMGuide" index="1"]
+visible = false
+
+[node name="ShadowRect" parent="YSort/MMGuide" index="2"]
+margin_left = -6.0
+margin_top = -3.0
+margin_right = 6.0
+margin_bottom = 3.0
+
+[node name="AnimatedSprite" parent="YSort/MMGuide" index="3"]
+frames = SubResource( 64 )
+animation = "down_idle"
+frame = 4
+offset = Vector2( 0, -16 )
+
+[node name="Lights" type="Node2D" parent="." index="7"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="8"]
 
 [node name="Particles2D" parent="Camera" index="0" instance=ExtResource( 5 )]
 modulate = Color( 0.454902, 0.156863, 0.447059, 1 )
-position = Vector2( 0, -161 )
+position = Vector2( 0, 0 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="11"]
 position = Vector2( 429, -494 )
 stream = ExtResource( 7 )
 autoplay = true
 bus = "Environment"
 
-[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="9"]
+[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="12"]
 stream = ExtResource( 30 )
 autoplay = true
 bus = "Environment"
 
-[node name="KidnapEvent" type="Node2D" parent="." index="10"]
+[node name="KidnapEvent" type="Node2D" parent="." index="13"]
 position = Vector2( 832, -233 )
 script = ExtResource( 21 )
 
@@ -1445,7 +2456,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KidnapEvent/KidnapZone" index="0"]
 position = Vector2( 0, 38 )
-shape = SubResource( 35 )
+shape = SubResource( 65 )
 
 [node name="Tween" type="Tween" parent="KidnapEvent" index="1"]
 
@@ -1521,13 +2532,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HotelPortal" parent="." index="11" instance=ExtResource( 31 )]
+[node name="HotelPortal" parent="." index="14" instance=ExtResource( 31 )]
 position = Vector2( 1424, -645 )
 new_scene = "res://Rooms/Area6/6-3/6-3.tscn"
 player_new_position = Vector2( 0, 190 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HotelPortal" index="0"]
-shape = SubResource( 36 )
+shape = SubResource( 66 )
+
+[node name="TimeTween" type="Tween" parent="." index="15"]
 [connection signal="body_entered" from="KidnapEvent/KidnapZone" to="KidnapEvent" method="_on_KidnapZone_body_entered"]
 
 [editable path="YSort/CallBellSystem2"]
@@ -1541,5 +2554,7 @@ shape = SubResource( 36 )
 [editable path="YSort/CallBellSystem6"]
 
 [editable path="YSort/CallBellSystem7"]
+
+[editable path="YSort/MMGuide"]
 
 [editable path="HUD"]

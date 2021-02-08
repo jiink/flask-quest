@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hydraulic.wav-0f827de774025e0761b42a6ebcf0450c.sample"
+
+[deps]
+
+source_file="res://SoundEffects/hydraulic.wav"
+dest_files=[ "res://.import/hydraulic.wav-0f827de774025e0761b42a6ebcf0450c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

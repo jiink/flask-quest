@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Engine/light2.png" type="Texture" id=4]
 [ext_resource path="res://Rooms/Area1/Assets/elevator_button.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/Test/T-4/TimeToggleButton.gd" type="Script" id=6]
-[ext_resource path="res://Rooms/Area4/Assets/maloffice-01.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Music/odd.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Rooms/Area4/Assets/planet_hologram.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/Area4/Assets/planet_hologram_stand.png" type="Texture" id=9]
 [ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=10]
@@ -16,6 +16,7 @@
 [ext_resource path="res://NPC/MalusLobbyGuard/big_guard_light.png" type="Texture" id=14]
 [ext_resource path="res://Rooms/Tools/RoomDark.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Rooms/Tools/ChapterPortal.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Rooms/Test/T-4/AudioReactionTest.gd" type="Script" id=17]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -38,7 +39,7 @@ void fragment(){
 	limited_tex_val *= (boost / 10.0);
 	
 	float tex_val_lit = (tex_val * (1.0 - UV.y) + (tex_val * (UV.y) * -1.0)) * boost;
-	vec3 col_adjusted = vec3((col.r * tex_val), col.g - col.r * tex_val, col.b);
+	vec3 col_adjusted = vec3((col.r * tex_val), col.g - col.r * tex_val, col.b) + (light_col.rgb * brightness);
 	COLOR.rgb = col_adjusted - tex_val_lit * offset_intensity;
 }"
 custom_defines = ""
@@ -47,7 +48,7 @@ custom_defines = ""
 shader = SubResource( 1 )
 shader_param/offset_intensity = 0.034
 shader_param/light_col = Color( 1, 1, 1, 1 )
-shader_param/brightness = 1.945
+shader_param/brightness = 0.0
 shader_param/boost = 7.686
 shader_param/region = Vector2( 0, 0 )
 
@@ -109,6 +110,7 @@ texture = ExtResource( 4 )
 offset = Vector2( 0, -2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 256 )
+script = ExtResource( 17 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
 
@@ -176,7 +178,7 @@ frame = 1
 
 [node name="HealthStation" parent="YSort" index="4" instance=ExtResource( 12 )]
 position = Vector2( 90, 51 )
-frame = 18
+frame = 3
 
 [node name="SaveStation" parent="YSort" index="5" instance=ExtResource( 13 )]
 position = Vector2( 72, 52 )

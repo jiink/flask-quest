@@ -3,14 +3,18 @@ extends "res://Rooms/TemplateRoom.gd"
 onready var main_animator = get_node("MainAnimator")
 onready var orange_bound = get_node("YSort/OrangeBound")
 onready var green_bound = get_node("YSort/GreenBound")
-onready var orange_player = get_node("YSort/Orange")
-onready var green_player = get_node("YSort/Player")
+onready var ribbit_bound = get_node("YSort/RibbitBound")
+onready var orange_player = global.get_player(1)
+onready var green_player = global.get_player(2)
+onready var ribbit_player = global.get_player(3)
+
 var captured_music = preload("res://Rooms/Area6/Assets/captured_by_the_bearly_bearable_bear.ogg")
 
 func _ready():
 	global.connect("battle_won", self, "on_battle_won")
 	yield(get_tree().create_timer(1.5), "timeout")
 	DiagHelper.start_talk(self, "Initial")
+	$ExitPortal/CollisionShape2D.set_deferred("disabled", true)
 
 func bear_enter_room():
 	main_animator.play("bear_enter")
@@ -54,10 +58,14 @@ func on_battle_won():
 	DiagHelper.start_talk(self, "PostBear")
 	orange_bound.visible = false
 	green_bound.visible = false
+	ribbit_bound.visible = false
+	green_player.clear_history()
 	green_player.position = Vector2(169,123)
 	orange_player.position = Vector2(210,122)
 	green_player.visible = true
 	orange_player.visible = true
+	ribbit_player.visible = true
 	$"YSort/BearlyBearableBear".position = Vector2(168,209)
 	$"PlayerBound".queue_free()
-
+	$ExitPortal/CollisionShape2D.set_deferred("disabled", false)
+	ribbit_player.controlled_by = ribbit_player.BOT

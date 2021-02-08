@@ -13,31 +13,37 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
 shader_param/direction = Vector2( 1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = -0.029
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 9 )
 shader_param/direction = Vector2( 1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.002
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 9 )
 shader_param/direction = Vector2( 1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.014
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 9 )
 shader_param/direction = Vector2( 1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.035
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 9 )
 shader_param/direction = Vector2( 1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.05
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 9 )
 shader_param/direction = Vector2( 1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 0.097
 
 [node name="CityBG" type="Node2D"]

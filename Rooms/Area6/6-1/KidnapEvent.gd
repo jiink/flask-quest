@@ -53,7 +53,7 @@ func kidnap():
 	$HitNoise.play()
 	$BreakNoise.play()
 	
-	scene_root.pre_kidnap_events_occured = true
+	scene_root.current_story_state = scene_root.StoryState.GET_HOTEL_ROOM
 	
 	yield(get_tree().create_timer(3), "timeout")
 	global.start_scene_switch("res://Rooms/Area6/6-2/6-2.tscn", Vector2(169,123))

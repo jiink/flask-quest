@@ -30,16 +30,15 @@ func interact():
 		$Timer.start(4)
 		
 		yield($Timer, "timeout")
-		orange.controlled_by = original_orange_controller
-		orange.clear_history()
 		$AnimationPlayer.play("JumpLoop")
 		$Tween.interpolate_property(global.get_player(1), "position", \
 		 null, original_green_pos, 0.2, Tween.TRANS_QUAD, Tween.EASE_IN)
 		$Tween.interpolate_property(global.get_player(2), "position", \
-		 null, original_orange_pos, 0.2, Tween.TRANS_QUAD, Tween.EASE_IN)
+		 null, original_green_pos, 0.2, Tween.TRANS_QUAD, Tween.EASE_IN)
 		$Tween.start()
 		yield($Tween, "tween_all_completed")
 		
-		orange.clear_history()
+		green.clear_history()
+		orange.controlled_by = original_orange_controller
 		green.controlled_by = green.PERSON
 		interactable = true

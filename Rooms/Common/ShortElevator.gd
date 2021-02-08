@@ -2,6 +2,7 @@ extends YSort
 
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
+onready var ribbit = global.get_player(3)
 
 onready var door_animator = get_node("DoorAnimator")
 onready var door_trigger_bottom = get_node("DoorAreaBottom/CollisionShape2D")
@@ -20,6 +21,10 @@ onready var bell_player = $AudioStreamPlayer
 
 var player_in_elevator = false
 var opened_door = Floor.NONE
+
+var close_audio = preload("res://SoundEffects/hydraulic_stop.wav")
+var open_audio = preload("res://SoundEffects/hydraulic.wav")
+
 
 enum Direction {
 	UP,
@@ -44,6 +49,7 @@ func move_player(chosen_direction):
 	player_in_elevator = true
 	
 	var original_orange_controller = orange.controlled_by
+	var original_ribbit_controller = ribbit.controlled_by
 	door_trigger_bottom.set_deferred("disabled", true)
 	door_trigger_top.set_deferred("disabled", true)
 	trigger_bottom.set_deferred("disabled", true)
@@ -78,6 +84,7 @@ func move_player(chosen_direction):
 	yield(get_tree().create_timer(0.2), "timeout")
 ######
 
+	$DoorAudio.set_stream(close_audio)
 	bottom_signal.frame = 1
 	top_signal.frame = 1
 	match player_floor:
@@ -89,24 +96,31 @@ func move_player(chosen_direction):
 	
 	green.visible = false
 	orange.visible = false
+	ribbit.visible = false
+	ribbit.controlled_by = ribbit.EXTERNAL
 	
 #	move the invisible players to the top of the shaft
 
-	$Tween.interpolate_property(global.get_player(1), "position", \
+	$Tween.interpolate_property(green, "position", \
 	 null, second_pos, 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property(global.get_player(2), "position", \
+	$Tween.interpolate_property(orange, "position", \
 	 null, second_pos + Vector2(7,7), 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(ribbit, "position", \
+	 null, second_pos + Vector2(-7,-7), 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
 	yield($Tween, "tween_all_completed")
 ######
 
 	green.visible = true
 	orange.visible = true
-	orange.extctrl_facing_direction = orange.Direction.DOWN
+	ribbit.visible = true
+	orange.extctrl_facing_direction = orange.Direction.LEFTUP
 	green.extctrl_facing_direction = green.Direction.DOWN
+	ribbit.extctrl_facing_direction = ribbit.Direction.RIGHTDOWN
 	green.clear_history()
 	
 	bell_player.play()
+	$DoorAudio.set_stream(open_audio)
 	match player_floor:
 		Floor.BOTTOM:
 			door_animator.play("open_top")
@@ -118,6 +132,7 @@ func move_player(chosen_direction):
 	bottom_signal.frame = 0
 	top_signal.frame = 0
 	orange.controlled_by = original_orange_controller
+	ribbit.controlled_by = original_ribbit_controller
 	green.controlled_by = green.PERSON
 
 	player_in_elevator = false
@@ -132,19 +147,23 @@ func _on_Timer_timeout():
 
 func _on_DoorAreaBottom_body_entered(body):
 	if body == global.get_player() and (opened_door != Floor.BOTTOM):
+		$DoorAudio.set_stream(open_audio)
 		door_animator.play("open_bottom")
 		opened_door = Floor.BOTTOM
 func _on_DoorAreaTop_body_entered(body):
 	if body == global.get_player() and (opened_door != Floor.TOP):
+		$DoorAudio.set_stream(open_audio)
 		door_animator.play("open_top")
 		opened_door = Floor.TOP
 
 func _on_DoorAreaTop_body_exited(body):
 	if body == global.get_player() and (player_in_elevator == false):
+		$DoorAudio.set_stream(close_audio)
 		door_animator.play_backwards("open_top")
 		opened_door = Floor.NONE
 
 func _on_DoorAreaBottom_body_exited(body):
 	if body == global.get_player() and (player_in_elevator == false):
+		$DoorAudio.set_stream(close_audio)
 		door_animator.play_backwards("open_bottom")
 		opened_door = Floor.NONE

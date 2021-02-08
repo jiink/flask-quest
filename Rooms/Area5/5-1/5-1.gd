@@ -11,9 +11,9 @@ var supertunnel_entered = false
 var in_escape_sequence = false
 
 const COLOR_DAWN = Color(0xc2975bff)
-var COLOR_DAY = Color(0xffffffff)
-var COLOR_DUSK = Color(0x92564bff)
-var COLOR_NIGHT = Color(0x2d3158ff)
+const COLOR_DAY = Color(0xffffffff)
+const COLOR_DUSK = Color(0x92564bff)
+const COLOR_NIGHT = Color(0x2d3158ff)
 
 var modulate_color
 

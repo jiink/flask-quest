@@ -7,6 +7,7 @@ export(bool) var auto_direction = true
 export(bool) var interactable = true
 export(bool) var up_down_periodic_mirroring = true # every other animation cycle for going up/down, mirror it for "more" frames?
 export(float) var anim_speed_scale = 0.5
+export(float) var idle_anim_speed_scale = 1
 var has_dedicated_idle_animations = false
 var has_dedicated_left_animation = false
 
@@ -52,10 +53,15 @@ func _tick():
 	if has_dedicated_idle_animations:
 		if not moving:
 			sprite.set_animation(animation_strings_idle[facing_direction])
+			sprite.speed_scale = 1 * idle_anim_speed_scale
+			sprite.playing = true
 	else:
-		sprite.playing = moving
+		if not moving:
+			sprite.playing = moving
+			sprite.set_animation(animation_strings_walking[Direction.DOWN])
 
-	sprite.speed_scale = delta_pos.length() * anim_speed_scale
+	if moving:
+		sprite.speed_scale = delta_pos.length() * anim_speed_scale
 		
 	if (moving) and (not last_moving):
 		sprite.set_animation(animation_strings_walking[facing_direction])

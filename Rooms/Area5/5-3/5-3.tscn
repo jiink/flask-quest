@@ -4,7 +4,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/AGT_weather_phaser.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/melancholy_battle.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Rooms/Area5/5-3/5-3.tmx" type="PackedScene" id=4]
-[ext_resource path="res://Rooms/Area5/Assets/rain.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Rooms/Common/rain.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/tree_burnedB.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/tree_stumpA.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Rooms/Area5/Assets/PostApoc/PropScenes/tree_branchesA.tscn" type="PackedScene" id=8]
@@ -45,6 +45,7 @@
 [ext_resource path="res://Rooms/Area5/Assets/dome_wall.png" type="Texture" id=43]
 [ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Rooms/Common/FirePaletteSwapMaterial.tres" type="Material" id=45]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"

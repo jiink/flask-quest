@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 func _ready():
-	if not get_tree().get_current_scene().pre_kidnap_events_occured:
+	yield(get_tree().create_timer(0.1), "timeout")
+	if get_tree().get_current_scene().current_story_state == 0:
 		yield(get_tree().create_timer(1.5), "timeout")
 		DiagHelper.start_talk(self)	
 	

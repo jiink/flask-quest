@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area6/6-4/6-4.tmx" type="PackedScene" id=2]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=5]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=8]
+
+[node name="6-4" instance=ExtResource( 1 )]
+
+[node name="6-4" parent="Tilemaps" index="0" instance=ExtResource( 2 )]
+
+[node name="AboveUnlit" parent="Tilemaps/6-4" index="1"]
+material = ExtResource( 5 )
+z_index = 3
+
+[node name="AboveLit" parent="Tilemaps/6-4" index="2"]
+z_index = 3
+
+[node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 4 )]
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 3 )]
+
+[node name="Player" parent="YSort" index="2"]
+position = Vector2( 0, -43 )
+
+[node name="Seller" parent="YSort" index="3" instance=ExtResource( 6 )]
+position = Vector2( -19, -128 )
+
+[node name="DialogueTree" parent="YSort/Seller" index="3" instance=ExtResource( 7 )]
+
+[node name="DiagPiece" parent="YSort/Seller/DialogueTree" index="0" instance=ExtResource( 8 )]
+message = "Welcome to our cafe! "
+no_face = true
+
+[node name="DiagPiece2" parent="YSort/Seller/DialogueTree/DiagPiece" index="0" instance=ExtResource( 8 )]
+message = "Would you like anything?"
+no_face = true
+
+[node name="DiagPiece3" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 8 )]
+key = "No"
+message = "We're good. "
+character = "green"
+expression = "neutral"
+
+[node name="DiagPiece5" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 8 )]
+message = "Okay... Have a nice day, then."
+no_face = true
+
+[node name="DiagPiece4" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2" index="1" instance=ExtResource( 8 )]
+key = "Yes"
+message = "Yes, I would like something."
+character = "green"
+expression = "smile"
+
+[node name="DiagPiece5" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4" index="0" instance=ExtResource( 8 )]
+message = "Okay. Would that something be our special item of the month, the delicious Poppy Dog drink?"
+no_face = true
+
+[node name="DiagPiece6" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 8 )]
+key = "Sure"
+message = "Sure, sounds good."
+no_face = true
+
+[node name="DiagPiece7" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 8 )]
+message = "Okay, that'll be four dollars."
+no_face = true
+function = "sell_item"
+args = [ "poppy_dog", 5.0, "Success", "Poor", false ]
+
+[node name="DiagPiece7" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5" index="1" instance=ExtResource( 8 )]
+key = "No"
+message = "It isn't."
+character = "green"
+expression = "neutral"
+
+[node name="DiagPiece7" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece7" index="0" instance=ExtResource( 8 )]
+message = "That's our only item at this time. But okay. "
+no_face = true
+
+[node name="Success" parent="YSort/Seller/DialogueTree" index="1" instance=ExtResource( 8 )]
+message = "Okay, here ya go! Enjoy!"
+no_face = true
+
+[node name="Poor" parent="YSort/Seller/DialogueTree" index="2" instance=ExtResource( 8 )]
+message = "(Uh... GREEN, we're TOO POOR for this!)"
+character = "orange"
+expression = "open_mouth"
+
+[node name="Poor" parent="YSort/Seller/DialogueTree/Poor" index="0" instance=ExtResource( 8 )]
+message = "Woah.. I think we forgot our wallet..."
+character = "orange"
+expression = "nervous"
+
+[node name="Poor2" parent="YSort/Seller/DialogueTree/Poor/Poor" index="0" instance=ExtResource( 8 )]
+message = "Understandable. Well, have a nice day."
+no_face = true
+
+[editable path="Tilemaps/6-4"]
+
+[editable path="HUD"]

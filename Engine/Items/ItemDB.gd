@@ -117,6 +117,11 @@ var items = {
 		'droppable' : false,
 		},
 #-------------------------------------------
+	'poppy_dog': {
+		'name': 'Cup of Poppy Dog',
+		'desc': "The only other green drink you've seen... is yourself.",
+		'droppable' : true,
+		},
 	}
 
 

@@ -6,6 +6,7 @@ export(AudioStream) var new_song
 export(bool) var start_from_beginning
 export(float) var fade_time
 
+
 func _ready():
 	connect("body_entered", self, "on_body_entered")
 	

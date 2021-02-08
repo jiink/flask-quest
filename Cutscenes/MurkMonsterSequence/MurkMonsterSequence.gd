@@ -4,9 +4,15 @@ extends Node2D
 onready var animation_player = $AnimationPlayer
 
 
+func save(save_game):
+	save_game.data["6-1_time_of_day"] = 3
+	
+func load(save_game):
+	pass
+
+
 func _ready():
 #	animation_player.connect("animation_finished", self, "on_animation_finished")
-	DiagHelper.start_talk(self, "Ascent")
 #func on_animation_finished():
 #	$clouds_bg.visible = true
 	for image in get_tree().get_nodes_in_group("MMSequence"):
@@ -104,3 +110,6 @@ func fall():
 		image.visible = false
 	$BoatFalling.visible = true
 	animation_player.play("FallingBoat")
+	yield(animation_player, "animation_finished")
+	global.start_scene_switch("res://Rooms/Area6/6-3/6-3.tscn", Vector2(267, -650))
+	global.swap_scenes()

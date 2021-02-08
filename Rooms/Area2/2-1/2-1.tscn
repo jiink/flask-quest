@@ -4727,7 +4727,7 @@ position = Vector2( 308, 23 )
 
 [node name="HealthStation" parent="YSort" index="15" instance=ExtResource( 192 )]
 position = Vector2( 335, 22 )
-frame = 23
+frame = 1
 
 [node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 132 )]
 position = Vector2( 1644, -617 )

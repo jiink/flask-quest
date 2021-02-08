@@ -22,7 +22,7 @@
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/ship_zoomed_ship.png" type="Texture" id=20]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/orange_denied.png" type="Texture" id=21]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/ship_zoomed_scope.png" type="Texture" id=22]
-[ext_resource path="res://NPC/MinorNPCs/mm_guide.png" type="Texture" id=23]
+[ext_resource path="res://NPC/MMGuide/mm_guide.png" type="Texture" id=23]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_a.png" type="Texture" id=24]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_c.png" type="Texture" id=25]
 [ext_resource path="res://Cutscenes/MurkMonsterSequence/flashback_b.png" type="Texture" id=26]
@@ -42,6 +42,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/direction = Vector2( 0, -1 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 2.0
 
 [sub_resource type="AtlasTexture" id=2]
@@ -79,6 +80,7 @@ animations = [ {
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 1 )
 shader_param/direction = Vector2( 0, -1 )
+shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 2.5
 
 [sub_resource type="Animation" id=9]
@@ -392,16 +394,14 @@ shader_param/p14 = null
 shader_param/p15 = null
 shader_param/p16 = null
 
-[node name="MurkMonsterSequence" type="Node2D"]
+[node name="MurkMonsterSequence" type="Node2D" groups=[
+"save",
+]]
 script = ExtResource( 9 )
 
 [node name="HUD" parent="." instance=ExtResource( 13 )]
 
 [node name="DialogueTree" parent="." instance=ExtResource( 10 )]
-
-[node name="Ascent" parent="DialogueTree" instance=ExtResource( 11 )]
-message = "```This is unusual.```"
-interrupt = true
 
 [node name="PreBinoc" parent="DialogueTree" instance=ExtResource( 11 )]
 message = "I think that smoke shortened my lifespan. "
@@ -428,21 +428,21 @@ face_texture = ExtResource( 23 )
 function = "boat_guideside_view_c"
 
 [node name="PreBinoc6" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5" instance=ExtResource( 11 )]
-message = "Fascinating. They seemed to have put MALUS in giant letters on the side of that ship! That must be the ship's name."
+message = "FASCINATING! They seemed to have put MALUS in giant letters on the side of that ship! That must be the ship's name."
 face_texture = ExtResource( 23 )
 function = "ribbit_green_orange_closeup"
 
 [node name="PreBinoc7" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5/PreBinoc6" instance=ExtResource( 11 )]
-message = "What a dumb name. You know, back in my day, I used to operate all kinds of vessels. They had beautiful names."
+message = "What a dumb name."
+face_texture = ExtResource( 23 )
+
+[node name="Post" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5/PreBinoc6/PreBinoc7" instance=ExtResource( 11 )]
+message = "It's an ignominy that we now have imbeciles like these naming ships with punk names."
 face_texture = ExtResource( 23 )
 function = "sweaty_green"
 
-[node name="Post" parent="DialogueTree/PreBinoc/PreBinoc2/PreBinoc3/PreBinoc4/PreBinoc5/PreBinoc6/PreBinoc7" instance=ExtResource( 11 )]
-message = "It's an ignominy that we now have imbeciles like these naming ships with punk names. It even sounds a lot like 'malice,' doesn't it?"
-face_texture = ExtResource( 23 )
-
 [node name="PostFlashBacks" parent="DialogueTree" instance=ExtResource( 11 )]
-message = "May I take a look."
+message = "May I take a look?"
 character = "orange"
 expression = "open_mouth"
 function = "orange_denied"
@@ -602,12 +602,15 @@ __meta__ = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+bus = "Music"
 
 [node name="MalusFlashbacks" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
+bus = "Music"
 
 [node name="MalusDiscovery" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
+bus = "Music"
 
 [node name="clouds_bg" type="Sprite" parent="."]
 position = Vector2( 192, 108 )

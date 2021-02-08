@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mm_guide.png-c13bc8015c44863789672b8e82882183.stex"
+path="res://.import/mm_splash_closeup_bg.png-9a5682cd7c1aa49af66d883dd96e616c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/MinorNPCs/mm_guide.png"
-dest_files=[ "res://.import/mm_guide.png-c13bc8015c44863789672b8e82882183.stex" ]
+source_file="res://Cutscenes/MurkMonsterSequence/MMIntroductionSequence/mm_splash_closeup_bg.png"
+dest_files=[ "res://.import/mm_splash_closeup_bg.png-9a5682cd7c1aa49af66d883dd96e616c.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

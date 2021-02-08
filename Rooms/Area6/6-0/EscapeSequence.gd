@@ -1,8 +1,11 @@
 extends Area2D
 
+const CHAPTER_INTRO_SCENE = preload("res://Cutscenes/ChapterIntro/ChapterIntro.tscn")
+
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
-onready var camera = get_tree().get_current_scene().get_node("6-0/Camera")
+onready var camera = global.get_camera()
+
 func _on_EscapeTrigger_body_entered(body):
 	if body in get_tree().get_nodes_in_group("Player"):
 		green.controlled_by = green.EXTERNAL
@@ -49,5 +52,9 @@ func diag_finished():
 	$"../BusPath/AnimationPlayer".play("bus_go")
 
 	yield(get_tree().create_timer(6), "timeout")
-	global.start_scene_switch("res://Cutscenes/Outro/Outtro.tscn", Vector2(192,17))
-	global.swap_scenes()
+	var chapter_intro = CHAPTER_INTRO_SCENE.instance()
+	global.get_hud().add_child(chapter_intro)
+	chapter_intro.change_chapter(chapter_intro.Chapters.CH4)
+	chapter_intro.new_scene = "res://Rooms/Area6/6-1/6-1.tscn"
+	chapter_intro.starting_direction = chapter_intro.StartingDirection.DOWN
+	chapter_intro.player_new_position = Vector2(667,-82)

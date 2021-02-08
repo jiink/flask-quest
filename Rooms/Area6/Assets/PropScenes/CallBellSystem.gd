@@ -4,12 +4,15 @@ onready var boat = $Boat
 onready var tween = $Tween
 
 export(bool) var talkative
+var talked_to = false
 
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
 onready var ribbit = global.get_player(3)
 onready var players_in_boat = get_node("Boat/PlayersInBoat")
 onready var boat_oar = $Boat/poppyhart_boaters/BoatOar
+var dialogue_to_use = null
+
 	
 # has the player not interacted with any other bells
 # in the past few seconds?
@@ -21,6 +24,7 @@ func move_boat(callbell_number):
 			callbell_systems.player_available = false
 			
 		var original_orange_controller = orange.controlled_by
+		var original_ribbit_controller = ribbit.controlled_by
 		var first_pos
 		var second_pos
 		var player_new_pos
@@ -45,8 +49,9 @@ func move_boat(callbell_number):
 		elif boat.position == first_pos:
 			yield(get_tree().create_timer(0.4), "timeout")
 		
-		orange.controlled_by = orange.EXTERNAL
 		green.controlled_by = green.EXTERNAL
+		orange.controlled_by = orange.EXTERNAL
+		ribbit.controlled_by = ribbit.EXTERNAL
 		
 	#	move the players onto the boat
 		tween.interpolate_property(green, "position", \
@@ -54,7 +59,7 @@ func move_boat(callbell_number):
 		tween.interpolate_property(orange, "position", \
 		null, first_pos + position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 		tween.interpolate_property(ribbit, "position", \
-		null, first_pos + position, 0.5, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+		null, first_pos + position, 0.1, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
 		tween.start()
 		yield(tween, "tween_all_completed")
 		
@@ -64,9 +69,10 @@ func move_boat(callbell_number):
 		players_in_boat.visible = true
 		
 		var travel_time
-		if talkative:
+		if talkative and (not talked_to):
 			travel_time = 20
 			DiagHelper.start_talk(self)
+			talked_to = true
 		else:
 			travel_time = 4
 		
@@ -76,6 +82,8 @@ func move_boat(callbell_number):
 		tween.interpolate_property(green, "position", \
 		null, second_pos + position, travel_time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		tween.interpolate_property(orange, "position", \
+		null, second_pos + position, travel_time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+		tween.interpolate_property(ribbit, "position", \
 		null, second_pos + position, travel_time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		tween.start()
 		boat_oar.playing = true
@@ -99,7 +107,9 @@ func move_boat(callbell_number):
 	
 		green.clear_history()
 		orange.controlled_by = original_orange_controller
+		ribbit.controlled_by = original_ribbit_controller
 		green.controlled_by = green.PERSON
+		
 		
 		for callbell_systems in get_tree().get_nodes_in_group("callbell_system"):
 			callbell_systems.player_available = true
