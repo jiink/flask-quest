@@ -3,7 +3,6 @@ extends Node2D
 export(String) var main_dialogue = "DiagPiece"
 var interactable = true
 
-
 func interact():
 	if interactable:
 		DiagHelper.start_talk(self, main_dialogue)

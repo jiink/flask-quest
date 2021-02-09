@@ -5,6 +5,9 @@ onready var orange = global.get_player(2)
 onready var ribbit = global.get_player(3)
 onready var animator = $AnimationPlayer
 onready var murk_monster = get_tree().get_current_scene().get_node("MurkMonster")
+onready var scene_root = get_tree().get_current_scene()
+
+
 var interactable = true
 var state = 0 #Which part of the story are you in?
 
@@ -46,13 +49,14 @@ func interact():
 			pass
 
 func look_for_sneaky_boys(): # did the player ALREADY get the poppy dog?
-	if ItemManager.has_item("poppy_dog"):
-		interactable = false
-		yield(get_tree().create_timer(0.1), "timeout")
-		interactable = true
-		DiagHelper.start_talk(self, "PreAcquired")
-	else:
-		requested_poppy_dog = true
+#	if ItemManager.has_item("poppy_dog"):
+#		interactable = false
+#		yield(get_tree().create_timer(0.1), "timeout")
+#		interactable = true
+#		DiagHelper.start_talk(self, "PreAcquired")
+#	else:
+#		requested_poppy_dog = true
+	requested_poppy_dog = true
 
 func accept():
 	interactable = false
@@ -91,8 +95,8 @@ func take_money():
 		yield(get_tree().create_timer(0.1), "timeout")
 		interactable = true
 		DiagHelper.start_talk(self, "Poor")
-#	global.start_scene_switch("res://Cutscenes/MurkMonsterSequence/MurkMonsterSequence.tscn", \
-#	Vector2(0,0))
+		
+
 
 func cutscene_a():
 	var mm_intro = MM_INTRO_SCENE.instance()
@@ -122,6 +126,7 @@ func mm_elevate():
 	DiagHelper.start_talk(self, "BoatMonsterElevate")
 	
 func enter_cutscene():
+	scene_root.StoryState = scene_root
 	global.start_scene_switch("res://Cutscenes/MurkMonsterSequence/MurkMonsterSequence.tscn",
 	Vector2(0,0))
 	global.swap_scenes()

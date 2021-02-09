@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=122 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
@@ -104,12 +104,15 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 69, 35 )
+extents = Vector2( 9, 4 )
 
 [sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 69, 35 )
+
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 68, 18 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -160,7 +163,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -211,7 +214,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -236,38 +239,11 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-
-[sub_resource type="Animation" id=15]
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=16]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -276,24 +252,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=17]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -302,25 +279,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=18]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -329,24 +305,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=19]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -355,25 +332,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=20]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -382,24 +358,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=21]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -408,25 +385,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=22]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -435,24 +411,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=23]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -461,25 +438,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=24]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -488,24 +464,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=25]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -514,25 +491,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=26]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -541,24 +517,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=27]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -567,25 +544,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=28]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -594,24 +570,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=29]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -620,25 +597,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=30]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -647,24 +623,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=31]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -673,25 +650,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=32]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -700,24 +676,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=33]
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/path = NodePath("call_bell:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -726,25 +703,24 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
+tracks/1/path = NodePath("../BellAudio:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=34]
-length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
+tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -753,48 +729,22 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/path = NodePath("call_bell:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=35]
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
-}
-
-[sub_resource type="Animation" id=36]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("call_bell:frame")
@@ -821,7 +771,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=36]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../BellAudio:playing")
 tracks/0/interp = 1
@@ -847,45 +797,98 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 48 )
-region = Rect2( 0, 0, 70, 48 )
+[sub_resource type="Animation" id=37]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=38]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
 
 [sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 48 )
-region = Rect2( 70, 0, 70, 48 )
+region = Rect2( 0, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 48 )
-region = Rect2( 140, 0, 70, 48 )
+region = Rect2( 70, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 48 )
-region = Rect2( 210, 0, 70, 48 )
+region = Rect2( 140, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=42]
 atlas = ExtResource( 48 )
-region = Rect2( 280, 0, 70, 48 )
+region = Rect2( 210, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 48 )
+region = Rect2( 280, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 48 )
 region = Rect2( 350, 0, 70, 48 )
 
-[sub_resource type="SpriteFrames" id=44]
+[sub_resource type="SpriteFrames" id=45]
 animations = [ {
-"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
 "loop": true,
 "name": "default",
 "speed": 24.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=45]
-extents = Vector2( 21, 8 )
-
 [sub_resource type="RectangleShape2D" id=46]
 extents = Vector2( 21, 8 )
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 21, 8 )
+
+[sub_resource type="Animation" id=48]
 length = 17.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../MMGuide:position")
@@ -1102,7 +1105,7 @@ tracks/16/keys = {
 "values": [ 3.0, 0.0, 0.5, 2.0, 0.1 ]
 }
 
-[sub_resource type="Animation" id=48]
+[sub_resource type="Animation" id=49]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("../PinkBoat/players_in_boat:visible")
@@ -1249,8 +1252,7 @@ tracks/11/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=49]
-resource_name = "mm_elevate"
+[sub_resource type="Animation" id=50]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../MurkMonster:position")
@@ -1361,7 +1363,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1086, -1203 ), Vector2( 1086, -1553 ) ]
 }
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=51]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../MurkMonster:position")
@@ -1424,7 +1426,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1119, -1216 ), Vector2( 1119, -1216 ), Vector2( 1119, -1236 ), Vector2( 1119, -1234 ), Vector2( 1119, -1250 ), Vector2( 1119, -1248 ), Vector2( 1119, -1250 ), Vector2( 1119, -1248 ) ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=52]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../MurkMonster:position")
@@ -1475,81 +1477,81 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="AtlasTexture" id=52]
+[sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 48, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=53]
+[sub_resource type="AtlasTexture" id=54]
 atlas = ExtResource( 44 )
 region = Rect2( 32, 48, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=54]
+[sub_resource type="AtlasTexture" id=55]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=55]
+[sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 44 )
 region = Rect2( 32, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=56]
-atlas = ExtResource( 44 )
-region = Rect2( 0, 96, 32, 48 )
-
 [sub_resource type="AtlasTexture" id=57]
-atlas = ExtResource( 44 )
-region = Rect2( 32, 96, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 44 )
 region = Rect2( 64, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=59]
+[sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 44 )
 region = Rect2( 96, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=60]
+[sub_resource type="AtlasTexture" id=59]
 atlas = ExtResource( 44 )
 region = Rect2( 128, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=61]
+[sub_resource type="AtlasTexture" id=60]
 atlas = ExtResource( 44 )
 region = Rect2( 160, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=62]
+[sub_resource type="AtlasTexture" id=61]
 atlas = ExtResource( 44 )
 region = Rect2( 192, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=63]
+[sub_resource type="AtlasTexture" id=62]
 atlas = ExtResource( 44 )
 region = Rect2( 224, 0, 32, 48 )
 
-[sub_resource type="SpriteFrames" id=64]
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 44 )
+region = Rect2( 0, 96, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 44 )
+region = Rect2( 32, 96, 32, 48 )
+
+[sub_resource type="SpriteFrames" id=65]
 animations = [ {
-"frames": [ SubResource( 52 ), SubResource( 53 ) ],
+"frames": [ SubResource( 53 ), SubResource( 54 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 54 ), SubResource( 55 ) ],
+"frames": [ SubResource( 55 ), SubResource( 56 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 56 ), SubResource( 57 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
+"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
 "loop": true,
 "name": "down_idle",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 63 ), SubResource( 64 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=65]
+[sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 434, 8 )
 
-[sub_resource type="RectangleShape2D" id=66]
+[sub_resource type="RectangleShape2D" id=67]
 extents = Vector2( 16, 3 )
 
 [node name="6-1" groups=[
@@ -1666,7 +1668,7 @@ __meta__ = {
 visible = false
 position = Vector2( 1235, -1226 )
 frames = SubResource( 9 )
-frame = 1
+frame = 8
 playing = true
 
 [node name="MMWaterOverlap" type="ColorRect" parent="." index="5"]
@@ -1697,10 +1699,6 @@ position = Vector2( 1508, -373 )
 [node name="PoppyHouseB" parent="YSort/Buildings" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1000, -890 )
 
-[node name="CafeSign" type="Sprite" parent="YSort/Buildings/PoppyHouseB" index="3"]
-position = Vector2( 34, -5 )
-texture = ExtResource( 54 )
-
 [node name="PoppyHouseA2" parent="YSort/Buildings" index="2" instance=ExtResource( 4 )]
 position = Vector2( 257, -1174 )
 
@@ -1719,6 +1717,19 @@ position = Vector2( 1509, -519 )
 [node name="PoppyHouseB2" parent="YSort/Buildings" index="7" instance=ExtResource( 3 )]
 position = Vector2( 436, -1178 )
 
+[node name="CafeSign" type="Sprite" parent="YSort/Buildings/PoppyHouseB2" index="3"]
+position = Vector2( 33, -7 )
+texture = ExtResource( 54 )
+
+[node name="ScenePortal" parent="YSort/Buildings/PoppyHouseB2" index="4" instance=ExtResource( 31 )]
+position = Vector2( 33, 48 )
+new_scene = "res://Rooms/Area6/6-4/6-4.tscn"
+player_new_position = Vector2( 8, -8 )
+starting_direction = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Buildings/PoppyHouseB2/ScenePortal" index="0"]
+shape = SubResource( 10 )
+
 [node name="PoppyHouseB3" parent="YSort/Buildings" index="8" instance=ExtResource( 3 )]
 position = Vector2( 97, -797 )
 
@@ -1734,7 +1745,7 @@ offset = Vector2( 0, -25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Buildings/BearHouse" index="1"]
 visible = false
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Props" type="YSort" parent="YSort" index="4"]
 
@@ -1789,7 +1800,7 @@ position = Vector2( 228, -659 )
 position = Vector2( 230, -937 )
 
 [node name="StreetLamp9" parent="YSort/Streetlamps" index="8" instance=ExtResource( 9 )]
-position = Vector2( 428, -1083 )
+position = Vector2( 359, -1083 )
 
 [node name="StreetLamp10" parent="YSort/Streetlamps" index="9" instance=ExtResource( 9 )]
 position = Vector2( 709, -1084 )
@@ -1821,12 +1832,12 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Bus" index="1"]
 visible = false
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Bus" index="2"]
 autoplay = "idle"
-anims/drive_away = SubResource( 12 )
-anims/idle = SubResource( 13 )
+anims/drive_away = SubResource( 13 )
+anims/idle = SubResource( 14 )
 
 [node name="DialogueTree" parent="YSort/Bus" index="3" instance=ExtResource( 19 )]
 
@@ -1860,15 +1871,15 @@ position = Vector2( 1021, -369 )
 position = Vector2( 7, -138 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell1" index="3"]
-anims/idle = SubResource( 14 )
-anims/ring = SubResource( 15 )
+anims/idle = SubResource( 15 )
+anims/ring = SubResource( 16 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem2" index="2"]
 position = Vector2( 385, -106 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell2" index="3"]
-anims/idle = SubResource( 16 )
-anims/ring = SubResource( 17 )
+anims/idle = SubResource( 17 )
+anims/ring = SubResource( 18 )
 
 [node name="Pos1" parent="YSort/CallBellSystem2" index="3"]
 position = Vector2( 47, -143 )
@@ -1896,15 +1907,15 @@ position = Vector2( 826, -752 )
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell1" index="3"]
-anims/idle = SubResource( 18 )
-anims/ring = SubResource( 19 )
+anims/idle = SubResource( 19 )
+anims/ring = SubResource( 20 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem3" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell2" index="3"]
-anims/idle = SubResource( 20 )
-anims/ring = SubResource( 21 )
+anims/idle = SubResource( 21 )
+anims/ring = SubResource( 22 )
 
 [node name="Pos1" parent="YSort/CallBellSystem3" index="3"]
 position = Vector2( 90, -31 )
@@ -1934,15 +1945,15 @@ position = Vector2( 546, -752 )
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell1" index="3"]
-anims/idle = SubResource( 22 )
-anims/ring = SubResource( 23 )
+anims/idle = SubResource( 23 )
+anims/ring = SubResource( 24 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem4" index="2"]
 position = Vector2( 244, 59 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell2" index="3"]
-anims/idle = SubResource( 24 )
-anims/ring = SubResource( 25 )
+anims/idle = SubResource( 25 )
+anims/ring = SubResource( 26 )
 
 [node name="Pos1" parent="YSort/CallBellSystem4" index="3"]
 position = Vector2( 90, -31 )
@@ -1972,15 +1983,15 @@ position = Vector2( 420, -443 )
 position = Vector2( 185, -79 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell1" index="3"]
-anims/idle = SubResource( 26 )
-anims/ring = SubResource( 27 )
+anims/idle = SubResource( 27 )
+anims/ring = SubResource( 28 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem5" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell2" index="3"]
-anims/idle = SubResource( 28 )
-anims/ring = SubResource( 29 )
+anims/idle = SubResource( 29 )
+anims/ring = SubResource( 30 )
 
 [node name="Pos1" parent="YSort/CallBellSystem5" index="3"]
 position = Vector2( 145, -83 )
@@ -2010,15 +2021,15 @@ position = Vector2( 832, -999 )
 position = Vector2( -105, -74 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell1" index="3"]
-anims/idle = SubResource( 30 )
-anims/ring = SubResource( 31 )
+anims/idle = SubResource( 31 )
+anims/ring = SubResource( 32 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem6" index="2"]
 position = Vector2( 60, 108 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell2" index="3"]
-anims/idle = SubResource( 32 )
-anims/ring = SubResource( 33 )
+anims/idle = SubResource( 33 )
+anims/ring = SubResource( 34 )
 
 [node name="Pos1" parent="YSort/CallBellSystem6" index="3"]
 position = Vector2( -94, -47 )
@@ -2049,15 +2060,15 @@ talkative = true
 position = Vector2( -43, -200 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell1" index="3"]
-anims/idle = SubResource( 34 )
-anims/ring = SubResource( 35 )
+anims/idle = SubResource( 35 )
+anims/ring = SubResource( 36 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem7" index="2"]
 position = Vector2( 88, 230 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell2" index="3"]
-anims/idle = SubResource( 36 )
-anims/ring = SubResource( 37 )
+anims/idle = SubResource( 37 )
+anims/ring = SubResource( 38 )
 
 [node name="Pos1" parent="YSort/CallBellSystem7" index="3"]
 position = Vector2( -32, -173 )
@@ -2126,7 +2137,7 @@ texture = ExtResource( 46 )
 [node name="MMGuideRowing" type="AnimatedSprite" parent="YSort/PinkBoat" index="1"]
 visible = false
 position = Vector2( 0, 1 )
-frames = SubResource( 44 )
+frames = SubResource( 45 )
 frame = 4
 speed_scale = 3.0
 
@@ -2386,21 +2397,21 @@ face_texture = ExtResource( 51 )
 visible = false
 
 [node name="InteractionCOllision" type="CollisionShape2D" parent="YSort/monster_stand/Interaction" index="0"]
-shape = SubResource( 45 )
+shape = SubResource( 46 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/monster_stand" index="2"]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/monster_stand/StaticBody2D" index="0"]
-shape = SubResource( 46 )
+shape = SubResource( 47 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/monster_stand" index="3"]
 autoplay = "idle"
-anims/enter_boat = SubResource( 47 )
-anims/idle = SubResource( 48 )
-anims/mm_elevate = SubResource( 49 )
-anims/mm_remerge = SubResource( 50 )
-anims/mm_submerge = SubResource( 51 )
+anims/enter_boat = SubResource( 48 )
+anims/idle = SubResource( 49 )
+anims/mm_elevate = SubResource( 50 )
+anims/mm_remerge = SubResource( 51 )
+anims/mm_submerge = SubResource( 52 )
 
 [node name="Tween" type="Tween" parent="YSort/monster_stand" index="4"]
 
@@ -2424,7 +2435,7 @@ margin_right = 6.0
 margin_bottom = 3.0
 
 [node name="AnimatedSprite" parent="YSort/MMGuide" index="3"]
-frames = SubResource( 64 )
+frames = SubResource( 65 )
 animation = "down_idle"
 frame = 4
 offset = Vector2( 0, -16 )
@@ -2456,7 +2467,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KidnapEvent/KidnapZone" index="0"]
 position = Vector2( 0, 38 )
-shape = SubResource( 65 )
+shape = SubResource( 66 )
 
 [node name="Tween" type="Tween" parent="KidnapEvent" index="1"]
 
@@ -2538,7 +2549,7 @@ new_scene = "res://Rooms/Area6/6-3/6-3.tscn"
 player_new_position = Vector2( 0, 190 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HotelPortal" index="0"]
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="TimeTween" type="Tween" parent="." index="15"]
 [connection signal="body_entered" from="KidnapEvent/KidnapZone" to="KidnapEvent" method="_on_KidnapZone_body_entered"]

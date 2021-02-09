@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-4/6-4.tmx" type="PackedScene" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Rooms/Area6/6-4/CoffeeSeller.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 11 )
 
 [node name="6-4" instance=ExtResource( 1 )]
 
@@ -21,65 +26,94 @@ z_index = 3
 z_index = 3
 
 [node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 4 )]
+position = Vector2( -21, -34 )
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 3 )]
+position = Vector2( -21, -34 )
 
 [node name="Player" parent="YSort" index="2"]
 position = Vector2( 0, -43 )
 
-[node name="Seller" parent="YSort" index="3" instance=ExtResource( 6 )]
+[node name="Seller" parent="YSort" index="3" groups=[
+"save",
+] instance=ExtResource( 6 )]
 position = Vector2( -19, -128 )
+script = ExtResource( 10 )
 
 [node name="DialogueTree" parent="YSort/Seller" index="3" instance=ExtResource( 7 )]
 
-[node name="DiagPiece" parent="YSort/Seller/DialogueTree" index="0" instance=ExtResource( 8 )]
-message = "Welcome to our cafe! "
+[node name="Battle" parent="YSort/Seller/DialogueTree" index="0" instance=ExtResource( 8 )]
+message = "Welcome to the Random Cafe! "
 no_face = true
 
-[node name="DiagPiece2" parent="YSort/Seller/DialogueTree/DiagPiece" index="0" instance=ExtResource( 8 )]
-message = "Would you like anything?"
+[node name="DiagPiece2" parent="YSort/Seller/DialogueTree/Battle" index="0" instance=ExtResource( 8 )]
+message = "Would you like a random item?"
 no_face = true
 
-[node name="DiagPiece3" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 8 )]
+[node name="DiagPiece3" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2" index="0" instance=ExtResource( 8 )]
 key = "No"
 message = "We're good. "
 character = "green"
 expression = "neutral"
 
-[node name="DiagPiece5" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 8 )]
+[node name="DiagPiece5" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 8 )]
 message = "Okay... Have a nice day, then."
 no_face = true
 
-[node name="DiagPiece4" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2" index="1" instance=ExtResource( 8 )]
+[node name="DiagPiece4" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2" index="1" instance=ExtResource( 8 )]
 key = "Yes"
-message = "Yes, I would like something."
+message = "Yes. May I have a Cup of Poppy Dog?"
 character = "green"
 expression = "smile"
+interrupt = true
 
-[node name="DiagPiece5" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4" index="0" instance=ExtResource( 8 )]
-message = "Okay. Would that something be our special item of the month, the delicious Poppy Dog drink?"
+[node name="DiagPiece5" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4" index="0" instance=ExtResource( 8 )]
+message = "No. This is a `RANDOM` shop."
 no_face = true
 
-[node name="DiagPiece6" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 8 )]
-key = "Sure"
-message = "Sure, sounds good."
+[node name="DiagPiece6" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 8 )]
+message = "You don't choose what item you get. The WHEEL does."
 no_face = true
 
-[node name="DiagPiece7" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 8 )]
-message = "Okay, that'll be four dollars."
+[node name="DiagPiece8" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 8 )]
+message = "Let's spin this wheel now.. *spins the wheel*"
 no_face = true
-function = "sell_item"
-args = [ "poppy_dog", 5.0, "Success", "Poor", false ]
 
-[node name="DiagPiece7" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5" index="1" instance=ExtResource( 8 )]
-key = "No"
-message = "It isn't."
-character = "green"
-expression = "neutral"
+[node name="DiagPiece9" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8" index="0" instance=ExtResource( 8 )]
+message = "But we need that specific item."
+character = "orange"
+expression = "frown"
 
-[node name="DiagPiece7" parent="YSort/Seller/DialogueTree/DiagPiece/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece7" index="0" instance=ExtResource( 8 )]
-message = "That's our only item at this time. But okay. "
+[node name="DiagPiece10" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9" index="0" instance=ExtResource( 8 )]
+message = "I'm sorry? What kind of attitude is that?"
 no_face = true
+
+[node name="DiagPiece11" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9/DiagPiece10" index="0" instance=ExtResource( 8 )]
+message = "You `NEED` a `SPECIFIC` item? Are you kidding?"
+no_face = true
+
+[node name="DiagPiece12" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9/DiagPiece10/DiagPiece11" index="0" instance=ExtResource( 8 )]
+message = "I'll tell you what you need... "
+no_face = true
+
+[node name="DiagPiece13" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9/DiagPiece10/DiagPiece11/DiagPiece12" index="0" instance=ExtResource( 8 )]
+message = "You need to get your TRANSPARENT BRAIN to UNDERSTAND WHAT THIS SHOP IS ABOUT. *violently spins weel out of anger*"
+no_face = true
+
+[node name="DiagPiece14" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9/DiagPiece10/DiagPiece11/DiagPiece12/DiagPiece13" index="0" instance=ExtResource( 8 )]
+message = "LEAVE. Right now. Before.. RRNG.. RRRR.. AAEEERRRRRR."
+no_face = true
+
+[node name="DiagPiece15" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9/DiagPiece10/DiagPiece11/DiagPiece12/DiagPiece13/DiagPiece14" index="0" instance=ExtResource( 8 )]
+message = "Ribbit, is this normal?"
+character = "orange"
+expression = "confused"
+
+[node name="DiagPiece16" parent="YSort/Seller/DialogueTree/Battle/DiagPiece2/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece8/DiagPiece9/DiagPiece10/DiagPiece11/DiagPiece12/DiagPiece13/DiagPiece14/DiagPiece15" index="0" instance=ExtResource( 8 )]
+message = "I DON'T LIKE THIS PERSON ANYMORE."
+character = "ribbit"
+expression = "cry_sob"
+function = "battle"
 
 [node name="Success" parent="YSort/Seller/DialogueTree" index="1" instance=ExtResource( 8 )]
 message = "Okay, here ya go! Enjoy!"
@@ -98,6 +132,26 @@ expression = "nervous"
 [node name="Poor2" parent="YSort/Seller/DialogueTree/Poor/Poor" index="0" instance=ExtResource( 8 )]
 message = "Understandable. Well, have a nice day."
 no_face = true
+
+[node name="General" parent="YSort/Seller/DialogueTree" index="3" instance=ExtResource( 8 )]
+message = "Hello! Welcome to the Random Cafe!"
+no_face = true
+
+[node name="General2" parent="YSort/Seller/DialogueTree/General" index="0" instance=ExtResource( 8 )]
+message = "Would you like a random item? "
+no_face = true
+
+[node name="General3" parent="YSort/Seller/DialogueTree/General/General2" index="0" instance=ExtResource( 8 )]
+message = "Ok! *spins the wheel* *your item is chosen**"
+no_face = true
+
+[node name="ScenePortal" parent="." index="5" instance=ExtResource( 9 )]
+position = Vector2( 8, 13 )
+new_scene = "res://Rooms/Area6/6-1/6-1.tscn"
+player_new_position = Vector2( 469, -1116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
+shape = SubResource( 1 )
 
 [editable path="Tilemaps/6-4"]
 
