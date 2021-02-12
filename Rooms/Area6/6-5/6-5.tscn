@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Area6/6-5/6-5.tmx" type="PackedScene" id=3]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Rooms/Tools/ScenePortal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Rooms/Common/ShortElevator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 4 )
+
+[node name="6-5" instance=ExtResource( 2 )]
+
+[node name="6-5" parent="Tilemaps" index="0" instance=ExtResource( 3 )]
+
+[node name="AbovePlayerUnlit" parent="Tilemaps/6-5" index="1"]
+z_index = 3
+
+[node name="AbovePlayer" parent="Tilemaps/6-5" index="2"]
+z_index = 3
+
+[node name="Collision" type="TileMap" parent="Tilemaps" index="1"]
+visible = false
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -2818048, 0, 0, -2818047, 0, 0, -2818044, 0, 0, -2818043, 0, 0, -2818042, 0, 0, -2752512, 0, 0, -2752506, 0, 0, -2686976, 0, 0, -2686970, 0, 0, -2621440, 0, 0, -2621434, 0, 0, -2555904, 0, 0, -2555898, 0, 0, -2490368, 0, 0, -2490362, 0, 0, -2424831, 0, 0, -2424830, 0, 0, -2424829, 0, 0, -2424827, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -262138, 0, 0, -262132, 0, 0, -196608, 0, 0, -196607, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196596, 0, 0, -131072, 0, 0, -131060, 0, 0, -65536, 0, 0, -65524, 0, 0, 0, 0, 0, 12, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65542, 0, 0, 65548, 0, 0, 131075, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 196611, 0, 0, 196614, 0, 0, 262147, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 327683, 0, 0, 327694, 0, 0, 393219, 0, 0, 393230, 0, 0, 458755, 0, 0, 458766, 0, 0, 524291, 0, 0, 524302, 0, 0, 589827, 0, 0, 589838, 0, 0, 655363, 0, 0, 655374, 0, 0, 720900, 0, 0, 720901, 0, 0, 720908, 0, 0, 720909, 0, 0, 786438, 0, 0, 786439, 0, 0, 786442, 0, 0, 786443, 0, 0, 851975, 0, 0, 851978, 0, 0, 917512, 0, 0, 917513, 0, 0 )
+
+[node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 1 )]
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 4 )]
+
+[node name="Player" parent="YSort" index="2"]
+position = Vector2( 144, 194 )
+
+[node name="ShortElevator" parent="YSort" index="3" instance=ExtResource( 6 )]
+position = Vector2( 48, -64 )
+travel_time = 4.0
+
+[node name="ElevatorDoorTop" parent="YSort/ShortElevator" index="1"]
+position = Vector2( 0, -609 )
+
+[node name="TriggerAreaTop" parent="YSort/ShortElevator" index="3"]
+position = Vector2( 0, -619 )
+
+[node name="PosTop" parent="YSort/ShortElevator" index="5"]
+position = Vector2( 0, -618 )
+
+[node name="DoorAreaTop" parent="YSort/ShortElevator" index="10"]
+position = Vector2( 0, -607 )
+
+[node name="elevator_signal_top" parent="YSort/ShortElevator" index="12"]
+position = Vector2( 24, -632 )
+
+[node name="GroundExit" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 144, 213 )
+new_scene = "res://Rooms/Area6/6-1/6-1.tscn"
+player_new_position = Vector2( 817, -426 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundExit" index="0"]
+shape = SubResource( 1 )
+
+[node name="RoofExit" parent="." index="6" instance=ExtResource( 5 )]
+position = Vector2( 72, -588 )
+new_scene = "res://Rooms/Area6/6-1/6-1.tscn"
+player_new_position = Vector2( 2632, -1639 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoofExit" index="0"]
+shape = SubResource( 2 )
+
+[editable path="Tilemaps/6-5"]
+
+[editable path="YSort/ShortElevator"]
+
+[editable path="HUD"]

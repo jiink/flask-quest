@@ -2,6 +2,9 @@ extends "res://Rooms/TemplateRoom.gd"
 
 const SAVE_KEY = "6-1_"
 
+const CAR_ROOF_SCENE = preload("res://Rooms/Area6/6-1/CarRoof.tscn")
+const CAR_GROUND_SCENE = preload("res://Rooms/Area6/6-1/CarGround.tscn")
+
 enum StoryState { 
 	PRE_KIDNAP,
 	GET_HOTEL_ROOM, 
@@ -54,13 +57,32 @@ func setup():
 		StoryState.PRE_KIDNAP:
 			mm_stand.change_stand_sprite(0)
 			global.get_player(3).queue_free()
+			
 		StoryState.GET_HOTEL_ROOM:
 			get_node("YSort/CallBellSystem7").talkative = true
 			mm_stand.change_stand_sprite(0)
+			
 		StoryState.MURK_MONSTER:
 			mm_stand.change_stand_sprite(0)
+			
 		StoryState.VEHICLE:
 			mm_stand.change_stand_sprite(1)
+			var car_roof = CAR_ROOF_SCENE.instance()
+			get_node("YSort").add_child(car_roof)
+			car_roof.position = Vector2(2505, -1658)
+			
+		StoryState.PUSHED_VEHICLE:
+			mm_stand.change_stand_sprite(1)
+			var car_ground = CAR_GROUND_SCENE.instance()
+			get_node("YSort").add_child(car_ground)
+			car_ground.position = Vector2(646, -614)
+			
+		StoryState.DINNER:
+			mm_stand.change_stand_sprite(1)
+			var car_ground = CAR_GROUND_SCENE.instance()
+			get_node("YSort").add_child(car_ground)
+			car_ground.position = Vector2(646, -614)
+			
 			
 	mm_stand.state = current_story_state
 	
@@ -98,3 +120,8 @@ func set_time(time, fade):
 func tween_time():
 	time_tween.interpolate_property( modulate, "color",
 	null, color_of_time, 10.0, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR )
+
+func vehicle_pushed():
+	var car_ground = CAR_GROUND_SCENE.instance()
+	get_node("YSort").add_child(car_ground)
+	car_ground.position = Vector2(646, -547)

@@ -6,6 +6,7 @@ onready var animation_player = $AnimationPlayer
 
 func save(save_game):
 	save_game.data["6-1_time_of_day"] = 3
+	save_game.data["6-1_story_state"] = 3
 	
 func load(save_game):
 	pass

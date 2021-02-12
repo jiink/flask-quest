@@ -1,5 +1,7 @@
 extends YSort
 
+
+export(float) var travel_time = 1
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
 onready var ribbit = global.get_player(3)
@@ -102,11 +104,11 @@ func move_player(chosen_direction):
 #	move the invisible players to the top of the shaft
 
 	$Tween.interpolate_property(green, "position", \
-	 null, second_pos, 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	 null, second_pos, travel_time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property(orange, "position", \
-	 null, second_pos + Vector2(7,7), 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	 null, second_pos + Vector2(7,7), travel_time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property(ribbit, "position", \
-	 null, second_pos + Vector2(-7,-7), 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	 null, second_pos + Vector2(-7,-7), travel_time, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
 	yield($Tween, "tween_all_completed")
 ######

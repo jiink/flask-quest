@@ -126,7 +126,6 @@ func mm_elevate():
 	DiagHelper.start_talk(self, "BoatMonsterElevate")
 	
 func enter_cutscene():
-	scene_root.StoryState = scene_root
 	global.start_scene_switch("res://Cutscenes/MurkMonsterSequence/MurkMonsterSequence.tscn",
 	Vector2(0,0))
 	global.swap_scenes()
