@@ -1,0 +1,433 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://NPC/NPCWalking/NPCWalking.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPC/NPCWalking/npc_walking.png" type="Texture" id=2]
+[ext_resource path="res://NPC/Purple/DinnerPurple.gd" type="Script" id=3]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=5]
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 24, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 24, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=75]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=77]
+animations = [ {
+"frames": [ SubResource( 71 ), SubResource( 72 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 73 ), SubResource( 74 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 75 ), SubResource( 76 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[node name="Purple" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="RefDoor" type="ColorRect" parent="." index="0"]
+margin_left = -56.0
+margin_top = -57.0
+margin_right = -40.0
+margin_bottom = -25.0
+color = Color( 0.113725, 0.0980392, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefFloor" type="ColorRect" parent="." index="1"]
+modulate = Color( 0.266667, 0.133333, 0.054902, 1 )
+margin_left = -72.0
+margin_top = -25.0
+margin_right = 8.0
+margin_bottom = 29.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" parent="." index="5"]
+frames = SubResource( 77 )
+
+[node name="DialogueTree" parent="." index="6" instance=ExtResource( 4 )]
+
+[node name="Initial" parent="DialogueTree" index="0" instance=ExtResource( 5 )]
+message = "Quite a beautiful night, isn't it? "
+character = "purple"
+expression = "neutral"
+
+[node name="Initial2" parent="DialogueTree/Initial" index="0" instance=ExtResource( 5 )]
+message = "I love this place. Sometimes."
+character = "purple"
+expression = "neutral"
+
+[node name="Initial3" parent="DialogueTree/Initial/Initial2" index="0" instance=ExtResource( 5 )]
+message = "But before we talk about that deal, let's get to know each other."
+character = "purple"
+expression = "neutral"
+
+[node name="Initial4" parent="DialogueTree/Initial/Initial2/Initial3" index="0" instance=ExtResource( 5 )]
+message = "Let's see.. what's your name?"
+character = "purple"
+expression = "neutral"
+
+[node name="Initial5" parent="DialogueTree/Initial/Initial2/Initial3/Initial4" index="0" instance=ExtResource( 5 )]
+message = "These guys named me Green."
+character = "green"
+expression = "open_mouth"
+
+[node name="Initial6" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5" index="0" instance=ExtResource( 5 )]
+message = "Looks like these guys aren't so original."
+character = "purple"
+expression = "frown"
+
+[node name="Initial7" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6" index="0" instance=ExtResource( 5 )]
+message = "Let me guess. Your bottle friend and your bunny thing are named.. "
+character = "purple"
+expression = "open_mouth"
+
+[node name="Initial8" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7" index="0" instance=ExtResource( 5 )]
+message = "Orange and Brown?"
+character = "purple"
+expression = "confused"
+
+[node name="Initial9" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8" index="0" instance=ExtResource( 5 )]
+message = "Close. Brown's my last name. It's Ribbit C. Brown."
+character = "ribbit"
+expression = "smile"
+
+[node name="Initial10" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9" index="0" instance=ExtResource( 5 )]
+message = "Okay. Well, I never bothered getting a name. I was too busy."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Initial11" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10" index="0" instance=ExtResource( 5 )]
+message = "I was in the same situation as you up until recently, Purple."
+character = "orange"
+expression = "smile"
+
+[node name="Initial12" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11" index="0" instance=ExtResource( 5 )]
+message = "Naming living beings isn't just some kind of passtime, Orange."
+character = "purple"
+expression = "sad"
+
+[node name="Initial13" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12" index="0" instance=ExtResource( 5 )]
+message = "Green, why don't you summarize your life story."
+character = "purple"
+expression = "smile"
+
+[node name="Initial14" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13" index="0" instance=ExtResource( 5 )]
+message = "I was born in a lab. A1 I think it was called. "
+character = "green"
+expression = "neutral"
+
+[node name="Initial15" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14" index="0" instance=ExtResource( 5 )]
+message = "Same, brother."
+character = "purple"
+expression = "grin"
+
+[node name="Initial16" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15" index="0" instance=ExtResource( 5 )]
+message = "We were hired by some weirdo cat club to destroy this evil guy named Stercus. "
+character = "green"
+expression = "open_mouth"
+
+[node name="Initial17" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16" index="0" instance=ExtResource( 5 )]
+message = "We were arrested, put in a prison..."
+character = "orange"
+expression = "neutral"
+
+[node name="Initial18" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17" index="0" instance=ExtResource( 5 )]
+message = "exploded that prison..."
+character = "green"
+expression = "smile"
+
+[node name="Initial19" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18" index="0" instance=ExtResource( 5 )]
+message = "and wound up here."
+character = "orange"
+expression = "neutral"
+
+[node name="Initial20" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19" index="0" instance=ExtResource( 5 )]
+message = "Only to find that the Stercus guy we're chasing down is on the other side of that mountain range."
+character = "green"
+expression = "neutral"
+
+[node name="Initial21" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20" index="0" instance=ExtResource( 5 )]
+message = "And now we need a car because our legs suck."
+character = "orange"
+expression = "smile"
+
+[node name="Initial22" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21" index="0" instance=ExtResource( 5 )]
+message = "Interesting. "
+character = "purple"
+expression = "confused"
+
+[node name="Initial24" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22" index="0" instance=ExtResource( 5 )]
+message = "Well, I'll tell you mine."
+character = "purple"
+expression = "smile"
+
+[node name="Initial23" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24" index="0" instance=ExtResource( 5 )]
+message = "I was also born in that lab. I escaped with like 50 other flasks."
+character = "purple"
+expression = "neutral"
+
+[node name="Initial24" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23" index="0" instance=ExtResource( 5 )]
+message = "I quickly set out to explore the surrounding cities to get a taste of this world."
+character = "purple"
+expression = "smile"
+
+[node name="Initial25" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24" index="0" instance=ExtResource( 5 )]
+message = "Yea, the other cities around here have interesting stuff, but Lanetta seems to be the pinnacle of this particular society's achievements."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Initial26" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24/Initial25" index="0" instance=ExtResource( 5 )]
+message = "Anyways, I moved in with this cool guy I found.."
+character = "purple"
+expression = "smile"
+
+[node name="Initial27" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24/Initial25/Initial26" index="0" instance=ExtResource( 5 )]
+message = "We're like brothers now, him and I. "
+character = "purple"
+expression = "smile"
+
+[node name="Initial28" parent="DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24/Initial25/Initial26/Initial27" index="0" instance=ExtResource( 5 )]
+message = "So I live in this Poppyhart region for now."
+character = "purple"
+expression = "open_mouth"
+function = "pause"
+args = [ "Ribbit" ]
+
+[node name="Ribbit" parent="DialogueTree" index="1" instance=ExtResource( 5 )]
+message = "Okay. Ribbit, I assume you're an orphan."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Deal2" parent="DialogueTree/Ribbit" index="0" instance=ExtResource( 5 )]
+message = "WHAT? WHY?!"
+character = "ribbit"
+expression = "yell_outburst"
+
+[node name="Deal3" parent="DialogueTree/Ribbit/Deal2" index="0" instance=ExtResource( 5 )]
+message = "Always assume the worst."
+character = "purple"
+expression = "cry_tear"
+
+[node name="Deal4" parent="DialogueTree/Ribbit/Deal2/Deal3" index="0" instance=ExtResource( 5 )]
+message = "I'm not sure if my parents are okay. I still haven't seen them since that Moon visit."
+character = "ribbit"
+expression = "sad"
+
+[node name="Deal5" parent="DialogueTree/Ribbit/Deal2/Deal3/Deal4" index="0" instance=ExtResource( 5 )]
+message = "I hope you're wrong, though!"
+character = "ribbit"
+expression = "yell"
+
+[node name="Deal6" parent="DialogueTree/Ribbit/Deal2/Deal3/Deal4/Deal5" index="0" instance=ExtResource( 5 )]
+message = "We all do, Ribbit."
+character = "purple"
+expression = "sad"
+function = "pause"
+args = [ "Deal" ]
+
+[node name="Deal" parent="DialogueTree" index="2" instance=ExtResource( 5 )]
+message = "Tell ya what. We still have to talk about that deal."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Deal2" parent="DialogueTree/Deal" index="0" instance=ExtResource( 5 )]
+message = "We already know my side of the deal. I fix your car."
+character = "purple"
+expression = "smile"
+
+[node name="Deal3" parent="DialogueTree/Deal/Deal2" index="0" instance=ExtResource( 5 )]
+message = "Which, by the way, I specialize in."
+character = "purple"
+expression = "smug"
+
+[node name="Deal4" parent="DialogueTree/Deal/Deal2/Deal3" index="0" instance=ExtResource( 5 )]
+message = "But now we need to know about how you'll pay."
+character = "purple"
+expression = "frown"
+
+[node name="Deal5" parent="DialogueTree/Deal/Deal2/Deal3/Deal4" index="0" instance=ExtResource( 5 )]
+message = "...Do you know how to speak money?"
+character = "purple"
+expression = "confused"
+
+[node name="Deal6" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5" index="0" instance=ExtResource( 5 )]
+message = "What?"
+character = "orange"
+expression = "confused"
+
+[node name="Deal7" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6" index="0" instance=ExtResource( 5 )]
+message = "That'll be a no. Well."
+character = "purple"
+expression = "neutral"
+
+[node name="Deal8" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7" index="0" instance=ExtResource( 5 )]
+message = "..."
+character = "purple"
+expression = "big_eyed"
+
+[node name="Deal9" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8" index="0" instance=ExtResource( 5 )]
+message = "O... A!!!"
+character = "purple"
+expression = "big_eyed2"
+
+[node name="Deal10" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9" index="0" instance=ExtResource( 5 )]
+message = "Spit it out, Purple."
+character = "orange"
+expression = "grin"
+
+[node name="Deal11" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10" index="0" instance=ExtResource( 5 )]
+message = "This town doesn't know me very well. We-- and by we I mean you three --can fix that."
+character = "purple"
+expression = "grin"
+
+[node name="Deal12" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11" index="0" instance=ExtResource( 5 )]
+message = "Tomorrow, when you wake up, visit my house."
+character = "purple"
+expression = "smile"
+
+[node name="Deal13" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12" index="0" instance=ExtResource( 5 )]
+message = "It'll be easy to tell, because there will be a dilapidated car on my front lawn."
+character = "purple"
+expression = "side_mouth"
+
+[node name="Deal14" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13" index="0" instance=ExtResource( 5 )]
+message = "...And then...!"
+character = "purple"
+expression = "closeup"
+
+[node name="Deal15" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13/Deal14" index="0" instance=ExtResource( 5 )]
+message = "You will have various assignments that contribute to my popularity!"
+character = "purple"
+expression = "grin"
+
+[node name="Deal16" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13/Deal14/Deal15" index="0" instance=ExtResource( 5 )]
+message = "You'll get to hang up posters! Send letters! Beautify me for all the public to see!"
+character = "purple"
+expression = "grin"
+
+[node name="Deal17" parent="DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13/Deal14/Deal15/Deal16" index="0" instance=ExtResource( 5 )]
+message = "Sound good? Because, it's that, or being stuck in Poppyhart and letting that evil Stercus loose."
+character = "purple"
+expression = "neutral"
+function = "pause"
+args = [ "AcceptDeal" ]
+
+[node name="AcceptDeal" parent="DialogueTree" index="3" instance=ExtResource( 5 )]
+message = "Couldn't hurt."
+character = "orange"
+expression = "smile"
+
+[node name="AcceptDeal2" parent="DialogueTree/AcceptDeal" index="0" instance=ExtResource( 5 )]
+message = "Yea. Works for us.."
+character = "green"
+expression = "neutral"
+
+[node name="AcceptDeal3" parent="DialogueTree/AcceptDeal/AcceptDeal2" index="0" instance=ExtResource( 5 )]
+message = "Ribbit."
+character = "orange"
+expression = "sad"
+
+[node name="AcceptDeal4" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3" index="0" instance=ExtResource( 5 )]
+message = "How far are you going to follow us?"
+character = "orange"
+expression = "sad"
+
+[node name="AcceptDeal5" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4" index="0" instance=ExtResource( 5 )]
+message = "It sounds like we're going to go to pretty far away places."
+character = "orange"
+expression = "open_mouth"
+
+[node name="AcceptDeal6" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5" index="0" instance=ExtResource( 5 )]
+message = "I'm not sure if you're okay with leaving this place."
+character = "orange"
+expression = "sad"
+
+[node name="AcceptDeal7" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6" index="0" instance=ExtResource( 5 )]
+message = "If I stayed here, I'd be all alone and go back to asking for food."
+character = "ribbit"
+expression = "open_mouth"
+
+[node name="AcceptDeal8" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7" index="0" instance=ExtResource( 5 )]
+message = "I'm okay with leaving. "
+character = "ribbit"
+expression = "cry_recover"
+
+[node name="AcceptDeal9" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8" index="0" instance=ExtResource( 5 )]
+message = "Alright. "
+character = "orange"
+expression = "neutral"
+
+[node name="AcceptDeal10" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8/AcceptDeal9" index="0" instance=ExtResource( 5 )]
+message = "Do you have health insurance?"
+character = "orange"
+expression = "neutral"
+
+[node name="AcceptDeal11" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8/AcceptDeal9/AcceptDeal10" index="0" instance=ExtResource( 5 )]
+message = "My parents mentioned something like that at one point."
+character = "ribbit"
+expression = "side_mouth"
+
+[node name="AcceptDeal12" parent="DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8/AcceptDeal9/AcceptDeal10/AcceptDeal11" index="0" instance=ExtResource( 5 )]
+message = "Good enough. "
+character = "orange"
+expression = "smile"
+function = "pause"
+args = [ "EndDinner" ]
+
+[node name="EndDinner" parent="DialogueTree" index="4" instance=ExtResource( 5 )]
+message = "Okay, while you two metaphorically make out over there.."
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner2" parent="DialogueTree/EndDinner" index="0" instance=ExtResource( 5 )]
+message = "I look forward to continuing business with you."
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner3" parent="DialogueTree/EndDinner/EndDinner2" index="0" instance=ExtResource( 5 )]
+message = "If you show up, that is. "
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner4" parent="DialogueTree/EndDinner/EndDinner2/EndDinner3" index="0" instance=ExtResource( 5 )]
+message = "Anyways. This was a nice dinner talk."
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner5" parent="DialogueTree/EndDinner/EndDinner2/EndDinner3/EndDinner4" index="0" instance=ExtResource( 5 )]
+message = "It was great to see more of my kin doing so well, instead of, say, shattered on the floor and being cleaned up by a janitor."
+character = "purple"
+expression = "open_mouth"
+function = "end_dinner"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]

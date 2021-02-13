@@ -1,5 +1,7 @@
 extends "res://NPC/NPCWalking/NPCWalking.gd"
 
+onready var scene_root = get_tree().get_current_scene()
+
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
 onready var ribbit = global.get_player(3)
@@ -25,3 +27,26 @@ func lead_players():
 	$Tween.start()
 	yield($Tween, "tween_all_completed")
 	$AnimationPlayer.play("lead_players")
+	yield($AnimationPlayer, "animation_finished")
+	
+#	setup for dinner sequence in 6-1 on the balcony
+	scene_root.current_dinner_state = 1
+	global.start_scene_switch("res://Rooms/Area6/6-1/6-1.tscn", Vector2(408, -521), "down")
+	global.swap_scenes()
+
+func lead_back():
+	$AnimationPlayer.play("lead_back")
+	yield($AnimationPlayer, "animation_finished")
+	DiagHelper.start_talk(self, "Goodbye")
+	
+func release_players():
+	green.controlled_by = green.PERSON
+	ribbit.controlled_by = ribbit.BOT
+	scene_root.current_dinner_state = 0
+	if PlayerStats.player_count == 1:
+		orange.controlled_by = orange.BOT
+	else:
+		orange.controlled_by = orange.PERSON
+	$AnimationPlayer.play("leave")
+	yield($AnimationPlayer, "animation_finished")
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
@@ -56,6 +56,12 @@
 [ext_resource path="res://Engine/basic_prop.png" type="Texture" id=54]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/glassdoor_full.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Rooms/Area2/Assets/PropScenes/glassdoor_R.tscn" type="PackedScene" id=56]
+[ext_resource path="res://NPC/NPCWalking/npc_walking.png" type="Texture" id=57]
+[ext_resource path="res://Effects/ShadowRect.tscn" type="PackedScene" id=58]
+[ext_resource path="res://NPC/Purple/DinnerPurple.gd" type="Script" id=59]
+[ext_resource path="res://Rooms/Area6/Assets/PropScenes/HotelTableCircle.tscn" type="PackedScene" id=60]
+[ext_resource path="res://Rooms/Area2/Assets/cafechair_right.png" type="Texture" id=61]
+[ext_resource path="res://Rooms/Area2/Assets/cafechair_left.png" type="Texture" id=62]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 42 )
@@ -1551,15 +1557,164 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=66]
+extents = Vector2( 5, 2 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 57 )
+region = Rect2( 0, 24, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 57 )
+region = Rect2( 16, 24, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 57 )
+region = Rect2( 0, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 57 )
+region = Rect2( 16, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 57 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 57 )
+region = Rect2( 16, 0, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=73]
+animations = [ {
+"frames": [ SubResource( 67 ), SubResource( 68 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 69 ), SubResource( 70 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 71 ), SubResource( 72 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=79]
+resource_name = "end_dinner"
+length = 8.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1, 1.2, 1.3, 1.6, 4.4, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 423, -493 ), Vector2( 423, -493 ), Vector2( 419, -497 ), Vector2( 413, -491 ), Vector2( 410, -491 ), Vector2( 410, -491 ), Vector2( 408, -529 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Ribbit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4, 1.5, 1.7, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 424, -521 ), Vector2( 424, -521 ), Vector2( 420, -525 ), Vector2( 415, -520 ), Vector2( 411, -518 ), Vector2( 411, -518 ), Vector2( 408, -529 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Orange:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 1.3, 1.4, 1.8, 4.3, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 420, -500 ), Vector2( 420, -500 ), Vector2( 415, -507 ), Vector2( 411, -503 ), Vector2( 405, -503 ), Vector2( 405, -503 ), Vector2( 408, -529 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 3, 6, 7, 7.5, 7.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 456, -503 ), Vector2( 456, -503 ), Vector2( 447, -523 ), Vector2( 423, -524 ), Vector2( 423, -524 ), Vector2( 409, -524 ), Vector2( 409, -524 ), Vector2( 408, -531 ) ]
+}
+
+[sub_resource type="Animation" id=78]
+resource_name = "start_dinner"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 408, -521 ), Vector2( 408, -521 ), Vector2( 423, -493 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Ribbit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 408, -522 ), Vector2( 408, -522 ), Vector2( 424, -521 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Orange:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 408, -523 ), Vector2( 408, -523 ), Vector2( 420, -500 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 456, -503 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=74]
 extents = Vector2( 434, 8 )
 
-[sub_resource type="RectangleShape2D" id=67]
+[sub_resource type="RectangleShape2D" id=75]
 extents = Vector2( 16, 3 )
 
-[sub_resource type="RectangleShape2D" id=68]
+[sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 8, 3 )
 
-[sub_resource type="RectangleShape2D" id=69]
+[sub_resource type="RectangleShape2D" id=77]
 extents = Vector2( 16, 5 )
 
 [node name="6-1" groups=[
@@ -1682,7 +1837,7 @@ __meta__ = {
 visible = false
 position = Vector2( 1235, -1226 )
 frames = SubResource( 9 )
-frame = 3
+frame = 9
 playing = true
 
 [node name="MMWaterOverlap" type="ColorRect" parent="." index="7"]
@@ -1697,13 +1852,13 @@ __meta__ = {
 }
 
 [node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 15 )]
-position = Vector2( 1288, -926 )
+position = Vector2( 408, -529 )
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 17 )]
-position = Vector2( 1275, -931 )
+position = Vector2( 408, -529 )
 
 [node name="Player" parent="YSort" index="2"]
-position = Vector2( 1285, -879 )
+position = Vector2( 408, -529 )
 
 [node name="Buildings" type="YSort" parent="YSort" index="3"]
 
@@ -1903,7 +2058,6 @@ position = Vector2( 342, -111 )
 
 [node name="Boat" parent="YSort/CallBellSystem2" index="5"]
 position = Vector2( 189, -110 )
-frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem2/Boat" index="1"]
 frame = 2
@@ -1939,7 +2093,6 @@ position = Vector2( 61, 19 )
 
 [node name="Boat" parent="YSort/CallBellSystem3" index="5"]
 position = Vector2( 183, -4 )
-frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem3/Boat" index="1"]
 frame = 5
@@ -1977,7 +2130,6 @@ position = Vector2( 255, 19 )
 
 [node name="Boat" parent="YSort/CallBellSystem4" index="5"]
 position = Vector2( 183, -4 )
-frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem4/Boat" index="1"]
 frame = 4
@@ -2015,7 +2167,6 @@ position = Vector2( 86, 37 )
 
 [node name="Boat" parent="YSort/CallBellSystem5" index="5"]
 position = Vector2( 117, -14 )
-frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem5/Boat" index="1"]
 frame = 3
@@ -2053,7 +2204,6 @@ position = Vector2( 26, 105 )
 
 [node name="Boat" parent="YSort/CallBellSystem6" index="5"]
 position = Vector2( -49, 13 )
-frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem6/Boat" index="1"]
 frame = 1
@@ -2092,7 +2242,6 @@ position = Vector2( 71, 184 )
 
 [node name="Boat" parent="YSort/CallBellSystem7" index="5"]
 position = Vector2( 48, 131 )
-frame = 0
 
 [node name="ground_arrow" parent="YSort/CallBellSystem7" index="7"]
 position = Vector2( -47, -194 )
@@ -2454,6 +2603,415 @@ animation = "down_idle"
 frame = 4
 offset = Vector2( 0, -16 )
 
+[node name="Purple" type="KinematicBody2D" parent="YSort" index="20"]
+position = Vector2( 408, -531 )
+script = ExtResource( 59 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Purple" index="0"]
+shape = SubResource( 66 )
+
+[node name="Interaction" type="Area2D" parent="YSort/Purple" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Purple/Interaction" index="0"]
+shape = SubResource( 66 )
+
+[node name="ShadowRect" parent="YSort/Purple" index="2" instance=ExtResource( 58 )]
+show_behind_parent = true
+margin_left = -4.0
+margin_top = -1.0
+margin_right = 5.0
+margin_bottom = 2.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Purple" index="3" groups=[
+"tick",
+]]
+frames = SubResource( 73 )
+animation = "down"
+offset = Vector2( 0, -9 )
+
+[node name="DialogueTree" parent="YSort/Purple" index="4" instance=ExtResource( 19 )]
+
+[node name="Initial" parent="YSort/Purple/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Quite a beautiful night, isn't it? "
+character = "purple"
+expression = "neutral"
+
+[node name="Initial2" parent="YSort/Purple/DialogueTree/Initial" index="0" instance=ExtResource( 20 )]
+message = "I love this place. Sometimes."
+character = "purple"
+expression = "neutral"
+
+[node name="Initial3" parent="YSort/Purple/DialogueTree/Initial/Initial2" index="0" instance=ExtResource( 20 )]
+message = "But before we talk about that deal, let's get to know each other."
+character = "purple"
+expression = "neutral"
+
+[node name="Initial4" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3" index="0" instance=ExtResource( 20 )]
+message = "Let's see.. what's your name?"
+character = "purple"
+expression = "neutral"
+
+[node name="Initial5" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4" index="0" instance=ExtResource( 20 )]
+message = "These guys named me Green."
+character = "green"
+expression = "open_mouth"
+
+[node name="Initial6" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5" index="0" instance=ExtResource( 20 )]
+message = "Looks like these guys aren't so original."
+character = "purple"
+expression = "frown"
+
+[node name="Initial7" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6" index="0" instance=ExtResource( 20 )]
+message = "Let me guess. Your bottle friend and your bunny thing are named.. "
+character = "purple"
+expression = "open_mouth"
+
+[node name="Initial8" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7" index="0" instance=ExtResource( 20 )]
+message = "Orange and Brown?"
+character = "purple"
+expression = "confused"
+
+[node name="Initial9" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8" index="0" instance=ExtResource( 20 )]
+message = "Close. Brown's my last name. It's Ribbit C. Brown."
+character = "ribbit"
+expression = "smile"
+
+[node name="Initial10" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9" index="0" instance=ExtResource( 20 )]
+message = "Okay. Well, I never bothered getting a name. I was too busy."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Initial11" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10" index="0" instance=ExtResource( 20 )]
+message = "I was in the same situation as you up until recently, Purple."
+character = "orange"
+expression = "smile"
+
+[node name="Initial12" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11" index="0" instance=ExtResource( 20 )]
+message = "Naming living beings isn't just some kind of passtime, Orange."
+character = "purple"
+expression = "sad"
+
+[node name="Initial13" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12" index="0" instance=ExtResource( 20 )]
+message = "Green, why don't you summarize your life story."
+character = "purple"
+expression = "smile"
+
+[node name="Initial14" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13" index="0" instance=ExtResource( 20 )]
+message = "I was born in a lab. A1 I think it was called. "
+character = "green"
+expression = "neutral"
+
+[node name="Initial15" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14" index="0" instance=ExtResource( 20 )]
+message = "Same, brother."
+character = "purple"
+expression = "grin"
+
+[node name="Initial16" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15" index="0" instance=ExtResource( 20 )]
+message = "We were hired by some weirdo cat club to destroy this evil guy named Stercus. "
+character = "green"
+expression = "open_mouth"
+
+[node name="Initial17" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16" index="0" instance=ExtResource( 20 )]
+message = "We were arrested, put in a prison..."
+character = "orange"
+expression = "neutral"
+
+[node name="Initial18" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17" index="0" instance=ExtResource( 20 )]
+message = "exploded that prison..."
+character = "green"
+expression = "smile"
+
+[node name="Initial19" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18" index="0" instance=ExtResource( 20 )]
+message = "and wound up here."
+character = "orange"
+expression = "neutral"
+
+[node name="Initial20" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19" index="0" instance=ExtResource( 20 )]
+message = "Only to find that the Stercus guy we're chasing down is on the other side of that mountain range."
+character = "green"
+expression = "neutral"
+
+[node name="Initial21" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20" index="0" instance=ExtResource( 20 )]
+message = "And now we need a car because our legs suck."
+character = "orange"
+expression = "smile"
+
+[node name="Initial22" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21" index="0" instance=ExtResource( 20 )]
+message = "Interesting. "
+character = "purple"
+expression = "confused"
+
+[node name="Initial24" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22" index="0" instance=ExtResource( 20 )]
+message = "Well, I'll tell you mine."
+character = "purple"
+expression = "smile"
+
+[node name="Initial23" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24" index="0" instance=ExtResource( 20 )]
+message = "I was also born in that lab. I escaped with like 50 other flasks."
+character = "purple"
+expression = "neutral"
+
+[node name="Initial24" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23" index="0" instance=ExtResource( 20 )]
+message = "I quickly set out to explore the surrounding cities to get a taste of this world."
+character = "purple"
+expression = "smile"
+
+[node name="Initial25" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24" index="0" instance=ExtResource( 20 )]
+message = "Yea, the other cities around here have interesting stuff, but Lanetta seems to be the pinnacle of this particular society's achievements."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Initial26" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24/Initial25" index="0" instance=ExtResource( 20 )]
+message = "Anyways, I moved in with this cool guy I found.."
+character = "purple"
+expression = "smile"
+
+[node name="Initial27" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24/Initial25/Initial26" index="0" instance=ExtResource( 20 )]
+message = "We're like brothers now, him and I. "
+character = "purple"
+expression = "smile"
+
+[node name="Initial28" parent="YSort/Purple/DialogueTree/Initial/Initial2/Initial3/Initial4/Initial5/Initial6/Initial7/Initial8/Initial9/Initial10/Initial11/Initial12/Initial13/Initial14/Initial15/Initial16/Initial17/Initial18/Initial19/Initial20/Initial21/Initial22/Initial24/Initial23/Initial24/Initial25/Initial26/Initial27" index="0" instance=ExtResource( 20 )]
+message = "So I live in this Poppyhart region for now."
+character = "purple"
+expression = "open_mouth"
+function = "pause"
+args = [ "Ribbit" ]
+
+[node name="Ribbit" parent="YSort/Purple/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "Okay. Ribbit, I assume you're an orphan."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Deal2" parent="YSort/Purple/DialogueTree/Ribbit" index="0" instance=ExtResource( 20 )]
+message = "WHAT? WHY?!"
+character = "ribbit"
+expression = "yell_outburst"
+
+[node name="Deal3" parent="YSort/Purple/DialogueTree/Ribbit/Deal2" index="0" instance=ExtResource( 20 )]
+message = "Always assume the worst."
+character = "purple"
+expression = "cry_tear"
+
+[node name="Deal4" parent="YSort/Purple/DialogueTree/Ribbit/Deal2/Deal3" index="0" instance=ExtResource( 20 )]
+message = "I'm not sure if my parents are okay. I still haven't seen them since that Moon visit."
+character = "ribbit"
+expression = "sad"
+
+[node name="Deal5" parent="YSort/Purple/DialogueTree/Ribbit/Deal2/Deal3/Deal4" index="0" instance=ExtResource( 20 )]
+message = "I hope you're wrong, though!"
+character = "ribbit"
+expression = "yell"
+
+[node name="Deal6" parent="YSort/Purple/DialogueTree/Ribbit/Deal2/Deal3/Deal4/Deal5" index="0" instance=ExtResource( 20 )]
+message = "We all do, Ribbit."
+character = "purple"
+expression = "sad"
+function = "pause"
+args = [ "Deal" ]
+
+[node name="Deal" parent="YSort/Purple/DialogueTree" index="2" instance=ExtResource( 20 )]
+message = "Tell ya what. We still have to talk about that deal."
+character = "purple"
+expression = "open_mouth"
+
+[node name="Deal2" parent="YSort/Purple/DialogueTree/Deal" index="0" instance=ExtResource( 20 )]
+message = "We already know my side of the deal. I fix your car."
+character = "purple"
+expression = "smile"
+
+[node name="Deal3" parent="YSort/Purple/DialogueTree/Deal/Deal2" index="0" instance=ExtResource( 20 )]
+message = "Which, by the way, I specialize in."
+character = "purple"
+expression = "smug"
+
+[node name="Deal4" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3" index="0" instance=ExtResource( 20 )]
+message = "But now we need to know about how you'll pay."
+character = "purple"
+expression = "frown"
+
+[node name="Deal5" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4" index="0" instance=ExtResource( 20 )]
+message = "...Do you know how to speak money?"
+character = "purple"
+expression = "confused"
+
+[node name="Deal6" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5" index="0" instance=ExtResource( 20 )]
+message = "What?"
+character = "orange"
+expression = "confused"
+
+[node name="Deal7" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6" index="0" instance=ExtResource( 20 )]
+message = "That'll be a no. Well."
+character = "purple"
+expression = "neutral"
+
+[node name="Deal8" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7" index="0" instance=ExtResource( 20 )]
+message = "..."
+character = "purple"
+expression = "big_eyed"
+
+[node name="Deal9" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8" index="0" instance=ExtResource( 20 )]
+message = "O... A!!!"
+character = "purple"
+expression = "big_eyed2"
+
+[node name="Deal10" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9" index="0" instance=ExtResource( 20 )]
+message = "Spit it out, Purple."
+character = "orange"
+expression = "grin"
+
+[node name="Deal11" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10" index="0" instance=ExtResource( 20 )]
+message = "This town doesn't know me very well. We-- and by we I mean you three --can fix that."
+character = "purple"
+expression = "grin"
+
+[node name="Deal12" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11" index="0" instance=ExtResource( 20 )]
+message = "Tomorrow, when you wake up, visit my house."
+character = "purple"
+expression = "smile"
+
+[node name="Deal13" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12" index="0" instance=ExtResource( 20 )]
+message = "It'll be easy to tell where it is because there will be a dilapidated car on my front lawn."
+character = "purple"
+expression = "side_mouth"
+
+[node name="Deal14" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13" index="0" instance=ExtResource( 20 )]
+message = "...And then...!"
+character = "purple"
+expression = "closeup"
+
+[node name="Deal15" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13/Deal14" index="0" instance=ExtResource( 20 )]
+message = "You will have various assignments that contribute to my popularity!"
+character = "purple"
+expression = "grin"
+
+[node name="Deal16" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13/Deal14/Deal15" index="0" instance=ExtResource( 20 )]
+message = "You'll get to hang up posters! Send letters! Beautify me for all the public to see!"
+character = "purple"
+expression = "grin"
+
+[node name="Deal17" parent="YSort/Purple/DialogueTree/Deal/Deal2/Deal3/Deal4/Deal5/Deal6/Deal7/Deal8/Deal9/Deal10/Deal11/Deal12/Deal13/Deal14/Deal15/Deal16" index="0" instance=ExtResource( 20 )]
+message = "Sound good? Because, it's that, or being stuck in Poppyhart and letting that evil Stercus loose."
+character = "purple"
+expression = "neutral"
+function = "pause"
+args = [ "AcceptDeal" ]
+
+[node name="AcceptDeal" parent="YSort/Purple/DialogueTree" index="3" instance=ExtResource( 20 )]
+message = "Couldn't hurt."
+character = "orange"
+expression = "smile"
+
+[node name="AcceptDeal2" parent="YSort/Purple/DialogueTree/AcceptDeal" index="0" instance=ExtResource( 20 )]
+message = "Yea. Works for us.."
+character = "green"
+expression = "neutral"
+
+[node name="AcceptDeal3" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2" index="0" instance=ExtResource( 20 )]
+message = "Ribbit."
+character = "orange"
+expression = "sad"
+
+[node name="AcceptDeal4" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3" index="0" instance=ExtResource( 20 )]
+message = "How far are you going to follow us?"
+character = "orange"
+expression = "sad"
+
+[node name="AcceptDeal5" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4" index="0" instance=ExtResource( 20 )]
+message = "It sounds like we're going to go to pretty far away places."
+character = "orange"
+expression = "open_mouth"
+
+[node name="AcceptDeal6" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5" index="0" instance=ExtResource( 20 )]
+message = "I'm not sure if you're okay with leaving this place."
+character = "orange"
+expression = "sad"
+
+[node name="AcceptDeal7" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6" index="0" instance=ExtResource( 20 )]
+message = "If I stayed here, I'd be all alone and go back to asking for food."
+character = "ribbit"
+expression = "open_mouth"
+
+[node name="AcceptDeal8" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7" index="0" instance=ExtResource( 20 )]
+message = "I'm okay with leaving. "
+character = "ribbit"
+expression = "cry_recover"
+
+[node name="AcceptDeal9" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8" index="0" instance=ExtResource( 20 )]
+message = "Alright. "
+character = "orange"
+expression = "neutral"
+
+[node name="AcceptDeal10" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8/AcceptDeal9" index="0" instance=ExtResource( 20 )]
+message = "Do you have health insurance?"
+character = "orange"
+expression = "neutral"
+
+[node name="AcceptDeal11" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8/AcceptDeal9/AcceptDeal10" index="0" instance=ExtResource( 20 )]
+message = "My parents mentioned something like that at one point."
+character = "ribbit"
+expression = "side_mouth"
+
+[node name="AcceptDeal12" parent="YSort/Purple/DialogueTree/AcceptDeal/AcceptDeal2/AcceptDeal3/AcceptDeal4/AcceptDeal5/AcceptDeal6/AcceptDeal7/AcceptDeal8/AcceptDeal9/AcceptDeal10/AcceptDeal11" index="0" instance=ExtResource( 20 )]
+message = "Good enough. "
+character = "orange"
+expression = "smile"
+function = "pause"
+args = [ "EndDinner" ]
+
+[node name="EndDinner" parent="YSort/Purple/DialogueTree" index="4" instance=ExtResource( 20 )]
+message = "Okay, while you two metaphorically make out over there.."
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner2" parent="YSort/Purple/DialogueTree/EndDinner" index="0" instance=ExtResource( 20 )]
+message = "I look forward to continuing business with you."
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner3" parent="YSort/Purple/DialogueTree/EndDinner/EndDinner2" index="0" instance=ExtResource( 20 )]
+message = "If you show up, that is. "
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner4" parent="YSort/Purple/DialogueTree/EndDinner/EndDinner2/EndDinner3" index="0" instance=ExtResource( 20 )]
+message = "Anyways. This was a nice dinner talk."
+character = "purple"
+expression = "open_mouth"
+
+[node name="EndDinner5" parent="YSort/Purple/DialogueTree/EndDinner/EndDinner2/EndDinner3/EndDinner4" index="0" instance=ExtResource( 20 )]
+message = "It was great to see more of my kin doing so well, instead of, say, shattered on the floor and being cleaned up by a janitor."
+character = "purple"
+expression = "open_mouth"
+function = "end_dinner"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Purple" index="5"]
+anims/end_dinner = SubResource( 79 )
+anims/start_dinner = SubResource( 78 )
+
+[node name="HotelTableCircle" parent="YSort" index="21" instance=ExtResource( 60 )]
+position = Vector2( 437, -499 )
+
+[node name="cafechair_right" type="Sprite" parent="YSort" index="22"]
+position = Vector2( 418, -500 )
+texture = ExtResource( 61 )
+offset = Vector2( 0, -10 )
+
+[node name="cafechair_right2" type="Sprite" parent="YSort" index="23"]
+position = Vector2( 422, -487 )
+texture = ExtResource( 61 )
+offset = Vector2( 0, -10 )
+
+[node name="cafechair_right3" type="Sprite" parent="YSort" index="24"]
+position = Vector2( 422, -512 )
+texture = ExtResource( 61 )
+offset = Vector2( 0, -10 )
+
+[node name="cafechair_left" type="Sprite" parent="YSort" index="25"]
+position = Vector2( 455, -500 )
+texture = ExtResource( 62 )
+offset = Vector2( 0, -10 )
+
 [node name="Lights" type="Node2D" parent="." index="9"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="10"]
@@ -2481,7 +3039,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KidnapEvent/KidnapZone" index="0"]
 position = Vector2( 0, 38 )
-shape = SubResource( 66 )
+shape = SubResource( 74 )
 
 [node name="Tween" type="Tween" parent="KidnapEvent" index="1"]
 
@@ -2563,7 +3121,7 @@ new_scene = "res://Rooms/Area6/6-3/6-3.tscn"
 player_new_position = Vector2( 0, 190 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HotelPortal" index="0"]
-shape = SubResource( 67 )
+shape = SubResource( 75 )
 
 [node name="HallPortalGround" parent="." index="17" instance=ExtResource( 31 )]
 position = Vector2( 816, -439 )
@@ -2572,7 +3130,7 @@ player_new_position = Vector2( 145, 194 )
 starting_direction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallPortalGround" index="0"]
-shape = SubResource( 68 )
+shape = SubResource( 76 )
 
 [node name="HallPortalRoof" parent="." index="18" instance=ExtResource( 31 )]
 position = Vector2( 2664, -1657 )
@@ -2581,7 +3139,7 @@ player_new_position = Vector2( 73, -607 )
 starting_direction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallPortalRoof" index="0"]
-shape = SubResource( 68 )
+shape = SubResource( 76 )
 
 [node name="TimeTween" type="Tween" parent="." index="19"]
 
@@ -2591,7 +3149,7 @@ new_scene = "res://Rooms/Area6/6-6/6-6.tscn"
 player_new_position = Vector2( 174, -64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RestaurantPortal" index="0"]
-shape = SubResource( 69 )
+shape = SubResource( 77 )
 [connection signal="body_entered" from="KidnapEvent/KidnapZone" to="KidnapEvent" method="_on_KidnapZone_body_entered"]
 
 [editable path="YSort/CallBellSystem2"]

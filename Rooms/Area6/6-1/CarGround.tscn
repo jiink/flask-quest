@@ -39,7 +39,12 @@ message = "Now introducing ME idiots meet me at restaurant okay bye"
 character = "purple"
 expression = "smug"
 
-[node name="PurpleLawn" parent="DialogueTree" instance=ExtResource( 3 )]
+[node name="PreDinner" parent="DialogueTree" instance=ExtResource( 3 )]
+message = "Yea, I guess it would be difficult to make this drive."
+character = "orange"
+expression = "frown"
+
+[node name="PreFixed" parent="DialogueTree" instance=ExtResource( 3 )]
 message = "I wonder how Purple is going to fix this mess."
 character = "orange"
 expression = "smile"

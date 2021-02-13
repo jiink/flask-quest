@@ -10,5 +10,7 @@ func interact():
 		print("You fought hard and well. Here's your prize: the rest of the game!")
 		scene_root.current_story_state = scene_root.StoryState.DINNER
 		DiagHelper.start_talk(self, "BattleFinished")
+	elif scene_root.current_story_state == scene_root.StoryState.DINNER:
+		DiagHelper.start_talk(self, "PreDinner")
 	else:
-		DiagHelper.start_talk(self, "PurpleLawn")
+		DiagHelper.start_talk(self, "PreFixed")

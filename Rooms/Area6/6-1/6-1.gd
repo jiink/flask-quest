@@ -4,6 +4,7 @@ const SAVE_KEY = "6-1_"
 
 const CAR_ROOF_SCENE = preload("res://Rooms/Area6/6-1/CarRoof.tscn")
 const CAR_GROUND_SCENE = preload("res://Rooms/Area6/6-1/CarGround.tscn")
+#const PURPLE_SCENE = preload("res://NPC/Purple/Purple.tscn")
 
 enum StoryState { 
 	PRE_KIDNAP,
@@ -18,6 +19,14 @@ enum StoryState {
 	FIXED_TRUCK
 }
 
+enum DinnerState {
+	FALSE,
+	TRUE,
+	POST
+}
+
+var current_dinner_state
+
 enum TimesOfDay { MORNING, NOON, EVENING, NIGHT }
 
 const COLOR_MORNING = Color(1, 0.901961, 0.643137)
@@ -31,18 +40,26 @@ var time_tween
 var modulate
 var current_story_state = StoryState.PRE_KIDNAP
 
+
 func save(save_game):
 	save_game.data[SAVE_KEY + "time_of_day"] = time_of_day
 	save_game.data[SAVE_KEY + "story_state"] = current_story_state
+	save_game.data[SAVE_KEY + "dinner_state"] = current_dinner_state
 
 func load(save_game):
 	modulate = $CanvasModulate
 	time_tween = $TimeTween
 	time_of_day = save_game.data[SAVE_KEY + "time_of_day"]
 	current_story_state = save_game.data[SAVE_KEY + "story_state"]
+	current_dinner_state = save_game.data[SAVE_KEY + "dinner_state"]
 	setup()
 	
 func setup():
+	var green = global.get_player(1)
+	var orange = global.get_player(2)
+	var ribbit = global.get_player(3)
+	var purple = get_node("YSort/Purple")
+	
 	var mm_stand = get_node("YSort/monster_stand")
 	
 	if current_story_state != StoryState.PRE_KIDNAP:
@@ -51,6 +68,7 @@ func setup():
 		if (bus != null) and (kidnap_event != null):
 			bus.queue_free()
 			kidnap_event.queue_free()
+			
 	get_node("YSort/CallBellSystem7").talkative = false
 		
 	match current_story_state:
@@ -83,11 +101,23 @@ func setup():
 			get_node("YSort").add_child(car_ground)
 			car_ground.position = Vector2(646, -614)
 			
+		StoryState.SLEEP_HOTEL:
+			pass
+			
+			
 			
 	mm_stand.state = current_story_state
 	
 	set_time(time_of_day, false)
 	
+	if current_dinner_state == 1:
+		
+		green.controlled_by = green.EXTERNAL
+		orange.controlled_by = orange.EXTERNAL
+		ribbit.controlled_by = ribbit.EXTERNAL
+		purple.initiate_dinner()
+	else:
+		purple.queue_free()
 	
 func set_time(time, fade):
 	time_of_day = time
