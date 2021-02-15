@@ -9,6 +9,8 @@ enum StoryState {
 	PUSHED_VEHICLE,
 	DINNER,
 	SLEEP_HOTEL,
+	VISIT_PURPLE,
+	PURPLE_LETTERS,
 	PURPLE_POSTERS,
 	PURPLE_POTION,
 	FIXED_TRUCK
@@ -24,11 +26,13 @@ var poppy_story_state
 
 func save(save_game):
 	save_game.data["6-1_story_state"] = poppy_story_state
+	save_game.data["6-1_time_of_day"] = time_of_day
 
 func load(save_game):
 	time_of_day = save_game.data["6-1_time_of_day"]
 	poppy_story_state = save_game.data["6-1_story_state"]
 	set_time()
+	$YSort/Furniture/PlayerBed.story_state = poppy_story_state
 	
 func set_time():
 	match time_of_day:

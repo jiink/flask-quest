@@ -64,6 +64,7 @@ void fragment() {
 	COLOR.rgb= COLOR.rgb*v;
 }
 "
+custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
@@ -93,4 +94,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 216.0
 color = Color( 0.133333, 0.12549, 0.203922, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 "tick",
 ]]
 position = Vector2( 0, -151 )
-amount = 128
+amount = 512
 lifetime = 0.6
 randomness = 1.0
 local_coords = false

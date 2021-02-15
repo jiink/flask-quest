@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=2]
+[gd_scene load_steps=149 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
@@ -62,65 +62,103 @@
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/HotelTableCircle.tscn" type="PackedScene" id=60]
 [ext_resource path="res://Rooms/Area2/Assets/cafechair_right.png" type="Texture" id=61]
 [ext_resource path="res://Rooms/Area2/Assets/cafechair_left.png" type="Texture" id=62]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=63]
+[ext_resource path="res://Rooms/Area6/Assets/poppy_water.png" type="Texture" id=64]
+[ext_resource path="res://Rooms/Area6/Assets/fairy_lights.png" type="Texture" id=65]
+[ext_resource path="res://Rooms/Area6/Assets/PropScenes/Mailbox.tscn" type="PackedScene" id=66]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 42 )
-shader_param/direction = Vector2( -1, 0 )
-shader_param/wobble_dir = Vector2( 0, 0 )
-shader_param/speed_scale = 0.01
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+//render_mode unshaded;
+
+uniform float frequency=0;
+uniform float depth = 0.0;
+uniform float microfreq = 0.0;
+uniform float speed = 0.5;
+uniform float speed2 = 0.01;
+
+void fragment() {
+//	vec2 distorted_uv = vec2(UV.x + TIME * speed, 
+//	UV.y + (sin((((UV.x * 0.2 + cos(UV.y)) * frequency) + TIME * speed) * depth) ));
+//
+	vec2 distorted_uv = vec2(UV.x + sin(UV.x * frequency + TIME * speed) * depth + cos(UV.x * 12.0 + TIME * speed) * 0.02,
+	 UV.y + sin(UV.x * 8.0) * 0.05 + TIME * speed2);
+	vec3 tex_val = texture(TEXTURE, distorted_uv).rgb;
+	vec3 col = textureLod(SCREEN_TEXTURE,SCREEN_UV,0.0).rgb;
+	
+	vec3 distorted_tex_val = tex_val;
+	
+
+	COLOR.rgb = distorted_tex_val;
+}"
+custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 42 )
-shader_param/direction = Vector2( -1, 0 )
-shader_param/wobble_dir = Vector2( 0, 0 )
-shader_param/speed_scale = 0.03
+shader = SubResource( 1 )
+shader_param/frequency = 3.982
+shader_param/depth = 0.173
+shader_param/microfreq = 1.0
+shader_param/speed = 0.4
+shader_param/speed2 = 0.1
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 42 )
 shader_param/direction = Vector2( -1, 0 )
 shader_param/wobble_dir = Vector2( 0, 0 )
-shader_param/speed_scale = 0.05
+shader_param/speed_scale = 0.01
 
 [sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 42 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
+shader_param/speed_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 42 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
+shader_param/speed_scale = 0.05
+
+[sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 42 )
 shader_param/direction = Vector2( -1, 0 )
 shader_param/wobble_dir = Vector2( 0, 0.25 )
 shader_param/speed_scale = 0.1
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 52 )
 region = Rect2( 0, 0, 96, 66 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 52 )
 region = Rect2( 96, 0, 96, 66 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 52 )
 region = Rect2( 192, 0, 96, 66 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 52 )
 region = Rect2( 288, 0, 96, 66 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 6 ), SubResource( 5 ), SubResource( 5 ), SubResource( 6 ), SubResource( 6 ), SubResource( 5 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 8 ), SubResource( 7 ), SubResource( 7 ), SubResource( 8 ), SubResource( 8 ), SubResource( 7 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 9, 4 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 69, 35 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 68, 18 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=15]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -171,7 +209,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("orange_bus:frame")
@@ -220,59 +258,6 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
-}
-
-[sub_resource type="Animation" id=15]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("call_bell:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../BellAudio:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=16]
-tracks/0/type = "value"
-tracks/0/path = NodePath("../BellAudio:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("call_bell:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -858,45 +843,98 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 48 )
-region = Rect2( 0, 0, 70, 48 )
+[sub_resource type="Animation" id=39]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("call_bell:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../BellAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 48 )
-region = Rect2( 70, 0, 70, 48 )
+[sub_resource type="Animation" id=40]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../BellAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("call_bell:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
 
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 48 )
-region = Rect2( 140, 0, 70, 48 )
+region = Rect2( 0, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=42]
 atlas = ExtResource( 48 )
-region = Rect2( 210, 0, 70, 48 )
+region = Rect2( 70, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 48 )
-region = Rect2( 280, 0, 70, 48 )
+region = Rect2( 140, 0, 70, 48 )
 
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 48 )
+region = Rect2( 210, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 48 )
+region = Rect2( 280, 0, 70, 48 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 48 )
 region = Rect2( 350, 0, 70, 48 )
 
-[sub_resource type="SpriteFrames" id=45]
+[sub_resource type="SpriteFrames" id=47]
 animations = [ {
-"frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
 "loop": true,
 "name": "default",
 "speed": 24.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=46]
+[sub_resource type="RectangleShape2D" id=48]
 extents = Vector2( 21, 8 )
 
-[sub_resource type="RectangleShape2D" id=47]
+[sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 21, 8 )
 
-[sub_resource type="Animation" id=48]
+[sub_resource type="Animation" id=50]
 length = 17.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../MMGuide:position")
@@ -1113,7 +1151,7 @@ tracks/16/keys = {
 "values": [ 3.0, 0.0, 0.5, 2.0, 0.1 ]
 }
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=51]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("../PinkBoat/players_in_boat:visible")
@@ -1260,7 +1298,7 @@ tracks/11/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=52]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../MurkMonster:position")
@@ -1371,7 +1409,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1086, -1203 ), Vector2( 1086, -1553 ) ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=53]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../MurkMonster:position")
@@ -1434,7 +1472,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1119, -1216 ), Vector2( 1119, -1216 ), Vector2( 1119, -1236 ), Vector2( 1119, -1234 ), Vector2( 1119, -1250 ), Vector2( 1119, -1248 ), Vector2( 1119, -1250 ), Vector2( 1119, -1248 ) ]
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=54]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../MurkMonster:position")
@@ -1485,124 +1523,123 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="AtlasTexture" id=53]
+[sub_resource type="AtlasTexture" id=55]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 48, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=54]
+[sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 44 )
 region = Rect2( 32, 48, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=55]
+[sub_resource type="AtlasTexture" id=57]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=56]
+[sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 44 )
 region = Rect2( 32, 0, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=57]
-atlas = ExtResource( 44 )
-region = Rect2( 64, 0, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=58]
-atlas = ExtResource( 44 )
-region = Rect2( 96, 0, 32, 48 )
-
 [sub_resource type="AtlasTexture" id=59]
-atlas = ExtResource( 44 )
-region = Rect2( 128, 0, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=60]
-atlas = ExtResource( 44 )
-region = Rect2( 160, 0, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=61]
-atlas = ExtResource( 44 )
-region = Rect2( 192, 0, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=62]
-atlas = ExtResource( 44 )
-region = Rect2( 224, 0, 32, 48 )
-
-[sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 96, 32, 48 )
 
-[sub_resource type="AtlasTexture" id=64]
+[sub_resource type="AtlasTexture" id=60]
 atlas = ExtResource( 44 )
 region = Rect2( 32, 96, 32, 48 )
 
-[sub_resource type="SpriteFrames" id=65]
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 44 )
+region = Rect2( 64, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 44 )
+region = Rect2( 96, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 44 )
+region = Rect2( 128, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 44 )
+region = Rect2( 160, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 44 )
+region = Rect2( 192, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 44 )
+region = Rect2( 224, 0, 32, 48 )
+
+[sub_resource type="SpriteFrames" id=67]
 animations = [ {
-"frames": [ SubResource( 53 ), SubResource( 54 ) ],
+"frames": [ SubResource( 55 ), SubResource( 56 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 55 ), SubResource( 56 ) ],
+"frames": [ SubResource( 57 ), SubResource( 58 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
-"loop": true,
-"name": "down_idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 63 ), SubResource( 64 ) ],
+"frames": [ SubResource( 59 ), SubResource( 60 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
+"loop": true,
+"name": "down_idle",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=66]
+[sub_resource type="RectangleShape2D" id=68]
 extents = Vector2( 5, 2 )
-
-[sub_resource type="AtlasTexture" id=67]
-atlas = ExtResource( 57 )
-region = Rect2( 0, 24, 16, 24 )
-
-[sub_resource type="AtlasTexture" id=68]
-atlas = ExtResource( 57 )
-region = Rect2( 16, 24, 16, 24 )
 
 [sub_resource type="AtlasTexture" id=69]
 atlas = ExtResource( 57 )
-region = Rect2( 0, 48, 16, 24 )
+region = Rect2( 0, 24, 16, 24 )
 
 [sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 57 )
-region = Rect2( 16, 48, 16, 24 )
+region = Rect2( 16, 24, 16, 24 )
 
 [sub_resource type="AtlasTexture" id=71]
 atlas = ExtResource( 57 )
-region = Rect2( 0, 0, 16, 24 )
+region = Rect2( 0, 48, 16, 24 )
 
 [sub_resource type="AtlasTexture" id=72]
 atlas = ExtResource( 57 )
+region = Rect2( 16, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 57 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 57 )
 region = Rect2( 16, 0, 16, 24 )
 
-[sub_resource type="SpriteFrames" id=73]
+[sub_resource type="SpriteFrames" id=75]
 animations = [ {
-"frames": [ SubResource( 67 ), SubResource( 68 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 69 ), SubResource( 70 ) ],
 "loop": true,
-"name": "up",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 71 ), SubResource( 72 ) ],
 "loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 73 ), SubResource( 74 ) ],
+"loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=79]
-resource_name = "end_dinner"
+[sub_resource type="Animation" id=76]
 length = 8.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Player:position")
@@ -1653,8 +1690,7 @@ tracks/3/keys = {
 "values": [ Vector2( 456, -503 ), Vector2( 456, -503 ), Vector2( 447, -523 ), Vector2( 423, -524 ), Vector2( 423, -524 ), Vector2( 409, -524 ), Vector2( 409, -524 ), Vector2( 408, -531 ) ]
 }
 
-[sub_resource type="Animation" id=78]
-resource_name = "start_dinner"
+[sub_resource type="Animation" id=77]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Player:position")
@@ -1705,17 +1741,20 @@ tracks/3/keys = {
 "values": [ Vector2( 456, -503 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=74]
+[sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 434, 8 )
 
-[sub_resource type="RectangleShape2D" id=75]
+[sub_resource type="RectangleShape2D" id=79]
 extents = Vector2( 16, 3 )
 
-[sub_resource type="RectangleShape2D" id=76]
+[sub_resource type="RectangleShape2D" id=80]
 extents = Vector2( 8, 3 )
 
-[sub_resource type="RectangleShape2D" id=77]
+[sub_resource type="RectangleShape2D" id=81]
 extents = Vector2( 16, 5 )
+
+[sub_resource type="RectangleShape2D" id=82]
+extents = Vector2( 9, 3 )
 
 [node name="6-1" groups=[
 "save",
@@ -1723,9 +1762,35 @@ extents = Vector2( 16, 5 )
 script = ExtResource( 27 )
 level_music = ExtResource( 29 )
 
-[node name="6-1" parent="Tilemaps" index="0" instance=ExtResource( 2 )]
+[node name="Water" type="Node2D" parent="Tilemaps" index="0"]
+z_index = -1
 
-[node name="Collisions" type="TileMap" parent="Tilemaps" index="1"]
+[node name="Water" type="TextureRect" parent="Tilemaps/Water" index="0"]
+material = SubResource( 2 )
+margin_left = -228.0
+margin_top = -1508.0
+margin_right = 1908.0
+margin_bottom = 529.0
+texture = ExtResource( 64 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="6-1" parent="Tilemaps" index="1" instance=ExtResource( 2 )]
+
+[node name="Base" parent="Tilemaps/6-1" index="0"]
+z_index = -1
+
+[node name="AbovePlayerUnlit" parent="Tilemaps/6-1" index="2"]
+z_index = 3
+
+[node name="NightEmission" parent="Tilemaps/6-1" index="3" groups=[
+"night_emissive",
+]]
+material = ExtResource( 63 )
+
+[node name="Collisions" type="TileMap" parent="Tilemaps" index="2"]
 visible = false
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
@@ -1740,7 +1805,9 @@ position = Vector2( 2664, -1665 )
 
 [node name="CityParallaxBG" type="ParallaxBackground" parent="Background" index="0"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/CityParallaxBG" index="0"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/CityParallaxBG" index="0" groups=[
+"background",
+]]
 position = Vector2( 192, 0 )
 motion_scale = Vector2( 0, 0 )
 motion_offset = Vector2( 50, 0 )
@@ -1751,12 +1818,14 @@ texture = ExtResource( 33 )
 offset = Vector2( 192, 0 )
 
 [node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer" index="1"]
-material = SubResource( 1 )
+material = SubResource( 3 )
 position = Vector2( 0, -29 )
 texture = ExtResource( 41 )
 offset = Vector2( 192, 0 )
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/CityParallaxBG" index="1"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/CityParallaxBG" index="1" groups=[
+"background",
+]]
 position = Vector2( 192, 0 )
 motion_scale = Vector2( 0, 0 )
 motion_mirroring = Vector2( 384, 0 )
@@ -1767,19 +1836,21 @@ texture = ExtResource( 36 )
 offset = Vector2( 192, 0 )
 
 [node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer2" index="1"]
-material = SubResource( 2 )
+material = SubResource( 4 )
 position = Vector2( 0, -26 )
 texture = ExtResource( 39 )
 offset = Vector2( 192, 0 )
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/CityParallaxBG" index="2"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/CityParallaxBG" index="2" groups=[
+"background",
+]]
 position = Vector2( 192, -78 )
 motion_scale = Vector2( 0.02, 0.02 )
 motion_offset = Vector2( 50, 0 )
 motion_mirroring = Vector2( 384, 0 )
 
 [node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer3" index="0"]
-material = SubResource( 3 )
+material = SubResource( 5 )
 position = Vector2( 0, 19 )
 texture = ExtResource( 38 )
 offset = Vector2( 192, 0 )
@@ -1789,7 +1860,9 @@ position = Vector2( 0, 13 )
 texture = ExtResource( 34 )
 offset = Vector2( 192, 0 )
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/CityParallaxBG" index="3"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/CityParallaxBG" index="3" groups=[
+"background",
+]]
 position = Vector2( 192, -110 )
 motion_scale = Vector2( 0.1, 0.1 )
 motion_offset = Vector2( 50, 0 )
@@ -1801,12 +1874,14 @@ texture = ExtResource( 37 )
 offset = Vector2( 192, 0 )
 
 [node name="Sprite2" type="Sprite" parent="Background/CityParallaxBG/ParallaxLayer4" index="1"]
-material = SubResource( 4 )
+material = SubResource( 6 )
 position = Vector2( 0, -141 )
 texture = ExtResource( 40 )
 offset = Vector2( 192, 0 )
 
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/CityParallaxBG" index="4"]
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/CityParallaxBG" index="4" groups=[
+"background",
+]]
 position = Vector2( 192, -122 )
 motion_scale = Vector2( 0.3, 0.3 )
 motion_mirroring = Vector2( 384, 0 )
@@ -1836,8 +1911,8 @@ __meta__ = {
 [node name="MurkMonster" type="AnimatedSprite" parent="." index="6"]
 visible = false
 position = Vector2( 1235, -1226 )
-frames = SubResource( 9 )
-frame = 9
+frames = SubResource( 11 )
+frame = 8
 playing = true
 
 [node name="MMWaterOverlap" type="ColorRect" parent="." index="7"]
@@ -1854,11 +1929,28 @@ __meta__ = {
 [node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 15 )]
 position = Vector2( 408, -529 )
 
+[node name="DialogueTree" parent="YSort/Ribbit" index="11" instance=ExtResource( 19 )]
+
+[node name="RequestSleep" parent="YSort/Ribbit/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Usually my mommy doesn't let me stay up this late, Green."
+character = "ribbit"
+expression = "open_mouth"
+
+[node name="DiagPiece2" parent="YSort/Ribbit/DialogueTree/RequestSleep" index="0" instance=ExtResource( 20 )]
+message = "Yea, and we ourselves haven't had sleep since.."
+character = "orange"
+expression = "open_mouth"
+
+[node name="DiagPiece3" parent="YSort/Ribbit/DialogueTree/RequestSleep/DiagPiece2" index="0" instance=ExtResource( 20 )]
+message = "That time we were arrested?"
+character = "orange"
+expression = "unique"
+
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 17 )]
 position = Vector2( 408, -529 )
 
 [node name="Player" parent="YSort" index="2"]
-position = Vector2( 408, -529 )
+position = Vector2( 594, -1134 )
 
 [node name="Buildings" type="YSort" parent="YSort" index="3"]
 
@@ -1875,7 +1967,7 @@ position = Vector2( 257, -1174 )
 position = Vector2( 94, -437 )
 
 [node name="PoppyHouseA3" parent="YSort/Buildings" index="4" instance=ExtResource( 4 )]
-position = Vector2( 624, -1174 )
+position = Vector2( 617, -1208 )
 
 [node name="PoppyHouseA5" parent="YSort/Buildings" index="5" instance=ExtResource( 4 )]
 position = Vector2( 103, -955 )
@@ -1897,13 +1989,13 @@ player_new_position = Vector2( 8, -8 )
 starting_direction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Buildings/PoppyHouseB2/ScenePortal" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
 [node name="PoppyHouseB3" parent="YSort/Buildings" index="8" instance=ExtResource( 3 )]
 position = Vector2( 97, -797 )
 
 [node name="PoppyHouseB4" parent="YSort/Buildings" index="9" instance=ExtResource( 3 )]
-position = Vector2( 97, -607 )
+position = Vector2( 96, -652 )
 
 [node name="BearHouse" type="StaticBody2D" parent="YSort/Buildings" index="10"]
 position = Vector2( 994, -1476 )
@@ -1914,7 +2006,7 @@ offset = Vector2( 0, -25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Buildings/BearHouse" index="1"]
 visible = false
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 
 [node name="Props" type="YSort" parent="YSort" index="4"]
 
@@ -2001,12 +2093,12 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Bus" index="1"]
 visible = false
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Bus" index="2"]
 autoplay = "idle"
-anims/drive_away = SubResource( 13 )
-anims/idle = SubResource( 14 )
+anims/drive_away = SubResource( 15 )
+anims/idle = SubResource( 16 )
 
 [node name="DialogueTree" parent="YSort/Bus" index="3" instance=ExtResource( 19 )]
 
@@ -2040,15 +2132,15 @@ position = Vector2( 1021, -369 )
 position = Vector2( 7, -138 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell1" index="3"]
-anims/idle = SubResource( 15 )
-anims/ring = SubResource( 16 )
+anims/idle = SubResource( 17 )
+anims/ring = SubResource( 18 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem2" index="2"]
 position = Vector2( 385, -106 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem2/CallBell2" index="3"]
-anims/idle = SubResource( 17 )
-anims/ring = SubResource( 18 )
+anims/idle = SubResource( 19 )
+anims/ring = SubResource( 20 )
 
 [node name="Pos1" parent="YSort/CallBellSystem2" index="3"]
 position = Vector2( 47, -143 )
@@ -2075,15 +2167,15 @@ position = Vector2( 826, -752 )
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell1" index="3"]
-anims/idle = SubResource( 19 )
-anims/ring = SubResource( 20 )
+anims/idle = SubResource( 21 )
+anims/ring = SubResource( 22 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem3" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem3/CallBell2" index="3"]
-anims/idle = SubResource( 21 )
-anims/ring = SubResource( 22 )
+anims/idle = SubResource( 23 )
+anims/ring = SubResource( 24 )
 
 [node name="Pos1" parent="YSort/CallBellSystem3" index="3"]
 position = Vector2( 90, -31 )
@@ -2112,15 +2204,15 @@ position = Vector2( 546, -752 )
 position = Vector2( 82, -66 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell1" index="3"]
-anims/idle = SubResource( 23 )
-anims/ring = SubResource( 24 )
+anims/idle = SubResource( 25 )
+anims/ring = SubResource( 26 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem4" index="2"]
 position = Vector2( 244, 59 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem4/CallBell2" index="3"]
-anims/idle = SubResource( 25 )
-anims/ring = SubResource( 26 )
+anims/idle = SubResource( 27 )
+anims/ring = SubResource( 28 )
 
 [node name="Pos1" parent="YSort/CallBellSystem4" index="3"]
 position = Vector2( 90, -31 )
@@ -2149,15 +2241,15 @@ position = Vector2( 420, -443 )
 position = Vector2( 185, -79 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell1" index="3"]
-anims/idle = SubResource( 27 )
-anims/ring = SubResource( 28 )
+anims/idle = SubResource( 29 )
+anims/ring = SubResource( 30 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem5" index="2"]
 position = Vector2( 49, 58 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem5/CallBell2" index="3"]
-anims/idle = SubResource( 29 )
-anims/ring = SubResource( 30 )
+anims/idle = SubResource( 31 )
+anims/ring = SubResource( 32 )
 
 [node name="Pos1" parent="YSort/CallBellSystem5" index="3"]
 position = Vector2( 145, -83 )
@@ -2186,15 +2278,15 @@ position = Vector2( 832, -999 )
 position = Vector2( -105, -74 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell1" index="3"]
-anims/idle = SubResource( 31 )
-anims/ring = SubResource( 32 )
+anims/idle = SubResource( 33 )
+anims/ring = SubResource( 34 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem6" index="2"]
 position = Vector2( 60, 108 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem6/CallBell2" index="3"]
-anims/idle = SubResource( 33 )
-anims/ring = SubResource( 34 )
+anims/idle = SubResource( 35 )
+anims/ring = SubResource( 36 )
 
 [node name="Pos1" parent="YSort/CallBellSystem6" index="3"]
 position = Vector2( -94, -47 )
@@ -2224,15 +2316,15 @@ talkative = true
 position = Vector2( -43, -200 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell1" index="3"]
-anims/idle = SubResource( 35 )
-anims/ring = SubResource( 36 )
+anims/idle = SubResource( 37 )
+anims/ring = SubResource( 38 )
 
 [node name="CallBell2" parent="YSort/CallBellSystem7" index="2"]
 position = Vector2( 88, 230 )
 
 [node name="AnimationPlayer" parent="YSort/CallBellSystem7/CallBell2" index="3"]
-anims/idle = SubResource( 37 )
-anims/ring = SubResource( 38 )
+anims/idle = SubResource( 39 )
+anims/ring = SubResource( 40 )
 
 [node name="Pos1" parent="YSort/CallBellSystem7" index="3"]
 position = Vector2( -32, -173 )
@@ -2300,7 +2392,7 @@ texture = ExtResource( 46 )
 [node name="MMGuideRowing" type="AnimatedSprite" parent="YSort/PinkBoat" index="1"]
 visible = false
 position = Vector2( 0, 1 )
-frames = SubResource( 45 )
+frames = SubResource( 47 )
 frame = 4
 speed_scale = 3.0
 
@@ -2560,21 +2652,21 @@ face_texture = ExtResource( 51 )
 visible = false
 
 [node name="InteractionCOllision" type="CollisionShape2D" parent="YSort/monster_stand/Interaction" index="0"]
-shape = SubResource( 46 )
+shape = SubResource( 48 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/monster_stand" index="2"]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/monster_stand/StaticBody2D" index="0"]
-shape = SubResource( 47 )
+shape = SubResource( 49 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/monster_stand" index="3"]
 autoplay = "idle"
-anims/enter_boat = SubResource( 48 )
-anims/idle = SubResource( 49 )
-anims/mm_elevate = SubResource( 50 )
-anims/mm_remerge = SubResource( 51 )
-anims/mm_submerge = SubResource( 52 )
+anims/enter_boat = SubResource( 50 )
+anims/idle = SubResource( 51 )
+anims/mm_elevate = SubResource( 52 )
+anims/mm_remerge = SubResource( 53 )
+anims/mm_submerge = SubResource( 54 )
 
 [node name="Tween" type="Tween" parent="YSort/monster_stand" index="4"]
 
@@ -2598,7 +2690,7 @@ margin_right = 6.0
 margin_bottom = 3.0
 
 [node name="AnimatedSprite" parent="YSort/MMGuide" index="3"]
-frames = SubResource( 65 )
+frames = SubResource( 67 )
 animation = "down_idle"
 frame = 4
 offset = Vector2( 0, -16 )
@@ -2608,12 +2700,12 @@ position = Vector2( 408, -531 )
 script = ExtResource( 59 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Purple" index="0"]
-shape = SubResource( 66 )
+shape = SubResource( 68 )
 
 [node name="Interaction" type="Area2D" parent="YSort/Purple" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Purple/Interaction" index="0"]
-shape = SubResource( 66 )
+shape = SubResource( 68 )
 
 [node name="ShadowRect" parent="YSort/Purple" index="2" instance=ExtResource( 58 )]
 show_behind_parent = true
@@ -2625,7 +2717,7 @@ margin_bottom = 2.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Purple" index="3" groups=[
 "tick",
 ]]
-frames = SubResource( 73 )
+frames = SubResource( 75 )
 animation = "down"
 offset = Vector2( 0, -9 )
 
@@ -2986,8 +3078,8 @@ expression = "open_mouth"
 function = "end_dinner"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Purple" index="5"]
-anims/end_dinner = SubResource( 79 )
-anims/start_dinner = SubResource( 78 )
+anims/end_dinner = SubResource( 76 )
+anims/start_dinner = SubResource( 77 )
 
 [node name="HotelTableCircle" parent="YSort" index="21" instance=ExtResource( 60 )]
 position = Vector2( 437, -499 )
@@ -3012,26 +3104,169 @@ position = Vector2( 455, -500 )
 texture = ExtResource( 62 )
 offset = Vector2( 0, -10 )
 
+[node name="Mailboxes" type="YSort" parent="YSort" index="26"]
+
+[node name="Mailbox" parent="YSort/Mailboxes" index="0" instance=ExtResource( 66 )]
+position = Vector2( 677, -1155 )
+mailbox_number = 2
+
+[node name="DialogueTree" parent="YSort/Mailboxes/Mailbox" index="4" instance=ExtResource( 19 )]
+
+[node name="Use" parent="YSort/Mailboxes/Mailbox/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Incredible. House number five done."
+character = "orange"
+expression = "smile"
+
+[node name="AlreadyUsed" parent="YSort/Mailboxes/Mailbox/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "We already put a letter in here, Green."
+character = "orange"
+expression = "open_mouth"
+
+[node name="Mailbox2" parent="YSort/Mailboxes" index="1" instance=ExtResource( 66 )]
+position = Vector2( 246, -1125 )
+mailbox_number = 1
+
+[node name="DialogueTree" parent="YSort/Mailboxes/Mailbox2" index="4" instance=ExtResource( 19 )]
+
+[node name="Use" parent="YSort/Mailboxes/Mailbox2/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Incredible. House number five done."
+character = "orange"
+expression = "smile"
+
+[node name="AlreadyUsed" parent="YSort/Mailboxes/Mailbox2/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "We already put a letter in here, Green."
+character = "orange"
+expression = "open_mouth"
+
+[node name="Mailbox3" parent="YSort/Mailboxes" index="2" instance=ExtResource( 66 )]
+position = Vector2( 162, -905 )
+mailbox_number = 3
+
+[node name="DialogueTree" parent="YSort/Mailboxes/Mailbox3" index="4" instance=ExtResource( 19 )]
+
+[node name="Use" parent="YSort/Mailboxes/Mailbox3/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Incredible. House number five done."
+character = "orange"
+expression = "smile"
+
+[node name="AlreadyUsed" parent="YSort/Mailboxes/Mailbox3/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "We already put a letter in here, Green."
+character = "orange"
+expression = "open_mouth"
+
+[node name="Mailbox4" parent="YSort/Mailboxes" index="3" instance=ExtResource( 66 )]
+position = Vector2( 985, -842 )
+mailbox_number = 4
+
+[node name="DialogueTree" parent="YSort/Mailboxes/Mailbox4" index="4" instance=ExtResource( 19 )]
+
+[node name="Use" parent="YSort/Mailboxes/Mailbox4/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Incredible. House number five done."
+character = "orange"
+expression = "smile"
+
+[node name="AlreadyUsed" parent="YSort/Mailboxes/Mailbox4/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "We already put a letter in here, Green."
+character = "orange"
+expression = "open_mouth"
+
+[node name="Mailbox5" parent="YSort/Mailboxes" index="4" instance=ExtResource( 66 )]
+position = Vector2( 1369, -623 )
+
+[node name="DialogueTree" parent="YSort/Mailboxes/Mailbox5" index="4" instance=ExtResource( 19 )]
+
+[node name="Use" parent="YSort/Mailboxes/Mailbox5/DialogueTree" index="0" instance=ExtResource( 20 )]
+message = "Incredible. House number five done."
+character = "orange"
+expression = "smile"
+
+[node name="AlreadyUsed" parent="YSort/Mailboxes/Mailbox5/DialogueTree" index="1" instance=ExtResource( 20 )]
+message = "We already put a letter in here, Green."
+character = "orange"
+expression = "open_mouth"
+
 [node name="Lights" type="Node2D" parent="." index="9"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="10"]
+[node name="FairyLights" type="Node2D" parent="." index="10"]
+
+[node name="FairyString" type="Node2D" parent="FairyLights" index="0"]
+
+[node name="Cable" type="Line2D" parent="FairyLights/FairyString" index="0"]
+points = PoolVector2Array( 496, -605, 528, -567, 557, -541, 591, -526, 635, -519, 672, -520 )
+width = 2.0
+default_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+texture_mode = 1
+joint_mode = 1
+
+[node name="Cable2" type="Line2D" parent="FairyLights/FairyString" index="1"]
+material = ExtResource( 63 )
+position = Vector2( 0, 3 )
+points = PoolVector2Array( 496, -605, 528, -567, 557, -541, 591, -526, 635, -519, 672, -520 )
+width = 8.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 65 )
+texture_mode = 1
+joint_mode = 1
+
+[node name="FairyString3" type="Node2D" parent="FairyLights" index="1"]
+position = Vector2( -319, 11 )
+
+[node name="Cable" type="Line2D" parent="FairyLights/FairyString3" index="0"]
+points = PoolVector2Array( 547, -508, 567, -499, 602, -498, 634, -516, 655, -545, 672, -595 )
+width = 2.0
+default_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+texture_mode = 1
+joint_mode = 1
+
+[node name="Cable2" type="Line2D" parent="FairyLights/FairyString3" index="1"]
+material = ExtResource( 63 )
+position = Vector2( 0, 4 )
+points = PoolVector2Array( 547, -508, 567, -499, 602, -498, 634, -516, 655, -545, 672, -595 )
+width = 8.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 65 )
+texture_mode = 1
+joint_mode = 1
+
+[node name="FairyString2" type="Node2D" parent="FairyLights" index="2"]
+position = Vector2( 739, -824 )
+
+[node name="Cable" type="Line2D" parent="FairyLights/FairyString2" index="0"]
+position = Vector2( -499, 535 )
+points = PoolVector2Array( 496, -605, 528, -581, 574, -570, 620, -569, 667, -583, 702, -611 )
+width = 2.0
+default_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+texture_mode = 1
+joint_mode = 1
+
+[node name="Cable2" type="Line2D" parent="FairyLights/FairyString2" index="1"]
+material = ExtResource( 63 )
+position = Vector2( -499, 538 )
+points = PoolVector2Array( 496, -605, 528, -581, 574, -570, 620, -569, 667, -583, 702, -611 )
+width = 8.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 65 )
+texture_mode = 1
+joint_mode = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="11"]
 
 [node name="Particles2D" parent="Camera" index="0" instance=ExtResource( 5 )]
 modulate = Color( 0.454902, 0.156863, 0.447059, 1 )
 position = Vector2( 0, 0 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="13"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="14"]
 position = Vector2( 429, -494 )
 stream = ExtResource( 7 )
 autoplay = true
 bus = "Environment"
 
-[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="14"]
+[node name="WeatherAudio" type="AudioStreamPlayer" parent="." index="15"]
 stream = ExtResource( 30 )
 autoplay = true
 bus = "Environment"
 
-[node name="KidnapEvent" type="Node2D" parent="." index="15"]
+[node name="KidnapEvent" type="Node2D" parent="." index="16"]
 position = Vector2( 832, -233 )
 script = ExtResource( 21 )
 
@@ -3039,7 +3274,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KidnapEvent/KidnapZone" index="0"]
 position = Vector2( 0, 38 )
-shape = SubResource( 74 )
+shape = SubResource( 78 )
 
 [node name="Tween" type="Tween" parent="KidnapEvent" index="1"]
 
@@ -3115,33 +3350,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HotelPortal" parent="." index="16" instance=ExtResource( 31 )]
+[node name="HotelPortal" parent="." index="17" instance=ExtResource( 31 )]
 position = Vector2( 1424, -645 )
 new_scene = "res://Rooms/Area6/6-3/6-3.tscn"
 player_new_position = Vector2( 0, 190 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HotelPortal" index="0"]
-shape = SubResource( 75 )
+shape = SubResource( 79 )
 
-[node name="HallPortalGround" parent="." index="17" instance=ExtResource( 31 )]
+[node name="HallPortalGround" parent="." index="18" instance=ExtResource( 31 )]
 position = Vector2( 816, -439 )
 new_scene = "res://Rooms/Area6/6-5/6-5.tscn"
 player_new_position = Vector2( 145, 194 )
 starting_direction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallPortalGround" index="0"]
-shape = SubResource( 76 )
+shape = SubResource( 80 )
 
-[node name="HallPortalRoof" parent="." index="18" instance=ExtResource( 31 )]
+[node name="HallPortalRoof" parent="." index="19" instance=ExtResource( 31 )]
 position = Vector2( 2664, -1657 )
 new_scene = "res://Rooms/Area6/6-5/6-5.tscn"
 player_new_position = Vector2( 73, -607 )
 starting_direction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallPortalRoof" index="0"]
-shape = SubResource( 76 )
-
-[node name="TimeTween" type="Tween" parent="." index="19"]
+shape = SubResource( 80 )
 
 [node name="RestaurantPortal" parent="." index="20" instance=ExtResource( 31 )]
 position = Vector2( 688, -840 )
@@ -3149,8 +3382,21 @@ new_scene = "res://Rooms/Area6/6-6/6-6.tscn"
 player_new_position = Vector2( 174, -64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RestaurantPortal" index="0"]
-shape = SubResource( 77 )
+shape = SubResource( 81 )
+
+[node name="TimeTween" type="Tween" parent="." index="21"]
+
+[node name="PurplePortal" parent="." index="22" instance=ExtResource( 31 )]
+position = Vector2( 650, -1173 )
+new_scene = "res://Rooms/Area6/6-7/6-7.tscn"
+player_new_position = Vector2( 152, 119 )
+starting_direction = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurplePortal" index="0"]
+shape = SubResource( 82 )
 [connection signal="body_entered" from="KidnapEvent/KidnapZone" to="KidnapEvent" method="_on_KidnapZone_body_entered"]
+
+[editable path="Tilemaps/6-1"]
 
 [editable path="YSort/CallBellSystem2"]
 

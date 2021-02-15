@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=1]
 [ext_resource path="res://Rooms/Area6/6-3/6-3.tmx" type="PackedScene" id=2]
@@ -39,6 +39,10 @@
 [ext_resource path="res://NPC/MinorNPCs/sasha_face.png" type="Texture" id=37]
 [ext_resource path="res://Rooms/Area6/Assets/sasha_sheet.png" type="Texture" id=38]
 [ext_resource path="res://Rooms/Area6/Assets/numbered_sign_twenty.png" type="Texture" id=39]
+[ext_resource path="res://Rooms/Area6/6-3/PlayerBed.gd" type="Script" id=40]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 24, 24 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_bounce"
@@ -203,7 +207,7 @@ frame = 9
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 11 )]
 
 [node name="Player" parent="YSort" index="2"]
-position = Vector2( 0, 190 )
+position = Vector2( 268, -643 )
 
 [node name="ShortElevator" parent="YSort" index="3" instance=ExtResource( 9 )]
 position = Vector2( 80, 0 )
@@ -213,8 +217,94 @@ position = Vector2( 144, 0 )
 
 [node name="Furniture" type="YSort" parent="YSort" index="5"]
 
-[node name="HotelBed" parent="YSort/Furniture" index="0" instance=ExtResource( 16 )]
-position = Vector2( 232, -654 )
+[node name="PlayerBed" parent="YSort/Furniture" index="0" instance=ExtResource( 16 )]
+position = Vector2( 232, -674 )
+script = ExtResource( 40 )
+
+[node name="Interaction" type="Area2D" parent="YSort/Furniture/PlayerBed" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Furniture/PlayerBed/Interaction" index="0"]
+position = Vector2( 0, 17 )
+shape = SubResource( 13 )
+
+[node name="DialogueTree" parent="YSort/Furniture/PlayerBed" index="3" instance=ExtResource( 31 )]
+
+[node name="CantSleep" parent="YSort/Furniture/PlayerBed/DialogueTree" index="0" instance=ExtResource( 30 )]
+message = "Only one bed? In a three person room?"
+character = "orange"
+expression = "confused"
+
+[node name="DiagPiece2" parent="YSort/Furniture/PlayerBed/DialogueTree/CantSleep" index="0" instance=ExtResource( 30 )]
+message = "At least it's a `huge` bed."
+character = "orange"
+expression = "neutral"
+
+[node name="Sleep" parent="YSort/Furniture/PlayerBed/DialogueTree" index="1" instance=ExtResource( 30 )]
+message = "This is gonna be my first time sleeping in a bed."
+character = "ribbit"
+expression = "drunk"
+
+[node name="DiagPiece2" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep" index="0" instance=ExtResource( 30 )]
+message = "What were you sleeping in before?"
+character = "orange"
+expression = "open_mouth"
+
+[node name="DiagPiece3" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2" index="0" instance=ExtResource( 30 )]
+message = "A crib."
+character = "ribbit"
+expression = "smile"
+
+[node name="DiagPiece4" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 30 )]
+message = "Ribbit, what is your age, again?"
+character = "orange"
+expression = "big_eyed"
+
+[node name="DiagPiece5" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2/DiagPiece3/DiagPiece4" index="0" instance=ExtResource( 30 )]
+message = "Six."
+character = "ribbit"
+expression = "grin"
+
+[node name="DiagPiece6" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5" index="0" instance=ExtResource( 30 )]
+message = "Uh. Okay. I'm going to sleep."
+character = "orange"
+expression = "unique"
+
+[node name="DiagPiece7" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6" index="0" instance=ExtResource( 30 )]
+message = "Who wants to sleep next to ME, your FAVORITE flask?"
+character = "orange"
+expression = "grin"
+
+[node name="DiagPiece8" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7" index="0" instance=ExtResource( 30 )]
+message = "...Nobody?"
+character = "orange"
+expression = "open_mouth"
+
+[node name="DiagPiece9" parent="YSort/Furniture/PlayerBed/DialogueTree/Sleep/DiagPiece2/DiagPiece3/DiagPiece4/DiagPiece5/DiagPiece6/DiagPiece7/DiagPiece8" index="0" instance=ExtResource( 30 )]
+message = "..."
+character = "orange"
+expression = "frown"
+function = "sleep"
+
+[node name="Wake" parent="YSort/Furniture/PlayerBed/DialogueTree" index="2" instance=ExtResource( 30 )]
+message = "Wow.. beds are so much better than cribs!"
+character = "ribbit"
+expression = "grin"
+
+[node name="Wake2" parent="YSort/Furniture/PlayerBed/DialogueTree/Wake" index="0" instance=ExtResource( 30 )]
+message = "Time to pay Purple a visit. "
+character = "orange"
+expression = "smile"
+
+[node name="Tween" type="Tween" parent="YSort/Furniture/PlayerBed" index="4"]
+
+[node name="OrangeSleepPos" type="Position2D" parent="YSort/Furniture/PlayerBed" index="5"]
+position = Vector2( 0, 7 )
+
+[node name="RibbitSleepPos" type="Position2D" parent="YSort/Furniture/PlayerBed" index="6"]
+position = Vector2( 15, 9 )
+
+[node name="GreenSleepPos" type="Position2D" parent="YSort/Furniture/PlayerBed" index="7"]
+position = Vector2( -15, 9 )
 
 [node name="HotelNightstand" parent="YSort/Furniture" index="1" instance=ExtResource( 14 )]
 position = Vector2( 271, -667 )

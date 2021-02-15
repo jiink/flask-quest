@@ -120,8 +120,14 @@ var items = {
 	'poppy_dog': {
 		'name': 'Cup of Poppy Dog',
 		'desc': "The only other green drink you've seen... is yourself.",
-		'droppable' : true,
+		'droppable' : false,
 		},
+	'purple_letter': {
+		'name': 'Fancy Letter',
+		'desc': "Who knows what is inside..",
+		'droppable' : false,
+		}
+		
 	}
 
 

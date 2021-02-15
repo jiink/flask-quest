@@ -4,4 +4,3 @@
 
 [node name="GameSaver" type="Node"]
 script = ExtResource( 1 )
-

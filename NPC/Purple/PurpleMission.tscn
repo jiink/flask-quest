@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://NPC/NPCWalking/NPCWalking.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NPC/Purple/PurpleMission.gd" type="Script" id=4]
+[ext_resource path="res://SoundEffects/metal_pan_wack.wav" type="AudioStream" id=5]
+
+[node name="PurpleMission" groups=[
+"save",
+] instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="." index="4"]
+
+[node name="DialogueTree" parent="." index="5" instance=ExtResource( 3 )]
+
+[node name="LeadIntoHome" parent="DialogueTree" index="0" instance=ExtResource( 2 )]
+message = "Oh, it's you."
+character = "purple"
+expression = "blush"
+
+[node name="DiagPiece2" parent="DialogueTree/LeadIntoHome" index="0" instance=ExtResource( 2 )]
+message = "I was standing here a while. "
+character = "purple"
+expression = "unique"
+
+[node name="DiagPiece3" parent="DialogueTree/LeadIntoHome/DiagPiece2" index="0" instance=ExtResource( 2 )]
+message = "Okay. Now follow me inside."
+character = "purple"
+expression = "open_mouth"
+
+[node name="DiagPiece4" parent="DialogueTree/LeadIntoHome/DiagPiece2/DiagPiece3" index="0" instance=ExtResource( 2 )]
+message = "You'll get to see your first... mission."
+character = "purple"
+expression = "smile"
+function = "enter_house"
+
+[node name="Letters" parent="DialogueTree" index="1" instance=ExtResource( 2 )]
+message = "let me giv eyou"
+character = "purple"
+expression = "yell"
+function = "give_letters"
+
+[node name="ItemSFX" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 5 )

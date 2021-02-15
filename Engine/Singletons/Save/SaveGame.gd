@@ -25,6 +25,7 @@ export(Dictionary) var data = {
 	"6-1_story_state": 0,
 	"6-1_poppy_dog_requested": false,
 	"6-1_dinner_state": 0,
+	"6-1_mail_boxes": [false, false, false, false, false],
 	"dollars": 0,
 	"event_seed": int(rand_range(1, 2048)),
 	"green_hp": 100,
