@@ -1,4 +1,4 @@
-[gd_scene load_steps=308 format=2]
+[gd_scene load_steps=309 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -1119,6 +1119,9 @@ extents = Vector2( 11, 4 )
 
 [sub_resource type="RectangleShape2D" id=63]
 extents = Vector2( 11, 24 )
+
+[sub_resource type="RectangleShape2D" id=95]
+extents = Vector2( 13, 22 )
 
 [sub_resource type="RectangleShape2D" id=64]
 extents = Vector2( 12, 30 )
@@ -4727,7 +4730,7 @@ position = Vector2( 308, 23 )
 
 [node name="HealthStation" parent="YSort" index="15" instance=ExtResource( 192 )]
 position = Vector2( 335, 22 )
-frame = 1
+frame = 22
 
 [node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 132 )]
 position = Vector2( 1644, -617 )
@@ -4792,6 +4795,9 @@ frame = 2
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
 shape = SubResource( 63 )
+
+[node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/CarAlarmZone/Interaction" index="0"]
+shape = SubResource( 95 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )

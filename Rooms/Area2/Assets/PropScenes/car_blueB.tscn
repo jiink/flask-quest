@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Rooms/Area2/Assets/car_blueB.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Common/CarAlarmZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SoundEffects/car_alarm_raw.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 20 )
 
 [node name="car_blueB" type="Sprite"]
 texture = ExtResource( 1 )
@@ -14,3 +19,13 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 1 )
+
+[node name="AlarmZone" parent="." instance=ExtResource( 2 )]
+audio = ExtResource( 3 )
+audio_pitch = 0.7
+repeats = 1
+
+[node name="Interaction" type="Area2D" parent="AlarmZone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlarmZone/Interaction"]
+shape = SubResource( 2 )

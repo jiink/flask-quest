@@ -1,0 +1,527 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Rooms/Area7/7-2/7-2.tmx" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Area7/Assets/mountainside_bg/mountainside_cloudsA.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Area7/Assets/mountainside_bg/mountainside_back.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Area7/Assets/mountainside_bg/mountainside_y_looping_rocks.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Area7/Assets/mountainside_bg/mountainside_cloudsB.png" type="Texture" id=6]
+[ext_resource path="res://Rooms/Area7/Assets/mountainside_bg/mountainside_mountains.png" type="Texture" id=7]
+[ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=8]
+[ext_resource path="res://Effects/Shaders/wind.shader" type="Shader" id=9]
+[ext_resource path="res://Rooms/Area7/Assets/MountainLiftSet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=11]
+[ext_resource path="res://Rooms/Common/IndoorsArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Engine/Stations/SaveStation/SaveStation.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Rooms/Area7/Assets/neracla.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Rooms/Area7/Assets/mine_floor.png" type="Texture" id=17]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 8 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0 )
+shader_param/speed_scale = 0.05
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 8 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/wobble_dir = Vector2( 0, 0.1 )
+shader_param/speed_scale = 0.2
+
+[sub_resource type="OpenSimplexNoise" id=3]
+
+[sub_resource type="NoiseTexture" id=4]
+width = 384
+height = 216
+seamless = true
+noise = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 9 )
+shader_param/noise_distortion = 0.142
+shader_param/dist_speed_x = -0.2
+shader_param/dist_speed_y = -0.2
+shader_param/speed_x = -0.6
+shader_param/speed_y = -1.0
+shader_param/intensity = 0.152
+shader_param/noise = SubResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 333, 11 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 23, 56 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 69, 12 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 198, 86 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 96, 10 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 22, 9 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 37, 28 )
+
+[node name="7-2" instance=ExtResource( 2 )]
+level_music = ExtResource( 16 )
+
+[node name="MineFloor" type="Polygon2D" parent="Tilemaps" index="0"]
+position = Vector2( 1201, -374 )
+texture = ExtResource( 17 )
+polygon = PoolVector2Array( -215, -381, 174, -385, 174, 389, -55, 42 )
+
+[node name="MineFloor2" type="Polygon2D" parent="Tilemaps/MineFloor" index="0"]
+show_behind_parent = true
+position = Vector2( 0, 24 )
+color = Color( 0.0980392, 0.0980392, 0.12549, 1 )
+polygon = PoolVector2Array( -215, -381, 174, -385, 174, 389, -55, 42 )
+
+[node name="7-2" parent="Tilemaps" index="1" instance=ExtResource( 1 )]
+
+[node name="PPOutside" type="Node2D" parent="Tilemaps/7-2" index="5"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="0"]
+margin_left = 136.0
+margin_top = -1041.0
+margin_right = 621.0
+margin_bottom = -1000.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="1"]
+margin_left = 137.0
+margin_top = -964.0
+margin_right = 622.0
+margin_bottom = -923.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="2"]
+margin_left = 137.0
+margin_top = -1004.0
+margin_right = 238.0
+margin_bottom = -963.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="3"]
+margin_left = 356.0
+margin_top = -1004.0
+margin_right = 622.0
+margin_bottom = -963.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect14" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="4"]
+margin_left = -515.0
+margin_top = -777.0
+margin_right = 146.0
+margin_bottom = -736.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect16" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="5"]
+margin_left = -245.0
+margin_top = -682.0
+margin_right = 711.0
+margin_bottom = -624.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect18" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="6"]
+margin_left = -1324.0
+margin_top = -626.0
+margin_right = 1021.0
+margin_bottom = -333.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect17" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="7"]
+margin_left = -1305.0
+margin_top = -1418.0
+margin_right = -349.0
+margin_bottom = -623.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect15" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="8"]
+margin_left = 255.0
+margin_top = -776.0
+margin_right = 1071.0
+margin_bottom = -735.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect10" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="9"]
+margin_left = 417.0
+margin_top = -1198.0
+margin_right = 689.0
+margin_bottom = -1153.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect12" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="10"]
+margin_left = 286.0
+margin_top = -1388.0
+margin_right = 755.0
+margin_bottom = -1195.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect11" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="11"]
+margin_left = -492.0
+margin_top = -1397.0
+margin_right = 302.0
+margin_bottom = -1153.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect6" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="12"]
+margin_left = 612.0
+margin_top = -1385.0
+margin_right = 1164.0
+margin_bottom = -517.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="13"]
+margin_left = -515.0
+margin_top = -930.0
+margin_right = 622.0
+margin_bottom = -776.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect13" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="14"]
+margin_left = -515.0
+margin_top = -737.0
+margin_right = 622.0
+margin_bottom = -669.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect7" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="15"]
+margin_left = -496.0
+margin_top = -1153.0
+margin_right = 630.0
+margin_bottom = -1086.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect9" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="16"]
+margin_left = -515.0
+margin_top = -1099.0
+margin_right = -35.0
+margin_bottom = -1032.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect8" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="17"]
+margin_left = -515.0
+margin_top = -1047.0
+margin_right = 101.0
+margin_bottom = -905.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect19" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="18"]
+margin_left = -66.0
+margin_top = -336.0
+margin_right = 141.0
+margin_bottom = -271.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect20" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="19"]
+margin_left = -374.0
+margin_top = -338.0
+margin_right = -348.0
+margin_bottom = -205.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect21" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="20"]
+margin_left = 127.0
+margin_top = -335.0
+margin_right = 208.0
+margin_bottom = -303.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect22" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="21"]
+margin_left = 206.0
+margin_top = -337.0
+margin_right = 734.0
+margin_bottom = -270.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect23" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="22"]
+margin_left = 239.0
+margin_top = -282.0
+margin_right = 766.0
+margin_bottom = -224.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect24" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="23"]
+margin_left = -591.0
+margin_top = -80.0
+margin_right = 858.0
+margin_bottom = 125.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect25" type="ColorRect" parent="Tilemaps/7-2/PPOutside" index="24"]
+margin_left = -1266.0
+margin_top = -344.0
+margin_right = -457.0
+margin_bottom = 123.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboveDarkness" type="Node2D" parent="Tilemaps/7-2/PPOutside" index="25"]
+z_index = 2
+
+[node name="ColorRect19" type="ColorRect" parent="Tilemaps/7-2/PPOutside/AboveDarkness" index="0"]
+margin_left = -182.0
+margin_top = -716.0
+margin_right = 121.0
+margin_bottom = -530.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbovePlayerLit" parent="Tilemaps/7-2" index="8"]
+z_index = 1
+
+[node name="Collision" type="TileMap" parent="Tilemaps" index="2"]
+visible = false
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 2147483649
+format = 1
+tile_data = PoolIntArray( -4849646, 0, 0, -4849645, 0, 65539, -4849644, 0, 65539, -4849643, 0, 65539, -4849642, 0, 65539, -4849641, 0, 65539, -4849640, 0, 65539, -4849639, 0, 65539, -4849638, 0, 0, -4784110, 0, 0, -4784109, 0, 5, -4784108, 0, 5, -4784107, 0, 5, -4784105, 0, 5, -4784104, 0, 5, -4784103, 0, 5, -4784102, 0, 0, -4718571, 0, 0, -4718569, 0, 0, -4653035, 0, 0, -4653033, 0, 0, -4587499, 0, 0, -4587497, 0, 0, -4521963, 0, 0, -4521961, 0, 0, -4456427, 0, 0, -4456425, 0, 0, -4325379, 0, 0, -4325378, 0, 65539, -4325377, 0, 65539, -4390912, 0, 65539, -4390911, 0, 65539, -4390910, 0, 65539, -4390909, 0, 65539, -4390908, 0, 65539, -4390907, 0, 65539, -4390906, 0, 65539, -4390905, 0, 65539, -4390904, 0, 65539, -4390903, 0, 65539, -4390902, 0, 65539, -4390901, 0, 65539, -4390900, 0, 65539, -4390899, 0, 65539, -4390898, 0, 65539, -4390897, 0, 65539, -4390896, 0, 65539, -4390895, 0, 65539, -4390894, 0, 65539, -4390893, 0, 65539, -4390892, 0, 65539, -4390891, 0, 65539, -4390889, 0, 65539, -4390888, 0, 65539, -4390887, 0, 65539, -4390886, 0, 65539, -4390885, 0, 65539, -4390884, 0, 65539, -4390883, 0, 65539, -4390882, 0, 65539, -4390881, 0, 65539, -4390880, 0, 65539, -4390879, 0, 65539, -4390878, 0, 65539, -4390877, 0, 65539, -4390876, 0, 65539, -4390875, 0, 65539, -4390874, 0, 0, -4259843, 0, 2, -4259842, 0, 5, -4259841, 0, 5, -4325376, 0, 5, -4325374, 0, 5, -4325373, 0, 5, -4325372, 0, 5, -4325371, 0, 5, -4325367, 0, 5, -4325366, 0, 5, -4325365, 0, 5, -4325364, 0, 5, -4325363, 0, 5, -4325362, 0, 5, -4325361, 0, 5, -4325360, 0, 5, -4325359, 0, 5, -4325358, 0, 5, -4325357, 0, 5, -4325356, 0, 5, -4325355, 0, 5, -4325354, 0, 5, -4325353, 0, 5, -4325352, 0, 5, -4325351, 0, 5, -4325350, 0, 5, -4325349, 0, 5, -4325348, 0, 5, -4325347, 0, 5, -4325346, 0, 5, -4325344, 0, 5, -4325343, 0, 5, -4325341, 0, 5, -4325340, 0, 5, -4325339, 0, 5, -4325338, 0, 1, -4194310, 0, 0, -4194309, 0, 0, -4194308, 0, 0, -4194307, 0, 0, -4194306, 0, 0, -4194305, 0, 0, -4259840, 0, 0, -4259838, 0, 0, -4259837, 0, 0, -4259836, 0, 0, -4259835, 0, 0, -4259834, 0, 65543, -4259832, 0, 65542, -4259810, 0, 0, -4259808, 0, 0, -4259806, 0, 0, -4128774, 0, 0, -4194299, 0, 0, -4194298, 0, 65543, -4194296, 0, 65542, -4194274, 0, 0, -4194272, 0, 0, -4063238, 0, 0, -4063236, 0, 0, -4063235, 0, 0, -4063234, 0, 0, -4063233, 0, 0, -4128768, 0, 0, -4128767, 0, 0, -4128766, 0, 0, -4128763, 0, 0, -4128762, 0, 65543, -4128760, 0, 65542, -4128738, 0, 0, -4128736, 0, 0, -3997702, 0, 0, -3997700, 0, 0, -4063230, 0, 0, -4063229, 0, 0, -4063228, 0, 0, -4063227, 0, 0, -4063226, 0, 65543, -4063224, 0, 65542, -4063218, 0, 0, -4063217, 0, 65539, -4063216, 0, 65539, -4063215, 0, 65539, -4063214, 0, 65539, -4063213, 0, 65539, -4063212, 0, 65539, -4063211, 0, 65539, -4063210, 0, 0, -4063202, 0, 0, -4063200, 0, 0, -3932166, 0, 0, -3932164, 0, 0, -3997690, 0, 65543, -3997688, 0, 65542, -3997682, 0, 0, -3997681, 0, 5, -3997680, 0, 5, -3997679, 0, 5, -3997677, 0, 5, -3997676, 0, 5, -3997675, 0, 5, -3997674, 0, 0, -3997666, 0, 0, -3997664, 0, 0, -3866630, 0, 0, -3866628, 0, 0, -3932154, 0, 65543, -3932152, 0, 65542, -3932143, 0, 0, -3932141, 0, 0, -3932130, 0, 0, -3932128, 0, 0, -3801094, 0, 0, -3801092, 0, 0, -3866618, 0, 65543, -3866616, 0, 65542, -3866607, 0, 0, -3866605, 0, 0, -3866604, 0, 0, -3866603, 0, 0, -3866602, 0, 0, -3866601, 0, 0, -3866600, 0, 0, -3866599, 0, 0, -3866598, 0, 0, -3866597, 0, 0, -3866596, 0, 0, -3866595, 0, 0, -3866594, 0, 0, -3866592, 0, 0, -3735558, 0, 0, -3735556, 0, 0, -3801082, 0, 0, -3801081, 0, 0, -3801080, 0, 0, -3801071, 0, 0, -3801056, 0, 0, -3670022, 0, 0, -3670020, 0, 0, -3670019, 0, 0, -3670018, 0, 0, -3735545, 0, 0, -3735544, 0, 0, -3735543, 0, 0, -3735542, 0, 0, -3735541, 0, 0, -3735535, 0, 0, -3735533, 0, 0, -3735532, 0, 0, -3735531, 0, 0, -3735530, 0, 0, -3735529, 0, 0, -3735528, 0, 0, -3735526, 0, 0, -3735525, 0, 0, -3735524, 0, 0, -3735523, 0, 0, -3735522, 0, 0, -3735521, 0, 0, -3735520, 0, 0, -3604486, 0, 0, -3604482, 0, 0, -3670016, 0, 0, -3670015, 0, 0, -3670014, 0, 0, -3670013, 0, 0, -3670012, 0, 0, -3670009, 0, 0, -3670005, 0, 0, -3669999, 0, 0, -3669997, 0, 0, -3669992, 0, 0, -3669988, 0, 0, -3538950, 0, 0, -3538946, 0, 0, -3538945, 0, 0, -3604480, 0, 0, -3604476, 0, 0, -3604475, 0, 0, -3604474, 0, 0, -3604473, 0, 0, -3604469, 0, 0, -3604463, 0, 0, -3604461, 0, 0, -3604456, 0, 0, -3604455, 0, 0, -3604454, 0, 0, -3604452, 0, 0, -3473414, 0, 0, -3538933, 0, 0, -3538927, 0, 0, -3538925, 0, 0, -3538920, 0, 0, -3538916, 0, 0, -3407878, 0, 0, -3407874, 0, 0, -3407873, 0, 0, -3473408, 0, 0, -3473404, 0, 0, -3473403, 0, 0, -3473402, 0, 0, -3473401, 0, 0, -3473397, 0, 0, -3473391, 0, 0, -3473389, 0, 0, -3473384, 0, 0, -3473382, 0, 0, -3473381, 0, 0, -3473380, 0, 0, -3342342, 0, 0, -3342338, 0, 0, -3407872, 0, 0, -3407871, 0, 0, -3407870, 0, 0, -3407869, 0, 0, -3407868, 0, 0, -3407865, 0, 0, -3407861, 0, 0, -3407855, 0, 0, -3407853, 0, 0, -3407849, 0, 0, -3407843, 0, 0, -3276806, 0, 0, -3276805, 0, 0, -3276803, 0, 0, -3276802, 0, 0, -3342329, 0, 0, -3342328, 0, 0, -3342327, 0, 0, -3342326, 0, 0, -3342325, 0, 0, -3342319, 0, 0, -3342317, 0, 0, -3342316, 0, 0, -3342315, 0, 0, -3342314, 0, 0, -3342313, 0, 0, -3342307, 0, 0, -3211269, 0, 0, -3211267, 0, 0, -3276783, 0, 0, -3276779, 0, 0, -3276771, 0, 0, -3145773, 0, 0, -3145772, 0, 0, -3145771, 0, 0, -3145770, 0, 0, -3145769, 0, 0, -3145768, 0, 0, -3145767, 0, 0, -3145766, 0, 0, -3145765, 0, 0, -3145764, 0, 0, -3145763, 0, 0, -3145762, 0, 0, -3145761, 0, 0, -3145760, 0, 0, -3145733, 0, 0, -3145731, 0, 0, -3211263, 0, 0, -3211262, 0, 0, -3211261, 0, 0, -3211260, 0, 0, -3211259, 0, 0, -3211247, 0, 0, -3211245, 0, 0, -3211243, 0, 0, -3211241, 0, 0, -3211235, 0, 0, -3080237, 0, 0, -3080224, 0, 0, -3080223, 0, 0, -3080222, 0, 0, -3080221, 0, 0, -3080220, 0, 0, -3080219, 0, 0, -3080218, 0, 0, -3080217, 0, 0, -3080216, 0, 0, -3080215, 0, 0, -3080214, 0, 0, -3080213, 0, 0, -3080212, 0, 0, -3080211, 0, 0, -3080210, 0, 0, -3080209, 0, 0, -3080208, 0, 0, -3080207, 0, 0, -3080206, 0, 0, -3080205, 0, 0, -3080204, 0, 0, -3080203, 0, 0, -3080202, 0, 0, -3080201, 0, 0, -3080200, 0, 0, -3080199, 0, 0, -3080198, 0, 0, -3080197, 0, 0, -3080195, 0, 0, -3080194, 0, 0, -3080193, 0, 0, -3145728, 0, 0, -3145727, 0, 0, -3145723, 0, 0, -3145720, 0, 0, -3145719, 0, 65539, -3145718, 0, 65539, -3145717, 0, 65539, -3145716, 0, 65539, -3145715, 0, 65539, -3145714, 0, 65539, -3145713, 0, 65539, -3145712, 0, 0, -3145711, 0, 0, -3145709, 0, 0, -3145705, 0, 0, -3145699, 0, 0, -3014701, 0, 0, -3080187, 0, 65542, -3080184, 0, 0, -3080183, 0, 5, -3080182, 0, 5, -3080181, 0, 5, -3080179, 0, 5, -3080178, 0, 5, -3080177, 0, 5, -3080176, 0, 0, -3080175, 0, 0, -3080173, 0, 0, -3080172, 0, 0, -3080171, 0, 0, -3080170, 0, 0, -3080169, 0, 0, -3080168, 0, 0, -3080167, 0, 0, -3080166, 0, 0, -3080165, 0, 0, -3080164, 0, 0, -3080163, 0, 0, -2949165, 0, 0, -3014651, 0, 65542, -3014646, 0, 0, -3014645, 0, 0, -3014643, 0, 0, -3014642, 0, 0, -3014641, 0, 0, -3014640, 0, 0, -3014639, 0, 0, -3014637, 0, 0, -3014636, 0, 0, -2883629, 0, 0, -2883616, 0, 0, -2883615, 0, 0, -2883614, 0, 0, -2883613, 0, 0, -2883612, 0, 0, -2883611, 0, 0, -2883610, 0, 0, -2883609, 0, 0, -2883608, 0, 0, -2883607, 0, 0, -2883606, 0, 0, -2883605, 0, 0, -2883604, 0, 0, -2883603, 0, 0, -2883602, 0, 0, -2883601, 0, 0, -2883600, 0, 0, -2883599, 0, 0, -2883598, 0, 0, -2883597, 0, 0, -2883596, 0, 0, -2883595, 0, 0, -2883594, 0, 0, -2883593, 0, 0, -2883592, 0, 0, -2883591, 0, 0, -2883590, 0, 0, -2883589, 0, 0, -2883588, 0, 0, -2883587, 0, 0, -2883586, 0, 0, -2883585, 0, 0, -2949120, 0, 0, -2949119, 0, 0, -2949115, 0, 0, -2949110, 0, 0, -2949100, 0, 0, -2818093, 0, 0, -2818081, 0, 0, -2883583, 0, 0, -2883582, 0, 0, -2883581, 0, 0, -2883580, 0, 0, -2883579, 0, 0, -2883574, 0, 0, -2883564, 0, 0, -2752560, 0, 0, -2752557, 0, 0, -2752545, 0, 0, -2818038, 0, 0, -2818028, 0, 0, -2687025, 0, 0, -2687023, 0, 0, -2687021, 0, 0, -2687010, 0, 0, -2752505, 0, 0, -2752504, 0, 0, -2752503, 0, 0, -2752502, 0, 0, -2752498, 0, 0, -2752497, 0, 0, -2752496, 0, 0, -2752492, 0, 0, -2621489, 0, 0, -2621487, 0, 0, -2621485, 0, 0, -2621475, 0, 0, -2621463, 0, 0, -2621462, 0, 65539, -2621461, 0, 65539, -2621460, 0, 65539, -2621459, 0, 65539, -2621458, 0, 65539, -2621457, 0, 65539, -2621456, 0, 65539, -2621455, 0, 0, -2686969, 0, 65543, -2686962, 0, 0, -2686959, 0, 65543, -2686956, 0, 0, -2555953, 0, 0, -2555951, 0, 0, -2555950, 0, 0, -2555949, 0, 0, -2555941, 0, 0, -2555940, 0, 0, -2555927, 0, 0, -2555926, 0, 5, -2555925, 0, 5, -2555924, 0, 5, -2555922, 0, 5, -2555921, 0, 5, -2555920, 0, 5, -2555919, 0, 0, -2621433, 0, 0, -2621432, 0, 0, -2621431, 0, 0, -2621430, 0, 0, -2621426, 0, 0, -2621425, 0, 0, -2621424, 0, 0, -2621423, 0, 65543, -2621420, 0, 0, -2490417, 0, 0, -2490408, 0, 0, -2490407, 0, 0, -2490406, 0, 0, -2490390, 0, 0, -2490389, 0, 0, -2490388, 0, 0, -2490386, 0, 0, -2490385, 0, 0, -2490384, 0, 0, -2490383, 0, 0, -2490382, 0, 0, -2490381, 0, 0, -2490380, 0, 0, -2490379, 0, 0, -2490378, 0, 0, -2490377, 0, 0, -2490375, 0, 0, -2490374, 0, 0, -2490373, 0, 0, -2490372, 0, 0, -2490371, 0, 0, -2490370, 0, 0, -2490369, 0, 0, -2555904, 0, 0, -2555903, 0, 0, -2555902, 0, 0, -2555901, 0, 0, -2555900, 0, 0, -2555899, 0, 0, -2555898, 0, 0, -2555897, 0, 0, -2555896, 0, 0, -2555895, 0, 0, -2555894, 0, 0, -2555884, 0, 0, -2424880, 0, 0, -2424879, 0, 0, -2424878, 0, 0, -2424877, 0, 0, -2424876, 0, 0, -2424875, 0, 0, -2424874, 0, 0, -2424873, 0, 0, -2424854, 0, 0, -2490348, 0, 0, -2359318, 0, 0, -2359317, 0, 0, -2359316, 0, 0, -2359315, 0, 0, -2359314, 0, 0, -2359313, 0, 0, -2359312, 0, 0, -2359311, 0, 0, -2359310, 0, 0, -2359309, 0, 0, -2359308, 0, 0, -2359300, 0, 0, -2359299, 0, 0, -2359298, 0, 0, -2359297, 0, 0, -2424832, 0, 0, -2424831, 0, 0, -2424830, 0, 0, -2424829, 0, 0, -2424828, 0, 0, -2424827, 0, 0, -2424826, 0, 0, -2424825, 0, 0, -2424824, 0, 0, -2424823, 0, 0, -2424822, 0, 0, -2424812, 0, 0, -2293772, 0, 0, -2293771, 0, 0, -2293770, 0, 0, -2293769, 0, 0, -2293768, 0, 0, -2293767, 0, 0, -2293766, 0, 0, -2293765, 0, 0, -2293764, 0, 0, -2359286, 0, 0, -2359285, 0, 0, -2359284, 0, 0, -2359283, 0, 0, -2359282, 0, 0, -2359281, 0, 0, -2359280, 0, 0, -2359279, 0, 0, -2359278, 0, 0, -2359277, 0, 0, -2359276, 0, 0, -1441793, 0, 0, -1507328, 0, 0, -1507327, 0, 0, -1507326, 0, 0, -1507325, 0, 0, -1507324, 0, 0, -1507323, 0, 0, -1376265, 0, 0, -1376263, 0, 0, -1376257, 0, 0, -1441787, 0, 0, -1310734, 0, 0, -1310733, 0, 0, -1310732, 0, 0, -1310731, 0, 0, -1310730, 0, 0, -1310729, 0, 0, -1310727, 0, 0, -1310726, 0, 0, -1310725, 0, 0, -1310724, 0, 0, -1310723, 0, 0, -1310722, 0, 0, -1310721, 0, 0, -1376251, 0, 0, -1376250, 0, 0, -1376249, 0, 0, -1245205, 0, 0, -1245204, 0, 0, -1245203, 0, 0, -1245202, 0, 0, -1245201, 0, 0, -1245200, 0, 0, -1245199, 0, 0, -1245198, 0, 0, -1310713, 0, 0, -1179669, 0, 0, -1245177, 0, 0, -1114133, 0, 0, -1114116, 0, 0, -1114115, 0, 0, -1114114, 0, 0, -1114113, 0, 0, -1179648, 0, 0, -1179647, 0, 0, -1179646, 0, 0, -1179645, 0, 0, -1179644, 0, 0, -1179643, 0, 0, -1179642, 0, 0, -1179641, 0, 0, -1048606, 0, 0, -1048605, 0, 0, -1048604, 0, 0, -1048603, 0, 0, -1048602, 0, 0, -1048601, 0, 0, -1048600, 0, 0, -1048599, 0, 0, -1048598, 0, 0, -1048597, 0, 0, -1048596, 0, 5, -1048595, 0, 5, -1048594, 0, 5, -1048593, 0, 5, -1048592, 0, 5, -1048591, 0, 5, -1048590, 0, 5, -1048589, 0, 5, -1048588, 0, 5, -1048587, 0, 5, -1048586, 0, 5, -1048585, 0, 5, -1048583, 0, 5, -1048582, 0, 5, -1048581, 0, 5, -1048580, 0, 0, -1114105, 0, 0, -1114104, 0, 0, -1114103, 0, 0, -1114102, 0, 0, -1114101, 0, 0, -1114100, 0, 0, -1114099, 0, 0, -983070, 0, 0, -983063, 0, 0, -983044, 0, 65539, -983043, 0, 65539, -983042, 0, 65539, -983041, 0, 65539, -1048576, 0, 65539, -1048575, 0, 65539, -1048574, 0, 65539, -1048573, 0, 65539, -1048572, 0, 65539, -1048571, 0, 65539, -1048570, 0, 65539, -1048569, 0, 65539, -1048563, 0, 65539, -1048562, 0, 65539, -1048561, 0, 6, -917534, 0, 0, -917527, 0, 0, -917508, 0, 5, -917507, 0, 5, -917506, 0, 5, -917505, 0, 5, -983040, 0, 5, -983039, 0, 5, -983038, 0, 5, -983037, 0, 5, -983036, 0, 5, -983035, 0, 5, -983034, 0, 5, -983033, 0, 5, -983027, 0, 5, -983026, 0, 5, -983025, 0, 6, -851998, 0, 0, -851991, 0, 0, -851972, 0, 0, -917497, 0, 0, -917491, 0, 0, -786462, 0, 0, -786436, 0, 0, -851961, 0, 0, -851955, 0, 0, -720926, 0, 0, -720900, 0, 0, -720899, 0, 0, -720898, 0, 0, -720897, 0, 0, -786432, 0, 0, -786431, 0, 0, -786430, 0, 0, -786429, 0, 0, -786425, 0, 0, -786424, 0, 0, -786423, 0, 0, -786422, 0, 0, -786421, 0, 0, -786420, 0, 0, -786419, 0, 0, -655390, 0, 0, -720893, 0, 0, -589854, 0, 0, -589828, 0, 0, -589827, 0, 0, -589826, 0, 0, -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -524318, 0, 0, -524292, 0, 0, -458782, 0, 0, -458775, 0, 0, -458756, 0, 0, -393246, 0, 0, -393239, 0, 0, -393220, 0, 0, -327710, 0, 0, -327703, 0, 0, -327684, 0, 0, -262174, 0, 0, -262173, 0, 0, -262172, 0, 0, -262171, 0, 0, -262170, 0, 0, -262169, 0, 0, -262168, 0, 0, -262167, 0, 0, -262166, 0, 0, -262165, 0, 0, -262164, 0, 0, -262163, 0, 0, -262162, 0, 0, -262161, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0 )
+
+[node name="NeraclaParallaxBG" type="ParallaxBackground" parent="Background" index="0"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/NeraclaParallaxBG" index="0"]
+position = Vector2( 192, 0 )
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/NeraclaParallaxBG/ParallaxLayer" index="0"]
+texture = ExtResource( 4 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/NeraclaParallaxBG" index="1"]
+position = Vector2( 192, 0 )
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/NeraclaParallaxBG/ParallaxLayer2" index="0"]
+material = SubResource( 1 )
+position = Vector2( 0, -156 )
+texture = ExtResource( 6 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/NeraclaParallaxBG" index="2"]
+motion_scale = Vector2( 0.02, 0.02 )
+
+[node name="Sprite" type="Sprite" parent="Background/NeraclaParallaxBG/ParallaxLayer3" index="0"]
+position = Vector2( -209, 57 )
+texture = ExtResource( 7 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/NeraclaParallaxBG" index="3"]
+position = Vector2( 192, -110 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/NeraclaParallaxBG/ParallaxLayer4" index="0"]
+material = SubResource( 2 )
+position = Vector2( 0, 155 )
+texture = ExtResource( 3 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Background/NeraclaParallaxBG" index="4"]
+position = Vector2( 192, -122 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 0, 216 )
+
+[node name="Sprite" type="Sprite" parent="Background/NeraclaParallaxBG/ParallaxLayer5" index="0"]
+position = Vector2( -576, 108 )
+texture = ExtResource( 5 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Background/NeraclaParallaxBG" index="5"]
+motion_scale = Vector2( 0.8, 0.8 )
+motion_mirroring = Vector2( 384, 216 )
+
+[node name="ColorRect" type="ColorRect" parent="Background/NeraclaParallaxBG/ParallaxLayer6" index="0"]
+material = SubResource( 5 )
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 13 )]
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 14 )]
+
+[node name="Player" parent="YSort" index="2"]
+position = Vector2( 502, -1012 )
+
+[node name="MountainLiftSet" parent="YSort" index="3" groups=[
+"outsider",
+] instance=ExtResource( 10 )]
+position = Vector2( -120, -672 )
+
+[node name="MountainLiftSet2" parent="YSort" index="4" groups=[
+"outsider",
+] instance=ExtResource( 10 )]
+position = Vector2( -147, -73 )
+
+[node name="Outsiders" type="YSort" parent="YSort" index="5" groups=[
+"outsider",
+]]
+
+[node name="SaveStation" parent="YSort/Outsiders" index="0" instance=ExtResource( 15 )]
+position = Vector2( 56, -759 )
+
+[node name="Insiders" type="YSort" parent="YSort" index="6" groups=[
+"insider",
+]]
+
+[node name="SaveStation" parent="YSort/Insiders" index="0" instance=ExtResource( 15 )]
+position = Vector2( 174, -1059 )
+
+[node name="Cables" type="Node2D" parent="." index="3" groups=[
+"outsider",
+]]
+position = Vector2( 250, -1003 )
+z_index = 2
+
+[node name="Cable" type="Line2D" parent="Cables" index="0"]
+position = Vector2( -229, -82 )
+points = PoolVector2Array( 1, 4, -72, -392, 166, -392, 97, 2 )
+width = 3.0
+default_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="Cable2" type="Line2D" parent="Cables" index="1"]
+points = PoolVector2Array( 1, 4, -72, -392, 166, -392, 97, 2 )
+width = 3.0
+default_color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="." index="6"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IndoorsArea" parent="." index="7" instance=ExtResource( 12 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IndoorsArea" index="1"]
+position = Vector2( -17, -3 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="IndoorsArea" index="2"]
+position = Vector2( -185, 64 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="IndoorsArea" index="3"]
+position = Vector2( -9, 76 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="IndoorsArea" index="4"]
+position = Vector2( -107, 300 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="IndoorsArea" index="5"]
+position = Vector2( -602, 412 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="IndoorsArea" index="6"]
+position = Vector2( 55, -117 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="IndoorsArea" index="7"]
+position = Vector2( -569, 882 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="IndoorsArea" index="8"]
+position = Vector2( -273, 813 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="IndoorsArea" index="9"]
+position = Vector2( -75, 814 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="IndoorsArea" index="10"]
+position = Vector2( -137, 826 )
+shape = SubResource( 12 )
+
+[editable path="Tilemaps/7-2"]
+
+[editable path="HUD"]

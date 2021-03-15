@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/neracla.ogg-cbd4eb9c172e988054c9e44a0727a22a.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area7/Assets/neracla.ogg"
+dest_files=[ "res://.import/neracla.ogg-cbd4eb9c172e988054c9e44a0727a22a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

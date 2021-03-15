@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/school_bell.wav-92e5a8092e4616e25fef3ceae643aa74.sample"
+
+[deps]
+
+source_file="res://SoundEffects/school_bell.wav"
+dest_files=[ "res://.import/school_bell.wav-92e5a8092e4616e25fef3ceae643aa74.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

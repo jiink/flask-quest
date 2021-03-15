@@ -41,11 +41,10 @@
 [ext_resource path="res://Rooms/Area6/Assets/numbered_sign_twenty.png" type="Texture" id=39]
 [ext_resource path="res://Rooms/Area6/6-3/PlayerBed.gd" type="Script" id=40]
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 24 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle_bounce"
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -60,60 +59,60 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 38 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 38 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 38 )
 region = Rect2( 0, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 38 )
 region = Rect2( 32, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 38 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 38 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="Curve2D" id=9]
+[sub_resource type="Curve2D" id=10]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 45, 45, 0, 0, 0, 0, 58, 44, 0, 0, 0, 0, 65, 38, 0, 0, 0, 0, 63, 32, 0, 0, 0, 0, 60, 27, 0, 0, 0, 0, 59, 18, 0, 0, 0, 0, 58, -3, 0, 0, 0, 0, 61, -23, 0, 0, 0, 0, 65, -35, 0, 0, 0, 0, 73, -46, 0, 0, 0, 0, 72, -52, 0, 0, 0, 0, 68, -53, 0, 0, 0, 0, 66, -51, 0, 0, 0, 0, 63, -49, 0, 0, 0, 0, 61, -45, 0, 0, 0, 0, 52, -41, 0, 0, 0, 0, 43, -40, 0, 0, 0, 0, 26, -41, 0, 0, 0, 0, 7, -46, 0, 0, 0, 0, -1, -53, 0, 0, 0, 0, -6, -63, 0, 0, 0, 0, -7, -74, 0, 0, 0, 0, -8, -118, 0, 0, 0, 0, -7, -167, 0, 0, 0, 0, -8, -299, 0, 0, 0, 0, -9, -311, 0, 0, 0, 0, -11, -323, 0, 0, 0, 0, -13, -336, 0, 0, 0, 0, -6, -342, 0, 0, 0, 0, 3, -344, 0, 0, 0, 0, 9, -341, 0, 0, 0, 0, 13, -335, 0, 0, 0, 0, 13, -331, 0, 0, 0, 0, 17, -327, 0, 0, 0, 0, 22, -326, 0, 0, 0, 0, 28, -326, 0, 0, 0, 0, 40, -327, 0, 0, 0, 0, 150, -327, 0, 0, 0, 0, 164, -329, 0, 0, 0, 0, 176, -330, 0, 0, 0, 0, 188, -337, 0, 0, 0, 0, 194, -344, 0, 0, 0, 0, 200, -347, 0, 0, 0, 0, 203, -344, 0, 0, 0, 0, 203, -339 )
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 16, 3 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 7, 4 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 3, 8 )
 
 [node name="6-3" groups=[
@@ -225,7 +224,7 @@ script = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Furniture/PlayerBed/Interaction" index="0"]
 position = Vector2( 0, 17 )
-shape = SubResource( 13 )
+shape = SubResource( 1 )
 
 [node name="DialogueTree" parent="YSort/Furniture/PlayerBed" index="3" instance=ExtResource( 31 )]
 
@@ -471,14 +470,14 @@ face_texture = ExtResource( 33 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Receptionist" index="4"]
 autoplay = "idle_bounce"
-anims/idle_bounce = SubResource( 1 )
+anims/idle_bounce = SubResource( 2 )
 
 [node name="Sasha" parent="YSort" index="7" instance=ExtResource( 35 )]
 position = Vector2( 45, 45 )
 script = ExtResource( 36 )
 
 [node name="AnimatedSprite" parent="YSort/Sasha" index="3"]
-frames = SubResource( 8 )
+frames = SubResource( 9 )
 
 [node name="Tween" type="Tween" parent="YSort/Sasha" index="4"]
 
@@ -579,7 +578,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="SashaPath" type="Path2D" parent="." index="5"]
-curve = SubResource( 9 )
+curve = SubResource( 10 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SashaPath" index="0"]
 position = Vector2( 45, 45 )
@@ -733,7 +732,7 @@ new_scene = "res://Rooms/Area6/6-1/6-1.tscn"
 player_new_position = Vector2( 1424, -624 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScenePortal" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="PosPortals" type="Node2D" parent="." index="10"]
 
@@ -741,7 +740,7 @@ shape = SubResource( 10 )
 position = Vector2( 216, -353 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/RoomPortal" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/RoomPortal" index="1"]
 position = Vector2( 0, -215 )
@@ -750,7 +749,7 @@ position = Vector2( 0, -215 )
 position = Vector2( 216, -555 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/RoomPortal2" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/RoomPortal2" index="1"]
 position = Vector2( 0, 211 )
@@ -759,7 +758,7 @@ position = Vector2( 0, 211 )
 position = Vector2( 365, -616 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/BathroomPortal" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/BathroomPortal" index="1"]
 position = Vector2( 146, 16 )
@@ -768,7 +767,7 @@ position = Vector2( 146, 16 )
 position = Vector2( 499, -600 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/BathroomPortal2" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/BathroomPortal2" index="1"]
 position = Vector2( -145, -16 )

@@ -1,6 +1,6 @@
 extends "res://NPC/NPCBasic/NPCBasic.gd"
 
-var interactable = true
+#var interactable = true
 onready var green = global.get_player(1)
 onready var orange = global.get_player(2)
 var green_anim_pos = Vector2(1516, -174.25)
