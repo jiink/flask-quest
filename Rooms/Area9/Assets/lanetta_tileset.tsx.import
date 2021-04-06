@@ -1,0 +1,20 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/lanetta_tileset.tsx-73dc28b49a5b8421141b7aa616b90081.res"
+
+[deps]
+
+source_file="res://Rooms/Area9/Assets/lanetta_tileset.tsx"
+dest_files=[ "res://.import/lanetta_tileset.tsx-73dc28b49a5b8421141b7aa616b90081.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=7
+embed_internal_images=false
+save_tiled_properties=false
+apply_offset=false
+post_import_script=""

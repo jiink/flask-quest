@@ -37,6 +37,7 @@ MusicManager="*res://Engine/Singletons/MusicManager/MusicManager.tscn"
 DiagHelper="*res://Engine/dialogue/DiagHelper.gd"
 Debug="*res://Engine/Debug/Debug.gd"
 TickManager="*res://Engine/Singletons/TickManager.tscn"
+WeatherManager="*res://Engine/Singletons/WeatherManager/WeatherManager.tscn"
 
 [debug]
 

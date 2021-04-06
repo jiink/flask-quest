@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Rooms/Area2/Assets/beach_background.png" type="Texture" id=1]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 384, 216 )
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer2"]
+margin_right = 384.0
+margin_bottom = 216.0
+color = Color( 0.47451, 0.811765, 0.831373, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 0, 216 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="beach_background" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( -174, 108 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

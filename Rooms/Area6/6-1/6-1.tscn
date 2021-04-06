@@ -1,10 +1,9 @@
-[gd_scene load_steps=149 format=2]
+[gd_scene load_steps=148 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area6/6-1/6-1.tmx" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/PoppyHouseB.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/PoppyHouseA.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Rooms/Common/rain.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Rooms/Area6/Assets/restaurant_sign.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/Area6/Assets/rivers+crickets.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Rooms/Area6/Assets/PropScenes/TrashCan.tscn" type="PackedScene" id=8]
@@ -1541,35 +1540,35 @@ region = Rect2( 32, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=59]
 atlas = ExtResource( 44 )
-region = Rect2( 0, 96, 32, 48 )
+region = Rect2( 64, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=60]
 atlas = ExtResource( 44 )
-region = Rect2( 32, 96, 32, 48 )
+region = Rect2( 96, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=61]
 atlas = ExtResource( 44 )
-region = Rect2( 64, 0, 32, 48 )
+region = Rect2( 128, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=62]
 atlas = ExtResource( 44 )
-region = Rect2( 96, 0, 32, 48 )
+region = Rect2( 160, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 44 )
-region = Rect2( 128, 0, 32, 48 )
+region = Rect2( 192, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=64]
 atlas = ExtResource( 44 )
-region = Rect2( 160, 0, 32, 48 )
+region = Rect2( 224, 0, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=65]
 atlas = ExtResource( 44 )
-region = Rect2( 192, 0, 32, 48 )
+region = Rect2( 0, 96, 32, 48 )
 
 [sub_resource type="AtlasTexture" id=66]
 atlas = ExtResource( 44 )
-region = Rect2( 224, 0, 32, 48 )
+region = Rect2( 32, 96, 32, 48 )
 
 [sub_resource type="SpriteFrames" id=67]
 animations = [ {
@@ -1583,14 +1582,14 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 59 ), SubResource( 60 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
+"frames": [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
 "loop": true,
 "name": "down_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 65 ), SubResource( 66 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -1912,7 +1911,7 @@ __meta__ = {
 visible = false
 position = Vector2( 1235, -1226 )
 frames = SubResource( 11 )
-frame = 8
+frame = 6
 playing = true
 
 [node name="MMWaterOverlap" type="ColorRect" parent="." index="7"]
@@ -2150,6 +2149,7 @@ position = Vector2( 342, -111 )
 
 [node name="Boat" parent="YSort/CallBellSystem2" index="5"]
 position = Vector2( 189, -110 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem2/Boat" index="1"]
 frame = 2
@@ -2185,6 +2185,7 @@ position = Vector2( 61, 19 )
 
 [node name="Boat" parent="YSort/CallBellSystem3" index="5"]
 position = Vector2( 183, -4 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem3/Boat" index="1"]
 frame = 5
@@ -2222,6 +2223,7 @@ position = Vector2( 255, 19 )
 
 [node name="Boat" parent="YSort/CallBellSystem4" index="5"]
 position = Vector2( 183, -4 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem4/Boat" index="1"]
 frame = 4
@@ -2259,6 +2261,7 @@ position = Vector2( 86, 37 )
 
 [node name="Boat" parent="YSort/CallBellSystem5" index="5"]
 position = Vector2( 117, -14 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem5/Boat" index="1"]
 frame = 3
@@ -2296,6 +2299,7 @@ position = Vector2( 26, 105 )
 
 [node name="Boat" parent="YSort/CallBellSystem6" index="5"]
 position = Vector2( -49, 13 )
+frame = 0
 
 [node name="poppyhart_boaters" parent="YSort/CallBellSystem6/Boat" index="1"]
 frame = 1
@@ -2334,6 +2338,7 @@ position = Vector2( 71, 184 )
 
 [node name="Boat" parent="YSort/CallBellSystem7" index="5"]
 position = Vector2( 48, 131 )
+frame = 0
 
 [node name="ground_arrow" parent="YSort/CallBellSystem7" index="7"]
 position = Vector2( -47, -194 )
@@ -3250,10 +3255,6 @@ texture_mode = 1
 joint_mode = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="11"]
-
-[node name="Particles2D" parent="Camera" index="0" instance=ExtResource( 5 )]
-modulate = Color( 0.454902, 0.156863, 0.447059, 1 )
-position = Vector2( 0, 0 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="14"]
 position = Vector2( 429, -494 )
