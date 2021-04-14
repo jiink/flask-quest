@@ -1,4 +1,4 @@
-[gd_scene load_steps=314 format=2]
+[gd_scene load_steps=334 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -217,6 +217,15 @@
 [ext_resource path="res://Rooms/Area9/Assets/dreamscape_city_tileset_window_distortion.png" type="Texture" id=215]
 [ext_resource path="res://Rooms/Area9/Assets/dreamscape_city_tileset_window_map.png" type="Texture" id=216]
 [ext_resource path="res://Effects/Shaders/window_reflection.shader" type="Shader" id=217]
+[ext_resource path="res://Rooms/Area2/Assets/architect_a.png" type="Texture" id=218]
+[ext_resource path="res://Rooms/Area2/Assets/architect_b.png" type="Texture" id=219]
+[ext_resource path="res://Rooms/Area2/Assets/architect_c.png" type="Texture" id=220]
+[ext_resource path="res://NPC/MinorNPCs/architect_b_face.png" type="Texture" id=221]
+[ext_resource path="res://NPC/MinorNPCs/architect_a_face.png" type="Texture" id=222]
+[ext_resource path="res://NPC/MinorNPCs/architect_c_face.png" type="Texture" id=223]
+[ext_resource path="res://Rooms/Area2/Assets/old_person_a.png" type="Texture" id=224]
+[ext_resource path="res://Rooms/Area2/2-1/old_cat_lady.gd" type="Script" id=225]
+[ext_resource path="res://NPC/LostCat/lost_cat.gd" type="Script" id=226]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 217 )
@@ -1134,19 +1143,129 @@ extents = Vector2( 12, 4 )
 [sub_resource type="RectangleShape2D" id=63]
 extents = Vector2( 11, 4 )
 
-[sub_resource type="RectangleShape2D" id=64]
+[sub_resource type="Animation" id=64]
+resource_name = "default"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=65]
+resource_name = "default"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=66]
+resource_name = "default"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 224 )
+region = Rect2( 0, 24, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 224 )
+region = Rect2( 16, 24, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 224 )
+region = Rect2( 0, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 224 )
+region = Rect2( 16, 48, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 224 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 224 )
+region = Rect2( 16, 0, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=73]
+animations = [ {
+"frames": [ SubResource( 67 ), SubResource( 68 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 69 ), SubResource( 70 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 71 ), SubResource( 72 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=74]
+resource_name = "search"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1.7, 2.1, 2.4, 2.6, 3, 3.5, 4.2, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1462, 23 ), Vector2( 1480, 20 ), Vector2( 1480, 20 ), Vector2( 1458, 48 ), Vector2( 1458, 48 ), Vector2( 1447, 44 ), Vector2( 1443, 50 ), Vector2( 1443, 50 ), Vector2( 1432, 34 ), Vector2( 1432, 34 ), Vector2( 1462, 23 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=75]
 extents = Vector2( 11, 24 )
 
-[sub_resource type="RectangleShape2D" id=65]
+[sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 13, 22 )
 
-[sub_resource type="RectangleShape2D" id=66]
+[sub_resource type="RectangleShape2D" id=77]
 extents = Vector2( 12, 30 )
 
-[sub_resource type="RectangleShape2D" id=67]
+[sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 33, 15 )
 
-[sub_resource type="ShaderMaterial" id=68]
+[sub_resource type="ShaderMaterial" id=79]
 shader = ExtResource( 198 )
 shader_param/speed = 20
 shader_param/pal_size = 8
@@ -1168,7 +1287,7 @@ shader_param/p14 = null
 shader_param/p15 = null
 shader_param/p16 = null
 
-[sub_resource type="Animation" id=69]
+[sub_resource type="Animation" id=80]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -1220,7 +1339,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=70]
+[sub_resource type="Animation" id=81]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1294,7 +1413,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=71]
+[sub_resource type="Animation" id=82]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("SparkParticles:emitting")
@@ -1405,20 +1524,20 @@ tracks/8/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Gradient" id=72]
+[sub_resource type="Gradient" id=83]
 offsets = PoolRealArray( 2.44863e-35, 0.243309, 0.50365, 0.868613, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.999292, 0.27451, 1, 1, 0.462745, 0.380392, 1, 0.341176, 0.341176, 0.341176, 0.372549, 0.278431, 0.278431, 0.34902, 0 )
 
-[sub_resource type="GradientTexture" id=73]
-gradient = SubResource( 72 )
+[sub_resource type="GradientTexture" id=84]
+gradient = SubResource( 83 )
 
-[sub_resource type="Curve" id=74]
+[sub_resource type="Curve" id=85]
 _data = [ Vector2( 0, 0.0754073 ), 0.0, 0.959706, 0, 0, Vector2( 1, 0.504953 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=75]
-curve = SubResource( 74 )
+[sub_resource type="CurveTexture" id=86]
+curve = SubResource( 85 )
 
-[sub_resource type="ParticlesMaterial" id=76]
+[sub_resource type="ParticlesMaterial" id=87]
 flag_disable_z = true
 direction = Vector3( -1, 0, 0 )
 spread = 8.0
@@ -1427,17 +1546,17 @@ initial_velocity = 311.11
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 3.0
-scale_curve = SubResource( 75 )
-color_ramp = SubResource( 73 )
+scale_curve = SubResource( 86 )
+color_ramp = SubResource( 84 )
 
-[sub_resource type="Gradient" id=77]
+[sub_resource type="Gradient" id=88]
 offsets = PoolRealArray( 2.44863e-35, 0.255474, 0.506083, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.27451, 0.917647, 1, 1, 0.380392, 0.45098, 1, 1, 0.341176, 0.341176, 0.341176, 1 )
 
-[sub_resource type="GradientTexture" id=78]
-gradient = SubResource( 77 )
+[sub_resource type="GradientTexture" id=89]
+gradient = SubResource( 88 )
 
-[sub_resource type="ParticlesMaterial" id=79]
+[sub_resource type="ParticlesMaterial" id=90]
 flag_disable_z = true
 direction = Vector3( -1, 0, 0 )
 spread = 48.48
@@ -1446,9 +1565,9 @@ initial_velocity = 81.44
 initial_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 78 )
+color_ramp = SubResource( 89 )
 
-[sub_resource type="Animation" id=80]
+[sub_resource type="Animation" id=91]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
@@ -1553,7 +1672,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0.5 )
 }
 
-[sub_resource type="Animation" id=81]
+[sub_resource type="Animation" id=92]
 length = 6.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
@@ -1686,7 +1805,7 @@ tracks/9/keys = {
 "values": [ 0.51, 0.82, 1.35, 0.82, 0.2 ]
 }
 
-[sub_resource type="Animation" id=82]
+[sub_resource type="Animation" id=93]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
@@ -1831,7 +1950,7 @@ tracks/10/keys = {
 "values": [ 1.0, 1.0, 0.2, 1.0, 0.2 ]
 }
 
-[sub_resource type="Animation" id=83]
+[sub_resource type="Animation" id=94]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
@@ -1974,7 +2093,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0.5 )
 }
 
-[sub_resource type="Animation" id=84]
+[sub_resource type="Animation" id=95]
 length = 9.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
@@ -2127,7 +2246,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0.5, 8.9 )
 }
 
-[sub_resource type="Animation" id=85]
+[sub_resource type="Animation" id=96]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../../VehiclePaths/TourPath/PathFollow2D:offset")
 tracks/0/interp = 1
@@ -2187,10 +2306,10 @@ tracks/4/keys = {
 "values": [ Vector3( -1, 0, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=86]
+[sub_resource type="RectangleShape2D" id=97]
 extents = Vector2( 40, 20 )
 
-[sub_resource type="ShaderMaterial" id=87]
+[sub_resource type="ShaderMaterial" id=98]
 shader = ExtResource( 198 )
 shader_param/speed = 12
 shader_param/pal_size = 10
@@ -2212,20 +2331,20 @@ shader_param/p14 = null
 shader_param/p15 = null
 shader_param/p16 = null
 
-[sub_resource type="Gradient" id=88]
+[sub_resource type="Gradient" id=99]
 offsets = PoolRealArray( 0, 0.323601, 1 )
 colors = PoolColorArray( 0.643137, 0.607843, 0.737255, 1, 0.611765, 0.580392, 0.705882, 1, 0.12549, 0.184314, 0.215686, 0 )
 
-[sub_resource type="GradientTexture" id=89]
-gradient = SubResource( 88 )
+[sub_resource type="GradientTexture" id=100]
+gradient = SubResource( 99 )
 
-[sub_resource type="Curve" id=90]
+[sub_resource type="Curve" id=101]
 _data = [ Vector2( 0, 0 ), 0.0, 2.7125, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=91]
-curve = SubResource( 90 )
+[sub_resource type="CurveTexture" id=102]
+curve = SubResource( 101 )
 
-[sub_resource type="ParticlesMaterial" id=92]
+[sub_resource type="ParticlesMaterial" id=103]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 10.0
@@ -2234,13 +2353,13 @@ initial_velocity = 10.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_random = 0.24
-scale_curve = SubResource( 91 )
-color_ramp = SubResource( 89 )
+scale_curve = SubResource( 102 )
+color_ramp = SubResource( 100 )
 
-[sub_resource type="RectangleShape2D" id=93]
+[sub_resource type="RectangleShape2D" id=104]
 extents = Vector2( 42, 12 )
 
-[sub_resource type="ParticlesMaterial" id=94]
+[sub_resource type="ParticlesMaterial" id=105]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 12.2
@@ -2252,10 +2371,10 @@ scale = 2.0
 scale_random = 1.0
 color = Color( 0.196078, 0.635294, 0.552941, 1 )
 
-[sub_resource type="RectangleShape2D" id=95]
+[sub_resource type="RectangleShape2D" id=106]
 extents = Vector2( 16, 6 )
 
-[sub_resource type="RectangleShape2D" id=96]
+[sub_resource type="RectangleShape2D" id=107]
 extents = Vector2( 8, 6 )
 
 [node name="2-1" groups=[
@@ -2702,7 +2821,7 @@ texture = ExtResource( 205 )
 position = Vector2( 1488, -169 )
 
 [node name="Player" parent="YSort" index="1"]
-position = Vector2( 1516, -174.25 )
+position = Vector2( 1475, -45 )
 
 [node name="Plants" type="YSort" parent="YSort" index="2"]
 
@@ -4112,6 +4231,7 @@ margin_bottom = 11.0
 [node name="CatA" parent="YSort/NPC" index="2" instance=ExtResource( 77 )]
 position = Vector2( 283, 358 )
 texture = ExtResource( 73 )
+script = ExtResource( 226 )
 
 [node name="ShadowRect" parent="YSort/NPC/CatA" index="2"]
 visible = false
@@ -4129,6 +4249,15 @@ face_texture = ExtResource( 168 )
 [node name="DiagPiece3" parent="YSort/NPC/CatA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
 message = "But nope. I HAD to run away. Now I'm stuck here, pretending to be an adult who can handle himself."
 face_texture = ExtResource( 168 )
+
+[node name="PlayerFound" parent="YSort/NPC/CatA/DialogueTree" index="1" instance=ExtResource( 9 )]
+message = "I saw you over there."
+face_texture = ExtResource( 168 )
+
+[node name="PlayerFound2" parent="YSort/NPC/CatA/DialogueTree/PlayerFound" index="0" instance=ExtResource( 9 )]
+message = "You are NOT going to send me back to that woman!"
+face_texture = ExtResource( 168 )
+function = "engage_battle"
 
 [node name="ManA" parent="YSort/NPC" index="3" instance=ExtResource( 77 )]
 position = Vector2( 229, 371 )
@@ -4704,6 +4833,117 @@ text_delay = 0.05
 character = "orange"
 expression = "nervous"
 
+[node name="ArchitectA" parent="YSort/NPC" index="29" instance=ExtResource( 77 )]
+position = Vector2( 775, -1170 )
+texture = ExtResource( 218 )
+offset = Vector2( 0, -16 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/ArchitectA" index="3"]
+autoplay = "default"
+anims/default = SubResource( 64 )
+
+[node name="DialogueTree" parent="YSort/NPC/ArchitectA" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/ArchitectA/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "proud"
+face_texture = ExtResource( 222 )
+
+[node name="ArchitectB" parent="YSort/NPC" index="30" instance=ExtResource( 77 )]
+position = Vector2( 802, -1167 )
+texture = ExtResource( 219 )
+offset = Vector2( 0, -11 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/ArchitectB" index="3"]
+autoplay = "default"
+anims/default = SubResource( 65 )
+
+[node name="DialogueTree" parent="YSort/NPC/ArchitectB" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/ArchitectB/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "sad"
+face_texture = ExtResource( 221 )
+
+[node name="ArchitectC" parent="YSort/NPC" index="31" instance=ExtResource( 77 )]
+position = Vector2( 818, -1170 )
+texture = ExtResource( 220 )
+offset = Vector2( 0, -14 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/ArchitectC" index="3"]
+autoplay = "default"
+anims/default = SubResource( 66 )
+
+[node name="DialogueTree" parent="YSort/NPC/ArchitectC" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/ArchitectC/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "sad"
+face_texture = ExtResource( 223 )
+
+[node name="RoboGuardUnarmed5" parent="YSort/NPC" index="32" instance=ExtResource( 130 )]
+position = Vector2( 734, -1177 )
+
+[node name="DialogueTree" parent="YSort/NPC/RoboGuardUnarmed5" index="4" instance=ExtResource( 8 )]
+
+[node name="DiagPiece" parent="YSort/NPC/RoboGuardUnarmed5/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "i swear il est stupide"
+face_texture = ExtResource( 180 )
+voice_sound = ExtResource( 185 )
+voice_variation = 0.0
+
+[node name="OldWoman" parent="YSort/NPC" index="33" instance=ExtResource( 78 )]
+position = Vector2( 1462, 23 )
+script = ExtResource( 225 )
+
+[node name="AnimatedSprite" parent="YSort/NPC/OldWoman" index="3"]
+frames = SubResource( 73 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC/OldWoman" index="4"]
+autoplay = "search"
+anims/search = SubResource( 74 )
+
+[node name="DialogueTree" parent="YSort/NPC/OldWoman" index="5" instance=ExtResource( 8 )]
+
+[node name="Request" parent="YSort/NPC/OldWoman/DialogueTree" index="0" instance=ExtResource( 9 )]
+message = "oh dear hi"
+
+[node name="Request2" parent="YSort/NPC/OldWoman/DialogueTree/Request" index="0" instance=ExtResource( 9 )]
+message = "do wawnt?"
+
+[node name="Request3" parent="YSort/NPC/OldWoman/DialogueTree/Request/Request2" index="0" instance=ExtResource( 9 )]
+key = "Yes"
+message = "Okay"
+function = "accept"
+
+[node name="Request4" parent="YSort/NPC/OldWoman/DialogueTree/Request/Request2" index="1" instance=ExtResource( 9 )]
+key = "No"
+message = "I hate you a little"
+function = "refuse"
+
+[node name="Remind" parent="YSort/NPC/OldWoman/DialogueTree" index="1" instance=ExtResource( 9 )]
+message = "thanks so much "
+
+[node name="PostRefuse" parent="YSort/NPC/OldWoman/DialogueTree" index="2" instance=ExtResource( 9 )]
+message = "are you sure you little devil?"
+
+[node name="PostRefuse2" parent="YSort/NPC/OldWoman/DialogueTree/PostRefuse" index="0" instance=ExtResource( 9 )]
+key = "Yes"
+message = "still hate you"
+function = "refuse"
+
+[node name="PostRefuse3" parent="YSort/NPC/OldWoman/DialogueTree/PostRefuse" index="1" instance=ExtResource( 9 )]
+key = "Changed mind"
+message = "oh nice"
+function = "accept"
+
+[node name="Finished" parent="YSort/NPC/OldWoman/DialogueTree" index="3" instance=ExtResource( 9 )]
+message = "..you killed him?"
+function = "mission_finish"
+
+[node name="PostMission" parent="YSort/NPC/OldWoman/DialogueTree" index="4" instance=ExtResource( 9 )]
+message = "i hate you"
+
 [node name="MapMachine" parent="YSort" index="11" instance=ExtResource( 80 )]
 position = Vector2( 400, -36 )
 location_on_map = Vector2( -63, 19 )
@@ -4721,7 +4961,7 @@ position = Vector2( 308, 23 )
 
 [node name="HealthStation" parent="YSort" index="15" instance=ExtResource( 192 )]
 position = Vector2( 335, 22 )
-frame = 20
+frame = 22
 
 [node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 132 )]
 position = Vector2( 1644, -617 )
@@ -4785,10 +5025,10 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/StaticBody2D" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 64 )
+shape = SubResource( 75 )
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown/CarAlarmZone/Interaction" index="0"]
-shape = SubResource( 65 )
+shape = SubResource( 76 )
 
 [node name="car_blue2FaceDown2" parent="YSort/StaticVehicles" index="17" instance=ExtResource( 134 )]
 position = Vector2( 1268, -1302 )
@@ -4796,7 +5036,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_blue2FaceDown2/StaticBody2D" index="0"]
 position = Vector2( 0, -3.99999 )
-shape = SubResource( 64 )
+shape = SubResource( 75 )
 
 [node name="car_red3" parent="YSort/StaticVehicles" index="18" instance=ExtResource( 133 )]
 position = Vector2( 2060, -169 )
@@ -4805,7 +5045,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red3/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 66 )
+shape = SubResource( 77 )
 
 [node name="car_red4" parent="YSort/StaticVehicles" index="19" instance=ExtResource( 133 )]
 position = Vector2( 559, 582 )
@@ -4814,7 +5054,7 @@ frame = 2
 
 [node name="CollisionShape2D" parent="YSort/StaticVehicles/car_red4/StaticBody2D" index="0"]
 position = Vector2( 2, 0 )
-shape = SubResource( 66 )
+shape = SubResource( 77 )
 
 [node name="EighteenWheeler" parent="YSort/StaticVehicles" index="20" instance=ExtResource( 155 )]
 position = Vector2( 2173, -1020 )
@@ -4877,10 +5117,10 @@ position = Vector2( 1597.62, -538.731 )
 script = ExtResource( 199 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TourGuide" index="0"]
-shape = SubResource( 67 )
+shape = SubResource( 78 )
 
 [node name="Sprite" type="Sprite" parent="YSort/TourGuide" index="1"]
-material = SubResource( 68 )
+material = SubResource( 79 )
 position = Vector2( -10, 0 )
 texture = ExtResource( 196 )
 offset = Vector2( 0, -19 )
@@ -4890,9 +5130,9 @@ hframes = 4
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/TourGuide" index="2"]
 autoplay = "idle"
 playback_speed = 2.0
-anims/drive = SubResource( 69 )
-anims/idle = SubResource( 70 )
-anims/startup = SubResource( 71 )
+anims/drive = SubResource( 80 )
+anims/idle = SubResource( 81 )
+anims/startup = SubResource( 82 )
 
 [node name="ExhaustParticles" type="Particles2D" parent="YSort/TourGuide" index="3"]
 position = Vector2( -46, -9 )
@@ -4902,7 +5142,7 @@ lifetime = 0.7
 explosiveness = 0.14
 randomness = 1.0
 local_coords = false
-process_material = SubResource( 76 )
+process_material = SubResource( 87 )
 texture = ExtResource( 197 )
 
 [node name="SparkParticles" type="Particles2D" parent="YSort/TourGuide" index="4"]
@@ -4911,16 +5151,16 @@ emitting = false
 amount = 16
 randomness = 1.0
 local_coords = false
-process_material = SubResource( 79 )
+process_material = SubResource( 90 )
 
 [node name="PathMovement" type="AnimationPlayer" parent="YSort/TourGuide" index="5"]
 autoplay = "start_pos"
-anims/goto_cat = SubResource( 80 )
-anims/goto_coast = SubResource( 81 )
-anims/goto_park = SubResource( 82 )
-anims/goto_restaurant = SubResource( 83 )
-anims/return = SubResource( 84 )
-anims/start_pos = SubResource( 85 )
+anims/goto_cat = SubResource( 91 )
+anims/goto_coast = SubResource( 92 )
+anims/goto_park = SubResource( 93 )
+anims/goto_restaurant = SubResource( 94 )
+anims/return = SubResource( 95 )
+anims/start_pos = SubResource( 96 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/TourGuide" index="6"]
 remote_path = NodePath("../../Player")
@@ -5068,7 +5308,7 @@ function = "release_players"
 [node name="Interaction" type="Area2D" parent="YSort/TourGuide" index="8"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/TourGuide/Interaction" index="0"]
-shape = SubResource( 86 )
+shape = SubResource( 97 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/TourGuide" index="9"]
 stream = ExtResource( 125 )
@@ -5090,7 +5330,7 @@ pitch_scale = 1.94
 [node name="Tween" type="Tween" parent="YSort/TourGuide" index="13"]
 
 [node name="wifistation_improved_broken" type="Sprite" parent="YSort" index="21"]
-material = SubResource( 87 )
+material = SubResource( 98 )
 position = Vector2( 836, 760 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -17 )
@@ -5101,21 +5341,21 @@ position = Vector2( -11, 3 )
 amount = 20
 lifetime = 10.0
 preprocess = 10.0
-process_material = SubResource( 92 )
+process_material = SubResource( 103 )
 texture = ExtResource( 197 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/wifistation_improved_broken" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/wifistation_improved_broken/StaticBody2D" index="0"]
 visible = false
-shape = SubResource( 93 )
+shape = SubResource( 104 )
 
 [node name="JuiceParticles" type="Particles2D" parent="YSort/wifistation_improved_broken" index="2"]
 position = Vector2( -18, 1 )
 amount = 32
 visibility_rect = Rect2( -32, -32, 64, 64 )
 local_coords = false
-process_material = SubResource( 94 )
+process_material = SubResource( 105 )
 
 [node name="CafePortal" parent="." index="11" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-2/2-2.tscn"
@@ -5124,7 +5364,7 @@ player_new_position = Vector2( -48, 230 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CafePortal" index="0"]
 visible = false
 position = Vector2( -32, 71 )
-shape = SubResource( 95 )
+shape = SubResource( 106 )
 
 [node name="DougPortal" parent="." index="12" instance=ExtResource( 12 )]
 new_scene = "res://Rooms/Area2/2-3/2-3.tscn"
@@ -5132,11 +5372,11 @@ player_new_position = Vector2( -112, 1446 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DougPortal" index="0"]
 position = Vector2( 936, -601 )
-shape = SubResource( 96 )
+shape = SubResource( 107 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DougPortal" index="1"]
 position = Vector2( 968, -601 )
-shape = SubResource( 96 )
+shape = SubResource( 107 )
 
 [node name="PizzaPortal" parent="." index="13" instance=ExtResource( 12 )]
 position = Vector2( 656, -32 )
@@ -5145,11 +5385,11 @@ player_new_position = Vector2( 24, 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PizzaPortal" index="0"]
 position = Vector2( 936, -601 )
-shape = SubResource( 96 )
+shape = SubResource( 107 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PizzaPortal" index="1"]
 position = Vector2( 968, -601 )
-shape = SubResource( 96 )
+shape = SubResource( 107 )
 
 [node name="WifiBeams" type="Node2D" parent="." index="14"]
 
@@ -5331,6 +5571,8 @@ texture = ExtResource( 81 )
 [editable path="YSort/NPC/SunDog"]
 
 [editable path="YSort/NPC/MoonDog"]
+
+[editable path="YSort/NPC/OldWoman"]
 
 [editable path="YSort/StaticVehicles/car_red"]
 

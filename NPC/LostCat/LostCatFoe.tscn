@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://NPC/LostCat/greenoveralls_cat_foe.png" type="Texture" id=1]
+[ext_resource path="res://NPC/BaseFoe/BaseFoeFoe.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animate"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="LostCatFoe" instance=ExtResource( 2 )]
+lines = [ "Back off...", "I'm gonna kill you!" ]
+talk_chance = 50.0
+
+[node name="ColorRect" parent="." index="0"]
+margin_left = -20.0
+margin_right = 21.0
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, 16 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
+autoplay = "animate"
+anims/animate = SubResource( 1 )

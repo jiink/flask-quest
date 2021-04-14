@@ -1,0 +1,365 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/Area10/10-1/10-1.tmx" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Area10/Assets/auxovus_bg/auxovus_bg_b.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Area10/Assets/auxovus_bg/auxovus_bg_a.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=5]
+[ext_resource path="res://Engine/light4a.png" type="Texture" id=6]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Rooms/Area10/10-1/AudioReactive.gd" type="Script" id=9]
+[ext_resource path="res://Rooms/Area10/Assets/spais-03.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Rooms/Area10/Assets/spais.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Rooms/Tools/MusicArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Rooms/Area10/Assets/spais-02.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Rooms/Area10/Assets/spais-01.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Rooms/Area10/Assets/Announcer/auxovus_announcements.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Rooms/Area10/Assets/AnnouncerTrigger.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=17]
+[ext_resource path="res://Rooms/Area10/Assets/auxovus_ambience.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Rooms/Area10/Assets/maintenance_vehicle_receptacle.png" type="Texture" id=19]
+[ext_resource path="res://Rooms/Area10/Assets/maintenance_vehicle.png" type="Texture" id=20]
+[ext_resource path="res://Rooms/Area10/10-1/VehicleReceptacle.gd" type="Script" id=21]
+[ext_resource path="res://Rooms/Area10/10-1/MaintenanceVehicle.gd" type="Script" id=22]
+[ext_resource path="res://Rooms/Area10/Assets/AnnouncementSign.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=24]
+[ext_resource path="res://Rooms/Area10/10-1/AnnouncementSign.gd" type="Script" id=25]
+
+[sub_resource type="Shader" id=1]
+code = "//special version of palette swap
+
+shader_type canvas_item;
+render_mode unshaded;
+
+uniform int speed = 4; // fps
+uniform int pal_size = 6; // number of colors you fill in in the array
+uniform int source_pal_size = 4; // shades of green on the sprite
+uniform float custom_offset;
+
+uniform vec4 p1 :hint_color;
+uniform vec4 p2 :hint_color;
+uniform vec4 p3 :hint_color;
+uniform vec4 p4 :hint_color;
+uniform vec4 p5 :hint_color;
+uniform vec4 p6 :hint_color;
+uniform vec4 p7 :hint_color;
+uniform vec4 p8 :hint_color;
+uniform vec4 p9 :hint_color;
+uniform vec4 p10:hint_color;
+uniform vec4 p11:hint_color;
+uniform vec4 p12:hint_color;
+uniform vec4 p13:hint_color;
+uniform vec4 p14:hint_color;
+uniform vec4 p15:hint_color;
+uniform vec4 p16:hint_color;
+
+void fragment(){
+	vec4 pal[] = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16}; // crime?
+	
+	vec4 col = texture(TEXTURE, UV);
+	if(col.r == 0.0 && col.b == 0.0){
+		float pal_sample = col.g;
+		int offset = int(TIME*float(speed)+custom_offset);
+		vec4 picked_col = pal[(int(col.g * float(source_pal_size - 1) + 0.5) + offset) % pal_size ];
+		col = vec4(picked_col.r, picked_col.g, picked_col.b, col.a * picked_col.a);
+	}
+	
+	COLOR = col;
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/speed = -25
+shader_param/pal_size = 16
+shader_param/source_pal_size = 16
+shader_param/custom_offset = 0.0
+shader_param/p1 = Color( 0.14902, 0.0313726, 0.258824, 1 )
+shader_param/p2 = Color( 0.14902, 0.0313726, 0.258824, 1 )
+shader_param/p3 = Color( 0.478431, 0.0392157, 0.227451, 1 )
+shader_param/p4 = Color( 0.478431, 0.0392157, 0.227451, 1 )
+shader_param/p5 = Color( 0.839216, 0.152941, 0.0313726, 1 )
+shader_param/p6 = Color( 0.839216, 0.152941, 0.0313726, 1 )
+shader_param/p7 = Color( 1, 0.411765, 0, 1 )
+shader_param/p8 = Color( 1, 0.411765, 0, 1 )
+shader_param/p9 = Color( 0.839216, 0.152941, 0.0313726, 1 )
+shader_param/p10 = Color( 0.839216, 0.152941, 0.0313726, 1 )
+shader_param/p11 = Color( 0.478431, 0.0392157, 0.227451, 1 )
+shader_param/p12 = Color( 0.478431, 0.0392157, 0.227451, 1 )
+shader_param/p13 = Color( 0.14902, 0.0313726, 0.258824, 1 )
+shader_param/p14 = Color( 0.14902, 0.0313726, 0.258824, 1 )
+shader_param/p15 = null
+shader_param/p16 = null
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 17, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 82, 66 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 218, 239 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 35, 31 )
+
+[node name="10-1" instance=ExtResource( 1 )]
+level_music = ExtResource( 11 )
+battle_music = ExtResource( 10 )
+
+[node name="BlackRects" type="Node2D" parent="Tilemaps" index="0"]
+material = ExtResource( 5 )
+
+[node name="BlackRect" type="ColorRect" parent="Tilemaps/BlackRects" index="0"]
+use_parent_material = true
+margin_left = -460.0
+margin_top = -31.0
+margin_right = 863.0
+margin_bottom = 278.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackRect2" type="ColorRect" parent="Tilemaps/BlackRects" index="1"]
+use_parent_material = true
+margin_left = -352.0
+margin_top = -174.0
+margin_right = -282.0
+margin_bottom = 135.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackRect3" type="ColorRect" parent="Tilemaps/BlackRects" index="2"]
+use_parent_material = true
+margin_left = -512.0
+margin_top = -174.0
+margin_right = -448.0
+margin_bottom = 135.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="10-1" parent="Tilemaps" index="1" instance=ExtResource( 2 )]
+
+[node name="Emission" parent="Tilemaps/10-1" index="1"]
+material = ExtResource( 5 )
+
+[node name="AudioReactive" parent="Tilemaps/10-1" index="2" groups=[
+"tick",
+]]
+material = SubResource( 2 )
+script = ExtResource( 9 )
+multiplier = 0.1
+adder = 1.5
+
+[node name="AbovePlayerUnlit" parent="Tilemaps/10-1" index="3"]
+material = ExtResource( 5 )
+z_index = 1
+
+[node name="AbovePlayerLit" parent="Tilemaps/10-1" index="4"]
+z_index = 1
+
+[node name="Collision" type="TileMap" parent="Tilemaps" index="2"]
+visible = false
+tile_set = ExtResource( 17 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -851995, 0, 131078, -851992, 0, 131079, -917497, 0, 0, -917496, 0, 0, -917495, 0, 0, -917494, 0, 0, -786463, 0, 0, -786462, 0, 0, -786461, 0, 0, -786460, 0, 0, -786459, 0, 0, -786456, 0, 0, -786455, 0, 0, -786454, 0, 0, -786453, 0, 0, -786452, 0, 0, -786451, 0, 0, -786450, 0, 0, -786449, 0, 0, -851962, 0, 0, -851957, 0, 0, -720927, 0, 0, -720913, 0, 0, -786426, 0, 0, -786421, 0, 0, -655391, 0, 0, -655390, 0, 0, -655389, 0, 0, -655388, 0, 0, -655387, 0, 0, -655386, 0, 0, -655385, 0, 0, -655384, 0, 0, -655383, 0, 0, -655382, 0, 0, -655381, 0, 0, -655380, 0, 0, -655379, 0, 0, -655377, 0, 0, -720890, 0, 0, -720885, 0, 0, -589843, 0, 0, -589841, 0, 0, -655353, 0, 0, -655350, 0, 0, -524307, 0, 0, -524305, 0, 0, -589817, 0, 0, -589814, 0, 0, -458771, 0, 0, -458769, 0, 0, -524281, 0, 0, -524278, 0, 0, -393235, 0, 0, -393233, 0, 0, -458745, 0, 0, -458742, 0, 0, -327699, 0, 0, -327697, 0, 0, -393209, 0, 0, -393206, 0, 0, -262163, 0, 0, -262161, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327674, 0, 0, -327673, 0, 0, -327670, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327657, 0, 0, -327656, 0, 0, -327655, 0, 0, -327654, 0, 0, -327649, 0, 0, -327648, 0, 0, -327647, 0, 0, -327646, 0, 0, -196627, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, -262122, 0, 0, -262117, 0, 0, -262116, 0, 0, -262115, 0, 0, -262114, 0, 0, -262109, 0, 0, -262108, 0, 0, -262107, 0, 0, -262106, 0, 0, -131091, 0, 0, -196569, 0, 0, -65555, 0, 0, -131033, 0, 0, -19, 0, 0, -18, 0, 0, -17, 0, 0, -16, 0, 0, -15, 0, 0, -11, 0, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -65497, 0, 0, 65521, 0, 0, 65525, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 39, 0, 0, 131057, 0, 0, 131061, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65569, 0, 0, 65570, 0, 0, 65571, 0, 0, 65572, 0, 0, 65573, 0, 0, 65574, 0, 0, 196593, 0, 0, 196594, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 131078, 0, 0, 131082, 0, 0, 131089, 0, 0, 131093, 0, 0, 131100, 0, 0, 131104, 0, 0, 196614, 0, 0, 196618, 0, 0, 196625, 0, 0, 196629, 0, 0, 196636, 0, 0, 196640, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262161, 0, 0, 262165, 0, 0, 262172, 0, 0, 262176, 0, 0, 327683, 0, 0, 327693, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327709, 0, 0, 327710, 0, 0, 327711, 0, 0, 393219, 0, 0, 393229, 0, 0, 458755, 0, 0, 458765, 0, 0, 524291, 0, 0, 524301, 0, 0, 589827, 0, 0, 589837, 0, 0, 655363, 0, 0, 655373, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0 )
+
+[node name="ParallaxBG" type="ParallaxBackground" parent="Background" index="0"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBG" index="0"]
+position = Vector2( 192, 0 )
+motion_scale = Vector2( 0.05, 0.05 )
+motion_offset = Vector2( 50, 0 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="AnnouncementSign4" type="Node2D" parent="Background/ParallaxBG/ParallaxLayer" index="0" groups=[
+"announcement_sign",
+]]
+position = Vector2( 295, 24 )
+script = ExtResource( 25 )
+
+[node name="ColorRect2" type="ColorRect" parent="Background/ParallaxBG/ParallaxLayer/AnnouncementSign4" index="0"]
+margin_left = -34.0
+margin_top = -11.0
+margin_right = 37.0
+margin_bottom = 8.0
+color = Color( 0.054902, 0.180392, 0.521569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Background/ParallaxBG/ParallaxLayer/AnnouncementSign4" index="1"]
+light_mask = 2
+material = SubResource( 3 )
+margin_left = -36.0
+margin_top = -8.0
+margin_right = 422.0
+margin_bottom = 6.0
+theme = ExtResource( 24 )
+custom_colors/font_color = Color( 0.211765, 0.709804, 1, 1 )
+text = "ANNOUNCEMENT!!!!! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Background/ParallaxBG/ParallaxLayer/AnnouncementSign4" index="2"]
+
+[node name="TextStartPos" type="Position2D" parent="Background/ParallaxBG/ParallaxLayer/AnnouncementSign4" index="3"]
+position = Vector2( 39, -8 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBG/ParallaxLayer" index="1"]
+position = Vector2( 1, 0 )
+texture = ExtResource( 4 )
+offset = Vector2( 192, 0 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBG" index="1"]
+position = Vector2( 192, 0 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 50, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBG/ParallaxLayer2" index="0"]
+position = Vector2( -483, 0 )
+texture = ExtResource( 3 )
+offset = Vector2( 192, 0 )
+
+[node name="MaintenanceVehicles" type="Node2D" parent="." index="2"]
+
+[node name="MaintenanceVehicle" type="KinematicBody2D" parent="MaintenanceVehicles" index="0"]
+position = Vector2( -400, -213 )
+script = ExtResource( 22 )
+
+[node name="maintenance_vehicle" type="Sprite" parent="MaintenanceVehicles/MaintenanceVehicle" index="0"]
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaintenanceVehicles/MaintenanceVehicle" index="1"]
+position = Vector2( -14, 1 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MaintenanceVehicles/MaintenanceVehicle" index="2"]
+position = Vector2( 0, -11 )
+rotation = -1.57079
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MaintenanceVehicles/MaintenanceVehicle" index="3"]
+position = Vector2( 14, 1 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MaintenanceVehicles/MaintenanceVehicle" index="4"]
+position = Vector2( 0, 14 )
+rotation = -1.57079
+shape = SubResource( 4 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MaintenanceVehicles/MaintenanceVehicle" index="5"]
+remote_path = NodePath("../../../YSort/Player")
+update_position = false
+update_rotation = false
+update_scale = false
+
+[node name="VehicleReceptacle" type="Area2D" parent="MaintenanceVehicles" index="1"]
+position = Vector2( -400, -224 )
+script = ExtResource( 21 )
+
+[node name="maintenance_vehicle_receptacle" type="Sprite" parent="MaintenanceVehicles/VehicleReceptacle" index="0"]
+texture = ExtResource( 19 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaintenanceVehicles/VehicleReceptacle" index="1"]
+position = Vector2( 0, 16 )
+shape = SubResource( 5 )
+
+[node name="Position2D" type="Position2D" parent="MaintenanceVehicles/VehicleReceptacle" index="2"]
+position = Vector2( 0, 40 )
+
+[node name="Tween" type="Tween" parent="MaintenanceVehicles/VehicleReceptacle" index="3"]
+
+[node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 8 )]
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 7 )]
+
+[node name="AnnouncementSign2" parent="YSort" index="3" instance=ExtResource( 23 )]
+position = Vector2( 16, -83 )
+
+[node name="AnnouncementSign3" parent="YSort" index="4" instance=ExtResource( 23 )]
+position = Vector2( -290, -212 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
+color = Color( 0.268173, 0.555334, 0.722656, 1 )
+
+[node name="Lights" type="Node2D" parent="." index="5"]
+
+[node name="Light2D" type="Light2D" parent="Lights" index="0"]
+position = Vector2( 138, 118 )
+scale = Vector2( 0.742187, 0.742187 )
+texture = ExtResource( 6 )
+color = Color( 0.992157, 0.823529, 0.662745, 1 )
+
+[node name="Light2D2" type="Light2D" parent="Lights" index="1"]
+position = Vector2( 143, -19 )
+scale = Vector2( 0.5625, 0.5625 )
+texture = ExtResource( 6 )
+color = Color( 0.941176, 0.647059, 0.368627, 1 )
+
+[node name="Light2D3" type="Light2D" parent="Lights" index="2"]
+position = Vector2( -117, -22 )
+scale = Vector2( 0.5625, 0.5625 )
+texture = ExtResource( 6 )
+color = Color( 0.941176, 0.647059, 0.368627, 1 )
+
+[node name="IndoorsMusic" parent="." index="6" instance=ExtResource( 12 )]
+position = Vector2( 311, 105 )
+new_music = ExtResource( 13 )
+fade_time = 1.0
+default_reverb = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IndoorsMusic" index="0"]
+shape = SubResource( 6 )
+
+[node name="CellMusic" parent="." index="7" instance=ExtResource( 12 )]
+position = Vector2( 135, 105 )
+fade_time = 1.0
+default_reverb = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CellMusic" index="0"]
+shape = SubResource( 6 )
+
+[node name="IntenseMusic" parent="." index="8" instance=ExtResource( 12 )]
+position = Vector2( -748, -261 )
+new_music = ExtResource( 14 )
+fade_time = 1.0
+default_reverb = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntenseMusic" index="0"]
+shape = SubResource( 7 )
+
+[node name="AnnouncerAudioPlayer" type="AudioStreamPlayer" parent="." index="9"]
+volume_db = 2.0
+
+[node name="AnnouncerTrigger" parent="." index="10" instance=ExtResource( 16 )]
+position = Vector2( 18, -26 )
+announcement = ExtResource( 15 )
+announcement_text = "Ladies and gentlemen, we have a winner of the 'employee of the month'! His name is Reliosnycathopiapsis James."
+text_speed = 34.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnnouncerTrigger" index="0"]
+shape = SubResource( 8 )
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." index="13"]
+stream = ExtResource( 18 )
+autoplay = true
+
+[editable path="Tilemaps/10-1"]
+
+[editable path="HUD"]

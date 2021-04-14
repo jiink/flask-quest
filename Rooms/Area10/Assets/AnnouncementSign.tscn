@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Engine/Theming/fq_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Engine/white.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Area10/10-1/AnnouncementSign.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 2
+
+[node name="AnnouncementSign" type="Node2D" groups=[
+"announcement_sign",
+]]
+position = Vector2( 144, -228 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -36.0
+margin_top = -12.0
+margin_right = 39.0
+margin_bottom = 9.0
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -34.0
+margin_top = -11.0
+margin_right = 37.0
+margin_bottom = 8.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+light_mask = 2
+material = SubResource( 1 )
+margin_left = 39.0
+margin_top = -8.0
+margin_right = 330.0
+margin_bottom = 6.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0.376471, 1 )
+text = "ANNOUNCEMENT!!!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mask" type="Light2D" parent="."]
+light_mask = 2
+position = Vector2( 1.50001, -1.49999 )
+scale = Vector2( 1.10938, 0.296875 )
+texture = ExtResource( 2 )
+mode = 2
+range_item_cull_mask = 2
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TextStartPos" type="Position2D" parent="."]
+position = Vector2( 39, -8 )

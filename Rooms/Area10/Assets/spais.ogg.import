@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/spais.ogg-1dbecda9cd1619fd5c47e4553e77ee6d.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area10/Assets/spais.ogg"
+dest_files=[ "res://.import/spais.ogg-1dbecda9cd1619fd5c47e4553e77ee6d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

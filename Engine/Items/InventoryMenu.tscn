@@ -124,3 +124,4 @@ frame = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -4.473
+bus = "UI"

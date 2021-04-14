@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/auxovus_announcements.ogg-fccac7c9eea5cee907dbd19f39f21b5a.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area10/Assets/Announcer/auxovus_announcements.ogg"
+dest_files=[ "res://.import/auxovus_announcements.ogg-fccac7c9eea5cee907dbd19f39f21b5a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

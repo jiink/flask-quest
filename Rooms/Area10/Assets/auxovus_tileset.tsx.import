@@ -1,0 +1,20 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/auxovus_tileset.tsx-78884bea2dda8b3ed6f93921048d7d23.res"
+
+[deps]
+
+source_file="res://Rooms/Area10/Assets/auxovus_tileset.tsx"
+dest_files=[ "res://.import/auxovus_tileset.tsx-78884bea2dda8b3ed6f93921048d7d23.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=7
+embed_internal_images=false
+save_tiled_properties=false
+apply_offset=false
+post_import_script=""
