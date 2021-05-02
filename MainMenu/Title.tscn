@@ -156,7 +156,7 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="BlackScreen"]
 margin_right = 384.0
 margin_bottom = 216.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
