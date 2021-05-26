@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Rooms/Tools/RoomDark.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Rooms/Tools/ChapterPortal.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Rooms/Test/T-4/AudioReactionTest.gd" type="Script" id=17]
+[ext_resource path="res://Rooms/Test/T-4/slice_shader_test.gd" type="Script" id=18]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -58,13 +59,49 @@ extents = Vector2( 6, 3 )
 [sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
+uniform float separation = 0.0;
 uniform sampler2D noise : hint_albedo;
 
 void fragment(){
-	vec4 tex_val = texture(TEXTURE, UV);
-	vec3 col = textureLod(SCREEN_TEXTURE,SCREEN_UV,0.0).rgb;
+	
+	vec2 centered_uv = UV * 2.0 - 1.0;
+	vec2 split_uv = UV;
+	vec2 split_uv_2 = centered_uv;
+	
+	if(UV.y > 0.5){
+		split_uv.x = UV.x + separation;
+	}
+	else{
+		split_uv.x = UV.x - separation;
+	}
+	
+	if(centered_uv.y > 0.0){
+		split_uv_2.y = centered_uv.y - (abs(separation) - 0.0);
+	}
+	else{
+		split_uv_2.y = centered_uv.y + (abs(separation) - 0.0);
+	}
+	
+	
+	float flash = sin(split_uv_2.y*2.0+1.6);
+	
+	vec4 tex_val = texture(TEXTURE, split_uv);
+	vec4 col = textureLod(SCREEN_TEXTURE,SCREEN_UV,0.0);
 	vec3 noise_tex = texture(noise, UV).rgb;
-	COLOR = tex_val + vec4(noise_tex, 1.0);
+	
+	float h_dist = distance(centered_uv, vec2(0.0,0.0));
+	
+	float dissolved_tex = clamp(tex_val.a - (noise_tex.r * abs(separation * 4.0)) - 
+	(h_dist * 2.0 * abs(separation)) - (abs(separation) * 4.0),
+	 0, 1)
+	+ clamp(clamp((flash*abs(separation) * 8.0), 0.0, 1.0) - h_dist * 2.0 * abs(separation), 0.0, 1.0) ; 
+	
+	
+	tex_val.rgb = tex_val.rgb + clamp(flash*abs(separation * 4.0), 0.0, 1.0);
+	
+	
+	COLOR = vec4(tex_val.rgb, dissolved_tex);
+//	COLOR = vec4(clamp(flash, 0.0, 1.0), 0.0, 0.0, 1.0);
 }"
 custom_defines = ""
 
@@ -80,9 +117,13 @@ noise = SubResource( 5 )
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 4 )
+shader_param/separation = 0.0
 shader_param/noise = SubResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 21, 6 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 6, 6 )
 
 [node name="T-4" instance=ExtResource( 1 )]
@@ -118,34 +159,24 @@ script = ExtResource( 17 )
 position = Vector2( 179, 79 )
 item_name = "orange_grassbulbs_item"
 mode = 0
-auto_sprite = true
 auto_sprite_half_scale = true
-custom_texture = null
-unlimited_if_item = false
 
 [node name="ItemPickup2" parent="." index="5" instance=ExtResource( 11 )]
-position = Vector2( 212, 94 )
+position = Vector2( 311, 163 )
 item_name = "iron_shavings"
 mode = 0
-auto_sprite = true
-custom_texture = null
-unlimited_if_item = false
 
 [node name="ItemPickup3" parent="." index="6" instance=ExtResource( 11 )]
 position = Vector2( 169, 124 )
 item_name = "tortured_tortilla_item"
 mode = 0
-auto_sprite = true
-custom_texture = null
 unlimited_if_item = true
 
 [node name="ItemPickup4" parent="." index="7" instance=ExtResource( 11 )]
 position = Vector2( 123, 113 )
 item_name = "lemon"
 mode = 0
-auto_sprite = true
 auto_sprite_half_scale = true
-custom_texture = null
 unlimited_if_item = true
 
 [node name="Player" parent="YSort" index="0"]
@@ -178,6 +209,7 @@ frame = 1
 
 [node name="HealthStation" parent="YSort" index="4" instance=ExtResource( 12 )]
 position = Vector2( 90, 51 )
+frame = 17
 
 [node name="SaveStation" parent="YSort" index="5" instance=ExtResource( 13 )]
 position = Vector2( 72, 52 )
@@ -186,8 +218,17 @@ position = Vector2( 72, 52 )
 
 [node name="Sprite" type="Sprite" parent="." index="12"]
 material = SubResource( 7 )
-position = Vector2( 128, 55 )
+position = Vector2( 326, 105 )
 texture = ExtResource( 14 )
+offset = Vector2( 0, -19 )
+script = ExtResource( 18 )
+
+[node name="Interaction" type="Area2D" parent="Sprite" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Interaction" index="0"]
+shape = SubResource( 8 )
+
+[node name="Tween" type="Tween" parent="Sprite" index="1"]
 
 [node name="RoomDark" parent="." index="13" instance=ExtResource( 15 )]
 position = Vector2( 282, -21 )
@@ -206,7 +247,7 @@ starting_direction = 5
 chapter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="ChapterPortal" index="1"]
 margin_left = -6.0
@@ -225,7 +266,7 @@ starting_direction = 5
 chapter = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal2" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="ChapterPortal2" index="1"]
 margin_left = -6.0
@@ -244,7 +285,7 @@ starting_direction = 5
 chapter = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal3" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="ChapterPortal3" index="1"]
 margin_left = -6.0
@@ -263,7 +304,7 @@ starting_direction = 5
 chapter = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal4" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="ChapterPortal4" index="1"]
 margin_left = -6.0
@@ -282,7 +323,7 @@ starting_direction = 5
 chapter = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal5" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="ChapterPortal5" index="1"]
 margin_left = -6.0
@@ -301,7 +342,7 @@ starting_direction = 5
 chapter = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapterPortal6" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="ChapterPortal6" index="1"]
 margin_left = -6.0

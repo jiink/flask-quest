@@ -58,7 +58,7 @@ func _tick():
 	else:
 		if not moving:
 			sprite.playing = moving
-			sprite.set_animation(animation_strings_walking[Direction.DOWN])
+#			sprite.set_animation(animation_strings_walking[Direction.DOWN])
 
 	if moving:
 		sprite.speed_scale = delta_pos.length() * anim_speed_scale
@@ -81,6 +81,9 @@ func _tick():
 				calculated_dir = Direction.RIGHT
 			elif delta_pos.x < 0:
 				calculated_dir = Direction.LEFT
+		
+		else:
+			calculated_dir = Direction.DOWN
 		
 		set_facing_direction(calculated_dir)		
 

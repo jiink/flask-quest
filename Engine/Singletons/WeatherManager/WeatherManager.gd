@@ -15,22 +15,22 @@ onready var weather_visuals_rt = get_tree().get_current_scene().get_node_or_null
 onready var weather_visuals_rain = get_tree().get_current_scene().get_node_or_null("Camera/Rain/RainParticles")
 onready var weather_visuals_snow = get_tree().get_current_scene().get_node_or_null("Camera/Rain/SnowParticles")
 
-func _ready():
-	global.connect("scene_changed", self, "_on_scene_changed")
-	if not weather_visuals_rt:
-		pass
-	_on_scene_changed() # For initial scene (for debugging)
-	
-func start(preproc): # Starts weather with a customizable amount of preprocess time
-	weather_visuals_rain.preprocess = preproc
-	weather_visuals_snow.preprocess = preproc
-	
-	if current_weather[0] == true:
-		weather_visuals_rain.emitting = true
-		weather_visuals_rain.visible = true
-	if current_weather[1] == true:
-		weather_visuals_snow.emitting = true
-		weather_visuals_snow.visible = true
+#func _ready():
+#	global.connect("scene_changed", self, "_on_scene_changed")
+#	if not weather_visuals_rt:
+#		pass
+#	_on_scene_changed() # For initial scene (for debugging)
+#
+#func start(preproc): # Starts weather with a customizable amount of preprocess time
+#	weather_visuals_rain.preprocess = preproc
+#	weather_visuals_snow.preprocess = preproc
+#
+#	if current_weather[0] == true:
+#		weather_visuals_rain.emitting = true
+#		weather_visuals_rain.visible = true
+#	if current_weather[1] == true:
+#		weather_visuals_snow.emitting = true
+#		weather_visuals_snow.visible = true
 
 func instant_start(): # Unhides active weather.
 	pass
@@ -45,6 +45,6 @@ func interpolate_properties(rate = null, color = null, dir = null, speed = null)
 func change_type(new_type): # New type can be either 0 (rain) or 1 (snow) (AS OF RIGHT NOW)
 	pass
 	
-func _on_scene_changed():
-	current_weather = get_tree().get_current_scene().get("current_weather")
-	start(10)
+#func _on_scene_changed():
+#	current_weather = get_tree().get_current_scene().get("current_weather")
+#	start(10)
