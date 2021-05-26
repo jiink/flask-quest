@@ -126,8 +126,12 @@ var items = {
 		'name': 'Fancy Letter',
 		'desc': "Who knows what is inside..",
 		'droppable' : false,
+		},
+	'teaching_cert': {
+		'name': 'Teaching Certificate',
+		'desc': 'The paper is covered in clip art.',
+		'droppable' : false
 		}
-		
 	}
 
 

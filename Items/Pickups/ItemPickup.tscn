@@ -15,6 +15,8 @@ uniform vec4  outLineColor = vec4(1.0, 1.0, 1.0, 1.0);
 
 void fragment()
 {
+	vec2 bias_uv = SCREEN_UV * 2.0 - 1.0;
+	float dist = distance(bias_uv, vec2(0.0,0.0));
     vec4 tcol = texture(TEXTURE, UV);
 
     if (tcol.a == 0.0)
@@ -30,13 +32,13 @@ void fragment()
             tcol = outLineColor;
     }
 
-    COLOR = tcol;
+    COLOR = vec4(tcol*(1.0-dist));
 }"
 custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
-shader_param/outLineSize = 0.042
+shader_param/outLineSize = 0.041
 shader_param/outLineColor = Plane( 1, 1, 1, 1 )
 
 [node name="ItemPickup" type="Node2D"]

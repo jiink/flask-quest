@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/floral_exchange.ogg-c9336285885b59b6deb858a194633ae3.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area8/Assets/floral_exchange.ogg"
+dest_files=[ "res://.import/floral_exchange.ogg-c9336285885b59b6deb858a194633ae3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

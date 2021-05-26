@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dessertexploration.ogg-814664a117d72e300ad8464e3b34179f.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area8/Assets/dessertexploration.ogg"
+dest_files=[ "res://.import/dessertexploration.ogg-814664a117d72e300ad8464e3b34179f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

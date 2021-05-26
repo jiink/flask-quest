@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dessert.ogg-71a8ada9638febd9b2a385f4af134e58.oggstr"
+
+[deps]
+
+source_file="res://Rooms/Area8/Assets/dessert.ogg"
+dest_files=[ "res://.import/dessert.ogg-71a8ada9638febd9b2a385f4af134e58.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

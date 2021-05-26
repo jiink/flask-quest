@@ -1,0 +1,618 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Rooms/Area8/8-2/8-2.tmx" type="PackedScene" id=1]
+[ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=3]
+[ext_resource path="res://Rooms/Area7/7-n1/LavaParallaxBG.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Effects/Shaders/wind.shader" type="Shader" id=5]
+[ext_resource path="res://Rooms/Area8/Assets/dessertexploration.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Rooms/Area8/Assets/dessert-02.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Effects/Shaders/heat_distortion.shader" type="Shader" id=10]
+[ext_resource path="res://Rooms/Area8/Assets/succulent_building.png" type="Texture" id=11]
+[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Engine/light5a.png" type="Texture" id=13]
+[ext_resource path="res://Rooms/Common/loopable_train.gd" type="Script" id=14]
+[ext_resource path="res://Rooms/Area8/8-2/TrainCar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Rooms/Area8/Assets/floral_exchange.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=17]
+[ext_resource path="res://NPC/NPCWalking/NPCWalking.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Rooms/Area8/8-2/GuardEvent.gd" type="Script" id=20]
+[ext_resource path="res://Rooms/Area8/Assets/bat_king.png" type="Texture" id=21]
+[ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=22]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 10 )
+shader_param/noise_distortion = 0.243
+shader_param/speed = Vector2( -0.8, -0.8 )
+shader_param/dist_speed_x = 0.0
+shader_param/dist_speed_y = 0.0
+shader_param/speed_x = 15.0
+shader_param/speed_y = 0.0
+shader_param/intensity = -0.005
+shader_param/scale = Vector2( 4, 4 )
+shader_param/bias = 0.559
+shader_param/other_bias = null
+shader_param/magic_numbers = null
+shader_param/noise = SubResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 5 )
+shader_param/noise_distortion = 0.243
+shader_param/dist_speed_x = 0.0
+shader_param/dist_speed_y = 0.0
+shader_param/speed_x = 0.05
+shader_param/speed_y = 0.256
+shader_param/intensity = 0.304
+shader_param/noise = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 41, 80 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 12, 4 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 36, 2 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 10 )
+shader_param/noise_distortion = 0.243
+shader_param/speed = Vector2( 1, -0.5 )
+shader_param/dist_speed_x = 0.0
+shader_param/dist_speed_y = 0.0
+shader_param/speed_x = 15.0
+shader_param/speed_y = 0.0
+shader_param/intensity = -0.007
+shader_param/scale = Vector2( 10, 10 )
+shader_param/bias = 0.41
+shader_param/other_bias = 0.766
+shader_param/magic_numbers = Vector2( 384, 216 )
+shader_param/noise = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 36, 6 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "dev"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 192, 109 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/Ribbit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../YSort/Orange:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../YSort/Player:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1130, 1030 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/NPCs/BatGuardA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1107, 996 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/NPCs/BatGuardB:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1149, 996 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 14.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Ribbit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.4, 1.5, 4.7, 5.4, 7.5, 8.5, 11 ),
+"transitions": PoolRealArray( 1, 1.41421, 0, 1, 1, -1.36604, 0, 0.870551, 1 ),
+"update": 0,
+"values": [ Vector2( 1134, 1000 ), Vector2( 1134, 1000 ), Vector2( 1134, 986 ), Vector2( 2630, 957 ), Vector2( 2630, 862 ), Vector2( 2630, 862 ), Vector2( 2519, 774 ), Vector2( 3206, 1312 ), Vector2( 3167, 1216 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/Orange:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4, 1.5, 4.7, 5.5, 7.5, 8.5, 11.1 ),
+"transitions": PoolRealArray( 1, 1.41421, 0, 1, 1, -1.36604, 0, 0.870551, 1 ),
+"update": 0,
+"values": [ Vector2( 1119, 1002 ), Vector2( 1119, 1002 ), Vector2( 1120, 986 ), Vector2( 2616, 957 ), Vector2( 2616, 862 ), Vector2( 2616, 862 ), Vector2( 2505, 774 ), Vector2( 3192, 1312 ), Vector2( 3153, 1216 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../YSort/Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4, 1.5, 4.7, 5.4, 7.5, 8.5, 10.9 ),
+"transitions": PoolRealArray( 1, 1.41421, 0, 1, 1, -1.36604, 0, 0.870551, 1 ),
+"update": 0,
+"values": [ Vector2( 1128, 993 ), Vector2( 1128, 993 ), Vector2( 1128, 979 ), Vector2( 2624, 950 ), Vector2( 2624, 858 ), Vector2( 2624, 858 ), Vector2( 2513, 770 ), Vector2( 3200, 1308 ), Vector2( 3161, 1212 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../YSort/NPCs/BatGuardA:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1.4, 1.5, 4.7, 5.5, 7.4, 8.5, 11, 11.5, 11.8, 12, 12.3 ),
+"transitions": PoolRealArray( -1.27456, 1, 1.31951, 0, 1, 1, -1.36604, 0, 0.870551, 1, 1.46409, 1, 0.68302, 1 ),
+"update": 0,
+"values": [ Vector2( 1118, 1005 ), Vector2( 1111, 998 ), Vector2( 1111, 998 ), Vector2( 1110, 980 ), Vector2( 2605, 951 ), Vector2( 2605, 859 ), Vector2( 2605, 859 ), Vector2( 2494, 771 ), Vector2( 3181, 1309 ), Vector2( 3142, 1213 ), Vector2( 3142, 1213 ), Vector2( 3138, 1216 ), Vector2( 3145, 1223 ), Vector2( 3153, 1223 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../YSort/NPCs/BatGuardB:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1.4, 1.5, 4.7, 5.4, 7.5, 8.5, 11.1, 11.5, 11.7, 11.9, 12.3 ),
+"transitions": PoolRealArray( -1.27456, 1, 1.31951, 0, 1, 1, -1.36604, 0, 0.870551, 1, 1.27456, 1, 0.535887, 1 ),
+"update": 0,
+"values": [ Vector2( 1136, 1006 ), Vector2( 1143, 998 ), Vector2( 1143, 998 ), Vector2( 1142, 980 ), Vector2( 2638, 951 ), Vector2( 2638, 859 ), Vector2( 2638, 859 ), Vector2( 2527, 771 ), Vector2( 3214, 1309 ), Vector2( 3175, 1213 ), Vector2( 3175, 1213 ), Vector2( 3182, 1215 ), Vector2( 3180, 1223 ), Vector2( 3170, 1223 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Camera:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.4, 1.5, 4.6, 5.4, 7.9, 8.5, 11.8 ),
+"transitions": PoolRealArray( 0, 0.659754, 0.784584, -1.36604, 0, 0.63728, 1 ),
+"update": 0,
+"values": [ Vector2( 1128, 982 ), Vector2( 2624, 950 ), Vector2( 2624, 814 ), Vector2( 2624, 814 ), Vector2( 2507, 765 ), Vector2( 3194, 1303 ), Vector2( 3161, 1152 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "lead_outside"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/Ribbit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3.6, 4.1, 6.1, 6.8, 8.5, 8.6, 10, 10.9 ),
+"transitions": PoolRealArray( 1, 1.46409, 0, 1, 1, 1, 0, 0.757858, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3167, 1216 ), Vector2( 3167, 1216 ), Vector2( 3206, 1312 ), Vector2( 2519, 774 ), Vector2( 2630, 862 ), Vector2( 2630, 862 ), Vector2( 2630, 957 ), Vector2( 1134, 986 ), Vector2( 1134, 1000 ), Vector2( 1134, 1018 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/Orange:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3.6, 4.1, 6.2, 6.8, 8.5, 8.6, 10, 10.9 ),
+"transitions": PoolRealArray( 1, 1.46409, 0, 1, 1, 1, 0, 0.757858, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3153, 1216 ), Vector2( 3153, 1216 ), Vector2( 3192, 1312 ), Vector2( 2505, 774 ), Vector2( 2616, 862 ), Vector2( 2616, 862 ), Vector2( 2616, 957 ), Vector2( 1120, 986 ), Vector2( 1119, 1002 ), Vector2( 1119, 1020 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../YSort/Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3.6, 4.1, 6.1, 6.8, 8.5, 8.6, 10, 10.9 ),
+"transitions": PoolRealArray( 1, 1.46409, 0, 1, 1, 1, 0, 0.757858, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3161, 1212 ), Vector2( 3161, 1212 ), Vector2( 3200, 1308 ), Vector2( 2513, 770 ), Vector2( 2624, 858 ), Vector2( 2624, 858 ), Vector2( 2624, 950 ), Vector2( 1128, 979 ), Vector2( 1128, 993 ), Vector2( 1128, 1011 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../YSort/NPCs/BatGuardA:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.7, 1.5, 3.6, 4.1, 6.2, 6.8, 8.5, 8.6, 9.7, 9.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1.46409, 0, 1, 1, 1, 0, 0.757858, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3153, 1223 ), Vector2( 3153, 1223 ), Vector2( 3145, 1223 ), Vector2( 3138, 1216 ), Vector2( 3142, 1213 ), Vector2( 3142, 1213 ), Vector2( 3181, 1309 ), Vector2( 2494, 771 ), Vector2( 2605, 859 ), Vector2( 2605, 859 ), Vector2( 2605, 951 ), Vector2( 1110, 980 ), Vector2( 1111, 998 ), Vector2( 1111, 998 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../YSort/NPCs/BatGuardB:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.7, 1.5, 3.6, 4.1, 6.1, 6.8, 8.5, 8.6, 9.7, 9.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1.46409, 0, 1, 1, 1, 0, 0.757858, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3170, 1223 ), Vector2( 3170, 1223 ), Vector2( 3180, 1223 ), Vector2( 3182, 1215 ), Vector2( 3175, 1213 ), Vector2( 3175, 1213 ), Vector2( 3214, 1309 ), Vector2( 2527, 771 ), Vector2( 2638, 859 ), Vector2( 2638, 859 ), Vector2( 2638, 951 ), Vector2( 1142, 980 ), Vector2( 1143, 998 ), Vector2( 1143, 998 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Camera:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 3.6, 4.1, 6.1, 6.7, 8.5, 8.6 ),
+"transitions": PoolRealArray( 1.7411, 1.7411, 0, 1, 1, 1, 0, 1 ),
+"update": 0,
+"values": [ Vector2( 3161, 1152 ), Vector2( 3161, 1152 ), Vector2( 3194, 1303 ), Vector2( 2507, 765 ), Vector2( 2624, 814 ), Vector2( 2624, 814 ), Vector2( 2624, 950 ), Vector2( 1128, 982 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("../YSort/NPCs/BatGuardA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( -2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1107, 996 ), Vector2( 1116, 1007 ), Vector2( 1118, 1005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../YSort/NPCs/BatGuardB:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( -2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1149, 996 ), Vector2( 1137, 1007 ), Vector2( 1136, 1006 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 37, 12 )
+
+[node name="8-2" instance=ExtResource( 2 )]
+level_music = ExtResource( 6 )
+battle_music = ExtResource( 7 )
+
+[node name="8-2" parent="Tilemaps" index="0" instance=ExtResource( 1 )]
+
+[node name="Emission" parent="Tilemaps/8-2" index="2"]
+material = ExtResource( 3 )
+
+[node name="AbovePlayerLit" parent="Tilemaps/8-2" index="4"]
+z_index = 1
+
+[node name="AbovePlayerUnlit" parent="Tilemaps/8-2" index="5"]
+material = ExtResource( 3 )
+z_index = 1
+
+[node name="LavaParallaxBG" parent="Background" index="0" instance=ExtResource( 4 )]
+scroll_base_offset = Vector2( 0, 1117 )
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="Background/LavaParallaxBG" index="8"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 384, 216 )
+
+[node name="Distortion" type="ColorRect" parent="Background/LavaParallaxBG/ParallaxLayer9" index="0"]
+material = SubResource( 3 )
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fog" type="ColorRect" parent="Background/LavaParallaxBG/ParallaxLayer9" index="1"]
+modulate = Color( 1, 0.290196, 0.0862745, 1 )
+material = SubResource( 4 )
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Darkness" type="Node2D" parent="Background" index="1"]
+z_index = -1
+
+[node name="BlackRect" type="ColorRect" parent="Background/Darkness" index="0"]
+margin_left = 2048.0
+margin_top = -270.0
+margin_right = 3078.0
+margin_bottom = 292.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackRect2" type="ColorRect" parent="Background/Darkness" index="1"]
+margin_left = 2048.0
+margin_top = 291.0
+margin_right = 3613.0
+margin_bottom = 1786.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Train" type="Node2D" parent="." index="2"]
+position = Vector2( -120, 568 )
+script = ExtResource( 14 )
+car_offset = Vector2( 208, 0 )
+car_number = 15
+
+[node name="TrainCar" parent="Train" index="0" instance=ExtResource( 15 )]
+
+[node name="EndArea" type="Area2D" parent="Train" index="1"]
+position = Vector2( 3203, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Train/EndArea" index="0"]
+position = Vector2( 1, -1 )
+shape = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="Train" index="2"]
+
+[node name="BackProps" type="Node2D" parent="." index="3"]
+
+[node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 8 )]
+
+[node name="Orange" parent="YSort" index="1" instance=ExtResource( 9 )]
+
+[node name="Player" parent="YSort" index="2"]
+position = Vector2( 1130, 1030 )
+
+[node name="succulent_building" type="Sprite" parent="YSort" index="3"]
+position = Vector2( 1128, 821 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, -88 )
+
+[node name="NPCs" type="YSort" parent="YSort" index="4"]
+
+[node name="BatGuardA" parent="YSort/NPCs" index="0" instance=ExtResource( 18 )]
+position = Vector2( 1107, 996 )
+
+[node name="BatGuardB" parent="YSort/NPCs" index="1" instance=ExtResource( 18 )]
+position = Vector2( 1149, 996 )
+
+[node name="BatKing" parent="YSort/NPCs" index="2" instance=ExtResource( 22 )]
+position = Vector2( 3160, 1173 )
+texture = ExtResource( 21 )
+offset = Vector2( 0, -22 )
+
+[node name="PosPortals" type="Node2D" parent="." index="5"]
+
+[node name="SchoolPortal" parent="PosPortals" index="0" instance=ExtResource( 12 )]
+position = Vector2( 640, 833 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/SchoolPortal" index="0"]
+shape = SubResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="PosPortals/SchoolPortal" index="1"]
+position = Vector2( 2128, -795 )
+
+[node name="SchoolPortal2" parent="PosPortals" index="1" instance=ExtResource( 12 )]
+position = Vector2( 2768, 50 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/SchoolPortal2" index="0"]
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PosPortals/SchoolPortal2" index="1"]
+position = Vector2( -2128, 793 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SuccPortal" parent="PosPortals" index="2" instance=ExtResource( 12 )]
+position = Vector2( 1128, 980 )
+new_song = ExtResource( 16 )
+start_from_beginning = true
+fade_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/SuccPortal" index="0"]
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="PosPortals/SuccPortal" index="1"]
+position = Vector2( 1496, -35 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SuccPortal2" parent="PosPortals" index="3" instance=ExtResource( 12 )]
+position = Vector2( 2624, 964 )
+new_song = ExtResource( 6 )
+start_from_beginning = true
+fade_time = 0.5
+
+[node name="Position2D" type="Position2D" parent="PosPortals/SuccPortal2" index="0"]
+position = Vector2( -1496, 34 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PosPortals/SuccPortal2" index="1"]
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lights" type="Node2D" parent="." index="6"]
+
+[node name="Light2D" type="Light2D" parent="Lights" index="0"]
+position = Vector2( 2752, -48 )
+scale = Vector2( 0.250001, 0.25 )
+texture = ExtResource( 13 )
+
+[node name="Light2D2" type="Light2D" parent="Lights" index="1"]
+position = Vector2( 2376, -48 )
+scale = Vector2( 0.3125, 0.25 )
+texture = ExtResource( 13 )
+
+[node name="Camera" parent="." index="7"]
+limit_left = -100000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 1773
+smoothing_speed = 20.0
+
+[node name="Distortion" type="Node2D" parent="Camera" index="1"]
+position = Vector2( -192, -108 )
+z_index = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Distortion2" type="ColorRect" parent="Camera/Distortion" index="0"]
+material = SubResource( 8 )
+margin_left = -64.0
+margin_top = -66.0
+margin_right = 448.0
+margin_bottom = 278.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GuardEvent" type="Node2D" parent="." index="9"]
+position = Vector2( 1128, 996 )
+script = ExtResource( 20 )
+
+[node name="EventActivation" type="Area2D" parent="GuardEvent" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardEvent/EventActivation" index="0"]
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DialogueTree" parent="GuardEvent" index="1" instance=ExtResource( 19 )]
+
+[node name="Initial" parent="GuardEvent/DialogueTree" index="0" instance=ExtResource( 17 )]
+message = "stop idiots. hey."
+function = "surround"
+
+[node name="Surrounded" parent="GuardEvent/DialogueTree" index="1" instance=ExtResource( 17 )]
+message = "you're surrounded. hah! in case you couldn't tell. let's go inside."
+function = "anim_then_diag"
+args = [ "lead_inside", "King" ]
+
+[node name="King" parent="GuardEvent/DialogueTree" index="2" instance=ExtResource( 17 )]
+message = "K-king!... king, uh, it's us."
+
+[node name="King2" parent="GuardEvent/DialogueTree/King" index="0" instance=ExtResource( 17 )]
+message = "idiots trying to enter succulent."
+
+[node name="King3" parent="GuardEvent/DialogueTree/King/King2" index="0" instance=ExtResource( 17 )]
+message = "we need substitute teacher so they should do that"
+function = "anim_then_diag"
+args = [ "lead_outside", "Release" ]
+
+[node name="Release" parent="GuardEvent/DialogueTree" index="3" instance=ExtResource( 17 )]
+message = "Come back with your certificate"
+function = "release_players"
+
+[node name="NoCert" parent="GuardEvent/DialogueTree" index="4" instance=ExtResource( 17 )]
+message = "still waiting. idiot."
+
+[node name="HasCert" parent="GuardEvent/DialogueTree" index="5" instance=ExtResource( 17 )]
+message = "oh! you got it. feel free to enter, now"
+
+[node name="HasCert2" parent="GuardEvent/DialogueTree/HasCert" index="0" instance=ExtResource( 17 )]
+message = "we have our eye on you, kid"
+
+[node name="CharacterMover" type="AnimationPlayer" parent="GuardEvent" index="2"]
+autoplay = "idle"
+anims/dev = SubResource( 10 )
+anims/idle = SubResource( 11 )
+anims/lead_inside = SubResource( 12 )
+anims/lead_outside = SubResource( 14 )
+anims/surround_player = SubResource( 13 )
+
+[node name="Tween" type="Tween" parent="GuardEvent" index="3"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GuardEvent" index="4"]
+position = Vector2( 0, -13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardEvent/StaticBody2D" index="0"]
+shape = SubResource( 15 )
+disabled = true
+[connection signal="body_entered" from="Train/EndArea" to="Train" method="_on_EndArea_body_entered"]
+
+[editable path="Tilemaps/8-2"]
+
+[editable path="Background/LavaParallaxBG"]
+
+[editable path="HUD"]
