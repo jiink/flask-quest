@@ -10,11 +10,15 @@ onready var animator = $CharacterMover
 onready var tween = $Tween
 onready var camera = global.get_camera()
 onready var succulent_portal_col = get_tree().get_current_scene().get_node("PosPortals/SuccPortal/CollisionShape2D")
+onready var root = get_tree().get_current_scene()
+
 var activated = false
 var waiting_for_cert = false
 
+
 func _ready():
 	$EventActivation.connect("body_entered", self, "_on_EventActivation_body_entered")
+	
 	
 func _on_EventActivation_body_entered(body):
 	if body.is_in_group("Player") and (not activated):
@@ -32,6 +36,8 @@ func _on_EventActivation_body_entered(body):
 			DiagHelper.start_talk(self, "HasCert")
 			$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
 			waiting_for_cert = false
+			root.current_story_state = root.StoryState.SUCCULENT_ACCESS
+			get_tree().get_current_scene().get_node("Train").reset()
 			
 		else:
 			DiagHelper.start_talk(self, "NoCert")
@@ -47,10 +53,12 @@ func surround():
 	yield(tween, "tween_all_completed")
 	DiagHelper.start_talk(self, "Surrounded")
 
+
 func anim_then_diag(anim_name, diag_name):
 	animator.play(anim_name)
 	yield(animator, "animation_finished")
 	DiagHelper.start_talk(self, diag_name)
+	
 	
 func release_players():
 	camera.follow_player = true
@@ -62,6 +70,11 @@ func release_players():
 	else:
 		orange.controlled_by = orange.BOT
 	green.clear_history()
-
+	
 	$StaticBody2D/CollisionShape2D.set_deferred("disabled", false)
 	waiting_for_cert = true
+	
+	get_tree().get_current_scene().get_node("TeachEvent").waiting = true
+	
+	root.current_story_state = root.StoryState.PRE_TEACH
+
