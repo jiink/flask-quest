@@ -27,7 +27,7 @@ data = {
 "6-1_poppy_dog_requested": false,
 "6-1_story_state": 7,
 "6-1_time_of_day": 3,
-"8-2_story_state": 1,
+"8-2_story_state": 0,
 "dollars": 0,
 "event_seed": 0,
 "green_hp": 100,

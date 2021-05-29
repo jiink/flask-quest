@@ -10,7 +10,7 @@ func interact():
 	DiagHelper.start_talk(self, main_dialogue)
 	
 func activate_train():
-	get_tree().get_current_scene().get_node("Train").activate(0, 0.1, 0, Vector2(2000, 0))
+	get_tree().get_current_scene().get_node("Train").activate(0, 5, 0, Vector2(2000, 0))
 	train_ready = true
 	
 func cutscene():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area8/8-3/rideable_malus_traincar.tscn" type="PackedScene" id=2]
@@ -6,12 +6,25 @@
 [ext_resource path="res://Effects/Shaders/scroll.shader" type="Shader" id=4]
 [ext_resource path="res://Player/Ribbit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Orange.tscn" type="PackedScene" id=6]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4, 27 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 724, 14 )
+[ext_resource path="res://Rooms/Area8/Assets/train_diagonal_plank.png" type="Texture" id=7]
+[ext_resource path="res://Rooms/Area8/Assets/malus_traincar_flatbed.png" type="Texture" id=8]
+[ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=9]
+[ext_resource path="res://Rooms/Area8/Assets/malus_traincar_door_open.png" type="Texture" id=10]
+[ext_resource path="res://Rooms/Tools/UnshadedMaterial.tres" type="Material" id=11]
+[ext_resource path="res://Engine/light5a.png" type="Texture" id=12]
+[ext_resource path="res://Rooms/Area8/Assets/malus_traincar_interior.png" type="Texture" id=13]
+[ext_resource path="res://Engine/light4a.png" type="Texture" id=14]
+[ext_resource path="res://Rooms/Area8/8-3/FallArea.gd" type="Script" id=15]
+[ext_resource path="res://SoundEffects/crash_combined_metallic.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Rooms/Area8/Assets/malus_trainar_hole.png" type="Texture" id=17]
+[ext_resource path="res://Rooms/Tools/PositionPortal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Engine/rain.png" type="Texture" id=19]
+[ext_resource path="res://Rooms/Area8/Assets/swingy.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Engine/zzzzzz.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Rooms/Area8/8-3/SleepEvent.gd" type="Script" id=22]
+[ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Effects/Shaders/heat_distortion.shader" type="Shader" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -19,34 +32,305 @@ shader_param/direction = Vector2( 1, 0 )
 shader_param/wobble_dir = Vector2( 0, 0 )
 shader_param/speed_scale = 2.0
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "jiggle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("malus_traincar_door_open:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("malus_traincar_door_open2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13, 28 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 24 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 20 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "door_close"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Lights/Light2D3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.1, 1.3, 1.5 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0.158204, 0.158204 ), Vector2( 1e-05, 0.158 ), Vector2( 0.03, 0.158 ), Vector2( 1e-05, 0.158 ), Vector2( 0.005, 0.158 ), Vector2( 1e-05, 0.158 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Lights/Light2D3:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "faint"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BlackRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 0.054902, 0.0666667, 0.109804, 0 ), Color( 0.054902, 0.0666667, 0.109804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DistortionRect:material:shader_param/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ 0.019, 0.966 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BlackRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DistortionRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Lights/Light2D3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 2 ),
+"update": 0,
+"values": [ Vector2( 0.158204, 0.158204 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Lights/Light2D3:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("DistortionRect:material:shader_param/intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BlackRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.054902, 0.0666667, 0.109804, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BlackRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("DistortionRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "warm"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("DistortionRect:material:shader_param/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.019 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DistortionRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="OpenSimplexNoise" id=10]
+
+[sub_resource type="NoiseTexture" id=11]
+seamless = true
+noise = SubResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 25 )
+shader_param/noise_distortion = 0.107
+shader_param/speed = Vector2( 1, 1 )
+shader_param/dist_speed_x = 0.0
+shader_param/dist_speed_y = null
+shader_param/speed_x = 0.0
+shader_param/speed_y = null
+shader_param/intensity = 0.0
+shader_param/scale = Vector2( 4, 4 )
+shader_param/bias = 0.121
+shader_param/other_bias = 0.144
+shader_param/magic_numbers = null
+shader_param/noise = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 192, 1 )
 flag_disable_z = true
 direction = Vector3( -1, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 503.4
+initial_velocity = 2000.0
 initial_velocity_random = 0.34
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+angle = 90.0
 color = Color( 0.916504, 0.741059, 0.608616, 1 )
 
 [node name="8-3" instance=ExtResource( 1 )]
+level_music = ExtResource( 20 )
 
-[node name="Collision" type="StaticBody2D" parent="Tilemaps" index="0"]
+[node name="Black" type="Node2D" parent="Tilemaps" index="0"]
+material = ExtResource( 11 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tilemaps/Collision" index="0"]
-position = Vector2( 68, 105 )
-shape = SubResource( 3 )
+[node name="BlackRect" type="ColorRect" parent="Tilemaps/Black" index="0"]
+material = ExtResource( 11 )
+margin_left = 730.0
+margin_top = 862.0
+margin_right = 1675.0
+margin_bottom = 1668.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tilemaps/Collision" index="1"]
-position = Vector2( 787, 69 )
-shape = SubResource( 4 )
+[node name="BlackRect2" type="ColorRect" parent="Tilemaps/Black" index="1"]
+material = ExtResource( 11 )
+margin_left = 2474.0
+margin_top = 862.0
+margin_right = 3419.0
+margin_bottom = 1668.0
+color = Color( 0.054902, 0.0666667, 0.109804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tilemaps/Collision" index="2"]
-position = Vector2( 787, 138 )
-shape = SubResource( 4 )
+[node name="malus_traincar_interior" type="Sprite" parent="Tilemaps" index="1"]
+position = Vector2( 1199, 1268 )
+texture = ExtResource( 13 )
+
+[node name="malus_traincar_interior2" type="Sprite" parent="Tilemaps" index="2"]
+position = Vector2( 2976, 1268 )
+texture = ExtResource( 13 )
+
+[node name="Collision" type="TileMap" parent="Tilemaps" index="3"]
+visible = false
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262182, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 0, 0, 262186, 0, 0, 262187, 0, 0, 262188, 0, 0, 262189, 0, 0, 262190, 0, 0, 262191, 0, 0, 262192, 0, 0, 262193, 0, 0, 262194, 0, 0, 262195, 0, 0, 262196, 0, 0, 262197, 0, 0, 262198, 0, 0, 262199, 0, 0, 262200, 0, 0, 262201, 0, 0, 262202, 0, 0, 262203, 0, 0, 262204, 0, 0, 262205, 0, 0, 262206, 0, 0, 262207, 0, 0, 262208, 0, 0, 262209, 0, 0, 262210, 0, 0, 262211, 0, 0, 262212, 0, 0, 262213, 0, 0, 262214, 0, 0, 262215, 0, 0, 262216, 0, 0, 262217, 0, 0, 262218, 0, 0, 262219, 0, 0, 262220, 0, 0, 262221, 0, 0, 262222, 0, 0, 262223, 0, 0, 262224, 0, 0, 262225, 0, 0, 327684, 0, 65543, 327685, 0, 65541, 327686, 0, 65541, 327687, 0, 65541, 327688, 0, 65541, 327689, 0, 65541, 327690, 0, 65541, 327691, 0, 65541, 327692, 0, 65541, 327693, 0, 65541, 327694, 0, 65541, 327695, 0, 65541, 327696, 0, 65541, 327697, 0, 65541, 327698, 0, 65541, 327699, 0, 65541, 327700, 0, 65541, 327701, 0, 65541, 327702, 0, 65541, 327703, 0, 65541, 327704, 0, 65541, 327705, 0, 65541, 327706, 0, 65541, 327707, 0, 65541, 327708, 0, 65541, 327709, 0, 65541, 327710, 0, 65541, 327711, 0, 65541, 327712, 0, 65541, 327713, 0, 65541, 327714, 0, 65541, 327715, 0, 65541, 327716, 0, 65541, 327717, 0, 65541, 327718, 0, 65541, 327719, 0, 65541, 327720, 0, 65541, 327721, 0, 65541, 327722, 0, 65541, 327723, 0, 65541, 327724, 0, 65541, 327725, 0, 65541, 327726, 0, 65541, 327727, 0, 65541, 327728, 0, 65541, 327729, 0, 65541, 327730, 0, 65541, 327731, 0, 65541, 327732, 0, 65541, 327733, 0, 65541, 327734, 0, 65541, 327735, 0, 65541, 327736, 0, 65541, 327737, 0, 65541, 327738, 0, 65541, 327739, 0, 65541, 327740, 0, 65541, 327741, 0, 65541, 327742, 0, 65541, 327743, 0, 65541, 327744, 0, 65541, 327745, 0, 65541, 327746, 0, 65541, 327747, 0, 65541, 327748, 0, 65541, 327749, 0, 65541, 327750, 0, 65541, 327751, 0, 65541, 327752, 0, 65541, 327753, 0, 65541, 327754, 0, 65541, 327755, 0, 65541, 327756, 0, 65541, 327757, 0, 65541, 327758, 0, 65541, 327759, 0, 65541, 327760, 0, 65541, 327761, 0, 0, 393220, 0, 65543, 393297, 0, 0, 458756, 0, 65543, 458833, 0, 0, 458834, 0, 0, 458835, 0, 65540, 458836, 0, 65540, 458837, 0, 65540, 458838, 0, 65540, 458839, 0, 65540, 458840, 0, 65540, 458841, 0, 65540, 458842, 0, 65540, 458843, 0, 65540, 458844, 0, 65540, 458845, 0, 65540, 458846, 0, 65540, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524332, 0, 0, 524333, 0, 0, 524334, 0, 0, 524335, 0, 0, 524336, 0, 0, 524337, 0, 0, 524338, 0, 0, 524339, 0, 0, 524340, 0, 0, 524341, 0, 0, 524342, 0, 0, 524343, 0, 0, 524344, 0, 0, 524345, 0, 0, 524346, 0, 0, 524347, 0, 0, 524348, 0, 0, 524349, 0, 0, 524350, 0, 0, 524351, 0, 0, 524352, 0, 0, 524353, 0, 0, 524354, 0, 0, 524355, 0, 0, 524356, 0, 0, 524357, 0, 0, 524358, 0, 0, 524359, 0, 0, 524360, 0, 0, 524361, 0, 0, 524362, 0, 0, 524363, 0, 0, 524364, 0, 0, 524365, 0, 0, 524366, 0, 0, 524367, 0, 0, 524368, 0, 0, 524369, 0, 0, 589905, 0, 0, 655441, 0, 0, 655442, 0, 4, 655443, 0, 4, 655444, 0, 4, 655445, 0, 4, 655446, 0, 4, 655447, 0, 4, 655448, 0, 4, 655449, 0, 4, 655450, 0, 4, 655451, 0, 4, 655452, 0, 4, 655453, 0, 4, 655454, 0, 4, 5111876, 0, 0, 5111877, 0, 0, 5111878, 0, 0, 5111879, 0, 0, 5111880, 0, 0, 5111881, 0, 0, 5111882, 0, 0, 5111883, 0, 0, 5111884, 0, 0, 5111885, 0, 0, 5111886, 0, 0, 5111887, 0, 0, 5111888, 0, 0, 5111889, 0, 0, 5111987, 0, 0, 5111988, 0, 0, 5111989, 0, 0, 5111990, 0, 0, 5111991, 0, 0, 5111992, 0, 0, 5111993, 0, 0, 5111994, 0, 0, 5111995, 0, 0, 5111996, 0, 0, 5111997, 0, 0, 5111998, 0, 0, 5111999, 0, 0, 5112000, 0, 0, 5177412, 0, 0, 5177523, 0, 0, 5177536, 0, 0, 5242948, 0, 0, 5243059, 0, 0, 5243072, 0, 0, 5308484, 0, 0, 5308595, 0, 0, 5308608, 0, 0, 5374020, 0, 0, 5374021, 0, 0, 5374022, 0, 0, 5374023, 0, 0, 5374024, 0, 0, 5374025, 0, 0, 5374026, 0, 0, 5374027, 0, 0, 5374028, 0, 0, 5374029, 0, 0, 5374030, 0, 0, 5374031, 0, 0, 5374032, 0, 0, 5374033, 0, 0, 5374131, 0, 0, 5374132, 0, 0, 5374133, 0, 0, 5374134, 0, 0, 5374135, 0, 0, 5374136, 0, 0, 5374137, 0, 0, 5374138, 0, 0, 5374139, 0, 0, 5374140, 0, 0, 5374141, 0, 0, 5374142, 0, 0, 5374143, 0, 0, 5374144, 0, 0 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background" index="0"]
 
@@ -78,16 +362,169 @@ position = Vector2( 998, 129 )
 
 [node name="malus_traincar6" parent="Traincars" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1206, 129 )
+right_open = false
+custom_frame = 1
+child_node_path = NodePath("../../FallArea/malus_trainar_hole")
+
+[node name="malus_traincar_flatbed" type="Sprite" parent="Traincars" index="6"]
+position = Vector2( 1414, 129 )
+texture = ExtResource( 8 )
+
+[node name="malus_traincar7" parent="Traincars" index="7" instance=ExtResource( 2 )]
+position = Vector2( 1622, 129 )
+left_open = false
+right_open = false
+custom_frame = 0
+
+[node name="malus_traincar_door_open" type="Sprite" parent="Traincars/malus_traincar7" index="3"]
+position = Vector2( -112, -26 )
+texture = ExtResource( 10 )
+hframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 41 )
+
+[node name="malus_traincar_door_open2" type="Sprite" parent="Traincars/malus_traincar7" index="4"]
+position = Vector2( -112, 19 )
+z_index = 1
+texture = ExtResource( 10 )
+hframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 41, 128, 51 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Traincars/malus_traincar7" index="5"]
+autoplay = "jiggle"
+playback_speed = 2.0
+anims/jiggle = SubResource( 2 )
+
+[node name="FallArea" type="Area2D" parent="." index="3"]
+position = Vector2( 1204, 104 )
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallArea" index="0"]
+position = Vector2( 36, 0 )
+shape = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="FallArea" index="1"]
+position = Vector2( 19, 1185 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FallArea" index="2"]
+stream = ExtResource( 16 )
+
+[node name="malus_trainar_hole" type="Sprite" parent="FallArea" index="3"]
+visible = false
+texture = ExtResource( 17 )
+
+[node name="Tween" type="Tween" parent="FallArea" index="4"]
 
 [node name="Ribbit" parent="YSort" index="0" instance=ExtResource( 5 )]
 
 [node name="Orange" parent="YSort" index="1" instance=ExtResource( 6 )]
 
+[node name="Player" parent="YSort" index="2"]
+position = Vector2( 1408, 137 )
+
+[node name="train_diagonal_plank" type="Sprite" parent="YSort" index="3"]
+position = Vector2( 1324, 149 )
+texture = ExtResource( 7 )
+offset = Vector2( 0, -23 )
+
+[node name="Lights" type="Node2D" parent="." index="5"]
+
+[node name="Light2D" type="Light2D" parent="Lights" index="0"]
+position = Vector2( 1196, 1289 )
+scale = Vector2( 0.597656, 0.203125 )
+texture = ExtResource( 14 )
+
+[node name="Light2D2" type="Light2D" parent="Lights" index="1"]
+position = Vector2( 1273, 1287 )
+rotation = 1.5708
+scale = Vector2( 0.158204, 0.158204 )
+texture = ExtResource( 12 )
+
+[node name="Light2D3" type="Light2D" parent="Lights" index="2"]
+position = Vector2( 2901, 1287 )
+rotation = -1.5708
+scale = Vector2( 0.158204, 0.158204 )
+texture = ExtResource( 12 )
+
+[node name="PosPortals" type="Node2D" parent="." index="6"]
+
+[node name="PositionPortal" parent="PosPortals" index="0" instance=ExtResource( 18 )]
+position = Vector2( 1302, 1287 )
+new_song = ExtResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/PositionPortal" index="0"]
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PosPortals/PositionPortal" index="1"]
+position = Vector2( 14, -1143 )
+
+[node name="PositionPortal2" parent="PosPortals" index="1" instance=ExtResource( 18 )]
+position = Vector2( 1535, 139 )
+new_song = ExtResource( 21 )
+fade_time = 6.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/PositionPortal2" index="0"]
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="PosPortals/PositionPortal2" index="1"]
+position = Vector2( 1361, 1149 )
+
+[node name="SleepEvent" type="Node2D" parent="." index="7"]
+position = Vector2( 2947, 1288 )
+script = ExtResource( 22 )
+
+[node name="EventActivation" type="Area2D" parent="SleepEvent" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SleepEvent/EventActivation" index="0"]
+shape = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SleepEvent" index="1"]
+autoplay = "idle"
+anims/door_close = SubResource( 7 )
+anims/faint = SubResource( 13 )
+anims/idle = SubResource( 8 )
+anims/warm = SubResource( 9 )
+
+[node name="DialogueTree" parent="SleepEvent" index="2" instance=ExtResource( 23 )]
+
+[node name="Initial" parent="SleepEvent/DialogueTree" index="0" instance=ExtResource( 24 )]
+message = "Let's just... stay here, and get out when we're at the shipyard."
+function = "warm_car"
+
+[node name="Warm" parent="SleepEvent/DialogueTree" index="1" instance=ExtResource( 24 )]
+message = "It's warming up! o no!"
+function = "next_scene"
+
+[node name="DistortionRect" type="ColorRect" parent="SleepEvent" index="3"]
+visible = false
+material = SubResource( 12 )
+margin_left = -290.0
+margin_top = -290.0
+margin_right = 323.0
+margin_bottom = 226.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackRect" type="ColorRect" parent="SleepEvent" index="4"]
+visible = false
+margin_left = -127.0
+margin_top = -127.0
+margin_right = 207.0
+margin_bottom = 115.0
+color = Color( 0.054902, 0.0666667, 0.109804, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Particles2D" type="Particles2D" parent="Camera" index="1"]
-position = Vector2( 211, 4 )
-amount = 64
-lifetime = 1.5
+visible = false
+position = Vector2( 191, 4 )
+amount = 16
+lifetime = 0.3
 local_coords = false
-process_material = SubResource( 2 )
+process_material = SubResource( 5 )
+texture = ExtResource( 19 )
 
 [editable path="HUD"]

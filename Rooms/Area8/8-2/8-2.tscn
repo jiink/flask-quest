@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Rooms/Area8/8-2/8-2.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=27]
 [ext_resource path="res://Rooms/Area8/8-2/TrainEvent.gd" type="Script" id=28]
 [ext_resource path="res://Rooms/Area8/Assets/dessert-02.ogg" type="AudioStream" id=29]
+[ext_resource path="res://SoundEffects/classroom_interior.ogg" type="AudioStream" id=30]
+[ext_resource path="res://SoundEffects/train_loop.ogg" type="AudioStream" id=31]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -64,19 +66,19 @@ shader_param/noise = SubResource( 2 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 41, 80 )
 
-[sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 21, 12 )
-
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 12, 4 )
+extents = Vector2( 49, 12 )
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 12, 4 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 36, 2 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 16, 3 )
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 10 )
 shader_param/noise_distortion = 0.243
 shader_param/speed = Vector2( 1, -0.5 )
@@ -91,11 +93,10 @@ shader_param/other_bias = 0.766
 shader_param/magic_numbers = Vector2( 384, 216 )
 shader_param/noise = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 36, 6 )
 
-[sub_resource type="Animation" id=10]
-resource_name = "dev"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Camera:position")
 tracks/0/interp = 1
@@ -145,7 +146,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1130, 1030 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/NPCs/BatGuardA:position")
@@ -172,7 +173,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1149, 996 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 14.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Ribbit:position")
@@ -247,8 +248,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1128, 982 ), Vector2( 2624, 950 ), Vector2( 2624, 814 ), Vector2( 2624, 814 ), Vector2( 2507, 765 ), Vector2( 3194, 1303 ), Vector2( 3161, 1152 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "lead_outside"
+[sub_resource type="Animation" id=15]
 length = 11.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/Ribbit:position")
@@ -323,7 +323,7 @@ tracks/5/keys = {
 "values": [ Vector2( 3161, 1152 ), Vector2( 3161, 1152 ), Vector2( 3194, 1303 ), Vector2( 2507, 765 ), Vector2( 2624, 814 ), Vector2( 2624, 814 ), Vector2( 2624, 950 ), Vector2( 1128, 982 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=16]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("../YSort/NPCs/BatGuardA:position")
@@ -350,10 +350,10 @@ tracks/1/keys = {
 "values": [ Vector2( 1149, 996 ), Vector2( 1137, 1007 ), Vector2( 1136, 1006 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 37, 12 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=18]
 
 [node name="8-2" groups=[
 "save",
@@ -431,7 +431,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Train" type="Node2D" parent="." index="2"]
+[node name="Train" type="Node2D" parent="." index="2" groups=[
+"tick",
+]]
 position = Vector2( -120, 568 )
 z_index = -1
 script = ExtResource( 14 )
@@ -449,6 +451,10 @@ position = Vector2( 1, -1 )
 shape = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="Train" index="2"]
+
+[node name="TrainAudioLoop" type="AudioStreamPlayer" parent="Train" index="3"]
+stream = ExtResource( 31 )
+autoplay = true
 
 [node name="BackProps" type="Node2D" parent="." index="3"]
 
@@ -525,7 +531,7 @@ function = "cutscene"
 position = Vector2( 49, -90 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPCs/TrainManager/JumpArea" index="0"]
-shape = SubResource( 19 )
+shape = SubResource( 6 )
 
 [node name="Stations" type="YSort" parent="YSort" index="5"]
 
@@ -534,7 +540,7 @@ position = Vector2( 809, 878 )
 
 [node name="HealthStation" parent="YSort/Stations" index="1" instance=ExtResource( 26 )]
 position = Vector2( 840, 876 )
-frame = 20
+frame = 18
 
 [node name="Label" type="Label" parent="YSort/Stations" index="2"]
 margin_left = 791.0
@@ -552,7 +558,7 @@ __meta__ = {
 position = Vector2( 640, 833 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/SchoolPortal" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/SchoolPortal" index="1"]
 position = Vector2( 2128, -775 )
@@ -561,7 +567,7 @@ position = Vector2( 2128, -775 )
 position = Vector2( 2768, 70 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/SchoolPortal2" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -579,7 +585,7 @@ start_from_beginning = true
 fade_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/SuccPortal" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -603,7 +609,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PosPortals/SuccPortal2" index="1"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -613,7 +619,7 @@ position = Vector2( 2512, 762 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/KingPortal" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 18 )
+shape = SubResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/KingPortal" index="1"]
 position = Vector2( 688, 540 )
@@ -623,7 +629,7 @@ position = Vector2( 3200, 1317 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PosPortals/KingPortal2" index="0"]
 position = Vector2( 0, 4 )
-shape = SubResource( 18 )
+shape = SubResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="PosPortals/KingPortal2" index="1"]
 position = Vector2( -688, -545 )
@@ -655,7 +661,7 @@ __meta__ = {
 }
 
 [node name="Distortion2" type="ColorRect" parent="Camera/Distortion" index="0"]
-material = SubResource( 8 )
+material = SubResource( 10 )
 margin_left = -64.0
 margin_top = -66.0
 margin_right = 448.0
@@ -672,7 +678,7 @@ script = ExtResource( 20 )
 [node name="EventActivation" type="Area2D" parent="GuardEvent" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuardEvent/EventActivation" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -714,11 +720,11 @@ message = "we have our eye on you, kid"
 
 [node name="CharacterMover" type="AnimationPlayer" parent="GuardEvent" index="2"]
 autoplay = "idle"
-anims/dev = SubResource( 10 )
-anims/idle = SubResource( 11 )
-anims/lead_inside = SubResource( 12 )
-anims/lead_outside = SubResource( 14 )
-anims/surround_player = SubResource( 13 )
+anims/dev = SubResource( 12 )
+anims/idle = SubResource( 13 )
+anims/lead_inside = SubResource( 14 )
+anims/lead_outside = SubResource( 15 )
+anims/surround_player = SubResource( 16 )
 
 [node name="Tween" type="Tween" parent="GuardEvent" index="3"]
 
@@ -726,7 +732,7 @@ anims/surround_player = SubResource( 13 )
 position = Vector2( 0, -13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuardEvent/StaticBody2D" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 17 )
 disabled = true
 
 [node name="TeachEvent" type="Node2D" parent="." index="10"]
@@ -736,7 +742,7 @@ script = ExtResource( 24 )
 [node name="EventArea" type="Area2D" parent="TeachEvent" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeachEvent/EventArea" index="0"]
-shape = SubResource( 17 )
+shape = SubResource( 18 )
 
 [node name="DialogueTree" parent="TeachEvent" index="1" instance=ExtResource( 19 )]
 
@@ -748,6 +754,11 @@ expression = "confused"
 [node name="Comment2" parent="TeachEvent/DialogueTree/Comment" index="0" instance=ExtResource( 17 )]
 message = "I'm a janitor, the teacher's been gone all day.. I so dearly HOPE that you're the person who's suppsoed to teach"
 function = "give_cert"
+
+[node name="ClassroomAmbience" type="AudioStreamPlayer2D" parent="." index="11"]
+position = Vector2( 2502, -218 )
+stream = ExtResource( 30 )
+autoplay = true
 
 [editable path="Tilemaps/8-2"]
 
