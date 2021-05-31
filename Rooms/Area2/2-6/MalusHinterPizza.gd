@@ -2,6 +2,8 @@ extends "res://NPC/NPCWalking/NPCWalking.gd"
 
 var walking = false
 #onready var camera = get_tree().get_current_scene().get_node("Camera")
+var CUTSCN_SCENE = preload("res://Cutscenes/AmazingCatsCutscene/AmazingCatsCutscene.tscn")
+var cutscene
 onready var camera = get_node("../../Camera")
 onready var animator = $CharacterMover
 onready var player = global.get_player(1)
@@ -104,3 +106,17 @@ func give_map_credentials():
 	ItemManager.give_item("map_login")
 	current_state = State.POST_TALK
 	finished_talk = true
+
+
+##FUNCTIONS FOR CUTSCENE
+
+
+func spawn_cutscene():
+	var cutscene = CUTSCN_SCENE.instance()
+	get_tree().get_current_scene().get_node("HUD").add_child(cutscene)
+
+func next_scene():
+	cutscene.next_frame()
+	
+func set_scene(frame):
+	cutscene.set_frame(frame)

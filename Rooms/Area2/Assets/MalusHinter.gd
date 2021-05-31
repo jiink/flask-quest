@@ -3,6 +3,7 @@ extends "res://NPC/NPCWalking/NPCWalking.gd"
 var currently_walking = false
 var left_scene = false
 
+
 const SAVE_KEY = "2-1_malus_hinter_"
 
 func save(save_game):
@@ -19,8 +20,14 @@ func load(save_game):
 	yield(get_tree().create_timer(1), "timeout")
 	
 func interact():
-	if not currently_walking:
+	if (not currently_walking) and interactable:
 		DiagHelper.start_talk(self, "AskToJoin")
+
+func start_diag(diagpiece, wait_time = 0.2):
+	interactable = false
+	yield(get_tree().create_timer(wait_time), "timeout")
+	interactable = true
+	DiagHelper.start_talk(self, diagpiece)
 
 func enter_pizza_place():
 	currently_walking = true
