@@ -111,12 +111,20 @@ func give_map_credentials():
 ##FUNCTIONS FOR CUTSCENE
 
 
-func spawn_cutscene():
-	var cutscene = CUTSCN_SCENE.instance()
-	get_tree().get_current_scene().get_node("HUD").add_child(cutscene)
+func spawn_cutscene(removing = false): # mashed into one function cuz y NOT
+	if not removing:
+		cutscene = CUTSCN_SCENE.instance()
+		get_tree().get_current_scene().get_node("HUD").add_child(cutscene)
+	else:
+		cutscene.queue_free()
 
 func next_scene():
+	cutscene.sprite.visible = true
 	cutscene.next_frame()
 	
-func set_scene(frame):
-	cutscene.set_frame(frame)
+func set_scene(frame): # set frame # to -1 to make 
+	if frame > 0:
+		cutscene.sprite.visible = true
+		cutscene.set_frame(frame)
+	else:
+		cutscene.sprite.visible = false 

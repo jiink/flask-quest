@@ -5,12 +5,17 @@ shader_type canvas_item;
 //Transparency in the maps, to limit their application to only certain parts of tiles,
 //is marked with monochromatic red.
 
+// REFLECTION MAPS MUST BE IMPORTED WITH REPEAT ENABLED!!!!
+
 const int pal_size = 6; // number of colors you fill in in the array
 const int source_pal_size = 6; // shades of green on the sprite
 
 uniform float contrast = 0.15;
 uniform float tilemap_contrast = 2.5;
 uniform float distortion = -0.02;
+
+uniform vec2 parallax_multiplier = vec2(0.5, 0.5);
+uniform vec2 player_pos;
 
 uniform sampler2D bg_image :hint_albedo;
 uniform sampler2D brightness_map : hint_albedo;
@@ -26,9 +31,11 @@ uniform vec4 p6 :hint_color; //fcffe4
 void fragment(){
 	vec4 pal[] = {p1,p2,p3,p4,p5,p6};
 	
+	vec2 shifted_scrn_uv = SCREEN_UV + (player_pos * 0.01 * parallax_multiplier);
+	
 	vec4 base_tex = texture(TEXTURE, UV);
 	vec4 distort_val = texture(distortion_map, UV);
-	vec2 distort_uv = vec2(SCREEN_UV.x, SCREEN_UV.y + (distort_val.g * distortion));
+	vec2 distort_uv = vec2(shifted_scrn_uv.x, shifted_scrn_uv.y + (distort_val.g * distortion));
 	vec4 brightness_col = texture(brightness_map, UV);
 	vec3 screen = textureLod(SCREEN_TEXTURE,SCREEN_UV, 0.0).rgb;
 	vec4 bg_image_val = texture(bg_image, vec2(distort_uv.x, 1.0 - distort_uv.y));
