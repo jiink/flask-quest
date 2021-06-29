@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Engine/Stations/MapMachine/MapDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Stations/MapMachine/lanetta_map_display.png" type="Texture" id=2]
@@ -7,9 +7,17 @@
 [ext_resource path="res://Engine/AnimateSpritesheet.gd" type="Script" id=5]
 [ext_resource path="res://Engine/Stations/MapMachine/map_you_location.png" type="Texture" id=6]
 [ext_resource path="res://Engine/Stations/MapMachine/map_malus_location.png" type="Texture" id=7]
+[ext_resource path="res://Effects/Shaders/screenspace_crt_distortion.shader" type="Shader" id=8]
 
-[sub_resource type="Animation" id=1]
-resource_name = "log_in"
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 8 )
+shader_param/range = Vector2( 0, 0.053 )
+shader_param/speed = 0.8
+shader_param/color_speed = 2.0
+shader_param/offset = 0.005
+shader_param/col_subt_max_val = 0.03
+
+[sub_resource type="Animation" id=2]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/LoginScreen/Header:max_lines_visible")
@@ -84,8 +92,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "turn_off"
+[sub_resource type="Animation" id=3]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer:offset")
@@ -100,7 +107,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 360, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer:offset")
 tracks/0/interp = 1
@@ -161,6 +168,9 @@ margin_top = -2.0
 margin_right = 340.0
 margin_bottom = 221.0
 color = Color( 0.172549, 0.0745098, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DisplayedMap" type="Node2D" parent="CanvasLayer"]
 visible = false
@@ -216,8 +226,10 @@ custom_colors/font_color = Color( 0.870588, 0.662745, 0.152941, 1 )
 text = "gamercat_xX
 ***************** ***"
 autowrap = true
+percent_visible = 0.0
 
 [node name="ok" type="Label" parent="CanvasLayer/LoginScreen"]
+visible = false
 margin_left = -50.0
 margin_top = 62.0
 margin_right = 55.0
@@ -234,8 +246,17 @@ autowrap = true
 texture = ExtResource( 4 )
 centered = false
 
+[node name="DistortionRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 1 )
+margin_left = 53.0
+margin_right = 331.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/log_in = SubResource( 1 )
-anims/turn_off = SubResource( 2 )
-anims/turn_on = SubResource( 3 )
+anims/log_in = SubResource( 2 )
+anims/turn_off = SubResource( 3 )
+anims/turn_on = SubResource( 4 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

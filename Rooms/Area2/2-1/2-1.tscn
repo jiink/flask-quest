@@ -1,4 +1,4 @@
-[gd_scene load_steps=339 format=2]
+[gd_scene load_steps=340 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Area2/2-1/2-1.gd" type="Script" id=2]
@@ -229,6 +229,7 @@
 [ext_resource path="res://NPC/MinorNPCs/old_person_a_face.png" type="Texture" id=227]
 [ext_resource path="res://NPC/old_person_speech.wav" type="AudioStream" id=228]
 [ext_resource path="res://Effects/Shaders/window_reflection.gd" type="Script" id=229]
+[ext_resource path="res://Effects/Explosions/pop.wav" type="AudioStream" id=230]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 217 )
@@ -531,6 +532,24 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -0.606812, -43.5532 ), Vector2( -0.606812, -43.5532 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ), Vector2( -0.606812, -43.5532 ), Vector2( -0.606812, -43.5532 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ), Vector2( -0.458652, 35.8748 ), Vector2( -0.458652, 35.8748 ), Vector2( -36.8276, -0.629303 ), Vector2( -36.8276, -0.629303 ) ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("PathFollow2D/yellow_car/TirePopAudio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 230 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 230 )
+} ],
+"times": PoolRealArray( 31.19, 31.26 )
 }
 
 [sub_resource type="Curve2D" id=22]
@@ -2745,6 +2764,10 @@ max_distance = 256.0
 wait_time = 3.0
 one_shot = true
 
+[node name="TirePopAudio" type="AudioStreamPlayer2D" parent="VehiclePaths/YellowCarPath/PathFollow2D/yellow_car" index="7"]
+stream = ExtResource( 230 )
+volume_db = -5.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VehiclePaths/YellowCarPath" index="1"]
 autoplay = "drive"
 anims/drive = SubResource( 21 )
@@ -2824,7 +2847,6 @@ position = Vector2( 772, 776 )
 texture = ExtResource( 205 )
 
 [node name="Orange" parent="YSort" index="0" instance=ExtResource( 121 )]
-position = Vector2( 1488, -169 )
 
 [node name="Player" parent="YSort" index="1"]
 position = Vector2( 273, 33 )
@@ -4213,7 +4235,7 @@ margin_right = 4.0
 margin_bottom = 11.0
 
 [node name="CatA" parent="YSort/NPC" index="2" instance=ExtResource( 77 )]
-position = Vector2( 283, 358 )
+position = Vector2( 217, 345 )
 texture = ExtResource( 73 )
 script = ExtResource( 226 )
 
@@ -4244,7 +4266,7 @@ face_texture = ExtResource( 168 )
 function = "engage_battle"
 
 [node name="ManA" parent="YSort/NPC" index="3" instance=ExtResource( 77 )]
-position = Vector2( 229, 371 )
+position = Vector2( 267, 352 )
 texture = ExtResource( 76 )
 offset = Vector2( 0, -15 )
 
@@ -4255,18 +4277,14 @@ message = "Hey. Nice costume."
 face_texture = ExtResource( 167 )
 
 [node name="DiagPiece2" parent="YSort/NPC/ManA/DialogueTree/DiagPiece" index="0" instance=ExtResource( 9 )]
-message = "I've seen a few folks like you already. They just ran out of that lab."
-face_texture = ExtResource( 167 )
-
-[node name="DiagPiece3" parent="YSort/NPC/ManA/DialogueTree/DiagPiece/DiagPiece2" index="0" instance=ExtResource( 9 )]
-message = "I know what you're up to."
+message = "Are you doing some kind of advertising project with A1?"
 face_texture = ExtResource( 167 )
 
 [node name="ShadowRect" parent="YSort/NPC/ManA" index="3"]
 visible = false
 
 [node name="MouseA" parent="YSort/NPC" index="4" instance=ExtResource( 77 )]
-position = Vector2( 189, 370 )
+position = Vector2( 254, 348 )
 texture = ExtResource( 75 )
 offset = Vector2( 0, -7 )
 
@@ -4369,7 +4387,7 @@ face_texture = ExtResource( 193 )
 position = Vector2( 1496, -66 )
 
 [node name="WomanA" parent="YSort/NPC" index="9" instance=ExtResource( 100 )]
-position = Vector2( 1680, -345 )
+position = Vector2( 1680, -350 )
 
 [node name="DialogueTree" parent="YSort/NPC/WomanA" index="3" instance=ExtResource( 8 )]
 
@@ -5022,7 +5040,7 @@ position = Vector2( 308, 23 )
 
 [node name="HealthStation" parent="YSort" index="15" instance=ExtResource( 192 )]
 position = Vector2( 335, 22 )
-frame = 13
+frame = 6
 
 [node name="SaveStation2" parent="YSort" index="16" instance=ExtResource( 132 )]
 position = Vector2( 1644, -617 )

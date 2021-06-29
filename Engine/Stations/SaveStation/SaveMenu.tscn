@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Engine/Stations/SaveStation/SaveMenu.gd" type="Script" id=1]
 [ext_resource path="res://Engine/Stations/SaveStation/save_slots_bg.png" type="Texture" id=2]
@@ -8,12 +8,14 @@
 [ext_resource path="res://Engine/Theming/save_station_theme.tres" type="Theme" id=6]
 [ext_resource path="res://Engine/Stations/SaveStation/back_button_alt.png" type="Texture" id=7]
 [ext_resource path="res://Engine/Fonts/FontQuestSmall.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Effects/Shaders/screenspace_crt_distortion.shader" type="Shader" id=9]
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+
+[sub_resource type="Theme" id=2]
 default_font = ExtResource( 8 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "pulse"
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("save_fg:modulate")
@@ -28,8 +30,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.915922, 0.913412, 0.954824, 1 ), Color( 0.737255, 0.729412, 0.858824, 1 ), Color( 0.915922, 0.913412, 0.954824, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("InfoLabel:custom_colors/font_color")
@@ -68,7 +69,7 @@ tracks/2/keys = {
 "values": [ Color( 0, 0.72549, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("floppy_icon:modulate")
@@ -106,6 +107,14 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.72549, 1, 1 ) ]
 }
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 9 )
+shader_param/range = Vector2( 0, 0.053 )
+shader_param/speed = 2.0
+shader_param/color_speed = 4.0
+shader_param/offset = 0.005
+shader_param/col_subt_max_val = 0.02
 
 [node name="SaveMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -145,6 +154,7 @@ __meta__ = {
 }
 
 [node name="SaveButton" type="Button" parent="Control"]
+material = SubResource( 1 )
 margin_left = 137.0
 margin_top = 133.0
 margin_right = 218.0
@@ -171,7 +181,7 @@ margin_left = 154.0
 margin_top = 87.0
 margin_right = 232.0
 margin_bottom = 112.0
-theme = SubResource( 1 )
+theme = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0.72549, 1, 1 )
 text = "Area
 $MONEY"
@@ -180,10 +190,17 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "pulse"
-anims/pulse = SubResource( 2 )
+anims/pulse = SubResource( 3 )
 
 [node name="SaveAnimation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 3 )
-anims/save = SubResource( 4 )
+anims/idle = SubResource( 4 )
+anims/save = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 6 )
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

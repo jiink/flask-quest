@@ -29,6 +29,7 @@ export(Dictionary) var data = {
 	"8-2_story_state": 0,
 	"dollars": 0,
 	"event_seed": int(rand_range(1, 2048)),
+	"health_station_used_before": false,
 	"green_hp": 100,
 	"green_max_hp": 100,
 	"inventory": [],

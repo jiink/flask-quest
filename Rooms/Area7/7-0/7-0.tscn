@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Rooms/Area7/Assets/Material.material" type="Material" id=1]
 [ext_resource path="res://Rooms/Test/T-5/RigidbodyCar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/Area7/Assets/Highway.material" type="Material" id=3]
 [ext_resource path="res://Rooms/Area7/Assets/Mountain_001.material" type="Material" id=4]
+[ext_resource path="res://Rooms/Test/Assets/hdri_sky_test.png" type="Texture" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "CarRef"
@@ -34,6 +35,12 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 221
 }
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( -1.00924, -4.95074, 1.22501, -1.00924, 1.94232, 1.09962, -1.00924, 2.00566, 1.22501, -0.9779, -4.84533, 0.793008, -0.846076, -0.0216781, 0.820965, 0.99632, 2.00634, 1.22501, 1.0221, -4.82634, 0.794205, 1.0221, -0.174012, 0.794205, 1.05888, 1.94301, 1.09962, 1.05888, 2.00634, 1.16227, 1.05908, -4.95074, 1.22501 )
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( -0.9779, -4.87333, 0.758564, -0.973773, -4.8632, -1, -0.9272, -0.0753, -0.95908, -0.9272, -0.0753, 0.714018, 1.0221, -4.85948, -0.998668, 1.0221, -4.85948, 0.753606, 1.0221, 0.0352825, -0.998668, 1.0221, 0.0352825, 0.753606 )
 
 [sub_resource type="ArrayMesh" id=3]
 resource_name = "CarRef001"
@@ -175,6 +182,13 @@ surfaces/0 = {
 "vertex_count": 126
 }
 
+[sub_resource type="PanoramaSky" id=15]
+panorama = ExtResource( 5 )
+
+[sub_resource type="Environment" id=16]
+background_mode = 2
+background_sky = SubResource( 15 )
+
 [node name="7-0" type="Spatial"]
 
 [node name="PlayerCar" parent="." instance=ExtResource( 2 )]
@@ -193,10 +207,21 @@ transform = Transform( -0.290865, 0.566393, 0.771101, -0.0551891, 0.794672, -0.6
 [node name="Camera" type="Spatial" parent="neracla_mountain"]
 transform = Transform( 0.685921, 0.651558, 0.324014, 0, 0.445271, -0.895396, -0.727676, 0.61417, 0.305421, 7.35889, 4.95831, 6.92579 )
 
-[node name="Highway" type="MeshInstance" parent="neracla_mountain"]
+[node name="StaticBody" type="StaticBody" parent="neracla_mountain"]
 transform = Transform( 6.13586, 0, 0, 0, 6.13586, 0, 0, 0, -172.843, 0, -8.53813, 50.2418 )
+
+[node name="Highway" type="MeshInstance" parent="neracla_mountain/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="neracla_mountain/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="neracla_mountain/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 14 )
 
 [node name="CarRef001" type="MeshInstance" parent="neracla_mountain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -109.012, 128.375, -421.126 )
@@ -238,3 +263,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0 )
 visible = false
 mesh = SubResource( 12 )
 material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 16 )
