@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Rooms/TemplateRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Engine/CollisionTileExt.tres" type="TileSet" id=2]
@@ -22,6 +22,13 @@
 [ext_resource path="res://Engine/dialogue/DialogueTree.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Engine/dialogue/DiagPiece.tscn" type="PackedScene" id=21]
 [ext_resource path="res://NPC/NPCBasic/NPCBasic.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Engine/PaletteLight.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Effects/Lighting/Light.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Engine/light4a.png" type="Texture" id=25]
+[ext_resource path="res://Rooms/Area5/Assets/outside_forest.png" type="Texture" id=26]
+[ext_resource path="res://Rooms/Test/T-4/Pseudo3DParallax.gd" type="Script" id=27]
+[ext_resource path="res://Rooms/Test/Assets/pseudo3dtest.png" type="Texture" id=28]
+[ext_resource path="res://Engine/light3.png" type="Texture" id=29]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -144,6 +151,7 @@ tile_data = PoolIntArray( -327656, 0, 3, -327655, 0, 3, -327654, 0, 3, -262120, 
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( -393193, 0, 0, -393192, 0, 0, -393191, 0, 0, -393190, 0, 0, -393189, 0, 0, -327657, 0, 0, -327653, 0, 0, -262121, 0, 0, -262117, 0, 0, -196585, 0, 0, -196581, 0, 0, -131049, 0, 0, -131048, 0, 0, -131046, 0, 0, -131045, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65510, 0, 0, -65509, 0, 0, 17, 0, 0, 18, 0, 0, 22, 0, 0, 23, 0, 0, 27, 0, 0, 65553, 0, 0, 65554, 0, 0, 65563, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131089, 0, 0, 131090, 0, 0, 131094, 0, 0, 131095, 0, 0, 131099, 0, 0, 196611, 0, 0, 196623, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 0, 0, 196635, 0, 0, 262147, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 327683, 0, 0, 327704, 0, 0, 393219, 0, 0, 393240, 0, 0, 458755, 0, 0, 458767, 0, 0, 458768, 0, 0, 458776, 0, 0, 524291, 0, 0, 524303, 0, 0, 524304, 0, 0, 524312, 0, 0, 589827, 0, 0, 589828, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589840, 0, 0, 589848, 0, 0, 655364, 0, 0, 655371, 0, 0, 655376, 0, 0, 655384, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720912, 0, 0, 720920, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 0, 0 )
 
 [node name="ShaderZone" type="Sprite" parent="." index="2"]
 show_behind_parent = true
@@ -163,35 +171,81 @@ script = ExtResource( 17 )
 position = Vector2( 179, 79 )
 item_name = "orange_grassbulbs_item"
 mode = 0
-auto_sprite = true
 auto_sprite_half_scale = true
-custom_texture = null
-unlimited_if_item = false
 
 [node name="ItemPickup2" parent="." index="5" instance=ExtResource( 11 )]
 position = Vector2( 311, 163 )
 item_name = "iron_shavings"
 mode = 0
-auto_sprite = true
-custom_texture = null
-unlimited_if_item = false
 
 [node name="ItemPickup3" parent="." index="6" instance=ExtResource( 11 )]
 position = Vector2( 169, 124 )
 item_name = "tortured_tortilla_item"
 mode = 0
-auto_sprite = true
-custom_texture = null
 unlimited_if_item = true
 
 [node name="ItemPickup4" parent="." index="7" instance=ExtResource( 11 )]
 position = Vector2( 123, 113 )
 item_name = "lemon"
 mode = 0
-auto_sprite = true
 auto_sprite_half_scale = true
-custom_texture = null
 unlimited_if_item = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="8"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 384, 384 )
+
+[node name="outside_forest4" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2( 192, 192 )
+texture = ExtResource( 26 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground" index="1"]
+color = Color( 0.952941, 0.196078, 0.196078, 1 )
+
+[node name="Unlit" type="CanvasLayer" parent="." index="9"]
+layer = -1
+follow_viewport_enable = true
+follow_viewport_scale = 0.5
+script = ExtResource( 27 )
+transform_scale = -0.001
+
+[node name="Light2D3" type="Light2D" parent="Unlit" index="0"]
+position = Vector2( 321, 337 )
+texture = ExtResource( 29 )
+texture_scale = 2.52
+color = Color( 0.839216, 0.521569, 0.309804, 1 )
+range_layer_min = -1
+range_layer_max = -1
+
+[node name="Light2D4" type="Light2D" parent="Unlit" index="1"]
+position = Vector2( 516, 237 )
+texture = ExtResource( 29 )
+color = Color( 0.309804, 0.729412, 0.839216, 1 )
+range_layer_min = -1
+range_layer_max = -1
+
+[node name="outside_forest" type="Sprite" parent="Unlit" index="2"]
+position = Vector2( 192, 192 )
+texture = ExtResource( 28 )
+
+[node name="outside_forest2" type="Sprite" parent="Unlit" index="3"]
+position = Vector2( -192, 192 )
+texture = ExtResource( 28 )
+
+[node name="outside_forest3" type="Sprite" parent="Unlit" index="4"]
+position = Vector2( 576, 192 )
+texture = ExtResource( 28 )
+
+[node name="Sprite" type="Sprite" parent="Unlit" index="5"]
+position = Vector2( 220, 122 )
+texture = ExtResource( 8 )
+hframes = 2
+frame = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Unlit" index="6"]
+color = Color( 0.305882, 0.278431, 0.603922, 1 )
 
 [node name="Player" parent="YSort" index="0"]
 position = Vector2( 142, 131 )
@@ -211,24 +265,14 @@ shape = SubResource( 3 )
 position = Vector2( 220, 124 )
 texture = ExtResource( 9 )
 
-[node name="Unlit" type="CanvasLayer" parent="YSort" index="3"]
-layer = 0
-follow_viewport_enable = true
-
-[node name="Sprite" type="Sprite" parent="YSort/Unlit" index="0"]
-position = Vector2( 220, 122 )
-texture = ExtResource( 8 )
-hframes = 2
-frame = 1
-
-[node name="HealthStation" parent="YSort" index="4" instance=ExtResource( 12 )]
+[node name="HealthStation" parent="YSort" index="3" instance=ExtResource( 12 )]
 position = Vector2( 90, 51 )
 frame = 11
 
-[node name="SaveStation" parent="YSort" index="5" instance=ExtResource( 13 )]
+[node name="SaveStation" parent="YSort" index="4" instance=ExtResource( 13 )]
 position = Vector2( 72, 52 )
 
-[node name="RandomFunnyEpic" parent="YSort" index="6" instance=ExtResource( 22 )]
+[node name="RandomFunnyEpic" parent="YSort" index="5" instance=ExtResource( 22 )]
 position = Vector2( 151, 80 )
 script = ExtResource( 19 )
 
@@ -236,9 +280,30 @@ script = ExtResource( 19 )
 
 [node name="DiagPiece" parent="YSort/RandomFunnyEpic/DialogueTree" index="0" instance=ExtResource( 21 )]
 
-[node name="Lights" type="Node2D" parent="." index="9"]
+[node name="Lights" type="Node2D" parent="." index="11"]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Sprite" type="Sprite" parent="." index="12"]
+[node name="Light2D2" type="Light2D" parent="Lights" index="0"]
+position = Vector2( 265, 95 )
+texture = ExtResource( 25 )
+offset = Vector2( -43, 0 )
+texture_scale = 0.49
+color = Color( 0.827451, 0.67451, 0.188235, 1 )
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+
+[node name="Light2D3" type="Light2D" parent="Lights" index="1"]
+position = Vector2( 408, 22 )
+texture = ExtResource( 25 )
+color = Color( 0, 0.882353, 1, 1 )
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="14"]
 material = SubResource( 7 )
 position = Vector2( 326, 105 )
 texture = ExtResource( 14 )
@@ -252,16 +317,16 @@ shape = SubResource( 8 )
 
 [node name="Tween" type="Tween" parent="Sprite" index="1"]
 
-[node name="RoomDark" parent="." index="13" instance=ExtResource( 15 )]
+[node name="RoomDark" parent="." index="15" instance=ExtResource( 15 )]
 position = Vector2( 282, -21 )
 
-[node name="RoomDark2" parent="." index="14" instance=ExtResource( 15 )]
+[node name="RoomDark2" parent="." index="16" instance=ExtResource( 15 )]
 position = Vector2( 368, -16 )
 
-[node name="RoomDark3" parent="." index="15" instance=ExtResource( 15 )]
+[node name="RoomDark3" parent="." index="17" instance=ExtResource( 15 )]
 position = Vector2( 368, -100 )
 
-[node name="ChapterPortal" parent="." index="16" instance=ExtResource( 16 )]
+[node name="ChapterPortal" parent="." index="18" instance=ExtResource( 16 )]
 position = Vector2( 94, 156 )
 new_scene = "res://Rooms/Test/T-4/T-4.tscn"
 player_new_position = Vector2( 142, 131 )
@@ -280,7 +345,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChapterPortal2" parent="." index="17" instance=ExtResource( 16 )]
+[node name="ChapterPortal2" parent="." index="19" instance=ExtResource( 16 )]
 position = Vector2( 108, 156 )
 new_scene = "res://Rooms/Test/T-4/T-4.tscn"
 player_new_position = Vector2( 142, 131 )
@@ -299,7 +364,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChapterPortal3" parent="." index="18" instance=ExtResource( 16 )]
+[node name="ChapterPortal3" parent="." index="20" instance=ExtResource( 16 )]
 position = Vector2( 122, 156 )
 new_scene = "res://Rooms/Test/T-4/T-4.tscn"
 player_new_position = Vector2( 142, 131 )
@@ -318,7 +383,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChapterPortal4" parent="." index="19" instance=ExtResource( 16 )]
+[node name="ChapterPortal4" parent="." index="21" instance=ExtResource( 16 )]
 position = Vector2( 136, 156 )
 new_scene = "res://Rooms/Test/T-4/T-4.tscn"
 player_new_position = Vector2( 142, 131 )
@@ -337,7 +402,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChapterPortal5" parent="." index="20" instance=ExtResource( 16 )]
+[node name="ChapterPortal5" parent="." index="22" instance=ExtResource( 16 )]
 position = Vector2( 150, 156 )
 new_scene = "res://Rooms/Test/T-4/T-4.tscn"
 player_new_position = Vector2( 142, 131 )
@@ -356,7 +421,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChapterPortal6" parent="." index="21" instance=ExtResource( 16 )]
+[node name="ChapterPortal6" parent="." index="23" instance=ExtResource( 16 )]
 position = Vector2( 164, 156 )
 new_scene = "res://Rooms/Test/T-4/T-4.tscn"
 player_new_position = Vector2( 142, 131 )
@@ -374,5 +439,49 @@ margin_bottom = 6.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Light4" parent="." index="24" instance=ExtResource( 24 )]
+position = Vector2( 167, 108 )
+color = Color( 1, 0.258824, 0, 1 )
+target_radius = 50
+lerp_weight = 0.0
+
+[node name="Light3" parent="." index="25" instance=ExtResource( 24 )]
+position = Vector2( 125, 76 )
+color = Color( 0, 0.905882, 1, 1 )
+target_radius = 50
+lerp_weight = 0.0
+
+[node name="Light5" parent="." index="26" instance=ExtResource( 24 )]
+position = Vector2( 158, 70 )
+color = Color( 1, 1, 1, 1 )
+target_radius = 50
+rad_flicker = 10.0
+brightness_flicker = 1.0
+lerp_weight = 0.1
+
+[node name="Light6" parent="." index="27" instance=ExtResource( 24 )]
+position = Vector2( 222, 67 )
+color = Color( 1, 1, 1, 1 )
+target_radius = 50
+rad_flicker = 10.0
+brightness_flicker = 1.0
+lerp_weight = 0.1
+
+[node name="Light7" parent="." index="28" instance=ExtResource( 24 )]
+position = Vector2( 282, 64 )
+color = Color( 1, 1, 1, 1 )
+target_radius = 50
+rad_flicker = 10.0
+brightness_flicker = 1.0
+lerp_weight = 0.1
+
+[node name="Lights2" type="CanvasLayer" parent="." index="29"]
+layer = 0
+
+[node name="Light" parent="Lights2" index="0" instance=ExtResource( 23 )]
+visible = false
+use_parent_material = true
+lerp_weight = 0.3
 
 [editable path="HUD"]
