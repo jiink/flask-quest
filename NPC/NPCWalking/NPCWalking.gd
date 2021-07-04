@@ -56,9 +56,7 @@ func _tick():
 			sprite.speed_scale = 1 * idle_anim_speed_scale
 			sprite.playing = true
 	else:
-		if not moving:
-			sprite.playing = moving
-#			sprite.set_animation(animation_strings_walking[Direction.DOWN])
+		sprite.playing = moving
 
 	if moving:
 		sprite.speed_scale = delta_pos.length() * anim_speed_scale
